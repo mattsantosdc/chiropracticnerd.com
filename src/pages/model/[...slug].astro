@@ -1,0 +1,73 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { domainLabels, sortModelEntries, validateModel } from '../../lib/model';
+
+export async function getStaticPaths() {
+	const entries = sortModelEntries(await getCollection('model'));
+	validateModel(entries);
+	return entries.map((entry) => ({
+		params: { slug: entry.data.slug },
+		props: { contentId: entry.id },
+	}));
+}
+
+const { contentId } = Astro.props;
+const entries = sortModelEntries(await getCollection('model'));
+const byId = validateModel(entries);
+const entry = entries.find((candidate) => candidate.id === contentId);
+if (!entry) throw new Error(`Model entry not found: ${contentId}`);
+const { Content } = await render(entry);
+const upstream = entry.data.upstream.map((id) => byId.get(id)!);
+const related = entry.data.related.map((id) => byId.get(id)!);
+const downstream = entries.filter((candidate) => candidate.data.upstream.includes(entry.data.id));
+---
+
+<Layout title={entry.data.title} description={entry.data.summary}>
+	<p class="eyebrow">{domainLabels[entry.data.domain]} · {entry.data.id}</p>
+	<h1>{entry.data.title}</h1>
+	<div class="meta-row">
+		<span class={`pill ${entry.data.status}`}>{entry.data.status}</span>
+		<span class="pill">{entry.data.claimType}</span>
+		<span class="pill">confidence: {entry.data.confidence}</span>
+		<span class="pill">v{entry.data.version}</span>
+	</div>
+	<p class="claim">{entry.data.claim}</p>
+
+	<div class="model-layout">
+		<article class="model-body">
+			<Content />
+
+			{entry.data.whatWouldChange && (
+				<section>
+					<h2>What would change this entry</h2>
+					<p>{entry.data.whatWouldChange}</p>
+				</section>
+			)}
+
+			{entry.data.references.length > 0 && (
+				<section>
+					<h2>Sources and anchors</h2>
+					<ul class="reference-list">
+						{entry.data.references.map((reference) => (
+							<li>
+								<a href={reference.url}>{reference.title}</a>
+								{' '}<span class="pill">{reference.kind}</span>
+								{reference.note && <div>{reference.note}</div>}
+							</li>
+						))}
+					</ul>
+				</section>
+			)}
+		</article>
+
+		<aside class="side-panel">
+			<h2>Depends on</h2>
+			{upstream.length ? <ul>{upstream.map((item) => <li><a href={`/model/${item.data.slug}/`}>{item.data.id}: {item.data.title}</a></li>)}</ul> : <p>Root entry</p>}
+			<h2>Used by</h2>
+			{downstream.length ? <ul>{downstream.map((item) => <li><a href={`/model/${item.data.slug}/`}>{item.data.id}: {item.data.title}</a></li>)}</ul> : <p>No downstream entries yet.</p>}
+			{related.length > 0 && <><h2>Related</h2><ul>{related.map((item) => <li><a href={`/model/${item.data.slug}/`}>{item.data.id}: {item.data.title}</a></li>)}</ul></>}
+			<a href="/model/">← Back to the full map</a>
+		</aside>
+	</div>
+</Layout>

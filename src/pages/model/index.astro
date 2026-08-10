@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { domainLabels, domainOrder, sortModelEntries, validateModel } from '../../lib/model';
+
+const entries = sortModelEntries(await getCollection('model'));
+validateModel(entries);
+const groups = domainOrder.map((domain) => ({
+	domain,
+	entries: entries.filter((entry) => entry.data.domain === domain),
+}));
+const placeholders = entries.filter((entry) => entry.data.status === 'placeholder').length;
+---
+
+<Layout title="The Model" description="Version 0.1 of a public, evolving model of chiropractic.">
+	<p class="eyebrow">Model v0.1</p>
+	<h1>The Chiropractic Model</h1>
+	<p class="lede">
+		This is the current map, not a finished textbook. Each entry is a claim, definition, value
+		judgment, or strategy with stable identifiers and explicit dependencies. Follow any entry
+		upstream to see what it assumes, or downstream to see what changes if it fails.
+	</p>
+	<div class="meta-row" style="margin-top: 1.25rem">
+		<span class="pill">{entries.length} entries</span>
+		<span class="pill placeholder">{placeholders} explicit placeholders</span>
+	</div>
+
+	{groups.map(({ domain, entries: domainEntries }) => (
+		<section>
+			<h2>{domainLabels[domain]}</h2>
+			<div class="card-grid">
+				{domainEntries.map((entry) => (
+					<article class="card">
+						<a class="card-link" href={`/model/${entry.data.slug}/`}>
+							<div class="meta-row">
+								<span>{entry.data.id}</span>
+								<span class={`pill ${entry.data.status}`}>{entry.data.status}</span>
+								<span>{entry.data.claimType}</span>
+							</div>
+							<h3>{entry.data.title}</h3>
+							<p>{entry.data.summary}</p>
+						</a>
+						<div class="meta-row">
+							<span>{entry.data.upstream.length} upstream</span>
+							<span>confidence: {entry.data.confidence}</span>
+						</div>
+					</article>
+				))}
+			</div>
+		</section>
+	))}
+</Layout>

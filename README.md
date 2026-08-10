@@ -1,46 +1,37 @@
-# Astro Starter Kit: Basics
+# chiropracticnerd.com
 
-```sh
-npm create astro@latest -- --template basics
-```
+A public, evolving model of chiropractic built with Astro and Markdown.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Content architecture
 
-## 🚀 Project Structure
+The canonical model lives in `src/content/model/`. Each Markdown file is an individually addressable entry with:
 
-Inside of your Astro project, you'll see the following folders and files:
+- a stable model ID and URL slug
+- a typed claim and current confidence
+- explicit upstream dependencies and related entries
+- a working, provisional, or placeholder status
+- rationale, boundaries, open questions, and sources where useful
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+Astro validates duplicate IDs, duplicate slugs, dangling references, self-references, and dependency cycles during the build. The pages under `src/pages/model/` generate the model index, upstream links, and downstream links from metadata rather than hardcoded navigation.
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Model v0.1
 
-## 🧞 Commands
+Version 0.1 maps the high-level path from:
 
-All commands are run from the root of the project, from a terminal:
+1. method and first-principles philosophy
+2. health, salutogenesis, and human flourishing
+3. the Neuroadaptive Model of Subluxation
+4. chiropractic thrust and adjustment
+5. tone- and movement-guided art
+6. practical, symptom-independent application
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Unsettled concepts are retained as explicit placeholders rather than silently completed.
 
-## 👀 Want to learn more?
+## Commands
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+| Command | Action |
+| :-- | :-- |
+| `npm install` | Install dependencies |
+| `npm run dev` | Start the local development server |
+| `npm run build` | Validate content and build the site |
+| `npm run preview` | Preview the production build |

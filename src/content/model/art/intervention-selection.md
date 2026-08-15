@@ -20,7 +20,7 @@ whatWouldChange: >-
 
 ## Specificity as a testable strategy
 
-A specific input is justified only insofar as its parameters matter to the response. Biomechanical and animal evidence suggests that thrust parameters affect afferent activity, but it does not yet show that the current clinical rules select a superior input for a particular person.
+A specific input is justified only insofar as its parameters meaningfully influence the response. Biomechanical and animal evidence suggests that thrust parameters affect afferent activity, but it does not yet establish that the proposed selection rules reliably choose parameters that produce a better response for a particular person.
 
 ## Deliberately unfinished
 

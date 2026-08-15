@@ -3,7 +3,7 @@ id: F-002
 slug: framework/claim-discipline
 title: Different kinds of claims require different support
 claim: >-
-  Definitions, logical conclusions, empirical claims, value judgments, and clinical strategies must be identified rather than defended as though they all rest on the same kind of evidence.
+  Definitions, logical conclusions, empirical claims, value judgments, and practice strategies must be identified rather than defended as though they all rest on the same kind of evidence.
 summary: The model exposes claim type, dependencies, confidence, objections, and revision conditions so disagreements can be located.
 domain: framework
 claimType: framework
@@ -18,9 +18,9 @@ updated: 2026-08-14
 
 ## What this prevents
 
-A definition cannot prove that the thing defined exists. A valid deduction can still fail if one of its premises is false. An empirical association does not establish the mechanism that produced it. A value judgment can be reasonable without masquerading as a laboratory result. A useful clinical strategy may remain provisional even when its background science is strong.
+A definition cannot prove that the thing defined exists. A valid deduction can still fail if one of its premises is false. An empirical association does not establish the mechanism that produced it. A value judgment can be reasonable without masquerading as a laboratory result. A useful practice strategy may remain provisional even when its background science is strong.
 
-Every entry therefore carries a stable ID, claim type, confidence, status, and upstream dependencies. Supporting prose should distinguish established knowledge, direct evidence, inference, clinical observation, and speculation whenever that distinction matters.
+Every entry therefore carries a stable ID, claim type, confidence, status, and upstream dependencies. Supporting prose should distinguish established knowledge, direct evidence, inference, observations from practice, and speculation whenever that distinction matters.
 
 ## Conflicts clarify
 

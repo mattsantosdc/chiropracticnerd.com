@@ -28,7 +28,7 @@ references:
     kind: empirical
     note: Animal-model evidence on immediate spindle responses to thrust parameters.
 whatWouldChange: >-
-  The proposed role would weaken if clinically relevant thrusts did not reliably create distinctive afferent input or if that input had no capacity to influence subsequent sensorimotor organization.
+  The proposed role would weaken if chiropractic thrusts did not reliably create distinctive afferent input or if that input had no capacity to influence subsequent sensorimotor organization.
 ---
 
 ## What is directly supported
@@ -37,4 +37,4 @@ Mechanical thrust characteristics influence neural responses, including paraspin
 
 ## What is inferred
 
-Calling the input a *perturbation* proposes that its clinical relevance lies in disturbing an established control solution enough to permit updating. Evidence that afferent activity occurs does not prove that a maladaptive strategy was destabilized, that reorganization followed, or that the new organization was better.
+Calling the input a *perturbation* proposes that its practical significance lies in disturbing an established control solution enough to permit updating. Evidence that afferent activity occurs does not prove that a maladaptive strategy was destabilized, that reorganization followed, or that the new organization was better.

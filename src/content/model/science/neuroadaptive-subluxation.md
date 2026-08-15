@@ -20,7 +20,7 @@ whatWouldChange: >-
 
 ## What the definition is trying to preserve
 
-Chiropractic has historically used *subluxation* to name a clinically meaningful disturbance related to the spine, nervous system, and adjustment. This version keeps that organizing role while moving the proposed disturbance from static position to constrained adaptive control.
+Chiropractic has historically used *subluxation* to name a meaningful disturbance related to the spine, nervous system, and adjustment. This version keeps that organizing role while moving the proposed disturbance from static position to constrained adaptive control.
 
 It also reframes *interference*. The primary proposal is not that a displaced vertebra simply blocks the transmission of an otherwise correct nerve message. Interference is modeled more cautiously as a constraint within sensorimotor organization that limits context-appropriate options. Whether that use of the historical term remains helpful is still open.
 
@@ -28,7 +28,7 @@ The finding may be expressed through relatively inflexible movement, patterned h
 
 ## What it is not
 
-It is not every asymmetry, stiffness, tender area, cavitation target, or radiographic displacement. It is not assumed to cause every disease. The definition also does not prove a discrete entity exists. It establishes the construct that later entries must make detectable, testable, and clinically useful.
+It is not every asymmetry, stiffness, tender area, cavitation target, or radiographic displacement. It is not assumed to cause every disease. The definition also does not prove a discrete entity exists. It establishes the construct that later entries must make detectable, testable, and useful in practice.
 
 There is also a risk of circularity: *maladaptive* is currently recognized partly by reduced adaptability, while subluxation is defined by constrained adaptability. Operational criteria must eventually identify the construct without merely restating its definition.
 

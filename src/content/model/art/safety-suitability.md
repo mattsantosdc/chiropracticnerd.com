@@ -22,4 +22,4 @@ The first question is not “Where should I thrust?” but “What is happening 
 
 Known or suspected osseous metastasis is not a region for HVLA thrust. Marked hypermobility or connective-tissue fragility may require substantially modified force, non-HVLA input, or no local intervention. Pediatric, prenatal, older-adult, postsurgical, and acutely injured presentations require context-specific reasoning rather than simple scaled-down defaults.
 
-Detailed screening and modification protocols are outside v0.1 and remain required placeholders before this becomes a complete clinical system.
+Detailed screening and modification protocols are outside v0.1 and remain required placeholders before this becomes a complete framework for application.

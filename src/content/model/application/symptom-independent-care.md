@@ -22,4 +22,4 @@ whatWouldChange: >-
 
 If health includes adaptive capacity and subluxation is defined independently of symptoms, then symptoms are not logically necessary before assessment. That conclusion follows from the definitions.
 
-It does not follow that every person has a clinically important subluxation, that every identified pattern requires intervention, that regular thrusts are beneficial, or that a particular care frequency is justified. Those claims require reliable assessment, comparative outcomes, attention to burden and risk, and informed choice.
+It does not follow that every person has a subluxation that is meaningful in practice, that every identified pattern requires intervention, that regular thrusts are beneficial, or that a particular care frequency is justified. Those claims require reliable assessment, comparative outcomes, attention to burden and risk, and informed choice.

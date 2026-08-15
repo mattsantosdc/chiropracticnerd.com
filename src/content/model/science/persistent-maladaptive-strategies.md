@@ -22,6 +22,6 @@ whatWouldChange: >-
 
 Guarding, bracing, limiting a range, or increasing co-contraction can be sensible responses to threat, instability, pain, uncertainty, or task demand. The problem is not the strategy's existence. The proposed problem is reduced ability to update when context changes.
 
-## Clinical identification is unresolved
+## Reliable identification remains unresolved
 
 Similar findings can arise from anatomy, tissue injury, inflammation, habit, training, development, neurologic disease, fear, or normal asymmetry. A persistent pattern is therefore not automatically evidence of a maladaptive motor strategy. The model needs discriminating assessment rules and reliability testing.

@@ -22,4 +22,4 @@ A pathogenic question begins with a problem and asks how to remove or manage it.
 
 ## What this does not mean
 
-Salutogenesis does not make disease, injury, pain, or risk irrelevant. Those can change what is safe, what information is needed, and whether another form of care is appropriate. The orientation concerns chiropractic's target and purpose, not indifference to clinical context.
+Salutogenesis does not make disease, injury, pain, or risk irrelevant. Those can change what is safe, what information is needed, and whether another form of care is appropriate. The orientation concerns chiropractic's target and purpose, not indifference to factors that affect safe and appropriate care.

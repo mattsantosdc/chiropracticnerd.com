@@ -4,7 +4,7 @@ slug: framework/philosophy-science-art
 title: Philosophy, Science, and Art form the framework
 claim: >-
   Philosophy clarifies chiropractic’s questions, concepts, and purposes; science tests and refines its empirical claims; art puts that understanding into practice.
-summary: The three parts are connected in sequence, with clinical experience and research feeding back into revision.
+summary: The three parts are connected in sequence, with practice and research feeding back into revision.
 domain: framework
 claimType: framework
 status: working

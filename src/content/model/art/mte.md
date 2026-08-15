@@ -1,29 +1,43 @@
 ---
 id: A-007
 slug: art/mte
-title: MTE is an exploratory technique hypothesis
+title: Myotatic Threshold Exploration is a provisional recalibration strategy
 claim: >-
-  Slow, variable exploration near the onset of a constrained tone or movement response may help reveal and sometimes alter the strategy without an HVLA thrust.
-summary: MTE is retained as a placeholder for the user's evolving slow exploratory method, not as a validated technique.
+  Slow exploration at the threshold where a myotatic reflex response begins may give the nervous system an opportunity to recalibrate an overly sensitive or insufficiently inhibited stretch-reflex response, altering tone and expanding available movement without an HVLA thrust.
+summary: MTE approaches and explores the onset of reflexive resistance rather than forcing range, with recalibration of stretch-reflex control as the working hypothesis.
 domain: art
 claimType: strategy
-status: placeholder
+status: provisional
 confidence: low
 order: 70
 upstream: [S-006, A-004, A-005]
 related: [A-006]
 version: '0.1'
-updated: 2026-08-09
+updated: 2026-08-15
 whatWouldChange: >-
-  This entry needs a standardized name, procedure, intended mechanism, comparison condition, and observable response. It should be removed if it cannot be distinguished from ordinary range-of-motion examination or nonspecific manual input.
+  The strategy would weaken if the proposed threshold cannot be identified with useful reliability, if observed changes are better explained by passive tissue deformation, voluntary relaxation, habituation, expectation, or nonspecific movement exposure, or if working specifically near the threshold does not produce a different response from credible comparison conditions.
 ---
 
-## Current idea
+## Working concept
 
-MTE uses slow exploration and novelty near the point at which a stretch or tone response begins, with the working intention of improving top-down modulation and expanding available movement rather than forcing range.
+MTE stands for *Myotatic Threshold Exploration*. The working hypothesis is that some constrained tone and movement patterns involve a myotatic reflex that begins too readily because the stretch-reflex response is hyperactive, insufficiently inhibited, or otherwise poorly regulated.
 
-## Placeholder boundary
+MTE slowly lengthens the involved muscle or movement pattern toward the point at which an involuntary increase in tone or resistance begins to emerge. This transition is treated as the *myotatic threshold*. Rather than pushing through that response to gain additional range, MTE explores near the threshold with the intention of giving the nervous system an opportunity to recalibrate its response.
 
-The acronym's final expansion, procedural steps, dose, contraindications, and mechanistic account have not been standardized for the Model. The observed personal and clinical responses that motivated it are hypothesis-generating only.
+If recalibration occurs, the threshold may shift so that the system can tolerate additional length or movement before the same reflexive response emerges. Increased range is therefore treated as a possible consequence of altered regulation rather than the primary objective of stretching the tissue.
 
-Because S-008 currently defines an adjustment as the response to a chiropractic thrust, v0.1 does not automatically classify MTE as an adjustment. Its relationship to analysis, preparation, non-thrust intervention, and adjustment remains to be decided.
+## What the threshold represents
+
+The myotatic threshold is currently an inferred functional boundary, not a direct measurement of muscle-spindle activity or the stretch reflex. A change in resistance during slow movement could also reflect voluntary guarding, passive tissue properties, expectation, or other mechanisms.
+
+S-006 identifies altered gamma regulation, spindle sensitivity, reticulospinal influence, and top-down modulation as candidate mechanisms within the broader model. MTE does not establish which, if any, of these mechanisms accounts for an observed response.
+
+## Evidence boundary
+
+MTE is currently a technique hypothesis derived from reasoning within the Model and observations from practice. Its procedure, dosing, reliability, mechanisms, and comparative effects have not been established.
+
+The important test is not merely whether movement or tone changes after MTE, but whether the proposed threshold can be identified reproducibly and whether exploration specifically near that threshold produces changes that distinguish MTE from ordinary passive movement, stretching, relaxation, or nonspecific manual input.
+
+## Relationship to adjustment
+
+Because S-008 currently defines an adjustment as a successful nervous-system response to a chiropractic thrust, MTE is not classified as an adjustment in v0.1. It is presently treated as a non-thrust application intended to alter the same broader domain of neuromotor adaptability through a different form of input.

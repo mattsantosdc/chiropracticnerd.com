@@ -22,8 +22,8 @@ whatWouldChange: >-
 
 A person can feel well while functioning with limited reserve, and can experience symptoms while adapting effectively to a difficult situation. Symptoms, diagnoses, capacities, relationships, environment, and lived experience all matter, but they are not interchangeable.
 
-The claim here is deliberately modest: adaptive capacity belongs inside the concept of health. It does not follow that more adaptation is always better, that every demand should be tolerated, or that one clinical measure captures whole-person health.
+The claim here is deliberately modest: adaptive capacity belongs inside the concept of health. It does not follow that more adaptation is always better, that every demand should be tolerated, or that any single measure captures whole-person health.
 
 ## Chiropractic relevance
 
-This creates conceptual room for chiropractic that is not organized around treating a complaint. It does not yet establish that chiropractic care improves adaptive capacity. That is an empirical and clinical question developed downstream.
+This creates conceptual room for chiropractic that is not organized around treating a complaint. It does not yet establish that chiropractic care improves adaptive capacity. That is an empirical question, with its practical application developed downstream.

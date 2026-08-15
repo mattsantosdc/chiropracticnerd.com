@@ -24,6 +24,6 @@ The current hypothesis is that the nervous system may fall back on broader, more
 
 ## Why confidence is low
 
-The relevant systems are real, but their proposed arrangement into this chiropractic mechanism is inferential. Clinical tone patterns do not directly reveal tract activity or gamma drive. Terms such as *primitive* can also overstate a hierarchy in which older strategies are necessarily worse.
+The relevant systems are real, but their proposed arrangement into this chiropractic mechanism is inferential. Observed tone patterns do not directly reveal tract activity or gamma drive. Terms such as *primitive* can also overstate a hierarchy in which older strategies are necessarily worse.
 
 This entry should guide discriminating predictions, not be taught as settled neurophysiology.

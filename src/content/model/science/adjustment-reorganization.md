@@ -20,7 +20,7 @@ whatWouldChange: >-
 
 ## The distinction
 
-The clinician can control whether and how a thrust is delivered. The clinician cannot guarantee the nervous system's response. A technically competent thrust may produce no meaningful change, and a response may be transient, nonspecific, or undesirable.
+The chiropractor can control the delivery and parameters of a thrust, but cannot guarantee the nervous system's response. A technically competent thrust may produce no meaningful change, and a response may be transient, nonspecific, or undesirable.
 
 Cavitation may accompany a thrust, but it neither defines an adjustment nor demonstrates the intended reorganization.
 

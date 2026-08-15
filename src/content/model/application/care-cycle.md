@@ -1,10 +1,10 @@
 ---
 id: C-001
 slug: application/care-cycle
-title: Clinical application is an iterative reasoning cycle
+title: Chiropractic application is an iterative reasoning cycle
 claim: >-
   Practical care proceeds through context and safety assessment, state-dependent analysis, a working hypothesis, an appropriately selected input, reassessment, and revision.
-summary: The clinical process mirrors the Model itself by making predictions and learning from response.
+summary: The application process mirrors the Model itself by making predictions and learning from response.
 domain: application
 claimType: strategy
 status: provisional

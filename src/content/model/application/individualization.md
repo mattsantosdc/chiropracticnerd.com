@@ -22,4 +22,4 @@ An infant, pregnant adult, athlete, older adult, person with generalized hypermo
 
 ## Missing implementation layer
 
-v0.1 does not provide population-specific protocols. Pediatric, prenatal, hypermobility, acute injury, postsurgical, older-adult, and complex-neurologic applications need separate child entries grounded in safety guidance and appropriate evidence before the model can function as a comprehensive clinical manual.
+v0.1 does not provide population-specific protocols. Pediatric, prenatal, hypermobility, acute injury, postsurgical, older-adult, and complex-neurologic applications need separate child entries grounded in safety guidance and appropriate evidence before the model can function as a comprehensive guide to practice.

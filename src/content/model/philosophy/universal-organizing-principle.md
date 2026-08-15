@@ -10,7 +10,7 @@ claimType: mixed
 status: provisional
 confidence: moderate
 order: 10
-upstream: [M-002]
+upstream: [F-002]
 related: [P-002, P-003]
 version: '0.1'
 updated: 2026-08-09

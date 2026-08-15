@@ -10,7 +10,7 @@ claimType: definition
 status: provisional
 confidence: not-applicable
 order: 10
-upstream: [P-004, M-002]
+upstream: [P-004, F-002]
 related: [S-002, S-004, S-009]
 version: '0.1'
 updated: 2026-08-09

@@ -10,7 +10,7 @@ claimType: definition
 status: placeholder
 confidence: unresolved
 order: 35
-upstream: [M-002, P-001, P-002]
+upstream: [F-002, P-001, P-002]
 related: [P-003, S-007]
 version: '0.1'
 updated: 2026-08-09

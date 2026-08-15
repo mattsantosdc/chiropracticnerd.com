@@ -10,7 +10,7 @@ claimType: empirical
 status: working
 confidence: high
 order: 100
-upstream: [M-002, S-004, S-007, S-008, S-009]
+upstream: [F-002, S-004, S-007, S-008, S-009]
 related: [S-011]
 version: '0.1'
 updated: 2026-08-09

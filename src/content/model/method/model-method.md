@@ -23,7 +23,7 @@ references:
 
 ## Why this is the root
 
-This model does not treat philosophy, science, and art as three independent departments that can each generate their own incompatible chiropractic. They perform different jobs.
+This model does not consider philosophy, science, and art as three independent departments that can each generate their own incompatible versions of chiropractic. Instead, they perform different jobs.
 
 Philosophy asks what kind of phenomenon chiropractic is concerned with, what health means, and what ends chiropractic should pursue. Science constrains every empirical answer and supplies increasingly specific explanations. Art is the skilled, contextual application of that knowledge. Practical results generate new questions and expose weak assumptions, so information also flows back upstream.
 

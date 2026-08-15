@@ -4,8 +4,11 @@ import Layout from '../../layouts/Layout.astro';
 import { domainLabels, sortModelEntries, validateModel } from '../../lib/model';
 
 export async function getStaticPaths() {
-	const entries = sortModelEntries(await getCollection('model'));
-	validateModel(entries);
+	const allEntries = sortModelEntries(await getCollection('model'));
+	validateModel(allEntries);
+
+	const entries = allEntries.filter((entry) => entry.data.status === 'working');
+
 	return entries.map((entry) => ({
 		params: { slug: entry.data.slug },
 		props: { contentId: entry.id },
@@ -13,14 +16,27 @@ export async function getStaticPaths() {
 }
 
 const { contentId } = Astro.props;
-const entries = sortModelEntries(await getCollection('model'));
-const byId = validateModel(entries);
-const entry = entries.find((candidate) => candidate.id === contentId);
+const allEntries = sortModelEntries(await getCollection('model'));
+const byId = validateModel(allEntries);
+const entry = allEntries.find((candidate) => candidate.id === contentId);
+
 if (!entry) throw new Error(`Model entry not found: ${contentId}`);
+
 const { Content } = await render(entry);
-const upstream = entry.data.upstream.map((id) => byId.get(id)!);
-const related = entry.data.related.map((id) => byId.get(id)!);
-const downstream = entries.filter((candidate) => candidate.data.upstream.includes(entry.data.id));
+
+const entries = allEntries.filter((entry) => entry.data.status === 'working');
+
+const upstream = entry.data.upstream
+	.map((id) => byId.get(id)!)
+	.filter((item) => item.data.status === 'working');
+
+const related = entry.data.related
+	.map((id) => byId.get(id)!)
+	.filter((item) => item.data.status === 'working');
+
+const downstream = entries.filter((candidate) =>
+	candidate.data.upstream.includes(entry.data.id)
+);
 ---
 
 <Layout title={entry.data.title} description={entry.data.summary}>

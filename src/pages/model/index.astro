@@ -3,13 +3,14 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import { domainLabels, domainOrder, sortModelEntries, validateModel } from '../../lib/model';
 
-const entries = sortModelEntries(await getCollection('model'));
-validateModel(entries);
+const allEntries = sortModelEntries(await getCollection('model'));
+validateModel(allEntries);
+
+const entries = allEntries.filter((entry) => entry.data.status === 'working');
 const groups = domainOrder.map((domain) => ({
 	domain,
 	entries: entries.filter((entry) => entry.data.domain === domain),
 }));
-const placeholders = entries.filter((entry) => entry.data.status === 'placeholder').length;
 ---
 
 <Layout title="The Model" description="Version 0.1 of a public, evolving model of chiropractic.">
@@ -22,7 +23,6 @@ const placeholders = entries.filter((entry) => entry.data.status === 'placeholde
 	</p>
 	<div class="meta-row" style="margin-top: 1.25rem">
 		<span class="pill">{entries.length} entries</span>
-		<span class="pill placeholder">{placeholders} explicit placeholders</span>
 	</div>
 
 	{groups.map(({ domain, entries: domainEntries }) => (

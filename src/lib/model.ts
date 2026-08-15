@@ -3,10 +3,10 @@ import type { CollectionEntry } from 'astro:content';
 export type ModelEntry = CollectionEntry<'model'>;
 export type ModelDomain = ModelEntry['data']['domain'];
 
-export const domainOrder: ModelDomain[] = ['method', 'philosophy', 'science', 'art', 'application'];
+export const domainOrder: ModelDomain[] = ['framework', 'philosophy', 'science', 'art', 'application'];
 
 export const domainLabels: Record<ModelDomain, string> = {
-	method: 'How the model works',
+	framework: 'How the model works',
 	philosophy: 'Philosophy',
 	science: 'Science',
 	art: 'Art and technique',

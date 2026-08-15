@@ -10,7 +10,7 @@ claimType: value
 status: provisional
 confidence: not-applicable
 order: 60
-upstream: [P-004, P-005, M-001]
+upstream: [P-004, P-005, F-001]
 related: [P-007, P-008, S-004]
 version: '0.1'
 updated: 2026-08-09

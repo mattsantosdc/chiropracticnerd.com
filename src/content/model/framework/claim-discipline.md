@@ -1,19 +1,19 @@
 ---
-id: M-002
-slug: method/claim-discipline
+id: F-002
+slug: framework/claim-discipline
 title: Different kinds of claims require different support
 claim: >-
   Definitions, logical conclusions, empirical claims, value judgments, and clinical strategies must be identified rather than defended as though they all rest on the same kind of evidence.
 summary: The model exposes claim type, dependencies, confidence, objections, and revision conditions so disagreements can be located.
-domain: method
-claimType: method
+domain: framework
+claimType: framework
 status: working
 confidence: not-applicable
 order: 20
-upstream: [M-001]
+upstream: [F-001]
 related: []
 version: '0.1'
-updated: 2026-08-09
+updated: 2026-08-14
 ---
 
 ## What this prevents

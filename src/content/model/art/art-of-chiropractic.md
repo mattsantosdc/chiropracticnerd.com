@@ -10,7 +10,7 @@ claimType: strategy
 status: working
 confidence: not-applicable
 order: 10
-upstream: [M-001, P-006, S-010]
+upstream: [F-001, P-006, S-010]
 related: [A-002, A-004]
 version: '0.1'
 updated: 2026-08-09

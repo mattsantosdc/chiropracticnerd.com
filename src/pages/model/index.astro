@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import Comments from '../../components/Comments.astro';
 import Layout from '../../layouts/Layout.astro';
 import { domainLabels, domainOrder, sortModelEntries, validateModel } from '../../lib/model';
 
@@ -49,4 +50,10 @@ const groups = domainOrder.map((domain) => ({
 			</div>
 		</section>
 	))}
+
+	<Comments
+		threadId="model:general"
+		heading="Discuss the Model"
+		intro="Use this for feedback on the Model's overall structure, scope, assumptions, or approach. If your criticism applies to one specific entry, comment on that entry instead."
+	/>
 </Layout>

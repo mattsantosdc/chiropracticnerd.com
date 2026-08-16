@@ -1,4 +1,5 @@
 ---
+id: article-001
 slug: toward-a-coherent-model-of-chiropractic
 eyebrow: Project Introduction
 title: Toward a Coherent Model of Chiropractic

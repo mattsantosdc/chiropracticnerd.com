@@ -1,0 +1,36 @@
+---
+interface Props {
+	threadId: string;
+	heading: string;
+	intro?: string;
+}
+
+const { threadId, heading, intro } = Astro.props;
+const tenantId = import.meta.env.PUBLIC_FASTCOMMENTS_TENANT_ID?.trim();
+const widgetId = `fastcomments-${threadId.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
+---
+
+{tenantId ? (
+	<section class="comments-section" aria-labelledby={`${widgetId}-heading`}>
+		<h2 id={`${widgetId}-heading`}>{heading}</h2>
+		{intro && <p class="comments-intro">{intro}</p>}
+		<div id={widgetId}></div>
+
+		<script is:inline src="https://cdn.fastcomments.com/js/embed-v2.min.js"></script>
+		<script define:vars={{ tenantId, threadId, widgetId }}>
+			const widget = document.getElementById(widgetId);
+
+			if (widget) {
+				window.FastCommentsUI(widget, {
+					tenantId,
+					urlId: threadId,
+					url: location.origin + location.pathname,
+				});
+			}
+		</script>
+	</section>
+) : import.meta.env.DEV && (
+	<p class="comments-disabled-note" role="note">
+		Comments are disabled. Set <code>PUBLIC_FASTCOMMENTS_TENANT_ID</code> to enable them locally.
+	</p>
+)}

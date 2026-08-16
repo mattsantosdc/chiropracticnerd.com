@@ -33,6 +33,7 @@ const model = defineCollection({
 const articles = defineCollection({
 	loader: glob({ base: './src/content/articles', pattern: '**/*.{md,mdx}' }),
 	schema: z.object({
+		id: z.string().regex(/^article-\d{3}$/),
 		slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
 		eyebrow: z.string(),
 		title: z.string(),

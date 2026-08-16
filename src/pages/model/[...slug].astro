@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import Comments from '../../components/Comments.astro';
 import Layout from '../../layouts/Layout.astro';
 import { domainLabels, sortModelEntries, validateModel } from '../../lib/model';
 
@@ -51,31 +52,39 @@ const downstream = entries.filter((candidate) =>
 	<p class="claim">{entry.data.claim}</p>
 
 	<div class="model-layout">
-		<article class="model-body">
-			<Content />
+		<div class="model-main">
+			<article class="model-body">
+				<Content />
 
-			{entry.data.whatWouldChange && (
-				<section>
-					<h2>What would change this entry</h2>
-					<p>{entry.data.whatWouldChange}</p>
-				</section>
-			)}
+				{entry.data.whatWouldChange && (
+					<section>
+						<h2>What would change this entry</h2>
+						<p>{entry.data.whatWouldChange}</p>
+					</section>
+				)}
 
-			{entry.data.references.length > 0 && (
-				<section>
-					<h2>Sources and anchors</h2>
-					<ul class="reference-list">
-						{entry.data.references.map((reference) => (
-							<li>
-								<a href={reference.url}>{reference.title}</a>
-								{' '}<span class="pill">{reference.kind}</span>
-								{reference.note && <div>{reference.note}</div>}
-							</li>
-						))}
-					</ul>
-				</section>
-			)}
-		</article>
+				{entry.data.references.length > 0 && (
+					<section>
+						<h2>Sources and anchors</h2>
+						<ul class="reference-list">
+							{entry.data.references.map((reference) => (
+								<li>
+									<a href={reference.url}>{reference.title}</a>
+									{' '}<span class="pill">{reference.kind}</span>
+									{reference.note && <div>{reference.note}</div>}
+								</li>
+							))}
+						</ul>
+					</section>
+				)}
+			</article>
+
+			<Comments
+				threadId={`model:${entry.data.id}`}
+				heading="Challenge this entry"
+				intro="If a premise fails, the reasoning does not follow, evidence is missing, or an alternative explanation fits better, say so."
+			/>
+		</div>
 
 		<aside class="side-panel">
 			<h2>Depends on</h2>

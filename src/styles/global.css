@@ -53,6 +53,7 @@ main.shell { padding-block: clamp(3rem, 8vw, 7rem); }
 .pill.working { border-color: #a9cbbb; background: var(--accent-soft); color: #134c3d; }
 .claim { border-left: 4px solid var(--accent); padding: 0.25rem 0 0.25rem 1rem; font-size: 1.25rem; font-weight: 650; max-width: 75ch; }
 .model-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(230px, 300px); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+.model-main { min-width: 0; }
 .model-body { min-width: 0; }
 .model-body blockquote { margin-left: 0; padding-left: 1rem; border-left: 3px solid var(--line); color: var(--muted); }
 .side-panel { position: sticky; top: 1.5rem; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1rem; }
@@ -69,6 +70,10 @@ main.shell { padding-block: clamp(3rem, 8vw, 7rem); }
 .article-body blockquote p { margin: 0; }
 .article-footer { margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
 .article-footer p { color: var(--muted); }
+.comments-section { width: 100%; max-width: 760px; margin-top: 3.5rem; padding-top: 1.75rem; border-top: 1px solid var(--line); }
+.comments-section h2 { margin: 0 0 0.65rem; font-size: clamp(1.55rem, 3vw, 2.25rem); }
+.comments-intro { margin: 0 0 1.5rem; color: var(--muted); }
+.comments-disabled-note { max-width: 760px; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; }
 .site-footer { border-top: 1px solid var(--line); color: var(--muted); }
 .site-footer .shell { padding-block: 2rem; }
 

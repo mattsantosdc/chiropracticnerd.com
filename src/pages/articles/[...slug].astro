@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import Comments from '../../components/Comments.astro';
 import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
@@ -21,20 +22,28 @@ const { Content } = await render(article);
 ---
 
 <Layout title={article.data.title} description={article.data.description}>
-	<article class="article-page">
-		<header class="article-header">
-			<p class="eyebrow">{article.data.eyebrow}</p>
-			<h1>{article.data.title}</h1>
-			<p class="lede">{article.data.description}</p>
-		</header>
+	<div class="article-page">
+		<article>
+			<header class="article-header">
+				<p class="eyebrow">{article.data.eyebrow}</p>
+				<h1>{article.data.title}</h1>
+				<p class="lede">{article.data.description}</p>
+			</header>
 
-		<div class="article-body">
-			<Content />
-		</div>
+			<div class="article-body">
+				<Content />
+			</div>
 
-		<footer class="article-footer">
-			<p>Ready to see how these ideas take shape?</p>
-			<a class="button" href="/model/">Explore Model v0.1 →</a>
-		</footer>
-	</article>
+			<footer class="article-footer">
+				<p>Ready to see how these ideas take shape?</p>
+				<a class="button" href="/model/">Explore Model v0.1 →</a>
+			</footer>
+		</article>
+
+		<Comments
+			threadId={`article:${article.data.id}`}
+			heading="Discuss this article"
+			intro="Challenge the assumptions, reasoning, evidence, or implications. Thoughtful disagreement is welcome."
+		/>
+	</div>
 </Layout>

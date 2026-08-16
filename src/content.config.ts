@@ -30,4 +30,14 @@ const model = defineCollection({
 	}),
 });
 
-export const collections = { model };
+const articles = defineCollection({
+	loader: glob({ base: './src/content/articles', pattern: '**/*.{md,mdx}' }),
+	schema: z.object({
+		slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+		eyebrow: z.string(),
+		title: z.string(),
+		description: z.string(),
+	}),
+});
+
+export const collections = { articles, model };

@@ -1,0 +1,40 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+	const articles = await getCollection('articles');
+
+	return articles.map((article) => ({
+		params: { slug: article.data.slug },
+		props: { contentId: article.id },
+	}));
+}
+
+const { contentId } = Astro.props;
+const articles = await getCollection('articles');
+const article = articles.find((candidate) => candidate.id === contentId);
+
+if (!article) throw new Error(`Article not found: ${contentId}`);
+
+const { Content } = await render(article);
+---
+
+<Layout title={article.data.title} description={article.data.description}>
+	<article class="article-page">
+		<header class="article-header">
+			<p class="eyebrow">{article.data.eyebrow}</p>
+			<h1>{article.data.title}</h1>
+			<p class="lede">{article.data.description}</p>
+		</header>
+
+		<div class="article-body">
+			<Content />
+		</div>
+
+		<footer class="article-footer">
+			<p>Ready to see how these ideas take shape?</p>
+			<a class="button" href="/model/">Explore Model v0.1 →</a>
+		</footer>
+	</article>
+</Layout>

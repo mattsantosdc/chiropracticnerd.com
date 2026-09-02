@@ -12,7 +12,7 @@ confidence: unresolved
 order: 20
 upstream:
   - id: A-001
-    relation: practical
+    role: practical
     note: A-002 implements the input selected by the working hypothesis formed in A-001.
 related: []
 version: '0.1'

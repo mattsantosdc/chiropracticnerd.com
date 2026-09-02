@@ -12,7 +12,7 @@ confidence: unresolved
 order: 60
 upstream:
   - id: S-001
-    relation: empirical
+    role: empirical
     note: S-006 turns S-001's proposed partial dependence into a testable prediction that nervous-system adaptability can affect broader adaptability and function.
 related: []
 version: '0.1'

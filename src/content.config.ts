@@ -1,6 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
-import { relationshipTypes } from './lib/relationships';
+import { dependencyRoles } from './lib/dependencies.ts';
 
 const referenceSchema = z.object({
 	title: z.string(),
@@ -11,15 +11,10 @@ const referenceSchema = z.object({
 
 const modelIdSchema = z.string().regex(/^[A-Z]-\d{3}$/);
 
-const upstreamRelationshipSchema = z.object({
+const upstreamDependencySchema = z.object({
 	id: modelIdSchema,
-	relation: z.enum(relationshipTypes),
+	role: z.enum(dependencyRoles),
 	note: z.string().trim().min(1),
-});
-
-const inferenceSchema = z.object({
-	rule: z.string().trim().min(1),
-	explanation: z.string().trim().min(1),
 });
 
 const model = defineCollection({
@@ -31,13 +26,12 @@ const model = defineCollection({
 		claim: z.string(),
 		summary: z.string(),
 		domain: z.enum(['framework', 'philosophy', 'science', 'art']),
-		claimType: z.enum(['framework', 'definition', 'logical', 'empirical', 'mixed', 'value', 'strategy']),
+		claimType: z.enum(['framework', 'definition', 'empirical', 'mixed', 'value', 'strategy']),
 		status: z.enum(['working', 'provisional', 'placeholder']),
 		confidence: z.enum(['high', 'moderate', 'low', 'unresolved', 'not-applicable']),
 		order: z.number().int().nonnegative(),
-		upstream: z.array(upstreamRelationshipSchema).default([]),
+		upstream: z.array(upstreamDependencySchema).default([]),
 		related: z.array(modelIdSchema).default([]),
-		inference: inferenceSchema.optional(),
 		version: z.literal('0.1'),
 		updated: z.coerce.date(),
 		references: z.array(referenceSchema).default([]),

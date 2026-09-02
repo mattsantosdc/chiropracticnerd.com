@@ -1,24 +1,23 @@
-export const relationshipTypes = [
+export const dependencyRoles = [
 	'methodological',
 	'normative',
 	'conceptual',
 	'empirical',
 	'practical',
-	'logical',
 ] as const;
 
-export type RelationshipType = (typeof relationshipTypes)[number];
+export type DependencyRole = (typeof dependencyRoles)[number];
 
-export type RelationshipDefinition = {
+export type DependencyRoleDefinition = {
 	definition: string;
 	limit: string;
 };
 
 /**
- * These definitions describe the role an upstream entry plays in a downstream
- * entry. They do not classify either entry and they do not report confidence.
+ * A role describes why a downstream entry directly depends on an upstream
+ * entry. It does not classify either entry or report confidence.
  */
-export const relationshipDefinitions: Record<RelationshipType, RelationshipDefinition> = {
+export const dependencyRoleDefinitions: Record<DependencyRole, DependencyRoleDefinition> = {
 	methodological: {
 		definition:
 			'The upstream entry sets a rule for how the downstream entry is framed, classified, evaluated, or revised.',
@@ -44,10 +43,8 @@ export const relationshipDefinitions: Record<RelationshipType, RelationshipDefin
 			'The downstream entry translates the upstream entry into a decision, procedure, or action.',
 		limit: 'It does not establish effectiveness, safety, or appropriateness.',
 	},
-	logical: {
-		definition:
-			'The upstream entry is one stated premise in an explicit deductive or analytic inference.',
-		limit:
-			'Entailment belongs to the complete premise set and stated rule; validity does not establish that the premises are true.',
-	},
 };
+
+export function isDependencyRole(value: unknown): value is DependencyRole {
+	return dependencyRoles.includes(value as DependencyRole);
+}

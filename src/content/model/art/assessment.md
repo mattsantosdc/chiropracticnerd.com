@@ -12,13 +12,13 @@ confidence: unresolved
 order: 10
 upstream:
   - id: P-002
-    relation: normative
+    role: normative
     note: P-002 supplies the adaptability-oriented purpose that makes improving neuromotor adaptability the end of A-001; it does not validate the assessment or its findings.
   - id: S-003
-    relation: practical
+    role: practical
     note: A-001 applies S-003's definition by making subluxation the target of a provisional assessment hypothesis; the definition does not validate detection.
   - id: S-005
-    relation: practical
+    role: practical
     note: A-001 turns S-005's general intervention claim into a person-specific hypothesis about whether and which input may improve neuromotor adaptability.
 related: []
 version: '0.1'

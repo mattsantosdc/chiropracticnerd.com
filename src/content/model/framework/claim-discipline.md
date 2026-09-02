@@ -12,7 +12,7 @@ confidence: not-applicable
 order: 20
 upstream:
   - id: F-001
-    relation: methodological
+    role: methodological
     note: F-002 operationalizes F-001's division of labor by requiring support appropriate to each kind of claim.
 related: []
 version: '0.1'
@@ -23,7 +23,7 @@ updated: 2026-08-16
 
 A definition cannot prove that the thing defined exists. A valid deduction can still fail if one of its premises is false. An empirical association does not establish the mechanism that produced it. A value judgment can be reasonable without masquerading as a laboratory result. A useful practice strategy may remain provisional even when its background science is strong.
 
-Every entry therefore carries a stable ID, claim type, confidence, status, and typed upstream dependencies. Each dependency states whether it is methodological, normative, conceptual, empirical, practical, or genuinely logical. Supporting prose should distinguish established knowledge, direct evidence, inference, observations from practice, and speculation whenever that distinction matters.
+Every entry therefore carries a stable ID, claim type, confidence, status, and typed upstream dependencies. Each dependency states whether its role is methodological, normative, conceptual, empirical, or practical. Supporting prose should distinguish established knowledge, direct evidence, inference, observations from practice, and speculation whenever that distinction matters. When the Model first needs a genuine deduction or a contestable chain of reasoning, it will represent that argument separately rather than disguising it as a pairwise dependency.
 
 ## Conflicts clarify
 

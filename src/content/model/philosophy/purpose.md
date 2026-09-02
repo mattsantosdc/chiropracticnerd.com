@@ -12,7 +12,7 @@ confidence: not-applicable
 order: 20
 upstream:
   - id: P-001
-    relation: normative
+    role: normative
     note: P-001 makes adaptability salient and motivates its selection as chiropractic's organizing aim; it does not entail that purpose.
 related: []
 version: '0.1'

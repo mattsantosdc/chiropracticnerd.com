@@ -1,10 +1,15 @@
 import type { CollectionEntry } from 'astro:content';
+import { isDependencyRole } from './dependencies.ts';
 
-export { relationshipDefinitions, relationshipTypes, type RelationshipType } from './relationships';
+export {
+	dependencyRoleDefinitions,
+	dependencyRoles,
+	type DependencyRole,
+} from './dependencies.ts';
 
 export type ModelEntry = CollectionEntry<'model'>;
 export type ModelDomain = ModelEntry['data']['domain'];
-export type UpstreamRelationship = ModelEntry['data']['upstream'][number];
+export type UpstreamDependency = ModelEntry['data']['upstream'][number];
 
 export const domainOrder: ModelDomain[] = ['framework', 'philosophy', 'science', 'art'];
 
@@ -39,7 +44,6 @@ export function validateModel(entries: ModelEntry[]) {
 
 	for (const entry of entries) {
 		const upstreamIds = new Set<string>();
-		let logicalDependencyCount = 0;
 		for (const dependency of entry.data.upstream) {
 			if (upstreamIds.has(dependency.id)) {
 				throw new Error(`${entry.data.id} has duplicate upstream dependency ${dependency.id}`);
@@ -52,19 +56,15 @@ export function validateModel(entries: ModelEntry[]) {
 			if (dependency.id === entry.data.id) {
 				throw new Error(`${entry.data.id} cannot reference itself`);
 			}
+			if (!isDependencyRole(dependency.role)) {
+				throw new Error(`${entry.data.id} has unknown dependency role ${dependency.role}`);
+			}
+			if (typeof dependency.note !== 'string' || !dependency.note.trim()) {
+				throw new Error(
+					`${entry.data.id} dependency on ${dependency.id} requires an explanatory note`,
+				);
+			}
 			dependencyPairs.add(pairKey(entry.data.id, dependency.id));
-			if (dependency.relation === 'logical') logicalDependencyCount += 1;
-		}
-
-		if (logicalDependencyCount > 0 && !entry.data.inference) {
-			throw new Error(
-				`${entry.data.id} has a logical dependency but does not state its inference rule`,
-			);
-		}
-		if (entry.data.inference && logicalDependencyCount === 0) {
-			throw new Error(
-				`${entry.data.id} states an inference rule but has no logical dependencies`,
-			);
 		}
 	}
 
@@ -108,4 +108,15 @@ export function validateModel(entries: ModelEntry[]) {
 
 	for (const id of byId.keys()) visit(id, []);
 	return byId;
+}
+
+export function getRelatedEntries(entries: ModelEntry[], entryId: string) {
+	const entry = entries.find((candidate) => candidate.data.id === entryId);
+	if (!entry) return [];
+
+	return entries.filter(
+		(candidate) =>
+			entry.data.related.includes(candidate.data.id) ||
+			candidate.data.related.includes(entry.data.id),
+	);
 }

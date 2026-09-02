@@ -1,0 +1,28 @@
+---
+import { dependencyRoleDefinitions, dependencyRoles } from '../lib/model.ts';
+---
+
+<aside class="dependency-legend" aria-labelledby="dependency-legend-title">
+	<h2 id="dependency-legend-title">Dependency model</h2>
+	<p>
+		Each arrow reads <code>upstream → downstream</code> and records one direct revision
+		dependency: a material change upstream would require the downstream claim or its intended
+		meaning to be reconsidered. The role explains why.
+	</p>
+	<dl>
+		{dependencyRoles.map((role) => (
+			<div>
+				<dt>{role}</dt>
+				<dd>
+					{dependencyRoleDefinitions[role].definition}{' '}
+					<span>{dependencyRoleDefinitions[role].limit}</span>
+				</dd>
+			</div>
+		))}
+	</dl>
+	<p class="dependency-legend-rule">
+		Dependencies are direct and non-transitive. They do not encode deduction, evidence strength,
+		causation, chronology, or provenance. <code>Related</code> is an undirected see-also link, not
+		a dependency.
+	</p>
+</aside>

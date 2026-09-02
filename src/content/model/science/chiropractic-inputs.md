@@ -12,7 +12,7 @@ confidence: unresolved
 order: 50
 upstream:
   - id: S-004
-    relation: empirical
+    role: empirical
     note: S-005 applies S-004's proposed perturbation mechanism to chiropractic input, contingent on evidence that those inputs qualify and produce the proposed reorganization.
 related: []
 version: '0.1'

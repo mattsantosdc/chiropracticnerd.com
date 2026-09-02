@@ -12,7 +12,7 @@ confidence: unresolved
 order: 40
 upstream:
   - id: S-002
-    relation: conceptual
+    role: conceptual
     note: S-004 uses S-002's neuromotor-adaptability construct as the outcome that reorganization may increase; this does not supply evidence for the proposed mechanism.
 related: []
 version: '0.1'

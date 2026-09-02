@@ -12,7 +12,7 @@ confidence: unresolved
 order: 10
 upstream:
   - id: P-001
-    relation: conceptual
+    role: conceptual
     note: S-001 narrows P-001's broad adaptability construct to a proposed nervous-system contribution; that contribution remains empirical.
 related: []
 version: '0.1'

@@ -12,7 +12,7 @@ confidence: unresolved
 order: 20
 upstream:
   - id: S-001
-    relation: conceptual
+    role: conceptual
     note: S-002 specifies neuromotor adaptability as one observable expression of the broader nervous-system adaptability in S-001; measurement validity is not assumed.
 related: []
 version: '0.1'

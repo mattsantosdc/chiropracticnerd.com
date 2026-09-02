@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Comments from '../../components/Comments.astro';
-import RelationshipLegend from '../../components/RelationshipLegend.astro';
+import DependencyLegend from '../../components/DependencyLegend.astro';
 import Layout from '../../layouts/Layout.astro';
 import { domainLabels, domainOrder, sortModelEntries, validateModel } from '../../lib/model';
 
@@ -20,12 +20,13 @@ const groups = domainOrder.map((domain) => ({
 		This is the current map, not a finished textbook. Each entry is a claim, definition, value
 		judgment, or strategy with stable identifiers and explicit dependencies. Follow any entry
 		upstream to see what it uses, or downstream to see what changes if it fails. Relationship
-		labels state what each arrow means; an arrow does not imply deduction unless marked logical.
+		roles state why each direct dependency exists; arrows do not imply deduction, proof, or
+		causation.
 	</p>
 	<div class="meta-row" style="margin-top: 1.25rem">
 		<span class="pill">{entries.length} entries</span>
 	</div>
-	<RelationshipLegend />
+	<DependencyLegend />
 
 	{groups.map(({ domain, entries: domainEntries }) => (
 		<section>

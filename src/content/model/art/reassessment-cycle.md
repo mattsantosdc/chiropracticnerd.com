@@ -12,10 +12,10 @@ confidence: unresolved
 order: 30
 upstream:
   - id: A-001
-    relation: practical
+    role: practical
     note: A-003 repeats the assessment specified in A-001 so post-application findings can test the original working hypothesis.
   - id: A-002
-    relation: practical
+    role: practical
     note: A-003 evaluates findings after the input delivered in A-002 and uses them to guide what follows.
 related: []
 version: '0.1'

@@ -12,7 +12,7 @@ confidence: not-applicable
 order: 30
 upstream:
   - id: S-002
-    relation: conceptual
+    role: conceptual
     note: S-003 defines subluxation by using the neuromotor-adaptability construct introduced in S-002.
 related: []
 version: '0.1'

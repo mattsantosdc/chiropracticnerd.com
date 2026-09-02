@@ -12,18 +12,19 @@ The canonical model lives in `src/content/model/`. Each Markdown file is an indi
 - a working, provisional, or placeholder status
 - rationale, boundaries, open questions, and sources where useful
 
-Every upstream dependency is an object containing an `id`, a `relation`, and a required explanatory `note`. An edge reads `upstream → downstream` and is admitted only when materially revising the upstream entry would require the downstream claim or its intended meaning to be reconsidered. The supported relations are:
+Every upstream dependency is an object containing an `id`, a `role`, and a required explanatory `note`. An edge reads `upstream → downstream` and is admitted only when materially revising the upstream entry would require the downstream claim or its intended meaning to be reconsidered. The supported roles are:
 
 - `methodological`: a rule for how the downstream entry is framed, evaluated, or revised
 - `normative`: a value, purpose, or priority that justifies a downstream choice
 - `conceptual`: a concept or definition required for the downstream entry's intended meaning
 - `empirical`: a testable premise, observed relationship, or proposed mechanism needed by the downstream entry's empirical content
 - `practical`: understanding translated into a downstream decision, procedure, or action
-- `logical`: one premise in an explicit deductive or analytic inference
 
-No relation reports truth, confidence, causal strength, or sufficiency. An arrow is deductive only when its relation is `logical`, and then entailment belongs to the complete premise set and stated inference rule rather than any one pairwise edge. Entries using logical edges must name the rule and explain the full inference in structured metadata. Edge types are direct and are not automatically transitive. The full authoring standard and selection rubric live in [`docs/relationship-model.md`](docs/relationship-model.md).
+The graph is a revision-impact view, not a complete argument or evidence graph. No role reports truth, confidence, causal strength, chronology, provenance, or sufficiency, and no dependency arrow implies deduction. Roles are direct and are not automatically transitive. The full authoring rubric lives in [`docs/dependency-model.md`](docs/dependency-model.md).
 
-Astro validates duplicate IDs, duplicate slugs, duplicate upstream dependencies, duplicate or reciprocal `related` links, dangling references, self-references, pairs listed as both dependencies and related, logical edges without an explicit inference, orphaned inference metadata, and upstream dependency cycles during the build. `related` remains available as an undirected, non-dependency see-also link; it is stored on either endpoint, shown on both, and excluded from cycle detection. The pages under `src/pages/model/` generate the model index, upstream links, downstream links, and related links from metadata rather than hardcoded navigation. Downstream links preserve the relation and note by inverting the corresponding upstream edge. Entries of every status receive a page and appear on the index; status is displayed as metadata rather than used as a publication filter.
+Astro validates dependency roles and notes, duplicate IDs, duplicate slugs, duplicate upstream dependencies, duplicate or reciprocal `related` links, dangling references, self-references, pairs listed as both dependencies and related, and upstream dependency cycles during the build. `related` remains available as an undirected, non-dependency see-also link; it is stored on either endpoint, shown on both, and excluded from cycle detection. The pages under `src/pages/model/` generate the model index, upstream links, downstream links, and related links from metadata rather than hardcoded navigation. Downstream links preserve the role and note by inverting the corresponding upstream edge. Entries of every status receive a page and appear on the index; status is displayed as metadata rather than used as a publication filter.
+
+Markdown remains canonical. Stable semantic identifiers and the future mappings to Dublin Core, SKOS, AIF, PROV-O, CiTO, ECO, JSON-LD, and SHACL are reserved in [`docs/standards-contract.md`](docs/standards-contract.md); no linked-data export is published yet.
 
 Article and Model metadata deliberately separate permanent identity from routing:
 

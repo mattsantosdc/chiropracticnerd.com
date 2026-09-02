@@ -12,7 +12,7 @@ confidence: not-applicable
 order: 30
 upstream:
   - id: P-002
-    relation: normative
+    role: normative
     note: P-002 motivates this scope boundary, but does not make adaptability and treatment purposes logically incompatible.
 related: []
 version: '0.1'

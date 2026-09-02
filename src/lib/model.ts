@@ -1,16 +1,18 @@
 import type { CollectionEntry } from 'astro:content';
 
+export { relationshipDefinitions, relationshipTypes, type RelationshipType } from './relationships';
+
 export type ModelEntry = CollectionEntry<'model'>;
 export type ModelDomain = ModelEntry['data']['domain'];
+export type UpstreamRelationship = ModelEntry['data']['upstream'][number];
 
-export const domainOrder: ModelDomain[] = ['framework', 'philosophy', 'science', 'art', 'application'];
+export const domainOrder: ModelDomain[] = ['framework', 'philosophy', 'science', 'art'];
 
 export const domainLabels: Record<ModelDomain, string> = {
 	framework: 'How the model works',
 	philosophy: 'Philosophy',
 	science: 'Science',
-	art: 'Art and technique',
-	application: 'Practical application',
+	art: 'Art',
 };
 
 export function sortModelEntries(entries: ModelEntry[]) {
@@ -23,6 +25,10 @@ export function sortModelEntries(entries: ModelEntry[]) {
 export function validateModel(entries: ModelEntry[]) {
 	const byId = new Map<string, ModelEntry>();
 	const bySlug = new Map<string, ModelEntry>();
+	const dependencyPairs = new Set<string>();
+	const relatedPairs = new Set<string>();
+	const pairKey = (firstId: string, secondId: string) =>
+		[firstId, secondId].sort().join('\u0000');
 
 	for (const entry of entries) {
 		if (byId.has(entry.data.id)) throw new Error(`Duplicate model id: ${entry.data.id}`);
@@ -32,13 +38,59 @@ export function validateModel(entries: ModelEntry[]) {
 	}
 
 	for (const entry of entries) {
-		for (const dependency of [...entry.data.upstream, ...entry.data.related]) {
-			if (!byId.has(dependency)) {
-				throw new Error(`${entry.data.id} references missing model id ${dependency}`);
+		const upstreamIds = new Set<string>();
+		let logicalDependencyCount = 0;
+		for (const dependency of entry.data.upstream) {
+			if (upstreamIds.has(dependency.id)) {
+				throw new Error(`${entry.data.id} has duplicate upstream dependency ${dependency.id}`);
 			}
-			if (dependency === entry.data.id) {
+			upstreamIds.add(dependency.id);
+
+			if (!byId.has(dependency.id)) {
+				throw new Error(`${entry.data.id} references missing model id ${dependency.id}`);
+			}
+			if (dependency.id === entry.data.id) {
 				throw new Error(`${entry.data.id} cannot reference itself`);
 			}
+			dependencyPairs.add(pairKey(entry.data.id, dependency.id));
+			if (dependency.relation === 'logical') logicalDependencyCount += 1;
+		}
+
+		if (logicalDependencyCount > 0 && !entry.data.inference) {
+			throw new Error(
+				`${entry.data.id} has a logical dependency but does not state its inference rule`,
+			);
+		}
+		if (entry.data.inference && logicalDependencyCount === 0) {
+			throw new Error(
+				`${entry.data.id} states an inference rule but has no logical dependencies`,
+			);
+		}
+	}
+
+	for (const entry of entries) {
+		const relatedIds = new Set<string>();
+		for (const relatedId of entry.data.related) {
+			if (relatedIds.has(relatedId)) {
+				throw new Error(`${entry.data.id} has duplicate related entry ${relatedId}`);
+			}
+			relatedIds.add(relatedId);
+
+			if (!byId.has(relatedId)) {
+				throw new Error(`${entry.data.id} references missing model id ${relatedId}`);
+			}
+			if (relatedId === entry.data.id) throw new Error(`${entry.data.id} cannot reference itself`);
+
+			const relationshipPair = pairKey(entry.data.id, relatedId);
+			if (dependencyPairs.has(relationshipPair)) {
+				throw new Error(
+					`${entry.data.id} and ${relatedId} cannot be both dependency-linked and related`,
+				);
+			}
+			if (relatedPairs.has(relationshipPair)) {
+				throw new Error(`${entry.data.id} and ${relatedId} have a duplicate related link`);
+			}
+			relatedPairs.add(relationshipPair);
 		}
 	}
 
@@ -49,7 +101,7 @@ export function validateModel(entries: ModelEntry[]) {
 		if (visited.has(id)) return;
 		visiting.add(id);
 		const entry = byId.get(id);
-		for (const dependency of entry?.data.upstream ?? []) visit(dependency, [...path, id]);
+		for (const dependency of entry?.data.upstream ?? []) visit(dependency.id, [...path, id]);
 		visiting.delete(id);
 		visited.add(id);
 	};

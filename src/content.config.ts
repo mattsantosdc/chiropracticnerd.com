@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { relationshipTypes } from './lib/relationships';
 
 const referenceSchema = z.object({
 	title: z.string(),
@@ -8,21 +9,35 @@ const referenceSchema = z.object({
 	note: z.string().optional(),
 });
 
+const modelIdSchema = z.string().regex(/^[A-Z]-\d{3}$/);
+
+const upstreamRelationshipSchema = z.object({
+	id: modelIdSchema,
+	relation: z.enum(relationshipTypes),
+	note: z.string().trim().min(1),
+});
+
+const inferenceSchema = z.object({
+	rule: z.string().trim().min(1),
+	explanation: z.string().trim().min(1),
+});
+
 const model = defineCollection({
 	loader: glob({ base: './src/content/model', pattern: '**/*.{md,mdx}' }),
 	schema: z.object({
-		id: z.string().regex(/^[A-Z]-\d{3}$/),
+		id: modelIdSchema,
 		slug: z.string().regex(/^[a-z0-9]+(?:[/-][a-z0-9]+)*$/),
 		title: z.string(),
 		claim: z.string(),
 		summary: z.string(),
-		domain: z.enum(['framework', 'philosophy', 'science', 'art', 'application']),
+		domain: z.enum(['framework', 'philosophy', 'science', 'art']),
 		claimType: z.enum(['framework', 'definition', 'logical', 'empirical', 'mixed', 'value', 'strategy']),
 		status: z.enum(['working', 'provisional', 'placeholder']),
 		confidence: z.enum(['high', 'moderate', 'low', 'unresolved', 'not-applicable']),
 		order: z.number().int().nonnegative(),
-		upstream: z.array(z.string()).default([]),
-		related: z.array(z.string()).default([]),
+		upstream: z.array(upstreamRelationshipSchema).default([]),
+		related: z.array(modelIdSchema).default([]),
+		inference: inferenceSchema.optional(),
 		version: z.literal('0.1'),
 		updated: z.coerce.date(),
 		references: z.array(referenceSchema).default([]),

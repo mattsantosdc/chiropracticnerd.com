@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Comments from '../../components/Comments.astro';
+import RelationshipLegend from '../../components/RelationshipLegend.astro';
 import Layout from '../../layouts/Layout.astro';
 import { domainLabels, sortModelEntries, validateModel } from '../../lib/model';
 
@@ -8,9 +9,7 @@ export async function getStaticPaths() {
 	const allEntries = sortModelEntries(await getCollection('model'));
 	validateModel(allEntries);
 
-	const entries = allEntries.filter((entry) => entry.data.status === 'working');
-
-	return entries.map((entry) => ({
+	return allEntries.map((entry) => ({
 		params: { slug: entry.data.slug },
 		props: { contentId: entry.id },
 	}));
@@ -25,18 +24,19 @@ if (!entry) throw new Error(`Model entry not found: ${contentId}`);
 
 const { Content } = await render(entry);
 
-const entries = allEntries.filter((entry) => entry.data.status === 'working');
-
 const upstream = entry.data.upstream
-	.map((id) => byId.get(id)!)
-	.filter((item) => item.data.status === 'working');
+	.map((relationship) => ({ relationship, entry: byId.get(relationship.id)! }));
 
-const related = entry.data.related
-	.map((id) => byId.get(id)!)
-	.filter((item) => item.data.status === 'working');
+const related = allEntries.filter(
+	(candidate) =>
+		entry.data.related.includes(candidate.data.id) ||
+		candidate.data.related.includes(entry.data.id),
+);
 
-const downstream = entries.filter((candidate) =>
-	candidate.data.upstream.includes(entry.data.id)
+const downstream = allEntries.flatMap((candidate) =>
+	candidate.data.upstream
+		.filter((relationship) => relationship.id === entry.data.id)
+		.map((relationship) => ({ relationship, entry: candidate }))
 );
 ---
 
@@ -55,6 +55,14 @@ const downstream = entries.filter((candidate) =>
 		<div class="model-main">
 			<article class="model-body">
 				<Content />
+
+				{entry.data.inference && (
+					<section>
+						<h2>Explicit inference</h2>
+						<p><strong>Rule:</strong> {entry.data.inference.rule}</p>
+						<p>{entry.data.inference.explanation}</p>
+					</section>
+				)}
 
 				{entry.data.whatWouldChange && (
 					<section>
@@ -88,10 +96,11 @@ const downstream = entries.filter((candidate) =>
 
 		<aside class="side-panel">
 			<h2>Depends on</h2>
-			{upstream.length ? <ul>{upstream.map((item) => <li><a href={`/model/${item.data.slug}/`}>{item.data.id}: {item.data.title}</a></li>)}</ul> : <p>Root entry</p>}
+			{upstream.length ? <ul class="relationship-list">{upstream.map(({ entry: item, relationship }) => <li><a href={`/model/${item.data.slug}/`}>{item.data.id}: {item.data.title}</a><span class="relationship-kind">{relationship.relation}</span>{relationship.note && <span class="relationship-note">{relationship.note}</span>}</li>)}</ul> : <p>Root entry</p>}
 			<h2>Used by</h2>
-			{downstream.length ? <ul>{downstream.map((item) => <li><a href={`/model/${item.data.slug}/`}>{item.data.id}: {item.data.title}</a></li>)}</ul> : <p>No downstream entries yet.</p>}
+			{downstream.length ? <ul class="relationship-list">{downstream.map(({ entry: item, relationship }) => <li><a href={`/model/${item.data.slug}/`}>{item.data.id}: {item.data.title}</a><span class="relationship-kind">{relationship.relation}</span>{relationship.note && <span class="relationship-note">{relationship.note}</span>}</li>)}</ul> : <p>No downstream entries yet.</p>}
 			{related.length > 0 && <><h2>Related</h2><ul>{related.map((item) => <li><a href={`/model/${item.data.slug}/`}>{item.data.id}: {item.data.title}</a></li>)}</ul></>}
+			<RelationshipLegend />
 			<a href="/model/">← Back to the full map</a>
 		</aside>
 	</div>

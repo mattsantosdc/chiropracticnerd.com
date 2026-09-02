@@ -60,6 +60,20 @@ main.shell { padding-block: clamp(3rem, 8vw, 7rem); }
 .side-panel h2 { font-size: 1rem; margin: 0 0 0.65rem; }
 .side-panel ul { margin: 0 0 1.25rem; padding-left: 1.1rem; }
 .side-panel li { margin-block: 0.35rem; }
+.relationship-list li { margin-bottom: 0.9rem; }
+.relationship-kind { display: block; width: fit-content; margin-top: 0.3rem; border-radius: 999px; padding: 0.08rem 0.45rem; background: var(--accent-soft); color: #134c3d; font-size: 0.72rem; font-weight: 750; }
+.relationship-note { display: block; margin-top: 0.25rem; color: var(--muted); font-size: 0.82rem; line-height: 1.4; }
+.relationship-legend { margin-top: 1.5rem; padding: 1rem; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+.relationship-legend h2 { margin: 0 0 0.45rem; font-size: 1rem; }
+.relationship-legend > p { margin: 0 0 0.8rem; color: var(--muted); font-size: 0.85rem; }
+.relationship-legend dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 225px), 1fr)); gap: 0.55rem 1rem; margin: 0; }
+.relationship-legend dl div { min-width: 0; }
+.relationship-legend dt { color: var(--accent); font-size: 0.78rem; font-weight: 800; }
+.relationship-legend dd { margin: 0.05rem 0 0; color: var(--muted); font-size: 0.78rem; line-height: 1.4; }
+.relationship-legend dd span { color: var(--ink); }
+.relationship-legend > .relationship-legend-rule { margin: 0.8rem 0 0; padding-top: 0.7rem; border-top: 1px solid var(--line); }
+.side-panel .relationship-legend { margin: 1.5rem 0; padding: 0.8rem; }
+.side-panel .relationship-legend dl { grid-template-columns: 1fr; }
 .reference-list { padding-left: 1.2rem; }
 .reference-list li { margin-block: 0.75rem; }
 .article-page { max-width: 760px; }

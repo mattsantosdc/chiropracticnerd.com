@@ -48,3 +48,11 @@ An inferential relationship does not automatically require a dependency edge, an
 ## Current graph audit
 
 The v0.1 graph contains 17 direct dependencies. Every edge has one of the five roles and a required limiting note. `related` links and argument records remain outside the acyclic dependency graph.
+
+## Future visualization
+
+A future renderer will project each dependency as a directed `upstream → downstream` edge and
+derive downstream adjacency rather than duplicating it in content. Visual layout must never cause
+an author to add a dependency, and transitive paths must not be materialized as direct edges. See
+the [visualization plan](visualization-plan.md) for the complete projection and implementation
+guardrails.

@@ -1,6 +1,6 @@
 # Model authoring
 
-This is the primary workflow for humans and coding agents changing Model entries or structured arguments. Read it together with the [dependency model](dependency-model.md), [argument model](argument-model.md), and [standards contract](standards-contract.md) before editing canonical content.
+This is the primary workflow for humans and coding agents changing Model entries or structured arguments. Read it together with the [dependency model](dependency-model.md), [argument model](argument-model.md), [standards contract](standards-contract.md), and [visualization plan](visualization-plan.md) before editing canonical content.
 
 The governing orientation is: **make the proposed conceptual and logical structure explicit first, then use science to evaluate the empirical premises on which it depends.** Philosophy can clarify and organize a proposal; it cannot determine empirical truth.
 
@@ -74,6 +74,8 @@ Before finishing a change, verify that:
 - permanent Model and `ARG-###` IDs were preserved wherever possible;
 - slugs are treated as routes, not semantic identities;
 - dependency notes state revision impact without inferential claims;
+- every relationship intended for future visualization is represented in canonical structured data rather than inferred from prose;
+- no coordinates, colors, layout ranks, collapsed state, or renderer-specific identifiers were added to canonical content;
 - no modal language was silently strengthened (`may` to `does`, `can` to `will`, or `some` to `all`);
 - definitions do not imply existence, causal hypotheses are not treated as proof of outcomes, and normative premises remain visibly normative;
 - every new or changed argument explains its inference and limitations;

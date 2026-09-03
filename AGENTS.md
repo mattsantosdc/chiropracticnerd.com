@@ -16,6 +16,7 @@ Before changing anything in `src/content/model/` or `src/content/arguments/`, re
 2. [`docs/dependency-model.md`](docs/dependency-model.md)
 3. [`docs/argument-model.md`](docs/argument-model.md)
 4. [`docs/standards-contract.md`](docs/standards-contract.md)
+5. [`docs/visualization-plan.md`](docs/visualization-plan.md)
 
 Apply these guardrails to every Model change:
 
@@ -28,6 +29,8 @@ Apply these guardrails to every Model change:
 - Treat historical chiropractic sources as context and provenance rather than authority; distinguish what the Model retains, modifies, or rejects.
 - When a proposed change reveals a missing premise, logical gap, conflicting scope, or unsupported empirical bridge, flag it rather than papering it over.
 - Preserve stable Model and argument IDs whenever possible.
+- Represent relationships intended for future visualization in canonical structured data; do not infer them from prose, terminology, comments, or transitive paths.
+- Keep renderer-specific coordinates, styling, layout state, and package identifiers out of canonical Model and argument content.
 
 Keep revision dependencies, structured arguments, empirical evidence, and causal hypotheses distinct. For deductive arguments, verify that the conclusion necessarily follows from the premises exactly as written; the software validates structure and references, not natural-language validity.
 

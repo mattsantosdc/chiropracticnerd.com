@@ -73,4 +73,12 @@ Build-time validation rejects malformed or duplicate argument IDs and slugs, mis
 - **One failed mechanism treated as impossibility:** failure of a proposed mechanism is treated as proof that a higher-order effect cannot occur by another route.
 - **Absence of evidence treated as evidence of absence:** a null or missing result is treated as disproof without asking whether the method could have detected the specified effect.
 
+## Future visualization
+
+A future renderer will represent an argument as its own node, with each premise pointing to the
+argument and the argument pointing to its conclusion. It must not flatten a multi-premise argument
+into independent premise-to-conclusion edges or merge inferential edges with dependencies. See the
+[visualization plan](visualization-plan.md) for the complete projection and staged reader
+experience.
+
 See [model-authoring.md](model-authoring.md) for the complete change workflow and [dependency-model.md](dependency-model.md) for the revision-impact contract.

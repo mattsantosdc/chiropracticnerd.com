@@ -30,11 +30,13 @@ The architecture deliberately separates three questions:
 
 Deductive validity and empirical support are evaluated separately. A valid argument does not make an uncertain premise true, and strong evidence cannot repair an invalid inference. No dependency role reports truth, confidence, causal strength, chronology, provenance, or inferential sufficiency. Roles are direct and are not automatically transitive.
 
-The primary workflow is [`docs/model-authoring.md`](docs/model-authoring.md). The detailed contracts are [`docs/dependency-model.md`](docs/dependency-model.md), [`docs/argument-model.md`](docs/argument-model.md), and [`docs/standards-contract.md`](docs/standards-contract.md).
+The primary workflow is [`docs/model-authoring.md`](docs/model-authoring.md). The detailed contracts are [`docs/dependency-model.md`](docs/dependency-model.md), [`docs/argument-model.md`](docs/argument-model.md), [`docs/standards-contract.md`](docs/standards-contract.md), and the deferred [`docs/visualization-plan.md`](docs/visualization-plan.md).
 
 Astro validates dependency roles and notes, IDs and routes, Model and argument references, empirical revision conditions, duplicate/self relationships, and the upstream dependency DAG during the build. Argument topology is validated independently and cannot make the dependency graph cyclic. `related` remains an undirected, non-dependency see-also link. Model pages generate dependency and reasoning links from canonical metadata rather than hardcoded navigation; dedicated argument pages provide the deeper inspection layer without displacing each entry's plain-language claim.
 
 Markdown remains canonical. AIF is reserved only as a future interchange representation for the active Markdown argument layer; it is not the reasoning method. Stable semantic identifiers and other future standards mappings are documented in the standards contract, and no linked-data export is published yet.
+
+Interactive graph rendering is also deferred while the Model is small. The visualization plan defines how canonical entries, dependencies, arguments, and related links will project into a renderer-neutral graph without allowing presentation concerns or inferred relationships into the Markdown source of truth.
 
 Article and Model metadata deliberately separate permanent identity from routing:
 

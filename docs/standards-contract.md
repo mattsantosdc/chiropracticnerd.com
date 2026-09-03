@@ -51,3 +51,9 @@ Argument cycles, future objection links, or competing reasoning paths must not i
 ## Deferred work
 
 Do not introduce an RDF store, SPARQL endpoint, JSON-LD export, SHACL runtime, theorem prover, full evidence ontology, or nanopublication packaging until an actual integration or independent publication use case exists. When export begins, all reserved HTTP identifiers must resolve and the generated graph must pass its SHACL shapes before publication.
+
+Interactive visualization is a separate, also-deferred concern. It will use a renderer-neutral
+read model derived directly from the validated Markdown collections; it does not require linked
+data, a graph database, or new semantic identifiers. See the [visualization
+plan](visualization-plan.md). A future visualization package must not become a second source of
+graph meaning or introduce renderer-specific state into canonical content.

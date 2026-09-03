@@ -52,6 +52,13 @@ Argument cycles, future objection links, or competing reasoning paths must not i
 
 Do not introduce an RDF store, SPARQL endpoint, JSON-LD export, SHACL runtime, theorem prover, full evidence ontology, or nanopublication packaging until an actual integration or independent publication use case exists. When export begins, all reserved HTTP identifiers must resolve and the generated graph must pass its SHACL shapes before publication.
 
+Content fingerprints, review attestations, incremental downstream invalidation, AI-assisted review,
+and any associated publication gate are also deferred. Their intended semantics, propagation
+rules, and implementation stages are defined in the
+[reasoning review and invalidation plan](review-invalidation-plan.md). These mechanisms track
+whether exact inputs were reviewed; they do not establish truth, validity, soundness, or
+evidential sufficiency.
+
 Interactive visualization is a separate, also-deferred concern. It will use a renderer-neutral
 read model derived directly from the validated Markdown collections; it does not require linked
 data, a graph database, or new semantic identifiers. See the [visualization

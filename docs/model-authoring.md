@@ -59,6 +59,10 @@ When a claim changes, use both layers:
 
 Do not add dependency edges merely to make the graph appear linear. Dependency and argument updates must each satisfy their own contract.
 
+The deferred [reasoning review and invalidation plan](review-invalidation-plan.md) describes how
+content fingerprints and review attestations may later make this impact traversal semi-automatic
+without treating a hash or AI finding as proof of truth, validity, or soundness.
+
 ### 9. Separate argument failure from conclusion falsity
 
 If a premise fails or a conclusion does not follow, mark that inferential route as failed or revise it. Search for alternative explanations or argument paths before declaring the conclusion false. A downstream conclusion may survive through a different argument, while a failed mechanism may leave a higher-order effect unresolved.

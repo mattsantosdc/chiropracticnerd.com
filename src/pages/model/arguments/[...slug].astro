@@ -1,0 +1,95 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import { sortArguments, validateArguments } from '../../../lib/arguments.ts';
+import { sortModelEntries, validateModel } from '../../../lib/model.ts';
+
+export async function getStaticPaths() {
+	const [modelEntries, argumentEntries] = await Promise.all([
+		getCollection('model'),
+		getCollection('arguments'),
+	]);
+	const entries = sortModelEntries(modelEntries);
+	const argumentsList = sortArguments(argumentEntries);
+	validateModel(entries);
+	validateArguments(argumentsList, entries);
+
+	return argumentsList.map((argument) => ({
+		params: { slug: argument.data.slug },
+		props: { contentId: argument.id },
+	}));
+}
+
+const { contentId } = Astro.props;
+const [modelEntries, argumentEntries] = await Promise.all([
+	getCollection('model'),
+	getCollection('arguments'),
+]);
+const entries = sortModelEntries(modelEntries);
+const argumentsList = sortArguments(argumentEntries);
+const byModelId = validateModel(entries);
+validateArguments(argumentsList, entries);
+const argument = argumentsList.find((candidate) => candidate.id === contentId);
+
+if (!argument) throw new Error(`Argument not found: ${contentId}`);
+
+const premises = argument.data.premises.map((id) => byModelId.get(id)!);
+const conclusion = byModelId.get(argument.data.conclusion)!;
+const { Content } = await render(argument);
+---
+
+<Layout title={argument.data.title} description={argument.data.summary}>
+	<p class="eyebrow">Reasoning · {argument.data.id}</p>
+	<h1>{argument.data.title}</h1>
+	<div class="meta-row">
+		<span class={`pill ${argument.data.status}`}>{argument.data.status}</span>
+		<span class="pill">{argument.data.inferenceKind}</span>
+		<span class="pill">{argument.data.scheme}</span>
+		<span class="pill">v{argument.data.version}</span>
+	</div>
+	<p class="lede">{argument.data.summary}</p>
+
+	<div class="model-layout argument-page">
+		<article class="model-body">
+			<section class="argument-structure" aria-labelledby="argument-structure-title">
+				<h2 id="argument-structure-title">Argument structure</h2>
+				<h3>Premises</h3>
+				<ol>
+					{premises.map((premise) => (
+						<li>
+							<a href={`/model/${premise.data.slug}/`}><strong>{premise.data.id}</strong>: {premise.data.title}</a>
+							<blockquote>{premise.data.claim}</blockquote>
+						</li>
+					))}
+				</ol>
+				<div class="inference-rule">
+					<span>{argument.data.inferenceKind}</span>
+					<strong>{argument.data.scheme}</strong>
+				</div>
+				<h3>Conclusion</h3>
+				<div class="argument-conclusion">
+					<a href={`/model/${conclusion.data.slug}/`}><strong>{conclusion.data.id}</strong>: {conclusion.data.title}</a>
+					<blockquote>{conclusion.data.claim}</blockquote>
+				</div>
+			</section>
+
+			<section>
+				<h2>Explanation and limits</h2>
+				<Content />
+			</section>
+		</article>
+
+		<aside class="side-panel">
+			<h2>How to read this</h2>
+			<p class="side-note">
+				The argument records why the conclusion is inferred. Each premise's page separately
+				reports its claim type, confidence, evidence, and revision conditions.
+			</p>
+			<p class="side-note">
+				A deductive label asserts only that the conclusion follows if the premises are true. A
+				defeasible route may be overturned by new evidence, alternatives, or context.
+			</p>
+			<a href="/model/arguments/">← All arguments</a>
+		</aside>
+	</div>
+</Layout>

@@ -34,17 +34,17 @@ These five roles form the complete vocabulary for the current dependency view. T
 
 ## Reasoning is a separate layer
 
-A dependency is not an argument. A genuine deduction or other structured justification may require several premises, may be only defeasibly valid, may have competing justifications, and may be challenged without rejecting its premises or conclusion.
+A dependency is not an argument. A genuine deduction or other structured justification may require several premises, may be defeasible, may have competing justifications, and may be challenged without rejecting its premises or conclusion. Those routes now live in the separate Markdown argument collection described in the [argument model](argument-model.md).
 
-The first occurrence of any of the following blocks further use of pairwise dependency metadata for that reasoning and triggers the argument layer described in the [standards contract](standards-contract.md):
+Use an argument record—not another dependency role—when the Model includes:
 
 - multiple claims presented as jointly supporting one conclusion within a single inference;
 - multiple independent justifications for one conclusion;
 - an objection aimed at the reasoning rather than only at a claim; or
 - a deductive or analytic conclusion.
 
-Until that trigger occurs, reasoning remains explicit in entry prose but is not given a misleading dependency role.
+An inferential relationship does not automatically require a dependency edge, and a dependency does not automatically supply a premise. When both relationships exist, author and validate each independently.
 
 ## Current graph audit
 
-The v0.1 graph contains 15 direct dependencies. Every edge has one of the five roles and a required limiting note. `related` links are kept outside the acyclic dependency graph and are rendered from both endpoints.
+The v0.1 graph contains 17 direct dependencies. Every edge has one of the five roles and a required limiting note. `related` links and argument records remain outside the acyclic dependency graph.

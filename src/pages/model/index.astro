@@ -3,10 +3,17 @@ import { getCollection } from 'astro:content';
 import Comments from '../../components/Comments.astro';
 import DependencyLegend from '../../components/DependencyLegend.astro';
 import Layout from '../../layouts/Layout.astro';
+import { sortArguments, validateArguments } from '../../lib/arguments.ts';
 import { domainLabels, domainOrder, sortModelEntries, validateModel } from '../../lib/model';
 
-const entries = sortModelEntries(await getCollection('model'));
+const [modelEntries, argumentEntries] = await Promise.all([
+	getCollection('model'),
+	getCollection('arguments'),
+]);
+const entries = sortModelEntries(modelEntries);
+const argumentsList = sortArguments(argumentEntries);
 validateModel(entries);
+validateArguments(argumentsList, entries);
 const groups = domainOrder.map((domain) => ({
 	domain,
 	entries: entries.filter((entry) => entry.data.domain === domain),
@@ -25,6 +32,10 @@ const groups = domainOrder.map((domain) => ({
 	</p>
 	<div class="meta-row" style="margin-top: 1.25rem">
 		<span class="pill">{entries.length} entries</span>
+		<span class="pill">{argumentsList.length} arguments</span>
+	</div>
+	<div class="hero-actions">
+		<a class="button secondary" href="/model/arguments/">Inspect the reasoning</a>
 	</div>
 	<DependencyLegend />
 

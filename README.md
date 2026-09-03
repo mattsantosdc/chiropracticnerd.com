@@ -12,6 +12,8 @@ The canonical model lives in `src/content/model/`. Each Markdown file is an indi
 - a working, provisional, or placeholder status
 - rationale, boundaries, open questions, and sources where useful
 
+Structured reasoning lives separately in `src/content/arguments/`. Each argument has a permanent `ARG-###` ID, one or more Model premises, exactly one Model conclusion, a deductive or defeasible inference kind, a named reasoning scheme, and prose explaining the route and its limits.
+
 Every upstream dependency is an object containing an `id`, a `role`, and a required explanatory `note`. An edge reads `upstream → downstream` and is admitted only when materially revising the upstream entry would require the downstream claim or its intended meaning to be reconsidered. The supported roles are:
 
 - `methodological`: a rule for how the downstream entry is framed, evaluated, or revised
@@ -20,11 +22,19 @@ Every upstream dependency is an object containing an `id`, a `role`, and a requi
 - `empirical`: a testable premise, observed relationship, or proposed mechanism needed by the downstream entry's empirical content
 - `practical`: understanding translated into a downstream decision, procedure, or action
 
-The graph is a revision-impact view, not a complete argument or evidence graph. No role reports truth, confidence, causal strength, chronology, provenance, or sufficiency, and no dependency arrow implies deduction. Roles are direct and are not automatically transitive. The full authoring rubric lives in [`docs/dependency-model.md`](docs/dependency-model.md).
+The architecture deliberately separates three questions:
 
-Astro validates dependency roles and notes, duplicate IDs, duplicate slugs, duplicate upstream dependencies, duplicate or reciprocal `related` links, dangling references, self-references, pairs listed as both dependencies and related, and upstream dependency cycles during the build. `related` remains available as an undirected, non-dependency see-also link; it is stored on either endpoint, shown on both, and excluded from cycle detection. The pages under `src/pages/model/` generate the model index, upstream links, downstream links, and related links from metadata rather than hardcoded navigation. Downstream links preserve the role and note by inverting the corresponding upstream edge. Entries of every status receive a page and appear on the index; status is displayed as metadata rather than used as a publication filter.
+- The dependency graph shows revision impact: what must be reconsidered if an upstream entry changes.
+- Argument records show why a conclusion is inferred from specified premises.
+- Empirical evidence changes confidence in empirical premises.
 
-Markdown remains canonical. Stable semantic identifiers and the future mappings to Dublin Core, SKOS, AIF, PROV-O, CiTO, ECO, JSON-LD, and SHACL are reserved in [`docs/standards-contract.md`](docs/standards-contract.md); no linked-data export is published yet.
+Deductive validity and empirical support are evaluated separately. A valid argument does not make an uncertain premise true, and strong evidence cannot repair an invalid inference. No dependency role reports truth, confidence, causal strength, chronology, provenance, or inferential sufficiency. Roles are direct and are not automatically transitive.
+
+The primary workflow is [`docs/model-authoring.md`](docs/model-authoring.md). The detailed contracts are [`docs/dependency-model.md`](docs/dependency-model.md), [`docs/argument-model.md`](docs/argument-model.md), and [`docs/standards-contract.md`](docs/standards-contract.md).
+
+Astro validates dependency roles and notes, IDs and routes, Model and argument references, empirical revision conditions, duplicate/self relationships, and the upstream dependency DAG during the build. Argument topology is validated independently and cannot make the dependency graph cyclic. `related` remains an undirected, non-dependency see-also link. Model pages generate dependency and reasoning links from canonical metadata rather than hardcoded navigation; dedicated argument pages provide the deeper inspection layer without displacing each entry's plain-language claim.
+
+Markdown remains canonical. AIF is reserved only as a future interchange representation for the active Markdown argument layer; it is not the reasoning method. Stable semantic identifiers and other future standards mappings are documented in the standards contract, and no linked-data export is published yet.
 
 Article and Model metadata deliberately separate permanent identity from routing:
 
@@ -37,13 +47,15 @@ This v0.1 reconstruction resets the unpublished Philosophy, Science, and Art nam
 
 The Model is **guided by first principles and tested against reality**. First principles expose assumptions and help make the framework coherent; they do not deduce chiropractic upward or settle empirical questions.
 
-Version 0.1 is deliberately low-resolution. It contains two Framework entries plus this substantive spine:
+Version 0.1 is deliberately low-resolution. It contains three Framework entries—including F-003's explicit reasoning and empirical testing method—plus this substantive spine:
 
 1. Philosophy: adaptability (`P-001`), chiropractic's purpose (`P-002`), and its non-treatment purpose boundary (`P-003`)
 2. Science: nervous-system and neuromotor adaptability (`S-001`–`S-002`), subluxation (`S-003`), perturbation and reorganization (`S-004`), chiropractic inputs (`S-005`), and broader adaptability (`S-006`)
 3. Art: assessment (`A-001`), force application (`A-002`), and reassessment (`A-003`)
 
 Application belongs within Art rather than forming a peer domain. The graph stays intentionally incomplete where another premise or empirical bridge would be required; gaps are not filled merely to make the graph look linear.
+
+The [`v0.1 reasoning audit`](docs/model-v0.1-reasoning-audit.md) records the current atomicity, scope, and inferential gaps. In particular, S-005 and S-006 contain non-overlapping possibility claims and do not deductively establish that chiropractic improves broader human adaptability.
 
 ## FastComments
 

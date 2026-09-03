@@ -17,6 +17,9 @@ type EntryOverrides = {
 	slug?: string;
 	upstream?: TestDependency[];
 	related?: string[];
+	claimType?: ModelEntry['data']['claimType'];
+	confidence?: ModelEntry['data']['confidence'];
+	whatWouldChange?: string;
 };
 
 function entry(id: string, overrides: EntryOverrides = {}) {
@@ -30,15 +33,16 @@ function entry(id: string, overrides: EntryOverrides = {}) {
 			claim: `${id} claim`,
 			summary: `${id} summary`,
 			domain: 'framework',
-			claimType: 'framework',
+			claimType: overrides.claimType ?? 'framework',
 			status: 'working',
-			confidence: 'not-applicable',
+			confidence: overrides.confidence ?? 'not-applicable',
 			order: 0,
 			upstream: overrides.upstream ?? [],
 			related: overrides.related ?? [],
 			version: '0.1',
 			updated: new Date('2026-01-01'),
 			references: [],
+			whatWouldChange: overrides.whatWouldChange,
 		},
 	} as unknown as ModelEntry;
 }
@@ -97,6 +101,37 @@ describe('dependency vocabulary', () => {
 });
 
 describe('graph integrity', () => {
+	test('requires empirical confidence and revision conditions', () => {
+		assert.throws(
+			() =>
+				validateModel([
+					entry('S-001', {
+						claimType: 'empirical',
+						confidence: 'not-applicable',
+						whatWouldChange: 'A valid test would change this.',
+					}),
+				]),
+			/requires a confidence assessment/,
+		);
+		assert.throws(
+			() =>
+				validateModel([
+					entry('S-001', { claimType: 'empirical', confidence: 'unresolved' }),
+				]),
+			/requires whatWouldChange/,
+		);
+		assert.equal(
+			validateModel([
+				entry('S-001', {
+					claimType: 'empirical',
+					confidence: 'unresolved',
+					whatWouldChange: 'A valid test would change this.',
+				}),
+			]).size,
+			1,
+		);
+	});
+
 	test('rejects duplicate IDs and slugs', () => {
 		assert.throws(() => validateModel([entry('F-001'), entry('F-001')]), /Duplicate model id/);
 		assert.throws(

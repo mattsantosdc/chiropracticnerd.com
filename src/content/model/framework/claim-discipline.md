@@ -3,8 +3,8 @@ id: F-002
 slug: framework/claim-discipline
 title: Different kinds of claims require different support
 claim: >-
-  Definitions, logical conclusions, empirical claims, value judgments, and practice strategies must be identified rather than defended as though they all rest on the same kind of evidence.
-summary: The model exposes claim type, dependencies, confidence, objections, and revision conditions so disagreements can be located.
+  Definitions, empirical claims, value judgments, strategies, and conclusions must be identified and evaluated according to their kind, with logical validity kept distinct from premise truth and evidential strength.
+summary: The Model separates what follows logically, whether premises are true, and how strongly evidence justifies accepting empirical claims.
 domain: framework
 claimType: framework
 status: working
@@ -13,18 +13,30 @@ order: 20
 upstream:
   - id: F-001
     role: methodological
-    note: F-002 operationalizes F-001's division of labor by requiring support appropriate to each kind of claim.
+    note: F-002 operationalizes F-001's division of labor by requiring support and evaluation appropriate to each kind of claim.
 related: []
 version: '0.1'
-updated: 2026-08-16
+updated: 2026-09-03
 ---
 
-## What this prevents
+## Three separate evaluations
 
-A definition cannot prove that the thing defined exists. A valid deduction can still fail if one of its premises is false. An empirical association does not establish the mechanism that produced it. A value judgment can be reasonable without masquerading as a laboratory result. A useful practice strategy may remain provisional even when its background science is strong.
+When a conclusion is presented deductively, the Model distinguishes:
 
-Every entry therefore carries a stable ID, claim type, confidence, status, and typed upstream dependencies. Each dependency states whether its role is methodological, normative, conceptual, empirical, or practical. Supporting prose should distinguish established knowledge, direct evidence, inference, observations from practice, and speculation whenever that distinction matters. When the Model first needs a genuine deduction or a contestable chain of reasoning, it will represent that argument separately rather than disguising it as a pairwise dependency.
+- **Validity:** whether the conclusion necessarily follows if the premises are true.
+- **Soundness:** whether the argument is valid and its premises are in fact true.
+- **Epistemic strength:** how strongly the available evidence justifies accepting an empirical premise or conclusion.
+
+A valid argument can have a false or poorly supported premise. A well-supported empirical premise can occur inside an invalid argument. Neither logical validity nor current acceptance of a premise converts uncertainty into truth.
+
+Because empirical premises are commonly uncertain, an argument must not be described as sound merely because its premises are currently accepted. When the truth of an empirical premise is uncertain, the argument's soundness is unresolved; the premise's confidence and evidential support must be described separately.
+
+## Claim kinds remain visible
+
+A definition stipulates or clarifies meaning; it does not prove that the defined phenomenon exists. An empirical claim is answerable to observation. A value judgment identifies what matters or ought to be pursued without masquerading as a scientific result. A strategy proposes what to do and may remain provisional even when its background science is strong. A mixed claim must expose its different parts rather than borrow support across categories.
+
+Every Model entry therefore carries a stable ID, claim type, confidence, status, revision conditions where applicable, and explicit dependencies. Structured arguments record inferential routes separately. Supporting prose should distinguish direct evidence, defeasible scientific inference, logical consequence, practical observation, and speculation whenever that distinction matters.
 
 ## Conflicts clarify
 
-The point is not procedural neatness. It is to make disagreement productive. Two people may agree on the evidence but value different outcomes, accept the same purpose but disagree about mechanism, or use the same word for different concepts. The graph should reveal that fork instead of hiding it inside a debate over conclusions.
+The point is to locate disagreement. Two people may accept the same evidence but value different outcomes, share a purpose but dispute a mechanism, accept every premise but reject the inference, or use the same word for different concepts. The architecture should reveal that fork instead of hiding it inside a debate over conclusions.

@@ -38,6 +38,14 @@ export function validateModel(entries: ModelEntry[]) {
 	for (const entry of entries) {
 		if (byId.has(entry.data.id)) throw new Error(`Duplicate model id: ${entry.data.id}`);
 		if (bySlug.has(entry.data.slug)) throw new Error(`Duplicate model slug: ${entry.data.slug}`);
+		if (entry.data.claimType === 'empirical') {
+			if (entry.data.confidence === 'not-applicable') {
+				throw new Error(`${entry.data.id} empirical claim requires a confidence assessment`);
+			}
+			if (!entry.data.whatWouldChange?.trim()) {
+				throw new Error(`${entry.data.id} empirical claim requires whatWouldChange`);
+			}
+		}
 		byId.set(entry.data.id, entry);
 		bySlug.set(entry.data.slug, entry);
 	}

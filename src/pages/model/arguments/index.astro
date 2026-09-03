@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import { sortArguments, validateArguments } from '../../../lib/arguments.ts';
+import { sortModelEntries, validateModel } from '../../../lib/model.ts';
+
+const [modelEntries, argumentEntries] = await Promise.all([
+	getCollection('model'),
+	getCollection('arguments'),
+]);
+const entries = sortModelEntries(modelEntries);
+const argumentsList = sortArguments(argumentEntries);
+const byModelId = validateModel(entries);
+validateArguments(argumentsList, entries);
+---
+
+<Layout title="Structured arguments" description="The explicit reasoning layer of the Chiropractic Model.">
+	<p class="eyebrow">Model v0.1 · Reasoning</p>
+	<h1>Structured arguments</h1>
+	<p class="lede">
+		Each record names a specific inferential route from Model premises to one conclusion.
+		Arguments are distinct from revision dependencies, and their validity is evaluated separately
+		from the empirical support for their premises.
+	</p>
+	<div class="meta-row" style="margin-top: 1.25rem">
+		<span class="pill">{argumentsList.length} arguments</span>
+	</div>
+
+	<section>
+		<div class="card-grid">
+			{argumentsList.map((argument) => {
+				const conclusion = byModelId.get(argument.data.conclusion)!;
+				return (
+					<article class="card">
+						<a class="card-link" href={`/model/arguments/${argument.data.slug}/`}>
+							<div class="meta-row">
+								<span>{argument.data.id}</span>
+								<span class={`pill ${argument.data.status}`}>{argument.data.status}</span>
+								<span class="pill">{argument.data.inferenceKind}</span>
+							</div>
+							<h2>{argument.data.title}</h2>
+							<p>{argument.data.summary}</p>
+						</a>
+						<div class="argument-links">
+							{argument.data.premises.length} premise{argument.data.premises.length === 1 ? '' : 's'}
+							{' '}→ <a href={`/model/${conclusion.data.slug}/`}>{conclusion.data.id}</a>
+						</div>
+					</article>
+				);
+			})}
+		</div>
+	</section>
+
+	<p><a href="/model/">← Back to the full Model</a></p>
+</Layout>

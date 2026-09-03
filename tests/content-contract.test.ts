@@ -26,3 +26,17 @@ test('model content uses the five-role dependency contract', () => {
 	assert.doesNotMatch(content, /^claimType:\s+logical\s*$/m);
 	assert.doesNotMatch(content, /^inference:\s*$/m);
 });
+
+test('argument content stays separate from Model claim types and soundness shortcuts', () => {
+	const modelContent = markdownFiles('src/content/model')
+		.map((path) => readFileSync(path, 'utf8'))
+		.join('\n');
+	const argumentContent = markdownFiles('src/content/arguments')
+		.map((path) => readFileSync(path, 'utf8'))
+		.join('\n');
+
+	assert.doesNotMatch(modelContent, /^claimType:\s+logical\s*$/m);
+	assert.match(argumentContent, /^id:\s+ARG-\d{3}\s*$/m);
+	assert.match(argumentContent, /^inferenceKind:\s+(deductive|defeasible)\s*$/m);
+	assert.doesNotMatch(argumentContent, /^sound:\s+/m);
+});

@@ -3,11 +3,18 @@ import { getCollection, render } from 'astro:content';
 import Comments from '../../components/Comments.astro';
 import DependencyLegend from '../../components/DependencyLegend.astro';
 import Layout from '../../layouts/Layout.astro';
+import { sortArguments, validateArguments } from '../../lib/arguments.ts';
 import { domainLabels, getRelatedEntries, sortModelEntries, validateModel } from '../../lib/model.ts';
 
 export async function getStaticPaths() {
-	const allEntries = sortModelEntries(await getCollection('model'));
+	const [modelEntries, argumentEntries] = await Promise.all([
+		getCollection('model'),
+		getCollection('arguments'),
+	]);
+	const allEntries = sortModelEntries(modelEntries);
+	const allArguments = sortArguments(argumentEntries);
 	validateModel(allEntries);
+	validateArguments(allArguments, allEntries);
 
 	return allEntries.map((entry) => ({
 		params: { slug: entry.data.slug },
@@ -16,8 +23,14 @@ export async function getStaticPaths() {
 }
 
 const { contentId } = Astro.props;
-const allEntries = sortModelEntries(await getCollection('model'));
+const [modelEntries, argumentEntries] = await Promise.all([
+	getCollection('model'),
+	getCollection('arguments'),
+]);
+const allEntries = sortModelEntries(modelEntries);
+const allArguments = sortArguments(argumentEntries);
 const byId = validateModel(allEntries);
+validateArguments(allArguments, allEntries);
 const entry = allEntries.find((candidate) => candidate.id === contentId);
 
 if (!entry) throw new Error(`Model entry not found: ${contentId}`);
@@ -28,6 +41,12 @@ const upstream = entry.data.upstream
 	.map((dependency) => ({ dependency, entry: byId.get(dependency.id)! }));
 
 const related = getRelatedEntries(allEntries, entry.data.id);
+const concludingArguments = allArguments.filter(
+	(argument) => argument.data.conclusion === entry.data.id,
+);
+const premiseArguments = allArguments.filter((argument) =>
+	argument.data.premises.includes(entry.data.id),
+);
 
 const downstream = allEntries.flatMap((candidate) =>
 	candidate.data.upstream
@@ -73,6 +92,72 @@ const downstream = allEntries.flatMap((candidate) =>
 						</ul>
 					</section>
 				)}
+
+				<section class="reasoning-section">
+					<h2>Reasoning</h2>
+					<p>
+						Argument records show inferential routes separately from revision dependencies and
+						empirical support.
+					</p>
+
+					{concludingArguments.length > 0 && (
+						<>
+							<h3>Arguments concluding this entry</h3>
+							<ul class="argument-list">
+								{concludingArguments.map((argument) => (
+									<li>
+										<a href={`/model/arguments/${argument.data.slug}/`}>
+											{argument.data.id}: {argument.data.title}
+										</a>
+										<div class="meta-row">
+											<span class="pill">{argument.data.inferenceKind}</span>
+											<span>{argument.data.scheme}</span>
+										</div>
+										<div class="argument-links">
+											Premises:{' '}
+											{argument.data.premises.map((premiseId, index) => {
+												const premise = byId.get(premiseId)!;
+												return <>{index > 0 && ', '}<a href={`/model/${premise.data.slug}/`}>{premiseId}</a></>;
+											})}
+										</div>
+									</li>
+								))}
+							</ul>
+						</>
+					)}
+
+					{premiseArguments.length > 0 && (
+						<>
+							<h3>Arguments using this entry as a premise</h3>
+							<ul class="argument-list">
+								{premiseArguments.map((argument) => {
+									const conclusion = byId.get(argument.data.conclusion)!;
+									return (
+										<li>
+											<a href={`/model/arguments/${argument.data.slug}/`}>
+												{argument.data.id}: {argument.data.title}
+											</a>
+											<div class="meta-row">
+												<span class="pill">{argument.data.inferenceKind}</span>
+												<span>{argument.data.scheme}</span>
+											</div>
+											<div class="argument-links">
+												Conclusion: <a href={`/model/${conclusion.data.slug}/`}>
+													{conclusion.data.id}: {conclusion.data.title}
+												</a>
+											</div>
+										</li>
+									);
+								})}
+							</ul>
+						</>
+					)}
+
+					{concludingArguments.length === 0 && premiseArguments.length === 0 && (
+						<p>No structured argument currently cites this entry.</p>
+					)}
+					<p><a href="/model/arguments/">Browse all structured arguments →</a></p>
+				</section>
 			</article>
 
 			<Comments

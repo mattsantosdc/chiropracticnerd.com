@@ -76,6 +76,23 @@ main.shell { padding-block: clamp(3rem, 8vw, 7rem); }
 .side-panel .dependency-legend dl { grid-template-columns: 1fr; }
 .reference-list { padding-left: 1.2rem; }
 .reference-list li { margin-block: 0.75rem; }
+.reasoning-section { margin-top: 3rem; padding-top: 0.25rem; border-top: 1px solid var(--line); }
+.argument-list { padding-left: 1.2rem; }
+.argument-list > li { margin-block: 1rem; }
+.argument-list .meta-row { margin-top: 0.35rem; }
+.argument-links { margin-top: 0.4rem; color: var(--muted); font-size: 0.9rem; }
+.argument-page { margin-top: 2.5rem; }
+.argument-structure { padding: clamp(1rem, 3vw, 1.5rem); border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+.argument-structure h2 { margin-top: 0; }
+.argument-structure h3 { margin-top: 1.4rem; }
+.argument-structure ol { padding-left: 1.4rem; }
+.argument-structure li { margin-block: 1rem; }
+.argument-structure blockquote { margin: 0.5rem 0 0; }
+.inference-rule { display: flex; flex-wrap: wrap; gap: 0.5rem 0.8rem; align-items: center; margin: 1.5rem 0; padding: 0.75rem 1rem; border-block: 1px solid var(--line); color: var(--muted); }
+.inference-rule span { border-radius: 999px; padding: 0.15rem 0.55rem; background: var(--accent-soft); color: #134c3d; font-size: 0.78rem; font-weight: 800; }
+.argument-conclusion { padding: 0.8rem 1rem; border-left: 4px solid var(--accent); background: var(--accent-soft); }
+.argument-conclusion blockquote { color: var(--ink); }
+.side-note { color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
 .article-page { max-width: 760px; }
 .article-header { padding-bottom: 2rem; border-bottom: 1px solid var(--line); }
 .article-body { font-size: 1.08rem; }

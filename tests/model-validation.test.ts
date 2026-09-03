@@ -140,6 +140,18 @@ describe('graph integrity', () => {
 		);
 	});
 
+	test('reserves the arguments route namespace for structured arguments', () => {
+		assert.throws(
+			() => validateModel([entry('F-001', { slug: 'arguments' })]),
+			/model slug uses reserved route: arguments/,
+		);
+		assert.throws(
+			() => validateModel([entry('F-001', { slug: 'arguments/example' })]),
+			/model slug uses reserved route: arguments\/example/,
+		);
+		assert.equal(validateModel([entry('F-001', { slug: 'argumentation' })]).size, 1);
+	});
+
 	test('rejects missing and self dependencies', () => {
 		assert.throws(
 			() => validateModel([entry('F-001', { upstream: [dependency('F-999', 'conceptual')] })]),

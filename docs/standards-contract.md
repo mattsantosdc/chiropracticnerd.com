@@ -13,7 +13,7 @@ Public routes may change; semantic identifiers may not. The reserved patterns ar
 | Argument | `https://chiropracticnerd.com/id/argument/{ARGUMENT-ID}` |
 | Dependency role | `https://chiropracticnerd.com/vocab/dependency-role/{ROLE}` |
 
-Argument IDs use `ARG-###`. Model and argument IDs are permanent identities; URL slugs are mutable presentation routes and must not be used as semantic identifiers.
+Argument IDs use `ARG-###`. Model and argument IDs are permanent identities; URL slugs are mutable presentation routes and must not be used as semantic identifiers. The `/model/arguments/` namespace is reserved for argument presentation, so Model-entry slugs cannot be `arguments` or begin with `arguments/`.
 
 ## Active Markdown architecture
 

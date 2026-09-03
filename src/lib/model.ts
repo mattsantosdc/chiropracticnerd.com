@@ -20,6 +20,13 @@ export const domainLabels: Record<ModelDomain, string> = {
 	art: 'Art',
 };
 
+export const reservedModelSlugRoots = ['arguments'] as const;
+
+export function isReservedModelSlug(slug: string) {
+	const [root] = slug.split('/');
+	return reservedModelSlugRoots.includes(root as (typeof reservedModelSlugRoots)[number]);
+}
+
 export function sortModelEntries(entries: ModelEntry[]) {
 	return [...entries].sort((a, b) => {
 		const domainDifference = domainOrder.indexOf(a.data.domain) - domainOrder.indexOf(b.data.domain);
@@ -38,6 +45,11 @@ export function validateModel(entries: ModelEntry[]) {
 	for (const entry of entries) {
 		if (byId.has(entry.data.id)) throw new Error(`Duplicate model id: ${entry.data.id}`);
 		if (bySlug.has(entry.data.slug)) throw new Error(`Duplicate model slug: ${entry.data.slug}`);
+		if (isReservedModelSlug(entry.data.slug)) {
+			throw new Error(
+				`${entry.data.id} model slug uses reserved route: ${entry.data.slug}`,
+			);
+		}
 		if (entry.data.claimType === 'empirical') {
 			if (entry.data.confidence === 'not-applicable') {
 				throw new Error(`${entry.data.id} empirical claim requires a confidence assessment`);

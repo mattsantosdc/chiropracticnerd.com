@@ -2,6 +2,7 @@ import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { inferenceKinds } from './lib/arguments.ts';
 import { dependencyRoles } from './lib/dependencies.ts';
+import { isReservedModelSlug } from './lib/model.ts';
 
 const referenceSchema = z.object({
 	title: z.string(),
@@ -21,7 +22,12 @@ const upstreamDependencySchema = z.object({
 const modelSchema = z
 	.object({
 		id: modelIdSchema,
-		slug: z.string().regex(/^[a-z0-9]+(?:[/-][a-z0-9]+)*$/),
+		slug: z
+			.string()
+			.regex(/^[a-z0-9]+(?:[/-][a-z0-9]+)*$/)
+			.refine((slug) => !isReservedModelSlug(slug), {
+				message: 'The arguments route is reserved for structured argument pages.',
+			}),
 		title: z.string(),
 		claim: z.string(),
 		summary: z.string(),

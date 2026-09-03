@@ -65,10 +65,11 @@ I plan to build this model publicly as a living, interconnected map of chiroprac
 
 A few principles will guide how I approach it:
 
-* **Be guided by first principles.** Make assumptions explicit, trace them toward first principles, test their empirical implications against reality, and revise them when they don’t hold up.  
-* **Seek truth, not validation.** The goal is not to defend what I already believe.  
-* **Conflicts clarify.** Disagreement is useful when it helps us identify where our premises, reasoning, evidence, or values diverge.  
-* **Integrate philosophy, science, and art.** Philosophy clarifies chiropractic’s questions, concepts, and purposes; science tests and refines its empirical claims; art puts that understanding into practice.  
+* **Be guided by first principles.** Make assumptions explicit, trace them toward first principles, test their empirical implications against reality, and revise them when they don’t hold up.
+* **Seek truth, not validation.** The goal is not to defend what I already believe.
+* **Conflicts clarify.** Disagreement is useful when it helps us identify where our premises, reasoning, evidence, or values diverge.
+* **Build critically from chiropractic’s history.** Begin with the profession’s existing ideas and vocabulary when they remain useful. Historical claims are neither accepted because they are traditional nor rejected because they are old; retain what withstands examination, improve what can be improved, and clearly and respectfully reject what cannot be justified.
+* **Integrate philosophy, science, and art.** Philosophy clarifies chiropractic’s questions, concepts, purposes, assumptions, and reasoning; science tests and refines its empirical premises and explanations; art applies the best-supported understanding and returns observations and questions for further revision. [See how the Model defines these roles.](/model/framework/philosophy-science-art/)
 * **Share information freely.** Ideas get better when people can examine them, challenge them, use them, and build upon them. I intend for this model to be freely accessible and shared.
 
 The model itself will be more structured than these articles. Individual claims will eventually show what they depend on, the reasoning and evidence behind them, important objections or alternatives, how confident I am in them, and how they change over time. The goal is to make the reasoning traceable, not just present a collection of conclusions.

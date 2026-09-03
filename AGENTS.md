@@ -25,6 +25,7 @@ Apply these guardrails to every Model change:
 - Do not silently strengthen modal language such as `may` to `does`, `can` to `will`, or `some` to `all`.
 - Do not treat current confidence as truth.
 - Do not treat lack of supporting evidence as proof of falsity unless the relevant evidence genuinely has power to establish absence.
+- Treat historical chiropractic sources as context and provenance rather than authority; distinguish what the Model retains, modifies, or rejects.
 - When a proposed change reveals a missing premise, logical gap, conflicting scope, or unsupported empirical bridge, flag it rather than papering it over.
 - Preserve stable Model and argument IDs whenever possible.
 

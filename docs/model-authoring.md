@@ -4,6 +4,20 @@ This is the primary workflow for humans and coding agents changing Model entries
 
 The governing orientation is: **make the proposed conceptual and logical structure explicit first, then use science to evaluate the empirical premises on which it depends.** Philosophy can clarify and organize a proposal; it cannot determine empirical truth.
 
+## Historical continuity without historical authority
+
+Historical chiropractic sources can identify where a concept, distinction, or argument came from and provide a useful starting point for present analysis. Their historical importance does not make their claims true, complete, or binding, and citing one useful idea does not import the rest of a source's system.
+
+When using a historical source:
+
+- state as precisely as practical what the source contributes;
+- distinguish what the source said from how it is being interpreted and from what the Model currently adopts;
+- evaluate definitions, reasoning, empirical claims, and practical proposals according to the standards appropriate to each;
+- identify whether an inherited element is being retained, clarified, modified, or rejected; and
+- criticize claims that do not hold up clearly and respectfully, without rejecting them merely because they are old.
+
+The aim is neither deference to tradition nor novelty for its own sake. Because chiropractors are the primary audience, build from the profession's existing vocabulary and arguments when they remain useful, while avoiding the unsupported assumptions or inaccurate claims that may accompany them.
+
 ## Workflow for every substantive change
 
 ### 1. State the claim precisely

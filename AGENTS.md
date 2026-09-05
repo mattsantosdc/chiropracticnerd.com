@@ -10,6 +10,10 @@ Manage the background server with `astro dev stop`, `astro dev status`, and `ast
 
 ## Model authoring
 
+The default method is: **build the reasoning first; test the empirical premises second.** Start with the proposed conclusion, then expose every premise it requires and inspect the claim types, scope, modality, and inference. Where deductive necessity is claimed, verify that the conclusion must follow from the premises exactly as written. Keep inherently inductive, abductive, causal, mechanistic, normative, and practical reasoning defeasible.
+
+Only after the inferential structure is explicit should evidence be used to evaluate empirical premises, mechanisms, measurements, and factual claims. Do not default to gathering studies, inferring a broad conclusion, and constructing premises afterward to rationalize it; do not work backward from a desired conclusion. Evidence may suggest hypotheses, expose gaps, and require any premise, inference, scope, or conclusion to be revised. This analytical ordering does not make empirical evidence less important or permit conclusions to be chosen independently of it.
+
 Before changing anything in `src/content/model/` or `src/content/arguments/`, read these documents in order:
 
 1. [`docs/model-authoring.md`](docs/model-authoring.md)

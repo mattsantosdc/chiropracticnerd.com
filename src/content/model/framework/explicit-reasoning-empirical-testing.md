@@ -1,10 +1,10 @@
 ---
 id: F-003
 slug: framework/explicit-reasoning-empirical-testing
-title: Explicit reasoning and empirical testing
+title: Build the reasoning first; test empirical premises separately
 claim: >-
-  Where the Model proposes that a conclusion follows from other claims, the premises and inference should be made explicit and evaluated separately from the evidence supporting empirical premises.
-summary: Explicit arguments expose inferential structure while evidence independently raises or lowers confidence in empirical premises.
+  Where the Model proposes that a conclusion follows from other claims, it should first make the required premises, scope, modality, and inference explicit and evaluate whether that inference supports the conclusion as claimed, then use science to evaluate its empirical premises independently.
+summary: First expose and evaluate the proposed inferential route; then test its empirical premises against reality and revise whatever fails.
 domain: framework
 claimType: framework
 status: working
@@ -19,23 +19,27 @@ upstream:
     note: F-002 distinguishes validity, premise truth, and epistemic strength; F-003 applies those distinctions to argument records and revision.
 related: []
 version: '0.1'
-updated: 2026-09-03
+updated: 2026-09-05
 ---
 
-## Higher-level reasoning
+## Build the reasoning first
 
-Model claims can serve as premises in explicit arguments. When the Model intends a conclusion to follow deductively, all premises needed for that conclusion should be stated and the inference should be valid before evidential support is considered. “Deductive” means that the conclusion necessarily follows from the premises exactly as written, not that the conclusion is certain.
+Start with the conclusion the Model proposes. Model claims can serve as premises in explicit arguments, but every premise required by the proposed route—including assumptions about scope, conditions, and modality—should be exposed rather than left hidden. The inference can then be evaluated on its own terms.
+
+When the Model intends a conclusion to follow deductively, the premises should be stated such that, if all are true, the conclusion must be true. “Deductive” means that the conclusion necessarily follows from the premises exactly as written, not that the conclusion is certain. Inductive, abductive, causal, mechanistic, normative, and practical reasoning should remain defeasible where their nature requires it.
 
 An entry may be the conclusion of one argument and a premise in another. This creates a visible reasoning hierarchy without turning dependency arrows into logical arrows.
 
-## Lower-level empirical support
+## Test empirical premises separately
 
-An empirical premise may be supported only probabilistically—through induction, abduction, causal or mechanistic reasoning, or another defeasible scientific method. Its support and uncertainty remain independently inspectable:
+Only after the proposed structure is explicit should science evaluate its empirical premises, mechanisms, measurements, and other factual claims. An empirical premise may be supported only probabilistically—through induction, abduction, causal or mechanistic reasoning, or another defeasible scientific method. Its support and uncertainty remain independently inspectable:
 
 > empirical evidence → supports confidence in premises  
 > premises + valid inference → entail a higher-level conclusion
 
 Deduction does not increase the certainty of an empirical premise. Its diagnostic value is to reveal exactly where a conclusion depends on a proposition that may be uncertain, disputed, or false.
+
+This order is analytical, not a ranking of epistemic importance or a one-way history of inquiry. Evidence can suggest hypotheses, expose gaps, and require the premises, inference, scope, or conclusion to change. The method rejects gathering studies, inferring a broad conclusion, and retrofitting premises afterward to rationalize it; it does not license choosing a conclusion independently of evidence and defending it.
 
 ## Failure and revision
 

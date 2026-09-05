@@ -2,6 +2,12 @@
 
 A public, evolving model of chiropractic built with Astro and Markdown.
 
+## Core reasoning method
+
+**Build the reasoning first. Test the empirical premises second.** For any proposed conclusion, the Model first exposes the premises it would require, along with their scope and modality, and makes the inferential route inspectable. Where deduction is claimed, the conclusion must necessarily follow from the premises exactly as written. Inductive, abductive, causal, mechanistic, normative, and practical reasoning may appropriately remain defeasible.
+
+Science then tests the empirical premises, mechanisms, measurements, and factual claims against reality. Evidence raises or lowers confidence in empirical premises; it does not determine whether an inference is valid. Conversely, a valid argument cannot make an empirical premise true. This ordering makes the Model auditable. It neither ranks philosophy above science nor permits conclusions to be chosen independently of evidence: findings can suggest hypotheses and must drive revision of any premise, inference, scope, or conclusion that fails.
+
 ## Content architecture
 
 The canonical model lives in `src/content/model/`. Each Markdown file is an individually addressable entry with:
@@ -22,13 +28,7 @@ Every upstream dependency is an object containing an `id`, a `role`, and a requi
 - `empirical`: a testable premise, observed relationship, or proposed mechanism needed by the downstream entry's empirical content
 - `practical`: understanding translated into a downstream decision, procedure, or action
 
-The architecture deliberately separates three questions:
-
-- The dependency graph shows revision impact: what must be reconsidered if an upstream entry changes.
-- Argument records show why a conclusion is inferred from specified premises.
-- Empirical evidence changes confidence in empirical premises.
-
-Deductive validity and empirical support are evaluated separately. A valid argument does not make an uncertain premise true, and strong evidence cannot repair an invalid inference. No dependency role reports truth, confidence, causal strength, chronology, provenance, or inferential sufficiency. Roles are direct and are not automatically transitive.
+The architecture keeps that method's layers distinct: the dependency graph shows revision impact, argument records show specified inferential routes, and empirical evidence changes confidence in empirical premises. No dependency role reports truth, confidence, causal strength, chronology, provenance, or inferential sufficiency. Roles are direct and are not automatically transitive.
 
 The primary workflow is [`docs/model-authoring.md`](docs/model-authoring.md). The detailed contracts are [`docs/dependency-model.md`](docs/dependency-model.md), [`docs/argument-model.md`](docs/argument-model.md), and [`docs/standards-contract.md`](docs/standards-contract.md). Deferred functionality is documented in the [`reasoning review and invalidation plan`](docs/review-invalidation-plan.md) and [`visualization plan`](docs/visualization-plan.md).
 

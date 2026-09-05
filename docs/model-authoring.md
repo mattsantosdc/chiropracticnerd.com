@@ -2,7 +2,15 @@
 
 This is the primary workflow for humans and coding agents changing Model entries or structured arguments. Read it together with the [dependency model](dependency-model.md), [argument model](argument-model.md), [standards contract](standards-contract.md), and [visualization plan](visualization-plan.md) before editing canonical content.
 
-The governing orientation is: **make the proposed conceptual and logical structure explicit first, then use science to evaluate the empirical premises on which it depends.** Philosophy can clarify and organize a proposal; it cannot determine empirical truth.
+## Governing two-stage method
+
+**Stage 1 — Conceptual and logical construction:** Start with the conclusion the Model proposes. Expose every premise the proposed route requires, including its scope and modality, and evaluate whether the inference does what it claims. Where deductive necessity is asserted, the premises must be stated such that, if all are true, the conclusion must be true. Inductive, abductive, causal, mechanistic, normative, and practical reasoning may appropriately remain defeasible.
+
+**Stage 2 — Empirical evaluation:** Once that structure is inspectable, use science to evaluate its empirical premises, mechanisms, measurements, and other factual claims. Evidence raises or lowers confidence in empirical premises; it does not determine whether an inference is logically valid. A valid argument likewise cannot establish that an empirical premise is true. Philosophy can clarify and organize a proposal, but it cannot determine empirical truth.
+
+In compact form: **propose the model → expose the premises → establish the inference → test the empirical premises → revise whatever fails.** “First” describes the analytical order needed to make a claim inspectable, not a one-way history of inquiry or a ranking of philosophy over science. Evidence may suggest hypotheses, reveal missing premises, challenge the proposed structure, and require its premises, inference, scope, or conclusion to change.
+
+Do not substitute an evidence-first rationalization: gather studies, infer a broad conclusion from the literature, then construct premises afterward to make that conclusion appear to follow. Conclusions remain evidence-responsive and fully revisable, but any claimed inferential route must be inspectable independently of which conclusion the available evidence seems to favor.
 
 ## Historical continuity without historical authority
 

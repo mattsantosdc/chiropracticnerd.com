@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const articles = (await getCollection('articles')).sort((a, b) =>
+	a.data.title.localeCompare(b.data.title)
+);
+---
+
+<Layout title="Articles" description="Writing about the ideas and development behind the Chiropractic Nerd model.">
+	<p class="eyebrow">Articles</p>
+	<h1>The thinking behind the model.</h1>
+	<p class="lede">
+		Context, arguments, and working notes about the project and how the model is being built.
+	</p>
+
+	<section class="card-grid" aria-label="Articles">
+		{articles.map((article) => (
+			<article class="card">
+				<a class="card-link" href={`/articles/${article.data.slug}/`}>
+					<h2>{article.data.title}</h2>
+					<p>{article.data.description}</p>
+					<span>Read article →</span>
+				</a>
+			</article>
+		))}
+	</section>
+</Layout>

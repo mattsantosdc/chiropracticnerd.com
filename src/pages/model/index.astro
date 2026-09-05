@@ -1,0 +1,72 @@
+---
+import { getCollection } from 'astro:content';
+import Comments from '../../components/Comments.astro';
+import DependencyLegend from '../../components/DependencyLegend.astro';
+import Layout from '../../layouts/Layout.astro';
+import { sortArguments, validateArguments } from '../../lib/arguments.ts';
+import { domainLabels, domainOrder, sortModelEntries, validateModel } from '../../lib/model';
+
+const [modelEntries, argumentEntries] = await Promise.all([
+	getCollection('model'),
+	getCollection('arguments'),
+]);
+const entries = sortModelEntries(modelEntries);
+const argumentsList = sortArguments(argumentEntries);
+validateModel(entries);
+validateArguments(argumentsList, entries);
+const groups = domainOrder.map((domain) => ({
+	domain,
+	entries: entries.filter((entry) => entry.data.domain === domain),
+}));
+---
+
+<Layout title="The Model" description="Version 0.1 of a public, evolving model of chiropractic.">
+	<p class="eyebrow">Model v0.1</p>
+	<h1>The Chiropractic Model</h1>
+	<p class="lede">
+		This is the current map, not a finished textbook. Each entry is a claim, definition, value
+		judgment, or strategy with stable identifiers and explicit dependencies. Follow any entry
+		upstream to see what it uses, or downstream to see what changes if it fails. Relationship
+		roles state why each direct dependency exists; arrows do not imply deduction, proof, or
+		causation.
+	</p>
+	<div class="meta-row" style="margin-top: 1.25rem">
+		<span class="pill">{entries.length} entries</span>
+		<span class="pill">{argumentsList.length} arguments</span>
+	</div>
+	<div class="hero-actions">
+		<a class="button secondary" href="/model/arguments/">Inspect the reasoning</a>
+	</div>
+	<DependencyLegend />
+
+	{groups.map(({ domain, entries: domainEntries }) => (
+		<section>
+			<h2>{domainLabels[domain]}</h2>
+			<div class="card-grid">
+				{domainEntries.map((entry) => (
+					<article class="card">
+						<a class="card-link" href={`/model/${entry.data.slug}/`}>
+							<div class="meta-row">
+								<span>{entry.data.id}</span>
+								<span class={`pill ${entry.data.status}`}>{entry.data.status}</span>
+								<span>{entry.data.claimType}</span>
+							</div>
+							<h3>{entry.data.title}</h3>
+							<p>{entry.data.summary}</p>
+						</a>
+						<div class="meta-row">
+							<span>{entry.data.upstream.length} upstream</span>
+							<span>confidence: {entry.data.confidence}</span>
+						</div>
+					</article>
+				))}
+			</div>
+		</section>
+	))}
+
+	<Comments
+		threadId="model:general"
+		heading="Discuss the Model"
+		intro="Use this for questions and feedback on the Model’s overall structure, scope, assumptions, or approach. If your point applies to one specific entry, join the discussion on that entry instead."
+	/>
+</Layout>

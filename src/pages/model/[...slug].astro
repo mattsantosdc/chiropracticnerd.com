@@ -1,0 +1,180 @@
+---
+import { getCollection, render } from 'astro:content';
+import Comments from '../../components/Comments.astro';
+import DependencyLegend from '../../components/DependencyLegend.astro';
+import Layout from '../../layouts/Layout.astro';
+import { sortArguments, validateArguments } from '../../lib/arguments.ts';
+import { domainLabels, getRelatedEntries, sortModelEntries, validateModel } from '../../lib/model.ts';
+
+export async function getStaticPaths() {
+	const [modelEntries, argumentEntries] = await Promise.all([
+		getCollection('model'),
+		getCollection('arguments'),
+	]);
+	const allEntries = sortModelEntries(modelEntries);
+	const allArguments = sortArguments(argumentEntries);
+	validateModel(allEntries);
+	validateArguments(allArguments, allEntries);
+
+	return allEntries.map((entry) => ({
+		params: { slug: entry.data.slug },
+		props: { contentId: entry.id },
+	}));
+}
+
+const { contentId } = Astro.props;
+const [modelEntries, argumentEntries] = await Promise.all([
+	getCollection('model'),
+	getCollection('arguments'),
+]);
+const allEntries = sortModelEntries(modelEntries);
+const allArguments = sortArguments(argumentEntries);
+const byId = validateModel(allEntries);
+validateArguments(allArguments, allEntries);
+const entry = allEntries.find((candidate) => candidate.id === contentId);
+
+if (!entry) throw new Error(`Model entry not found: ${contentId}`);
+
+const { Content } = await render(entry);
+
+const upstream = entry.data.upstream
+	.map((dependency) => ({ dependency, entry: byId.get(dependency.id)! }));
+
+const related = getRelatedEntries(allEntries, entry.data.id);
+const concludingArguments = allArguments.filter(
+	(argument) => argument.data.conclusion === entry.data.id,
+);
+const premiseArguments = allArguments.filter((argument) =>
+	argument.data.premises.includes(entry.data.id),
+);
+
+const downstream = allEntries.flatMap((candidate) =>
+	candidate.data.upstream
+		.filter((dependency) => dependency.id === entry.data.id)
+		.map((dependency) => ({ dependency, entry: candidate }))
+);
+---
+
+<Layout title={entry.data.title} description={entry.data.summary}>
+	<p class="eyebrow">{domainLabels[entry.data.domain]} · {entry.data.id}</p>
+	<h1>{entry.data.title}</h1>
+	<div class="meta-row">
+		<span class={`pill ${entry.data.status}`}>{entry.data.status}</span>
+		<span class="pill">{entry.data.claimType}</span>
+		<span class="pill">confidence: {entry.data.confidence}</span>
+		<span class="pill">v{entry.data.version}</span>
+	</div>
+	<p class="claim">{entry.data.claim}</p>
+
+	<div class="model-layout">
+		<div class="model-main">
+			<article class="model-body">
+				<Content />
+
+				{entry.data.whatWouldChange && (
+					<section>
+						<h2>What would change this entry</h2>
+						<p>{entry.data.whatWouldChange}</p>
+					</section>
+				)}
+
+				{entry.data.references.length > 0 && (
+					<section>
+						<h2>Sources and anchors</h2>
+						<ul class="reference-list">
+							{entry.data.references.map((reference) => (
+								<li>
+									<a href={reference.url}>{reference.title}</a>
+									{' '}<span class="pill">{reference.kind}</span>
+									{reference.note && <div>{reference.note}</div>}
+								</li>
+							))}
+						</ul>
+					</section>
+				)}
+
+				<section class="reasoning-section">
+					<h2>Reasoning</h2>
+					<p>
+						Argument records show inferential routes separately from revision dependencies and
+						empirical support.
+					</p>
+
+					{concludingArguments.length > 0 && (
+						<>
+							<h3>Arguments concluding this entry</h3>
+							<ul class="argument-list">
+								{concludingArguments.map((argument) => (
+									<li>
+										<a href={`/model/arguments/${argument.data.slug}/`}>
+											{argument.data.id}: {argument.data.title}
+										</a>
+										<div class="meta-row">
+											<span class="pill">{argument.data.inferenceKind}</span>
+											<span>{argument.data.scheme}</span>
+										</div>
+										<div class="argument-links">
+											Premises:{' '}
+											{argument.data.premises.map((premiseId, index) => {
+												const premise = byId.get(premiseId)!;
+												return <>{index > 0 && ', '}<a href={`/model/${premise.data.slug}/`}>{premiseId}</a></>;
+											})}
+										</div>
+									</li>
+								))}
+							</ul>
+						</>
+					)}
+
+					{premiseArguments.length > 0 && (
+						<>
+							<h3>Arguments using this entry as a premise</h3>
+							<ul class="argument-list">
+								{premiseArguments.map((argument) => {
+									const conclusion = byId.get(argument.data.conclusion)!;
+									return (
+										<li>
+											<a href={`/model/arguments/${argument.data.slug}/`}>
+												{argument.data.id}: {argument.data.title}
+											</a>
+											<div class="meta-row">
+												<span class="pill">{argument.data.inferenceKind}</span>
+												<span>{argument.data.scheme}</span>
+											</div>
+											<div class="argument-links">
+												Conclusion: <a href={`/model/${conclusion.data.slug}/`}>
+													{conclusion.data.id}: {conclusion.data.title}
+												</a>
+											</div>
+										</li>
+									);
+								})}
+							</ul>
+						</>
+					)}
+
+					{concludingArguments.length === 0 && premiseArguments.length === 0 && (
+						<p>No structured argument currently cites this entry.</p>
+					)}
+					<p><a href="/model/arguments/">Browse all structured arguments →</a></p>
+				</section>
+			</article>
+
+			<Comments
+				threadId={`model:${entry.data.id}`}
+				heading="Discuss this entry"
+				intro="What holds up, what doesn’t, and what could make this stronger? Share missing evidence, alternative explanations, or problems with the premises or reasoning."
+			/>
+		</div>
+
+		<aside class="side-panel">
+			<h2>Depends on</h2>
+			{upstream.length ? <ul class="dependency-list">{upstream.map(({ entry: item, dependency }) => <li><a href={`/model/${item.data.slug}/`}>{item.data.id}: {item.data.title}</a><span class="dependency-role">{dependency.role}</span><span class="dependency-note">{dependency.note}</span></li>)}</ul> : <p>Root entry</p>}
+			<h2>Used by</h2>
+			{downstream.length ? <ul class="dependency-list">{downstream.map(({ entry: item, dependency }) => <li><a href={`/model/${item.data.slug}/`}>{item.data.id}: {item.data.title}</a><span class="dependency-role">{dependency.role}</span><span class="dependency-note">{dependency.note}</span></li>)}</ul> : <p>No downstream entries yet.</p>}
+			{related.length > 0 && <><h2>Related</h2><ul>{related.map((item) => <li><a href={`/model/${item.data.slug}/`}>{item.data.id}: {item.data.title}</a></li>)}</ul></>}
+			<DependencyLegend />
+			<a href="/model/">← Back to the full map</a>
+		</aside>
+	</div>
+</Layout>

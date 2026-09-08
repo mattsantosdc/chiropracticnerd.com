@@ -11,7 +11,7 @@ inferenceKind: defeasible
 scheme: normative scope reasoning
 status: provisional
 version: '0.1'
-updated: 2026-09-08
+updated: 2026-09-09
 ---
 
 ## Inferential route
@@ -25,5 +25,7 @@ The interpretive bridge is that an aim accepted as legitimate in its own right m
 The brief premise claims do not, by their wording alone, force every scope interpretation of “open-ended” or “legitimate aim.” The route uses their stated framework meanings and a normative principle about independent aims. It is therefore represented as defeasible, not as a deductive proof. Rejecting the independent legitimacy of the functional aim or restricting its scope would require reconsidering this route; it would not establish that every possible rationale for P-003 is false.
 
 This argument concerns conceptual permission to consider care, not an empirical assertion that care is beneficial or a sufficient justification for acting. To conclude that chiropractic actually benefits an asymptomatic person would require additional empirical premises: a relevant modifiable opportunity, an input that can produce beneficial change in that person and state, and outcomes that are net-positive over the relevant timescale. Neither P-001 nor P-002 supplies them. Science leaves these questions open, and A-001 requires a person-specific working judgment before proceeding.
+
+P-003's boundary also distinguishes a functional adjustment target from safety and comfort considerations. That distinction uses the proposed scope of adjustment explained in A-001 and ARG-002; it does not follow from this argument's philosophical premises alone.
 
 Open-ended potential across changing states does not entail an actionable opportunity now. This route neither requires a measurable imperfection in everyone nor establishes that everyone always needs or can benefit from an adjustment. No additional Model premise is introduced to force that stronger conclusion.

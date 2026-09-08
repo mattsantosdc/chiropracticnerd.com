@@ -25,7 +25,7 @@ upstream:
     note: Revising S-005's intentional use and proposed effects of chiropractic inputs would require reconsidering the available inputs and predictions used in selection; it supplies no validated person-level selection rule.
 related: []
 version: '0.1'
-updated: 2026-09-08
+updated: 2026-09-09
 ---
 
 ## Why this claim is present
@@ -36,9 +36,17 @@ P-002 supplies the functional aim, P-003 allows that rationale without symptoms 
 
 “What, if any, input” keeps non-intervention available. The assessment should identify the target, predicted response, criteria for judging benefit, and reasons for proceeding or withholding an input before observing its result. A neuromotor prediction alone cannot justify a promise of broader benefit.
 
+## Adjustment indication, safety, and comfort
+
+The proposed adjustment target is a neuromotor constraint with an opportunity for beneficial change through an available input. A symptom or diagnosis does not itself identify that target. Assessment must distinguish the functional grounds for an adjustment from the safety and comfort considerations that may prevent proceeding or change how an input is delivered. Symptoms and pathology can matter to those considerations without becoming indicators for an adjustment.
+
+If no relevant constraint exists, there is no adjustment target within this account. A constraint without an opportunity for beneficial change also supplies no actionable target. These conditions concern what is actually present; an assessment's failure to identify a target does not by itself establish its absence.
+
 ## When no actionable opportunity is identified
 
-This result may mean that no useful opportunity is presently detectable, that the assessment cannot identify an opportunity that may exist, or that an identifiable opportunity cannot be matched to an available input with adequate confidence. Context, preferences, safety, burdens, alternatives, or expected value may also weigh against proceeding.
+A beneficial opportunity may exist even when a chiropractor's assessment fails to identify it. The assessment may miss the relevant constraint or fail to recognize an available input that could modify it beneficially. The Model explicitly allows for missed opportunities; how often they occur remains a question for assessment validation.
+
+An identified opportunity may also remain insufficiently supported for action if it cannot be matched to an available input with adequate confidence. Context, preferences, safety, burdens, alternatives, or expected value may weigh against proceeding. The possibility of a missed opportunity does not itself identify a target or justify an input.
 
 It does not mean that the person functions perfectly, that no possible opportunity exists, or that chiropractic could never benefit them. Open-ended potential and a presently warranted intervention are different judgments. Neither symptom presence nor symptom absence determines actionability by itself.
 

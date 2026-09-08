@@ -1,6 +1,6 @@
 # Model v0.1 reasoning audit
 
-This audit evaluates P-001–P-003, S-001–S-006, and A-001–A-003 as written on 2026-09-09, alongside all four structured arguments. Claims and inferential roles were inspected before revising empirical proposals. Dependencies record revision impact, not reasoning or evidence. This revision adds no evidence review or claim of empirical confirmation.
+This audit evaluates P-001–P-003, S-001–S-006, and A-001–A-003 as written on 2026-09-09, alongside all four structured arguments. Claims and inferential roles were inspected before revising empirical proposals. Dependencies record revision impact, not reasoning or evidence. The original structural revision added no evidence review. The focused Science revision below adds limited research examples for S-002 and S-003, without claiming comprehensive evidential appraisal or chiropractic confirmation.
 
 ## Overall finding
 
@@ -16,7 +16,8 @@ All arguments remain defeasible. No scientific conclusion is presented as deduct
 | --- | --- | --- |
 | Open-ended functional potential | Philosophical starting point across changing circumstances | Unlimited capacity, a measurable imperfection now, or chiropractic responsiveness |
 | Net-positive functional improvement | Better function is itself a valued benefit, judged with goals, context, harms, burdens, and tradeoffs | That every changed measure is an improvement or that improvement guarantees a specific downstream benefit |
-| State-dependent neuromotor limitation or opportunity | Proposed scientific access point | A distinct lesion, universal prevalence, detectability, or chiropractic responsiveness |
+| Neuromotor constraint | Working description of a current motor-control pattern that limits functional options relative to postural or task demands | Pathology, a specific CNS pathway, validated detection, or benefit from changing it |
+| Opportunity for beneficial neuromotor change | Empirical possibility that changing a candidate pattern improves function overall | Universal prevalence, practical availability, or chiropractic responsiveness |
 | Neurobiomechanical perturbation | General possible mechanism of reevaluation and reorganization | Intentional training, successful reorganization, or benefit |
 | Neurobiomechanical training stimulus | Intentional chiropractic use of an input | Learning, retention, causal effect, or fulfilled intention |
 | Actionable chiropractic opportunity | Practical working judgment of sufficient expected value from an available input now | Biological perfection when none is identified, or validated assessment capability |
@@ -30,8 +31,8 @@ All arguments remain defeasible. No scientific conclusion is presented as deduct
 | P-002 | Value premise | Net-positive functional improvement is legitimate in its own right and need not be justified by an additional specific benefit. The boundary distinguishes hoped-for symptom relief from the proposed functional action, indication, and success of an adjustment. That empirical account is not established by the value claim; criteria for better function remain open. |
 | P-003 | Framework scope conclusion; premise for Art | ARG-004 supports non-necessity as a rationale, not effectiveness or a particular adjustment. The boundary additionally excludes symptoms and pathology from contributing to an indication while retaining safety and comfort constraints. That stronger indication principle is not established by ARG-004. |
 | S-001 | Broad empirical integration claim | “Central integrative role” strengthens contribution language without ranking all biological systems. Scope-specific evidential appraisal remains unresolved; this does not mean every component is equally uncertain. The principal chiropractic pathway belongs in S-006. |
-| S-002 | Empirical domain and state-dependence claim | Strategies vary by person, task, and environment and can be limited relative to context. Variation need not be abnormal or harmful. Construct validity and distinguishing ordinary variation, tissue effects, and measurement error remain empirical burdens. |
-| S-003 | Empirical possibility premise, replacing a definition | A limitation is not automatically modifiable or beneficial to change. Opportunities are not made to exist by definition. No distinct entity, prevalence, detectability, or chiropractic responsiveness is established. |
+| S-002 | Empirical domain and state-dependence claim | Motor control includes the neural regulation of muscle tone, posture, and movement, with possible limits in available or suitable strategies. Standing-threat and pointing experiments illustrate context-sensitive control, without establishing which patterns warrant change. Measurement and generalization remain empirical burdens. |
+| S-003 | Empirical possibility premise with an explanatory working definition | The claim concerns beneficial modification of motor strategies that limit functional options in a given context. “Neuromotor constraint” describes the candidate pattern; modifiability, net benefit, detection, and chiropractic responsiveness remain separate burdens. The subluxation connection is an explicit Model reinterpretation. |
 | S-004 | General empirical mechanism hypothesis | Perturbation may prompt reevaluation and reorganization. Benefit is removed from the mechanism claim. Salience must be specified independently of success; training intent and chiropractic involvement are not required. |
 | S-005 | Mixed intentional-use and empirical proposal | Training describes intended use. Chiropractic instantiation of S-004, targeted neuromotor change, and net-positive effects remain separate empirical questions. Selection criteria and predictions must be prospective, not post-hoc success labels. |
 | S-006 | Empirical downstream causal hypothesis | Some chiropractic-produced neuromotor changes may contribute to broader net-positive function. Neural mediation is proposed as the principal route, with particular pathways and primacy revisable. Neither S-001 nor S-005 establishes transfer. |
@@ -70,6 +71,28 @@ The three Philosophy dependencies remain appropriate: P-001 supplies the potenti
 P-003's reference to A-001 is an application cross-reference, not an argument that assessment establishes the Philosophy claim. Its existing direct downstream entry A-001 and the referencing ARG-002 and ARG-004 were inspected. They still describe non-necessity as a rationale; they do not yet fully articulate the stronger functional-indication principle. No reciprocal dependency, new premise, or change to Art is introduced to hide that gap. The removal of the deferred hypothesis sentence changes none of these relationships.
 
 The philosophical foundation can be retained without adding an entry. P-002's wording now distinguishes hoped-for outcomes from the proposed physiological action and functional indication. The substantive future tasks remain making the functional-indication reasoning inspectable and specifying what counts as net-positive functional improvement. The universal benefit-potential hypothesis remains only a deferred question in this audit. Detailed interpretation of post-adjustment symptoms remains outside this focused revision.
+
+## Focused Science audit after wording revisions
+
+Scope: retain S-001; clarify S-002's motor domain and give S-003's proposed target a concrete working description. IDs, slugs, claim types, provisional status, and unresolved confidence are preserved.
+
+### Reasoning before evidence
+
+S-002 asserts variation with the person's state, task, and environment, together with possible limitations in available or suitable motor strategies. The domain includes the neural regulation of muscle tone, posture, and movement. Resting tone is a potential assessment finding; it does not independently identify a motor strategy or its neural mechanism.
+
+S-003 concerns motor strategies that limit functional options in a given context. Its body defines a **neuromotor constraint** as the current pattern, separately from the opportunity for worthwhile change. The main statement remains empirical: some such strategies can be modified with overall functional benefit. The working definition does not demonstrate that the described pattern exists or that an assessment detects it.
+
+The proposed route requires independently assessable steps: a pattern limits useful options under specified conditions; it is modifiable under specified inputs and timescales; and the change produces functional gains worth its relevant costs. S-002 alone establishes neither the latter two steps nor a person-level finding. P-002 supplies the meaning of overall improvement, not evidence that it occurs. No premise or deductive argument is added to fill these gaps.
+
+The co-contraction example is illustrative, with no specific CNS pathway asserted. The subluxation paragraph identifies a current motor-control state as the proposed target of assessment and adjustment without assuming displacement, tissue pathology, or disease causation. It asserts no equivalence to all professional uses of the term and adds no historical source as empirical authority.
+
+### Limited empirical check
+
+After exposing those distinctions, three primary studies were checked. Carpenter and colleagues (2001) and Gribble and colleagues (2003) illustrate changes in control with postural threat and accuracy demands. The latter also cautions against treating stiffening as inherently worse. Franklin and colleagues (2003) illustrates modifiable arm control with practice. References in the canonical entries specify those narrow contributions. These examples validate neither the working constraint construct nor chiropractic detection, net benefit, or adjustment responsiveness. Confidence in the full claims remains unresolved; S-003's revision conditions now also address whether proposed patterns can be distinguished meaningfully.
+
+### Propagation
+
+S-002's direct downstream entries S-003 and S-004, S-003's direct downstream entry A-001, and the subsequent input, broader-benefit, and reassessment paths were reconsidered. ARG-002 now quotes the revised S-003 claim and distinguishes the defined pattern from evidence for an opportunity and selection. It remains defeasible. S-004–S-006, A-001–A-003, and ARG-003 retain their scope without wording changes. All 22 direct dependencies retain their roles and limiting notes; the definition and subluxation discussion create no inferred relationship or new graph edge.
 
 ## Structured argument audit
 

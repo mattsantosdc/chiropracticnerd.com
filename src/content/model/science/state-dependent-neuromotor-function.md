@@ -1,10 +1,10 @@
 ---
 id: S-002
 slug: science/state-dependent-neuromotor-function
-title: State-dependent neuromotor function
+title: State-dependent motor control
 claim: >-
-  Neuromotor function varies with the state of the person, task, and environment and can exhibit limitations in available or context-appropriate motor strategies.
-summary: How movement is organized depends on present conditions; variation or a limited strategy is not automatically abnormal or harmful.
+  Neuromotor function varies with the person's state, task, and environment; available motor strategies may be limited or poorly suited to current demands.
+summary: Motor strategies regulate muscle tone, posture, and movement in relation to current conditions. A strategy that serves one context may be limiting in another.
 domain: science
 claimType: empirical
 status: provisional
@@ -13,19 +13,32 @@ order: 20
 upstream: []
 related: []
 version: '0.1'
-updated: 2026-09-08
+updated: 2026-09-09
+references:
+  - title: The influence of postural threat on the control of upright stance
+    url: https://pubmed.ncbi.nlm.nih.gov/11417462/
+    kind: empirical
+    note: Carpenter and colleagues (2001) observed altered standing control and increased stiffness under greater postural threat in eight healthy young adults. This supports context-sensitive control in that task, without establishing a chiropractic finding or beneficial opportunity.
+  - title: Role of Cocontraction in Arm Movement Accuracy
+    url: https://gribblelab.org/assets/files/papers/2003_JNeurophysiol_gribble.pdf
+    kind: empirical
+    note: Gribble and colleagues (2003) found greater opposing-muscle activation and better accuracy with smaller pointing targets. Stiffening can serve task demands; this study does not validate a neuromotor constraint or an adjustment indication.
 whatWouldChange: >-
   Narrow or revise the claim if reliable observations under specified person, task, and environmental conditions fail to distinguish the proposed state-dependent limitations from ordinary variation, task requirements, or measurement error.
 ---
 
 ## Why this claim is present
 
-Neuromotor function concerns the nervous system's organization and control of movement in interaction with the body and its surroundings. This entry identifies the state-dependent domain in which the Model proposes to investigate opportunities for change. Available strategies and their suitability must be considered relative to the person's present condition, task, and environment.
+**Neuromotor function** encompasses the neural regulation of muscle tone, posture, and movement in interaction with the body and environment. A **motor strategy** is a pattern of muscle activation and coordination that supports posture or task performance. Its expression depends on the person's current state and the demands of the task and environment.
 
-“Can exhibit” does not say that everyone has a limitation at every moment. Fewer options may be appropriate for a task, and a strategy that is useful in one setting may be limiting in another. Difference from an average is insufficient to establish a problem. State dependence is an empirical proposal in its own right, not a deduction from S-001's broader integrative role.
+Assessment in this domain may consider resting muscle tone, postural support, and responses to changes in position or load. The relevant question is whether the available motor strategies suit current demands. A restricted range of strategies or a difference from average does not by itself establish a limitation worth changing.
+
+## Evidence and scope
+
+Carpenter and colleagues observed increased postural stiffness under greater postural threat. Gribble and colleagues found greater co-contraction when pointing at smaller targets, alongside improved accuracy. These findings support variation in motor control with context and task demands. They do not establish that a particular pattern is limiting, that everyone has a constraint, or that chiropractic can change it beneficially.
 
 ## Boundary
 
-Observed movement is not a complete proxy for the nervous system or the person. Learning, effort, expectation, fatigue, pain, tissue properties, and measurement error remain alternative explanations for an observed change. Reliability, construct validity, and relevant reference conditions need evaluation; v0.1 does not endorse a particular test.
+Interpretation of muscle tone, posture, or movement must account for neural activity, tissue properties, learning, effort, fatigue, pain, expectations, and measurement error. A finding alone does not identify its cause or establish a particular motor strategy. Assessment methods require reliability, construct validity, and appropriate reference conditions; v0.1 does not endorse a particular test.
 
-State dependence or limitation alone establishes neither modifiability nor benefit. S-003 takes on that additional empirical question.
+This claim is investigated independently of S-001's integrative role. State dependence or limitation alone establishes neither modifiability nor benefit. S-003 takes on that additional empirical question.

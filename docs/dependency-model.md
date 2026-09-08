@@ -47,7 +47,7 @@ An inferential relationship does not automatically require a dependency edge, an
 
 ## Current graph audit
 
-The v0.1 graph contains 17 direct dependencies. Every edge has one of the five roles and a required limiting note. `related` links and argument records remain outside the acyclic dependency graph.
+The v0.1 graph contains 22 direct dependencies. Every edge has one of the five roles and a required limiting note. `related` links and argument records remain outside the acyclic dependency graph. The [reasoning audit](model-v0.1-reasoning-audit.md) records why the revised spine adds, removes, or retains its direct dependencies; the graph is not a linear philosophical proof of chiropractic effectiveness.
 
 ## Future visualization
 

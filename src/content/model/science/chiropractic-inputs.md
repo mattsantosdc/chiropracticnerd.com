@@ -1,32 +1,37 @@
 ---
 id: S-005
 slug: science/chiropractic-inputs
-title: Chiropractic inputs and reorganization
+title: Chiropractic inputs as training stimuli
 claim: >-
-  Appropriately selected chiropractic inputs can produce reorganization that increases neuromotor adaptability.
-summary: The Model proposes that some prospectively selected chiropractic inputs can increase neuromotor adaptability through reorganization.
+  Appropriately selected chiropractic inputs can be used as neurobiomechanical training stimuli intended to perturb and beneficially alter neuromotor function.
+summary: Chiropractic may intentionally use the perturbation mechanism to pursue beneficial neuromotor change; whether that intention succeeds requires testing.
 domain: science
-claimType: empirical
+claimType: mixed
 status: provisional
 confidence: unresolved
 order: 50
 upstream:
+  - id: P-002
+    role: normative
+    note: Revising P-002's functional aim would require reconsidering why these inputs are intentionally directed toward net-positive change; the aim does not establish mechanism or effectiveness.
   - id: S-004
     role: empirical
-    note: S-005 applies S-004's proposed perturbation mechanism to chiropractic input, contingent on evidence that those inputs qualify and produce the proposed reorganization.
+    note: Revising S-004's perturbation mechanism would require reconsidering the proposed biological basis for chiropractic training stimuli; this does not demonstrate that any chiropractic input instantiates the mechanism or produces benefit.
 related: []
 version: '0.1'
-updated: 2026-08-16
+updated: 2026-09-08
 whatWouldChange: >-
-  This claim should be rejected or narrowed if prospectively selected chiropractic inputs do not increase neuromotor adaptability beyond credible comparison inputs or contextual effects.
+  Narrow or reject the proposed mechanism or beneficial-effect hypothesis if inputs selected by prespecified criteria fail to produce the predicted neuromotor changes or net-positive outcomes beyond credible comparisons in valid, adequately powered tests; intention alone would not rescue the empirical proposal.
 ---
 
 ## Why this claim is present
 
-S-005 is the chiropractic-specific empirical bridge. It proposes that at least some chiropractic inputs can instantiate the perturbation-and-reorganization possibility in S-004 and that the resulting change can increase neuromotor adaptability.
+This is where intentional chiropractic intervention enters the scientific account. “Neurobiomechanical training stimulus” describes a selected input deliberately used to perturb a neuromotor pattern with the aim of beneficial change. Training describes its intended use, including a single input; it does not imply that learning, retention, or improvement has occurred.
 
-“Appropriately selected” is an operational requirement, not permission to label an input appropriate only after it appears to work. Selection criteria and predicted responses must eventually be stated in advance, applied reliably, and compared with credible alternatives. v0.1 does not yet supply that evidence or a detailed selection protocol.
+The claim is mixed. P-002 supplies the valued aim and the training description identifies an intentional use. The empirical proposal is that some chiropractic inputs may instantiate S-004's general perturbation mechanism and produce the intended beneficial neuromotor change. Intent can be described without proving success; class membership, mechanism, and beneficial effects each remain unresolved and require evidence. S-004 alone establishes none of those chiropractic-specific steps.
+
+“Appropriately selected” is a prospective requirement. The relevant state, reason for selecting an input, predicted response, benefit criteria, and conditions for withholding or stopping must be specified before observing the outcome. Selection must eventually be reliable and empirically validated against credible alternatives. An input cannot become “appropriate” solely because a favorable result was observed, nor can every failure be dismissed as inappropriate selection. v0.1 supplies no validated selection protocol.
 
 ## Boundary
 
-The claim does not say that every input produces reorganization, that every reorganization is beneficial, or that an immediate change is durable. S-004 alone also does not establish that chiropractic inputs are salient neurobiomechanical perturbations. That class-membership and mechanism bridge remains to be demonstrated.
+No claim is made that every input produces reorganization, that every reorganization is beneficial, or that an immediate change lasts. Benefit can consist in better neuromotor function itself, assessed with relevant burdens, harms, and tradeoffs. A measured neuromotor response cannot substitute for that evaluation or for evidence of broader benefit in S-006.

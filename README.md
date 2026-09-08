@@ -57,13 +57,15 @@ The Model is **guided by first principles and tested against reality**. First pr
 
 Version 0.1 is deliberately low-resolution. It contains three Framework entries—including F-003's explicit reasoning and empirical testing method—plus this substantive spine:
 
-1. Philosophy: adaptability (`P-001`), chiropractic's purpose (`P-002`), and its non-treatment purpose boundary (`P-003`)
-2. Science: nervous-system and neuromotor adaptability (`S-001`–`S-002`), subluxation (`S-003`), perturbation and reorganization (`S-004`), chiropractic inputs (`S-005`), and broader adaptability (`S-006`)
-3. Art: assessment (`A-001`), force application (`A-002`), and reassessment (`A-003`)
+1. Philosophy: open-ended human functional potential (`P-001`), net-positive functional improvement as a legitimate chiropractic aim (`P-002`), and a functional rationale without requiring symptoms or pathology (`P-003`)
+2. Science: nervous-system integration (`S-001`), state-dependent neuromotor function (`S-002`), modifiable opportunities for net-positive change (`S-003`), general perturbation and reorganization (`S-004`), intentional chiropractic training stimuli (`S-005`), and possible broader functional benefit (`S-006`)
+3. Art: assessment of an actionable chiropractic opportunity (`A-001`), conditional application (`A-002`), and reassessment permitting stopping or revision (`A-003`)
 
 Application belongs within Art rather than forming a peer domain. The graph stays intentionally incomplete where another premise or empirical bridge would be required; gaps are not filled merely to make the graph look linear.
 
-The [`v0.1 reasoning audit`](docs/model-v0.1-reasoning-audit.md) records the current atomicity, scope, and inferential gaps. In particular, S-005 and S-006 contain non-overlapping possibility claims and do not deductively establish that chiropractic improves broader human adaptability.
+The four structured arguments expose methodological synthesis (`ARG-001`), assessment under uncertainty (`ARG-002`), reassessment (`ARG-003`), and the philosophical rationale beyond symptoms (`ARG-004`). All remain defeasible. Functional improvement is itself a valued benefit without requiring a separately identified downstream outcome. The philosophical argument permits a rationale; it does not demonstrate effectiveness in asymptomatic people or make functional improvement chiropractic's exclusive purpose.
+
+The [`v0.1 reasoning audit`](docs/model-v0.1-reasoning-audit.md) records the current claim types, scope, revision propagation, and unresolved bridges. S-005 distinguishes intentional use from demonstrated effect. S-006 explicitly proposes possible broader benefit from chiropractic-produced neuromotor changes, principally through nervous-system-mediated change; it is an unresolved empirical hypothesis, not a deduction from S-005 or evidence of an immediate response. Adaptability no longer supplies the philosophical anchor or defines benefit, and the scientific access point does not require a named lesion. Historical article discussions remain separate from the living Model.
 
 ## FastComments
 

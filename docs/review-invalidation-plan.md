@@ -143,8 +143,10 @@ entire transitive closure forever.
    Do not change or invalidate the conclusion automatically; another route may support it, or its
    status may remain unresolved.
 
-For example, changing S-005 would make the S-005 → A-001 dependency review and ARG-002 argument
-review stale. If A-001 is reconsidered and remains unchanged, propagation through A-001 stops. If
+For example, changing S-005 would make the S-005 → S-006, S-005 → A-001, and S-005 → A-002
+dependency reviews and the ARG-002 argument review stale. These direct branches must each be
+reviewed. If A-001 is reconsidered and remains unchanged, propagation through A-001 stops; that
+does not clear the independent reviews of S-006 or A-002. If
 A-001 must be edited, its new fingerprint makes the A-001 → A-002 and A-001 → A-003 dependency
 reviews stale, makes ARG-002 stale because A-001 is its conclusion, and makes ARG-003 stale because
 A-001 is one of its premises.

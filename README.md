@@ -55,17 +55,19 @@ This v0.1 reconstruction resets the unpublished Philosophy, Science, and Art nam
 
 The Model is **guided by first principles and tested against reality**. First principles expose assumptions and help make the framework coherent; they do not deduce chiropractic upward or settle empirical questions.
 
-Version 0.1 is deliberately low-resolution. It contains three Framework entries—including F-003's explicit reasoning and empirical testing method—plus this substantive spine:
+Version 0.1 is deliberately low-resolution. It contains 16 entries, 23 direct revision dependencies, and four structured arguments. Three Framework entries—including F-003's explicit reasoning and empirical testing method—organize this substantive spine:
 
 1. Philosophy: open-ended human functional potential (`P-001`), net-positive functional improvement as a legitimate chiropractic aim (`P-002`), and a functional rationale without requiring symptoms or pathology (`P-003`)
-2. Science: nervous-system integration (`S-001`), state-dependent neuromotor function (`S-002`), modifiable opportunities for net-positive change (`S-003`), general perturbation and reorganization (`S-004`), intentional chiropractic training stimuli (`S-005`), and possible broader functional benefit (`S-006`)
+2. Science: nervous-system integration (`S-001`), state-dependent neuromotor function (`S-002`), modifiable opportunities for net-positive change (`S-003`), general perturbation and reorganization (`S-004`), intentional chiropractic training stimuli (`S-005`), possible broader functional benefit (`S-006`), and neural mediation of broader chiropractic effects (`S-007`)
 3. Art: assessment of an actionable chiropractic opportunity (`A-001`), conditional application (`A-002`), and reassessment permitting stopping or revision (`A-003`)
 
 Application belongs within Art rather than forming a peer domain. The graph stays intentionally incomplete where another premise or empirical bridge would be required; gaps are not filled merely to make the graph look linear.
 
 The four structured arguments expose methodological synthesis (`ARG-001`), assessment under uncertainty (`ARG-002`), reassessment (`ARG-003`), and the philosophical rationale beyond symptoms (`ARG-004`). All remain defeasible. Functional improvement is itself a valued benefit without requiring a separately identified downstream outcome. The philosophical argument permits a rationale; it does not demonstrate effectiveness in asymptomatic people or make functional improvement chiropractic's exclusive purpose.
 
-The [`v0.1 reasoning audit`](docs/model-v0.1-reasoning-audit.md) records the current claim types, scope, revision propagation, and unresolved bridges. S-005 distinguishes intentional use from demonstrated effect. S-006 explicitly proposes possible broader benefit from chiropractic-produced neuromotor changes, principally through nervous-system-mediated change; it is an unresolved empirical hypothesis, not a deduction from S-005 or evidence of an immediate response. Adaptability no longer supplies the philosophical anchor or defines benefit, and the scientific access point does not require a named lesion. Historical article discussions remain separate from the living Model.
+The [`v0.1 reasoning audit`](docs/model-v0.1-reasoning-audit.md) records the current claim types, scope, revision propagation, and unresolved bridges. S-005 distinguishes intentional use from demonstrated effect. S-006 proposes possible broader net-positive benefit from chiropractic-produced neuromotor changes. S-007 separately proposes neural mediation as the principal route to broader chiropractic effects, including effects whose net value is unresolved. Each has its own evidence note and revision conditions; neither establishes the other. Their single canonical `related` link supplies see-also navigation without an inferential or dependency relationship. Adaptability no longer supplies the philosophical anchor or defines benefit, and the scientific access point does not require a named lesion. Historical article discussions remain separate from the living Model.
+
+Every Science entry has a **Current evidence** section describing the support documented in that entry and what remains unresolved. These notes summarize the existing limited appraisal; they do not constitute a new literature review or raise confidence. The Model overview makes this preliminary scope visible before readers enter the claims.
 
 ## FastComments
 

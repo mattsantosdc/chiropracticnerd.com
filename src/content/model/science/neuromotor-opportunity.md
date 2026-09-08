@@ -43,13 +43,15 @@ An illustrative candidate is a sustained pattern of muscular co-contraction that
 
 The **constraint** describes the current motor pattern. The **opportunity** is the possibility that modifying it would improve function overall. That additional claim requires evidence of both modifiability and worthwhile improvement. Functional gains must be considered alongside relevant harms, burdens, and tradeoffs, consistent with P-002. More options or a changed test result is not automatically better function.
 
-Franklin and colleagues observed changes in muscle activation and improved compensation as participants practised arm movements in novel force fields. This supports the modifiability of motor control in those tasks. It does not establish that a candidate constraint detected in chiropractic assessment can be modified beneficially by an adjustment.
-
 ## Relationship to subluxation
 
 Within this Model, **subluxation** is reinterpreted through a proposed neuromotor constraint and the opportunity for beneficial change it may present. The proposed target of assessment and adjustment is a current motor-control state. This functional description does not require displacement, tissue pathology, or disease causation, and does not claim equivalence with all historical or contemporary uses of the term.
 
 A candidate constraint becomes a proposed **adjustment target** through A-001's working judgment that a particular input is sufficiently likely to offer worthwhile improvement for this person now. Defining the pattern does not establish reliable detection, responsiveness to chiropractic, or a reason to adjust every time it is observed.
+
+## Current evidence
+
+Franklin and colleagues observed changes in muscle activation and improved compensation as participants practised arm movements in novel force fields. This supports the modifiability of motor control in those tasks. It does not validate the Model's constraint construct, its overall benefit criterion, or responsiveness to adjustment. Whether a candidate constraint detected in chiropractic assessment can be modified beneficially by an adjustment remains unresolved.
 
 ## Boundary
 

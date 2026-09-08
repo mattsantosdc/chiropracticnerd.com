@@ -16,7 +16,7 @@ upstream:
     note: Revising S-002's account of state-dependent neuromotor strategies would require reconsidering what is proposed to reorganize and under which conditions; that domain supplies no evidence for the perturbation mechanism.
 related: []
 version: '0.1'
-updated: 2026-09-08
+updated: 2026-09-09
 whatWouldChange: >-
   Narrow or reject specified versions of this mechanism if perturbations meeting prospectively defined salience criteria fail to produce the predicted neuromotor reorganization in valid, adequately sensitive tests, or if competing explanations better account for the response.
 ---
@@ -29,8 +29,12 @@ Natural movement, exercise, unexpected perturbation, and environmental interacti
 
 S-004 remains an empirical root: its conceptual dependency identifies the domain being reorganized and supplies no empirical support for the mechanism. The particular processes and conditions remain revisable.
 
+## Current evidence
+
+This entry presents a general mechanism hypothesis without a documented claim-specific evidence appraisal. Salience, the proposed reorganization, and the conditions under which it occurs require specification and evaluation, including dose, timing, state, response measures, and duration.
+
 ## Boundary
 
-“Can” is deliberate. Reorganization is possible, not guaranteed, and may be neutral, transient, or harmful. The mechanism does not define benefit. Necessary salience, dose, timing, state, response measures, and duration still require specification and testing.
+“Can” is deliberate. Reorganization is possible, not guaranteed, and may be neutral, transient, or harmful. The mechanism does not define benefit.
 
 This entry does not establish that a chiropractic input instantiates the mechanism. S-005 introduces its intentional chiropractic use; intended benefit and demonstrated benefit remain distinct.

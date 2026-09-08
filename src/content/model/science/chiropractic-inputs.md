@@ -19,7 +19,7 @@ upstream:
     note: Revising S-004's perturbation mechanism would require reconsidering the proposed biological basis for chiropractic training stimuli; this does not demonstrate that any chiropractic input instantiates the mechanism or produces benefit.
 related: []
 version: '0.1'
-updated: 2026-09-08
+updated: 2026-09-09
 whatWouldChange: >-
   Narrow or reject the proposed mechanism or beneficial-effect hypothesis if inputs selected by prespecified criteria fail to produce the predicted neuromotor changes or net-positive outcomes beyond credible comparisons in valid, adequately powered tests; intention alone would not rescue the empirical proposal.
 ---
@@ -28,9 +28,13 @@ whatWouldChange: >-
 
 This is where intentional chiropractic intervention enters the scientific account. “Neurobiomechanical training stimulus” describes a selected input deliberately used to perturb a neuromotor pattern with the aim of beneficial change. Training describes its intended use, including a single input; it does not imply that learning, retention, or improvement has occurred.
 
-The claim is mixed. P-002 supplies the valued aim and the training description identifies an intentional use. The empirical proposal is that some chiropractic inputs may instantiate S-004's general perturbation mechanism and produce the intended beneficial neuromotor change. Intent can be described without proving success; class membership, mechanism, and beneficial effects each remain unresolved and require evidence. S-004 alone establishes none of those chiropractic-specific steps.
+The claim is mixed. P-002 supplies the valued aim and the training description identifies an intentional use. The empirical proposal is that some chiropractic inputs may instantiate S-004's general perturbation mechanism and produce the intended beneficial neuromotor change. Intent can be described without proving success.
 
 “Appropriately selected” is a prospective requirement. The relevant state, reason for selecting an input, predicted response, benefit criteria, and conditions for withholding or stopping must be specified before observing the outcome. Selection must eventually be reliable and empirically validated against credible alternatives. An input cannot become “appropriate” solely because a favorable result was observed, nor can every failure be dismissed as inappropriate selection. v0.1 supplies no validated selection protocol.
+
+## Current evidence
+
+The intentional use of an input is described separately from its empirical effects. Chiropractic instantiation of the proposed mechanism, beneficial neuromotor change, and selection validity have not been established by evidence documented in this entry. S-004's general mechanism hypothesis alone establishes none of those chiropractic-specific steps.
 
 ## Boundary
 

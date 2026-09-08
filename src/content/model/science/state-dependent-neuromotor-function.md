@@ -33,9 +33,9 @@ whatWouldChange: >-
 
 Assessment in this domain may consider resting muscle tone, postural support, and responses to changes in position or load. The relevant question is whether the available motor strategies suit current demands. A restricted range of strategies or a difference from average does not by itself establish a limitation worth changing.
 
-## Evidence and scope
+## Current evidence
 
-Carpenter and colleagues observed increased postural stiffness under greater postural threat. Gribble and colleagues found greater co-contraction when pointing at smaller targets, alongside improved accuracy. These findings support variation in motor control with context and task demands. They do not establish that a particular pattern is limiting, that everyone has a constraint, or that chiropractic can change it beneficially.
+Carpenter and colleagues observed increased postural stiffness under greater postural threat. Gribble and colleagues found greater co-contraction when pointing at smaller targets, alongside improved accuracy. These limited examples support variation in motor control with context and task demands. They do not establish which findings identify a constraint or an adjustment opportunity, that everyone has a constraint, or that chiropractic can change it beneficially.
 
 ## Boundary
 

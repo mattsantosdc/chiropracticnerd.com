@@ -79,6 +79,16 @@ If a premise fails or a conclusion does not follow, mark that inferential route 
 
 Keep the public claim and explanation understandable to an ordinary chiropractor. Structured argument records provide a deeper inspection layer; they should not turn every Model page into a symbolic-logic textbook. Define technical language and state limitations in plain terms.
 
+The three text fields have distinct roles:
+
+| Field | Role |
+| --- | --- |
+| `claim` | The actual statement of the entry: the wording readers inspect and arguments use as a premise or conclusion. Display it in full as the primary text, labeled **Statement**, on the Model overview and entry page. |
+| `title` | A short name for identification and navigation. Keep it visually subordinate to the statement. |
+| `summary` | A brief explanation or orientation to the statement, displayed separately under **Summary** on the entry page. It must preserve the claim's scope and modality and must not substitute for it in reasoning. |
+
+The body explains, qualifies, or supports the statement. Keep its rationale, limits, sources, and structured reasoning visibly separate from the statement itself. Visual prominence identifies what is asserted; status, claim type, and confidence still describe how to assess it.
+
 ## Editing checklist
 
 Before finishing a change, verify that:

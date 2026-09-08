@@ -3,7 +3,7 @@ id: S-007
 slug: science/neural-mediation
 title: Neural mediation of broader chiropractic effects
 claim: >-
-  Chiropractic inputs may influence broader human function principally through nervous-system-mediated change.
+  Chiropractic inputs influence broader human function principally through nervous-system-mediated change.
 summary: Neural mediation is the proposed principal route to broader chiropractic effects; its occurrence, primacy, and particular pathways remain empirical questions.
 domain: science
 claimType: empirical
@@ -16,7 +16,7 @@ upstream:
     note: Revising S-001's integrative role would require reconsidering the proposal that neural mediation is the principal route to broader chiropractic effects; an integrative role does not demonstrate any chiropractic effect.
   - id: S-005
     role: empirical
-    note: Revising S-005's proposed chiropractic inputs and production of neuromotor change would require reconsidering the input and response account used in this neural-mediation proposal; an intended or observed neuromotor response establishes neither mediation of broader effects nor neural primacy.
+    note: Revising S-005's proposed chiropractic production of beneficial neuromotor change would require reconsidering the input and response account used in this neural-mediation proposal; a beneficial neuromotor response establishes neither mediation of broader effects nor neural primacy.
 related:
   - S-006
 version: '0.1'
@@ -27,9 +27,9 @@ whatWouldChange: >-
 
 ## Why this claim is present
 
-The Model proposes nervous-system-mediated change as the principal route by which chiropractic inputs may influence broader function. This is a chiropractic-specific empirical commitment, stronger than S-001's general integrative role. S-005's proposed input-produced neuromotor changes likewise do not establish the route to broader effects.
+The Model proposes that chiropractic inputs influence broader function and that nervous-system-mediated change is their principal route. These are empirical commitments to test, with confidence assessed separately. This chiropractic-specific proposal is stronger than S-001's general integrative role. S-005's proposed input-produced neuromotor changes likewise do not establish the route to broader effects.
 
-This hypothesis concerns broader functional effects, including effects whose net value remains unresolved. S-006 separately asks whether chiropractic-produced neuromotor changes contribute to broader net-positive benefit. Neural mediation does not make an effect beneficial, and evidence of broader benefit would not by itself establish neural mediation or its primacy. Neither hypothesis establishes the other.
+This hypothesis concerns broader functional effects, including effects whose net value remains unresolved. S-006 separately proposes that some chiropractic-produced neuromotor changes contribute to broader net-positive benefit. Neural mediation does not make an effect beneficial, and evidence of broader benefit would not by itself establish neural mediation or its primacy. Neither hypothesis establishes the other.
 
 ## Three separate empirical questions
 
@@ -45,6 +45,6 @@ This entry has not yet documented evidence establishing neural mediation or its 
 
 ## Boundary
 
-“May” preserves an unresolved empirical possibility. “Principally” proposes a main route without asserting that every effect must be exclusively neural. An immediate change establishes neither the proposed mechanism nor its durability or broader significance.
+“Principally” proposes a main route without asserting that every effect must be exclusively neural. The statement proposes an effect and its principal mediation; it does not guarantee an effect from every input or in every person. Its empirical support remains unresolved. An immediate change establishes neither the proposed mechanism nor its durability or broader significance.
 
 If this explanation fails, it must be revised; failure does not establish the impossibility of every chiropractic effect by another route. Conversely, a broader outcome observed without evidence for neural mediation would not validate this mechanism. Particular pathways and the proposed primacy of neural mediation remain revisable.

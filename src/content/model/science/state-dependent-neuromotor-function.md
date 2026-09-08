@@ -3,7 +3,7 @@ id: S-002
 slug: science/state-dependent-neuromotor-function
 title: State-dependent motor control
 claim: >-
-  Neuromotor function varies with the person's state, task, and environment; available motor strategies may be limited or poorly suited to current demands.
+  Neuromotor function varies with the person's state, task, and environment; in some circumstances, the available motor strategies are limited or poorly suited to current demands.
 summary: Motor strategies regulate muscle tone, posture, and movement in relation to current conditions. A strategy that serves one context may be limiting in another.
 domain: science
 claimType: empirical
@@ -38,6 +38,8 @@ Assessment in this domain may consider resting muscle tone, postural support, an
 Carpenter and colleagues observed increased postural stiffness under greater postural threat. Gribble and colleagues found greater co-contraction when pointing at smaller targets, alongside improved accuracy. These limited examples support variation in motor control with context and task demands. They do not establish which findings identify a constraint or an adjustment opportunity, that everyone has a constraint, or that chiropractic can change it beneficially.
 
 ## Boundary
+
+“In some circumstances” specifies where the Model proposes limited or poorly suited strategies occur. It does not assert that every strategy or person is limited. Confidence in the proposition is assessed separately.
 
 Interpretation of muscle tone, posture, or movement must account for neural activity, tissue properties, learning, effort, fatigue, pain, expectations, and measurement error. A finding alone does not identify its cause or establish a particular motor strategy. Assessment methods require reliability, construct validity, and appropriate reference conditions; v0.1 does not endorse a particular test.
 

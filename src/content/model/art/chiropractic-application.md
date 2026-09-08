@@ -13,20 +13,20 @@ order: 20
 upstream:
   - id: S-005
     role: practical
-    note: Revising S-005's proposed training use would require reconsidering how application is intended to perturb neuromotor function, even if A-001 retained its assessment strategy; intentional use does not demonstrate the mechanism or benefit.
+    note: Revising S-005's proposed perturbation-mediated beneficial effects would require reconsidering the mechanism and response application is intended to pursue, even if A-001 retained its assessment strategy; effects in some cases do not establish success for the selected input here.
   - id: A-001
     role: practical
     note: Revising A-001's working hypothesis or criteria for action would require reconsidering whether and what input is delivered; a selected input is not thereby effective, safe, or appropriate.
 related: []
 version: '0.1'
-updated: 2026-09-08
+updated: 2026-09-09
 ---
 
 ## Why this claim is present
 
 Assessment becomes action only when the working hypothesis and the person's context support proceeding. Application is that conditional practical step: the selected chiropractic input is delivered as an intentional neurobiomechanical training stimulus, with a predicted beneficial alteration of the targeted neuromotor pattern. It seeks to test the hypothesis and use the proposed opportunity for benefit.
 
-A-001 supplies the person-specific hypothesis and selection judgment. S-005 supplies the proposed intentional use of the perturbation mechanism. “Training stimulus” describes the purpose of this application; it does not mean that successful learning or beneficial reorganization has already occurred. If no available input is warranted, this step is not taken.
+A-001 supplies the person-specific hypothesis and selection judgment. S-005 supplies the proposed mechanism and beneficial neuromotor effects that application seeks to realize. “Training stimulus” describes the purpose of this application; it does not mean that successful learning or beneficial reorganization has already occurred. If no available input is warranted, this step is not taken.
 
 ## Boundary
 

@@ -4,7 +4,7 @@ slug: science/neuromotor-opportunity
 title: Neuromotor constraints and opportunities
 claim: >-
   Some motor strategies that limit functional options in a given context can be modified to improve function overall.
-summary: A neuromotor constraint is a current pattern of motor control that limits functional options relative to postural or task demands. Modifying it may offer an opportunity for net-positive functional change.
+summary: Some neuromotor constraints can be modified for net-positive functional benefit; a constraint is a current motor-control pattern that limits options relative to postural or task demands.
 domain: science
 claimType: empirical
 status: provisional
@@ -55,4 +55,4 @@ Franklin and colleagues observed changes in muscle activation and improved compe
 
 ## Boundary
 
-The statement remains an unresolved empirical possibility. Naming a pattern does not establish a distinct biological entity, its prevalence, or a way to measure it. A constraint need not offer a beneficial change, and a possible benefit need not be detectable or practically available now. Its meaning, measurement, and proposed mechanisms remain revisable independently of chiropractic terminology.
+The statement proposes a capacity for beneficial modification in some cases; confidence in that empirical proposition remains unresolved. Naming a pattern does not establish a distinct biological entity, its prevalence, or a way to measure it. A constraint need not offer a beneficial change, and a possible benefit need not be detectable or practically available now. Its meaning, measurement, and proposed mechanisms remain revisable independently of chiropractic terminology.

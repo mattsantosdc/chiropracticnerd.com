@@ -61,9 +61,12 @@ Before adding an argument:
 
 Build-time validation rejects malformed or duplicate argument IDs and slugs, missing Model references, no premises, duplicate premises, a conclusion reused as its own premise, and unknown inference kinds. Argument cycles do not enter dependency cycle detection.
 
+Every change also receives the [Model review](model-review.md), including a check that arguments use each premise's actual commitment rather than weakening it to match unresolved confidence. The npm test and build commands require a fresh recorded review. This checks review coverage; natural-language validity remains an editorial judgment.
+
 ## Common reasoning failures
 
 - **Hidden premise:** a necessary bridge is used without being stated and independently evaluated.
+- **Confidence substituted for content:** an asserted effect is paraphrased as a possibility or intention solely because evidence is unresolved, or a capacity or action condition is removed merely to sound more certain.
 - **Circular definition:** the definition assumes the conclusion or makes a finding true by how the terms are chosen.
 - **Scope mismatch:** populations, contexts, interventions, outcomes, or timescales differ across premises.
 - **Non-overlapping possibility:** two claims using `can` do not form a deductive chain when the cases or conditions in which each is true need not overlap.

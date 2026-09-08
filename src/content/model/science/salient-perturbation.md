@@ -4,7 +4,7 @@ slug: science/salient-perturbation
 title: Perturbation and neuromotor reorganization
 claim: >-
   A sufficiently salient neurobiomechanical perturbation can prompt reevaluation and reorganization of an established neuromotor strategy.
-summary: A neurobiomechanical perturbation may prompt a strategy to reorganize, without guaranteeing change or benefit.
+summary: The proposed mechanism gives a sufficiently salient neurobiomechanical perturbation the capacity to prompt strategy reorganization; it does not guarantee change or benefit.
 domain: science
 claimType: empirical
 status: provisional
@@ -37,4 +37,4 @@ This entry presents a general mechanism hypothesis without a documented claim-sp
 
 “Can” is deliberate. Reorganization is possible, not guaranteed, and may be neutral, transient, or harmful. The mechanism does not define benefit.
 
-This entry does not establish that a chiropractic input instantiates the mechanism. S-005 introduces its intentional chiropractic use; intended benefit and demonstrated benefit remain distinct.
+This entry does not establish that a chiropractic input instantiates the mechanism. S-005 separately proposes chiropractic instantiation with beneficial neuromotor effects. General capacity, chiropractic effects, and intentional use remain distinct.

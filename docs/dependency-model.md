@@ -51,6 +51,8 @@ The v0.1 graph contains 16 Model entries and 23 direct dependencies, alongside f
 
 S-006 retains dependencies on P-002 and S-005 for its net-positive benefit criterion and chiropractic-produced neuromotor changes. S-007 holds the separate neural-mediation proposal, with dependencies on S-001 and S-005. The two hypotheses are connected only by a `related` pair stored on S-007; neither hypothesis supplies a revision dependency or inferential route to the other.
 
+S-005 now directly proposes beneficial chiropractic effects through perturbation. Its P-002 dependency is conceptual: it supplies the net-positive benefit criterion, rather than justifying the intention to intervene. S-004 retains its empirical role for the proposed mechanism. The strengthened statement requires reconsidering S-006, S-007, A-001, A-002, and ARG-002 without establishing any of their additional claims.
+
 ## Future visualization
 
 A future renderer will project each dependency as a directed `upstream → downstream` edge and

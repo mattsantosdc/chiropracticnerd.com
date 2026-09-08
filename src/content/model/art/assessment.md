@@ -19,10 +19,10 @@ upstream:
     note: Revising P-003's rationale beyond symptoms would require reconsidering whether assessment can consider opportunities without symptoms or pathology; that scope does not establish an opportunity in any person.
   - id: S-003
     role: practical
-    note: Revising S-003's proposed modifiable opportunities would require reconsidering what assessment seeks to identify and act on; a general possibility does not establish detectability or present actionability.
+    note: Revising S-003's proposed modifiable opportunities would require reconsidering what assessment seeks to identify and act on; modifiability in some cases does not establish detectability or present actionability.
   - id: S-005
     role: practical
-    note: Revising S-005's intentional use and proposed effects of chiropractic inputs would require reconsidering the available inputs and predictions used in selection; it supplies no validated person-level selection rule.
+    note: Revising S-005's proposed beneficial effects of chiropractic inputs would require reconsidering the available inputs and predictions used in selection; effects in some cases supply no validated person-level selection rule.
 related: []
 version: '0.1'
 updated: 2026-09-09
@@ -32,7 +32,7 @@ updated: 2026-09-09
 
 Art begins with a limited, testable judgment about a particular person and moment. An **actionable chiropractic opportunity** is a working judgment that an available chiropractic input may presently offer enough expected net-positive value to justify proceeding. It combines a hypothesized opportunity for beneficial neuromotor change with a sufficiently supported selection of input, considered in the person's context. It names a practical judgment, not a biological entity.
 
-P-002 supplies the functional aim, P-003 allows that rationale without symptoms or pathology, S-003 proposes modifiable opportunities, and S-005 proposes intentional inputs to pursue them. ARG-002 explains why these motivate a working hypothesis while leaving detection, prediction, and selection validity unresolved. None establishes that the opportunities and effective inputs coincide in this person now.
+P-002 supplies the functional aim, P-003 allows that rationale without symptoms or pathology, S-003 proposes modifiable opportunities, and S-005 proposes beneficial neuromotor effects from some chiropractic inputs. ARG-002 explains why these motivate a working hypothesis while leaving detection, prediction, and selection validity unresolved. Even if the empirical premises are true, they do not establish that the relevant opportunity and effective input coincide in this person now.
 
 “What, if any, input” keeps non-intervention available. The assessment should identify the target, predicted response, criteria for judging benefit, and reasons for proceeding or withholding an input before observing its result. A neuromotor prediction alone cannot justify a promise of broader benefit.
 

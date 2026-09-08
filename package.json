@@ -8,6 +8,8 @@
   "scripts": {
     "dev": "astro dev",
     "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "audit:model": "node scripts/model-audit.mjs",
+    "prebuild": "node scripts/model-audit.mjs --check",
     "build": "astro build",
     "preview": "astro preview",
     "deploy": "npm run build && wrangler deploy",

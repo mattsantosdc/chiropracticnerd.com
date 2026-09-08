@@ -6,9 +6,7 @@ dependency, and argument reviews have become stale; directing a human or AI-assi
 the affected material; and stopping propagation when a reviewed downstream claim remains
 unchanged.
 
-Implementation is deferred while the Model is small. The current structural validators and
-authoring workflow remain authoritative. This plan does not add hashes, review metadata, or a
-publication gate to canonical content now.
+The incremental system described below remains deferred. A focused [Model review](model-review.md) now addresses recurring drift between propositions and confidence: the working AI agent or editor reviews the whole Model, records findings outside canonical content, and npm tests and builds reject stale or incomplete reviews. That small gate uses whole-file fingerprints, including formatting and metadata, rather than the field-level and incremental design below. The structural validators remain independently authoritative.
 
 ## Architecture decision
 
@@ -38,6 +36,8 @@ This separation preserves the existing contracts:
   natural-language reasoning.
 
 ## Review subjects
+
+The current whole-Model rubric explicitly checks whether uncertainty has been put into the proposition instead of its confidence assessment. It also checks retained scope, capacity, and action conditions, alignment across statements and explanations, and the exact premises used in arguments. Preserve these checks when implementing the more granular subjects below; automated keyword bans cannot perform this semantic review.
 
 The system should track three distinct kinds of review.
 
@@ -204,7 +204,7 @@ one argument, multiple arguments for one conclusion, an entry that is both a con
 premise, and an argument cycle. Tests should assert the exact review frontier so an overly broad
 or incomplete invalidation algorithm cannot pass unnoticed.
 
-## Implementation stages
+## Future incremental implementation stages
 
 ### 1. Read-only impact report
 

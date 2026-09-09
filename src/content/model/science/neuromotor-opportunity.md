@@ -28,7 +28,7 @@ whatWouldChange: >-
   Revise the constraint description if reliable measures cannot distinguish specified candidate patterns from task-appropriate strategies, tissue limitations, or measurement error. Narrow or reject specified opportunity hypotheses if valid, adequately sensitive prospective tests show that the patterns cannot be modified under the proposed conditions, or that changing them does not produce prespecified functional gains sufficient to outweigh relevant harms and burdens.
 ---
 
-## Why this claim is present
+## Beneficial modification of neuromotor constraints
 
 S-003 proposes that some neuromotor constraints can be modified with an overall functional benefit. The relevant patterns concern the regulation of muscle tone, postural support, and movement in the person's present context.
 
@@ -44,7 +44,7 @@ The **constraint** describes the current motor pattern. The **opportunity** is t
 
 ## Relationship to subluxation
 
-Within this Model, **subluxation** is reinterpreted through a proposed neuromotor constraint and the opportunity for beneficial change it may present. The proposed target of assessment and adjustment is a current motor-control state. This functional description does not require displacement, tissue pathology, or disease causation, and does not claim equivalence with all historical or contemporary uses of the term.
+Within this Model, **subluxation** refers to a proposed neuromotor constraint and the opportunity for beneficial change it may present. The proposed target of assessment and adjustment is a current motor-control state. This functional description does not require displacement, tissue pathology, or disease causation, and does not claim equivalence with all historical or contemporary uses of the term.
 
 A candidate constraint becomes a proposed **adjustment target** through A-001's working judgment that a particular input is sufficiently likely to offer worthwhile improvement for this person now. Defining the pattern does not establish reliable detection, responsiveness to chiropractic, or a reason to adjust every time it is observed.
 

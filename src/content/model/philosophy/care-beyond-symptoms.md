@@ -21,7 +21,7 @@ version: '0.1'
 updated: 2026-09-09
 ---
 
-## Why this claim is present
+## Functional grounds for considering care
 
 P-001 declines to treat normality or good health as an endpoint to functional potential. P-002 adopts net-positive functional improvement as a legitimate aim in its own right. On that basis, the Model does not require symptoms, injury, disease, or identifiable pathology to supply the rationale for considering chiropractic care. The structured route and its limits are recorded in ARG-004.
 

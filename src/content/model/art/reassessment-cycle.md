@@ -21,11 +21,11 @@ version: '0.1'
 updated: 2026-09-08
 ---
 
-## Why this claim is present
+## Learning from reassessment
 
 Repeating the relevant assessment after a chiropractic input turns the art into an iterative learning process. The post-application findings may support the working hypothesis, fail to support it, or suggest that the pattern or selected input was misunderstood. They then guide the decision to stop, revise the hypothesis, or consider a different input when justified. Further input is conditional, not the default response to an unchanged finding.
 
-Conceptually, the result feeds into the next A-001 cycle. It is represented here in prose rather than as an `A-003 → A-001` upstream dependency, because that arrow would create a cycle and misstate an iterative cross-link as a same-cycle dependency.
+Reassessment findings inform the working hypothesis and selection judgment in the next assessment cycle described in A-001.
 
 ## Boundary
 

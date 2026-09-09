@@ -107,6 +107,8 @@ The three text fields have distinct roles:
 
 The body explains, qualifies, or supports the statement. Keep its rationale, limits, sources, and structured reasoning visibly separate from the statement itself. Visual prominence identifies what is asserted; claim type and confidence describe how to assess it. Inclusion in the stated version identifies it as part of the working account.
 
+Write public Model and argument descriptions as self-contained accounts of the current position. Explain the claim and its reasoning without narrating earlier drafts, wording changes, retained record identities, or implementation choices. Keep editorial history and reasons for edits in commit messages, review records, or development documentation. Preserve substantive rationale, evidence limits, revision conditions, and historical source provenance when they help readers understand or evaluate the current account.
+
 ## Editing checklist
 
 Before finishing a change, verify that:

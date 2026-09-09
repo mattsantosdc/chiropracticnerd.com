@@ -17,7 +17,7 @@ whatWouldChange: >-
   Revise the scope of the claimed integrative role if studies of specified functions show that neural activity does not organize, coordinate, or regulate them as proposed, or that a different account better explains the relevant integration.
 ---
 
-## Why this claim is present
+## Integration within the whole person
 
 S-001 begins the biological account with the nervous system's integrative role: relating information about the person and environment to the organization, coordination, and regulation of function. “Central” identifies an organizing role, not a ranking that places every other biological system beneath it.
 

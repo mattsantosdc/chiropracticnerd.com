@@ -17,7 +17,7 @@ whatWouldChange: >-
   Reconsider this commitment if open-ended potential cannot be stated coherently without implying unlimited capacity or a guaranteed opportunity for improvement at every moment.
 ---
 
-## Why this claim is present
+## Open-ended potential
 
 The Model begins with a philosophical commitment about how to regard human possibilities. Being normal, healthy, or free of symptoms does not, by itself, mean that a living person has exhausted the possibility of further improvement in how they function. Functional potential concerns possibilities across changing circumstances, purposes, and stages of life.
 

@@ -23,7 +23,7 @@ whatWouldChange: >-
   Narrow or reject specified transfer hypotheses if controlled, adequately powered studies using valid measures find no net-positive broader outcomes following the proposed chiropractic-produced neuromotor changes over the relevant timescale.
 ---
 
-## Why this claim is present
+## Broader functional gains
 
 S-006 proposes a downstream causal relationship: some neuromotor changes produced by chiropractic contribute to functional gains beyond the immediate neuromotor response. Improved neuromotor function can itself be valuable under P-002; this entry proposes additional, broader gains. Whether that proposition is true remains an empirical question. “Net-positive” requires judging meaningful gains together with relevant harms, burdens, and tradeoffs, using P-002's criterion. A change in a test is not, by itself, broader health, wellness, or functional benefit.
 

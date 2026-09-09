@@ -21,7 +21,7 @@ version: '0.1'
 updated: 2026-09-09
 ---
 
-## Why this claim is present
+## Applying the selected input
 
 Assessment becomes action only when the working hypothesis and the person's context support proceeding. Application is that conditional practical step: the selected chiropractic input is delivered as an intentional neurobiomechanical training stimulus, with a predicted beneficial alteration of the targeted neuromotor pattern. It seeks to test the hypothesis and use the proposed opportunity for benefit.
 

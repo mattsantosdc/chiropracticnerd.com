@@ -23,7 +23,7 @@ whatWouldChange: >-
   Narrow or reject the proposed mechanism or beneficial-effect hypothesis if inputs selected by prespecified criteria fail to produce the predicted neuromotor changes or net-positive outcomes beyond credible comparisons in valid, adequately powered tests; intention alone would not rescue the empirical proposal.
 ---
 
-## Why this claim is present
+## Beneficial effects and intentional use
 
 This entry proposes that some chiropractic inputs instantiate S-004's perturbation mechanism and produce beneficial neuromotor change. It asserts an empirical relationship for testing. “Some” limits its scope; uncertainty about whether the proposition is true is recorded in its confidence and evidence assessment. P-002 supplies the meaning of beneficial change as net-positive improvement, not evidence that the effect occurs.
 

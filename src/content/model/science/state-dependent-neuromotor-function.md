@@ -26,7 +26,7 @@ whatWouldChange: >-
   Narrow or revise the claim if reliable observations under specified person, task, and environmental conditions fail to distinguish the proposed state-dependent limitations from ordinary variation, task requirements, or measurement error.
 ---
 
-## Why this claim is present
+## Motor strategies and current demands
 
 **Neuromotor function** encompasses the neural regulation of muscle tone, posture, and movement in interaction with the body and environment. A **motor strategy** is a pattern of muscle activation and coordination that supports posture or task performance. Its expression depends on the person's current state and the demands of the task and environment.
 

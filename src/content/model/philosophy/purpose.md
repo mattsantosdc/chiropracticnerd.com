@@ -18,7 +18,7 @@ version: '0.1'
 updated: 2026-09-09
 ---
 
-## Why this claim is present
+## Net-positive functional improvement
 
 A model of chiropractic needs an explicit aim to guide its scientific questions and practical judgments. This entry adopts a value choice: helping a person function better in ways that are beneficial overall is a legitimate aim in its own right. P-001 supplies the open-ended potential for that improvement.
 

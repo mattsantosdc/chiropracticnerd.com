@@ -27,4 +27,4 @@ This argument concerns conceptual permission to consider care, not an empirical 
 
 P-003's boundary also distinguishes a functional adjustment target from safety and comfort considerations. That distinction uses the proposed scope of adjustment explained in A-001 and ARG-002; it does not follow from this argument's philosophical premises alone.
 
-Open-ended potential across changing states does not entail an actionable opportunity now. This route neither requires a measurable imperfection in everyone nor establishes that everyone always needs or can benefit from an adjustment. No additional Model premise is introduced to force that stronger conclusion.
+Open-ended potential across changing states does not entail an actionable opportunity now. This route neither requires a measurable imperfection in everyone nor establishes that everyone always needs or can benefit from an adjustment.

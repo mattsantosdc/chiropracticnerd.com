@@ -24,7 +24,7 @@ whatWouldChange: >-
   Narrow or reject specified neural-mediation hypotheses if valid controlled studies find that the proposed neural changes do not mediate prespecified broader effects under conditions capable of detecting that mediation. Revise the principal-pathway proposal if credible causal evidence shows that competing pathways better explain those effects. Revise particular pathway proposals when their predicted temporal or causal relationships fail in suitably sensitive tests.
 ---
 
-## Why this claim is present
+## Broader effects and neural mediation
 
 The Model proposes that chiropractic inputs influence broader function and that nervous-system-mediated change is their principal route. These are empirical commitments to test, with confidence assessed separately. This chiropractic-specific proposal is stronger than S-001's general integrative role. S-005's proposed input-produced neuromotor changes likewise do not establish the route to broader effects.
 

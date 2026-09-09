@@ -27,7 +27,7 @@ version: '0.1'
 updated: 2026-09-09
 ---
 
-## Why this claim is present
+## An actionable chiropractic opportunity
 
 Art begins with a limited, testable judgment about a particular person and moment. An **actionable chiropractic opportunity** is a working judgment that an available chiropractic input may presently offer enough expected net-positive value to justify proceeding. It combines a hypothesized opportunity for beneficial neuromotor change with a sufficiently supported selection of input, considered in the person's context. It names a practical judgment, not a biological entity.
 

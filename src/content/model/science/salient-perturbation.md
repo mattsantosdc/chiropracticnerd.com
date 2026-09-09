@@ -20,13 +20,13 @@ whatWouldChange: >-
   Narrow or reject specified versions of this mechanism if perturbations meeting prospectively defined salience criteria fail to produce the predicted neuromotor reorganization in valid, adequately sensitive tests, or if competing explanations better account for the response.
 ---
 
-## Why this claim is present
+## Perturbation as a mechanism
 
 This is a general biological mechanism hypothesis. A neurobiomechanical perturbation is a disturbance involving mechanical interaction with the body and associated neural input or response. The proposal is that a disturbance sufficiently salient to the nervous system can prompt it to reevaluate and reorganize an established neuromotor strategy. “Reevaluation” describes a proposed change in control, not necessarily conscious deliberation.
 
 Natural movement, exercise, unexpected perturbation, and environmental interaction are possible settings for this mechanism. No chiropractic involvement or intention to train is required. Salience must eventually be specified independently of a successful response, so failure cannot always be explained away as an insufficiently salient input.
 
-S-004 remains an empirical root: its conceptual dependency identifies the domain being reorganized and supplies no empirical support for the mechanism. The particular processes and conditions remain revisable.
+S-002 describes the neuromotor strategies this mechanism proposes to reorganize. That description supplies no empirical support for the perturbation mechanism. The particular processes and conditions require independent evaluation.
 
 ## Current evidence
 
@@ -34,6 +34,6 @@ This entry presents a general mechanism hypothesis without a documented claim-sp
 
 ## Boundary
 
-“Can” is deliberate. Reorganization is possible, not guaranteed, and may be neutral, transient, or harmful. The mechanism does not define benefit.
+The proposed capacity does not guarantee reorganization. Reorganization may be neutral, transient, or harmful. The mechanism does not define benefit.
 
 This entry does not establish that a chiropractic input instantiates the mechanism. S-005 separately proposes chiropractic instantiation with beneficial neuromotor effects. General capacity, chiropractic effects, and intentional use remain distinct.

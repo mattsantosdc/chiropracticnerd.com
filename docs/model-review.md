@@ -1,6 +1,6 @@
 # Required Model review
 
-Every change to Model entries, structured arguments, or their governing policy requires an updated semantic audit. The working AI agent or a human editor performs the audit; a local script checks that the recorded review covers the current files. This is a focused whole-Model check for v0.1, separate from the deferred incremental engine in [review-invalidation-plan.md](review-invalidation-plan.md).
+Every change to Model entries, structured arguments, their schemas or page templates, or their governing policy requires an updated semantic audit. The working AI agent or a human editor performs the audit; a local script checks that the recorded review covers the current files. This is a focused whole-Model check for v0.1, separate from the deferred incremental engine in [review-invalidation-plan.md](review-invalidation-plan.md).
 
 ## Review rule
 
@@ -8,13 +8,15 @@ Every change to Model entries, structured arguments, or their governing policy r
 
 Read the exact statements first. For arguments, assume the premises as written and examine what follows before assessing their empirical support. Do not choose or invent stronger premises merely to make a desired conclusion follow. A completed review does not mean that the empirical premises are confirmed.
 
+**Adoption is separate from evidential confidence.** Inclusion in a Model version identifies an entry or argument as part of its current working account. Unresolved support does not make an included claim unadopted, and adoption does not establish truth or inferential validity. Review this distinction in metadata, prose, and reader-facing presentation. Model and argument records have no editorial `status` property or status badges.
+
 ## Rubric for the reviewer
 
 For every Model entry and argument, record specific findings under these five fields:
 
 1. **`proposition`:** What is actually asserted? Identify the claim type and distinguish effects, capacities, possibilities, intentions, values, and practical decisions. For arguments, inspect the exact referenced premises and conclusion.
 2. **`qualifiers`:** Explain what each material qualifier does. Does `some` limit scope, `can` assert capacity, or a condition govern action? Has an assertion become a possibility or intention merely because confidence is unresolved? Conversely, has a legitimate condition or scope limit been removed? Compare the previous and current wording; record deliberate changes in commitment.
-3. **`evidenceSeparation`:** Does confidence describe justification separately from the proposition? Does the evidence discussion match the actual claim without presenting unresolved support as established truth, falsehood, or a reason to hedge the statement automatically?
+3. **`evidenceSeparation`:** Does confidence describe justification separately from the proposition and its adoption into the Model? Does the evidence discussion match the actual claim without presenting unresolved support as established truth, falsehood, a reason to hedge the statement automatically, or a reason to treat an included claim as unadopted? Does adoption leave confidence and inference kind unchanged?
 4. **`alignment`:** Do the statement, title, summary, explanation, boundaries, and revision conditions describe the same commitment? Does an argument weaken or strengthen its premises in paraphrase? Ensure revision conditions test the asserted effect rather than only its intention or a convenient surrogate.
 5. **`inferenceAndImpact`:** Inspect direct dependencies and their limiting notes separately from arguments. Identify hidden bridges and mismatched populations, inputs, states, outcomes, or timescales. Explain why each affected downstream claim or inference changes or remains appropriate. Deductive conclusions must follow from the exact premises; methodological and practical arguments can remain defeasible even with stronger empirical premises.
 
@@ -30,6 +32,7 @@ Use `finding: consistent` when the content meets this rubric, even if its empiri
 | “When proceeding is warranted, an input is applied” | The condition governs action. Removing it changes the strategy. |
 | “Some” → “all,” or “can” → “will” | Stronger scope or guaranteed outcomes require an explicit new commitment and renewed reasoning; unresolved confidence does not license them. |
 | “Some inputs improve neuromotor function,” therefore broader net-positive benefit | Even assuming the premise true, the broader transfer requires a separate empirical bridge. |
+| An included claim has unresolved confidence, therefore is not yet a working claim | Inclusion identifies adoption into the working Model. Assess evidence separately; do not reintroduce editorial status or upgrade confidence merely because a version is published. |
 
 These are semantic questions, not forbidden-word rules. A keyword test cannot distinguish a capacity from uncertainty, or an appropriate practical condition from evasive wording.
 
@@ -46,7 +49,7 @@ There is deliberately no command that automatically approves content or rewrites
 
 ## Mechanical contract and limits
 
-The schema-1 fingerprint is SHA-256 of each file's UTF-8 text after normalizing CRLF to LF. Paths are repository-relative and sorted. All Model and argument `.md` and `.mdx` files are included, along with `AGENTS.md`, the five authoring contracts, this policy, and the audit script. Files added, removed, renamed, or edited invalidate the recorded input set. Policy or checker changes also invalidate it. The complete input set is included in the packet, and stale reports name the changed paths.
+The schema-1 fingerprint is SHA-256 of each file's UTF-8 text after normalizing CRLF to LF. Paths are repository-relative and sorted. All Model and argument `.md` and `.mdx` files are included, along with `AGENTS.md`, the five authoring contracts, this policy, the audit script, `src/content.config.ts`, and the four overview/detail page templates for Model entries and arguments. Files added, removed, renamed, or edited invalidate the recorded input set. Policy, checker, schema, or template changes also invalidate it, so a presentation-only change cannot reintroduce a misleading adoption label without renewed review. The complete input set is included in the packet, and stale reports name the changed paths.
 
 This first gate deliberately fingerprints entire files, including prose, evidence, metadata, routes, dates, and formatting. It can therefore request review for an editorial change that does not affect meaning. That conservative choice is appropriate for this small Model; field-level semantic fingerprints and incremental propagation remain deferred. Unrelated application and article changes do not invalidate this Model review.
 

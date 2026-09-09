@@ -15,10 +15,12 @@ The canonical model lives in `src/content/model/`. Each Markdown file is an indi
 - a stable model ID and URL slug
 - a typed claim and current confidence
 - explicit, typed upstream dependencies and untyped related entries
-- a working, provisional, or placeholder status
+- a version and updated date
 - rationale, boundaries, open questions, and sources where useful
 
 Structured reasoning lives separately in `src/content/arguments/`. Each argument has a permanent `ARG-###` ID, one or more Model premises, exactly one Model conclusion, a deductive or defeasible inference kind, a named reasoning scheme, and prose explaining the route and its limits.
+
+Inclusion in a version identifies entries and arguments as the Model's current working account. Adoption is separate from evidential confidence: an unresolved claim can be an adopted working claim, and inclusion does not establish empirical truth or inferential validity. Model and argument records have no editorial `status` property or public status badges. Every change is reviewed for this distinction alongside the separation of propositions from confidence.
 
 Every upstream dependency is an object containing an `id`, a `role`, and a required explanatory `note`. An edge reads `upstream → downstream` and is admitted only when materially revising the upstream entry would require the downstream claim or its intended meaning to be reconsidered. The supported roles are:
 

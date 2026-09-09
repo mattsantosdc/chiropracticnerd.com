@@ -76,7 +76,7 @@ The philosophical foundation is retained without adding an entry. The conditiona
 
 ## Focused Science audit after wording revisions
 
-Scope: retain S-001; clarify S-002's motor domain and give S-003's proposed target a concrete working description. IDs, slugs, claim types, provisional status, and unresolved confidence are preserved.
+Scope of that earlier revision: retain S-001; clarify S-002's motor domain and give S-003's proposed target a concrete working description. IDs, slugs, claim types, then-current status labels, and unresolved confidence were preserved. The later removal of editorial status is recorded below.
 
 ### Reasoning before evidence
 
@@ -100,7 +100,7 @@ S-002's direct downstream entries S-003 and S-004, S-003's direct downstream ent
 
 The initial split retained S-006's ID, route, and then-current statement about possible broader net-positive benefit from chiropractic-produced neuromotor changes. Its explanation and revision conditions were focused on causal attribution, transfer, duration, and net benefit. The neural-primacy proposal formerly in its body received its own empirical entry, S-007. Mediation, primacy, and particular neural pathways became separately inspectable questions within that proposal. The subsequent strengthening of both statements is recorded below.
 
-The scopes remain distinct. S-007 concerns broader functional effects, including effects whose net value is unresolved; it is not restricted to the beneficial transfer proposed in S-006. S-006 does not require neural mediation to be the principal pathway. Each hypothesis has independent confidence and revision conditions. Both remain provisional with unresolved confidence, and neither establishes the other. Their see-also pair is stored once on S-007 as `related`, with no dependency between them.
+The scopes remain distinct. S-007 concerns broader functional effects, including effects whose net value is unresolved; it is not restricted to the beneficial transfer proposed in S-006. S-006 does not require neural mediation to be the principal pathway. Each hypothesis has independent confidence and revision conditions. Both are working hypotheses with unresolved confidence, and neither establishes the other. Their see-also pair is stored once on S-007 as `related`, with no dependency between them.
 
 S-006 keeps its direct P-002 and S-005 dependencies. S-001 → S-006 is removed because the neural-primacy commitment it qualified has moved to S-007. S-007 directly depends on S-001's integrative account and S-005's proposed chiropractic inputs and neuromotor effects. Those dependencies identify distinct reasons for reconsideration, not an argument for neural mediation. No additional transitive dependencies or argument records are introduced. The resulting Model has 16 entries, 23 direct dependencies, and four arguments.
 
@@ -123,6 +123,14 @@ ARG-002 now quotes S-005's actual effect claim. Even assuming S-003 and S-005 tr
 The revision conditions already test effects and mechanisms, rather than intention alone. S-005 continues to require prospective selection and credible comparisons. S-006 addresses specified broader outcomes over relevant timescales; S-007 separately tests mediation and primacy against alternatives. These conditions remain appropriate to the stronger hypotheses. Finite tests can narrow or reject specified versions; they do not automatically disprove every possible effect.
 
 The explicit rule now appears in F-003, AGENTS.md, and the authoring contract. The [required Model review](model-review.md) makes checking it part of every content or policy change. `reviews/model-review.json` records an AI-assisted review of every Model entry and argument, with specific findings about propositions, qualifiers, evidence separation, alignment, and inference or revision impact. npm tests and builds check exact input coverage and reject stale, missing, malformed, or needs-revision records. That check is mechanical; it does not certify semantic correctness or empirical truth. The full incremental engine and hosted AI runner remain deferred.
+
+## Working adoption without editorial status
+
+Inclusion in v0.1 now explicitly identifies each entry and argument as part of the Model's current working account. All 16 entries and four arguments have their editorial `status` field removed, together with its schema declarations, public badges, unused styles, and validator-fixture values. No entries are excluded and no draft or publication filter is introduced. The overview states that every included statement is a working position, with evidence and confidence assessed separately; the arguments overview explains the same distinction for reasoning.
+
+All statements, summaries, confidence values, claim types, argument premise sets and conclusions, inference kinds, IDs, routes, references, and revision conditions remain unchanged. The graph retains 23 direct dependencies and one canonical related pair. F-002's explanation now distinguishes adoption from empirical truth and lists the current metadata; A-003's boundary describes reassessment as testing the working hypothesis without retaining the ambiguous provisional label. Their statements and the methodological and practical arguments remain unchanged. The indication, safety, comfort, and missed-opportunity boundaries are preserved.
+
+The semantic review rechecked all entries and arguments under the expanded adoption rule. F-003 and ARG-001 remain consistent with F-002's clarification, and ARG-003 remains consistent with A-003's revised explanation. Dependencies continue to identify revision impact rather than evidential or inferential support. Removing status neither upgrades confidence nor converts any of the four defeasible arguments into a deduction. The authoring and review contracts now require that unresolved evidence not be mistaken for non-adoption, and that adoption not be mistaken for truth or validity. The review gate now includes the collection schema and four Model/argument page templates, so changes to public labels or explanatory text require renewed review too. The current review records these findings for the exact revised inputs.
 
 ## Structured argument audit
 

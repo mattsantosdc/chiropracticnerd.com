@@ -7,7 +7,6 @@ claim: >-
 summary: The Model proposes beneficial neuromotor effects through perturbation for some chiropractic inputs; intentional training describes how inputs are used, separately from whether they work.
 domain: science
 claimType: empirical
-status: provisional
 confidence: unresolved
 order: 50
 upstream:

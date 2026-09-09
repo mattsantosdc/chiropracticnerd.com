@@ -7,7 +7,6 @@ claim: >-
 summary: Motor strategies regulate muscle tone, posture, and movement in relation to current conditions. A strategy that serves one context may be limiting in another.
 domain: science
 claimType: empirical
-status: provisional
 confidence: unresolved
 order: 20
 upstream: []

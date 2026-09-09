@@ -7,7 +7,6 @@ claim: >-
 summary: Functional improvement can provide a rationale without symptoms or pathology; whether chiropractic produces that improvement remains empirical.
 domain: philosophy
 claimType: framework
-status: provisional
 confidence: not-applicable
 order: 30
 upstream:

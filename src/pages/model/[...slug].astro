@@ -63,7 +63,6 @@ const downstream = allEntries.flatMap((candidate) =>
 			<p class="statement-label">Statement</p>
 			<h1 class="statement-text">{entry.data.claim}</h1>
 			<div class="meta-row">
-				<span class={`pill ${entry.data.status}`}>{entry.data.status}</span>
 				<span class="pill">{entry.data.claimType}</span>
 				<span class="pill">confidence: {entry.data.confidence}</span>
 				<span class="pill">v{entry.data.version}</span>

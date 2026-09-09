@@ -7,7 +7,6 @@ claim: >-
 summary: Repeating the assessment after an input provides a disciplined check on the hypothesis and informs what happens next.
 domain: art
 claimType: strategy
-status: provisional
 confidence: unresolved
 order: 30
 upstream:
@@ -30,4 +29,4 @@ Conceptually, the result feeds into the next A-001 cycle. It is represented here
 
 ## Boundary
 
-Within-cycle reassessment is a provisional test, not proof that the input caused the observed change. Natural variability, repeated testing, expectation, measurement error, and other contextual influences remain alternatives. Immediate findings also do not establish the proposed mechanism, durability, or broader net-positive function; the assessment methods and decision thresholds still require independent evaluation.
+Within-cycle reassessment tests the working hypothesis; it does not establish that the input caused the observed change. Natural variability, repeated testing, expectation, measurement error, and other contextual influences remain alternatives. Immediate findings also do not establish the proposed mechanism, durability, or broader net-positive function; the assessment methods and decision thresholds still require independent evaluation.

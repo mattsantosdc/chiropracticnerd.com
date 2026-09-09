@@ -38,11 +38,12 @@ Each Markdown record contains:
 - exactly one conclusion Model ID, which cannot also be a premise;
 - an `inferenceKind` of `deductive` or `defeasible`;
 - a named reasoning `scheme`;
-- a `working` or `provisional` status;
 - version and updated date; and
 - prose explaining the inference, assumptions, uncertainty, and important limits.
 
 The conclusion stays classified by its actual Model claim type. Do not add a `logical` claim type. Do not add a `sound` Boolean: empirical premise truth is often unresolved and must be inspected through the premise entries' confidence, evidence, and revision conditions.
+
+Inclusion in a version identifies an argument as part of the Model's current working reasoning. Arguments have no editorial `status` property. Adoption neither establishes premise truth nor settles the evaluation of the inference; a working argument can remain defeasible while its empirical premises have unresolved confidence.
 
 Mark an argument `deductive` only when the conclusion necessarily follows from the premises exactly as written. Natural-language validity is an editor-curated intellectual assertion; the software validates structure and references, not the theorem itself. Use `defeasible` when the route is inductive, abductive, causal, mechanistic, normative, or practical and may be defeated without a formal contradiction.
 

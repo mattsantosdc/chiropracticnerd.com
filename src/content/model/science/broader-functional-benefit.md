@@ -7,7 +7,6 @@ claim: >-
 summary: The Model proposes additional net-positive functional gains from some chiropractic-produced neuromotor changes; an immediate response does not establish those gains.
 domain: science
 claimType: empirical
-status: provisional
 confidence: unresolved
 order: 60
 upstream:

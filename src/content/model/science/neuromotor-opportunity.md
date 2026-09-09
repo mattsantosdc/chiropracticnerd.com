@@ -7,7 +7,6 @@ claim: >-
 summary: Some neuromotor constraints can be modified for net-positive functional benefit; a constraint is a current motor-control pattern that limits options relative to postural or task demands.
 domain: science
 claimType: empirical
-status: provisional
 confidence: unresolved
 order: 30
 upstream:

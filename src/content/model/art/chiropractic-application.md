@@ -7,7 +7,6 @@ claim: >-
 summary: A warranted input intentionally tests and acts on the assessment hypothesis; its delivery does not establish that the intended change occurs.
 domain: art
 claimType: strategy
-status: provisional
 confidence: unresolved
 order: 20
 upstream:

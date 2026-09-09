@@ -7,7 +7,6 @@ claim: >-
 summary: Functional improvement can itself provide a rationale for chiropractic care without promising a specific downstream benefit.
 domain: philosophy
 claimType: value
-status: provisional
 confidence: not-applicable
 order: 20
 upstream:

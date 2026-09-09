@@ -80,7 +80,7 @@ test('new, removed, and renamed Markdown or MDX records cannot escape the input 
 	assert.ok(issues.includes(`Unexpected review record: ${old}`));
 });
 
-test('policy and checker changes require renewed review', (t) => {
+test('policy, checker, schema, and page-template changes require renewed review', (t) => {
 	const { root, put, packet, review } = fixture(t);
 	for (const path of policyPaths) {
 		put(path, `${packet.sources[path]}New rule.`);

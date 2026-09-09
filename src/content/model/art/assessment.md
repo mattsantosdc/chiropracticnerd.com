@@ -7,7 +7,6 @@ claim: >-
 summary: Assessment asks whether an available input has enough expected value for this person now; identifying no actionable opportunity is a legitimate outcome.
 domain: art
 claimType: strategy
-status: provisional
 confidence: unresolved
 order: 10
 upstream:

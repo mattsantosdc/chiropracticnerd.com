@@ -9,7 +9,6 @@ premises:
 conclusion: P-003
 inferenceKind: defeasible
 scheme: normative scope reasoning
-status: provisional
 version: '0.1'
 updated: 2026-09-09
 ---

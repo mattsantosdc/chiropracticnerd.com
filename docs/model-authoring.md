@@ -22,6 +22,12 @@ Do not ban modal language. `Some` limits scope; `can` can assert a capacity; `wh
 
 Every change must receive the [Model review](model-review.md). It combines an AI-assisted or human semantic audit with a mechanical check that the recorded review covers the current inputs. Unresolved evidence is compatible with a completed wording review.
 
+## Working adoption and confidence
+
+Every entry and argument included in a Model version forms part of its current working account. Adoption identifies what the Model proposes and how it reasons; it does not establish empirical truth, evidential strength, or inferential validity. An empirical claim with unresolved confidence is still an adopted working claim. All entries and arguments remain open to revision.
+
+Model and argument records therefore have no editorial `status` property. Their inclusion and version identify the working account; claim type, confidence, evidence, and inference kind remain separately inspectable. Do not use unresolved evidence to describe an included claim as unadopted, or use adoption to upgrade confidence or remove defeasibility. A separate workflow for candidates or superseded material should be introduced only when it serves an actual editorial need.
+
 ## Historical continuity without historical authority
 
 Historical chiropractic sources can identify where a concept, distinction, or argument came from and provide a useful starting point for present analysis. Their historical importance does not make their claims true, complete, or binding, and citing one useful idea does not import the rest of a source's system.
@@ -56,7 +62,7 @@ If necessity is claimed, write every required premise and audit the inference fo
 
 ### 5. Do not manufacture missing premises
 
-A missing premise is a useful result of analysis. Record the gap, narrow the proposed conclusion, or add a clearly labeled provisional hypothesis only when the project is genuinely prepared to assert and test it. Never create an empirical premise solely because a desired conclusion requires it.
+A missing premise is a useful result of analysis. Record the gap, narrow the proposed conclusion, or add an explicit empirical hypothesis with its scope and confidence documented only when the project is genuinely prepared to assert and test it. Never create an empirical premise solely because a desired conclusion requires it.
 
 ### 6. Evaluate empirical premises independently
 
@@ -99,7 +105,7 @@ The three text fields have distinct roles:
 | `title` | A short name for identification and navigation. Keep it visually subordinate to the statement. |
 | `summary` | A brief explanation or orientation to the statement, displayed separately under **Summary** on the entry page. It must preserve the claim's scope and modality and must not substitute for it in reasoning. |
 
-The body explains, qualifies, or supports the statement. Keep its rationale, limits, sources, and structured reasoning visibly separate from the statement itself. Visual prominence identifies what is asserted; status, claim type, and confidence still describe how to assess it.
+The body explains, qualifies, or supports the statement. Keep its rationale, limits, sources, and structured reasoning visibly separate from the statement itself. Visual prominence identifies what is asserted; claim type and confidence describe how to assess it. Inclusion in the stated version identifies it as part of the working account.
 
 ## Editing checklist
 
@@ -114,6 +120,7 @@ Before finishing a change, verify that:
 - no proposition was silently weakened into possibility or intention solely to reflect uncertainty;
 - each retained qualification has an identified role in scope, capacity, conditions, or the intended possibility claim;
 - summaries, explanations, and argument interpretations preserve the statement's empirical commitment;
+- inclusion identifies adoption independently of confidence, with no editorial `status` field or badge and no suggestion that unresolved support makes an included claim unadopted;
 - definitions do not imply existence, causal hypotheses are not treated as proof of outcomes, and normative premises remain visibly normative;
 - every new or changed argument explains its inference and limitations;
 - empirical entries have meaningful confidence and revision conditions; and

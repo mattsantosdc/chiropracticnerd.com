@@ -19,7 +19,9 @@ Argument IDs use `ARG-###`. Model and argument IDs are permanent identities; URL
 
 Model entries in `src/content/model/` remain the canonical claims, definitions, values, framework commitments, and strategies. Direct `upstream` metadata remains the canonical acyclic revision-impact graph.
 
-Argument records in `src/content/arguments/` are now the canonical structured reasoning layer. Each contains one or more Model premises, one Model conclusion, an inference kind, a named scheme, editorial status, and explanatory prose. Arguments do not create a `logical` Model claim type and do not use a Boolean soundness field. Multiple arguments may conclude the same entry, and an entry may be both a conclusion and a premise across the hierarchy.
+Argument records in `src/content/arguments/` are now the canonical structured reasoning layer. Each contains one or more Model premises, one Model conclusion, an inference kind, a named scheme, version and updated date, and explanatory prose. Arguments do not create a `logical` Model claim type and do not use a Boolean soundness field. Multiple arguments may conclude the same entry, and an entry may be both a conclusion and a premise across the hierarchy.
+
+Inclusion in a version identifies entries and arguments as the Model's working account. Neither collection uses an editorial `status` property. Adoption remains separate from evidential confidence and inferential evaluation; it is not a claim of truth or validity.
 
 The [Argument Interchange Format](https://www.arg-tech.org/wp-content/uploads/2011/09/aif-spec.pdf) is reserved as a future interchange representation for these structured records. AIF is not the Model's reasoning methodology and is not part of current authoring or delivery. Natural-language validity remains an editor-curated judgment.
 

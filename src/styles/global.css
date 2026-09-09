@@ -49,8 +49,6 @@ main.shell { padding-block: clamp(3rem, 8vw, 7rem); }
 .card-link:hover h3 { color: var(--accent); }
 .meta-row { display: flex; flex-wrap: wrap; gap: 0.45rem; align-items: center; font-size: 0.8rem; color: var(--muted); }
 .pill { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.55rem; background: var(--surface); }
-.pill.provisional, .pill.placeholder { border-color: #d6b68f; background: #fff1df; color: #6d421f; }
-.pill.working { border-color: #a9cbbb; background: var(--accent-soft); color: #134c3d; }
 .entry-name { display: block; margin: 0 0 1rem; color: var(--muted); font-size: 0.95rem; font-weight: 500; line-height: 1.5; }
 .entry-name span { font-weight: 800; }
 .entry-statement { padding: 1.15rem; border-left: 4px solid var(--accent); background: var(--accent-soft); }

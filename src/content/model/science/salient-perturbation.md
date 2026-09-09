@@ -7,7 +7,6 @@ claim: >-
 summary: The proposed mechanism gives a sufficiently salient neurobiomechanical perturbation the capacity to prompt strategy reorganization; it does not guarantee change or benefit.
 domain: science
 claimType: empirical
-status: provisional
 confidence: unresolved
 order: 40
 upstream:

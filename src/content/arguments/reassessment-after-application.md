@@ -9,7 +9,6 @@ premises:
 conclusion: A-003
 inferenceKind: defeasible
 scheme: iterative hypothesis testing
-status: provisional
 version: '0.1'
 updated: 2026-09-08
 ---

@@ -13,6 +13,11 @@ export const policyPaths = [
 	'docs/visualization-plan.md',
 	'docs/model-review.md',
 	'scripts/model-audit.mjs',
+	'src/content.config.ts',
+	'src/pages/model/index.astro',
+	'src/pages/model/[...slug].astro',
+	'src/pages/model/arguments/index.astro',
+	'src/pages/model/arguments/[...slug].astro',
 ];
 export const rubricFields = [
 	'proposition',

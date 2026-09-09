@@ -28,6 +28,10 @@ const groups = domainOrder.map((domain) => ({
 		judgment, or strategy that can be examined, challenged, and revised.
 	</p>
 	<p class="section-intro">
+		Every statement included in this version expresses the Model’s current working position.
+		Evidence and confidence are assessed separately, and all statements remain open to revision.
+	</p>
+	<p class="section-intro">
 		Version 0.1 presents the Model’s proposed explanations and reasoning for examination.
 		Evidence appraisal is preliminary: some claims have limited supporting examples, while others
 		await review. Assessment methods, input selection, and criteria for meaningful benefit remain
@@ -61,7 +65,6 @@ const groups = domainOrder.map((domain) => ({
 							<span class="entry-read-more">Explanation and support →</span>
 						</a>
 						<div class="meta-row">
-							<span class={`pill ${entry.data.status}`}>{entry.data.status}</span>
 							<span>{entry.data.claimType}</span>
 							<span>confidence: {entry.data.confidence}</span>
 						</div>

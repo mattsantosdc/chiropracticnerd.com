@@ -7,7 +7,6 @@ claim: >-
 summary: First expose and evaluate the proposed inferential route; then test its empirical premises against reality and revise whatever fails.
 domain: framework
 claimType: framework
-status: working
 confidence: not-applicable
 order: 30
 upstream:

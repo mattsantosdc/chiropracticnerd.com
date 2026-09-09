@@ -7,7 +7,6 @@ claim: >-
 summary: Nervous-system integration is central to the Model's biological account, within an interacting whole person.
 domain: science
 claimType: empirical
-status: provisional
 confidence: unresolved
 order: 10
 upstream: []

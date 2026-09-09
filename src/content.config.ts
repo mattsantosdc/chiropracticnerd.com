@@ -33,7 +33,6 @@ const modelSchema = z
 		summary: z.string(),
 		domain: z.enum(['framework', 'philosophy', 'science', 'art']),
 		claimType: z.enum(['framework', 'definition', 'empirical', 'mixed', 'value', 'strategy']),
-		status: z.enum(['working', 'provisional', 'placeholder']),
 		confidence: z.enum(['high', 'moderate', 'low', 'unresolved', 'not-applicable']),
 		order: z.number().int().nonnegative(),
 		upstream: z.array(upstreamDependencySchema).default([]),
@@ -80,7 +79,6 @@ const argumentsCollection = defineCollection({
 			conclusion: modelIdSchema,
 			inferenceKind: z.enum(inferenceKinds),
 			scheme: z.string().trim().min(1),
-			status: z.enum(['working', 'provisional']),
 			version: z.literal('0.1'),
 			updated: z.coerce.date(),
 		})

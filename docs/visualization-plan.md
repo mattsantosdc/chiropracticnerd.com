@@ -133,7 +133,7 @@ layered layout. It will provide:
 - a whole-Model overview and a focused-neighborhood view;
 - selection by permanent Model ID with URL-addressable focus state;
 - controls to expand direct or recursive upstream and downstream connections;
-- filters for domain, dependency role, claim type, status, and confidence;
+- filters for domain, dependency role, claim type, and confidence;
 - clearly directed and role-distinguished dependency edges;
 - a detail panel containing the selected entry's claim, summary, metadata, dependency note, and
   link to its full page; and

@@ -7,7 +7,6 @@ claim: >-
 summary: Normality, good health, and absence of symptoms do not mark an endpoint to possible functional improvement.
 domain: philosophy
 claimType: framework
-status: provisional
 confidence: not-applicable
 order: 10
 upstream: []

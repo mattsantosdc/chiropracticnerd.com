@@ -7,7 +7,6 @@ claim: >-
 summary: Neural mediation is the proposed principal route to broader chiropractic effects; its occurrence, primacy, and particular pathways remain empirical questions.
 domain: science
 claimType: empirical
-status: provisional
 confidence: unresolved
 order: 70
 upstream:

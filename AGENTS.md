@@ -16,6 +16,8 @@ Only after the inferential structure is explicit should evidence be used to eval
 
 **State the proposed truth separately from confidence in it.** Use the statement to express the proposition the Model proposes; use confidence and evidence sections to express its justification. Do not add uncertainty language merely because support is unresolved. Retain qualifiers that define scope, capacity, or necessary conditions. Both weakening and strengthening a proposition require explicit reasoning; neither is an automatic response to a confidence label.
 
+**Adoption is separate from evidential confidence.** Inclusion in a Model version identifies an entry or argument as part of its current working account. Unresolved confidence does not mean a claim is unadopted, and adoption does not establish empirical truth or inferential validity. Model and argument records do not use an editorial `status` property or public status badges. Audit this distinction on every change; introduce a separate candidate or publication workflow only when it has a concrete purpose.
+
 Before changing anything in `src/content/model/` or `src/content/arguments/`, read these documents in order:
 
 1. [`docs/model-authoring.md`](docs/model-authoring.md)
@@ -43,7 +45,7 @@ Keep revision dependencies, structured arguments, empirical evidence, and causal
 
 ## Required Model review
 
-For every Model or argument change, follow [`docs/model-review.md`](docs/model-review.md). Run `npm run audit:model` to see missing or stale reviews and `npm run audit:model -- --packet` to obtain the exact current review inputs. Perform the semantic review as the working AI agent or editor, inspect the diff, and record specific findings in `reviews/model-review.json` only after reviewing the current content. Recheck all statements, their summaries and explanations, and affected dependencies and arguments. Do not refresh fingerprints merely to make tests pass, and do not treat a keyword check or an AI finding as proof of validity or empirical truth.
+For every Model or argument change, including their schemas and page templates, follow [`docs/model-review.md`](docs/model-review.md). Run `npm run audit:model` to see missing or stale reviews and `npm run audit:model -- --packet` to obtain the exact current review inputs. Perform the semantic review as the working AI agent or editor, inspect the diff, and record specific findings in `reviews/model-review.json` only after reviewing the current content. Recheck all statements, their summaries and explanations, and affected dependencies and arguments. Do not refresh fingerprints merely to make tests pass, and do not treat a keyword check or an AI finding as proof of validity or empirical truth.
 
 `npm test` and `npm run build` require a current completed review. Empirical confidence may remain unresolved; this gate concerns compliance with the authoring rule, not empirical confirmation. No separate human approval is required by this workflow. The full incremental review engine and a hosted AI runner remain deferred.
 

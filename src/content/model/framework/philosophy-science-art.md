@@ -7,7 +7,6 @@ claim: >-
 summary: Philosophy makes the proposed structure explicit, science tests its empirical burden, and art applies the best-supported understanding while informing further revision.
 domain: framework
 claimType: framework
-status: working
 confidence: not-applicable
 order: 10
 upstream: []

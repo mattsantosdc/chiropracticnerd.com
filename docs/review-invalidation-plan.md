@@ -67,7 +67,7 @@ At minimum, distinguish these payloads:
 - a **claim fingerprint** for the permanent Model ID, exact proposition, and reasoning-relevant
   classification used when the entry is a premise or conclusion; and
 - an **argument fingerprint** for the argument's identity, premise and conclusion IDs, inference
-  kind, scheme, status, summary, and explanatory prose.
+  kind, scheme, summary, and explanatory prose.
 
 The final field lists must be documented and tested before they become a publication contract.
 The first implementation should be conservative: a potentially substantive change should create
@@ -141,7 +141,7 @@ entire transitive closure forever.
    process to its entry review, incident dependencies, and referencing arguments.
 8. If an argument review finds that a route fails, record or resolve the failure for that argument.
    Do not change or invalidate the conclusion automatically; another route may support it, or its
-   status may remain unresolved.
+   evidential support may remain unresolved.
 
 For example, changing S-005 would make the S-005 → S-006, S-005 → S-007, S-005 → A-001, and
 S-005 → A-002 dependency reviews and the ARG-002 argument review stale. These direct branches must each be
@@ -221,8 +221,9 @@ selection and review workflow are tested against real revisions.
 ### 3. Publication policy
 
 Once the process is reliable, allow CI to block publication when required reviews are missing or
-stale. The policy must distinguish unreviewed change from openly provisional or unresolved
-content; publication need not imply certainty or a favorable finding.
+stale. The policy must distinguish unreviewed change from adopted working claims with unresolved
+confidence; publication need not imply certainty or a favorable finding. Adoption is identified by
+inclusion in a version, not by an editorial status property on a Model entry or argument.
 
 ### 4. AI-assisted queue processing
 

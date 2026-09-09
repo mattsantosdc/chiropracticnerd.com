@@ -11,7 +11,6 @@ premises:
 conclusion: A-001
 inferenceKind: defeasible
 scheme: practical synthesis under uncertainty
-status: provisional
 version: '0.1'
 updated: 2026-09-09
 ---

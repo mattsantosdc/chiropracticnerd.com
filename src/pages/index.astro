@@ -5,11 +5,14 @@ import { modelIdentity, siteIdentity } from '../lib/site';
 
 <Layout>
 	<p class="eyebrow">{siteIdentity.author} · {siteIdentity.name}</p>
-	<h1>Chiropractic, open for discussion.</h1>
+	<h1 class="hero-title">
+		<span>Question everything.</span>{' '}
+		<span>Adjust accordingly.</span>
+	</h1>
 	<p class="lede">
-		I’m Dr. Matt Santos, a self-proclaimed chiropractic nerd. This is where I explore the
-		philosophy, science, and art of chiropractic through writing, practical questions,
-		and the development of the Coherent Chiropractic Model.
+		I'm Dr. Matt Santos, a self-proclaimed chiropractic nerd. This is where I explore the
+		philosophy, science, and art of chiropractic, ask hard questions, and develop the
+		Coherent Chiropractic Model in public.
 	</p>
 	<div class="hero-actions">
 		<a class="button" href="/articles/">Read the articles →</a>
@@ -26,3 +29,8 @@ import { modelIdentity, siteIdentity } from '../lib/site';
 		<a href="/articles/toward-a-coherent-model-of-chiropractic/">Read the introduction: Toward a Coherent Model of Chiropractic →</a>
 	</section>
 </Layout>
+
+<style>
+	.hero-title { max-width: none; }
+	.hero-title span { display: block; }
+</style>

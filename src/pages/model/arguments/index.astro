@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
+import { modelIdentity } from '../../../lib/site';
 import { sortArguments, validateArguments } from '../../../lib/arguments.ts';
 import { sortModelEntries, validateModel } from '../../../lib/model.ts';
 
@@ -14,8 +15,8 @@ const byModelId = validateModel(entries);
 validateArguments(argumentsList, entries);
 ---
 
-<Layout title="Structured arguments" description="The explicit reasoning layer of the Chiropractic Model.">
-	<p class="eyebrow">Model v0.1 · Reasoning</p>
+<Layout title={`Structured arguments | ${modelIdentity.name}`} description="The explicit reasoning layer of the Coherent Chiropractic Model.">
+	<p class="eyebrow">{modelIdentity.name} v0.1 · Reasoning</p>
 	<h1>Structured arguments</h1>
 	<p class="lede">
 		Each record names a specific inferential route from Model premises to one conclusion.
@@ -55,5 +56,5 @@ validateArguments(argumentsList, entries);
 		</div>
 	</section>
 
-	<p><a href="/model/">← Back to the full Model</a></p>
+	<p><a href="/model/">← Back to the Coherent Chiropractic Model</a></p>
 </Layout>

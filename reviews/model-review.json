@@ -1,20 +1,21 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-09-09T03:45:46.320Z",
+  "reviewedAt": "2026-09-09T05:56:33.644Z",
   "reviewer": {
     "kind": "ai",
-    "identifier": "Codex, semantic review of current-account prose and removal of editorial history",
+    "identifier": "Codex, whole-Model semantic review of The Coherent Chiropractic Model naming and its distinction from subject-matter coherence",
     "model": "GPT-6; exact runtime revision unavailable"
   },
   "inputs": {
     "AGENTS.md": "b31ea66fedf94d992b7ba1d4923f872e0f06152b89f289655d720eeae69d9d1e",
     "docs/argument-model.md": "0dd1f21b8847713e6e1d2c13b168fef5539733f570fea13e130cfc2162b1c23d",
     "docs/dependency-model.md": "a2befd77d9a3a530750722ee30082f00bf2b8052d0fe4cd427e2ec9e0cf3e71e",
-    "docs/model-authoring.md": "dca44f8bccbf6d092de0cb3a42f179f891459bef4d419defe068bcad6a535c5e",
-    "docs/model-review.md": "29fa68789c71a201d08267c28416621f8550cff0827b41e94e52624aecc775d0",
+    "docs/model-authoring.md": "865cd88c2e4052aa40877a28ea66a3819b32e49b13416a7e535a5c38fe28a80d",
+    "docs/model-review.md": "eb3f46c2012fe15077a2744ec82f22ae89d0fa4defb2badc6fcd19c1cbd0e638",
     "docs/standards-contract.md": "109c1b6089ec977b67c319fb4dbdb12c7d5dec3039a600e2509e14738cc3f442",
     "docs/visualization-plan.md": "b4e44cce056976cfec4eca267d1f6559f2923c24a3a1c6becf0837f0da0d68d9",
-    "scripts/model-audit.mjs": "daf20ede14fc0e8396721bdbc0fa94a0a3602ad205c6ec1227569309f2572730",
+    "scripts/model-audit.mjs": "bec48223afab30d131adb3218e0a8a60b035919a8c385066e4babe9fccf0ac05",
+    "src/components/ModelAcknowledgment.astro": "a3fdced09f249e78da1b17b9b29af64a369b07d02518dad67d3f143e4d9984ed",
     "src/content.config.ts": "cf0472bd4bee72297b451b1bc9e3f2b42ea01e549ab9483c2fc8a6a9afcd2e5e",
     "src/content/arguments/assessment-as-working-hypothesis.md": "ae8f3490f806c6b71db19e2847598db0549b357e1dd69ce7b909b59515fa0ab0",
     "src/content/arguments/functional-rationale-beyond-symptoms.md": "c1fd61b9415ed4d7eb552bd80cdad7955b1fded9270be65f220fb8696f642ecf",
@@ -25,7 +26,7 @@
     "src/content/model/art/reassessment-cycle.md": "84b760bd69359746edf077b6398dbb06ddbd6695613274b83ee1a12e0f288c3d",
     "src/content/model/framework/claim-discipline.md": "7d140798061a481fb74656a45e5f81871d82a85690ad4187d3418967c335af79",
     "src/content/model/framework/explicit-reasoning-empirical-testing.md": "1fad46084715c05bdabda8476e392538e97757813c6fc9c9f9d6dc051fcd3b65",
-    "src/content/model/framework/philosophy-science-art.md": "f151c62a856937d41d455741a53027410dac3b40b8a20a263a6e1606ddce5b25",
+    "src/content/model/framework/philosophy-science-art.md": "f2f25031b34655c4337d8a3e0ce7c73dc0ad3935fe482326909a23385c306d89",
     "src/content/model/philosophy/care-beyond-symptoms.md": "fc8c1dc2ea78659ca8dca6f60f90f66a5161e45258f6060e0353a1331f800c98",
     "src/content/model/philosophy/functional-potential.md": "896250319bebb09e26fd0a2a166d35231790eb143d6006f920c562f3935cdb9c",
     "src/content/model/philosophy/purpose.md": "955df478a0feccb4a5513e98e98d6deb1e9ebdd061f574b8da8992f046cc878b",
@@ -36,10 +37,12 @@
     "src/content/model/science/neuromotor-opportunity.md": "1c29d3824c2fc2885d3d5a8465fe48ab37d4142da831ba647fb6b55b4927760b",
     "src/content/model/science/salient-perturbation.md": "0c9a42f51858f5795477a5b0db00d4a9919a064ab89e179e13ff3986815ebba8",
     "src/content/model/science/state-dependent-neuromotor-function.md": "94cde07af9b94198e24050ae1881a3dd73113903436f4a2d235cb68f424bcba0",
-    "src/pages/model/[...slug].astro": "75b57cd0a180b796482a737f1557b937001e3ff79bc4ac9ce8036b5b507721f2",
-    "src/pages/model/arguments/[...slug].astro": "e35e44ae40e9eef35e098a2563300e03ef98bfc2b7e0c5e569adeb332df82362",
-    "src/pages/model/arguments/index.astro": "6ea7d61581ee407bb8bf5dedde12ff2944fad1b29f4a4a8593a4367cd59a7e90",
-    "src/pages/model/index.astro": "26f4e26b72831f63da512a31975ca61097552ca7c45be14d12fde83157c8a9e1"
+    "src/layouts/Layout.astro": "32901a95589fda62cf5abae1854bb075d6b0b64358d3d09cde9cdeee5515ee90",
+    "src/lib/site.ts": "9798f25aca640c208fe18b9058342d25c0f93c7d0edaef3c78224bbb68643816",
+    "src/pages/model/[...slug].astro": "36c69a32a937947b2705514eb31a6e3d887da0e018c67e96748600ec0142c6b8",
+    "src/pages/model/arguments/[...slug].astro": "29cdce3892fdf584b1bf334998fc16ca28e74b3028ab6a9a954a70c9efa4cdce",
+    "src/pages/model/arguments/index.astro": "1673f8474504da94c5596c069dc2efef8ea1eeceb33a3dedc872de6b7bee90a8",
+    "src/pages/model/index.astro": "d07f69941cbefb07e53b3f2ab1452a5bc47f4a170dc1db7a915292451fca361e"
   },
   "records": {
     "src/content/arguments/assessment-as-working-hypothesis.md": {
@@ -47,7 +50,7 @@
       "proposition": "P-002, P-003, S-003, and S-005 motivate A-001’s person-specific assessment strategy through a conditional practical decision principle.",
       "qualifiers": "Some and can retain the empirical premises’ actual scope; what if any preserves withholding. The opportunities and effective inputs need not overlap in the present case.",
       "evidenceSeparation": "The effect premise is asserted independently of unresolved support. Detection, matching, selection, and benefit-risk judgment remain unvalidated rather than hidden accepted premises.",
-      "alignment": "Removed the claim about retaining ARG-002’s identity and recast the constraint discussion as its current assessment role. The definition still supplies no detection or selection evidence; all target, safety, missed-opportunity, and failure boundaries remain.",
+      "alignment": "The unchanged argument accurately states its empirical premises and preserves the adjustment-target, safety, missed-opportunity, and failure boundaries. Its newly named page still quotes canonical statements; branding supplies no selection evidence.",
       "inferenceAndImpact": "The normative decision principle and proposed adjustment scope are explicit, so the route remains defeasible. Assuming all premises true still does not establish a reliable assessment method or an actionable opportunity now."
     },
     "src/content/arguments/functional-rationale-beyond-symptoms.md": {
@@ -55,7 +58,7 @@
       "proposition": "P-001 and P-002 support P-003’s rationale beyond symptoms through normative scope reasoning about a legitimate functional aim.",
       "qualifiers": "Non-necessity concerns the rationale, not universal actionability or efficacy. Open-ended potential and a legitimate aim do not supply a present intervention opportunity.",
       "evidenceSeparation": "The adopted defeasible route contains no empirical efficacy premise. Benefits in an asymptomatic person require separately supported opportunity, input, and net-positive outcomes.",
-      "alignment": "Removed the editorial assurance that no additional premise was introduced. The preceding scope limits fully describe the present conclusion; safety and target boundaries remain explicitly distinct from what these philosophical premises establish.",
+      "alignment": "The unchanged route distinguishes a philosophical rationale from efficacy and actionability. The named argument page retains its defeasible label and exact premises and conclusion, with no historical claim used to establish the rationale.",
       "inferenceAndImpact": "The independent-aim principle is an explicit normative bridge. The exact premises do not deductively entail every scope interpretation, and the route supplies no stronger conclusion that everyone needs or benefits from an adjustment."
     },
     "src/content/arguments/methodological-synthesis.md": {
@@ -63,7 +66,7 @@
       "proposition": "F-001 and F-002 jointly motivate F-003’s explicit reasoning and independent empirical testing method.",
       "qualifiers": "Methodological synthesis does not imply that the conclusion is the only possible method or a necessary consequence of the exact premise statements.",
       "evidenceSeparation": "Adoption of this defeasible argument does not validate empirical premises or establish the truth of subject-matter conclusions.",
-      "alignment": "Unchanged prose explains the present inferential route and its limitation. It contains no revision narrative and accurately reflects all three framework entries.",
+      "alignment": "Reconsidered against F-001’s historical discussion and the revised name. Connected responsibilities and independent evaluation standards are preserved, so the unchanged paraphrase of F-001 and F-002 still motivates F-003 accurately. Coherent describes consistency across the account; the name does not prove this method or make its inference deductive.",
       "inferenceAndImpact": "The scheme stays defeasible because the responsibilities and evaluation distinctions motivate a methodological choice. No empirical bridge or dependency edge is added."
     },
     "src/content/arguments/reassessment-after-application.md": {
@@ -71,7 +74,7 @@
       "proposition": "A-001 and A-002 motivate A-003 through the practical principle of checking a predicted response before deciding what follows.",
       "qualifiers": "A warranted input triggers the sequence; comparable target and relevant conditions delimit the comparison, and further input remains conditional.",
       "evidenceSeparation": "The working argument remains defeasible and does not establish informative observations, reliable thresholds, or causal attribution.",
-      "alignment": "Unchanged prose describes current iterative reasoning. A-003’s revised explanation preserves future-cycle feedback; no historical commentary or change in the intentional premise is introduced.",
+      "alignment": "The unchanged practical sequence preserves A-002’s intention and A-003’s stopping and revision options. Updated page naming and shared authorship add no claim of reliable reassessment or causal attribution.",
       "inferenceAndImpact": "Methodological choices connect the premises to reassessment without deductive necessity. Withholding an input leaves no post-application sequence; uninformative findings do not justify repeated inputs."
     },
     "src/content/model/art/assessment.md": {
@@ -79,7 +82,7 @@
       "proposition": "Assessment develops a working hypothesis about identifying a present actionable opportunity and the most promising available input, if any.",
       "qualifiers": "Presently, can be identified, and what if any delimit a practical judgment. A real opportunity may be missed; uncertainty here concerns assessment, not a hedged effect statement.",
       "evidenceSeparation": "The adopted strategy remains unresolved in detection and selection validity. Neither symptom status nor publication establishes an opportunity or validates assessment.",
-      "alignment": "Only the heading changes. The current explanation preserves the target versus safety/comfort distinction, missed opportunities, withholding, and the need for validated methods.",
+      "alignment": "The current statement, summary, and explanation preserve actionable opportunity, withholding, missed opportunities, and safety/comfort distinctions. The new shared identity does not turn the assessment strategy into a validated method.",
       "inferenceAndImpact": "P-002, P-003, S-003, and S-005 retain distinct normative, conceptual, and practical roles. ARG-002 exposes missing person-level conditions; A-002 and A-003 remain conditional on warranted action."
     },
     "src/content/model/art/chiropractic-application.md": {
@@ -87,7 +90,7 @@
       "proposition": "A warranted selected input is applied intentionally to test and act on the working hypothesis by beneficially altering the target pattern.",
       "qualifiers": "When proceeding is warranted is a real action condition. Intended describes this application’s purpose without asserting success in every selected case.",
       "evidenceSeparation": "Application remains a working strategy with unresolved confidence. Delivery does not establish reorganization, learning, benefit, or a validated delivery protocol.",
-      "alignment": "Only the heading changes. The present account explains selection and application, with effects and intentions kept distinct; no previous formulation is narrated.",
+      "alignment": "The unchanged conditional strategy and intentional training description remain distinct from S-005’s effect hypothesis. The newly named page retains unresolved confidence, v0.1 scope, and the delivery limitations.",
       "inferenceAndImpact": "A-001 supplies selection and S-005 the proposed mechanism and response. A-003 and ARG-003 appropriately examine subsequent findings without assuming the applied input succeeded."
     },
     "src/content/model/art/reassessment-cycle.md": {
@@ -95,7 +98,7 @@
       "proposition": "Post-input assessment tests the working hypothesis and guides stopping, revision, or a different subsequent input when justified.",
       "qualifiers": "Following input and when justified govern the sequence; possible findings do not guarantee support or justify automatic repetition.",
       "evidenceSeparation": "The strategy remains adopted with unresolved confidence in measurement and thresholds. Variability, repeated testing, expectation, and error remain causal alternatives.",
-      "alignment": "The heading names learning from reassessment. The replacement paragraph explains how findings inform the next assessment cycle without describing graph implementation. The current practical sequence and causal limits are preserved.",
+      "alignment": "The unchanged explanation describes feedback to the next assessment cycle and preserves causal alternatives. The named presentation neither guarantees informative measurement nor makes further input automatic.",
       "inferenceAndImpact": "A-001 and A-002 retain their practical dependencies and ARG-003 its defeasible route. Future-cycle feedback remains prose, not a new same-cycle dependency or inferential edge."
     },
     "src/content/model/framework/claim-discipline.md": {
@@ -103,7 +106,7 @@
       "proposition": "The framework requires evaluation appropriate to claim kind and distinguishes validity, premise truth, and evidential strength.",
       "qualifiers": "Must expresses the evaluation rule; conditional discussion of deduction limits the validity and soundness analysis to the relevant argument kind.",
       "evidenceSeparation": "Inclusion identifies adoption independently of evidence. Unresolved empirical support does not imply non-adoption, and acceptance does not establish soundness.",
-      "alignment": "Unchanged prose explains the current evaluation framework and metadata without recounting a metadata migration or previous wording. Statements, summary, and explanation align.",
+      "alignment": "The current claim-type distinctions remain explicit in the unchanged entry and revised templates. Naming, authorship, and acknowledgment do not upgrade confidence or equate working adoption with truth.",
       "inferenceAndImpact": "F-001 supplies methodological responsibilities. F-003 and ARG-001 apply these distinctions without importing evidence through dependency arrows."
     },
     "src/content/model/framework/explicit-reasoning-empirical-testing.md": {
@@ -111,23 +114,23 @@
       "proposition": "The framework requires explicit premises, scope, modality, and inference before independent evaluation of empirical premises.",
       "qualifiers": "Where an inference is proposed defines scope. Some, can, and action conditions remain meaningful; the language examples explain the current rule rather than a past edit.",
       "evidenceSeparation": "Reasoning and evidence are independently inspectable. An asserted hypothesis can have unresolved support, and neither assertion nor adoption establishes truth.",
-      "alignment": "Unchanged sections explain the current method, including failure and future revision. These are methodological requirements, not a narrative of prior Model changes.",
-      "inferenceAndImpact": "F-001 and F-002 remain direct methodological inputs. ARG-001 is defeasible; no stronger scientific premise or missing bridge is created by the editorial cleanup."
+      "alignment": "The unchanged method and proposition/confidence rule align with the revised authoring guidance. The introduction now explains coherent as consistency from premises to practical conclusions, separately from subject-matter coherence. The overview retains preliminary evidence and validation limits. No conclusion is certified by the name, and the rename adds no scientific premise.",
+      "inferenceAndImpact": "F-001 and F-002 remain direct methodological inputs. ARG-001 remains a defeasible synthesis. The name and acknowledgment add neither a stronger scientific premise nor an inferential or dependency relationship."
     },
     "src/content/model/framework/philosophy-science-art.md": {
       "finding": "consistent",
       "proposition": "A framework commitment assigns connected roles to philosophy, science, and art within a revisable account.",
       "qualifiers": "Contextual application and best-supported understanding govern practice; revisability permits correction without weakening the division of responsibilities.",
       "evidenceSeparation": "Not-applicable confidence fits the framework commitment. Historical sources provide provenance, not evidence of effectiveness or authority for the entire account.",
-      "alignment": "Only the introductory heading changes. The explanation presents the current roles; the historical section identifies cited sources and the Model’s relation to them, rather than narrating Model edits.",
-      "inferenceAndImpact": "F-002 and F-003 retain methodological dependencies. ARG-001 uses these responsibilities to motivate a method defeasibly, without making philosophy a source of empirical truth."
+      "alignment": "The statement and summary are unchanged. Shorter source notes retain the precise Stephenson/Palmer and Strauss contributions. Historical roots distinguishes those contributions from the connected roles adopted here, assessed by meaning, reasoning, evidence, and practical adequacy. Removing repeated authority cautions creates no new historical or efficacy assertion; the prominent general acknowledgment gives credit without a roster or claim of endorsement.",
+      "inferenceAndImpact": "F-002 and F-003 were reconsidered as direct methodological dependents. The role assignment and independent evaluation standards are unchanged, so both remain appropriate. ARG-001 still motivates the method defeasibly; shortening historical caveats changes neither premise nor conclusion and adds no dependency."
     },
     "src/content/model/philosophy/care-beyond-symptoms.md": {
       "finding": "consistent",
       "proposition": "Symptoms and pathology are not necessary as a rationale for care; the boundary separately specifies the proposed functional adjustment target.",
       "qualifiers": "Non-necessity does not establish indication or benefit. An actual absence of a relevant opportunity prevents the proposed improvement through that target.",
       "evidenceSeparation": "The scope commitment supplies no efficacy evidence. Symptoms and pathology may affect safety and comfort without themselves identifying a constraint or adjustment opportunity.",
-      "alignment": "The descriptive heading introduces the unchanged rationale. All indication boundaries are preserved, and no retrospective commentary is needed to explain them.",
+      "alignment": "The unchanged rationale and boundary retain the distinction between symptoms as safety/comfort considerations and a functional adjustment target. The general acknowledgment does not import any historical indication or justify adjusting without an opportunity.",
       "inferenceAndImpact": "P-001 and P-002 retain conceptual and normative dependencies. ARG-004 supports the rationale only; A-001 and ARG-002 address the functional target, detection, and selection separately."
     },
     "src/content/model/philosophy/functional-potential.md": {
@@ -135,7 +138,7 @@
       "proposition": "Open-ended functional potential is a philosophical framework commitment across changing circumstances.",
       "qualifiers": "Open-ended does not imply limitless performance, inevitable improvement, or an actionable opportunity at every moment.",
       "evidenceSeparation": "Not-applicable confidence distinguishes this starting commitment from an empirical finding or evidence that chiropractic can realize a particular improvement.",
-      "alignment": "The new heading names potential directly. The explanation, boundary, and coherence-based revision condition retain the current commitment without editorial history.",
+      "alignment": "The unchanged explanation and revision condition keep open-ended potential distinct from limitless capacity and an actionable opportunity now. The new name supplies no additional premise or reason to strengthen the philosophical commitment.",
       "inferenceAndImpact": "P-002 and P-003 use conceptual scope. ARG-004 adds normative reasoning; potential alone supplies no intervention, detection, or benefit premise."
     },
     "src/content/model/philosophy/purpose.md": {
@@ -143,7 +146,7 @@
       "proposition": "Net-positive functional improvement is a legitimate aim of chiropractic care, expressed as a value judgment.",
       "qualifiers": "A legitimate aim avoids exclusivity. Net-positive requires attention to goals, risks, burdens, and tradeoffs; conditional success depends on actual improvement.",
       "evidenceSeparation": "The adopted value has not-applicable confidence. Its legitimacy supplies neither evidence of an effect nor a validated benefit score.",
-      "alignment": "Only the heading changes. The account values better function itself and separates hoped-for symptom outcomes from the functional basis for selecting an input.",
+      "alignment": "The unchanged value statement, summary, and boundary still identify functional improvement as a legitimate aim in its own right. Neither authorship nor historical continuity establishes that a selected input realizes that aim.",
       "inferenceAndImpact": "P-001 supplies conceptual scope; P-003 and A-001 use the normative aim. S-003, S-005, and S-006 use its benefit criterion conceptually. ARG-002 and ARG-004 remain defeasible."
     },
     "src/content/model/science/broader-functional-benefit.md": {
@@ -151,7 +154,7 @@
       "proposition": "Some chiropractic-produced neuromotor changes contribute causally to broader net-positive functional gains.",
       "qualifiers": "Some limits occurrence without a prevalence estimate. Broader and net-positive require additional gains and consideration of duration, harms, burdens, and tradeoffs.",
       "evidenceSeparation": "Broader beneficial transfer remains an unresolved working hypothesis. A neuromotor response, including a beneficial one, does not establish transfer.",
-      "alignment": "Only the heading changes. The explanation and revision conditions address broader benefits; comparison with S-007 explains two current hypotheses rather than the history of their split.",
+      "alignment": "The unchanged effect statement, broader-outcome explanation, evidence note, and revision conditions agree. S-007 remains a separately testable hypothesis. Coherent describes the account’s consistency and adds no pathway, outcome, or broader-transfer evidence.",
       "inferenceAndImpact": "P-002 supplies the value criterion and S-005 the input-produced changes. The single S-007 related pair remains see-also only; neither hypothesis establishes the other."
     },
     "src/content/model/science/chiropractic-inputs.md": {
@@ -159,7 +162,7 @@
       "proposition": "Some chiropractic inputs produce beneficial neuromotor change by perturbing established motor strategies, an empirical effect hypothesis.",
       "qualifiers": "Some limits occurrence. Training describes intentional use separately; selection is prospective and cannot be defined solely by observing success.",
       "evidenceSeparation": "Confidence remains unresolved. The entry documents no established chiropractic instantiation, beneficial change, or selection validity; intention does not rescue an absent effect.",
-      "alignment": "Only the heading changes. Statement, summary, explanation, boundaries, and revision conditions consistently separate actual proposed effects from intention and contain no account of previous edits.",
+      "alignment": "The unchanged statement asserts some beneficial effects, while the explanation keeps intentional training separate. The revised page retains empirical/unresolved labels, prospective selection requirements, and effect-based revision conditions.",
       "inferenceAndImpact": "P-002 supplies the benefit criterion conceptually and S-004 the mechanism empirically. S-006, S-007, A-001, A-002, and ARG-002 still require their own transfer, mediation, or person-level judgments."
     },
     "src/content/model/science/nervous-system-integration.md": {
@@ -167,7 +170,7 @@
       "proposition": "The empirical claim proposes a central integrative role for the nervous system in human function.",
       "qualifiers": "Central identifies an organizing role within interacting systems, not exclusive control, universal primacy, or beneficial value for every neural change.",
       "evidenceSeparation": "Confidence remains unresolved for the broad formulation without implying equal uncertainty about all its components. Adoption supplies no missing appraisal.",
-      "alignment": "Only the heading changes. The current integration account, limits, evidence note, and revision conditions align; comparison with S-007 concerns scope, not revision history.",
+      "alignment": "The unchanged broad integration claim, component-specific evidence limits, and revision conditions remain aligned. General credit to chiropractic predecessors does not count as a claim-specific neural evidence appraisal.",
       "inferenceAndImpact": "The entry has no upstream dependency. S-007 uses its integration account as an empirical revision dependency without treating integration as evidence of chiropractic effects or mediation."
     },
     "src/content/model/science/neural-mediation.md": {
@@ -175,7 +178,7 @@
       "proposition": "Chiropractic inputs influence broader human function principally through nervous-system-mediated change.",
       "qualifiers": "Principally proposes the main route without exclusivity, guaranteed response to every input, or necessarily beneficial value for every effect.",
       "evidenceSeparation": "Mediation and its primacy remain unresolved with no documented evidence appraisal establishing them. General integration establishes neither proposition.",
-      "alignment": "Only the heading changes. Occurrence, primacy, and particular pathways remain separate empirical questions with corresponding revision conditions; the S-006 comparison describes their present difference in scope.",
+      "alignment": "The unchanged statement, summary, and three empirical questions distinguish mediation, primacy, and particular pathways. The updated presentation preserves its unresolved confidence and distinct scope from S-006’s net-positive benefit.",
       "inferenceAndImpact": "S-001 and S-005 retain direct empirical revision roles without establishing mediation. S-006 remains related only; evidence of benefit would not establish neural primacy, and mechanism failure need not exclude every effect."
     },
     "src/content/model/science/neuromotor-opportunity.md": {
@@ -183,15 +186,15 @@
       "proposition": "Some limiting motor strategies have the capacity to be modified for overall functional benefit; the body distinguishes a constraint from an opportunity.",
       "qualifiers": "Some limits cases and can asserts capacity. A constraint may offer no beneficial, detectable, or practically available change.",
       "evidenceSeparation": "The force-field example supports modifiable motor control in those tasks without validating the constraint construct, benefit criterion, detection, or chiropractic response.",
-      "alignment": "The heading names beneficial modification. Subluxation now refers directly to the same proposed constraint and possible opportunity, preserving the functional meaning and limits without narrating reinterpretation. Revision conditions are unchanged.",
-      "inferenceAndImpact": "P-002 supplies benefit criteria and S-002 the motor-control domain. A-001 and ARG-002 still require detection and a matching input; the terminology edit establishes none of those capabilities."
+      "alignment": "The unchanged functional constraint description, modifiability hypothesis, subluxation usage, and evidence limits agree. General historical credit does not assert equivalence to every inherited use of subluxation or validate detection and responsiveness.",
+      "inferenceAndImpact": "P-002 supplies benefit criteria and S-002 the motor-control domain. A-001 and ARG-002 still require detection and a matching input; historical continuity and project naming establish none of those capabilities."
     },
     "src/content/model/science/salient-perturbation.md": {
       "finding": "consistent",
       "proposition": "A sufficiently salient neurobiomechanical perturbation has the capacity to prompt reevaluation and reorganization of a strategy.",
       "qualifiers": "Can is a capacity, not a guarantee. Salience must be specified prospectively; reorganization can be neutral, transient, or harmful.",
       "evidenceSeparation": "The mechanism remains an adopted empirical hypothesis with unresolved confidence and no documented claim-specific appraisal. Specification and evaluation remain required.",
-      "alignment": "The heading and boundary describe the mechanism directly. The replacement for empirical-root commentary explains S-002’s domain role and independent evaluation; capacity, limits, and revision conditions are preserved.",
+      "alignment": "The unchanged statement asserts capacity, with prospective salience and no guaranteed benefit. Its evidence section and revision conditions still test the mechanism; the updated project identity adds no empirical bridge to chiropractic.",
       "inferenceAndImpact": "S-002 remains a conceptual input and S-005 an empirical downstream dependency. Neither the domain description nor a general capacity establishes chiropractic instantiation or benefit; no edge changes."
     },
     "src/content/model/science/state-dependent-neuromotor-function.md": {
@@ -199,7 +202,7 @@
       "proposition": "Neuromotor function varies with state, task, and environment, with limited or poorly suited strategies occurring in some circumstances.",
       "qualifiers": "In some circumstances limits occurrence. Context-sensitive suitability does not assert that every person or motor strategy has a constraint.",
       "evidenceSeparation": "Standing and pointing examples support context-sensitive motor control, not identification of a constraint or adjustment opportunity. Confidence remains unresolved.",
-      "alignment": "The subject-focused heading introduces unchanged definitions and assessment limits. The evidence and revision conditions address the actual claim without describing prior formulations.",
+      "alignment": "The unchanged statement, definitions, limited standing/pointing examples, and revision conditions remain aligned. The project name does not establish that a context-dependent pattern is a constraint or a beneficial adjustment opportunity.",
       "inferenceAndImpact": "S-003 and S-004 retain conceptual dependencies for their neuromotor domain. State dependence supplies neither beneficial modifiability nor evidence of the perturbation mechanism."
     }
   }

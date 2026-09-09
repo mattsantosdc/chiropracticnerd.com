@@ -42,6 +42,12 @@ When using a historical source:
 
 The aim is neither deference to tradition nor novelty for its own sake. Because chiropractors are the primary audience, build from the profession's existing vocabulary and arguments when they remain useful, while avoiding the unsupported assumptions or inaccurate claims that may accompany them.
 
+Give general credit prominently and briefly in the Model overview and introductory article, without a roster of named influences. Keep specific attributions alongside the concepts they explain. Apply the standards above through precise claims and source notes; avoid repeating defensive disclaimers about historical authority throughout public descriptions.
+
+## Public identity
+
+Use **The Coherent Chiropractic Model** as the project name. “The Model” is appropriate within its own content. “Coherent” describes the consistency of the account from its premises to its practical conclusions; keep this use distinct from any concept of coherence addressed within the Model. The name does not certify logical completeness or empirical support. Attribute authorship to Dr. Matt Santos and present the Model as one project under his Chiropractic Nerd identity and Chiropractic Nerd Systems brand. Keep the introductory article titled **Toward a Coherent Model of Chiropractic**.
+
 ## Workflow for every substantive change
 
 ### 1. State the claim precisely

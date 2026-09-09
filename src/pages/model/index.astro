@@ -2,7 +2,9 @@
 import { getCollection } from 'astro:content';
 import Comments from '../../components/Comments.astro';
 import DependencyLegend from '../../components/DependencyLegend.astro';
+import ModelAcknowledgment from '../../components/ModelAcknowledgment.astro';
 import Layout from '../../layouts/Layout.astro';
+import { modelIdentity, siteIdentity } from '../../lib/site';
 import { sortArguments, validateArguments } from '../../lib/arguments.ts';
 import { domainLabels, domainOrder, sortModelEntries, validateModel } from '../../lib/model';
 
@@ -20,11 +22,14 @@ const groups = domainOrder.map((domain) => ({
 }));
 ---
 
-<Layout title="The Model" description="Version 0.1 of a public, evolving model of chiropractic.">
-	<p class="eyebrow">Model v0.1</p>
-	<h1>The Chiropractic Model</h1>
+<Layout title={modelIdentity.name} description="The Coherent Chiropractic Model by Dr. Matt Santos. Version 0.1 presents its claims, reasoning, and preliminary evidence for examination.">
+	<p class="eyebrow">A {siteIdentity.name} project · v0.1</p>
+	<h1 class="model-title">{modelIdentity.name}</h1>
+	<p class="byline">By {siteIdentity.author}</p>
+	<ModelAcknowledgment />
 	<p class="lede">
-		A public, evolving model of chiropractic. Each entry states a claim, definition, value
+		The Coherent Chiropractic Model connects philosophy, science, and art in a public, revisable account
+		of chiropractic. Each entry states a claim, definition, value
 		judgment, or strategy that can be examined, challenged, and revised.
 	</p>
 	<p class="section-intro">
@@ -78,7 +83,7 @@ const groups = domainOrder.map((domain) => ({
 
 	<Comments
 		threadId="model:general"
-		heading="Discuss the Model"
+		heading="Discuss the Coherent Chiropractic Model"
 		intro="Use this for questions and feedback on the Model’s overall structure, scope, assumptions, or approach. If your point applies to one specific entry, join the discussion on that entry instead."
 	/>
 </Layout>

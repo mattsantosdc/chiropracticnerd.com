@@ -6,9 +6,7 @@ dependency, and argument reviews have become stale; directing a human or AI-assi
 the affected material; and stopping propagation when a reviewed downstream claim remains
 unchanged.
 
-Implementation is deferred while the Model is small. The current structural validators and
-authoring workflow remain authoritative. This plan does not add hashes, review metadata, or a
-publication gate to canonical content now.
+The incremental system described below remains deferred. A focused [Model review](model-review.md) now addresses recurring drift between propositions and confidence: the working AI agent or editor reviews the whole Model, records findings outside canonical content, and npm tests and builds reject stale or incomplete reviews. That small gate uses whole-file fingerprints, including formatting and metadata, rather than the field-level and incremental design below. The structural validators remain independently authoritative.
 
 ## Architecture decision
 
@@ -39,6 +37,8 @@ This separation preserves the existing contracts:
 
 ## Review subjects
 
+The current whole-Model rubric explicitly checks whether uncertainty has been put into the proposition instead of its confidence assessment. It also checks retained scope, capacity, and action conditions, alignment across statements and explanations, and the exact premises used in arguments. Preserve these checks when implementing the more granular subjects below; automated keyword bans cannot perform this semantic review.
+
 The system should track three distinct kinds of review.
 
 | Review subject | Inputs that must remain current | Question answered |
@@ -67,7 +67,7 @@ At minimum, distinguish these payloads:
 - a **claim fingerprint** for the permanent Model ID, exact proposition, and reasoning-relevant
   classification used when the entry is a premise or conclusion; and
 - an **argument fingerprint** for the argument's identity, premise and conclusion IDs, inference
-  kind, scheme, status, summary, and explanatory prose.
+  kind, scheme, summary, and explanatory prose.
 
 The final field lists must be documented and tested before they become a publication contract.
 The first implementation should be conservative: a potentially substantive change should create
@@ -141,10 +141,12 @@ entire transitive closure forever.
    process to its entry review, incident dependencies, and referencing arguments.
 8. If an argument review finds that a route fails, record or resolve the failure for that argument.
    Do not change or invalidate the conclusion automatically; another route may support it, or its
-   status may remain unresolved.
+   evidential support may remain unresolved.
 
-For example, changing S-005 would make the S-005 → A-001 dependency review and ARG-002 argument
-review stale. If A-001 is reconsidered and remains unchanged, propagation through A-001 stops. If
+For example, changing S-005 would make the S-005 → S-006, S-005 → S-007, S-005 → A-001, and
+S-005 → A-002 dependency reviews and the ARG-002 argument review stale. These direct branches must each be
+reviewed. If A-001 is reconsidered and remains unchanged, propagation through A-001 stops; that
+does not clear the independent reviews of S-006, S-007, or A-002. If
 A-001 must be edited, its new fingerprint makes the A-001 → A-002 and A-001 → A-003 dependency
 reviews stale, makes ARG-002 stale because A-001 is its conclusion, and makes ARG-003 stale because
 A-001 is one of its premises.
@@ -202,7 +204,7 @@ one argument, multiple arguments for one conclusion, an entry that is both a con
 premise, and an argument cycle. Tests should assert the exact review frontier so an overly broad
 or incomplete invalidation algorithm cannot pass unnoticed.
 
-## Implementation stages
+## Future incremental implementation stages
 
 ### 1. Read-only impact report
 
@@ -219,8 +221,9 @@ selection and review workflow are tested against real revisions.
 ### 3. Publication policy
 
 Once the process is reliable, allow CI to block publication when required reviews are missing or
-stale. The policy must distinguish unreviewed change from openly provisional or unresolved
-content; publication need not imply certainty or a favorable finding.
+stale. The policy must distinguish unreviewed change from adopted working claims with unresolved
+confidence; publication need not imply certainty or a favorable finding. Adoption is identified by
+inclusion in a version, not by an editorial status property on a Model entry or argument.
 
 ### 4. AI-assisted queue processing
 

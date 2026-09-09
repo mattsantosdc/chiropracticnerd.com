@@ -12,6 +12,22 @@ In compact form: **propose the model → expose the premises → establish the i
 
 Do not substitute an evidence-first rationalization: gather studies, infer a broad conclusion from the literature, then construct premises afterward to make that conclusion appear to follow. Conclusions remain evidence-responsive and fully revisable, but any claimed inferential route must be inspectable independently of which conclusion the available evidence seems to favor.
 
+## State the proposition separately from confidence
+
+**Use the statement to express the proposed truth; use confidence and evidence sections to express our justification for believing it. Retain qualifications that define scope, capacity, or necessary conditions.** This applies to statements, summaries, explanations, and the wording used to interpret premises in arguments.
+
+An unresolved empirical hypothesis can directly assert that a relationship occurs. Adding `may` solely because its support is unresolved changes the proposition under examination. Likewise, describing an input as *intended* to produce an effect does not assert that it produces that effect. Make the intended empirical commitment explicit and classify it accordingly; describe intentional use separately when relevant.
+
+Do not ban modal language. `Some` limits scope; `can` can assert a capacity; `when warranted` can define a necessary condition for action. A genuine possibility hypothesis is also legitimate when that is what the Model proposes. Explain the function of each qualification instead of automatically removing it. Evidence can justify changing a proposition, but the change must be reasoned and explicit. Stronger wording does not create a valid inference or license a missing empirical bridge.
+
+Every change must receive the [Model review](model-review.md). It combines an AI-assisted or human semantic audit with a mechanical check that the recorded review covers the current inputs. Unresolved evidence is compatible with a completed wording review.
+
+## Working adoption and confidence
+
+Every entry and argument included in a Model version forms part of its current working account. Adoption identifies what the Model proposes and how it reasons; it does not establish empirical truth, evidential strength, or inferential validity. An empirical claim with unresolved confidence is still an adopted working claim. All entries and arguments remain open to revision.
+
+Model and argument records therefore have no editorial `status` property. Their inclusion and version identify the working account; claim type, confidence, evidence, and inference kind remain separately inspectable. Do not use unresolved evidence to describe an included claim as unadopted, or use adoption to upgrade confidence or remove defeasibility. A separate workflow for candidates or superseded material should be introduced only when it serves an actual editorial need.
+
 ## Historical continuity without historical authority
 
 Historical chiropractic sources can identify where a concept, distinction, or argument came from and provide a useful starting point for present analysis. Their historical importance does not make their claims true, complete, or binding, and citing one useful idea does not import the rest of a source's system.
@@ -46,7 +62,7 @@ If necessity is claimed, write every required premise and audit the inference fo
 
 ### 5. Do not manufacture missing premises
 
-A missing premise is a useful result of analysis. Record the gap, narrow the proposed conclusion, or add a clearly labeled provisional hypothesis only when the project is genuinely prepared to assert and test it. Never create an empirical premise solely because a desired conclusion requires it.
+A missing premise is a useful result of analysis. Record the gap, narrow the proposed conclusion, or add an explicit empirical hypothesis with its scope and confidence documented only when the project is genuinely prepared to assert and test it. Never create an empirical premise solely because a desired conclusion requires it.
 
 ### 6. Evaluate empirical premises independently
 
@@ -71,6 +87,8 @@ The deferred [reasoning review and invalidation plan](review-invalidation-plan.m
 content fingerprints and review attestations may later make this impact traversal semi-automatic
 without treating a hash or AI finding as proof of truth, validity, or soundness.
 
+The current [Model review](model-review.md) already checks review freshness for the whole Model. Incremental dependency propagation remains deferred; a content or policy change currently requires reconsidering the complete review.
+
 ### 9. Separate argument failure from conclusion falsity
 
 If a premise fails or a conclusion does not follow, mark that inferential route as failed or revise it. Search for alternative explanations or argument paths before declaring the conclusion false. A downstream conclusion may survive through a different argument, while a failed mechanism may leave a higher-order effect unresolved.
@@ -78,6 +96,18 @@ If a premise fails or a conclusion does not follow, mark that inferential route 
 ### 10. Preserve readability
 
 Keep the public claim and explanation understandable to an ordinary chiropractor. Structured argument records provide a deeper inspection layer; they should not turn every Model page into a symbolic-logic textbook. Define technical language and state limitations in plain terms.
+
+The three text fields have distinct roles:
+
+| Field | Role |
+| --- | --- |
+| `claim` | The actual statement of the entry: the wording readers inspect and arguments use as a premise or conclusion. Display it in full as the primary text, labeled **Statement**, on the Model overview and entry page. |
+| `title` | A short name for identification and navigation. Keep it visually subordinate to the statement. |
+| `summary` | A brief explanation or orientation to the statement, displayed separately under **Summary** on the entry page. It must preserve the claim's scope and modality and must not substitute for it in reasoning. |
+
+The body explains, qualifies, or supports the statement. Keep its rationale, limits, sources, and structured reasoning visibly separate from the statement itself. Visual prominence identifies what is asserted; claim type and confidence describe how to assess it. Inclusion in the stated version identifies it as part of the working account.
+
+Write public Model and argument descriptions as self-contained accounts of the current position. Explain the claim and its reasoning without narrating earlier drafts, wording changes, retained record identities, or implementation choices. Keep editorial history and reasons for edits in commit messages, review records, or development documentation. Preserve substantive rationale, evidence limits, revision conditions, and historical source provenance when they help readers understand or evaluate the current account.
 
 ## Editing checklist
 
@@ -89,9 +119,13 @@ Before finishing a change, verify that:
 - every relationship intended for future visualization is represented in canonical structured data rather than inferred from prose;
 - no coordinates, colors, layout ranks, collapsed state, or renderer-specific identifiers were added to canonical content;
 - no modal language was silently strengthened (`may` to `does`, `can` to `will`, or `some` to `all`);
+- no proposition was silently weakened into possibility or intention solely to reflect uncertainty;
+- each retained qualification has an identified role in scope, capacity, conditions, or the intended possibility claim;
+- summaries, explanations, and argument interpretations preserve the statement's empirical commitment;
+- inclusion identifies adoption independently of confidence, with no editorial `status` field or badge and no suggestion that unresolved support makes an included claim unadopted;
 - definitions do not imply existence, causal hypotheses are not treated as proof of outcomes, and normative premises remain visibly normative;
 - every new or changed argument explains its inference and limitations;
 - empirical entries have meaningful confidence and revision conditions; and
-- tests and the production build pass.
+- the semantic review in `reviews/model-review.json` covers the current exact inputs under [the review policy](model-review.md), and tests and the production build pass.
 
 The [v0.1 reasoning audit](model-v0.1-reasoning-audit.md) is the current worked example of applying this workflow without forcing deduction where it does not belong.

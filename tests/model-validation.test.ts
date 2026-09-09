@@ -34,7 +34,6 @@ function entry(id: string, overrides: EntryOverrides = {}) {
 			summary: `${id} summary`,
 			domain: 'framework',
 			claimType: overrides.claimType ?? 'framework',
-			status: 'working',
 			confidence: overrides.confidence ?? 'not-applicable',
 			order: 0,
 			upstream: overrides.upstream ?? [],

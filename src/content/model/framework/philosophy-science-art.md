@@ -7,7 +7,6 @@ claim: >-
 summary: Philosophy makes the proposed structure explicit, science tests its empirical burden, and art applies the best-supported understanding while informing further revision.
 domain: framework
 claimType: framework
-status: working
 confidence: not-applicable
 order: 10
 upstream: []
@@ -29,7 +28,7 @@ references:
     note: Strauss proposes that philosophy should guide chiropractic's direction without preventing its continued development. This Model draws on that revisable orientation without adopting every premise in his account.
 ---
 
-## Why this is the framework
+## Roles of Philosophy, Science, and Art
 
 Philosophy, Science, and Art are connected parts of one revisable account of chiropractic, not independent departments that may generate incompatible versions of it.
 

@@ -9,7 +9,6 @@ premises:
 conclusion: F-003
 inferenceKind: defeasible
 scheme: methodological synthesis
-status: working
 version: '0.1'
 updated: 2026-09-03
 ---

@@ -19,7 +19,9 @@ Argument IDs use `ARG-###`. Model and argument IDs are permanent identities; URL
 
 Model entries in `src/content/model/` remain the canonical claims, definitions, values, framework commitments, and strategies. Direct `upstream` metadata remains the canonical acyclic revision-impact graph.
 
-Argument records in `src/content/arguments/` are now the canonical structured reasoning layer. Each contains one or more Model premises, one Model conclusion, an inference kind, a named scheme, editorial status, and explanatory prose. Arguments do not create a `logical` Model claim type and do not use a Boolean soundness field. Multiple arguments may conclude the same entry, and an entry may be both a conclusion and a premise across the hierarchy.
+Argument records in `src/content/arguments/` are now the canonical structured reasoning layer. Each contains one or more Model premises, one Model conclusion, an inference kind, a named scheme, version and updated date, and explanatory prose. Arguments do not create a `logical` Model claim type and do not use a Boolean soundness field. Multiple arguments may conclude the same entry, and an entry may be both a conclusion and a premise across the hierarchy.
+
+Inclusion in a version identifies entries and arguments as the Model's working account. Neither collection uses an editorial `status` property. Adoption remains separate from evidential confidence and inferential evaluation; it is not a claim of truth or validity.
 
 The [Argument Interchange Format](https://www.arg-tech.org/wp-content/uploads/2011/09/aif-spec.pdf) is reserved as a future interchange representation for these structured records. AIF is not the Model's reasoning methodology and is not part of current authoring or delivery. Natural-language validity remains an editor-curated judgment.
 
@@ -52,12 +54,9 @@ Argument cycles, future objection links, or competing reasoning paths must not i
 
 Do not introduce an RDF store, SPARQL endpoint, JSON-LD export, SHACL runtime, theorem prover, full evidence ontology, or nanopublication packaging until an actual integration or independent publication use case exists. When export begins, all reserved HTTP identifiers must resolve and the generated graph must pass its SHACL shapes before publication.
 
-Content fingerprints, review attestations, incremental downstream invalidation, AI-assisted review,
-and any associated publication gate are also deferred. Their intended semantics, propagation
-rules, and implementation stages are defined in the
-[reasoning review and invalidation plan](review-invalidation-plan.md). These mechanisms track
-whether exact inputs were reviewed; they do not establish truth, validity, soundness, or
-evidential sufficiency.
+A focused [Model review](model-review.md) now records whole-file fingerprints and AI-assisted or human semantic findings outside canonical content. The npm test and build commands require the review to cover the current Model, arguments, and governing policy. These records introduce no public route, semantic identifier, or canonical content-schema change; they track review coverage, not truth, validity, soundness, or evidential sufficiency.
+
+Field-level semantic fingerprints, incremental downstream invalidation, a hosted AI review runner, and a broader publication policy remain deferred. Their intended semantics, propagation rules, and implementation stages are defined in the [reasoning review and invalidation plan](review-invalidation-plan.md).
 
 Interactive visualization is a separate, also-deferred concern. It will use a renderer-neutral
 read model derived directly from the validated Markdown collections; it does not require linked

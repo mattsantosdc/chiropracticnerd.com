@@ -49,9 +49,31 @@ main.shell { padding-block: clamp(3rem, 8vw, 7rem); }
 .card-link:hover h3 { color: var(--accent); }
 .meta-row { display: flex; flex-wrap: wrap; gap: 0.45rem; align-items: center; font-size: 0.8rem; color: var(--muted); }
 .pill { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.55rem; background: var(--surface); }
-.pill.provisional, .pill.placeholder { border-color: #d6b68f; background: #fff1df; color: #6d421f; }
-.pill.working { border-color: #a9cbbb; background: var(--accent-soft); color: #134c3d; }
-.claim { border-left: 4px solid var(--accent); padding: 0.25rem 0 0.25rem 1rem; font-size: 1.25rem; font-weight: 650; max-width: 75ch; }
+.entry-name { display: block; margin: 0 0 1rem; color: var(--muted); font-size: 0.95rem; font-weight: 500; line-height: 1.5; }
+.entry-name span { font-weight: 800; }
+.entry-statement { padding: 1.15rem; border-left: 4px solid var(--accent); background: var(--accent-soft); }
+.entry-statement .statement-label { margin: 0 0 0.65rem; color: var(--accent); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase; }
+.entry-statement .statement-text { margin: 0; max-width: 65ch; color: var(--ink); font-size: 1.12rem; font-weight: 650; line-height: 1.5; letter-spacing: -0.015em; }
+.entry-header { margin-bottom: 2.5rem; }
+.entry-header .entry-name { font-size: 1.1rem; }
+.entry-header .entry-statement { padding: clamp(1.1rem, 3vw, 2rem); }
+.entry-header .statement-text { max-width: 52ch; font-size: clamp(1.45rem, 3vw, 2.2rem); line-height: 1.35; }
+.entry-header .meta-row { margin-top: 1.5rem; }
+.model-card { display: flex; flex-direction: column; }
+.model-card .card-link { display: block; border-radius: 4px; }
+.model-card .card-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
+.model-card .card-link:hover .statement-text { color: var(--accent); }
+.model-card .entry-statement { padding: 0.85rem; }
+.entry-read-more { display: block; margin-block: 1rem; color: var(--accent); font-size: 0.85rem; font-weight: 650; }
+.model-card > .meta-row { margin-top: auto; padding-top: 0.85rem; border-top: 1px solid var(--line); }
+.entry-summary { margin-bottom: 2rem; }
+.entry-summary h2 { margin: 0 0 0.5rem; font-size: 1rem; letter-spacing: 0; }
+.entry-summary p { margin: 0 0 0.75rem; color: var(--muted); }
+.entry-summary a { font-size: 0.9rem; }
+.entry-explanation { padding-top: 1.25rem; border-top: 1px solid var(--line); scroll-margin-top: 1.5rem; }
+.entry-explanation h2 { font-size: clamp(1.2rem, 2vw, 1.6rem); }
+.supporting-label { margin: 0; color: var(--muted); font-size: 0.8rem; font-weight: 750; letter-spacing: 0.06em; text-transform: uppercase; }
+.entry-explanation > h2:first-of-type { margin-top: 1.5rem; }
 .model-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(230px, 300px); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
 .model-main { min-width: 0; }
 .model-body { min-width: 0; }
@@ -87,11 +109,11 @@ main.shell { padding-block: clamp(3rem, 8vw, 7rem); }
 .argument-structure h3 { margin-top: 1.4rem; }
 .argument-structure ol { padding-left: 1.4rem; }
 .argument-structure li { margin-block: 1rem; }
-.argument-structure blockquote { margin: 0.5rem 0 0; }
+.argument-structure .entry-name { font-size: 0.9rem; }
+.argument-structure blockquote.entry-statement { margin: 0.5rem 0 0; padding: 1rem; border-left: 4px solid var(--accent); }
 .inference-rule { display: flex; flex-wrap: wrap; gap: 0.5rem 0.8rem; align-items: center; margin: 1.5rem 0; padding: 0.75rem 1rem; border-block: 1px solid var(--line); color: var(--muted); }
 .inference-rule span { border-radius: 999px; padding: 0.15rem 0.55rem; background: var(--accent-soft); color: #134c3d; font-size: 0.78rem; font-weight: 800; }
-.argument-conclusion { padding: 0.8rem 1rem; border-left: 4px solid var(--accent); background: var(--accent-soft); }
-.argument-conclusion blockquote { color: var(--ink); }
+.argument-conclusion .statement-text { font-weight: 750; }
 .side-note { color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
 .article-page { max-width: 760px; }
 .article-header { padding-bottom: 2rem; border-bottom: 1px solid var(--line); }

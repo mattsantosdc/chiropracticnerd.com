@@ -22,6 +22,11 @@ validateArguments(argumentsList, entries);
 		Arguments are distinct from revision dependencies, and their validity is evaluated separately
 		from the empirical support for their premises.
 	</p>
+	<p class="section-intro">
+		The arguments included in this version form the Model’s current working reasoning.
+		Their inclusion does not establish the truth of their empirical premises or settle the
+		evaluation of their inferences.
+	</p>
 	<div class="meta-row" style="margin-top: 1.25rem">
 		<span class="pill">{argumentsList.length} arguments</span>
 	</div>
@@ -35,7 +40,6 @@ validateArguments(argumentsList, entries);
 						<a class="card-link" href={`/model/arguments/${argument.data.slug}/`}>
 							<div class="meta-row">
 								<span>{argument.data.id}</span>
-								<span class={`pill ${argument.data.status}`}>{argument.data.status}</span>
 								<span class="pill">{argument.data.inferenceKind}</span>
 							</div>
 							<h2>{argument.data.title}</h2>

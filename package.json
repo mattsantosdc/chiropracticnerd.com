@@ -8,11 +8,17 @@
   "scripts": {
     "dev": "astro dev",
     "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "audit:model": "node scripts/model-audit.mjs",
+    "prebuild": "node scripts/model-audit.mjs --check",
     "build": "astro build",
     "preview": "astro preview",
+    "deploy": "npm run build && wrangler deploy",
     "astro": "astro"
   },
   "dependencies": {
     "astro": "^7.2.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.129.0"
   }
 }

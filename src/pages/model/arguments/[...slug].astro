@@ -42,7 +42,6 @@ const { Content } = await render(argument);
 	<p class="eyebrow">Reasoning · {argument.data.id}</p>
 	<h1>{argument.data.title}</h1>
 	<div class="meta-row">
-		<span class={`pill ${argument.data.status}`}>{argument.data.status}</span>
 		<span class="pill">{argument.data.inferenceKind}</span>
 		<span class="pill">{argument.data.scheme}</span>
 		<span class="pill">v{argument.data.version}</span>
@@ -57,8 +56,11 @@ const { Content } = await render(argument);
 				<ol>
 					{premises.map((premise) => (
 						<li>
-							<a href={`/model/${premise.data.slug}/`}><strong>{premise.data.id}</strong>: {premise.data.title}</a>
-							<blockquote>{premise.data.claim}</blockquote>
+							<a class="entry-name" href={`/model/${premise.data.slug}/`}><strong>{premise.data.id}</strong>: {premise.data.title}</a>
+							<blockquote class="entry-statement">
+								<p class="statement-label">Statement</p>
+								<p class="statement-text">{premise.data.claim}</p>
+							</blockquote>
 						</li>
 					))}
 				</ol>
@@ -68,8 +70,11 @@ const { Content } = await render(argument);
 				</div>
 				<h3>Conclusion</h3>
 				<div class="argument-conclusion">
-					<a href={`/model/${conclusion.data.slug}/`}><strong>{conclusion.data.id}</strong>: {conclusion.data.title}</a>
-					<blockquote>{conclusion.data.claim}</blockquote>
+					<a class="entry-name" href={`/model/${conclusion.data.slug}/`}><strong>{conclusion.data.id}</strong>: {conclusion.data.title}</a>
+					<blockquote class="entry-statement">
+						<p class="statement-label">Statement</p>
+						<p class="statement-text">{conclusion.data.claim}</p>
+					</blockquote>
 				</div>
 			</section>
 

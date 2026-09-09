@@ -38,11 +38,12 @@ Each Markdown record contains:
 - exactly one conclusion Model ID, which cannot also be a premise;
 - an `inferenceKind` of `deductive` or `defeasible`;
 - a named reasoning `scheme`;
-- a `working` or `provisional` status;
 - version and updated date; and
 - prose explaining the inference, assumptions, uncertainty, and important limits.
 
 The conclusion stays classified by its actual Model claim type. Do not add a `logical` claim type. Do not add a `sound` Boolean: empirical premise truth is often unresolved and must be inspected through the premise entries' confidence, evidence, and revision conditions.
+
+Inclusion in a version identifies an argument as part of the Model's current working reasoning. Arguments have no editorial `status` property. Adoption neither establishes premise truth nor settles the evaluation of the inference; a working argument can remain defeasible while its empirical premises have unresolved confidence.
 
 Mark an argument `deductive` only when the conclusion necessarily follows from the premises exactly as written. Natural-language validity is an editor-curated intellectual assertion; the software validates structure and references, not the theorem itself. Use `defeasible` when the route is inductive, abductive, causal, mechanistic, normative, or practical and may be defeated without a formal contradiction.
 
@@ -61,9 +62,12 @@ Before adding an argument:
 
 Build-time validation rejects malformed or duplicate argument IDs and slugs, missing Model references, no premises, duplicate premises, a conclusion reused as its own premise, and unknown inference kinds. Argument cycles do not enter dependency cycle detection.
 
+Every change also receives the [Model review](model-review.md), including a check that arguments use each premise's actual commitment rather than weakening it to match unresolved confidence. The npm test and build commands require a fresh recorded review. This checks review coverage; natural-language validity remains an editorial judgment.
+
 ## Common reasoning failures
 
 - **Hidden premise:** a necessary bridge is used without being stated and independently evaluated.
+- **Confidence substituted for content:** an asserted effect is paraphrased as a possibility or intention solely because evidence is unresolved, or a capacity or action condition is removed merely to sound more certain.
 - **Circular definition:** the definition assumes the conclusion or makes a finding true by how the terms are chosen.
 - **Scope mismatch:** populations, contexts, interventions, outcomes, or timescales differ across premises.
 - **Non-overlapping possibility:** two claims using `can` do not form a deductive chain when the cases or conditions in which each is true need not overlap.

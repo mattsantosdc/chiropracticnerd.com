@@ -7,7 +7,6 @@ claim: >-
 summary: The Model separates what follows logically, whether premises are true, and how strongly evidence justifies accepting empirical claims.
 domain: framework
 claimType: framework
-status: working
 confidence: not-applicable
 order: 20
 upstream:
@@ -16,7 +15,7 @@ upstream:
     note: F-002 operationalizes F-001's division of labor by requiring support and evaluation appropriate to each kind of claim.
 related: []
 version: '0.1'
-updated: 2026-09-03
+updated: 2026-09-08
 ---
 
 ## Three separate evaluations
@@ -33,9 +32,9 @@ Because empirical premises are commonly uncertain, an argument must not be descr
 
 ## Claim kinds remain visible
 
-A definition stipulates or clarifies meaning; it does not prove that the defined phenomenon exists. An empirical claim is answerable to observation. A value judgment identifies what matters or ought to be pursued without masquerading as a scientific result. A strategy proposes what to do and may remain provisional even when its background science is strong. A mixed claim must expose its different parts rather than borrow support across categories.
+A definition stipulates or clarifies meaning; it does not prove that the defined phenomenon exists. An empirical claim is answerable to observation. A value judgment identifies what matters or ought to be pursued without masquerading as a scientific result. A strategy proposes what to do and remains open to revision even when its background science is strong. A mixed claim must expose its different parts rather than borrow support across categories.
 
-Every Model entry therefore carries a stable ID, claim type, confidence, status, revision conditions where applicable, and explicit dependencies. Structured arguments record inferential routes separately. Supporting prose should distinguish direct evidence, defeasible scientific inference, logical consequence, practical observation, and speculation whenever that distinction matters.
+Every Model entry therefore carries a stable ID, claim type, confidence, version, revision conditions where applicable, and explicit dependencies. Inclusion in a version identifies the Model's current working position; it does not establish empirical truth or evidential strength. An unresolved claim can be an adopted working claim. Structured arguments record the Model's current inferential routes separately, with their reasoning and premise support open to examination. Supporting prose should distinguish direct evidence, defeasible scientific inference, logical consequence, practical observation, and speculation whenever that distinction matters.
 
 ## Conflicts clarify
 

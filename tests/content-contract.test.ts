@@ -36,6 +36,8 @@ test('argument content stays separate from Model claim types and soundness short
 		.join('\n');
 
 	assert.doesNotMatch(modelContent, /^claimType:\s+logical\s*$/m);
+	assert.doesNotMatch(modelContent, /^status\s*:/m, 'Model adoption is represented by inclusion, not editorial status');
+	assert.doesNotMatch(argumentContent, /^status\s*:/m, 'Argument adoption is represented by inclusion, not editorial status');
 	assert.match(argumentContent, /^id:\s+ARG-\d{3}\s*$/m);
 	assert.match(argumentContent, /^inferenceKind:\s+(deductive|defeasible)\s*$/m);
 	assert.doesNotMatch(argumentContent, /^sound:\s+/m);

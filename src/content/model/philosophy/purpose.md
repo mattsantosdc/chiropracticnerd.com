@@ -1,30 +1,33 @@
 ---
 id: P-002
 slug: philosophy/chiropractic-purpose
-title: Chiropractic's purpose
+title: A functional aim of chiropractic
 claim: >-
-  Chiropractic seeks to enhance adaptability in service of the fuller expression of human potential.
-summary: The Model chooses enhanced adaptability as chiropractic's organizing purpose and human potential as its value horizon.
+  Facilitating net-positive improvement in human function is a legitimate aim of chiropractic care.
+summary: Functional improvement can itself provide a rationale for chiropractic care without promising a specific downstream benefit.
 domain: philosophy
 claimType: value
-status: provisional
 confidence: not-applicable
 order: 20
 upstream:
   - id: P-001
-    role: normative
-    note: P-001 makes adaptability salient and motivates its selection as chiropractic's organizing aim; it does not entail that purpose.
+    role: conceptual
+    note: Revising P-001's account of functional potential would require reconsidering the possibilities for improvement addressed by this aim; open-ended potential does not entail its normative legitimacy or chiropractic effectiveness.
 related: []
 version: '0.1'
-updated: 2026-08-16
+updated: 2026-09-09
 ---
 
-## Why this claim is present
+## Net-positive functional improvement
 
-A model of chiropractic needs an explicit account of what the profession is trying to do before it can choose scientific questions or judge practical strategies. This entry makes that value choice visible: chiropractic is organized around enhancing adaptability, and that aim serves a broader concern for what people are able to express and become.
+A model of chiropractic needs an explicit aim to guide its scientific questions and practical judgments. This entry adopts a value choice: helping a person function better in ways that are beneficial overall is a legitimate aim in its own right. P-001 supplies the open-ended potential for that improvement.
 
-The dependency on P-001 is normative rather than deductive. Even if adaptability is fundamental to living function, it does not follow by logic alone that chiropractic must make adaptability its purpose. The Model selects that purpose and leaves it open to criticism.
+Improved function is itself a benefit within this Model. Its value does not depend on identifying an additional consequence, such as symptom relief or a particular health outcome, or on attributing such a consequence to the functional improvement. Pursuing better function therefore need not involve promising a specific benefit beyond the improvement itself.
+
+“Net-positive” means that functional gains are worth pursuing in light of the person's goals, context, burdens, risks, and relevant tradeoffs over an appropriate timescale. More movement options or a changed test result is not automatically an improvement. Judging improvement requires an account of what counts as better function and of relevant costs and harms; v0.1 does not supply a universal score for making that judgment.
 
 ## Boundary
 
-Human potential is a value horizon, not a promised outcome or a claim that chiropractic is sufficient for flourishing. The science and art layers must still identify which aspects of adaptability chiropractic can influence, under what conditions, and with what limits.
+The Model's proposed account is that chiropractic produces benefit through improved function. A person or chiropractor may hope that this improvement leads to symptom relief, but the hoped-for outcome does not change the adjustment's physiological action or the functional basis for selecting it. The indication rests on an assessed opportunity for beneficial neuromotor change, as described in P-003. If an adjustment produces net-positive functional improvement, failure to obtain a hoped-for symptom change does not make the adjustment unsuccessful.
+
+The value of better function does not establish that a particular input improves function or justify a particular adjustment. Whether improvement occurs, whether chiropractic caused it, and whether it produces any additional specific benefit are separate empirical questions. Art must still address whether proceeding is warranted for this person now.

@@ -7,7 +7,6 @@ claim: >-
 summary: First expose and evaluate the proposed inferential route; then test its empirical premises against reality and revise whatever fails.
 domain: framework
 claimType: framework
-status: working
 confidence: not-applicable
 order: 30
 upstream:
@@ -19,7 +18,7 @@ upstream:
     note: F-002 distinguishes validity, premise truth, and epistemic strength; F-003 applies those distinctions to argument records and revision.
 related: []
 version: '0.1'
-updated: 2026-09-05
+updated: 2026-09-09
 ---
 
 ## Build the reasoning first
@@ -50,5 +49,9 @@ Failure to find supporting evidence is not automatically evidence that a claim i
 Definitions must not smuggle empirical conclusions into the Model, and normative premises must remain visibly normative rather than being presented as deductions from scientific facts.
 
 ## Scope and language
+
+Use the statement to express the proposed truth; use confidence and evidence sections to express our justification for believing it. Retain qualifications that define scope, capacity, or necessary conditions. An empirical hypothesis can be stated directly while its support remains unresolved. Do not weaken it merely to reflect uncertainty about whether it is true, and do not strengthen it merely to complete a desired argument.
+
+For example, “Some changes contribute to broader benefit” proposes that the relationship occurs in some cases. “Some changes may contribute” can instead propose only a possibility. Which proposition is intended must be decided explicitly. “Can” in a capacity claim, “some” as a scope limit, and “when warranted” in a practical strategy each carry substantive meaning. Evidence can require the proposition itself to change, but uncertainty alone should not silently replace it with a different proposition.
 
 Modal terms and quantifiers—including `can`, `may`, `sometimes`, `any`, `all`, and `under these conditions`—carry logical weight. Their populations, contexts, interventions, outcomes, and timescales must be compared before claims are linked. In particular, two existential or conditional premises cannot support a deductive chain unless the cases and conditions relevant to the inference overlap.

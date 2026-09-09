@@ -56,19 +56,29 @@ const downstream = allEntries.flatMap((candidate) =>
 ---
 
 <Layout title={entry.data.title} description={entry.data.summary}>
-	<p class="eyebrow">{domainLabels[entry.data.domain]} · {entry.data.id}</p>
-	<h1>{entry.data.title}</h1>
-	<div class="meta-row">
-		<span class={`pill ${entry.data.status}`}>{entry.data.status}</span>
-		<span class="pill">{entry.data.claimType}</span>
-		<span class="pill">confidence: {entry.data.confidence}</span>
-		<span class="pill">v{entry.data.version}</span>
-	</div>
-	<p class="claim">{entry.data.claim}</p>
+	<header class="entry-header">
+		<p class="eyebrow">{domainLabels[entry.data.domain]} · {entry.data.id}</p>
+		<p class="entry-name">{entry.data.title}</p>
+		<div class="entry-statement">
+			<p class="statement-label">Statement</p>
+			<h1 class="statement-text">{entry.data.claim}</h1>
+			<div class="meta-row">
+				<span class="pill">{entry.data.claimType}</span>
+				<span class="pill">confidence: {entry.data.confidence}</span>
+				<span class="pill">v{entry.data.version}</span>
+			</div>
+		</div>
+	</header>
 
 	<div class="model-layout">
 		<div class="model-main">
-			<article class="model-body">
+			<section class="entry-summary" aria-labelledby="entry-summary-title">
+				<h2 id="entry-summary-title">Summary</h2>
+				<p>{entry.data.summary}</p>
+				<a href="#entry-explanation">Read the explanation and support ↓</a>
+			</section>
+			<article class="model-body entry-explanation" id="entry-explanation" aria-label="Explanation and support" tabindex="-1">
+				<p class="supporting-label">Explanation and support</p>
 				<Content />
 
 				{entry.data.whatWouldChange && (

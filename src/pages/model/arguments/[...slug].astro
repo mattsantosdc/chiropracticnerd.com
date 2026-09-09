@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
+import { modelIdentity } from '../../../lib/site';
 import { sortArguments, validateArguments } from '../../../lib/arguments.ts';
 import { sortModelEntries, validateModel } from '../../../lib/model.ts';
 
@@ -38,8 +39,8 @@ const conclusion = byModelId.get(argument.data.conclusion)!;
 const { Content } = await render(argument);
 ---
 
-<Layout title={argument.data.title} description={argument.data.summary}>
-	<p class="eyebrow">Reasoning · {argument.data.id}</p>
+<Layout title={`${argument.data.title} | ${modelIdentity.name}`} description={argument.data.summary}>
+	<p class="eyebrow">{modelIdentity.name} · Reasoning · {argument.data.id}</p>
 	<h1>{argument.data.title}</h1>
 	<div class="meta-row">
 		<span class="pill">{argument.data.inferenceKind}</span>

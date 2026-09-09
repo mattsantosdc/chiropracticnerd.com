@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import Comments from '../../components/Comments.astro';
 import DependencyLegend from '../../components/DependencyLegend.astro';
 import Layout from '../../layouts/Layout.astro';
+import { modelIdentity } from '../../lib/site';
 import { sortArguments, validateArguments } from '../../lib/arguments.ts';
 import { domainLabels, getRelatedEntries, sortModelEntries, validateModel } from '../../lib/model.ts';
 
@@ -55,9 +56,9 @@ const downstream = allEntries.flatMap((candidate) =>
 );
 ---
 
-<Layout title={entry.data.title} description={entry.data.summary}>
+<Layout title={`${entry.data.title} | ${modelIdentity.name}`} description={entry.data.summary}>
 	<header class="entry-header">
-		<p class="eyebrow">{domainLabels[entry.data.domain]} · {entry.data.id}</p>
+		<p class="eyebrow">{modelIdentity.name} · {domainLabels[entry.data.domain]} · {entry.data.id}</p>
 		<p class="entry-name">{entry.data.title}</p>
 		<div class="entry-statement">
 			<p class="statement-label">Statement</p>
@@ -184,7 +185,7 @@ const downstream = allEntries.flatMap((candidate) =>
 			{downstream.length ? <ul class="dependency-list">{downstream.map(({ entry: item, dependency }) => <li><a href={`/model/${item.data.slug}/`}>{item.data.id}: {item.data.title}</a><span class="dependency-role">{dependency.role}</span><span class="dependency-note">{dependency.note}</span></li>)}</ul> : <p>No downstream entries yet.</p>}
 			{related.length > 0 && <><h2>Related</h2><ul>{related.map((item) => <li><a href={`/model/${item.data.slug}/`}>{item.data.id}: {item.data.title}</a></li>)}</ul></>}
 			<DependencyLegend />
-			<a href="/model/">← Back to the full map</a>
+			<a href="/model/">← Back to the Coherent Chiropractic Model</a>
 		</aside>
 	</div>
 </Layout>

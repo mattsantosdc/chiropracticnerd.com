@@ -1,7 +1,7 @@
 ---
 id: article-001
 slug: toward-a-coherent-model-of-chiropractic
-eyebrow: Project Introduction
+eyebrow: Coherent Chiropractic Model Introduction
 title: Toward a Coherent Model of Chiropractic
 description: Why chiropractic needs a public, revisable map that makes its assumptions, reasoning, evidence, and practical implications visible.
 ---
@@ -14,6 +14,8 @@ While I’ve spent years thinking about and refining my application of the philo
 
 1. Get my ideas on paper (or on the screen). Writing them down helps me organize them. Making my ideas public means I need to make sure they make at least a little sense, and it makes me accountable for not letting this project die.  
 2. Develop a coherent, defensible model of chiropractic that connects philosophy, science, and art, is guided by first principles and tested against reality, and makes the reasoning behind its conclusions visible.
+
+This effort is **the Coherent Chiropractic Model**. “Coherent” describes the consistency of the account from its premises to its practical conclusions.
 
 ## The Chiropractic Identity Crisis
 
@@ -68,7 +70,7 @@ A few principles will guide how I approach it:
 * **Be guided by first principles.** Make assumptions explicit, trace them toward first principles, test their empirical implications against reality, and revise them when they don’t hold up.
 * **Seek truth, not validation.** The goal is not to defend what I already believe.
 * **Conflicts clarify.** Disagreement is useful when it helps us identify where our premises, reasoning, evidence, or values diverge.
-* **Build critically from chiropractic’s history.** Begin with the profession’s existing ideas and vocabulary when they remain useful. Historical claims are neither accepted because they are traditional nor rejected because they are old; retain what withstands examination, improve what can be improved, and clearly and respectfully reject what cannot be justified.
+* **Build on chiropractic’s foundations.** Carry forward the insights of those who came before us, examine them carefully, and contribute to their continuing development.
 * **Integrate philosophy, science, and art.** Philosophy clarifies chiropractic’s questions, concepts, purposes, assumptions, and reasoning; science tests and refines its empirical premises and explanations; art applies the best-supported understanding and returns observations and questions for further revision. [See how the Model defines these roles.](/model/framework/philosophy-science-art/)
 * **Share information freely.** Ideas get better when people can examine them, challenge them, use them, and build upon them. I intend for this model to be freely accessible and shared.
 
@@ -76,7 +78,7 @@ The model itself will be more structured than these articles. Individual claims 
 
 Here is the embarrassingly incomplete first version of the map. Please judge it. Just maybe grade on a curve for now. 😅
 
-**[View Model v0.1](/model)**
+**[View the Coherent Chiropractic Model v0.1](/model/)**
 
 ## Chiropractic Nerds, Unite\!
 

@@ -1,6 +1,12 @@
 # chiropracticnerd.com
 
-A public, evolving model of chiropractic built with Astro and Markdown.
+Dr. Matt Santos's Chiropractic Nerd website, built with Astro and Markdown. It hosts articles and the Coherent Chiropractic Model, with room for other professional work.
+
+## Identity and authorship
+
+**The Coherent Chiropractic Model** is the project name, used in navigation and page titles. “Coherent” describes the consistency of the account from its premises to its practical conclusions. “The Model” remains a convenient shorthand within its own content. Dr. Matt Santos is its author. **Chiropractic Nerd** is his personal professional identity, and **Chiropractic Nerd Systems** is his professional brand. The Model is one project on the site.
+
+Shared names and authorship live in `src/lib/site.ts`. A brief acknowledgment of the generations who developed chiropractic appears prominently on the Model overview and its introductory article, whose title remains **Toward a Coherent Model of Chiropractic**. Specific source contributions belong with the relevant claims. Naming and presentation do not change published IDs, routes, discussion identities, or the Model's v0.1 scope.
 
 ## Core reasoning method
 

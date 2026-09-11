@@ -12,12 +12,12 @@ order: 10
 upstream: []
 related: []
 version: '0.1'
-updated: 2026-09-03
+updated: 2026-09-09
 references:
   - title: Chiropractic Textbook
     url: https://archive.org/details/GBMN079/page/n15/mode/2up
     kind: historical
-    note: Stephenson presents an attributed Palmer definition of chiropractic as a philosophy, science, and art and describes their respective concerns as why, what, and how. This establishes historical provenance, not the correctness of this Model's reconstruction.
+    note: Stephenson presents an attributed Palmer definition of chiropractic as a philosophy, science, and art and describes their respective concerns as why, what, and how.
   - title: "Rightly Dividing the Word of Truth: Drawing the Lines Between Chiropractic, Medicine, and Theology"
     url: https://josephbstrauss.com/rightly-dividing-the-word-of-truth-drawing-the-lines-between-chiropractic-medicine-and-theology/
     kind: historical
@@ -25,7 +25,7 @@ references:
   - title: "Chiropractic Philosophy: Chain, Anchor or Rudder"
     url: https://josephbstrauss.com/chiropractic-philosophy-chain-anchor-or-rudder/
     kind: historical
-    note: Strauss proposes that philosophy should guide chiropractic's direction without preventing its continued development. This Model draws on that revisable orientation without adopting every premise in his account.
+    note: Strauss proposes that philosophy should guide chiropractic's direction without preventing its continued development.
 ---
 
 ## Roles of Philosophy, Science, and Art
@@ -46,10 +46,8 @@ First principles help make the Model's concepts, assumptions, values, and propos
 
 The flow is iterative: philosophy makes the proposal inspectable, science tests its empirical burden, art applies the best-supported understanding, and evidence or observations may require the proposal and its consequences to be revised.
 
-## Historical starting point and boundary
+## Historical roots
 
 The philosophy-science-art triad is a longstanding organizing vocabulary in chiropractic. Stephenson's 1927 *Chiropractic Textbook* presents an attributed Palmer definition of chiropractic as a philosophy, science, and art, then describes science as addressing what, art how, and philosophy why. Strauss later treated the three as distinguishable but overlapping aspects and argued that their displayed positions do not determine their importance. His image of philosophy as a rudder rather than an anchor also offers a useful precedent for continuity through revision.
 
-These sources establish where the conversation has been, not that the inherited account is correct or complete. This Model retains the triad because it offers a recognizable and useful starting structure, then evaluates the claims associated with it. Elements may be kept, clarified, modified, or rejected according to their meaning, reasoning, empirical support, and practical adequacy. Citing a useful historical idea does not import the source's other philosophical or empirical commitments.
-
-The displayed philosophy-science-art order is therefore a working methodological arrangement, not a ranking, a claim that historical writers used the terms consistently, or a one-way account of learning. Historical claims that cannot be accepted should be identified precisely and criticized clearly and respectfully rather than dismissed merely because they are old.
+The Model builds on this triad through the connected roles described above, evaluating each claim by its meaning, reasoning, empirical support, and practical adequacy. The philosophy-science-art order describes a method of inquiry; learning and revision move among all three.

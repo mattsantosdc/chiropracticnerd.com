@@ -1,24 +1,36 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { modelIdentity, siteIdentity } from '../lib/site';
 ---
 
 <Layout>
-	<p class="eyebrow">Guided by first principles. Tested against reality.</p>
-	<h1>A map of chiropractic, with the reasoning left visible.</h1>
+	<p class="eyebrow">{siteIdentity.author} · {siteIdentity.name}</p>
+	<h1 class="hero-title">
+		<span>Question everything.</span>{' '}
+		<span>Adjust accordingly.</span>
+	</h1>
 	<p class="lede">
-		Chiropractic Nerd is building a public, revisable model that connects
-		philosophy, science, and art with real-world practice. Version 0.1 is a
-		first pass. The goal is to make the reasoning visible early, learn from
-		what survives scrutiny, and refine the model as we go.
+		I'm Dr. Matt Santos, a self-proclaimed chiropractic nerd. This is where I explore the
+		philosophy, science, and art of chiropractic, ask hard questions, and develop the
+		Coherent Chiropractic Model in public.
 	</p>
 	<div class="hero-actions">
-		<a class="button" href="/articles/toward-a-coherent-model-of-chiropractic/">
-			Start here: Read the introduction →
-		</a>
-		<a class="button secondary" href="/model/">Explore Model v0.1 →</a>
+		<a class="button" href="/articles/">Read the articles →</a>
+		<a class="button secondary" href="/model/">Explore the Coherent Chiropractic Model →</a>
 	</div>
-	<p class="action-note">
-		New to the project? The introduction explains why the model exists and how to read it.
-		If you already have the context, you can go directly to the model.
-	</p>
+	<section aria-labelledby="featured-model-title">
+		<p class="eyebrow">A {siteIdentity.name} project · v0.1</p>
+		<h2 id="featured-model-title">{modelIdentity.name}</h2>
+		<p class="section-intro">
+			Guided by first principles and tested against reality, the Coherent Chiropractic Model sets out
+			an account of chiropractic with its claims, reasoning, evidence, and practical implications
+			open to examination. Version 0.1 makes the proposed structure visible as the work develops.
+		</p>
+		<a href="/articles/toward-a-coherent-model-of-chiropractic/">Read the introduction: Toward a Coherent Model of Chiropractic →</a>
+	</section>
 </Layout>
+
+<style>
+	.hero-title { max-width: none; }
+	.hero-title span { display: block; }
+</style>

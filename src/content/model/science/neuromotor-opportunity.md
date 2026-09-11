@@ -1,5 +1,5 @@
 ---
-id: S-003
+id: M-009
 slug: science/neuromotor-opportunity
 title: Neuromotor constraints and opportunities
 claim: >-
@@ -10,12 +10,12 @@ claimType: empirical
 confidence: unresolved
 order: 30
 upstream:
-  - id: P-002
+  - id: M-005
     role: conceptual
-    note: Revising P-002's meaning of net-positive improvement would change what counts as a beneficial opportunity here; the value criterion supplies no evidence that such opportunities exist.
-  - id: S-002
+    note: Revising M-005's meaning of net-positive improvement would change what counts as a beneficial opportunity here; the value criterion supplies no evidence that such opportunities exist.
+  - id: M-008
     role: conceptual
-    note: Revising S-002's state-dependent neuromotor domain would require reconsidering the states and limitations addressed here; state dependence alone establishes neither modifiability nor net-positive change.
+    note: Revising M-008's state-dependent neuromotor domain would require reconsidering the states and limitations addressed here; state dependence alone establishes neither modifiability nor net-positive change.
 related: []
 version: '0.1'
 updated: 2026-09-09
@@ -30,7 +30,7 @@ whatWouldChange: >-
 
 ## Beneficial modification of neuromotor constraints
 
-S-003 proposes that some neuromotor constraints can be modified with an overall functional benefit. The relevant patterns concern the regulation of muscle tone, postural support, and movement in the person's present context.
+M-009 proposes that some neuromotor constraints can be modified with an overall functional benefit. The relevant patterns concern the regulation of muscle tone, postural support, and movement in the person's present context.
 
 ## What is a neuromotor constraint?
 
@@ -40,13 +40,13 @@ An illustrative candidate is a sustained pattern of muscular co-contraction that
 
 ## From constraint to opportunity
 
-The **constraint** describes the current motor pattern. The **opportunity** is the possibility that modifying it would improve function overall. That additional claim requires evidence of both modifiability and worthwhile improvement. Functional gains must be considered alongside relevant harms, burdens, and tradeoffs, consistent with P-002. More options or a changed test result is not automatically better function.
+The **constraint** describes the current motor pattern. The **opportunity** is the possibility that modifying it would improve function overall. That additional claim requires evidence of both modifiability and worthwhile improvement. Functional gains must be considered alongside relevant harms, burdens, and tradeoffs, consistent with M-005. More options or a changed test result is not automatically better function.
 
 ## Relationship to subluxation
 
 Within this Model, **subluxation** refers to a proposed neuromotor constraint and the opportunity for beneficial change it may present. The proposed target of assessment and adjustment is a current motor-control state. This functional description does not require displacement, tissue pathology, or disease causation, and does not claim equivalence with all historical or contemporary uses of the term.
 
-A candidate constraint becomes a proposed **adjustment target** through A-001's working judgment that a particular input is sufficiently likely to offer worthwhile improvement for this person now. Defining the pattern does not establish reliable detection, responsiveness to chiropractic, or a reason to adjust every time it is observed.
+A candidate constraint becomes a proposed **adjustment target** through M-014's working judgment that a particular input is sufficiently likely to offer worthwhile improvement for this person now. Defining the pattern does not establish reliable detection, responsiveness to chiropractic, or a reason to adjust every time it is observed.
 
 ## Current evidence
 

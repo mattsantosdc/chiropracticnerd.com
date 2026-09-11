@@ -2,6 +2,7 @@ import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { inferenceKinds } from './lib/arguments.ts';
 import { dependencyRoles } from './lib/dependencies.ts';
+import { modelIdPattern } from './lib/identifiers.ts';
 import { isReservedModelSlug } from './lib/model.ts';
 
 const referenceSchema = z.object({
@@ -11,7 +12,7 @@ const referenceSchema = z.object({
 	note: z.string().optional(),
 });
 
-const modelIdSchema = z.string().regex(/^[A-Z]-\d{3}$/);
+const modelIdSchema = z.string().regex(modelIdPattern);
 
 const upstreamDependencySchema = z.object({
 	id: modelIdSchema,

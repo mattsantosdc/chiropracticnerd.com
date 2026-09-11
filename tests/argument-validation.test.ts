@@ -48,8 +48,8 @@ function argument(overrides: ArgumentOverrides = {}) {
 			slug: overrides.slug ?? `route-for-${id.toLowerCase()}`,
 			title: id,
 			summary: `${id} summary`,
-			premises: overrides.premises ?? ['F-001'],
-			conclusion: overrides.conclusion ?? 'F-002',
+			premises: overrides.premises ?? ['M-001'],
+			conclusion: overrides.conclusion ?? 'M-002',
 			inferenceKind: overrides.inferenceKind ?? 'defeasible',
 			scheme: 'test scheme',
 			version: '0.1',
@@ -58,7 +58,7 @@ function argument(overrides: ArgumentOverrides = {}) {
 	} as unknown as ArgumentEntry;
 }
 
-const models = [modelEntry('F-001'), modelEntry('F-002'), modelEntry('F-003')];
+const models = [modelEntry('M-001'), modelEntry('M-002'), modelEntry('M-003')];
 
 describe('argument vocabulary and identity', () => {
 	test('recognizes only the initial inference kinds', () => {
@@ -108,42 +108,42 @@ describe('argument references', () => {
 			/requires at least one premise/,
 		);
 		assert.throws(
-			() => validateArguments([argument({ premises: ['F-999'] })], models),
-			/references missing premise F-999/,
+			() => validateArguments([argument({ premises: ['M-999'] })], models),
+			/references missing premise M-999/,
 		);
 		assert.throws(
-			() => validateArguments([argument({ premises: ['F-001', 'F-001'] })], models),
-			/duplicate premise F-001/,
+			() => validateArguments([argument({ premises: ['M-001', 'M-001'] })], models),
+			/duplicate premise M-001/,
 		);
 	});
 
 	test('requires an existing conclusion that is not a premise', () => {
 		assert.throws(
-			() => validateArguments([argument({ conclusion: 'F-999' })], models),
-			/references missing conclusion F-999/,
+			() => validateArguments([argument({ conclusion: 'M-999' })], models),
+			/references missing conclusion M-999/,
 		);
 		assert.throws(
 			() =>
 				validateArguments(
-					[argument({ premises: ['F-001', 'F-002'], conclusion: 'F-002' })],
+					[argument({ premises: ['M-001', 'M-002'], conclusion: 'M-002' })],
 					models,
 				),
-			/cannot use conclusion F-002 as a premise/,
+			/cannot use conclusion M-002 as a premise/,
 		);
 	});
 
 	test('allows reasoning cycles without changing dependency DAG validation', () => {
 		const dependencyModels = [
-			modelEntry('F-001'),
-			modelEntry('F-002', [
-				{ id: 'F-001', role: 'methodological', note: 'F-001 frames F-002.' },
+			modelEntry('M-001'),
+			modelEntry('M-002', [
+				{ id: 'M-001', role: 'methodological', note: 'M-001 frames M-002.' },
 			]),
 		];
 		validateModel(dependencyModels);
 
 		const cyclicArguments = [
-			argument({ id: 'ARG-001', premises: ['F-001'], conclusion: 'F-002' }),
-			argument({ id: 'ARG-002', premises: ['F-002'], conclusion: 'F-001' }),
+			argument({ id: 'ARG-001', premises: ['M-001'], conclusion: 'M-002' }),
+			argument({ id: 'ARG-002', premises: ['M-002'], conclusion: 'M-001' }),
 		];
 		assert.equal(validateArguments(cyclicArguments, dependencyModels).size, 2);
 		assert.equal(validateModel(dependencyModels).size, 2);

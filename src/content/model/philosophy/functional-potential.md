@@ -1,5 +1,5 @@
 ---
-id: P-001
+id: M-004
 slug: philosophy/functional-potential
 title: Open-ended human functional potential
 claim: >-

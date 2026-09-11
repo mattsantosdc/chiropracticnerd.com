@@ -4,6 +4,7 @@ import {
 	dependencyRoles,
 	getRelatedEntries,
 	type ModelEntry,
+	sortModelEntries,
 	validateModel,
 } from '../src/lib/model.ts';
 
@@ -15,6 +16,8 @@ type TestDependency = {
 
 type EntryOverrides = {
 	slug?: string;
+	domain?: ModelEntry['data']['domain'];
+	order?: number;
 	upstream?: TestDependency[];
 	related?: string[];
 	claimType?: ModelEntry['data']['claimType'];
@@ -32,10 +35,10 @@ function entry(id: string, overrides: EntryOverrides = {}) {
 			title: id,
 			claim: `${id} claim`,
 			summary: `${id} summary`,
-			domain: 'framework',
+			domain: overrides.domain ?? 'framework',
 			claimType: overrides.claimType ?? 'framework',
 			confidence: overrides.confidence ?? 'not-applicable',
-			order: 0,
+			order: overrides.order ?? 0,
 			upstream: overrides.upstream ?? [],
 			related: overrides.related ?? [],
 			version: '0.1',
@@ -52,6 +55,45 @@ const dependency = (id: string, role: string, note = `Depends directly on ${id}.
 	note,
 });
 
+describe('neutral Model identifiers', () => {
+	test('requires M-### regardless of domain', () => {
+		for (const id of ['M-001', 'M-142', 'M-999']) {
+			for (const domain of ['framework', 'philosophy', 'science', 'art'] as const) {
+				assert.equal(validateModel([entry(id, { domain })]).size, 1);
+			}
+		}
+		for (const id of ['F-001', 'P-001', 'S-001', 'A-001', 'ARG-001', 'X-001', 'm-001', 'M-1', 'M-0001', 'M-ABC', ' M-001', 'M-001x']) {
+			assert.throws(() => validateModel([entry(id)]), /Invalid model id/);
+		}
+	});
+
+	test('requires IDs to be unique across domains', () => {
+		assert.throws(
+			() => validateModel([
+				entry('M-142', { domain: 'science', slug: 'science/example' }),
+				entry('M-142', { domain: 'art', slug: 'art/example' }),
+			]),
+			/Duplicate model id/,
+		);
+	});
+
+	test('sorts by domain and order independently of IDs, including ties', () => {
+		const entries = [
+			entry('M-001', { domain: 'art', order: 0 }),
+			entry('M-999', { domain: 'science', order: 10 }),
+			entry('M-002', { domain: 'science', order: 20 }),
+			entry('M-800', { domain: 'framework', order: 30 }),
+			entry('M-003', { domain: 'science', order: 10 }),
+		];
+		const expected = [entries[3], entries[1], entries[4], entries[2], entries[0]];
+		assert.deepEqual(sortModelEntries(entries), expected);
+		const originalSequence = [...entries];
+		entries.forEach((item, index) => { item.data.id = `M-${String(100 - index).padStart(3, '0')}`; });
+		assert.deepEqual(sortModelEntries(entries), expected);
+		assert.deepEqual(entries, originalSequence);
+	});
+});
+
 describe('dependency vocabulary', () => {
 	test('contains exactly the five approved roles', () => {
 		assert.deepEqual(dependencyRoles, [
@@ -65,12 +107,12 @@ describe('dependency vocabulary', () => {
 
 	test('accepts a valid acyclic graph using every role', () => {
 		const entries = [
-			entry('F-001'),
-			entry('F-002', { upstream: [dependency('F-001', 'methodological')] }),
-			entry('P-001', { upstream: [dependency('F-002', 'normative')] }),
-			entry('S-001', { upstream: [dependency('P-001', 'conceptual')] }),
-			entry('S-002', { upstream: [dependency('S-001', 'empirical')] }),
-			entry('A-001', { upstream: [dependency('S-002', 'practical')] }),
+			entry('M-001'),
+			entry('M-002', { upstream: [dependency('M-001', 'methodological')] }),
+			entry('M-004', { upstream: [dependency('M-002', 'normative')] }),
+			entry('M-007', { upstream: [dependency('M-004', 'conceptual')] }),
+			entry('M-008', { upstream: [dependency('M-007', 'empirical')] }),
+			entry('M-014', { upstream: [dependency('M-008', 'practical')] }),
 		];
 
 		assert.equal(validateModel(entries).size, entries.length);
@@ -80,8 +122,8 @@ describe('dependency vocabulary', () => {
 		assert.throws(
 			() =>
 				validateModel([
-					entry('F-001'),
-					entry('F-002', { upstream: [dependency('F-001', 'logical')] }),
+					entry('M-001'),
+					entry('M-002', { upstream: [dependency('M-001', 'logical')] }),
 				]),
 			/unknown dependency role logical/,
 		);
@@ -91,8 +133,8 @@ describe('dependency vocabulary', () => {
 		assert.throws(
 			() =>
 				validateModel([
-					entry('F-001'),
-					entry('F-002', { upstream: [dependency('F-001', 'conceptual', '  ')] }),
+					entry('M-001'),
+					entry('M-002', { upstream: [dependency('M-001', 'conceptual', '  ')] }),
 				]),
 			/requires an explanatory note/,
 		);
@@ -104,7 +146,7 @@ describe('graph integrity', () => {
 		assert.throws(
 			() =>
 				validateModel([
-					entry('S-001', {
+					entry('M-007', {
 						claimType: 'empirical',
 						confidence: 'not-applicable',
 						whatWouldChange: 'A valid test would change this.',
@@ -115,13 +157,13 @@ describe('graph integrity', () => {
 		assert.throws(
 			() =>
 				validateModel([
-					entry('S-001', { claimType: 'empirical', confidence: 'unresolved' }),
+					entry('M-007', { claimType: 'empirical', confidence: 'unresolved' }),
 				]),
 			/requires whatWouldChange/,
 		);
 		assert.equal(
 			validateModel([
-				entry('S-001', {
+				entry('M-007', {
 					claimType: 'empirical',
 					confidence: 'unresolved',
 					whatWouldChange: 'A valid test would change this.',
@@ -132,32 +174,32 @@ describe('graph integrity', () => {
 	});
 
 	test('rejects duplicate IDs and slugs', () => {
-		assert.throws(() => validateModel([entry('F-001'), entry('F-001')]), /Duplicate model id/);
+		assert.throws(() => validateModel([entry('M-001'), entry('M-001')]), /Duplicate model id/);
 		assert.throws(
-			() => validateModel([entry('F-001', { slug: 'same' }), entry('F-002', { slug: 'same' })]),
+			() => validateModel([entry('M-001', { slug: 'same' }), entry('M-002', { slug: 'same' })]),
 			/Duplicate model slug/,
 		);
 	});
 
 	test('reserves the arguments route namespace for structured arguments', () => {
 		assert.throws(
-			() => validateModel([entry('F-001', { slug: 'arguments' })]),
+			() => validateModel([entry('M-001', { slug: 'arguments' })]),
 			/model slug uses reserved route: arguments/,
 		);
 		assert.throws(
-			() => validateModel([entry('F-001', { slug: 'arguments/example' })]),
+			() => validateModel([entry('M-001', { slug: 'arguments/example' })]),
 			/model slug uses reserved route: arguments\/example/,
 		);
-		assert.equal(validateModel([entry('F-001', { slug: 'argumentation' })]).size, 1);
+		assert.equal(validateModel([entry('M-001', { slug: 'argumentation' })]).size, 1);
 	});
 
 	test('rejects missing and self dependencies', () => {
 		assert.throws(
-			() => validateModel([entry('F-001', { upstream: [dependency('F-999', 'conceptual')] })]),
-			/references missing model id F-999/,
+			() => validateModel([entry('M-001', { upstream: [dependency('M-999', 'conceptual')] })]),
+			/references missing model id M-999/,
 		);
 		assert.throws(
-			() => validateModel([entry('F-001', { upstream: [dependency('F-001', 'conceptual')] })]),
+			() => validateModel([entry('M-001', { upstream: [dependency('M-001', 'conceptual')] })]),
 			/cannot reference itself/,
 		);
 	});
@@ -166,21 +208,21 @@ describe('graph integrity', () => {
 		assert.throws(
 			() =>
 				validateModel([
-					entry('F-001'),
-					entry('F-002', {
+					entry('M-001'),
+					entry('M-002', {
 						upstream: [
-							dependency('F-001', 'conceptual'),
-							dependency('F-001', 'empirical'),
+							dependency('M-001', 'conceptual'),
+							dependency('M-001', 'empirical'),
 						],
 					}),
 				]),
-			/duplicate upstream dependency F-001/,
+			/duplicate upstream dependency M-001/,
 		);
 		assert.throws(
 			() =>
 				validateModel([
-					entry('F-001', { upstream: [dependency('F-002', 'conceptual')] }),
-					entry('F-002', { upstream: [dependency('F-001', 'conceptual')] }),
+					entry('M-001', { upstream: [dependency('M-002', 'conceptual')] }),
+					entry('M-002', { upstream: [dependency('M-001', 'conceptual')] }),
 				]),
 			/Model dependency cycle/,
 		);
@@ -188,32 +230,32 @@ describe('graph integrity', () => {
 
 	test('rejects duplicate, reciprocal, and dependency-linked related entries', () => {
 		assert.throws(
-			() => validateModel([entry('F-001', { related: ['F-002', 'F-002'] }), entry('F-002')]),
-			/duplicate related entry F-002/,
+			() => validateModel([entry('M-001', { related: ['M-002', 'M-002'] }), entry('M-002')]),
+			/duplicate related entry M-002/,
 		);
 		assert.throws(
 			() =>
 				validateModel([
-					entry('F-001', { related: ['F-002'] }),
-					entry('F-002', { related: ['F-001'] }),
+					entry('M-001', { related: ['M-002'] }),
+					entry('M-002', { related: ['M-001'] }),
 				]),
 			/duplicate related link/,
 		);
 		assert.throws(
 			() =>
 				validateModel([
-					entry('F-001', { related: ['F-002'] }),
-					entry('F-002', { upstream: [dependency('F-001', 'methodological')] }),
+					entry('M-001', { related: ['M-002'] }),
+					entry('M-002', { upstream: [dependency('M-001', 'methodological')] }),
 				]),
 			/cannot be both dependency-linked and related/,
 		);
 	});
 
 	test('resolves an undirected related link from either endpoint', () => {
-		const entries = [entry('F-001', { related: ['F-002'] }), entry('F-002'), entry('F-003')];
+		const entries = [entry('M-001', { related: ['M-002'] }), entry('M-002'), entry('M-003')];
 		validateModel(entries);
 
-		assert.deepEqual(getRelatedEntries(entries, 'F-001').map((item) => item.data.id), ['F-002']);
-		assert.deepEqual(getRelatedEntries(entries, 'F-002').map((item) => item.data.id), ['F-001']);
+		assert.deepEqual(getRelatedEntries(entries, 'M-001').map((item) => item.data.id), ['M-002']);
+		assert.deepEqual(getRelatedEntries(entries, 'M-002').map((item) => item.data.id), ['M-001']);
 	});
 });

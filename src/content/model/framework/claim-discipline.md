@@ -1,5 +1,5 @@
 ---
-id: F-002
+id: M-002
 slug: framework/claim-discipline
 title: Different kinds of claims require different support
 claim: >-
@@ -10,9 +10,9 @@ claimType: framework
 confidence: not-applicable
 order: 20
 upstream:
-  - id: F-001
+  - id: M-001
     role: methodological
-    note: F-002 operationalizes F-001's division of labor by requiring support and evaluation appropriate to each kind of claim.
+    note: M-002 operationalizes M-001's division of labor by requiring support and evaluation appropriate to each kind of claim.
 related: []
 version: '0.1'
 updated: 2026-09-08

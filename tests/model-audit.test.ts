@@ -15,7 +15,7 @@ function fixture(t: { after: (callback: () => void) => void }) {
 		writeFileSync(join(root, path), text);
 	};
 	for (const path of policyPaths) put(path, `Policy for ${path}\n`);
-	put('src/content/model/science/effect.md', '---\nid: S-001\nconfidence: unresolved\n---\nSome inputs produce an effect.\n');
+	put('src/content/model/science/effect.md', '---\nid: M-007\nconfidence: unresolved\n---\nSome inputs produce an effect.\n');
 	put('src/content/arguments/reasoning.md', '---\nid: ARG-001\n---\nA defeasible argument.\n');
 	const packet = collectInputs(root);
 	const review = {
@@ -54,7 +54,7 @@ test('changed assertions, summaries, bodies, evidence, dependencies, and argumen
 		original.replace('Some', 'All'),
 		`${original}\nsummary: Some inputs may have effects.`,
 		`${original}\n## Current evidence\nChanged appraisal.`,
-		`${original}\nupstream:\n  - id: P-001`,
+		`${original}\nupstream:\n  - id: M-004`,
 		`${original}\nupdated: 2026-09-10`,
 	];
 	for (const changed of changes) {

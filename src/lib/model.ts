@@ -1,5 +1,6 @@
 import type { CollectionEntry } from 'astro:content';
 import { isDependencyRole } from './dependencies.ts';
+import { modelIdPattern } from './identifiers.ts';
 
 export {
 	dependencyRoleDefinitions,
@@ -30,7 +31,7 @@ export function isReservedModelSlug(slug: string) {
 export function sortModelEntries(entries: ModelEntry[]) {
 	return [...entries].sort((a, b) => {
 		const domainDifference = domainOrder.indexOf(a.data.domain) - domainOrder.indexOf(b.data.domain);
-		return domainDifference || a.data.order - b.data.order || a.data.id.localeCompare(b.data.id);
+		return domainDifference || a.data.order - b.data.order;
 	});
 }
 
@@ -43,6 +44,7 @@ export function validateModel(entries: ModelEntry[]) {
 		[firstId, secondId].sort().join('\u0000');
 
 	for (const entry of entries) {
+		if (!modelIdPattern.test(entry.data.id)) throw new Error(`Invalid model id: ${entry.data.id}`);
 		if (byId.has(entry.data.id)) throw new Error(`Duplicate model id: ${entry.data.id}`);
 		if (bySlug.has(entry.data.slug)) throw new Error(`Duplicate model slug: ${entry.data.slug}`);
 		if (isReservedModelSlug(entry.data.slug)) {

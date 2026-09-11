@@ -1,5 +1,5 @@
 ---
-id: S-007
+id: M-013
 slug: science/neural-mediation
 title: Neural mediation of broader chiropractic effects
 claim: >-
@@ -10,14 +10,14 @@ claimType: empirical
 confidence: unresolved
 order: 70
 upstream:
-  - id: S-001
+  - id: M-007
     role: empirical
-    note: Revising S-001's integrative role would require reconsidering the proposal that neural mediation is the principal route to broader chiropractic effects; an integrative role does not demonstrate any chiropractic effect.
-  - id: S-005
+    note: Revising M-007's integrative role would require reconsidering the proposal that neural mediation is the principal route to broader chiropractic effects; an integrative role does not demonstrate any chiropractic effect.
+  - id: M-011
     role: empirical
-    note: Revising S-005's proposed chiropractic production of beneficial neuromotor change would require reconsidering the input and response account used in this neural-mediation proposal; a beneficial neuromotor response establishes neither mediation of broader effects nor neural primacy.
+    note: Revising M-011's proposed chiropractic production of beneficial neuromotor change would require reconsidering the input and response account used in this neural-mediation proposal; a beneficial neuromotor response establishes neither mediation of broader effects nor neural primacy.
 related:
-  - S-006
+  - M-012
 version: '0.1'
 updated: 2026-09-09
 whatWouldChange: >-
@@ -26,9 +26,9 @@ whatWouldChange: >-
 
 ## Broader effects and neural mediation
 
-The Model proposes that chiropractic inputs influence broader function and that nervous-system-mediated change is their principal route. These are empirical commitments to test, with confidence assessed separately. This chiropractic-specific proposal is stronger than S-001's general integrative role. S-005's proposed input-produced neuromotor changes likewise do not establish the route to broader effects.
+The Model proposes that chiropractic inputs influence broader function and that nervous-system-mediated change is their principal route. These are empirical commitments to test, with confidence assessed separately. This chiropractic-specific proposal is stronger than M-007's general integrative role. M-011's proposed input-produced neuromotor changes likewise do not establish the route to broader effects.
 
-This hypothesis concerns broader functional effects, including effects whose net value remains unresolved. S-006 separately proposes that some chiropractic-produced neuromotor changes contribute to broader net-positive benefit. Neural mediation does not make an effect beneficial, and evidence of broader benefit would not by itself establish neural mediation or its primacy. Neither hypothesis establishes the other.
+This hypothesis concerns broader functional effects, including effects whose net value remains unresolved. M-012 separately proposes that some chiropractic-produced neuromotor changes contribute to broader net-positive benefit. Neural mediation does not make an effect beneficial, and evidence of broader benefit would not by itself establish neural mediation or its primacy. Neither hypothesis establishes the other.
 
 ## Three separate empirical questions
 

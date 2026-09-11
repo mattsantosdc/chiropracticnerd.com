@@ -18,7 +18,7 @@ Science then tests the empirical premises, mechanisms, measurements, and factual
 
 The canonical model lives in `src/content/model/`. Each Markdown file is an individually addressable entry with:
 
-- a stable model ID and URL slug
+- a globally unique, permanent `M-###` Model ID and a URL slug
 - a typed claim and current confidence
 - explicit, typed upstream dependencies and untyped related entries
 - a version and updated date
@@ -53,23 +53,23 @@ Article and Model metadata deliberately separate permanent identity from routing
 - `article.data.id` is the permanent article identity; `article.data.slug` controls its public URL.
 - `entry.data.id` is the permanent Model-node identity; `entry.data.slug` controls its public URL.
 
-This v0.1 reconstruction resets the unpublished Philosophy, Science, and Art namespaces to clean sequences. Once an ID is published, it must never be reused or changed. New articles receive the next explicit `article-NNN` ID rather than deriving one from a filename, title, slug, date, or collection entry ID.
+All Model domains share the `M-###` identifier namespace. The [one-time migration map](docs/model-id-migration.md) records the previous IDs. Model IDs are permanent and must never be reused; their numbers carry no ordering, hierarchy, domain, or inferential meaning. Keep presentation grouping in `domain` and presentation order in `order`; IDs must not determine sorting or graph layout. New articles receive the next explicit `article-NNN` ID rather than deriving one from a filename, title, slug, date, or collection entry ID.
 
 ## Model v0.1
 
 The Model is **guided by first principles and tested against reality**. First principles expose assumptions and help make the framework coherent; they do not deduce chiropractic upward or settle empirical questions.
 
-Version 0.1 is deliberately low-resolution. It contains 16 entries, 23 direct revision dependencies, and four structured arguments. Three Framework entries—including F-003's explicit reasoning and empirical testing method—organize this substantive spine:
+Version 0.1 is deliberately low-resolution. It contains 16 entries, 23 direct revision dependencies, and four structured arguments. Three Framework entries—including M-003's explicit reasoning and empirical testing method—organize this substantive spine:
 
-1. Philosophy: open-ended human functional potential (`P-001`), net-positive functional improvement as a legitimate chiropractic aim (`P-002`), and a functional rationale without requiring symptoms or pathology (`P-003`)
-2. Science: nervous-system integration (`S-001`), state-dependent neuromotor function (`S-002`), modifiable opportunities for net-positive change (`S-003`), general perturbation and reorganization (`S-004`), beneficial chiropractic effects through perturbation (`S-005`), broader functional benefit (`S-006`), and neural mediation of broader chiropractic effects (`S-007`)
-3. Art: assessment of an actionable chiropractic opportunity (`A-001`), conditional application (`A-002`), and reassessment permitting stopping or revision (`A-003`)
+1. Philosophy: open-ended human functional potential (`M-004`), net-positive functional improvement as a legitimate chiropractic aim (`M-005`), and a functional rationale without requiring symptoms or pathology (`M-006`)
+2. Science: nervous-system integration (`M-007`), state-dependent neuromotor function (`M-008`), modifiable opportunities for net-positive change (`M-009`), general perturbation and reorganization (`M-010`), beneficial chiropractic effects through perturbation (`M-011`), broader functional benefit (`M-012`), and neural mediation of broader chiropractic effects (`M-013`)
+3. Art: assessment of an actionable chiropractic opportunity (`M-014`), conditional application (`M-015`), and reassessment permitting stopping or revision (`M-016`)
 
 Application belongs within Art rather than forming a peer domain. The graph stays intentionally incomplete where another premise or empirical bridge would be required; gaps are not filled merely to make the graph look linear.
 
 The four structured arguments expose methodological synthesis (`ARG-001`), assessment under uncertainty (`ARG-002`), reassessment (`ARG-003`), and the philosophical rationale beyond symptoms (`ARG-004`). All remain defeasible. Functional improvement is itself a valued benefit without requiring a separately identified downstream outcome. The philosophical argument permits a rationale; it does not demonstrate effectiveness in asymptomatic people or make functional improvement chiropractic's exclusive purpose.
 
-The [`v0.1 reasoning audit`](docs/model-v0.1-reasoning-audit.md) records the current claim types, scope, revision propagation, and unresolved bridges. S-005 directly proposes beneficial neuromotor effects from some chiropractic inputs and explains intentional training separately. S-006 proposes broader net-positive benefit from some chiropractic-produced neuromotor changes. S-007 separately proposes neural mediation as the principal route to broader chiropractic effects, including effects whose net value is unresolved. The statements express the proposed relationships; confidence and evidence sections report our justification for believing them. Each has its own evidence note and revision conditions; neither S-006 nor S-007 establishes the other. Their single canonical `related` link supplies see-also navigation without an inferential or dependency relationship. Adaptability no longer supplies the philosophical anchor or defines benefit, and the scientific access point does not require a named lesion. Historical article discussions remain separate from the living Model.
+The [`v0.1 reasoning audit`](docs/model-v0.1-reasoning-audit.md) records the current claim types, scope, revision propagation, and unresolved bridges. M-011 directly proposes beneficial neuromotor effects from some chiropractic inputs and explains intentional training separately. M-012 proposes broader net-positive benefit from some chiropractic-produced neuromotor changes. M-013 separately proposes neural mediation as the principal route to broader chiropractic effects, including effects whose net value is unresolved. The statements express the proposed relationships; confidence and evidence sections report our justification for believing them. Each has its own evidence note and revision conditions; neither M-012 nor M-013 establishes the other. Their single canonical `related` link supplies see-also navigation without an inferential or dependency relationship. Adaptability no longer supplies the philosophical anchor or defines benefit, and the scientific access point does not require a named lesion. Historical article discussions remain separate from the living Model.
 
 Every Science entry has a **Current evidence** section describing the support documented in that entry and what remains unresolved. These notes summarize the existing limited appraisal; they do not constitute a new literature review or raise confidence. The Model overview makes this preliminary scope visible before readers enter the claims.
 

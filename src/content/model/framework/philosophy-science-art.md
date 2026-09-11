@@ -1,5 +1,5 @@
 ---
-id: F-001
+id: M-001
 slug: framework/philosophy-science-art
 title: Philosophy, Science, and Art organize the framework
 claim: >-

@@ -4,6 +4,7 @@ export const semanticIdentifierBase = 'https://chiropracticnerd.com/id';
 export const dependencyRoleVocabularyBase =
 	'https://chiropracticnerd.com/vocab/dependency-role';
 
+export const modelIdPattern = /^M-\d{3}$/;
 export const argumentIdPattern = /^ARG-\d{3}$/;
 
 export function modelSemanticIdentifier(modelId: string) {

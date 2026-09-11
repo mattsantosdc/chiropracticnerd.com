@@ -35,7 +35,9 @@ Apply these rules to every future Model, argument, and relationship change:
    downstream adjacency is derived. A `related` pair remains stored on only one endpoint and is
    projected symmetrically.
 4. Use permanent Model and argument IDs for graph identity. Use slugs only to construct reader
-   navigation links. A route change must not create a new graph node.
+   navigation links. A route change must not create a new graph node. Model ID numbers must not
+   determine sorting, hierarchy, domain, inference, or graph layout; use `order` for presentation
+   order within domain groups.
 5. Keep presentation state out of canonical Markdown. Coordinates, colors, shapes, collapsed
    state, viewport state, layout rank, and visualization-package identifiers belong in the
    renderer or derived graph layer.
@@ -107,7 +109,7 @@ type VisualizationGraph = {
 };
 ```
 
-Renderer IDs should be deterministic and namespaced by kind, such as `model:P-001` and
+Renderer IDs should be deterministic and namespaced by kind, such as `model:M-004` and
 `argument:ARG-001`, so different resource kinds cannot collide. Existing semantic identifiers
 remain the canonical identifiers where defined. Deterministic IDs created solely for premise,
 conclusion, or related edges are implementation identifiers and must not be published as new

@@ -143,13 +143,13 @@ entire transitive closure forever.
    Do not change or invalidate the conclusion automatically; another route may support it, or its
    evidential support may remain unresolved.
 
-For example, changing S-005 would make the S-005 → S-006, S-005 → S-007, S-005 → A-001, and
-S-005 → A-002 dependency reviews and the ARG-002 argument review stale. These direct branches must each be
-reviewed. If A-001 is reconsidered and remains unchanged, propagation through A-001 stops; that
-does not clear the independent reviews of S-006, S-007, or A-002. If
-A-001 must be edited, its new fingerprint makes the A-001 → A-002 and A-001 → A-003 dependency
-reviews stale, makes ARG-002 stale because A-001 is its conclusion, and makes ARG-003 stale because
-A-001 is one of its premises.
+For example, changing M-011 would make the M-011 → M-012, M-011 → M-013, M-011 → M-014, and
+M-011 → M-015 dependency reviews and the ARG-002 argument review stale. These direct branches must each be
+reviewed. If M-014 is reconsidered and remains unchanged, propagation through M-014 stops; that
+does not clear the independent reviews of M-012, M-013, or M-015. If
+M-014 must be edited, its new fingerprint makes the M-014 → M-015 and M-014 → M-016 dependency
+reviews stale, makes ARG-002 stale because M-014 is its conclusion, and makes ARG-003 stale because
+M-014 is one of its premises.
 
 During review, the interface may distinguish a definitely stale subject from a potentially
 affected descendant waiting behind the current review frontier. The final status should be

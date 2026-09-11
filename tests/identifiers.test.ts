@@ -10,12 +10,12 @@ import {
 
 test('reserves stable semantic identifier patterns independently of slugs', () => {
 	assert.equal(
-		modelSemanticIdentifier('P-001'),
-		'https://chiropracticnerd.com/id/model/P-001',
+		modelSemanticIdentifier('M-004'),
+		'https://chiropracticnerd.com/id/model/M-004',
 	);
 	assert.equal(
-		dependencySemanticIdentifier('P-001', 'P-002'),
-		'https://chiropracticnerd.com/id/dependency/P-001--P-002',
+		dependencySemanticIdentifier('M-004', 'M-005'),
+		'https://chiropracticnerd.com/id/dependency/M-004--M-005',
 	);
 	assert.equal(
 		argumentSemanticIdentifier('ARG-001'),
@@ -26,5 +26,5 @@ test('reserves stable semantic identifier patterns independently of slugs', () =
 		'https://chiropracticnerd.com/vocab/dependency-role/normative',
 	);
 	assert.match('ARG-001', argumentIdPattern);
-	assert.doesNotMatch('A-001', argumentIdPattern);
+	assert.doesNotMatch('M-014', argumentIdPattern);
 });

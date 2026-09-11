@@ -1,5 +1,5 @@
 ---
-id: F-003
+id: M-003
 slug: framework/explicit-reasoning-empirical-testing
 title: Build the reasoning first; test empirical premises separately
 claim: >-
@@ -10,12 +10,12 @@ claimType: framework
 confidence: not-applicable
 order: 30
 upstream:
-  - id: F-001
+  - id: M-001
     role: methodological
-    note: F-001 assigns philosophy the work of exposing proposed structure and science the work of testing empirical premises; F-003 turns that division into an explicit reasoning method.
-  - id: F-002
+    note: M-001 assigns philosophy the work of exposing proposed structure and science the work of testing empirical premises; M-003 turns that division into an explicit reasoning method.
+  - id: M-002
     role: methodological
-    note: F-002 distinguishes validity, premise truth, and epistemic strength; F-003 applies those distinctions to argument records and revision.
+    note: M-002 distinguishes validity, premise truth, and epistemic strength; M-003 applies those distinctions to argument records and revision.
 related: []
 version: '0.1'
 updated: 2026-09-09

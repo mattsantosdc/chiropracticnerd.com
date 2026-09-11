@@ -1,5 +1,5 @@
 ---
-id: S-002
+id: M-008
 slug: science/state-dependent-neuromotor-function
 title: State-dependent motor control
 claim: >-
@@ -42,4 +42,4 @@ Carpenter and colleagues observed increased postural stiffness under greater pos
 
 Interpretation of muscle tone, posture, or movement must account for neural activity, tissue properties, learning, effort, fatigue, pain, expectations, and measurement error. A finding alone does not identify its cause or establish a particular motor strategy. Assessment methods require reliability, construct validity, and appropriate reference conditions; v0.1 does not endorse a particular test.
 
-This claim is investigated independently of S-001's integrative role. State dependence or limitation alone establishes neither modifiability nor benefit. S-003 takes on that additional empirical question.
+This claim is investigated independently of M-007's integrative role. State dependence or limitation alone establishes neither modifiability nor benefit. M-009 takes on that additional empirical question.

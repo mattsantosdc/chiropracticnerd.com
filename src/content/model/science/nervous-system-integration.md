@@ -1,5 +1,5 @@
 ---
-id: S-001
+id: M-007
 slug: science/nervous-system-integration
 title: Nervous-system integration of human function
 claim: >-
@@ -19,9 +19,9 @@ whatWouldChange: >-
 
 ## Integration within the whole person
 
-S-001 begins the biological account with the nervous system's integrative role: relating information about the person and environment to the organization, coordination, and regulation of function. “Central” identifies an organizing role, not a ranking that places every other biological system beneath it.
+M-007 begins the biological account with the nervous system's integrative role: relating information about the person and environment to the organization, coordination, and regulation of function. “Central” identifies an organizing role, not a ranking that places every other biological system beneath it.
 
-This empirical claim stands independently of the philosophical commitment in P-001. Open-ended potential is not evidence for neural integration.
+This empirical claim stands independently of the philosophical commitment in M-004. Open-ended potential is not evidence for neural integration.
 
 ## Current evidence
 
@@ -31,4 +31,4 @@ A claim-specific evidence appraisal has not yet been documented for this broad f
 
 The person includes interacting endocrine, immune, metabolic, cardiovascular, musculoskeletal, and other systems, as well as an environment and social context. This claim neither makes the nervous system a sole controller nor labels every neural change beneficial.
 
-An integrative role alone does not show that chiropractic influences broader function. S-007 separately proposes nervous-system-mediated change as the principal chiropractic pathway and carries the empirical burden of that more specific proposal.
+An integrative role alone does not show that chiropractic influences broader function. M-013 separately proposes nervous-system-mediated change as the principal chiropractic pathway and carries the empirical burden of that more specific proposal.

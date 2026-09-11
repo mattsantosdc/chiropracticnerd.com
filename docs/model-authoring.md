@@ -48,6 +48,15 @@ Give general credit prominently and briefly in the Model overview and introducto
 
 Use **The Coherent Chiropractic Model** as the project name. “The Model” is appropriate within its own content. “Coherent” describes the consistency of the account from its premises to its practical conclusions; keep this use distinct from any concept of coherence addressed within the Model. The name does not certify logical completeness or empirical support. Attribute authorship to Dr. Matt Santos and present the Model as one project under his Chiropractic Nerd identity and Chiropractic Nerd Systems brand. Keep the introductory article titled **Toward a Coherent Model of Chiropractic**.
 
+## Permanent Model identifiers
+
+Every Model entry has a globally unique `M-###` ID (three decimal digits). Model IDs are permanent,
+human-readable identifiers only. Their numeric values carry no ordering, hierarchy, domain, or
+inferential meaning. Keep an ID when its entry changes domain, position, wording, or slug, and
+never reuse it for another entry. Use `domain` for grouping and `order` for presentation order;
+IDs must not determine sorting, including tie-breaking, or graph layout. `ARG-###` IDs remain
+separate. The [one-time migration map](model-id-migration.md) records the former Model IDs.
+
 ## Workflow for every substantive change
 
 ### 1. State the claim precisely

@@ -1,5 +1,5 @@
 ---
-id: S-004
+id: M-010
 slug: science/salient-perturbation
 title: Perturbation and neuromotor reorganization
 claim: >-
@@ -10,9 +10,9 @@ claimType: empirical
 confidence: unresolved
 order: 40
 upstream:
-  - id: S-002
+  - id: M-008
     role: conceptual
-    note: Revising S-002's account of state-dependent neuromotor strategies would require reconsidering what is proposed to reorganize and under which conditions; that domain supplies no evidence for the perturbation mechanism.
+    note: Revising M-008's account of state-dependent neuromotor strategies would require reconsidering what is proposed to reorganize and under which conditions; that domain supplies no evidence for the perturbation mechanism.
 related: []
 version: '0.1'
 updated: 2026-09-09
@@ -26,7 +26,7 @@ This is a general biological mechanism hypothesis. A neurobiomechanical perturba
 
 Natural movement, exercise, unexpected perturbation, and environmental interaction are possible settings for this mechanism. No chiropractic involvement or intention to train is required. Salience must eventually be specified independently of a successful response, so failure cannot always be explained away as an insufficiently salient input.
 
-S-002 describes the neuromotor strategies this mechanism proposes to reorganize. That description supplies no empirical support for the perturbation mechanism. The particular processes and conditions require independent evaluation.
+M-008 describes the neuromotor strategies this mechanism proposes to reorganize. That description supplies no empirical support for the perturbation mechanism. The particular processes and conditions require independent evaluation.
 
 ## Current evidence
 
@@ -36,4 +36,4 @@ This entry presents a general mechanism hypothesis without a documented claim-sp
 
 The proposed capacity does not guarantee reorganization. Reorganization may be neutral, transient, or harmful. The mechanism does not define benefit.
 
-This entry does not establish that a chiropractic input instantiates the mechanism. S-005 separately proposes chiropractic instantiation with beneficial neuromotor effects. General capacity, chiropractic effects, and intentional use remain distinct.
+This entry does not establish that a chiropractic input instantiates the mechanism. M-011 separately proposes chiropractic instantiation with beneficial neuromotor effects. General capacity, chiropractic effects, and intentional use remain distinct.

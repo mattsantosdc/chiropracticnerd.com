@@ -1,18 +1,18 @@
 ---
-id: M-010
+id: S-010
 slug: science/salient-perturbation
 title: Perturbation and neuromotor reorganization
-claim: >-
+statement: >-
   A sufficiently salient neurobiomechanical perturbation can prompt reevaluation and reorganization of an established neuromotor strategy.
 summary: The proposed mechanism gives a sufficiently salient neurobiomechanical perturbation the capacity to prompt strategy reorganization; it does not guarantee change or benefit.
 domain: science
-claimType: empirical
+statementType: empirical
 confidence: unresolved
 order: 40
 upstream:
-  - id: M-008
+  - id: S-008
     role: conceptual
-    note: Revising M-008's account of state-dependent neuromotor strategies would require reconsidering what is proposed to reorganize and under which conditions; that domain supplies no evidence for the perturbation mechanism.
+    note: Revising S-008's account of state-dependent neuromotor strategies would require reconsidering what is proposed to reorganize and under which conditions; that domain supplies no evidence for the perturbation mechanism.
 related: []
 version: '0.1'
 updated: 2026-09-09
@@ -26,14 +26,14 @@ This is a general biological mechanism hypothesis. A neurobiomechanical perturba
 
 Natural movement, exercise, unexpected perturbation, and environmental interaction are possible settings for this mechanism. No chiropractic involvement or intention to train is required. Salience must eventually be specified independently of a successful response, so failure cannot always be explained away as an insufficiently salient input.
 
-M-008 describes the neuromotor strategies this mechanism proposes to reorganize. That description supplies no empirical support for the perturbation mechanism. The particular processes and conditions require independent evaluation.
+S-008 describes the neuromotor strategies this mechanism proposes to reorganize. That description supplies no empirical support for the perturbation mechanism. The particular processes and conditions require independent evaluation.
 
 ## Current evidence
 
-This entry presents a general mechanism hypothesis without a documented claim-specific evidence appraisal. Salience, the proposed reorganization, and the conditions under which it occurs require specification and evaluation, including dose, timing, state, response measures, and duration.
+This statement presents a general mechanism hypothesis without a documented claim-specific evidence appraisal. Salience, the proposed reorganization, and the conditions under which it occurs require specification and evaluation, including dose, timing, state, response measures, and duration.
 
 ## Boundary
 
 The proposed capacity does not guarantee reorganization. Reorganization may be neutral, transient, or harmful. The mechanism does not define benefit.
 
-This entry does not establish that a chiropractic input instantiates the mechanism. M-011 separately proposes chiropractic instantiation with beneficial neuromotor effects. General capacity, chiropractic effects, and intentional use remain distinct.
+This statement does not establish that a chiropractic input instantiates the mechanism. S-011 separately proposes chiropractic instantiation with beneficial neuromotor effects. General capacity, chiropractic effects, and intentional use remain distinct.

@@ -1,5 +1,5 @@
 import type { CollectionEntry } from 'astro:content';
-import type { ModelEntry } from './model.ts';
+import type { StatementEntry } from './statements.ts';
 
 export const inferenceKinds = ['deductive', 'defeasible'] as const;
 
@@ -14,8 +14,8 @@ export function sortArguments(argumentsList: ArgumentEntry[]) {
 	return [...argumentsList].sort((a, b) => a.data.id.localeCompare(b.data.id));
 }
 
-export function validateArguments(argumentsList: ArgumentEntry[], modelEntries: ModelEntry[]) {
-	const modelById = new Map(modelEntries.map((entry) => [entry.data.id, entry]));
+export function validateArguments(argumentsList: ArgumentEntry[], statementEntries: StatementEntry[]) {
+	const statementById = new Map(statementEntries.map((entry) => [entry.data.id, entry]));
 	const byId = new Map<string, ArgumentEntry>();
 	const bySlug = new Map<string, ArgumentEntry>();
 
@@ -45,7 +45,7 @@ export function validateArguments(argumentsList: ArgumentEntry[], modelEntries: 
 			}
 			premiseIds.add(premiseId);
 
-			if (!modelById.has(premiseId)) {
+			if (!statementById.has(premiseId)) {
 				throw new Error(`${argument.data.id} references missing premise ${premiseId}`);
 			}
 			if (premiseId === argument.data.conclusion) {
@@ -53,7 +53,7 @@ export function validateArguments(argumentsList: ArgumentEntry[], modelEntries: 
 			}
 		}
 
-		if (!modelById.has(argument.data.conclusion)) {
+		if (!statementById.has(argument.data.conclusion)) {
 			throw new Error(
 				`${argument.data.id} references missing conclusion ${argument.data.conclusion}`,
 			);

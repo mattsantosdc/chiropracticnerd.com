@@ -1,23 +1,23 @@
 ---
-id: M-013
+id: S-013
 slug: science/neural-mediation
 title: Neural mediation of broader chiropractic effects
-claim: >-
+statement: >-
   Chiropractic inputs influence broader human function principally through nervous-system-mediated change.
 summary: Neural mediation is the proposed principal route to broader chiropractic effects; its occurrence, primacy, and particular pathways remain empirical questions.
 domain: science
-claimType: empirical
+statementType: empirical
 confidence: unresolved
 order: 70
 upstream:
-  - id: M-007
+  - id: S-007
     role: empirical
-    note: Revising M-007's integrative role would require reconsidering the proposal that neural mediation is the principal route to broader chiropractic effects; an integrative role does not demonstrate any chiropractic effect.
-  - id: M-011
+    note: Revising S-007's integrative role would require reconsidering the proposal that neural mediation is the principal route to broader chiropractic effects; an integrative role does not demonstrate any chiropractic effect.
+  - id: S-011
     role: empirical
-    note: Revising M-011's proposed chiropractic production of beneficial neuromotor change would require reconsidering the input and response account used in this neural-mediation proposal; a beneficial neuromotor response establishes neither mediation of broader effects nor neural primacy.
+    note: Revising S-011's proposed chiropractic production of beneficial neuromotor change would require reconsidering the input and response account used in this neural-mediation proposal; a beneficial neuromotor response establishes neither mediation of broader effects nor neural primacy.
 related:
-  - M-012
+  - S-012
 version: '0.1'
 updated: 2026-09-09
 whatWouldChange: >-
@@ -26,9 +26,9 @@ whatWouldChange: >-
 
 ## Broader effects and neural mediation
 
-The Model proposes that chiropractic inputs influence broader function and that nervous-system-mediated change is their principal route. These are empirical commitments to test, with confidence assessed separately. This chiropractic-specific proposal is stronger than M-007's general integrative role. M-011's proposed input-produced neuromotor changes likewise do not establish the route to broader effects.
+The Model proposes that chiropractic inputs influence broader function and that nervous-system-mediated change is their principal route. These are empirical commitments to test, with confidence assessed separately. This chiropractic-specific proposal is stronger than S-007's general integrative role. S-011's proposed input-produced neuromotor changes likewise do not establish the route to broader effects.
 
-This hypothesis concerns broader functional effects, including effects whose net value remains unresolved. M-012 separately proposes that some chiropractic-produced neuromotor changes contribute to broader net-positive benefit. Neural mediation does not make an effect beneficial, and evidence of broader benefit would not by itself establish neural mediation or its primacy. Neither hypothesis establishes the other.
+This hypothesis concerns broader functional effects, including effects whose net value remains unresolved. S-012 separately proposes that some chiropractic-produced neuromotor changes contribute to broader net-positive benefit. Neural mediation does not make an effect beneficial, and evidence of broader benefit would not by itself establish neural mediation or its primacy. Neither hypothesis establishes the other.
 
 ## Three separate empirical questions
 
@@ -40,7 +40,7 @@ Each question requires a specified input, population, state, outcome, and timesc
 
 ## Current evidence
 
-This entry has not yet documented evidence establishing neural mediation or its primacy for broader chiropractic effects. General nervous-system integration does not establish either proposition. Evidence for particular neural pathways also remains to be appraised separately.
+This statement has not yet documented evidence establishing neural mediation or its primacy for broader chiropractic effects. General nervous-system integration does not establish either proposition. Evidence for particular neural pathways also remains to be appraised separately.
 
 ## Boundary
 

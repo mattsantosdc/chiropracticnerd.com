@@ -1,12 +1,12 @@
 ---
-id: M-001
+id: S-001
 slug: framework/philosophy-science-art
 title: Philosophy, Science, and Art organize the framework
-claim: >-
+statement: >-
   Philosophy, science, and art perform distinct, connected roles within one revisable approach: philosophy clarifies chiropractic's questions, concepts, purposes, assumptions, and reasoning; science tests and refines its empirical premises and explanations; and art applies the best-supported understanding contextually while returning observations and questions for reconsideration.
 summary: Philosophy makes the proposed structure explicit, science tests its empirical burden, and art applies the best-supported understanding while informing further revision.
 domain: framework
-claimType: framework
+statementType: framework
 confidence: not-applicable
 order: 10
 upstream: []

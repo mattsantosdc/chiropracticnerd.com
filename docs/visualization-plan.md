@@ -11,9 +11,9 @@ graph database, or renderer-specific metadata prematurely.
 No content-schema, storage, or runtime change is required now. The existing architecture already
 provides the necessary foundations:
 
-- Model entries and arguments have permanent identifiers independent of their mutable routes.
+- Statements and arguments have permanent identifiers independent of their mutable routes.
 - Direct revision dependencies are explicit, typed, annotated, and validated as an acyclic graph.
-- Structured arguments are stored separately from dependencies and validated against Model IDs.
+- Structured arguments are stored separately from dependencies and validated against statement IDs.
 - `related` records an undirected see-also relationship without pretending it has inferential or
   causal meaning.
 - Downstream relationships can be derived from canonical upstream metadata.
@@ -31,11 +31,11 @@ Apply these rules to every future Model, argument, and relationship change:
 2. Keep relationship layers semantically distinct. A dependency is revision impact, an argument
    is an inferential route, evidence changes justification for an empirical claim, a causal
    hypothesis proposes an empirical relationship, and `related` is only see-also.
-3. Store each fact once. Dependencies remain on the downstream entry as `upstream` metadata;
+3. Store each fact once. Dependencies remain on the downstream statement as `upstream` metadata;
    downstream adjacency is derived. A `related` pair remains stored on only one endpoint and is
    projected symmetrically.
-4. Use permanent Model and argument IDs for graph identity. Use slugs only to construct reader
-   navigation links. A route change must not create a new graph node. Model ID numbers must not
+4. Use permanent statement and argument IDs for graph identity. Use slugs only to construct reader
+   navigation links. A route change must not create a new graph node. Statement ID numbers must not
    determine sorting, hierarchy, domain, inference, or graph layout; use `order` for presentation
    order within domain groups.
 5. Keep presentation state out of canonical Markdown. Coordinates, colors, shapes, collapsed
@@ -56,13 +56,13 @@ The future visualization layer will project the collections as follows:
 
 | Canonical record | Graph representation | Direction and meaning |
 | --- | --- | --- |
-| Model entry | Model node | An addressable claim, definition, value, framework commitment, or strategy |
-| `upstream` dependency | Dependency edge | `upstream Model → downstream Model`; revision impact only |
+| Statement | Statement node | An addressable claim, definition, value, framework commitment, or strategy |
+| `upstream` dependency | Dependency edge | `upstream statement → downstream statement`; revision impact only |
 | Argument record | Argument node | An addressable inferential route, distinct from its premises and conclusion |
-| Argument premise | Premise edge | `premise Model → argument`; participation in that specific inference |
-| Argument conclusion | Conclusion edge | `argument → conclusion Model`; the result asserted by that inference |
+| Argument premise | Premise edge | `premise statement → argument`; participation in that specific inference |
+| Argument conclusion | Conclusion edge | `argument → conclusion statement`; the result asserted by that inference |
 | `related` pair | Undirected related edge | Symmetric see-also only, regardless of which endpoint stores it |
-| Reference | Model-node metadata | A source link, not an evidence node or evidential-support edge |
+| Reference | Statement-node metadata | A source link, not an evidence node or evidential-support edge |
 
 Arguments must be projected as intermediary nodes:
 
@@ -70,7 +70,7 @@ Arguments must be projected as intermediary nodes:
 
 Flattening an argument into independent premise-to-conclusion arrows would lose the fact that its
 premises may operate jointly, erase the identity of the reasoning route, and blur arguments with
-dependencies. Multiple arguments concluding the same Model entry remain separate argument nodes.
+dependencies. Multiple arguments concluding the same statement remain separate argument nodes.
 
 The following are intentionally excluded until separately modeled: claims inferred from prose,
 causal edges inferred from empirical language, evidence-support edges inferred from references,
@@ -80,13 +80,13 @@ described only in narrative text.
 ## Derived graph interface
 
 When visualization work begins, add a small library-owned projection that accepts already
-validated Model and argument collections and returns a serializable, renderer-neutral graph. Its
+validated statement and argument collections and returns a serializable, renderer-neutral graph. Its
 conceptual interface is:
 
 ```ts
 type VisualizationNode = {
 	id: string;
-	kind: 'model' | 'argument';
+	kind: 'statement' | 'argument';
 	canonicalId: string;
 	label: string;
 	href: string;
@@ -109,7 +109,7 @@ type VisualizationGraph = {
 };
 ```
 
-Renderer IDs should be deterministic and namespaced by kind, such as `model:M-004` and
+Renderer IDs should be deterministic and namespaced by kind, such as `statement:S-004` and
 `argument:ARG-001`, so different resource kinds cannot collide. Existing semantic identifiers
 remain the canonical identifiers where defined. Deterministic IDs created solely for premise,
 conclusion, or related edges are implementation identifiers and must not be published as new
@@ -133,11 +133,11 @@ The first visualization will show only the acyclic revision-dependency layer in 
 layered layout. It will provide:
 
 - a whole-Model overview and a focused-neighborhood view;
-- selection by permanent Model ID with URL-addressable focus state;
+- selection by permanent statement ID with URL-addressable focus state;
 - controls to expand direct or recursive upstream and downstream connections;
-- filters for domain, dependency role, claim type, and confidence;
+- filters for domain, dependency role, statement type, and confidence;
 - clearly directed and role-distinguished dependency edges;
-- a detail panel containing the selected entry's claim, summary, metadata, dependency note, and
+- a detail panel containing the selected statement's proposition, summary, metadata, dependency note, and
   link to its full page; and
 - keyboard-usable controls and an accessible textual fallback using the existing pages and lists.
 
@@ -173,7 +173,7 @@ architecture choice. The renderer-neutral projection is what keeps a later packa
 
 ## Implementation trigger and acceptance criteria
 
-Begin implementation when the Model's size or reader feedback shows that linked entry pages no
+Begin implementation when the Model's size or reader feedback shows that linked statement pages no
 longer make the structure easy to understand. Before selecting packages, verify the candidates
 against a representative snapshot containing branching dependencies, multiple parents, multiple
 arguments for one conclusion, related links, disconnected components, and the largest expected

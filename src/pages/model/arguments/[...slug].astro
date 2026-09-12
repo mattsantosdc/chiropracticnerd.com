@@ -3,16 +3,16 @@ import { getCollection, render } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 import { modelIdentity } from '../../../lib/site';
 import { sortArguments, validateArguments } from '../../../lib/arguments.ts';
-import { sortModelEntries, validateModel } from '../../../lib/model.ts';
+import { sortStatements, validateStatements } from '../../../lib/statements.ts';
 
 export async function getStaticPaths() {
-	const [modelEntries, argumentEntries] = await Promise.all([
-		getCollection('model'),
+	const [statementEntries, argumentEntries] = await Promise.all([
+		getCollection('statements'),
 		getCollection('arguments'),
 	]);
-	const entries = sortModelEntries(modelEntries);
+	const entries = sortStatements(statementEntries);
 	const argumentsList = sortArguments(argumentEntries);
-	validateModel(entries);
+	validateStatements(entries);
 	validateArguments(argumentsList, entries);
 
 	return argumentsList.map((argument) => ({
@@ -22,20 +22,20 @@ export async function getStaticPaths() {
 }
 
 const { contentId } = Astro.props;
-const [modelEntries, argumentEntries] = await Promise.all([
-	getCollection('model'),
+const [statementEntries, argumentEntries] = await Promise.all([
+	getCollection('statements'),
 	getCollection('arguments'),
 ]);
-const entries = sortModelEntries(modelEntries);
+const entries = sortStatements(statementEntries);
 const argumentsList = sortArguments(argumentEntries);
-const byModelId = validateModel(entries);
+const byStatementId = validateStatements(entries);
 validateArguments(argumentsList, entries);
 const argument = argumentsList.find((candidate) => candidate.id === contentId);
 
 if (!argument) throw new Error(`Argument not found: ${contentId}`);
 
-const premises = argument.data.premises.map((id) => byModelId.get(id)!);
-const conclusion = byModelId.get(argument.data.conclusion)!;
+const premises = argument.data.premises.map((id) => byStatementId.get(id)!);
+const conclusion = byStatementId.get(argument.data.conclusion)!;
 const { Content } = await render(argument);
 ---
 
@@ -60,7 +60,7 @@ const { Content } = await render(argument);
 							<a class="entry-name" href={`/model/${premise.data.slug}/`}><strong>{premise.data.id}</strong>: {premise.data.title}</a>
 							<blockquote class="entry-statement">
 								<p class="statement-label">Statement</p>
-								<p class="statement-text">{premise.data.claim}</p>
+								<p class="statement-text">{premise.data.statement}</p>
 							</blockquote>
 						</li>
 					))}
@@ -74,7 +74,7 @@ const { Content } = await render(argument);
 					<a class="entry-name" href={`/model/${conclusion.data.slug}/`}><strong>{conclusion.data.id}</strong>: {conclusion.data.title}</a>
 					<blockquote class="entry-statement">
 						<p class="statement-label">Statement</p>
-						<p class="statement-text">{conclusion.data.claim}</p>
+						<p class="statement-text">{conclusion.data.statement}</p>
 					</blockquote>
 				</div>
 			</section>
@@ -89,7 +89,7 @@ const { Content } = await render(argument);
 			<h2>How to read this</h2>
 			<p class="side-note">
 				The argument records why the conclusion is inferred. Each premise's page separately
-				reports its claim type, confidence, evidence, and revision conditions.
+				reports its statement type, confidence, evidence, and revision conditions.
 			</p>
 			<p class="side-note">
 				A deductive label asserts only that the conclusion follows if the premises are true. A

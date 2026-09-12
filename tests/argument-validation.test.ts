@@ -5,20 +5,20 @@ import {
 	type ArgumentEntry,
 	validateArguments,
 } from '../src/lib/arguments.ts';
-import { type ModelEntry, validateModel } from '../src/lib/model.ts';
+import { type StatementEntry, validateStatements } from '../src/lib/statements.ts';
 
-function modelEntry(id: string, upstream: ModelEntry['data']['upstream'] = []) {
+function statementEntry(id: string, upstream: StatementEntry['data']['upstream'] = []) {
 	return {
 		id: id.toLowerCase(),
-		collection: 'model',
+		collection: 'statements',
 		data: {
 			id,
 			slug: `entry-${id.toLowerCase()}`,
 			title: id,
-			claim: `${id} claim`,
+			statement: `${id} claim`,
 			summary: `${id} summary`,
 			domain: 'framework',
-			claimType: 'framework',
+			statementType: 'framework',
 			confidence: 'not-applicable',
 			order: 0,
 			upstream,
@@ -27,7 +27,7 @@ function modelEntry(id: string, upstream: ModelEntry['data']['upstream'] = []) {
 			updated: new Date('2026-01-01'),
 			references: [],
 		},
-	} as unknown as ModelEntry;
+	} as unknown as StatementEntry;
 }
 
 type ArgumentOverrides = {
@@ -48,8 +48,8 @@ function argument(overrides: ArgumentOverrides = {}) {
 			slug: overrides.slug ?? `route-for-${id.toLowerCase()}`,
 			title: id,
 			summary: `${id} summary`,
-			premises: overrides.premises ?? ['M-001'],
-			conclusion: overrides.conclusion ?? 'M-002',
+			premises: overrides.premises ?? ['S-001'],
+			conclusion: overrides.conclusion ?? 'S-002',
 			inferenceKind: overrides.inferenceKind ?? 'defeasible',
 			scheme: 'test scheme',
 			version: '0.1',
@@ -58,25 +58,25 @@ function argument(overrides: ArgumentOverrides = {}) {
 	} as unknown as ArgumentEntry;
 }
 
-const models = [modelEntry('M-001'), modelEntry('M-002'), modelEntry('M-003')];
+const statements = [statementEntry('S-001'), statementEntry('S-002'), statementEntry('S-003')];
 
 describe('argument vocabulary and identity', () => {
 	test('recognizes only the initial inference kinds', () => {
 		assert.deepEqual(inferenceKinds, ['deductive', 'defeasible']);
 		assert.throws(
-			() => validateArguments([argument({ inferenceKind: 'logical' })], models),
+			() => validateArguments([argument({ inferenceKind: 'logical' })], statements),
 			/unknown inference kind logical/,
 		);
 	});
 
 	test('keeps permanent IDs independent of mutable slugs', () => {
 		assert.equal(
-			validateArguments([argument({ id: 'ARG-142', slug: 'a-completely-different-route' })], models)
+			validateArguments([argument({ id: 'ARG-142', slug: 'a-completely-different-route' })], statements)
 				.size,
 			1,
 		);
 		assert.throws(
-			() => validateArguments([argument({ id: 'ARG-1' })], models),
+			() => validateArguments([argument({ id: 'ARG-1' })], statements),
 			/Invalid argument id/,
 		);
 	});
@@ -86,7 +86,7 @@ describe('argument vocabulary and identity', () => {
 			() =>
 				validateArguments(
 					[argument(), argument({ slug: 'another-route' })],
-					models,
+					statements,
 				),
 			/Duplicate argument id/,
 		);
@@ -94,7 +94,7 @@ describe('argument vocabulary and identity', () => {
 			() =>
 				validateArguments(
 					[argument(), argument({ id: 'ARG-002', slug: 'route-for-arg-001' })],
-					models,
+					statements,
 				),
 			/Duplicate argument slug/,
 		);
@@ -104,48 +104,48 @@ describe('argument vocabulary and identity', () => {
 describe('argument references', () => {
 	test('requires at least one existing, unique premise', () => {
 		assert.throws(
-			() => validateArguments([argument({ premises: [] })], models),
+			() => validateArguments([argument({ premises: [] })], statements),
 			/requires at least one premise/,
 		);
 		assert.throws(
-			() => validateArguments([argument({ premises: ['M-999'] })], models),
-			/references missing premise M-999/,
+			() => validateArguments([argument({ premises: ['S-999'] })], statements),
+			/references missing premise S-999/,
 		);
 		assert.throws(
-			() => validateArguments([argument({ premises: ['M-001', 'M-001'] })], models),
-			/duplicate premise M-001/,
+			() => validateArguments([argument({ premises: ['S-001', 'S-001'] })], statements),
+			/duplicate premise S-001/,
 		);
 	});
 
 	test('requires an existing conclusion that is not a premise', () => {
 		assert.throws(
-			() => validateArguments([argument({ conclusion: 'M-999' })], models),
-			/references missing conclusion M-999/,
+			() => validateArguments([argument({ conclusion: 'S-999' })], statements),
+			/references missing conclusion S-999/,
 		);
 		assert.throws(
 			() =>
 				validateArguments(
-					[argument({ premises: ['M-001', 'M-002'], conclusion: 'M-002' })],
-					models,
+					[argument({ premises: ['S-001', 'S-002'], conclusion: 'S-002' })],
+					statements,
 				),
-			/cannot use conclusion M-002 as a premise/,
+			/cannot use conclusion S-002 as a premise/,
 		);
 	});
 
 	test('allows reasoning cycles without changing dependency DAG validation', () => {
-		const dependencyModels = [
-			modelEntry('M-001'),
-			modelEntry('M-002', [
-				{ id: 'M-001', role: 'methodological', note: 'M-001 frames M-002.' },
+		const dependencyStatements = [
+			statementEntry('S-001'),
+			statementEntry('S-002', [
+				{ id: 'S-001', role: 'methodological', note: 'S-001 frames S-002.' },
 			]),
 		];
-		validateModel(dependencyModels);
+		validateStatements(dependencyStatements);
 
 		const cyclicArguments = [
-			argument({ id: 'ARG-001', premises: ['M-001'], conclusion: 'M-002' }),
-			argument({ id: 'ARG-002', premises: ['M-002'], conclusion: 'M-001' }),
+			argument({ id: 'ARG-001', premises: ['S-001'], conclusion: 'S-002' }),
+			argument({ id: 'ARG-002', premises: ['S-002'], conclusion: 'S-001' }),
 		];
-		assert.equal(validateArguments(cyclicArguments, dependencyModels).size, 2);
-		assert.equal(validateModel(dependencyModels).size, 2);
+		assert.equal(validateArguments(cyclicArguments, dependencyStatements).size, 2);
+		assert.equal(validateStatements(dependencyStatements).size, 2);
 	});
 });

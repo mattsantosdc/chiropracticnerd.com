@@ -1,4 +1,10 @@
-# One-time Model identifier migration
+# Historical migration: domain IDs to Model IDs
+
+This is the earlier migration recorded at `fa5c14ea731539b24ac9c8f5741e2fdddcbdc81a`.
+The table and paths below are historical, including its then-permanent `M-###` destination IDs.
+The subsequent [Stage 1 migration](statements-stage-1-migration.md) maps those IDs to current
+statement IDs. Historical `S-###` here means science, not the current all-domain statement
+namespace; it must never be interpreted as an alias by spelling alone.
 
 This complete one-to-one map was recorded before applying the identifier migration. It covers all
 16 existing Model entries, including the Framework entries. Each destination is unique across the

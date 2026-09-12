@@ -15,8 +15,8 @@ function fixture(t: { after: (callback: () => void) => void }) {
 		writeFileSync(join(root, path), text);
 	};
 	for (const path of policyPaths) put(path, `Policy for ${path}\n`);
-	put('src/content/model/science/effect.md', '---\nid: M-007\nconfidence: unresolved\n---\nSome inputs produce an effect.\n');
-	put('src/content/arguments/reasoning.md', '---\nid: ARG-001\n---\nA defeasible argument.\n');
+	put('src/content/model/statements/effect.md', '---\nid: S-007\nconfidence: unresolved\n---\nSome inputs produce an effect.\n');
+	put('src/content/model/arguments/reasoning.md', '---\nid: ARG-001\n---\nA defeasible argument.\n');
 	const packet = collectInputs(root);
 	const review = {
 		schemaVersion: 1,
@@ -44,9 +44,26 @@ test('a completed review can cover unresolved empirical confidence', (t) => {
 	assert.deepEqual(checkReview(packet, review), []);
 });
 
+test('the packet scans only canonical siblings and includes every subject exactly once', (t) => {
+	const { root, put, review } = fixture(t);
+	put('src/content/model/statements/another.mdx', '---\nid: S-008\n---\nAnother statement.');
+	put('src/content/model/arguments/another.mdx', '---\nid: ARG-002\n---\nAnother argument.');
+	put('src/content/model/stray.md', 'Outside the canonical collections.');
+	const packet = collectInputs(root);
+	assert.deepEqual(packet.subjects, [
+		'src/content/model/arguments/another.mdx',
+		'src/content/model/arguments/reasoning.md',
+		'src/content/model/statements/another.mdx',
+		'src/content/model/statements/effect.md',
+	]);
+	assert.equal(new Set(packet.subjects).size, packet.subjects.length);
+	assert.equal(Object.keys(packet.inputs).length, policyPaths.length + packet.subjects.length);
+	assert.deepEqual(Object.keys(review.records).sort(), collectInputs(root).subjects.filter((path) => !path.endsWith('another.mdx')));
+});
+
 test('changed assertions, summaries, bodies, evidence, dependencies, and argument text invalidate review', (t) => {
 	const { root, put, packet, review } = fixture(t);
-	const entry = 'src/content/model/science/effect.md';
+	const entry = 'src/content/model/statements/effect.md';
 	const original = packet.sources[entry];
 	const changes = [
 		original.replace('produce', 'may produce'),
@@ -54,7 +71,7 @@ test('changed assertions, summaries, bodies, evidence, dependencies, and argumen
 		original.replace('Some', 'All'),
 		`${original}\nsummary: Some inputs may have effects.`,
 		`${original}\n## Current evidence\nChanged appraisal.`,
-		`${original}\nupstream:\n  - id: M-004`,
+		`${original}\nupstream:\n  - id: S-004`,
 		`${original}\nupdated: 2026-09-10`,
 	];
 	for (const changed of changes) {
@@ -62,15 +79,15 @@ test('changed assertions, summaries, bodies, evidence, dependencies, and argumen
 		assert.ok(checkReview(collectInputs(root), review).includes(`Stale reviewed input: ${entry}`));
 	}
 	put(entry, original);
-	const argument = 'src/content/arguments/reasoning.md';
+	const argument = 'src/content/model/arguments/reasoning.md';
 	put(argument, `${packet.sources[argument]}\nChanged premise interpretation.`);
 	assert.deepEqual(checkReview(collectInputs(root), review), [`Stale reviewed input: ${argument}`]);
 });
 
 test('new, removed, and renamed Markdown or MDX records cannot escape the input set', (t) => {
 	const { root, put, review } = fixture(t);
-	const old = 'src/content/model/science/effect.md';
-	const added = 'src/content/model/science/new.mdx';
+	const old = 'src/content/model/statements/effect.md';
+	const added = 'src/content/model/statements/new.mdx';
 	put(added, readFileSync(join(root, old), 'utf8'));
 	rmSync(join(root, old));
 	const issues = checkReview(collectInputs(root), review);

@@ -14,6 +14,12 @@ export const policyPaths = [
 	'docs/model-review.md',
 	'scripts/model-audit.mjs',
 	'src/content.config.ts',
+	'src/lib/statements.ts',
+	'src/lib/arguments.ts',
+	'src/lib/identifiers.ts',
+	'src/lib/dependencies.ts',
+	'src/components/DependencyLegend.astro',
+	'src/components/Comments.astro',
 	'src/layouts/Layout.astro',
 	'src/lib/site.ts',
 	'src/components/ModelAcknowledgment.astro',
@@ -44,8 +50,8 @@ export function fingerprint(content) {
 
 export function collectInputs(root) {
 	const subjects = [
-		...markdownPaths(root, 'src/content/model'),
-		...markdownPaths(root, 'src/content/arguments'),
+		...markdownPaths(root, 'src/content/model/statements'),
+		...markdownPaths(root, 'src/content/model/arguments'),
 	].sort();
 	const paths = [...policyPaths, ...subjects].sort();
 	const sources = Object.fromEntries(paths.map((path) => [path, readFileSync(join(root, path), 'utf8')]));
@@ -82,7 +88,7 @@ export function checkReview(packet, review) {
 		}
 	}
 	if (!isObject(review.records)) {
-		issues.push('Malformed review: records must contain a finding for every Model entry and argument.');
+		issues.push('Malformed review: records must contain a finding for every statement and argument.');
 	} else {
 		for (const path of packet.subjects) {
 			const record = owns(review.records, path) ? review.records[path] : undefined;

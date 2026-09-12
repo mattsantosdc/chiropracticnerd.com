@@ -6,15 +6,15 @@ import ModelAcknowledgment from '../../components/ModelAcknowledgment.astro';
 import Layout from '../../layouts/Layout.astro';
 import { modelIdentity, siteIdentity } from '../../lib/site';
 import { sortArguments, validateArguments } from '../../lib/arguments.ts';
-import { domainLabels, domainOrder, sortModelEntries, validateModel } from '../../lib/model';
+import { domainLabels, domainOrder, sortStatements, validateStatements } from '../../lib/statements';
 
-const [modelEntries, argumentEntries] = await Promise.all([
-	getCollection('model'),
+const [statementEntries, argumentEntries] = await Promise.all([
+	getCollection('statements'),
 	getCollection('arguments'),
 ]);
-const entries = sortModelEntries(modelEntries);
+const entries = sortStatements(statementEntries);
 const argumentsList = sortArguments(argumentEntries);
-validateModel(entries);
+validateStatements(entries);
 validateArguments(argumentsList, entries);
 const groups = domainOrder.map((domain) => ({
 	domain,
@@ -29,8 +29,8 @@ const groups = domainOrder.map((domain) => ({
 	<ModelAcknowledgment />
 	<p class="lede">
 		The Coherent Chiropractic Model connects philosophy, science, and art in a public, revisable account
-		of chiropractic. Each entry states a claim, definition, value
-		judgment, or strategy that can be examined, challenged, and revised.
+		of chiropractic. Each statement expresses a proposition, definition, value
+		judgment, framework commitment, or strategy that can be examined, challenged, and revised.
 	</p>
 	<p class="section-intro">
 		Every statement included in this version expresses the Model’s current working position.
@@ -40,15 +40,15 @@ const groups = domainOrder.map((domain) => ({
 		Version 0.1 presents the Model’s proposed explanations and reasoning for examination.
 		Evidence appraisal is preliminary: some claims have limited supporting examples, while others
 		await review. Assessment methods, input selection, and criteria for meaningful benefit remain
-		to be validated. Each Science entry explains what its cited evidence supports and what remains
+		to be validated. Each Science statement explains what its cited evidence supports and what remains
 		unresolved.
 	</p>
 	<p class="section-intro">
 		Read the highlighted <strong>statements</strong> to see what the Model says. The short titles
-		name the entries; open an entry for its summary, explanation, and supporting material.
+		name the statements; open a statement for its summary, explanation, and supporting material.
 	</p>
 	<div class="meta-row" style="margin-top: 1.25rem">
-		<span class="pill">{entries.length} entries</span>
+		<span class="pill">{entries.length} statements</span>
 		<span class="pill">{argumentsList.length} arguments</span>
 	</div>
 	<div class="hero-actions">
@@ -65,12 +65,12 @@ const groups = domainOrder.map((domain) => ({
 							<p class="entry-name"><span>{entry.data.id}</span> · {entry.data.title}</p>
 							<div class="entry-statement">
 								<p class="statement-label">Statement</p>
-								<h3 class="statement-text">{entry.data.claim}</h3>
+								<h3 class="statement-text">{entry.data.statement}</h3>
 							</div>
 							<span class="entry-read-more">Explanation and support →</span>
 						</a>
 						<div class="meta-row">
-							<span>{entry.data.claimType}</span>
+							<span>{entry.data.statementType}</span>
 							<span>confidence: {entry.data.confidence}</span>
 						</div>
 					</article>
@@ -84,6 +84,6 @@ const groups = domainOrder.map((domain) => ({
 	<Comments
 		threadId="model:general"
 		heading="Discuss the Coherent Chiropractic Model"
-		intro="Use this for questions and feedback on the Model’s overall structure, scope, assumptions, or approach. If your point applies to one specific entry, join the discussion on that entry instead."
+		intro="Use this for questions and feedback on the Model’s overall structure, scope, assumptions, or approach. If your point applies to one specific statement, join the discussion on that statement instead."
 	/>
 </Layout>

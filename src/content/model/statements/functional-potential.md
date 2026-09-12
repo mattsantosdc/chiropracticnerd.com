@@ -1,12 +1,12 @@
 ---
-id: M-004
+id: S-004
 slug: philosophy/functional-potential
 title: Open-ended human functional potential
-claim: >-
+statement: >-
   Human functional potential is open-ended.
 summary: Normality, good health, and absence of symptoms do not mark an endpoint to possible functional improvement.
 domain: philosophy
-claimType: framework
+statementType: framework
 confidence: not-applicable
 order: 10
 upstream: []

@@ -1,27 +1,27 @@
 ---
-id: M-014
+id: S-014
 slug: art/assessment
 title: Assessing an actionable chiropractic opportunity
-claim: >-
+statement: >-
   Chiropractic assessment develops a working hypothesis about whether a presently actionable opportunity for beneficial neuromotor change can be identified and what, if any, available input is most likely to produce that change.
 summary: Assessment asks whether an available input has enough expected value for this person now; identifying no actionable opportunity is a legitimate outcome.
 domain: art
-claimType: strategy
+statementType: strategy
 confidence: unresolved
 order: 10
 upstream:
-  - id: M-005
+  - id: S-005
     role: normative
-    note: Revising M-005's net-positive functional aim would require reconsidering the outcomes and tradeoffs guiding assessment; that aim does not validate a finding or justify a particular input.
-  - id: M-006
+    note: Revising S-005's net-positive functional aim would require reconsidering the outcomes and tradeoffs guiding assessment; that aim does not validate a finding or justify a particular input.
+  - id: S-006
     role: conceptual
-    note: Revising M-006's rationale beyond symptoms would require reconsidering whether assessment can consider opportunities without symptoms or pathology; that scope does not establish an opportunity in any person.
-  - id: M-009
+    note: Revising S-006's rationale beyond symptoms would require reconsidering whether assessment can consider opportunities without symptoms or pathology; that scope does not establish an opportunity in any person.
+  - id: S-009
     role: practical
-    note: Revising M-009's proposed modifiable opportunities would require reconsidering what assessment seeks to identify and act on; modifiability in some cases does not establish detectability or present actionability.
-  - id: M-011
+    note: Revising S-009's proposed modifiable opportunities would require reconsidering what assessment seeks to identify and act on; modifiability in some cases does not establish detectability or present actionability.
+  - id: S-011
     role: practical
-    note: Revising M-011's proposed beneficial effects of chiropractic inputs would require reconsidering the available inputs and predictions used in selection; effects in some cases supply no validated person-level selection rule.
+    note: Revising S-011's proposed beneficial effects of chiropractic inputs would require reconsidering the available inputs and predictions used in selection; effects in some cases supply no validated person-level selection rule.
 related: []
 version: '0.1'
 updated: 2026-09-09
@@ -31,7 +31,7 @@ updated: 2026-09-09
 
 Art begins with a limited, testable judgment about a particular person and moment. An **actionable chiropractic opportunity** is a working judgment that an available chiropractic input may presently offer enough expected net-positive value to justify proceeding. It combines a hypothesized opportunity for beneficial neuromotor change with a sufficiently supported selection of input, considered in the person's context. It names a practical judgment, not a biological entity.
 
-M-005 supplies the functional aim, M-006 allows that rationale without symptoms or pathology, M-009 proposes modifiable opportunities, and M-011 proposes beneficial neuromotor effects from some chiropractic inputs. ARG-002 explains why these motivate a working hypothesis while leaving detection, prediction, and selection validity unresolved. Even if the empirical premises are true, they do not establish that the relevant opportunity and effective input coincide in this person now.
+S-005 supplies the functional aim, S-006 allows that rationale without symptoms or pathology, S-009 proposes modifiable opportunities, and S-011 proposes beneficial neuromotor effects from some chiropractic inputs. ARG-002 explains why these motivate a working hypothesis while leaving detection, prediction, and selection validity unresolved. Even if the empirical premises are true, they do not establish that the relevant opportunity and effective input coincide in this person now.
 
 “What, if any, input” keeps non-intervention available. The assessment should identify the target, predicted response, criteria for judging benefit, and reasons for proceeding or withholding an input before observing its result. A neuromotor prediction alone cannot justify a promise of broader benefit.
 
@@ -51,4 +51,4 @@ It does not mean that the person functions perfectly, that no possible opportuni
 
 ## Boundary
 
-The core does not yet specify validated findings, decision thresholds, safety procedures, or a method that can reliably predict the most beneficial available input. Those remain requirements for practical validation, not capabilities established by this strategy. Reassessment in M-016 tests the working hypothesis without guaranteeing that its methods are valid.
+The core does not yet specify validated findings, decision thresholds, safety procedures, or a method that can reliably predict the most beneficial available input. Those remain requirements for practical validation, not capabilities established by this strategy. Reassessment in S-016 tests the working hypothesis without guaranteeing that its methods are valid.

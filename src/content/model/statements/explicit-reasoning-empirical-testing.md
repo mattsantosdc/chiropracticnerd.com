@@ -1,21 +1,21 @@
 ---
-id: M-003
+id: S-003
 slug: framework/explicit-reasoning-empirical-testing
 title: Build the reasoning first; test empirical premises separately
-claim: >-
+statement: >-
   Where the Model proposes that a conclusion follows from other claims, it should first make the required premises, scope, modality, and inference explicit and evaluate whether that inference supports the conclusion as claimed, then use science to evaluate its empirical premises independently.
 summary: First expose and evaluate the proposed inferential route; then test its empirical premises against reality and revise whatever fails.
 domain: framework
-claimType: framework
+statementType: framework
 confidence: not-applicable
 order: 30
 upstream:
-  - id: M-001
+  - id: S-001
     role: methodological
-    note: M-001 assigns philosophy the work of exposing proposed structure and science the work of testing empirical premises; M-003 turns that division into an explicit reasoning method.
-  - id: M-002
+    note: S-001 assigns philosophy the work of exposing proposed structure and science the work of testing empirical premises; S-003 turns that division into an explicit reasoning method.
+  - id: S-002
     role: methodological
-    note: M-002 distinguishes validity, premise truth, and epistemic strength; M-003 applies those distinctions to argument records and revision.
+    note: S-002 distinguishes validity, premise truth, and epistemic strength; S-003 applies those distinctions to argument records and revision.
 related: []
 version: '0.1'
 updated: 2026-09-09
@@ -23,11 +23,11 @@ updated: 2026-09-09
 
 ## Build the reasoning first
 
-Start with the conclusion the Model proposes. Model claims can serve as premises in explicit arguments, but every premise required by the proposed route—including assumptions about scope, conditions, and modality—should be exposed rather than left hidden. The inference can then be evaluated on its own terms.
+Start with the conclusion the Model proposes. Statements can serve as premises in explicit arguments, but every premise required by the proposed route—including assumptions about scope, conditions, and modality—should be exposed rather than left hidden. The inference can then be evaluated on its own terms.
 
 When the Model intends a conclusion to follow deductively, the premises should be stated such that, if all are true, the conclusion must be true. “Deductive” means that the conclusion necessarily follows from the premises exactly as written, not that the conclusion is certain. Inductive, abductive, causal, mechanistic, normative, and practical reasoning should remain defeasible where their nature requires it.
 
-An entry may be the conclusion of one argument and a premise in another. This creates a visible reasoning hierarchy without turning dependency arrows into logical arrows.
+A statement may be the conclusion of one argument and a premise in another. This creates a visible reasoning hierarchy without turning dependency arrows into logical arrows.
 
 ## Test empirical premises separately
 

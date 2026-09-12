@@ -5,16 +5,16 @@ import DependencyLegend from '../../components/DependencyLegend.astro';
 import Layout from '../../layouts/Layout.astro';
 import { modelIdentity } from '../../lib/site';
 import { sortArguments, validateArguments } from '../../lib/arguments.ts';
-import { domainLabels, getRelatedEntries, sortModelEntries, validateModel } from '../../lib/model.ts';
+import { domainLabels, getRelatedStatements, sortStatements, validateStatements } from '../../lib/statements.ts';
 
 export async function getStaticPaths() {
-	const [modelEntries, argumentEntries] = await Promise.all([
-		getCollection('model'),
+	const [statementEntries, argumentEntries] = await Promise.all([
+		getCollection('statements'),
 		getCollection('arguments'),
 	]);
-	const allEntries = sortModelEntries(modelEntries);
+	const allEntries = sortStatements(statementEntries);
 	const allArguments = sortArguments(argumentEntries);
-	validateModel(allEntries);
+	validateStatements(allEntries);
 	validateArguments(allArguments, allEntries);
 
 	return allEntries.map((entry) => ({
@@ -24,24 +24,24 @@ export async function getStaticPaths() {
 }
 
 const { contentId } = Astro.props;
-const [modelEntries, argumentEntries] = await Promise.all([
-	getCollection('model'),
+const [statementEntries, argumentEntries] = await Promise.all([
+	getCollection('statements'),
 	getCollection('arguments'),
 ]);
-const allEntries = sortModelEntries(modelEntries);
+const allEntries = sortStatements(statementEntries);
 const allArguments = sortArguments(argumentEntries);
-const byId = validateModel(allEntries);
+const byId = validateStatements(allEntries);
 validateArguments(allArguments, allEntries);
 const entry = allEntries.find((candidate) => candidate.id === contentId);
 
-if (!entry) throw new Error(`Model entry not found: ${contentId}`);
+if (!entry) throw new Error(`Statement not found: ${contentId}`);
 
 const { Content } = await render(entry);
 
 const upstream = entry.data.upstream
 	.map((dependency) => ({ dependency, entry: byId.get(dependency.id)! }));
 
-const related = getRelatedEntries(allEntries, entry.data.id);
+const related = getRelatedStatements(allEntries, entry.data.id);
 const concludingArguments = allArguments.filter(
 	(argument) => argument.data.conclusion === entry.data.id,
 );
@@ -62,9 +62,9 @@ const downstream = allEntries.flatMap((candidate) =>
 		<p class="entry-name">{entry.data.title}</p>
 		<div class="entry-statement">
 			<p class="statement-label">Statement</p>
-			<h1 class="statement-text">{entry.data.claim}</h1>
+			<h1 class="statement-text">{entry.data.statement}</h1>
 			<div class="meta-row">
-				<span class="pill">{entry.data.claimType}</span>
+				<span class="pill">{entry.data.statementType}</span>
 				<span class="pill">confidence: {entry.data.confidence}</span>
 				<span class="pill">v{entry.data.version}</span>
 			</div>
@@ -84,7 +84,7 @@ const downstream = allEntries.flatMap((candidate) =>
 
 				{entry.data.whatWouldChange && (
 					<section>
-						<h2>What would change this entry</h2>
+						<h2>What would change this statement</h2>
 						<p>{entry.data.whatWouldChange}</p>
 					</section>
 				)}
@@ -113,7 +113,7 @@ const downstream = allEntries.flatMap((candidate) =>
 
 					{concludingArguments.length > 0 && (
 						<>
-							<h3>Arguments concluding this entry</h3>
+							<h3>Arguments concluding this statement</h3>
 							<ul class="argument-list">
 								{concludingArguments.map((argument) => (
 									<li>
@@ -139,7 +139,7 @@ const downstream = allEntries.flatMap((candidate) =>
 
 					{premiseArguments.length > 0 && (
 						<>
-							<h3>Arguments using this entry as a premise</h3>
+							<h3>Arguments using this statement as a premise</h3>
 							<ul class="argument-list">
 								{premiseArguments.map((argument) => {
 									const conclusion = byId.get(argument.data.conclusion)!;
@@ -165,24 +165,24 @@ const downstream = allEntries.flatMap((candidate) =>
 					)}
 
 					{concludingArguments.length === 0 && premiseArguments.length === 0 && (
-						<p>No structured argument currently cites this entry.</p>
+						<p>No structured argument currently cites this statement.</p>
 					)}
 					<p><a href="/model/arguments/">Browse all structured arguments →</a></p>
 				</section>
 			</article>
 
 			<Comments
-				threadId={`model:${entry.data.id}`}
-				heading="Discuss this entry"
+				threadId={entry.data.id}
+				heading="Discuss this statement"
 				intro="What holds up, what doesn’t, and what could make this stronger? Share missing evidence, alternative explanations, or problems with the premises or reasoning."
 			/>
 		</div>
 
 		<aside class="side-panel">
 			<h2>Depends on</h2>
-			{upstream.length ? <ul class="dependency-list">{upstream.map(({ entry: item, dependency }) => <li><a href={`/model/${item.data.slug}/`}>{item.data.id}: {item.data.title}</a><span class="dependency-role">{dependency.role}</span><span class="dependency-note">{dependency.note}</span></li>)}</ul> : <p>Root entry</p>}
+			{upstream.length ? <ul class="dependency-list">{upstream.map(({ entry: item, dependency }) => <li><a href={`/model/${item.data.slug}/`}>{item.data.id}: {item.data.title}</a><span class="dependency-role">{dependency.role}</span><span class="dependency-note">{dependency.note}</span></li>)}</ul> : <p>Root statement</p>}
 			<h2>Used by</h2>
-			{downstream.length ? <ul class="dependency-list">{downstream.map(({ entry: item, dependency }) => <li><a href={`/model/${item.data.slug}/`}>{item.data.id}: {item.data.title}</a><span class="dependency-role">{dependency.role}</span><span class="dependency-note">{dependency.note}</span></li>)}</ul> : <p>No downstream entries yet.</p>}
+			{downstream.length ? <ul class="dependency-list">{downstream.map(({ entry: item, dependency }) => <li><a href={`/model/${item.data.slug}/`}>{item.data.id}: {item.data.title}</a><span class="dependency-role">{dependency.role}</span><span class="dependency-note">{dependency.note}</span></li>)}</ul> : <p>No downstream statements yet.</p>}
 			{related.length > 0 && <><h2>Related</h2><ul>{related.map((item) => <li><a href={`/model/${item.data.slug}/`}>{item.data.id}: {item.data.title}</a></li>)}</ul></>}
 			<DependencyLegend />
 			<a href="/model/">← Back to the Coherent Chiropractic Model</a>

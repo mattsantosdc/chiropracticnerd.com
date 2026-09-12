@@ -1,6 +1,6 @@
 import type { CollectionEntry } from 'astro:content';
 import { isDependencyRole } from './dependencies.ts';
-import { modelIdPattern } from './identifiers.ts';
+import { statementIdPattern } from './identifiers.ts';
 
 export {
 	dependencyRoleDefinitions,
@@ -8,51 +8,51 @@ export {
 	type DependencyRole,
 } from './dependencies.ts';
 
-export type ModelEntry = CollectionEntry<'model'>;
-export type ModelDomain = ModelEntry['data']['domain'];
-export type UpstreamDependency = ModelEntry['data']['upstream'][number];
+export type StatementEntry = CollectionEntry<'statements'>;
+export type StatementDomain = StatementEntry['data']['domain'];
+export type UpstreamDependency = StatementEntry['data']['upstream'][number];
 
-export const domainOrder: ModelDomain[] = ['framework', 'philosophy', 'science', 'art'];
+export const domainOrder: StatementDomain[] = ['framework', 'philosophy', 'science', 'art'];
 
-export const domainLabels: Record<ModelDomain, string> = {
+export const domainLabels: Record<StatementDomain, string> = {
 	framework: 'How the model works',
 	philosophy: 'Philosophy',
 	science: 'Science',
 	art: 'Art',
 };
 
-export const reservedModelSlugRoots = ['arguments'] as const;
+export const reservedStatementSlugRoots = ['arguments'] as const;
 
-export function isReservedModelSlug(slug: string) {
+export function isReservedStatementSlug(slug: string) {
 	const [root] = slug.split('/');
-	return reservedModelSlugRoots.includes(root as (typeof reservedModelSlugRoots)[number]);
+	return reservedStatementSlugRoots.includes(root as (typeof reservedStatementSlugRoots)[number]);
 }
 
-export function sortModelEntries(entries: ModelEntry[]) {
+export function sortStatements(entries: StatementEntry[]) {
 	return [...entries].sort((a, b) => {
 		const domainDifference = domainOrder.indexOf(a.data.domain) - domainOrder.indexOf(b.data.domain);
 		return domainDifference || a.data.order - b.data.order;
 	});
 }
 
-export function validateModel(entries: ModelEntry[]) {
-	const byId = new Map<string, ModelEntry>();
-	const bySlug = new Map<string, ModelEntry>();
+export function validateStatements(entries: StatementEntry[]) {
+	const byId = new Map<string, StatementEntry>();
+	const bySlug = new Map<string, StatementEntry>();
 	const dependencyPairs = new Set<string>();
 	const relatedPairs = new Set<string>();
 	const pairKey = (firstId: string, secondId: string) =>
 		[firstId, secondId].sort().join('\u0000');
 
 	for (const entry of entries) {
-		if (!modelIdPattern.test(entry.data.id)) throw new Error(`Invalid model id: ${entry.data.id}`);
-		if (byId.has(entry.data.id)) throw new Error(`Duplicate model id: ${entry.data.id}`);
-		if (bySlug.has(entry.data.slug)) throw new Error(`Duplicate model slug: ${entry.data.slug}`);
-		if (isReservedModelSlug(entry.data.slug)) {
+		if (!statementIdPattern.test(entry.data.id)) throw new Error(`Invalid statement id: ${entry.data.id}`);
+		if (byId.has(entry.data.id)) throw new Error(`Duplicate statement id: ${entry.data.id}`);
+		if (bySlug.has(entry.data.slug)) throw new Error(`Duplicate statement slug: ${entry.data.slug}`);
+		if (isReservedStatementSlug(entry.data.slug)) {
 			throw new Error(
-				`${entry.data.id} model slug uses reserved route: ${entry.data.slug}`,
+				`${entry.data.id} statement slug uses reserved route: ${entry.data.slug}`,
 			);
 		}
-		if (entry.data.claimType === 'empirical') {
+		if (entry.data.statementType === 'empirical') {
 			if (entry.data.confidence === 'not-applicable') {
 				throw new Error(`${entry.data.id} empirical claim requires a confidence assessment`);
 			}
@@ -73,7 +73,7 @@ export function validateModel(entries: ModelEntry[]) {
 			upstreamIds.add(dependency.id);
 
 			if (!byId.has(dependency.id)) {
-				throw new Error(`${entry.data.id} references missing model id ${dependency.id}`);
+				throw new Error(`${entry.data.id} references missing statement id ${dependency.id}`);
 			}
 			if (dependency.id === entry.data.id) {
 				throw new Error(`${entry.data.id} cannot reference itself`);
@@ -99,7 +99,7 @@ export function validateModel(entries: ModelEntry[]) {
 			relatedIds.add(relatedId);
 
 			if (!byId.has(relatedId)) {
-				throw new Error(`${entry.data.id} references missing model id ${relatedId}`);
+				throw new Error(`${entry.data.id} references missing statement id ${relatedId}`);
 			}
 			if (relatedId === entry.data.id) throw new Error(`${entry.data.id} cannot reference itself`);
 
@@ -132,7 +132,7 @@ export function validateModel(entries: ModelEntry[]) {
 	return byId;
 }
 
-export function getRelatedEntries(entries: ModelEntry[], entryId: string) {
+export function getRelatedStatements(entries: StatementEntry[], entryId: string) {
 	const entry = entries.find((candidate) => candidate.data.id === entryId);
 	if (!entry) return [];
 

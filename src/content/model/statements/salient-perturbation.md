@@ -15,12 +15,14 @@ upstream:
     note: Revising S-008's account of state-dependent neuromotor strategies would require reconsidering what is proposed to reorganize and under which conditions; that domain supplies no evidence for the perturbation mechanism.
 related: []
 version: '0.1'
-updated: 2026-09-09
+updated: 2026-09-12
 whatWouldChange: >-
   Narrow or reject specified versions of this mechanism if perturbations meeting prospectively defined salience criteria fail to produce the predicted neuromotor reorganization in valid, adequately sensitive tests, or if competing explanations better account for the response.
 ---
 
 ## Perturbation as a mechanism
+
+S-020 describes ordinary sensory updating and the capacity for sensory information to contribute to neuromotor reorganization. The present hypothesis concerns a more specific trigger: a sufficiently salient neurobiomechanical perturbation. General sensory updating does not establish that trigger's conditions or its proposed effect.
 
 This is a general biological mechanism hypothesis. A neurobiomechanical perturbation is a disturbance involving mechanical interaction with the body and associated neural input or response. The proposal is that a disturbance sufficiently salient to the nervous system can prompt it to reevaluate and reorganize an established neuromotor strategy. “Reevaluation” describes a proposed change in control, not necessarily conscious deliberation.
 

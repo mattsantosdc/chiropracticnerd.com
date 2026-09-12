@@ -47,7 +47,9 @@ An inferential relationship does not automatically require a dependency edge, an
 
 ## Current graph audit
 
-The v0.1 graph contains 16 Statements and 23 direct dependencies, alongside four structured arguments. Every dependency edge has one of the five roles and a required limiting note. `related` links and argument records remain outside the acyclic dependency graph. The [reasoning audit](model-v0.1-reasoning-audit.md) records why the revised spine adds, removes, or retains its direct dependencies; the graph is not a linear philosophical proof of chiropractic effectiveness.
+The v0.1 graph contains 20 statements and 25 direct dependencies, alongside five structured arguments. Every dependency edge has one of the five roles and a required limiting note. `related` links and argument records remain outside the acyclic dependency graph. The historical [reasoning audit](model-v0.1-reasoning-audit.md) and [Stage 2 integration note](model-stage-2-integration.md) record the dependency decisions; the graph is not a linear philosophical proof of chiropractic effectiveness.
+
+S-020 adds conceptual dependencies on S-018's estimates and S-008's neuromotor definitions. Its see-also link to S-010 distinguishes ordinary sensory updating from the specific perturbation hypothesis; neither supplies proof of the other. ARG-005 uses S-017, S-007, S-018, S-019, S-008, and S-020 to motivate S-004 without using downstream benefit commitments. That defeasible rationale is represented in the argument layer, not copied into dependencies: its failure reopens the rationale without necessarily changing S-004's independent framework meaning. The existing 23 dependency edges remain unchanged.
 
 S-012 retains dependencies on S-005 and S-011 for its net-positive benefit criterion and chiropractic-produced neuromotor changes. S-013 holds the separate neural-mediation proposal, with dependencies on S-007 and S-011. The two hypotheses are connected only by a `related` pair stored on S-013; neither hypothesis supplies a revision dependency or inferential route to the other.
 

@@ -15,12 +15,12 @@ upstream:
     note: Revising S-004's account of functional potential would require reconsidering the possibilities for improvement addressed by this aim; open-ended potential does not entail its normative legitimacy or chiropractic effectiveness.
 related: []
 version: '0.1'
-updated: 2026-09-09
+updated: 2026-09-12
 ---
 
 ## Net-positive functional improvement
 
-A model of chiropractic needs an explicit aim to guide its scientific questions and practical judgments. This statement adopts a value choice: helping a person function better in ways that are beneficial overall is a legitimate aim in its own right. S-004 supplies the open-ended potential for that improvement.
+A model of chiropractic needs an explicit aim to guide its scientific questions and practical judgments. This statement adopts a value choice: helping a person function better in ways that are beneficial overall is a legitimate aim in its own right. S-004 frames the possibilities addressed by this aim as open-ended; it does not establish that improvement is available in a particular case.
 
 Improved function is itself a benefit within this Model. Its value does not depend on identifying an additional consequence, such as symptom relief or a particular health outcome, or on attributing such a consequence to the functional improvement. Pursuing better function therefore need not involve promising a specific benefit beyond the improvement itself.
 

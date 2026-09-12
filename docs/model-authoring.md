@@ -26,6 +26,8 @@ In compact form: **propose the model → expose the premises → establish the i
 
 Do not substitute an evidence-first rationalization: gather studies, infer a broad conclusion from the literature, then construct premises afterward to make that conclusion appear to follow. Conclusions remain evidence-responsive and fully revisable, but any claimed inferential route must be inspectable independently of which conclusion the available evidence seems to favor.
 
+This analytical workflow does not require all Philosophy statements to precede all Science statements in a reader's route. An empirical biological premise can introduce the subject while philosophical work exposes how it is used. Domain classification identifies meaning, not inferential order or a prescribed reading sequence.
+
 ## State the proposition separately from confidence
 
 **Use the statement to express the proposed truth; use confidence and evidence sections to express our justification for believing it. Retain qualifications that define scope, capacity, or necessary conditions.** This applies to statements, summaries, explanations, and the wording used to interpret premises in arguments.

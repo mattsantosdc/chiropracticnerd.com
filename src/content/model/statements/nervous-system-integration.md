@@ -12,16 +12,16 @@ order: 10
 upstream: []
 related: []
 version: '0.1'
-updated: 2026-09-09
+updated: 2026-09-12
 whatWouldChange: >-
   Revise the scope of the claimed integrative role if studies of specified functions show that neural activity does not organize, coordinate, or regulate them as proposed, or that a different account better explains the relevant integration.
 ---
 
 ## Integration within the whole person
 
-S-007 begins the biological account with the nervous system's integrative role: relating information about the person and environment to the organization, coordination, and regulation of function. “Central” identifies an organizing role, not a ranking that places every other biological system beneath it.
+Within S-017's broader account of active organismic organization, S-007 identifies the nervous system's integrative role in humans: relating information about the person and environment to the organization, coordination, and regulation of function. “Central” identifies an organizing role, not a ranking that places every other biological system beneath it.
 
-This empirical claim stands independently of the philosophical commitment in S-004. Open-ended potential is not evidence for neural integration.
+This is an additional empirical premise, not a consequence of S-017: living organisms do not all have nervous systems. It also stands independently of the philosophical commitment in S-004. Open-ended potential is not evidence for neural integration.
 
 ## Current evidence
 

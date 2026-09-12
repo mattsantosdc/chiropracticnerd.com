@@ -9,6 +9,6 @@ const { section, index, path, next } = Astro.props;
 <section class="reading-section" id={section.anchor} tabindex="-1" data-placement={section.placement}>
 	<h2>{section.title}</h2>
 	{section.introduction && <p class="section-intro">{section.introduction}</p>}
-	{section.steps.map((step) => step.kind === 'statement' ? <StatementStep step={step} index={index} path={path} /> : <ArgumentStep step={step} index={index} path={path} />)}
+	{section.steps.map((step) => step.kind === 'statement' ? <StatementStep step={step} /> : <ArgumentStep step={step} index={index} path={path} />)}
 	{next && <p class="next-section">Next section in the reading path: <a href={`#${next.anchor}`}>{next.title}</a></p>}
 </section>

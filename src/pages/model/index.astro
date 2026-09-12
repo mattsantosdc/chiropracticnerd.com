@@ -20,12 +20,12 @@ for (const diagnostic of path.diagnostics) console.warn(diagnostic.message);
 const groups = domainOrder.map((domain) => ({ domain, entries: sortStatements(statementEntries).filter((entry) => entry.data.domain === domain) }));
 ---
 <Layout title={modelIdentity.name} description="The Coherent Chiropractic Model by Dr. Matt Santos. Read its statements and follow their reasoning, with support for the premises available to inspect.">
-	<div class="model-reader">
+	<div class="model-reader model-overview">
 		<header class="reading-introduction">
 			<p class="eyebrow">A {siteIdentity.name} project · v{path.version}</p>
 			<h1 class="model-title">{modelIdentity.name}</h1>
 			<p class="byline">By {siteIdentity.author}</p>
-			<p class="lede">A revisable account of chiropractic, from living function to practical decisions. Read what the Model proposes, follow its reasoning, and separately examine the support for its premises.</p>
+			<p class="lede">A revisable account of chiropractic, from living function to practical decisions. Follow its statements and reasoning, and separately examine the support for its premises.</p>
 			<ModelAcknowledgment />
 		</header>
 		<nav class="reading-toc" aria-label="Model sections" id="model-contents">
@@ -37,17 +37,16 @@ const groups = domainOrder.map((domain) => ({ domain, entries: sortStatements(st
 					{path.supporting.map((section) => <li><a href={`#${section.anchor}`}>Supporting: {section.title}</a></li>)}
 					<li><a href="#model-reference">Statement and argument index</a></li>
 				</ul>
+				<ReasoningHelp />
 			</details>
 		</nav>
-		<p class="reading-note">Sections give a reading order. Arguments identify the premises used together.</p>
-		<ReasoningHelp />
 		<div class="main-reading">{path.main.map((section, i) => <ReadingSection section={section} index={index} path={path} next={path.main[i + 1]} />)}</div>
 		{path.orientation && <details class="model-disclosure reading-branch"><summary>Optional orientation: {path.orientation.title}</summary><ReadingSection section={path.orientation} index={index} path={path} /></details>}
 		{path.supporting.map((section) => <details class="model-disclosure reading-branch"><summary>Supporting reading: {section.title}</summary><ReadingSection section={section} index={index} path={path} /></details>)}
 		<details class="model-disclosure reference-index" id="model-reference">
 			<summary>Statement and argument index</summary>
 			<div class="disclosure-body">
-				{groups.map(({ domain, entries }) => <section><h2>{domainLabels[domain]}</h2><ul>{entries.map((entry) => <li><a href={readingHref(path.primaryStatementLocations.get(entry.data.id)!)}>{entry.data.id}: {entry.data.title}</a> · <a href={index.statementsById.get(entry.data.id)!.href}>Full statement</a></li>)}</ul></section>)}
+				{groups.map(({ domain, entries }) => <section><h2>{domainLabels[domain]}</h2><ul>{entries.map((entry) => <li><a href={readingHref(path.primaryStatementLocations.get(entry.data.id)!)}>{entry.data.id}: {entry.data.title}</a> · <a href={index.statementsById.get(entry.data.id)!.href}>More about this statement</a></li>)}</ul></section>)}
 				<h2>Arguments</h2><ul>{sortArguments(argumentEntries).map((entry) => <li><a href={readingHref(argumentStep(path, entry.data.id).location)}>{entry.data.id}: {entry.data.title}</a> · <a href={index.argumentsById.get(entry.data.id)!.href}>Full argument</a></li>)}</ul>
 				<p><a href="/model/arguments/">Browse all argument records</a></p>
 			</div>

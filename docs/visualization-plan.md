@@ -23,10 +23,16 @@ renderers consume derived data and remain replaceable without migrating content.
 
 The main walkthrough begins with living organisms; the method orientation is
 optional and the broader-effect branch remains adopted supporting reading.
-Readers encounter exact statements, then inspect their explanations and
-recorded reasoning through expandable details. Every argument retains its identity,
-ordered joint premises, conclusion, scheme, and deductive or defeasible kind.
-A statement may have several concluding arguments and also participate as a premise.
+Readers encounter exact statements, follow “More about this statement” to their
+explanations and support, and inspect recorded argument reasoning through expandable
+details. Every argument retains its identity, ordered joint premises, conclusion,
+scheme, and deductive or defeasible kind inside its reasoning disclosure. The conclusion
+leads each argument entry; statement pages retain all concluding and premise argument
+participation and discussion. A statement may have several concluding arguments and
+also participate as a premise. The overview keeps type and applicable confidence
+compact; complete metadata remains on detail pages. Reading guidance stays available
+inside the contents disclosure alongside navigation, with the opening purpose,
+authorship, and acknowledgment preserved.
 Premise links use derived primary reading locations, including argument conclusions,
 while existing detail-page links remain available.
 
@@ -40,8 +46,9 @@ The integrated interface needs accessible navigation, keyboard-usable disclosure
 narrow-screen reading, stable local anchors, and usable text without JavaScript.
 Recursive reasoning display, if introduced, must bound traversal and mark revisited
 records without deleting relationships. Finite argument cycles are allowed and
-must never enter the separate dependency-DAG check. Stage 5 implements a finite text presentation: links trace relationships and native
-disclosures expose canonical explanations without recursive nesting. See the
+must never enter the separate dependency-DAG check. Stage 5 implements a finite text
+presentation: links trace relationships and open statement support; native disclosures
+expose canonical argument explanations without recursive nesting. See the
 [implementation and browser review](model-stage-5-integration.md).
 
 ## Visualization-readiness contract

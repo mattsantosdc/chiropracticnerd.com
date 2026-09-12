@@ -38,9 +38,15 @@ try {
 		assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
 		await page.screenshot({ path: `${output}/${engine.name()}-${width}-introduction.png`, fullPage: false });
 		const s17 = page.locator('[data-reading-step="S-017"]');
-		await s17.locator('[data-participation] a').click();
+		assert.equal(await page.locator('[data-participation]').count(), 0);
+		await s17.getByRole('link', { name: 'More about this statement', exact: true }).click();
+		assert.ok(page.url().endsWith('/model/science/organismic-organization/'));
+		await page.locator('[data-participation="S-017"] a').first().click();
 		assert.ok(page.url().endsWith('#reading-functional-possibilities--argument-arg-005'));
 		const arg5 = page.locator('[data-argument-id="ARG-005"]');
+		assert.equal(await arg5.locator('.argument-identity').isVisible(), false);
+		assert.equal(await arg5.locator('.premise-references').isVisible(), false);
+		assert.equal(await arg5.locator('[data-role="conclusion"] .statement-text').isVisible(), true);
 		await arg5.locator('summary').first().focus();
 		await page.keyboard.press('Enter');
 		assert.equal(await arg5.locator('.argument-reasoning').getAttribute('open'), '');
@@ -57,10 +63,11 @@ try {
 		await page.locator(`#${target}`).locator('..').locator('.premise-origin').click();
 		await page.waitForFunction(() => document.activeElement?.id === 'reading-actual-input-effects--argument-arg-007--conclusion');
 		const arg7 = page.locator('[data-argument-id="ARG-007"]');
+		await arg7.locator('summary').first().click();
 		await arg7.locator('.premise-references a').last().click();
 		await page.waitForFunction(() => document.activeElement?.id.endsWith('--premise-s-011'));
 		assert.equal(await arg7.locator('.argument-reasoning').getAttribute('open'), '');
-		assert.equal(await page.evaluate(() => document.activeElement.getBoundingClientRect().top >= 0 && document.activeElement.getBoundingClientRect().top < innerHeight), true);
+		await page.waitForFunction(() => document.activeElement.getBoundingClientRect().top >= 0 && document.activeElement.getBoundingClientRect().top < innerHeight);
 		await page.goBack();
 		await page.waitForFunction(() => document.activeElement?.id === 'reading-actual-input-effects--argument-arg-007--conclusion');
 		await page.goBack();
@@ -70,13 +77,18 @@ try {
 		await page.waitForFunction(() => document.activeElement?.id === 'reading-actual-input-effects--argument-arg-007--conclusion');
 		await page.goBack();
 		await page.waitForFunction((id) => document.activeElement?.id === id && !!document.getElementById(id)?.closest('details')?.open, target);
-		// Repeated click on the current hash also reveals a disclosure that was closed manually.
+		// Reopening reasoning and following the current fragment restores focus to the premise.
 		await page.locator('[data-argument-id="ARG-002"] summary').first().click();
+		await page.locator('[data-argument-id="ARG-002"] summary').first().focus();
+		await page.keyboard.press('Enter');
 		await page.locator('[data-argument-id="ARG-002"] .premise-references a').last().click();
 		await page.waitForFunction((id) => document.activeElement?.id === id && !!document.getElementById(id)?.closest('details')?.open, target);
-		await page.goto(`${base}/model/#reading-broader-effects--statement-s-012--body--boundary`);
-		await page.waitForFunction(() => document.activeElement?.id === 'reading-broader-effects--statement-s-012--body--boundary');
+		await page.goto(`${base}/model/#reading-broader-effects--statement-s-012`);
+		await page.waitForFunction(() => document.activeElement?.id === 'reading-broader-effects--statement-s-012');
 		assert.equal(await page.locator('.reading-branch').last().getAttribute('open'), '');
+		await page.locator('[data-reading-step="S-012"]').getByRole('link', { name: 'More about this statement', exact: true }).click();
+		assert.ok(page.url().endsWith('/model/science/broader-functional-benefit/'));
+		assert.equal(await page.locator('#boundary').isVisible(), true);
 		await page.goto(`${base}/model/#reading-examine-the-model--argument-arg-001--premise-s-001`);
 		await page.waitForFunction(() => document.activeElement?.id.endsWith('--premise-s-001'));
 		await page.goto(`${base}/model/science/organismic-organization/`);
@@ -93,6 +105,10 @@ try {
 	const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 900 } });
 	const page = await context.newPage();
 	await page.goto(`${base}/model/`);
+	await page.screenshot({ path: `${output}/${engine.name()}-390-no-javascript.png` });
+	await page.locator('.reading-toc > details > summary').click();
+	await page.locator('#reasoning-help > summary').click();
+	assert.equal(await page.locator('#reasoning-help .disclosure-body').isVisible(), true);
 	assert.equal(await page.locator('.main-reading > section > [data-reading-step]').count(), config.main.flatMap((section) => section.steps).length);
 	const argument = page.locator('[data-argument-id="ARG-005"]');
 	await argument.locator('summary').first().click();
@@ -101,6 +117,8 @@ try {
 	assert.equal(await page.locator('[data-reading-step="S-012"] .statement-text').isVisible(), true);
 	await page.locator('[data-reading-step="S-012"] .record-links a').first().click();
 	assert.ok(page.url().includes('/model/science/broader-functional-benefit/'));
+	assert.equal(await page.locator('[data-participation="S-012"]').isVisible(), true);
+	assert.equal(await page.locator('#discussion').count(), 1);
 	console.log('No JavaScript: main text, native disclosures, supporting reading and full detail navigation passed');
 	await context.close();
 } finally { await browser.close(); server?.close(); }

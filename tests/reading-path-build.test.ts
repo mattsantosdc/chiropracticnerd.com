@@ -93,10 +93,15 @@ Test-only cyclic participation.
 	assert.equal(all.filter((node) => attr(node, 'data-argument-id') === 'ARG-008').length, 1);
 	const ids = all.map((node) => attr(node, 'id')).filter(Boolean);
 	assert.equal(ids.length, new Set(ids).size);
-	for (const block of all.filter((node) => attr(node, 'data-participation') === 'S-004')) {
+	assert.equal(all.filter((node) => attr(node, 'data-participation')).length, 0);
+	const s4Detail = parse(readFileSync(join(root, 'dist/model/philosophy/functional-potential/index.html'), 'utf8'));
+	const participation = nodes(s4Detail).filter((node) => attr(node, 'data-participation') === 'S-004');
+	assert.equal(participation.length, 1);
+	for (const block of participation) {
 		const hrefs = nodes(block).map((node) => attr(node, 'href')).filter(Boolean);
 		for (const id of ['arg-005', 'arg-008', 'arg-004']) assert.ok(hrefs.some((href: string) => href.endsWith(`--argument-${id}`)));
 	}
-	const s6 = all.find((node) => attr(node, 'data-participation') === 'S-006');
+	const s6Detail = parse(readFileSync(join(root, 'dist/model/philosophy/care-beyond-symptoms/index.html'), 'utf8'));
+	const s6 = nodes(s6Detail).find((node) => attr(node, 'data-participation') === 'S-006');
 	assert.ok(nodes(s6).some((node) => attr(node, 'href')?.endsWith('--argument-arg-008')));
 });

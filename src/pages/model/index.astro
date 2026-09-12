@@ -5,8 +5,11 @@ import DependencyLegend from '../../components/DependencyLegend.astro';
 import ModelAcknowledgment from '../../components/ModelAcknowledgment.astro';
 import Layout from '../../layouts/Layout.astro';
 import { modelIdentity, siteIdentity } from '../../lib/site';
-import { sortArguments, validateArguments } from '../../lib/arguments.ts';
-import { domainLabels, domainOrder, sortStatements, validateStatements } from '../../lib/statements';
+import { sortArguments } from '../../lib/arguments.ts';
+import { domainLabels, domainOrder, sortStatements } from '../../lib/statements';
+import readingPathConfig from '../../data/model-reading-path.json';
+import { buildReasoningIndex } from '../../lib/reasoning.ts';
+import { resolveReadingPath } from '../../lib/reading-path.ts';
 
 const [statementEntries, argumentEntries] = await Promise.all([
 	getCollection('statements'),
@@ -14,8 +17,9 @@ const [statementEntries, argumentEntries] = await Promise.all([
 ]);
 const entries = sortStatements(statementEntries);
 const argumentsList = sortArguments(argumentEntries);
-validateStatements(entries);
-validateArguments(argumentsList, entries);
+// Validate the Stage 5 data during every production build; retain the current catalog markup.
+const readingPath = resolveReadingPath(readingPathConfig, buildReasoningIndex(statementEntries, argumentEntries));
+for (const diagnostic of readingPath.diagnostics) console.warn(diagnostic.message);
 const groups = domainOrder.map((domain) => ({
 	domain,
 	entries: entries.filter((entry) => entry.data.domain === domain),

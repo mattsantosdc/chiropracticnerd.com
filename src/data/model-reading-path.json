@@ -1,0 +1,87 @@
+{
+  "version": "0.1",
+  "orientation": {
+    "id": "examine-the-model",
+    "title": "How to examine the Model",
+    "introduction": "An optional guide to examining the account and its reasoning.",
+    "steps": [
+      { "kind": "statement", "id": "S-001" },
+      { "kind": "statement", "id": "S-002" },
+      { "kind": "argument", "id": "ARG-001" }
+    ]
+  },
+  "main": [
+    {
+      "id": "living-organisms",
+      "title": "How do living organisms organize their function?",
+      "steps": [
+        { "kind": "statement", "id": "S-017" },
+        { "kind": "statement", "id": "S-007" },
+        { "kind": "statement", "id": "S-018" },
+        { "kind": "statement", "id": "S-019" },
+        { "kind": "statement", "id": "S-008" },
+        { "kind": "statement", "id": "S-020" }
+      ]
+    },
+    {
+      "id": "functional-possibilities",
+      "title": "Why keep functional possibilities open?",
+      "steps": [{ "kind": "argument", "id": "ARG-005" }]
+    },
+    {
+      "id": "improvement-and-purpose",
+      "title": "What counts as improvement, and why pursue it?",
+      "steps": [
+        { "kind": "statement", "id": "S-021" },
+        { "kind": "statement", "id": "S-022" },
+        { "kind": "statement", "id": "S-005" },
+        { "kind": "argument", "id": "ARG-004" }
+      ]
+    },
+    {
+      "id": "input-adjustment-success",
+      "title": "What are an input, an adjustment, and success?",
+      "steps": [
+        { "kind": "statement", "id": "S-009" },
+        { "kind": "statement", "id": "S-023" },
+        { "kind": "statement", "id": "S-024" },
+        { "kind": "statement", "id": "S-025" }
+      ]
+    },
+    {
+      "id": "benefit-of-success",
+      "title": "Why would a successful adjustment be beneficial?",
+      "steps": [{ "kind": "argument", "id": "ARG-006" }]
+    },
+    {
+      "id": "actual-input-effects",
+      "title": "What does the Model propose chiropractic inputs actually do?",
+      "steps": [
+        { "kind": "statement", "id": "S-010" },
+        { "kind": "statement", "id": "S-011" },
+        { "kind": "statement", "id": "S-028" },
+        { "kind": "argument", "id": "ARG-007" }
+      ]
+    },
+    {
+      "id": "practice",
+      "title": "How does the account guide practice?",
+      "steps": [
+        { "kind": "argument", "id": "ARG-002" },
+        { "kind": "statement", "id": "S-015" },
+        { "kind": "argument", "id": "ARG-003" }
+      ]
+    }
+  ],
+  "supporting": [
+    {
+      "id": "broader-effects",
+      "title": "Broader effects and their proposed mediation",
+      "introduction": "Additional empirical questions about broader effects and their mediation.",
+      "steps": [
+        { "kind": "statement", "id": "S-012" },
+        { "kind": "statement", "id": "S-013" }
+      ]
+    }
+  ]
+}

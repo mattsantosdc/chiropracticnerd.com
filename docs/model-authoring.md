@@ -69,10 +69,23 @@ Use **The Coherent Chiropractic Model** as the project name. “The Model” is 
 Every statement has a globally unique `S-###` ID (three decimal digits). Statement IDs are permanent,
 human-readable identifiers only. Their numeric values carry no ordering, hierarchy, domain, or
 inferential meaning. Keep an ID when its statement changes domain, position, wording, or slug, and
-never reuse it for another statement. Use `domain` for grouping and `order` for presentation order;
+never reuse it for another statement. Use `domain` and `order` for catalog grouping and sorting;
+the separate [reading path](model-reading-path.md) uses explicit section and step order;
 IDs must not determine sorting, including tie-breaking, or graph layout. `ARG-###` IDs remain
 separate. The [Stage 1 migration map](statements-stage-1-migration.md) records the explicitly authorized
 prepublication exception to ID preservation and the earlier, distinct domain-ID migration.
+
+## Editorial reading order
+
+Author the walkthrough in `src/data/model-reading-path.json` under the
+[reading-path contract](model-reading-path.md). Reference permanent statement and
+argument IDs only; resolve text and relationships from the full canonical
+collections. An argument step introduces its conclusion without a duplicate
+statement step. Keep every adopted record intentionally placed in main,
+optional orientation, or supporting reading. Supporting placement does not lower
+confidence or remove adoption. Inspect section prose and forward-reference
+diagnostics without treating adjacency as inference or changing dependencies to
+fit the reading sequence. Catalog `domain`/`order` sorting remains separate.
 
 ## Workflow for every substantive change
 

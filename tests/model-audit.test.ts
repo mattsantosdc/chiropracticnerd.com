@@ -114,6 +114,19 @@ test('review bookkeeping and unrelated files do not invalidate their own inputs'
 	assert.deepEqual(readReview(root), review);
 });
 
+test('reading configuration, contract, and production helpers are explicit review inputs', (t) => {
+	const { root, put, packet, review } = fixture(t);
+	for (const path of [
+		'src/data/model-reading-path.json', 'docs/model-reading-path.md',
+		'src/lib/reading-path.ts', 'src/lib/reasoning.ts',
+	]) {
+		assert.ok(Object.hasOwn(packet.inputs, path), `${path} must not escape the explicit input list`);
+		put(path, `${packet.sources[path]}Changed reading behavior.`);
+		assert.deepEqual(checkReview(collectInputs(root), review), [`Stale reviewed input: ${path}`]);
+		put(path, packet.sources[path]);
+	}
+});
+
 test('missing, malformed, incomplete, adverse, and unsupported reviews are distinguished', (t) => {
 	const { packet, review } = fixture(t);
 	assert.match(checkReview(packet, null)[0], /Missing reviews/);

@@ -15,8 +15,8 @@ Public routes may change; semantic identifiers may not. The reserved patterns ar
 
 Statement IDs use `S-###` (three decimal digits), unique across all domains. Argument IDs use `ARG-###`.
 Statement IDs are permanent identifiers only: their numeric values carry no ordering, hierarchy,
-domain, or inferential meaning. Presentation uses `domain` and `order`; IDs must not determine
-sorting or graph layout. The [Stage 1 migration map](statements-stage-1-migration.md) records the explicitly authorized
+domain, or inferential meaning. Catalogs use `domain` and `order`; the editorial reading path
+uses explicit section/step order. IDs must not determine statement sorting or graph layout. The [Stage 1 migration map](statements-stage-1-migration.md) records the explicitly authorized
 prepublication exception and the earlier domain-ID migration; old IDs are not accepted aliases.
 
 Statement and argument IDs are permanent identities; URL slugs are mutable presentation routes and must not be used as semantic identifiers. The `/model/arguments/` namespace is reserved for argument presentation, so statement slugs cannot be `arguments` or begin with `arguments/`.
@@ -35,6 +35,18 @@ Inclusion in a version identifies statements and arguments as the Model's workin
 The [Argument Interchange Format](https://www.arg-tech.org/wp-content/uploads/2011/09/aif-spec.pdf) is reserved as a future interchange representation for these structured records. AIF is not the Model's reasoning methodology and is not part of current authoring or delivery. Natural-language validity remains an editor-curated judgment.
 
 Public comments are discussion, not graph assertions. Only editor-curated statement and argument Markdown is canonical. Addressable objections may be added when the content requires them; no objection ontology is introduced for v0.1.
+
+## Editorial reading architecture
+
+The [reading path](model-reading-path.md) is a strict JSON configuration separate
+from both canonical collections. Local section identifiers and derived appearance
+anchors are presentation locations, not additional public semantic identifiers.
+Reading adjacency supplies no inferential or revision relationship. The shared
+reasoning index resolves every argument's joint ordered premises and conclusion
+from the complete collections, preserving competing routes and cycles. Coverage
+requires an intentional introduction for each statement and placement for each
+argument across main, optional orientation, and supporting reading; it does not
+rank adoption or confidence. The existing domain/order catalog remains independent.
 
 ## Future export application profile
 

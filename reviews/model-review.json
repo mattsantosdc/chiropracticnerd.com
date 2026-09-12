@@ -1,20 +1,21 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-09-12T02:15:38.192820Z",
+  "reviewedAt": "2026-09-12T02:41:51.711308Z",
   "reviewer": {
     "kind": "ai",
-    "identifier": "Codex; Stage 3 whole-Model semantic review against clean Stage 2 commit 931f2bf4db037c6dcea66c2bc7931416e5cedacd. Inspected all 28 statements and seven arguments, current review packet, exact canonical propositions and quoted argument premises, summaries, explanations, sources, qualifiers, direct revision dependencies, and downstream uses. Constructed the two benefit inferences before the bounded empirical source check. Reviewed counterexamples of input without reorganization, reorganization without benefit, a favorable metric with relevant losses, local benefit without transfer, and functional benefit insufficient to warrant costs or risks, plus unclassifiable responses. Compared the final content diff and new files; the four changed existing canonical sentences are S-005, S-009, S-011, and S-012. Inspected unchanged schema, helpers, templates, identity, acknowledgment, and bare S-ID comments for adoption/confidence separation. Findings assess authoring consistency and entailment, not empirical confirmation; no separate agent or human approval was required.",
+    "identifier": "Codex; Stage 4 whole-Model semantic review against Stage 3 commit 86fdd11ad3fef2f68de4bfbe40847dd1b3e95dbb. Read all 28 exact statements, summaries, explanations, evidence notes, revision conditions and dependencies, and all seven exact argument routes. Reconsidered the Stage 3 findings individually; retained their applicable semantic analysis and prior-change context, with current propositions and specific placement/derived-relationship findings. Inspected all nine section titles, both brief introductions, complete coverage, primary locations, repeated premise identities, full-collection adjacency, independent dependency cycles, strict resolver and build integration, the final review packet and diff, schemas, current page templates, identity, acknowledgment, and comment behavior. Confirmed the success deduction does not assert occurrence; the actual-benefit deduction needs the same input-caused improving reorganization; benefit remains bounded to scope/context/timescale and separate from intervention worth. No canonical change or new empirical source appraisal was made. Findings assess authoring consistency and natural-language inference, not empirical confirmation or automatic validity certification.",
     "model": "GPT-6; exact runtime revision unavailable"
   },
   "inputs": {
     "AGENTS.md": "dcbb2718617a42a909a653bd8051541e13c0dae32d5fa507a69604b20f0739fc",
     "docs/argument-model.md": "4ad9787cd93ba071f21600b96da6600b69f94573cac7580526405e709dd245b9",
     "docs/dependency-model.md": "aa0adc17450285e7965115d66197c62d392e2e3b5365059635aeea00e8017920",
-    "docs/model-authoring.md": "3ce975e022c09d8f2a6a0ca54f87e143ada594ad974aa0d7889a0c61bdb1275d",
-    "docs/model-review.md": "f1d4d5597593c852ccff756063c481db8c25078f0d0d7894c87e8e175bbe196e",
-    "docs/standards-contract.md": "fe00d3548eeafe0a323775508e30458a1b3e30e346670b613893ec7a045cc990",
-    "docs/visualization-plan.md": "80cdb60d9c403fed709c023a4c5f20731a7dc517b47addc785c76061842b7ef6",
-    "scripts/model-audit.mjs": "7108c0d0bf649389c84ea74d413998f202221c27848139f26b69f88b03b6a34b",
+    "docs/model-authoring.md": "5992a8480759541520f95a46951ddddf7ddc6c36c4f79b88622b7bfbb92b662c",
+    "docs/model-reading-path.md": "d7b229d241aa8130d9f70df42b9f497440499d2f941137de3f4fbc6a31fb6b81",
+    "docs/model-review.md": "8072b11fb53e6f9b75e484d8567b5464443ebd02f298c59fdca320926b60d70f",
+    "docs/standards-contract.md": "4883349a3479213d54562222d7a3624589c2ed2f9312112212168dea61532193",
+    "docs/visualization-plan.md": "1ea4cf3f30eb5ac5051c3fc1a5eb7498f80f032947c100803df4e4ee35765f47",
+    "scripts/model-audit.mjs": "62a98fa5d227b4f38f6a80205ae09655bba396120bf78ad8b16bc899d64082c0",
     "src/components/Comments.astro": "a6f49e300a91679dcb4041dd91cd20abc07bf4ea96bff1bbe52ffb5f56c0f80d",
     "src/components/DependencyLegend.astro": "584f8eb138f08bb24765d2e4c2e2f5305df354317275cd2ec01513cf34f05e7b",
     "src/components/ModelAcknowledgment.astro": "a3fdced09f249e78da1b17b9b29af64a369b07d02518dad67d3f143e4d9984ed",
@@ -54,297 +55,300 @@
     "src/content/model/statements/state-dependent-neuromotor-function.md": "adb711ebf02568c10bd498ea618f9659fc1d21e01a5c8ea04d551695f2b6c602",
     "src/content/model/statements/success-and-functional-benefit.md": "a05ae3afad79d2babf71e10f03725ece58e1d2ef7a9419876a7ca72d348c8f61",
     "src/content/model/statements/successful-adjustment.md": "2ae122b558dc791d99e55a4a078c2921d409124dac1d02923fbd00eeb1a617e8",
+    "src/data/model-reading-path.json": "7a93381f7c0a426584d81df14168a4b462924ad5d39b1808a98c7841744de0ce",
     "src/layouts/Layout.astro": "32901a95589fda62cf5abae1854bb075d6b0b64358d3d09cde9cdeee5515ee90",
     "src/lib/arguments.ts": "9dae59a30f52df16dea9e5fb3bea29fa378f582ef108aeba426801dee605bb0b",
     "src/lib/dependencies.ts": "fdf835fefa0dcb4fbcb238320ffe6e06f8dec426ef5190f1ba32f322687e0609",
     "src/lib/identifiers.ts": "58d5f25903406ece51bed324eef512a00b6b359ec37367f34da626b8bc0b73f2",
+    "src/lib/reading-path.ts": "66050402ffa87a650231a2cdc79ccde0ca64851de6b0e177eb61049535f79b19",
+    "src/lib/reasoning.ts": "19e73f4884f689b9cecad81c722e0183ed126f31f8cec40dbb868f6f933f27eb",
     "src/lib/site.ts": "9798f25aca640c208fe18b9058342d25c0f93c7d0edaef3c78224bbb68643816",
     "src/lib/statements.ts": "6928bff517bc6d9971288bf233e406042886516fc3f938a7531e72b1a14286fa",
     "src/pages/model/[...slug].astro": "3248d63264f6e4cacaf065cf20a34c66d3e591807719bdfe25ff48134914383b",
     "src/pages/model/arguments/[...slug].astro": "d05e70726ff7dfe653689864c81e73d265580c129b8421599a1bca217e76de13",
     "src/pages/model/arguments/index.astro": "24648a21ec19fb65ddd75248452f4582ae02906688fa38ca359956e2dd141d42",
-    "src/pages/model/index.astro": "35dc575ddafd43b69d503aa9fe4d2311026a1824a526be7c95ad25bc77ae2b50"
+    "src/pages/model/index.astro": "d5d85cda1bb087a125c7fa1f29ab7fce1b6c3f09ff407a3c0d29212f8c21a2fc"
   },
   "records": {
     "src/content/model/arguments/actual-chiropractic-benefit.md": {
       "finding": "consistent",
-      "proposition": "Deduction from exact S-022 value, S-024 reorganization definition, and S-011 actual joint causal improvement to mixed S-027 actual functional benefit.",
+      "proposition": "Deduction from ordered S-022, S-024, and S-011 to S-027 actual functional benefit. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Some, input causation, neuromotor scope, context, and timescale are preserved. The same improving reorganization is valued; no nonoverlapping existential chain or broader transfer is introduced.",
       "evidenceSeparation": "S-011 truth remains necessary and unresolved; the deduction does not establish soundness or improve confidence. Neither general adaptation nor defining success can replace that empirical premise.",
-      "alignment": "Checked all four quoted canonical sentences and the final three-premise wording. S-024 identifies a change, S-011 supplies its input-caused improvement, and S-022 supplies its value within exactly the same outcome scope.",
-      "inferenceAndImpact": "Existential instantiation followed by the universal value criterion entails S-027. The perturbation mechanism is unused and remains in S-028; no prevalence, prospective selection, durability, broader mediation, or warranted-care conclusion follows."
+      "alignment": "Checked all four quoted canonical sentences and the final three-premise wording. S-024 identifies a change, S-011 supplies its input-caused improvement, and S-022 supplies its value within exactly the same outcome scope. Stage 4 placement review: Actual-input-effects ends with the exact joint premises and conclusion. S-028 immediately precedes it but is correctly absent from the resolved premise list.",
+      "inferenceAndImpact": "Existential instantiation followed by the universal value criterion entails S-027. The perturbation mechanism is unused and remains in S-028; no prevalence, prospective selection, durability, broader mediation, or warranted-care conclusion follows. Stage 4 derived-relationship review: Take an input-caused improving reorganization asserted by S-011; S-024 makes it a change and S-022 assigns benefit within the same scope. Existence depends on S-011, not success definitions or general capacities; soundness remains empirically unresolved."
     },
     "src/content/model/arguments/assessment-as-working-hypothesis.md": {
       "finding": "consistent",
-      "proposition": "S-005, S-006, S-009, and S-027 motivate S-014 prospective assessment; S-027 replaces the old combined S-011 benefit/mechanism premise.",
+      "proposition": "Defeasible practical synthesis from ordered S-005, S-006, S-009, and S-027 to S-014. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "The some and can commitments do not identify a matching opportunity and effective input for this person. What if any and present actionability remain limiting conditions.",
       "evidenceSeparation": "S-027 deduction does not confirm its empirical premise. Detection, causal outcome, prediction frequency, and the person-specific decision remain unresolved.",
-      "alignment": "Exact S-009 and S-027 quotations match canonical sentences. The explicit practical principle concerns whether to pursue the intervention after costs/risks/alternatives, rather than retrospective success classification.",
-      "inferenceAndImpact": "Remains defeasible practical synthesis. Input without reorganization and reorganization without benefit remain counted; uncertain observations remain uncertain. A missed target is not absence and functional benefit alone is not sufficient warrant."
+      "alignment": "Exact S-009 and S-027 quotations match canonical sentences. The explicit practical principle concerns whether to pursue the intervention after costs/risks/alternatives, rather than retrospective success classification. Stage 4 placement review: Practice step 1 resolves all four exact premises already introduced in main and gives S-014 its primary conclusion location.",
+      "inferenceAndImpact": "Remains defeasible practical synthesis. Input without reorganization and reorganization without benefit remain counted; uncertain observations remain uncertain. A missed target is not absence and functional benefit alone is not sufficient warrant. Stage 4 derived-relationship review: Population-level modifiability and some actual benefit do not establish a matching input for this person. The explicit decision principle remains defeasible, with risks, alternatives, and detection gaps intact."
     },
     "src/content/model/arguments/functional-rationale-beyond-symptoms.md": {
       "finding": "consistent",
-      "proposition": "Revised S-004, S-022, and S-005 to S-006 normative scope route separates open-ended framing, intrinsic functional value, and professional purpose.",
+      "proposition": "Defeasible normative scope route from ordered S-004, S-022, and S-005 to S-006. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Beyond symptoms concerns a rationale for consideration, not actual opportunity, efficacy in every asymptomatic person, or a duty to act.",
       "evidenceSeparation": "None of the framework/value premises supplies person-specific empirical support. Professional legitimacy and underlying value remain separate adopted judgments.",
-      "alignment": "S-005 is no longer cited as if its canonical sentence contains the benefit criterion. The explanation uses S-022 for that independent value and separates functional benefit from justified intervention.",
-      "inferenceAndImpact": "Remains defeasible because the route uses framework interpretation and a normative principle about independent aims. No direct transitive S-022 dependency is duplicated on S-006 merely because it is an argument premise."
+      "alignment": "S-005 is no longer cited as if its canonical sentence contains the benefit criterion. The explanation uses S-022 for that independent value and separates functional benefit from justified intervention. Stage 4 placement review: Improvement-and-purpose step 4 retains all three distinct framework/value premises and the exact scope conclusion after their introductions.",
+      "inferenceAndImpact": "Remains defeasible because the route uses framework interpretation and a normative principle about independent aims. No direct transitive S-022 dependency is duplicated on S-006 merely because it is an argument premise. Stage 4 derived-relationship review: The independent-aim principle remains an interpretive normative bridge, not a proof of asymptomatic efficacy. Placement does not merge the professional aim with the benefit criterion."
     },
     "src/content/model/arguments/methodological-synthesis.md": {
       "finding": "consistent",
-      "proposition": "Unchanged S-001 and S-002 to S-003 methodological synthesis.",
+      "proposition": "Defeasible methodological synthesis from ordered S-001 and S-002 to S-003. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Defeasible is retained; the premises motivate a revisable method rather than entail its unique necessity.",
       "evidenceSeparation": "No empirical efficacy follows and no support is upgraded by adopting the method.",
-      "alignment": "Exact referenced framework propositions and their explanation remain aligned with the new value/empirical separation and downstream deductive labels.",
-      "inferenceAndImpact": "The argument stays separate from the methodological dependency graph and supplies no hidden premise to a benefit deduction."
+      "alignment": "Exact referenced framework propositions and their explanation remain aligned with the new value/empirical separation and downstream deductive labels. Stage 4 placement review: Orientation step 3 resolves the exact two premises and its conclusion after both introductions. The guide description adds no extra method premise.",
+      "inferenceAndImpact": "The argument stays separate from the methodological dependency graph and supplies no hidden premise to a benefit deduction. Stage 4 derived-relationship review: The method is adopted while optional to read before main; the inference is not upgraded to necessity and no dependency arrow supplies its support."
     },
     "src/content/model/arguments/reassessment-after-application.md": {
       "finding": "consistent",
-      "proposition": "Retained S-014 and S-015 to S-016 practical route from a working hypothesis and conditional application to reassessment.",
+      "proposition": "Defeasible iterative hypothesis-testing route from ordered S-014 and S-015 to S-016. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Only delivered input triggers post-application comparison; later input remains conditional on justification. No guaranteed learning or successful adjustment is presupposed.",
       "evidenceSeparation": "Informative reliable observations and decision thresholds remain empirical requirements. Before-and-after differences alone cannot establish causation, mechanism, durability, or broader benefit.",
-      "alignment": "Revised boundaries explicitly preserve no-reorganization, no-improvement, and uncertain outcomes, and distinguish functional benefit from intervention worth.",
-      "inferenceAndImpact": "Remains defeasible iterative testing with an explicit practical principle. No criterion definition validates reassessment or mandates continuing input, and no feedback loop is added to the dependency DAG."
+      "alignment": "Revised boundaries explicitly preserve no-reorganization, no-improvement, and uncertain outcomes, and distinguish functional benefit from intervention worth. Stage 4 placement review: Practice step 3 retains both exact premises after assessment and conditional application, introducing S-016 without a repeated statement step.",
+      "inferenceAndImpact": "Remains defeasible iterative testing with an explicit practical principle. No criterion definition validates reassessment or mandates continuing input, and no feedback loop is added to the dependency DAG. Stage 4 derived-relationship review: No recursive dependency is inferred from future assessment cycles. Informative observations remain necessary; local benefit and before/after change do not entail further input or causal attribution."
     },
     "src/content/model/arguments/regulatory-rationale-for-functional-potential.md": {
       "finding": "consistent",
-      "proposition": "Retained six-premise biological rationale S-017, S-007, S-018, S-019, S-008, S-020 to S-004.",
+      "proposition": "Defeasible biological rationale from ordered S-017, S-007, S-018, S-019, S-008, and S-020 to S-004. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Defeasibility and bounded open-ended scope remain. Continuing maintenance, limited information, and a locally best feasible response remain compatible with the premises.",
       "evidenceSeparation": "Empirical confidence remains in the premise records. The new value criterion and downstream deductions provide no confirmation of the biological foundation or S-004.",
-      "alignment": "Boundary prose now locates comparative improvement in S-021, value in S-022, and professional purpose in S-005. It no longer repeats the old S-005 benefit-definition attribution.",
-      "inferenceAndImpact": "No benefit, opportunity, or chiropractic premise is added to the rationale. Failure of this route need not falsify S-004, and the original argument remains defeasible despite downstream deductions."
+      "alignment": "Boundary prose now locates comparative improvement in S-021, value in S-022, and professional purpose in S-005. It no longer repeats the old S-005 benefit-definition attribution. Stage 4 placement review: Functional-possibilities resolves all six premises in canonical order after the living-organisms section and supplies the S-004 conclusion.",
+      "inferenceAndImpact": "No benefit, opportunity, or chiropractic premise is added to the rationale. Failure of this route need not falsify S-004, and the original argument remains defeasible despite downstream deductions. Stage 4 derived-relationship review: The framework bridge still permits a locally best feasible response with no improvement available now. Neither adjacency nor six introductory steps makes those independent empirical premises deductions."
     },
     "src/content/model/arguments/success-and-benefit.md": {
       "finding": "consistent",
-      "proposition": "Deduction from exact S-022 value, S-024 change/response definition, and S-025 success definition to S-026 scoped functional benefit.",
+      "proposition": "Deduction from ordered S-022, S-024, and S-025 to S-026 functional benefit of successful adjustment. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Universal conclusion applies only to successful adjustments in the same neuromotor scope, context, and timescale. No existential or all-input claim is introduced.",
       "evidenceSeparation": "The inference is analytic given the value premise and remains true with no successes. Neither definition nor validity provides evidence of occurrence, frequency, or reliable detection.",
-      "alignment": "Checked all four quoted canonical sentences. S-024 explicitly classifies the response as a change; S-025 supplies improvement; S-022 values that same change. Local improvement does not become broader benefit or worthwhile intervention.",
-      "inferenceAndImpact": "Entailment holds with no extra biological or mechanistic premise: for any successful adjustment, the defined improving change falls under S-022. S-026 dependencies separately track definition and value without automatic copying of all premises."
+      "alignment": "Checked all four quoted canonical sentences. S-024 explicitly classifies the response as a change; S-025 supplies improvement; S-022 values that same change. Local improvement does not become broader benefit or worthwhile intervention. Stage 4 placement review: Benefit-of-success resolves the exact premises and conclusion after value, response, and success introductions; no conclusion ID or prose is copied into JSON.",
+      "inferenceAndImpact": "Entailment holds with no extra biological or mechanistic premise: for any successful adjustment, the defined improving change falls under S-022. S-026 dependencies separately track definition and value without automatic copying of all premises. Stage 4 derived-relationship review: For any successful adjustment, S-024 classifies the response as a change and S-025 supplies the qualifying improvement; S-022 values that same change in the same scope. No existence, success rate, or intervention-worth conclusion follows."
     },
     "src/content/model/statements/actual-chiropractic-benefit.md": {
       "finding": "consistent",
-      "proposition": "New mixed conclusion retains empirical input-caused reorganization and attributes a functional benefit using the adopted value criterion.",
+      "proposition": "Mixed conclusion that some inputs cause reorganization providing functional benefit within a specified neuromotor scope, context, and timescale. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Some asserts actual occurrence while preserving neuromotor scope, context, and timescale from S-011. It implies no prevalence, reliable prediction, or universal benefit.",
       "evidenceSeparation": "Unresolved confidence follows the empirical burden of S-011; adoption is explicit. The value premise and successful-adjustment definition supply no effect evidence.",
-      "alignment": "Summary, actual-benefit explanation, and whatWouldChange keep occurrence and evaluation distinct. Functional benefit is not the overall worth of an intervention, nor proof of perturbation, transfer, or durability.",
-      "inferenceAndImpact": "Empirical S-011 and normative S-022 dependencies support revision tracking separately from ARG-007 deduction. S-014 and ARG-002 now use this explicit benefit conclusion, retaining person-level and practical gaps."
+      "alignment": "Summary, actual-benefit explanation, and whatWouldChange keep occurrence and evaluation distinct. Functional benefit is not the overall worth of an intervention, nor proof of perturbation, transfer, or durability. Stage 4 placement review: Introduced by ARG-007 in actual-input-effects, with its empirical confidence unresolved. The summary and body preserve the same-response overlap.",
+      "inferenceAndImpact": "Empirical S-011 and normative S-022 dependencies support revision tracking separately from ARG-007 deduction. S-014 and ARG-002 now use this explicit benefit conclusion, retaining person-level and practical gaps. Stage 4 derived-relationship review: ARG-002 reuses the same canonical identity through a later premise location. This is not a broader-effect conclusion or sufficient intervention warrant."
     },
     "src/content/model/statements/adjustment.md": {
       "finding": "consistent",
-      "proposition": "New definition of adjustment as input-caused neuromotor reorganization, defining reorganization as changed organization of control or coordination.",
+      "proposition": "Definition of adjustment as input-caused neuromotor reorganization, defining reorganization as a change in control or coordination. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Caused by is constitutive, not inferred merely from after. A change can be transient, neutral, or harmful; no arbitrary duration threshold is imposed.",
       "evidenceSeparation": "Not-applicable confidence is not evidence of occurrence or detection. Passive displacement, different testing conditions, measurement noise, and uncertain causal attribution do not establish an adjustment.",
-      "alignment": "The body marks the Model-specific departure from procedure usage. No-reorganization inputs, nonbeneficial adjustments, adverse and uncertain responses remain in research accounting; ignorance is neither success nor failure.",
-      "inferenceAndImpact": "Conceptual S-023 supplies the input meaning, with direct conceptual uses in S-011/S-025. Both deductions explicitly use the change classification, without inferring existence from the definition or duplicating its transitive dependencies."
+      "alignment": "The body marks the Model-specific departure from procedure usage. No-reorganization inputs, nonbeneficial adjustments, adverse and uncertain responses remain in research accounting; ignorance is neither success nor failure. Stage 4 placement review: Input-adjustment-success step 3 supplies the response meaning before success and both deductions. Canonical prose keeps passive displacement and a different test result insufficient.",
+      "inferenceAndImpact": "Conceptual S-023 supplies the input meaning, with direct conceptual uses in S-011/S-025. Both deductions explicitly use the change classification, without inferring existence from the definition or duplicating its transitive dependencies. Stage 4 derived-relationship review: Both benefit arguments resolve this same definition in their canonical second premise slot. Repeated appearances do not imply response occurrence or duplicate records."
     },
     "src/content/model/statements/assessment.md": {
       "finding": "consistent",
-      "proposition": "Retained prospective assessment strategy develops a working hypothesis about an actionable opportunity and what, if any, available input is most likely to help.",
+      "proposition": "Prospective assessment strategy for a presently actionable opportunity and what, if any, available input is most likely to produce beneficial change. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Presently, working, and what if any constrain judgment under uncertainty; most likely is a selection question, not a claim that a validated predictor exists. No input remains admissible.",
       "evidenceSeparation": "Strategy confidence remains unresolved. Detecting a response/opportunity, matching an input prospectively, and estimating success frequency require distinct validation; S-027 some cannot establish them for a person.",
-      "alignment": "The body specifies functional scope, comparison, timescale, competing demands, and costs/risks/alternatives. It preserves missed opportunities and distinguishes uncertainty from success or failure. Functional benefit alone need not justify an intervention.",
-      "inferenceAndImpact": "S-005/S-006/S-009 dependencies remain; practical S-011 is replaced by S-027 scoped benefit. ARG-002 remains defeasible with an explicit decision principle. S-015 and S-016 do not presuppose an adjustment from assessment."
+      "alignment": "The body specifies functional scope, comparison, timescale, competing demands, and costs/risks/alternatives. It preserves missed opportunities and distinguishes uncertainty from success or failure. Functional benefit alone need not justify an intervention. Stage 4 placement review: Practice opens with ARG-002 and introduces this as its conclusion. No separate statement copy competes for primary location.",
+      "inferenceAndImpact": "S-005/S-006/S-009 dependencies remain; practical S-011 is replaced by S-027 scoped benefit. ARG-002 remains defeasible with an explicit decision principle. S-015 and S-016 do not presuppose an adjustment from assessment. Stage 4 derived-relationship review: ARG-003 then reuses it as a premise. The full exact practical argument and decision limits remain available; functional benefit alone supplies no person-specific warrant."
     },
     "src/content/model/statements/broader-functional-benefit.md": {
       "finding": "consistent",
-      "proposition": "Actual empirical contribution of some chiropractic-produced neuromotor changes to improvement beyond the initially affected neuromotor scope.",
+      "proposition": "Empirical contribution of some chiropractic-produced neuromotor changes to improvement beyond the initially affected neuromotor scope. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Some and contribution remain; broader is now explicitly relative to the initial neuromotor scope. Removing ambiguous net-positive does not remove relevant functional gains/losses, but disclaims any implication that all intervention costs are justified.",
       "evidenceSeparation": "No claim-specific transfer evidence is documented; confidence remains unresolved. Revised whatWouldChange requires tests capable of detecting a qualifying causal contribution, not mere failure to find support.",
-      "alignment": "Statement, summary, explanation, and revision condition distinguish broader improvement from a local marker, mediator association, or worthwhile intervention. Local success without transfer is an explicit compatible counterexample.",
-      "inferenceAndImpact": "Conceptual outcome dependency moves from S-005 to S-021; empirical S-011 remains. S-013 is only related, because functional value and neural primacy do not establish one another. Neither new deduction concludes this broader transfer."
+      "alignment": "Statement, summary, explanation, and revision condition distinguish broader improvement from a local marker, mediator association, or worthwhile intervention. Local success without transfer is an explicit compatible counterexample. Stage 4 placement review: Broader-effects supporting step 1 and its brief introduction identify an additional empirical question. Supporting placement preserves adoption and the actual contribution claim.",
+      "inferenceAndImpact": "Conceptual outcome dependency moves from S-005 to S-021; empirical S-011 remains. S-013 is only related, because functional value and neural primacy do not establish one another. Neither new deduction concludes this broader transfer. Stage 4 derived-relationship review: The full index preserves the absence of a recorded concluding argument. Neither local S-027 benefit nor neighboring S-013 mediation is converted into inferential support."
     },
     "src/content/model/statements/care-beyond-symptoms.md": {
       "finding": "consistent",
-      "proposition": "Unchanged framework permission to consider a chiropractic rationale without symptoms, injury, disease, or identifiable pathology.",
+      "proposition": "Framework permission to consider a chiropractic rationale without requiring symptoms, injury, disease, or identifiable pathology. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Not necessary does not mean sufficient justification to act in their absence. The revised not sufficient indicators wording preserves the explanation that symptoms alone do not identify an input target.",
       "evidenceSeparation": "No efficacy claim about asymptomatic people follows. The new value premise and professional aim remain separate from detectable opportunity and warranted action.",
-      "alignment": "Applied acts are now called inputs; adjustment names the organism response. Safety, comfort, missed opportunities, and the possibility of withholding remain intact.",
-      "inferenceAndImpact": "Retains S-004 conceptual and S-005 normative dependencies without duplicating S-022 transitively. ARG-004 remains defeasible and S-014 still requires a person-specific prospective judgment."
+      "alignment": "Applied acts are now called inputs; adjustment names the organism response. Safety, comfort, missed opportunities, and the possibility of withholding remain intact. Stage 4 placement review: Introduced by ARG-004 at the end of improvement-and-purpose. Its summary and boundary still distinguish a rationale from justified action.",
+      "inferenceAndImpact": "Retains S-004 conceptual and S-005 normative dependencies without duplicating S-022 transitively. ARG-004 remains defeasible and S-014 still requires a person-specific prospective judgment. Stage 4 derived-relationship review: The same conclusion becomes a premise in ARG-002. S-004/S-005 revision dependencies remain separate from the three-premise argument and imply no efficacy in asymptomatic people."
     },
     "src/content/model/statements/chiropractic-application.md": {
       "finding": "consistent",
-      "proposition": "Retained conditional application strategy delivers a selected input intended to test and act on a hypothesis through beneficial neuromotor alteration.",
+      "proposition": "Conditional strategy of delivering a selected input intended to test and act on the working hypothesis. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "When proceeding is warranted remains a necessary action condition; intended and training describe purpose, not actual learning, retention, adjustment, or success.",
       "evidenceSeparation": "Unresolved strategy confidence is retained. The actual effect is separately asserted in S-011 and its perturbation explanation in S-028; application confirms neither.",
-      "alignment": "The new title identifies delivery plainly. Body and summary distinguish the act from organism response and retain withheld action and unspecified technique/dose requirements. No adjustment or success is assumed to have occurred.",
-      "inferenceAndImpact": "Practical S-011 edge becomes S-028 to track the intentional mechanism; S-014 still determines selection and warrant. ARG-003 remains a defeasible rationale for reassessment, not a reason for repeated inputs."
+      "alignment": "The new title identifies delivery plainly. Body and summary distinguish the act from organism response and retain withheld action and unspecified technique/dose requirements. No adjustment or success is assumed to have occurred. Stage 4 placement review: Practice step 2 keeps when warranted and intended visible between the assessment and reassessment arguments. Training describes purpose rather than a demonstrated response.",
+      "inferenceAndImpact": "Practical S-011 edge becomes S-028 to track the intentional mechanism; S-014 still determines selection and warrant. ARG-003 remains a defeasible rationale for reassessment, not a reason for repeated inputs. Stage 4 derived-relationship review: ARG-003 receives it as premise 2. Reading succession does not prove causation or add a feedback dependency, and the mechanism dependency on S-028 does not certify effectiveness."
     },
     "src/content/model/statements/chiropractic-input-definition.md": {
       "finding": "consistent",
-      "proposition": "New definition of the deliberately applied neurobiomechanical stimulus by intended neuromotor influence.",
+      "proposition": "Definition of chiropractic input by deliberate neurobiomechanical delivery and intended neuromotor influence. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Deliberately and intended identify delivery and purpose, not actual reorganization. An input with no response remains an input.",
       "evidenceSeparation": "Not-applicable confidence identifies terminology, with no validated technique, dose, learning, or effect claim. Training remains intended use.",
-      "alignment": "Title, summary, body, and practical application language keep the delivered stimulus distinct from S-024 organism response and S-025 success. All relevant delivered inputs can therefore be counted.",
-      "inferenceAndImpact": "Conceptual S-008 defines the neuromotor domain and S-024 depends on this input meaning. The definition establishes neither S-011 occurrence nor reliable assessment/selection."
+      "alignment": "Title, summary, body, and practical application language keep the delivered stimulus distinct from S-024 organism response and S-025 success. All relevant delivered inputs can therefore be counted. Stage 4 placement review: Input-adjustment-success step 2 distinguishes the delivered act before the response and success definitions. Intention remains part of the definition, not evidence of effect.",
+      "inferenceAndImpact": "Conceptual S-008 defines the neuromotor domain and S-024 depends on this input meaning. The definition establishes neither S-011 occurrence nor reliable assessment/selection. Stage 4 derived-relationship review: The S-008/S-024 conceptual relationships stay in revision metadata. No argument is invented from these definitions occurring consecutively."
     },
     "src/content/model/statements/chiropractic-inputs.md": {
       "finding": "consistent",
-      "proposition": "Actual joint causal claim that some inputs cause reorganization that itself improves context-appropriate function. This remains empirical occurrence, not purpose or a success definition.",
+      "proposition": "Actual joint empirical claim that some chiropractic inputs cause reorganization that itself improves context-appropriate function. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Some is retained. Neuromotor scope, context, and timescale explicitly bound the functional comparison. The previous perturbation restriction moves to S-028, preserving the stronger mechanism commitment in the full account.",
       "evidenceSeparation": "Confidence remains unresolved. No documented source establishes input causation plus qualifying improvement; general modifiability and sensory updating cannot supply the same-response overlap. Null tests must be sensitive to the specified conditions.",
-      "alignment": "Summary, body, and revision condition all require actual reorganization and comparative improvement. All inputs, adverse responses, no-reorganization/no-benefit cases, and uncertain outcomes remain in accounting. Single favorable surrogates do not count automatically.",
-      "inferenceAndImpact": "Replaces S-005/S-010 edges with conceptual S-021/S-024. ARG-007 uses this exact joint empirical premise; S-027 depends on it empirically, and S-028 adds a mechanism for its qualifying effects. Broader transfer and principal mediation remain additional burdens in S-012/S-013."
+      "alignment": "Summary, body, and revision condition all require actual reorganization and comparative improvement. All inputs, adverse responses, no-reorganization/no-benefit cases, and uncertain outcomes remain in accounting. Single favorable surrogates do not count automatically. Stage 4 placement review: Actual-input-effects step 2 explicitly introduces occurrence after the general capacity. It remains an empirical premise with unresolved confidence, not a conclusion supplied by adjacency.",
+      "inferenceAndImpact": "Replaces S-005/S-010 edges with conceptual S-021/S-024. ARG-007 uses this exact joint empirical premise; S-027 depends on it empirically, and S-028 adds a mechanism for its qualifying effects. Broader transfer and principal mediation remain additional burdens in S-012/S-013. Stage 4 derived-relationship review: ARG-007 receives this exact third premise; it never substitutes S-009, S-010, S-026, or S-028. The same input-caused improving response is indispensable."
     },
     "src/content/model/statements/chiropractic-perturbation-mechanism.md": {
       "finding": "consistent",
-      "proposition": "New separate empirical chiropractic perturbation mechanism for some of the same input-caused reorganizations that improve function.",
+      "proposition": "Empirical perturbation mechanism for some of the same input-caused reorganizations that improve context-appropriate function. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Some retains actual mechanism-and-effect occurrence. Specified neuromotor scope/context/timescale and established motor strategies preserve a bounded effect rather than all-input or whole-person benefit.",
       "evidenceSeparation": "Unresolved confidence and absence of claim-specific evidence remain explicit. General S-010 capacity or motor-learning studies cannot establish this chiropractic mechanism; salience cannot be defined retrospectively by success.",
-      "alignment": "Canonical wording preserves the original S-011 perturbation commitment as a stronger independent claim. Its explanation and revision condition distinguish failure of mechanism from failure of the effect itself.",
-      "inferenceAndImpact": "Empirical dependencies on S-010 and S-011 track general mechanism and the joint outcome. S-015 translates this mechanism into intentional application; S-011 does not depend on S-028, allowing an effect to survive a failed explanation."
+      "alignment": "Canonical wording preserves the original S-011 perturbation commitment as a stronger independent claim. Its explanation and revision condition distinguish failure of mechanism from failure of the effect itself. Stage 4 placement review: Actual-input-effects step 3 follows S-011 and precedes ARG-007. That editorial position keeps the additional mechanism visible without including it in the benefit inference.",
+      "inferenceAndImpact": "Empirical dependencies on S-010 and S-011 track general mechanism and the joint outcome. S-015 translates this mechanism into intentional application; S-011 does not depend on S-028, allowing an effect to survive a failed explanation. Stage 4 derived-relationship review: The reasoning index correctly supplies no argument participation for this record. S-015 practical dependency and S-010/S-011 empirical dependencies remain revision relationships only."
     },
     "src/content/model/statements/claim-discipline.md": {
       "finding": "consistent",
-      "proposition": "Retained framework requirement to distinguish claim kinds, validity, premise truth, and evidential strength.",
+      "proposition": "Framework requirement to distinguish claim kinds, validity, premise truth, and evidential strength. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Must expresses an adopted methodological requirement, not a claim that all current empirical propositions are true.",
       "evidenceSeparation": "Definitions do not establish existence; adoption is explicitly independent of empirical confidence. S-026 is evaluative and S-027 mixed in accordance with these distinctions.",
-      "alignment": "The explanation of validity, soundness, and epistemic strength remains applicable to ARG-006 and ARG-007. No schema or template promotes their empirical premises to confirmed truth.",
-      "inferenceAndImpact": "Its methodological S-001 dependency and participation in ARG-001 remain appropriate. The benefit deductions were assessed from exact premises before source support."
+      "alignment": "The explanation of validity, soundness, and epistemic strength remains applicable to ARG-006 and ARG-007. No schema or template promotes their empirical premises to confirmed truth. Stage 4 placement review: Optional orientation step 2 retains the classification rule; the path cannot override confidence or statement type.",
+      "inferenceAndImpact": "Its methodological S-001 dependency and participation in ARG-001 remain appropriate. The benefit deductions were assessed from exact premises before source support. Stage 4 derived-relationship review: ARG-001 resolves this as its second premise. The S-001 dependency remains methodological and is not used to populate the reasoning index."
     },
     "src/content/model/statements/context-appropriate-function.md": {
       "finding": "consistent",
-      "proposition": "New definition of contextual suitability and comparative improvement, independent of the evaluative label benefit.",
+      "proposition": "Definition of contextual suitability and comparative improvement with relevant functional gains and losses considered together. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Actual state/environment/demands, identified comparison, specified functional scope/timescale, and relevant gains/losses constrain a claim. Scope can be local but cannot conceal known losses or support a broader conclusion.",
       "evidenceSeparation": "Not-applicable confidence identifies a definition, not a validated empirical comparison method. Goals and competing demands require explicit practical judgments; no unique optimum or global score is asserted.",
-      "alignment": "Statement, summary, and body reject circular benefit definitions, single-metric success, ideal posture, symmetry, low tone, and universal model accuracy. The improved-metric/lost-stability counterexample remains unresolved unless relevant tradeoffs support better fit.",
-      "inferenceAndImpact": "Conceptually informs S-022, S-009, S-011, S-012, and S-025 without biological existence assumptions. The benefit arguments reuse its improvement predicate consistently; costs/risks beyond the comparison remain in the intervention judgment."
+      "alignment": "Statement, summary, and body reject circular benefit definitions, single-metric success, ideal posture, symmetry, low tone, and universal model accuracy. The improved-metric/lost-stability counterexample remains unresolved unless relevant tradeoffs support better fit. Stage 4 placement review: Improvement-and-purpose step 1 supplies the comparison before the value commitment. Its scope, baseline, conditions, and timescale are preserved in the canonical record.",
+      "inferenceAndImpact": "Conceptually informs S-022, S-009, S-011, S-012, and S-025 without biological existence assumptions. The benefit arguments reuse its improvement predicate consistently; costs/risks beyond the comparison remain in the intervention judgment. Stage 4 derived-relationship review: The path does not make this a premise of either benefit deduction; they use the same improvement predicate already. Conceptual dependencies remain independently recorded."
     },
     "src/content/model/statements/explicit-reasoning-empirical-testing.md": {
       "finding": "consistent",
-      "proposition": "Retained method of exposing premises, scope, modality, and inference before appraising empirical support.",
+      "proposition": "Framework method of exposing premises, scope, modality, and inference before appraising empirical support. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Where the Model proposes a following relation limits its application; should expresses method. Empirical revisability prevents the order from becoming a license to defend a predetermined conclusion.",
-      "evidenceSeparation": "The actual-effect claim was preserved while its confidence remained unresolved. The bounded source check followed construction of the value, definition, and effect routes.",
-      "alignment": "Summary and explanation preserve capacity, existential, and action-condition distinctions. They do not equate the two deductive labels with evidential certainty.",
-      "inferenceAndImpact": "Methodological dependencies on S-001 and S-002 remain distinct from ARG-001. S-011 retains the joint causal overlap missing from a chain of independent some or can propositions."
+      "evidenceSeparation": "Exact premises and inference were reviewed before their evidence roles. Existing empirical notes were checked for scope and use in the route, without a new literature appraisal. Actual-effect assertions and unresolved confidence remain distinct.",
+      "alignment": "Summary and explanation preserve capacity, existential, and action-condition distinctions. They do not equate the two deductive labels with evidential certainty. Stage 4 placement review: Introduced only as the conclusion of ARG-001 at orientation step 3. Its primary location points to that conclusion, without a redundant statement step.",
+      "inferenceAndImpact": "Methodological dependencies on S-001 and S-002 remain distinct from ARG-001. S-011 retains the joint causal overlap missing from a chain of independent some or can propositions. Stage 4 derived-relationship review: Skipping orientation changes reading participation, not the adoption of the analytical method. The main walkthrough is not asserted to be a deductive chain."
     },
     "src/content/model/statements/functional-benefit-criterion.md": {
       "finding": "consistent",
-      "proposition": "New explicit value commitment that any qualifying improvement provides functional benefit in the same scope, context, and timescale.",
+      "proposition": "Value commitment that any qualifying improvement supplies functional benefit in the same scope, context, and timescale. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Any universally evaluates qualifying changes, not all inputs. Specified scope and interval prevent inference to broader or enduring benefit. Intrinsic value does not require a symptom or health payoff.",
       "evidenceSeparation": "Not-applicable confidence separates adopted value from empirical measurement and biological explanation. The body explicitly permits evaluative criticism without treating empirical confidence as acceptance.",
-      "alignment": "Canonical criterion, summary, and explanation agree on improvement being valuable in itself. Known losses remain visible and the value of a functional gain does not settle whether intervention costs and risks are justified.",
-      "inferenceAndImpact": "Conceptual S-021 supplies meaning. Normative downstream uses in S-005/S-026/S-027 and premise roles in ARG-004/ARG-006/ARG-007 are explicit; the value is no longer silently borrowed from S-005 professional purpose."
+      "alignment": "Canonical criterion, summary, and explanation agree on improvement being valuable in itself. Known losses remain visible and the value of a functional gain does not settle whether intervention costs and risks are justified. Stage 4 placement review: Improvement-and-purpose step 2 introduces an evaluative commitment explicitly, rather than as a conclusion from the preceding biological or definitional steps.",
+      "inferenceAndImpact": "Conceptual S-021 supplies meaning. Normative downstream uses in S-005/S-026/S-027 and premise roles in ARG-004/ARG-006/ARG-007 are explicit; the value is no longer silently borrowed from S-005 professional purpose. Stage 4 derived-relationship review: ARG-004, ARG-006, and ARG-007 share the same canonical premise and exact text. Repeated premise locations neither duplicate adoption nor add new inferences."
     },
     "src/content/model/statements/functional-potential.md": {
       "finding": "consistent",
-      "proposition": "Unchanged framework claim of open-ended human functional potential, understood across circumstances and purposes.",
+      "proposition": "Framework commitment to open-ended human functional potential across circumstances and purposes. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Open-ended excludes neither biological constraints nor a locally best feasible response; it does not assert an actionable opportunity at each moment.",
       "evidenceSeparation": "Not-applicable confidence remains appropriate to this framing. ARG-005 offers a defeasible rationale rather than empirical confirmation or universal benefit.",
-      "alignment": "Statement, summary, boundary, and revision condition retain the Stage 2 meaning. Its explanation does not make S-021 or the value premise depend on a guarantee of improvement.",
-      "inferenceAndImpact": "S-005 and S-006 retain conceptual revision dependencies. ARG-004 adds S-022 but remains defeasible; neither benefit deduction uses S-004 as an unnecessary premise."
+      "alignment": "Statement, summary, boundary, and revision condition retain the Stage 2 meaning. Its explanation does not make S-021 or the value premise depend on a guarantee of improvement. Stage 4 placement review: The functional-possibilities question introduces this through ARG-005, with its framework type and defeasible route intact.",
+      "inferenceAndImpact": "S-005 and S-006 retain conceptual revision dependencies. ARG-004 adds S-022 but remains defeasible; neither benefit deduction uses S-004 as an unnecessary premise. Stage 4 derived-relationship review: ARG-004 reuses the same statement identity. No current opportunity is inferred from its position after biology, and no revision dependency was added to make that route linear."
     },
     "src/content/model/statements/information-in-neural-regulation.md": {
       "finding": "consistent",
-      "proposition": "Retained empirical sensory-information and prior-experience account of estimates used in human neural regulation.",
+      "proposition": "Empirical sensory-information and prior-experience account of estimates used in human neural regulation. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Available is neither complete nor optimal. The explanation does not require one global internal model or the same computation in every neural process.",
       "evidenceSeparation": "Retained Stage 2 Kording/Wolpert task example and limitations concern behavior, not direct neural implementation or chiropractic effects. Confidence remains unresolved across the wider statement.",
-      "alignment": "Exact sentence, summary, explanation, and whatWouldChange distinguish estimates from observed motor output. S-021 expressly avoids equating better function with globally greater model accuracy.",
-      "inferenceAndImpact": "Conceptual impact on S-020 and premise participation in ARG-005 remain appropriate. No benefit deduction uses this evidence as a substitute for actual input-caused improvement."
+      "alignment": "Exact sentence, summary, explanation, and whatWouldChange distinguish estimates from observed motor output. S-021 expressly avoids equating better function with globally greater model accuracy. Stage 4 placement review: Living-organisms step 3 preserves available information and the limits on comprehensive internal-model interpretations.",
+      "inferenceAndImpact": "Conceptual impact on S-020 and premise participation in ARG-005 remain appropriate. No benefit deduction uses this evidence as a substitute for actual input-caused improvement. Stage 4 derived-relationship review: ARG-005 keeps it as premise 3; S-020 conceptual dependence remains separate. Reading adjacency does not derive estimation from neural integration or establish chiropractic effects."
     },
     "src/content/model/statements/nervous-system-integration.md": {
       "finding": "consistent",
-      "proposition": "Unchanged empirical central integrative neural role in human function within interacting bodily and environmental systems.",
+      "proposition": "Empirical claim of a central integrative neural role in human function within interacting systems. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Central is integrative, not exclusive or supreme; the statement does not attribute nervous systems to every organism.",
       "evidenceSeparation": "Unresolved confidence and lack of a documented claim-specific appraisal are retained. The new definitions and benefit deductions supply no evidence for this empirical role.",
-      "alignment": "Summary, body, and revision condition maintain function-specific scope and distinguish S-017 organismic maintenance from the additional human neural premise.",
-      "inferenceAndImpact": "Remains an independent premise of defeasible ARG-005 and an empirical revision input to S-013. Neural integration alone cannot establish principal chiropractic mediation."
+      "alignment": "Summary, body, and revision condition maintain function-specific scope and distinguish S-017 organismic maintenance from the additional human neural premise. Stage 4 placement review: Living-organisms step 2 introduces an independent human neural premise after the broader organismic claim; exact text and unresolved confidence remain attached.",
+      "inferenceAndImpact": "Remains an independent premise of defeasible ARG-005 and an empirical revision input to S-013. Neural integration alone cannot establish principal chiropractic mediation. Stage 4 derived-relationship review: ARG-005 retains it as premise 2. Neither adjacency to S-017 nor its revision impact on S-013 supplies evidence for neural primacy in chiropractic effects."
     },
     "src/content/model/statements/neural-mediation.md": {
       "finding": "consistent",
-      "proposition": "Retained empirical claim of broader chiropractic influence principally through nervous-system-mediated change.",
+      "proposition": "Empirical proposal that chiropractic inputs influence broader function principally through nervous-system-mediated change. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Principally asserts primacy without exclusivity or an effect from every input. Occurrence, mediation, primacy, and pathways remain distinguishable.",
       "evidenceSeparation": "Unresolved confidence and absence of a documented claim-specific appraisal are unchanged. Neither S-011 nor a successful adjustment supplies missing broader mediation evidence.",
-      "alignment": "The revised explanation matches S-012 broader-improvement scope without making every neurally mediated effect beneficial. Temporal ordering and correlated responses remain insufficient for the mechanism.",
-      "inferenceAndImpact": "Empirical S-007 and S-011 dependencies remain with updated response note; the S-012 see-also pair stays independent. Local benefit without broader transfer or principal mediation is compatible with the benefit deductions, not evidence for S-013."
+      "alignment": "The revised explanation matches S-012 broader-improvement scope without making every neurally mediated effect beneficial. Temporal ordering and correlated responses remain insufficient for the mechanism. Stage 4 placement review: Broader-effects supporting step 2 retains occurrence, mediation, and primacy as separate empirical burdens, with unresolved confidence unchanged.",
+      "inferenceAndImpact": "Empirical S-007 and S-011 dependencies remain with updated response note; the S-012 see-also pair stays independent. Local benefit without broader transfer or principal mediation is compatible with the benefit deductions, not evidence for S-013. Stage 4 derived-relationship review: S-012 remains see-also, while S-007/S-011 retain revision roles. Their proximity in supporting reading supplies neither proof of primacy nor a benefit inference."
     },
     "src/content/model/statements/neuromotor-opportunity.md": {
       "finding": "consistent",
-      "proposition": "Empirical capacity for modifying some limiting strategies to improve context-appropriate function; constraint and beneficial opportunity remain different concepts.",
+      "proposition": "Empirical capacity for modifying some limiting motor strategies to improve context-appropriate function in a specified neuromotor scope and timescale. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Some and can are preserved. Unspecified overall is deliberately bounded to a neuromotor scope and timescale, not weakened to mere intention; relevant functional gains and losses remain part of improvement.",
-      "evidenceSeparation": "Franklin primary paper and bibliographic record support task-specific adaptation in five healthy adults. Notes do not validate the constraint construct, the full contextual comparison, assessment, or chiropractic response. Confidence remains unresolved.",
-      "alignment": "Summary, constraint/subluxation explanation, and revision conditions now use S-021 comparison. Functional losses remain in that judgment; costs and risks also inform the separate intervention decision. No diagnosis or displacement is required by the working construct.",
-      "inferenceAndImpact": "Conceptual S-005 edge is replaced by S-021; S-008 is retained. ARG-002 still cannot infer this person has a detectable opportunity or that an effective input matches it from population-level modifiability."
+      "evidenceSeparation": "The retained Franklin note describes task-specific adaptation without validating the constraint construct, contextual comparison, assessment, or chiropractic response. This stage inspected that limitation and its use in the path, without a new empirical appraisal; confidence remains unresolved.",
+      "alignment": "Summary, constraint/subluxation explanation, and revision conditions now use S-021 comparison. Functional losses remain in that judgment; costs and risks also inform the separate intervention decision. No diagnosis or displacement is required by the working construct. Stage 4 placement review: Input-adjustment-success step 1 follows the contextual comparison but precedes input definitions. This is an independent capacity claim, not evidence of chiropractic responsiveness.",
+      "inferenceAndImpact": "Conceptual S-005 edge is replaced by S-021; S-008 is retained. ARG-002 still cannot infer this person has a detectable opportunity or that an effective input matches it from population-level modifiability. Stage 4 derived-relationship review: ARG-002 receives its exact scope and can qualifier alongside S-027. The path does not fill the person-specific opportunity/input overlap or validation gaps."
     },
     "src/content/model/statements/organismic-organization.md": {
       "finding": "consistent",
-      "proposition": "Unchanged empirical organismic maintenance and adaptation of functional organization.",
+      "proposition": "Empirical active maintenance and adaptation of organismic functional organization. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Actively concerns biological participation, not consciousness, infallibility, or guaranteed progress. Organisms can maintain without improving.",
       "evidenceSeparation": "Unresolved appraisal across organisms/processes remains explicit. Replacing the ordinary word adjustment with adaptation changes no empirical content or source attribution.",
-      "alignment": "Definition of functional organization, boundary, and revision condition are compatible with S-021 contextual comparison. No human neural premise or chiropractic outcome is imported into this organism-wide claim.",
-      "inferenceAndImpact": "ARG-005 still uses this independent biological premise defeasibly. S-021 defines a concept without depending on empirical truth that living organisms actively maintain it; no benefit-to-foundation cycle is added."
+      "alignment": "Definition of functional organization, boundary, and revision condition are compatible with S-021 contextual comparison. No human neural premise or chiropractic outcome is imported into this organism-wide claim. Stage 4 placement review: The main walkthrough starts with this exact statement, without a required method prelude. The living-organisms title matches its broad scope and adds no improvement guarantee.",
+      "inferenceAndImpact": "ARG-005 still uses this independent biological premise defeasibly. S-021 defines a concept without depending on empirical truth that living organisms actively maintain it; no benefit-to-foundation cycle is added. Stage 4 derived-relationship review: ARG-005 retains it as the first independent biological premise. Human neural integration remains separate, and no upstream value or benefit claim is used as its support."
     },
     "src/content/model/statements/philosophy-science-art.md": {
       "finding": "consistent",
-      "proposition": "Retained framework division of connected philosophical, scientific, and practical responsibilities; no chiropractic effect is asserted by the triad.",
+      "proposition": "Framework division of connected philosophical, scientific, and practical responsibilities. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Best-supported and contextually govern practical application, while revision remains possible. These qualifications are unchanged.",
       "evidenceSeparation": "Not-applicable confidence concerns a framework commitment. Historical Stephenson and Strauss notes remain provenance, not evidence of modern effects or authority for the new value criterion.",
-      "alignment": "Canonical sentence, explanation, acknowledgment, Model naming, and authorship remain consistent. The unchanged public templates state adoption separately from support and show no editorial status.",
-      "inferenceAndImpact": "S-002 and S-003 retain methodological dependencies; ARG-001 remains defeasible. The new definitions and value deductions fit this division without imposing domain order on inference."
+      "alignment": "Canonical sentence, explanation, acknowledgment, Model naming, and authorship remain consistent. The unchanged public templates state adoption separately from support and show no editorial status. Stage 4 placement review: Optional examine-the-model step 1 introduces the triad; the brief guide introduction adds no premise and optional reading does not make the method unadopted.",
+      "inferenceAndImpact": "S-002 and S-003 retain methodological dependencies; ARG-001 remains defeasible. The new definitions and value deductions fit this division without imposing domain order on inference. Stage 4 derived-relationship review: ARG-001 receives this exact first premise. Main starts at S-017 without constructing a methodological dependency chain or treating domain sequence as inference."
     },
     "src/content/model/statements/purpose.md": {
       "finding": "consistent",
-      "proposition": "Professional-purpose value remains: facilitating context-appropriate improvement is a legitimate chiropractic aim. It is no longer treated as the canonical benefit criterion.",
+      "proposition": "Value commitment that facilitating context-appropriate functional improvement is a legitimate chiropractic aim. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Legitimate aim is retained and not made exclusive. Replacing net-positive with context-appropriate deliberately separates functional improvement from worthwhile intervention; the latter remains required in practice.",
       "evidenceSeparation": "S-022 independently adopts the value formerly carried only in this explanation. Neither value is supplied by biology, and no effect confidence is increased.",
-      "alignment": "Statement, revised summary, and body consistently distinguish intrinsic functional value, professional purpose, actual occurrence, and person-specific justification. Costs, risks, burdens, alternatives, and uncertainty remain explicit.",
-      "inferenceAndImpact": "Retains S-004 conceptual impact and adds S-022 normative impact. ARG-004 uses the actual professional-purpose proposition alongside the separate value premise; S-009/S-011/S-012 now use S-021 for outcome meaning."
+      "alignment": "Statement, revised summary, and body consistently distinguish intrinsic functional value, professional purpose, actual occurrence, and person-specific justification. Costs, risks, burdens, alternatives, and uncertainty remain explicit. Stage 4 placement review: Improvement-and-purpose step 3 follows the separate comparison and value records; the section question does not make professional purpose a biological deduction.",
+      "inferenceAndImpact": "Retains S-004 conceptual impact and adds S-022 normative impact. ARG-004 uses the actual professional-purpose proposition alongside the separate value premise; S-009/S-011/S-012 now use S-021 for outcome meaning. Stage 4 derived-relationship review: Its exact proposition participates in ARG-004 and ARG-002. The index preserves both uses without turning the preceding S-022 step into a new argument."
     },
     "src/content/model/statements/reassessment-cycle.md": {
       "finding": "consistent",
-      "proposition": "Retained reassessment strategy checks the hypothesis and informs stopping, revision, or a justified subsequent input.",
+      "proposition": "Strategy of reassessment after input, guiding stopping, revision, or a justified subsequent input. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Following input triggers comparison only after delivery; when justified continues to govern further action. Unchanged or uncertain observations do not require repetition.",
       "evidenceSeparation": "Unresolved confidence and unvalidated methods remain explicit. Before-and-after findings alone cannot establish causation, durability, broader benefit, or mechanism.",
-      "alignment": "New explanation separately assesses reorganization, improvement, and cause and preserves uncertain classification. A favorable metric with relevant losses does not settle improvement; even established functional benefit need not make further input worthwhile.",
-      "inferenceAndImpact": "Practical S-014/S-015 remain and conceptual S-025 is added for outcome interpretation. ARG-003 retains its two practical premises and defeasibility; no reverse dependency cycle represents the next clinical assessment."
+      "alignment": "New explanation separately assesses reorganization, improvement, and cause and preserves uncertain classification. A favorable metric with relevant losses does not settle improvement; even established functional benefit need not make further input worthwhile. Stage 4 placement review: Introduced only by ARG-003 at the end of practice. This endpoint is not a requirement for continuing care or a declaration of success.",
+      "inferenceAndImpact": "Practical S-014/S-015 remain and conceptual S-025 is added for outcome interpretation. ARG-003 retains its two practical premises and defeasibility; no reverse dependency cycle represents the next clinical assessment. Stage 4 derived-relationship review: ARG-003 retains its defeasible practical principle and empirical measurement gaps. Its S-025 interpretation dependency does not add that definition as a canonical argument premise."
     },
     "src/content/model/statements/regulatory-limits-and-demands.md": {
       "finding": "consistent",
-      "proposition": "Retained empirical limits on neural regulation from incomplete information, biological constraints, and competing demands.",
+      "proposition": "Empirical limitations of neural regulation from incomplete information, biological constraints, and competing demands. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "These limits are separate, not all causes of sensory uncertainty and not a guarantee of poor fit or an available better response.",
       "evidenceSeparation": "Combined claim remains unresolved with no documented full appraisal. Limited sensory/task examples do not establish all components or their interactions.",
-      "alignment": "Statement, explanation, and revision condition distinguish estimation limits, response feasibility, and tradeoffs. S-021 accommodates competing functions without defining every conflict as remediable.",
-      "inferenceAndImpact": "ARG-005 remains defeasible and no dependency is added just to connect the reading progression. S-009 still bears independent modifiability burden and S-011 independent input/effect overlap."
+      "alignment": "Statement, explanation, and revision condition distinguish estimation limits, response feasibility, and tradeoffs. S-021 accommodates competing functions without defining every conflict as remediable. Stage 4 placement review: Living-organisms step 4 preserves three distinct limits rather than a universal correctable defect.",
+      "inferenceAndImpact": "ARG-005 remains defeasible and no dependency is added just to connect the reading progression. S-009 still bears independent modifiability burden and S-011 independent input/effect overlap. Stage 4 derived-relationship review: ARG-005 uses it defeasibly. The subsequent S-008 and later S-009 remain independent empirical commitments, with no assumption of a better available response."
     },
     "src/content/model/statements/salient-perturbation.md": {
       "finding": "consistent",
-      "proposition": "Retained empirical capacity of salient neurobiomechanical perturbation to prompt reevaluation and reorganization.",
+      "proposition": "Empirical capacity of sufficiently salient neurobiomechanical perturbation to prompt strategy reevaluation and reorganization. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Sufficiently salient defines a proposed condition and can a capacity; neither guarantees change. Salience must be specified independently of successful response.",
       "evidenceSeparation": "Unresolved appraisal is retained. No general motor-learning study is newly claimed to establish these salience conditions or chiropractic effects.",
-      "alignment": "The only body change routes chiropractic mechanism instantiation to S-028 and distinguishes input/response definitions. Neutral, transient, and harmful reorganization remain possible.",
-      "inferenceAndImpact": "Retains conceptual S-008 and see-also S-020. Its empirical mechanism dependency now belongs to S-028, permitting S-011 effect claims to survive failure of this explanation."
+      "alignment": "The only body change routes chiropractic mechanism instantiation to S-028 and distinguishes input/response definitions. Neutral, transient, and harmful reorganization remain possible. Stage 4 placement review: Actual-input-effects opens with this general capacity. The question about what inputs actually do must be read with the attached canonical general-mechanism boundary.",
+      "inferenceAndImpact": "Retains conceptual S-008 and see-also S-020. Its empirical mechanism dependency now belongs to S-028, permitting S-011 effect claims to survive failure of this explanation. Stage 4 derived-relationship review: No argument participation is invented. Its empirical revision impact on S-028 and see-also relationship with S-020 do not supply chiropractic occurrence or benefit."
     },
     "src/content/model/statements/sensory-updating-and-reorganization.md": {
       "finding": "consistent",
-      "proposition": "Retained empirical estimate updating and capacity for sensory information to lead to strategy reorganization.",
+      "proposition": "Empirical estimate updating and capacity for sensory information to contribute to neuromotor reorganization. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Can lead describes capacity, not inevitable novelty response. Updating an estimate and changing coordination remain distinguishable.",
       "evidenceSeparation": "Stage 2 Shadmehr/Mussa-Ivaldi task example and its sensory/practice/mechanical confounds remain bounded. It supplies no chiropractic success, durable benefit, or broader-health evidence; confidence remains unresolved.",
-      "alignment": "Definition cross-references, title, summary, current evidence, and revision condition distinguish passive motion, estimate updating, and altered coordination. The new response definition does not make ordinary sensory updating an adjustment.",
-      "inferenceAndImpact": "Retains conceptual S-018/S-008 dependencies, see-also S-010, and defeasible ARG-005 participation. S-010 salience and S-028 chiropractic instantiation remain separate mechanisms."
+      "alignment": "Definition cross-references, title, summary, current evidence, and revision condition distinguish passive motion, estimate updating, and altered coordination. The new response definition does not make ordinary sensory updating an adjustment. Stage 4 placement review: Living-organisms step 6 closes the foundation with can lead retained. Updating and strategy change are not presented as inevitable improvement.",
+      "inferenceAndImpact": "Retains conceptual S-018/S-008 dependencies, see-also S-010, and defeasible ARG-005 participation. S-010 salience and S-028 chiropractic instantiation remain separate mechanisms. Stage 4 derived-relationship review: ARG-005 receives it as premise 6 in canonical order. The later S-010/S-028 mechanisms are not inferred from the path or the see-also link."
     },
     "src/content/model/statements/state-dependent-neuromotor-function.md": {
       "finding": "consistent",
-      "proposition": "Canonical empirical statement of context-sensitive neuromotor function and limited or poorly suited strategies in some circumstances is retained.",
+      "proposition": "Empirical context dependence of neuromotor function, with limited or poorly suited strategies in some circumstances. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Some circumstances limits the poor-fit claim. Variation alone does not imply limitation, modifiability, benefit, or an input indication.",
-      "evidenceSeparation": "Checked Carpenter indexed abstract and Gribble primary paper against the limited task notes. Stiffness and co-contraction examples support context sensitivity, not a clinical detection method or chiropractic success; confidence stays unresolved.",
-      "alignment": "Definitions of motor strategy and neuromotor function remain intact. New S-021 explanation rejects lower tone or greater symmetry as universal improvement criteria; input terminology replaces ambiguous procedural adjustment uses.",
-      "inferenceAndImpact": "S-009, S-010, and S-020 retain conceptual dependence on this domain. S-023 adds conceptual input-target meaning. These edges and ARG-005 participation do not turn adaptation or variation into benefit."
+      "evidenceSeparation": "The existing Carpenter and Gribble notes remain bounded task examples of context sensitivity, not clinical detection or chiropractic success. Their Stage 3 appraisal was reconsidered for use here, without a new source appraisal or confidence upgrade; unresolved confidence stays attached to every resolved appearance.",
+      "alignment": "Definitions of motor strategy and neuromotor function remain intact. New S-021 explanation rejects lower tone or greater symmetry as universal improvement criteria; input terminology replaces ambiguous procedural adjustment uses. Stage 4 placement review: Living-organisms step 5 retains the distinction between variation and poor fit. The section heading introduces organization without attributing benefit to every response.",
+      "inferenceAndImpact": "S-009, S-010, and S-020 retain conceptual dependence on this domain. S-023 adds conceptual input-target meaning. These edges and ARG-005 participation do not turn adaptation or variation into benefit. Stage 4 derived-relationship review: Its exact ARG-005 premise and conceptual uses in S-009/S-010/S-020/S-023 remain independent relationships; the index does not infer arguments from them."
     },
     "src/content/model/statements/success-and-functional-benefit.md": {
       "finding": "consistent",
-      "proposition": "New evaluative conclusion: every successful adjustment provides the functional benefit in its specified neuromotor scope, context, and timescale.",
+      "proposition": "Evaluative conclusion that every successful adjustment provides benefit in its specified neuromotor scope, context, and timescale. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Every ranges over qualifying successes, not all adjustments or inputs. It remains compatible with no successful adjustments occurring.",
       "evidenceSeparation": "Value classification and not-applicable confidence separate this conditional evaluation from empirical occurrence. ARG-006 does not validate a test or raise confidence in S-011.",
-      "alignment": "Statement, summary, and body agree that this is analytic given the value premise. No-reorganization and no-benefit cases do not falsify this conditional conclusion, but remain relevant to input effectiveness.",
-      "inferenceAndImpact": "Conceptual S-025 and normative S-022 dependencies independently express revision impact. ARG-006 also uses S-024 to identify the qualifying response as a change; no transitive dependency is copied merely from argument membership."
+      "alignment": "Statement, summary, and body agree that this is analytic given the value premise. No-reorganization and no-benefit cases do not falsify this conditional conclusion, but remain relevant to input effectiveness. Stage 4 placement review: Introduced by ARG-006 in benefit-of-success, with no duplicate explicit step and a conclusion primary anchor. The conditional question preserves nonexistence compatibility.",
+      "inferenceAndImpact": "Conceptual S-025 and normative S-022 dependencies independently express revision impact. ARG-006 also uses S-024 to identify the qualifying response as a change; no transitive dependency is copied merely from argument membership. Stage 4 derived-relationship review: The exact deduction remains available without substituting this statement into ARG-007. It is not a bridge from defined success to actual inputs helping."
     },
     "src/content/model/statements/successful-adjustment.md": {
       "finding": "consistent",
-      "proposition": "New successful-adjustment definition combines actual input-caused reorganization with context-appropriate improvement in a specified neuromotor comparison.",
+      "proposition": "Definition of successful adjustment as input-caused reorganization improving context-appropriate function within a specified neuromotor comparison. Canonical content is unchanged from reviewed Stage 3.",
       "qualifiers": "Successful is conditional on meeting the criterion, not merely a favorable observation. Specified scope, context, and timescale bound what can be called success.",
       "evidenceSeparation": "Not-applicable confidence is appropriate to a definition; S-011 separately asserts actual qualifying occurrence. Outcome uncertainty remains unresolved rather than automatically passed or failed.",
-      "alignment": "The independent S-021 criterion includes competing gains and losses. No broader transfer, neural primacy, retention beyond the interval, or intervention-worth judgment is smuggled into success. All delivered inputs remain accounted for.",
-      "inferenceAndImpact": "Conceptual S-024 and S-021 define response and improvement. ARG-006 entails S-026 evaluatively but supplies no existence evidence. S-016 depends on this interpretation criterion without claiming assessment can establish it reliably."
+      "alignment": "The independent S-021 criterion includes competing gains and losses. No broader transfer, neural primacy, retention beyond the interval, or intervention-worth judgment is smuggled into success. All delivered inputs remain accounted for. Stage 4 placement review: Input-adjustment-success step 4 precedes the benefit-of-success question. Neither heading assumes the definition has been empirically fulfilled.",
+      "inferenceAndImpact": "Conceptual S-024 and S-021 define response and improvement. ARG-006 entails S-026 evaluatively but supplies no existence evidence. S-016 depends on this interpretation criterion without claiming assessment can establish it reliably. Stage 4 derived-relationship review: ARG-006 receives it as premise 3 and concludes S-026 without existence evidence. Its dependency use in S-016 remains distinct from ARG-003 premises."
     }
   }
 }

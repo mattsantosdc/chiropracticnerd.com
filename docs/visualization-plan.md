@@ -1,25 +1,47 @@
-# Visualization plan
+# Reading interface and optional visualization plan
 
-The Model is intentionally authored so that an interactive graph can be added later without
-changing the meaning or storage of its content. Visualization is deferred while the Model is
-small. This document records the future projection, reader experience, and implementation
-constraints so present authoring remains visualization-ready without introducing a renderer,
-graph database, or renderer-specific metadata prematurely.
+The agreed default experience is an integrated text walkthrough centered on exact
+statements and their recorded reasoning. Stage 4 prepares the
+[reading path and shared reasoning data](model-reading-path.md); Stage 5 will render
+it. The current catalog and detail pages remain available during this preparation.
+A graphical map is optional later work, not a prerequisite or the default route.
 
 ## Architecture decision
 
-No content-schema, storage, or runtime change is required now. The existing architecture already
-provides the necessary foundations:
+Canonical Markdown retains permanent IDs, exact propositions, typed revision
+dependencies, structured joint-premise arguments, and separate see-also links.
+`src/data/model-reading-path.json` authors the editorial sequence without copying
+those facts. The reasoning index derives participation from the full argument
+collection; the resolver attaches canonical records and local reading locations.
+Neither ordering nor display creates a new inference. Domain/order grouping
+continues to serve catalogs rather than controlling the walkthrough.
 
-- Statements and arguments have permanent identifiers independent of their mutable routes.
-- Direct revision dependencies are explicit, typed, annotated, and validated as an acyclic graph.
-- Structured arguments are stored separately from dependencies and validated against statement IDs.
-- `related` records an undirected see-also relationship without pretending it has inferential or
-  causal meaning.
-- Downstream relationships can be derived from canonical upstream metadata.
+No graph renderer, graph database, or UI framework is needed for Stage 4. Future
+renderers consume derived data and remain replaceable without migrating content.
 
-Markdown remains canonical. A future graph representation will be a derived read model, not a new
-source of truth. The renderer must be replaceable without migrating canonical content.
+## Stage 5 reader experience
+
+The main walkthrough begins with living organisms; the method orientation is
+optional and the broader-effect branch remains adopted supporting reading.
+Readers should encounter exact statements, then inspect their explanations and
+recorded reasoning through expandable details. Every argument retains its identity,
+ordered joint premises, conclusion, scheme, and deductive or defeasible kind.
+A statement may have several concluding arguments and also participate as a premise.
+Premise links use derived primary reading locations, including argument conclusions,
+while existing detail-page links remain available.
+
+Keep independent empirical premises, definitions, evaluative commitments, and
+practical decisions distinguishable. In particular, a success definition supplies
+no occurrence evidence, and functional benefit within an identified scope,
+context, and timescale does not settle whether an intervention is worth pursuing.
+Revision dependencies remain available for revision impact, separately from reasoning.
+
+The integrated interface needs accessible navigation, keyboard-usable disclosure,
+narrow-screen reading, stable local anchors, and usable text without JavaScript.
+Recursive reasoning display, if introduced, must bound traversal and mark revisited
+records without deleting relationships. Finite argument cycles are allowed and
+must never enter the separate dependency-DAG check. Layout, interaction, and revised
+statement-page presentation belong to Stage 5.
 
 ## Visualization-readiness contract
 
@@ -37,7 +59,7 @@ Apply these rules to every future Model, argument, and relationship change:
 4. Use permanent statement and argument IDs for graph identity. Use slugs only to construct reader
    navigation links. A route change must not create a new graph node. Statement ID numbers must not
    determine sorting, hierarchy, domain, inference, or graph layout; use `order` for presentation
-   order within domain groups.
+   order within catalog domain groups and the explicit reading-path configuration for the walkthrough.
 5. Keep presentation state out of canonical Markdown. Coordinates, colors, shapes, collapsed
    state, viewport state, layout rank, and visualization-package identifiers belong in the
    renderer or derived graph layer.
@@ -125,67 +147,17 @@ accessible textual representation. The visualizer enhances those pages or a dedi
 does not replace them. No graph database, RDF store, API, or linked-data export is required for
 this client-side read model.
 
-## Planned reader experience
+## Optional graphical map
 
-### First release: dependency map
+A later map may expose independently selected dependency, argument, and related
+layers with distinct node/edge treatments and an explicit legend. The dependency
+DAG is useful for revision work; it is not the reader's default explanation.
+Argument topology may branch, share conclusions, and cycle. Do not force it through
+a layered DAG layout or interpret a dependency arrow as support or causation.
 
-The first visualization will show only the acyclic revision-dependency layer in a directed,
-layered layout. It will provide:
-
-- a whole-Model overview and a focused-neighborhood view;
-- selection by permanent statement ID with URL-addressable focus state;
-- controls to expand direct or recursive upstream and downstream connections;
-- filters for domain, dependency role, statement type, and confidence;
-- clearly directed and role-distinguished dependency edges;
-- a detail panel containing the selected statement's proposition, summary, metadata, dependency note, and
-  link to its full page; and
-- keyboard-usable controls and an accessible textual fallback using the existing pages and lists.
-
-The interface must explain that dependency arrows report revision impact rather than proof,
-causation, chronology, or inferential support. It must remain usable on narrow screens by favoring
-a focused neighborhood over an unreadable scaled-down whole graph.
-
-### Later layers
-
-A later release may add independently toggled argument and related-link layers. Dependency remains
-the default layer; combining layers must use distinct node and edge treatments plus an explicit
-legend. Argument topology may contain cycles and therefore must not be fed into dependency-DAG
-validation or presented as though it shares the same topology.
-
-Evidence, causal, objection, or provenance layers may be added only after the Model has a real use
-case and a canonical, validated representation for those relationships.
-
-## Candidate packages
-
-No visualization dependency is installed or version-pinned now. Package maintenance, browser
-support, accessibility, bundle impact, and compatibility with the current Astro version must be
-reassessed immediately before implementation.
-
-| Package | Potential fit | Important tradeoff |
-| --- | --- | --- |
-| [Cytoscape.js](https://js.cytoscape.org/) with [`cytoscape-elk`](https://github.com/cytoscape/cytoscape.js-elk) | **Preferred candidate.** Framework-independent graph rendering, styling, events, traversal, and a layered ELK layout appropriate for the dependency DAG. It can be loaded from an Astro client script without adopting a UI framework. | Accessibility around the canvas-based graph and surrounding controls must be implemented and tested deliberately. Reassess the ELK adapter and its dependency versions before installation. |
-| [React Flow](https://reactflow.dev/api-reference) | Strong custom HTML nodes and interaction if the site later adopts React or needs visual graph editing. | Requires adding and hydrating React, and automatic layout remains a separate concern. It is unnecessary for the current static-first stack. |
-| [Sigma.js](https://www.sigmajs.org/docs/) with Graphology | WebGL rendering and graph management if the Model eventually contains thousands of visible elements. | Optimized for a scale the Model does not currently approach, with layout and rich document-like nodes requiring additional work. |
-| [D3 force](https://d3js.org/d3-force) and [D3 zoom](https://d3js.org/d3-zoom) | Maximum control over SVG, Canvas, layout behavior, and interaction. | Requires substantially more bespoke rendering, traversal, state, interaction, and accessibility code. |
-
-Cytoscape.js with the ELK adapter is the leading implementation candidate, not an irreversible
-architecture choice. The renderer-neutral projection is what keeps a later package change cheap.
-
-## Implementation trigger and acceptance criteria
-
-Begin implementation when the Model's size or reader feedback shows that linked statement pages no
-longer make the structure easy to understand. Before selecting packages, verify the candidates
-against a representative snapshot containing branching dependencies, multiple parents, multiple
-arguments for one conclusion, related links, disconnected components, and the largest expected
-labels.
-
-The first release is complete only when:
-
-- every visual node and edge can be traced to one canonical structured record;
-- upstream/downstream expansion agrees with the textual Model pages;
-- filters do not change graph meaning or direction;
-- changing a slug changes navigation without changing graph identity;
-- missing JavaScript leaves the existing Model navigation usable;
-- keyboard and screen-reader users can reach equivalent relationship information; and
-- projection tests cover identity, direction, argument grouping, related-link symmetry, and the
-  exclusion of non-canonical relationships.
+Select packages only when a concrete map use case exists, assessing current
+maintenance, accessibility, bundle size, and Astro compatibility then. No package
+is preferred, installed, or pinned by this stage. Preserve keyboard and screen-reader
+access to equivalent textual relationships and verify every visual edge against
+canonical structured data. Evidence, causal, objection, and provenance layers need
+their own canonical contracts before visualization.

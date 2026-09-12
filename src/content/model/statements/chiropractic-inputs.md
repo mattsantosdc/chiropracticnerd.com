@@ -3,38 +3,42 @@ id: S-011
 slug: science/chiropractic-inputs
 title: Chiropractic inputs and beneficial neuromotor change
 statement: >-
-  Some chiropractic inputs produce beneficial changes in neuromotor function by perturbing established motor strategies.
-summary: The Model proposes beneficial neuromotor effects through perturbation for some chiropractic inputs; intentional training describes how inputs are used, separately from whether they work.
+  Some chiropractic inputs cause neuromotor reorganization that improves context-appropriate human function within a specified neuromotor scope, context, and timescale.
+summary: Some inputs are proposed to cause the same reorganization and functional improvement; the mechanism, benefit judgment, and selection of an input remain separately inspectable.
 domain: science
 statementType: empirical
 confidence: unresolved
 order: 50
 upstream:
-  - id: S-005
+  - id: S-021
     role: conceptual
-    note: Revising S-005's net-positive improvement criterion would require reconsidering what counts as beneficial neuromotor change here; that criterion supplies no evidence that an input produces the proposed effect.
-  - id: S-010
-    role: empirical
-    note: Revising S-010's perturbation mechanism would require reconsidering the proposed route from chiropractic inputs to beneficial neuromotor change; the general mechanism does not demonstrate its chiropractic instantiation or benefit.
+    note: Revising S-021's comparative improvement criterion would change the outcome this causal claim asserts; defining the outcome supplies no evidence that an input produces it.
+  - id: S-024
+    role: conceptual
+    note: Revising S-024's account of input-caused neuromotor reorganization would change the response asserted here; defining an adjustment does not establish that any occur or improve function.
 related: []
 version: '0.1'
-updated: 2026-09-09
+updated: 2026-09-12
 whatWouldChange: >-
-  Narrow or reject the proposed mechanism or beneficial-effect hypothesis if inputs selected by prespecified criteria fail to produce the predicted neuromotor changes or net-positive outcomes beyond credible comparisons in valid, adequately powered tests; intention alone would not rescue the empirical proposal.
+  Narrow or reject specified effect hypotheses if prespecified inputs fail to cause the predicted reorganization and contextual functional improvement beyond credible comparisons in valid, adequately powered tests, accounting for relevant functional gains and losses over the specified timescale. Null findings bear on the tested conditions according to their sensitivity and coverage; intention or a favorable surrogate alone cannot rescue the claim.
 ---
 
-## Beneficial effects and intentional use
+## Reorganization that actually improves function
 
-This statement proposes that some chiropractic inputs instantiate S-010's perturbation mechanism and produce beneficial neuromotor change. It asserts an empirical relationship for testing. “Some” limits its scope; uncertainty about whether the proposition is true is recorded in its confidence and evidence assessment. S-005 supplies the meaning of beneficial change as net-positive improvement, not evidence that the effect occurs.
+This statement asserts a joint causal relationship: some chiropractic inputs cause neuromotor reorganization, and that very reorganization improves function within the specified neuromotor comparison. “Some” limits scope without replacing occurrence with possibility. S-021 defines improved fit to actual conditions, including relevant functional gains and losses; S-024 defines the input-caused reorganization as an adjustment. Neither definition supplies evidence that it occurs.
 
-“Neurobiomechanical training stimulus” separately describes a selected input deliberately used to perturb a neuromotor pattern with the aim of beneficial change. Training describes its intended use, including a single input; it does not imply that learning, retention, or improvement has occurred. S-015 uses this intentional description for application. The empirical statement here would fail if its proposed effects did not occur, even if the intention to produce them remained.
+S-022 separately values the improvement, and ARG-007 draws the corresponding functional-benefit conclusion in S-027. S-028 additionally asserts perturbation of established motor strategies as the mechanism for some qualifying responses. That mechanism has its own empirical burden: an improving response could establish the effect while leaving the proposed mechanism unresolved or incorrect.
 
-Input selection remains a prospective requirement for testing and practice. The relevant state, reason for selecting an input, predicted response, benefit criteria, and conditions for withholding or stopping must be specified before observing the outcome. Selection must eventually be reliable and empirically validated against credible alternatives. An input cannot become “appropriate” solely because a favorable result was observed, nor can every failure be dismissed as inappropriate selection. v0.1 supplies no validated selection protocol.
+S-023 defines a chiropractic input by deliberate delivery and intention. “Neurobiomechanical training stimulus” describes its intended use, including a single input; it does not imply learning, retention, or improvement. S-015 uses this intentional description for application. The effect claim here would fail if its proposed responses never occurred, even if the intention to produce them remained.
+
+Input selection remains a prospective requirement for testing and practice. The relevant state, reason for selecting an input, predicted response, improvement criteria, and conditions for withholding or stopping must be specified before observing the outcome. Selection must eventually be reliable and empirically validated against credible alternatives. An input cannot become “appropriate” solely because a favorable result was observed, nor can every failure be dismissed as inappropriate selection. All relevant delivered inputs remain in the accounting, including no reorganization, reorganization without benefit, adverse responses, and uncertain outcomes. v0.1 supplies no validated selection protocol.
 
 ## Current evidence
 
-The intentional use of an input is described separately from its empirical effects. Chiropractic instantiation of the proposed mechanism, beneficial neuromotor change, and selection validity have not been established by evidence documented in this statement. S-010's general mechanism hypothesis alone establishes none of those chiropractic-specific steps.
+The evidence documented in this account has not established input-caused reorganization with qualifying functional improvement. General sensory updating and motor-learning findings do not establish this chiropractic-specific overlap. S-009's beneficial modifiability does not show that chiropractic inputs realize it. This lack of documented support leaves confidence unresolved; it is not evidence that no input can ever have the asserted effect.
+
+Occurrence and input causation, reliable detection, prospective prediction and success frequency, persistence or generalization, and the perturbation mechanism require separate tests. None is established simply because the effect claim is clear or the benefit inference is valid.
 
 ## Boundary
 
-No claim is made that every input produces reorganization, that every reorganization is beneficial, or that an immediate change lasts. Benefit can consist in better neuromotor function itself, assessed with relevant burdens, harms, and tradeoffs. A measured neuromotor response cannot substitute for that evaluation or for evidence of broader benefit in S-012.
+No claim is made that every input produces reorganization, that every reorganization improves function, or that an immediate change lasts. A local improvement must not be enlarged into a claim about the whole person. A measured neuromotor response cannot substitute for S-021's functional comparison, evidence of broader transfer in S-012, or a judgment that an intervention's costs and risks are justified.

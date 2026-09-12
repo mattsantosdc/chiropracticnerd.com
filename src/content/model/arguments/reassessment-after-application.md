@@ -10,7 +10,7 @@ conclusion: S-016
 inferenceKind: defeasible
 scheme: iterative hypothesis testing
 version: '0.1'
-updated: 2026-09-08
+updated: 2026-09-12
 ---
 
 S-014 frames assessment as a working hypothesis about a presently actionable chiropractic opportunity and what, if any, available input is most likely to produce beneficial neuromotor change. S-015 conditionally applies the selected input as an intentional neurobiomechanical training stimulus to test and act on that hypothesis. The proposed practical principle is that an intervention used to test a revisable hypothesis should be followed by examination of its predicted response before deciding what follows.
@@ -19,4 +19,4 @@ That principle motivates S-016: reassess to retain, revise, or abandon the worki
 
 This remains practical, defeasible reasoning. Learning from the intervention and using findings to guide subsequent decisions are methodological choices, not deductions from the existence of a hypothesis and an input. Useful reassessment further requires informative, sufficiently reliable observations and valid decision thresholds; neither premise establishes those capabilities. When assessment is uninformative or further action is unwarranted, this route does not justify repeated input.
 
-An observed difference does not by itself establish causation, the proposed neural mechanism, durability, or broader net-positive benefit. Natural variability, repeated testing, expectation, and measurement error remain alternatives. Those empirical questions require separate evidence, even if the practical rationale for reassessment is retained.
+An observed difference does not by itself establish causation, the proposed neural mechanism, durability, or broader functional benefit. Natural variability, repeated testing, expectation, and measurement error remain alternatives. Those empirical questions require separate evidence, even if the practical rationale for reassessment is retained. S-025 supplies the criterion for interpreting success, not a guarantee that the available observations can establish it. An input without reorganization, reorganization without improvement, and an uncertain response remain possible. Functional improvement also does not require further input or establish that the intervention was worth its costs and risks.

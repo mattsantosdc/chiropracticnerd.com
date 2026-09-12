@@ -1,7 +1,7 @@
 ---
 id: S-015
 slug: art/chiropractic-application
-title: Application as a training stimulus
+title: Delivering the selected chiropractic input
 statement: >-
   When proceeding is warranted, a selected chiropractic input is applied as a neurobiomechanical training stimulus intended to test and act on the working hypothesis by beneficially altering the targeted neuromotor pattern.
 summary: A warranted input intentionally tests and acts on the assessment hypothesis; its delivery does not establish that the intended change occurs.
@@ -10,22 +10,24 @@ statementType: strategy
 confidence: unresolved
 order: 20
 upstream:
-  - id: S-011
+  - id: S-028
     role: practical
-    note: Revising S-011's proposed perturbation-mediated beneficial effects would require reconsidering the mechanism and response application is intended to pursue, even if S-014 retained its assessment strategy; effects in some cases do not establish success for the selected input here.
+    note: Revising S-028's perturbation account would require reconsidering the mechanism application intentionally pursues, even if S-014 retained its assessment strategy; the mechanism claim does not establish success for the selected input here.
   - id: S-014
     role: practical
     note: Revising S-014's working hypothesis or criteria for action would require reconsidering whether and what input is delivered; a selected input is not thereby effective, safe, or appropriate.
 related: []
 version: '0.1'
-updated: 2026-09-09
+updated: 2026-09-12
 ---
 
 ## Applying the selected input
 
 Assessment becomes action only when the working hypothesis and the person's context support proceeding. Application is that conditional practical step: the selected chiropractic input is delivered as an intentional neurobiomechanical training stimulus, with a predicted beneficial alteration of the targeted neuromotor pattern. It seeks to test the hypothesis and use the proposed opportunity for benefit.
 
-S-014 supplies the person-specific hypothesis and selection judgment. S-011 supplies the proposed mechanism and beneficial neuromotor effects that application seeks to realize. “Training stimulus” describes the purpose of this application; it does not mean that successful learning or beneficial reorganization has already occurred. If no available input is warranted, this step is not taken.
+S-014 supplies the person-specific hypothesis and selection judgment. S-011 asserts the joint reorganization and improvement that application seeks to realize; S-028 separately proposes perturbation as its mechanism. “Training stimulus” describes the purpose of this application; it does not mean that learning, retention, or beneficial reorganization has occurred. If no available input is warranted, this step is not taken.
+
+Application delivers the input defined in S-023. It does not deliver an already established adjustment or successful adjustment: those terms in S-024 and S-025 describe the organism's response and qualifying improvement. The input remains a delivered input whether it produces no reorganization, reorganization without improvement, harm, or an uncertain response.
 
 ## Boundary
 

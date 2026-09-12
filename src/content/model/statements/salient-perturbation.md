@@ -38,4 +38,4 @@ This statement presents a general mechanism hypothesis without a documented clai
 
 The proposed capacity does not guarantee reorganization. Reorganization may be neutral, transient, or harmful. The mechanism does not define benefit.
 
-This statement does not establish that a chiropractic input instantiates the mechanism. S-011 separately proposes chiropractic instantiation with beneficial neuromotor effects. General capacity, chiropractic effects, and intentional use remain distinct.
+This statement does not establish that a chiropractic input instantiates the mechanism. S-028 separately proposes chiropractic instantiation producing the reorganization and improvement asserted in S-011. S-023 defines the intended input and S-024 the input-caused reorganization. General capacity, chiropractic effects, and intentional use remain distinct.

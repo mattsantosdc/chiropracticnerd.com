@@ -25,7 +25,7 @@ whatWouldChange: >-
 
 ## Current evidence
 
-Confidence in this broad formulation remains unresolved because a claim-specific appraisal across organisms, processes, and life stages has not been documented here. Maintenance and adaptation require distinguishable observations; neither may be inferred merely from calling something an organism. A useful appraisal would compare active maintenance and adjustment with passive persistence, and examine failure as well as successful responses. Evidence from human motor learning alone would not establish this organism-wide scope.
+Confidence in this broad formulation remains unresolved because a claim-specific appraisal across organisms, processes, and life stages has not been documented here. Maintenance and adaptation require distinguishable observations; neither may be inferred merely from calling something an organism. A useful appraisal would compare active maintenance and adaptation with passive persistence, and examine failure as well as successful responses. Evidence from human motor learning alone would not establish this organism-wide scope.
 
 ## Boundary
 

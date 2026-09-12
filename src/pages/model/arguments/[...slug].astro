@@ -1,101 +1,31 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 import { modelIdentity } from '../../../lib/site';
-import { sortArguments, validateArguments } from '../../../lib/arguments.ts';
-import { sortStatements, validateStatements } from '../../../lib/statements.ts';
+import { buildReasoningIndex } from '../../../lib/reasoning.ts';
+import { resolveReadingPath } from '../../../lib/reading-path.ts';
+import { argumentStep, readingHref } from '../../../lib/reading-navigation.ts';
+import config from '../../../data/model-reading-path.json';
+import ArgumentStep from '../../../components/model/ArgumentStep.astro';
+import ReasoningHelp from '../../../components/model/ReasoningHelp.astro';
 
 export async function getStaticPaths() {
-	const [statementEntries, argumentEntries] = await Promise.all([
-		getCollection('statements'),
-		getCollection('arguments'),
-	]);
-	const entries = sortStatements(statementEntries);
-	const argumentsList = sortArguments(argumentEntries);
-	validateStatements(entries);
-	validateArguments(argumentsList, entries);
-
-	return argumentsList.map((argument) => ({
-		params: { slug: argument.data.slug },
-		props: { contentId: argument.id },
-	}));
+	return (await getCollection('arguments')).map((entry) => ({ params: { slug: entry.data.slug }, props: { argumentId: entry.data.id } }));
 }
-
-const { contentId } = Astro.props;
-const [statementEntries, argumentEntries] = await Promise.all([
-	getCollection('statements'),
-	getCollection('arguments'),
-]);
-const entries = sortStatements(statementEntries);
-const argumentsList = sortArguments(argumentEntries);
-const byStatementId = validateStatements(entries);
-validateArguments(argumentsList, entries);
-const argument = argumentsList.find((candidate) => candidate.id === contentId);
-
-if (!argument) throw new Error(`Argument not found: ${contentId}`);
-
-const premises = argument.data.premises.map((id) => byStatementId.get(id)!);
-const conclusion = byStatementId.get(argument.data.conclusion)!;
-const { Content } = await render(argument);
+const [statements, argumentsList] = await Promise.all([getCollection('statements'), getCollection('arguments')]);
+const index = buildReasoningIndex(statements, argumentsList);
+const path = resolveReadingPath(config, index);
+const step = argumentStep(path, Astro.props.argumentId);
+if (step.kind !== 'argument') throw new Error(`Missing argument ${Astro.props.argumentId}`);
+const { data } = step.argument.entry;
 ---
-
-<Layout title={`${argument.data.title} | ${modelIdentity.name}`} description={argument.data.summary}>
-	<p class="eyebrow">{modelIdentity.name} · Reasoning · {argument.data.id}</p>
-	<h1>{argument.data.title}</h1>
-	<div class="meta-row">
-		<span class="pill">{argument.data.inferenceKind}</span>
-		<span class="pill">{argument.data.scheme}</span>
-		<span class="pill">v{argument.data.version}</span>
+<Layout title={`${data.title} | ${modelIdentity.name}`} description={data.summary}>
+	<div class="model-reader argument-detail">
+		<p class="eyebrow">{modelIdentity.name} · Reasoning · v{data.version}</p>
+		<h1>{data.title}</h1>
+		<p><a href={readingHref(step.location, false)}>Read {data.id} in the Model</a> · <a href="/model/arguments/">All argument records</a></p>
+		<ArgumentStep step={step} index={index} path={path} integrated={false} />
+		<ReasoningHelp />
 	</div>
-	<p class="lede">{argument.data.summary}</p>
-
-	<div class="model-layout argument-page">
-		<article class="model-body">
-			<section class="argument-structure" aria-labelledby="argument-structure-title">
-				<h2 id="argument-structure-title">Argument structure</h2>
-				<h3>Premises</h3>
-				<ol>
-					{premises.map((premise) => (
-						<li>
-							<a class="entry-name" href={`/model/${premise.data.slug}/`}><strong>{premise.data.id}</strong>: {premise.data.title}</a>
-							<blockquote class="entry-statement">
-								<p class="statement-label">Statement</p>
-								<p class="statement-text">{premise.data.statement}</p>
-							</blockquote>
-						</li>
-					))}
-				</ol>
-				<div class="inference-rule">
-					<span>{argument.data.inferenceKind}</span>
-					<strong>{argument.data.scheme}</strong>
-				</div>
-				<h3>Conclusion</h3>
-				<div class="argument-conclusion">
-					<a class="entry-name" href={`/model/${conclusion.data.slug}/`}><strong>{conclusion.data.id}</strong>: {conclusion.data.title}</a>
-					<blockquote class="entry-statement">
-						<p class="statement-label">Statement</p>
-						<p class="statement-text">{conclusion.data.statement}</p>
-					</blockquote>
-				</div>
-			</section>
-
-			<section>
-				<h2>Explanation and limits</h2>
-				<Content />
-			</section>
-		</article>
-
-		<aside class="side-panel">
-			<h2>How to read this</h2>
-			<p class="side-note">
-				The argument records why the conclusion is inferred. Each premise's page separately
-				reports its statement type, confidence, evidence, and revision conditions.
-			</p>
-			<p class="side-note">
-				A deductive label asserts only that the conclusion follows if the premises are true. A
-				defeasible route may be overturned by new evidence, alternatives, or context.
-			</p>
-			<a href="/model/arguments/">← All arguments</a>
-		</aside>
-	</div>
+	<script>import '../../../scripts/model-fragments.ts';</script>
 </Layout>

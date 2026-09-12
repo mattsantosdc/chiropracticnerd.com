@@ -143,3 +143,72 @@ main.shell { padding-block: clamp(3rem, 8vw, 7rem); }
 	.model-layout { grid-template-columns: 1fr; }
 	.side-panel { position: static; }
 }
+
+/* The Model reads as one document; disclosures expose the underlying account. */
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+[id] { scroll-margin-top: 1.5rem; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+main.shell:has(> .model-reader) { padding-top: clamp(2rem, 4vw, 3rem); }
+.reading-introduction .model-title { font-size: clamp(2.25rem, 4vw, 3.25rem); }
+.premise-references a { white-space: nowrap; }
+.model-reader { max-width: 780px; margin-inline: auto; overflow-wrap: anywhere; }
+.model-reader h1 { max-width: 24ch; }
+.model-reader .model-acknowledgment { margin-block: 1.25rem; padding: 0; background: none; border: none; font-size: 0.92rem; color: var(--muted); }
+.model-reader .model-acknowledgment strong { display: inline; }
+.reading-toc { border-block: 1px solid var(--line); padding-block: 0.6rem; margin-top: 1.5rem; }
+summary { cursor: pointer; padding-block: 0.5rem; color: var(--accent); font-weight: 650; }
+.reading-toc ol, .reading-toc ul { padding-left: 1.5rem; }
+.reading-toc li { padding-block: 0.15rem; }
+.reading-note { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.25rem; }
+.reading-section { padding-top: 1rem; }
+.reading-section > h2 { margin-block: 2rem 0.5rem; text-wrap: balance; }
+.reading-step { padding-block: 1.6rem; border-bottom: 1px solid var(--line); }
+.statement-appearance .entry-name { margin-bottom: 0.6rem; font-size: 0.88rem; }
+.statement-appearance .entry-name a { color: var(--muted); }
+.statement-appearance .statement-text { margin: 0; max-width: 65ch; font-size: clamp(1.15rem, 2vw, 1.4rem); font-weight: 550; line-height: 1.6; letter-spacing: -0.012em; }
+.statement-appearance .statement-meta { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; font-size: 0.78rem; color: var(--muted); margin-block: 0.75rem 0.9rem; }
+.reasoning-participation { font-size: 0.85rem; margin-block: 1rem; color: var(--muted); }
+.reasoning-participation > div { margin-block: 0.65rem; }
+.reasoning-participation .relationship-label { font-weight: 650; margin: 0; }
+.reasoning-participation ul { padding: 0; list-style: none; margin: 0.15rem 0 0; }
+.reasoning-participation li { margin-block: 0.25rem; }
+.relationship-empty { margin: 0.15rem 0 0; max-width: 68ch; }
+.model-disclosure { border-top: 1px solid var(--line); font-size: 0.95rem; }
+.model-disclosure summary { padding-block: 0.65rem; }
+.model-disclosure[open] > summary { margin-bottom: 0.5rem; }
+.disclosure-body { padding: 0 0 0.75rem 1rem; border-left: 2px solid var(--line); }
+.disclosure-body > h3:first-child { margin-top: 0; }
+.model-reader .disclosure-body h2, .model-reader .disclosure-body h3, .model-reader .disclosure-body h4, .model-reader .disclosure-body h5 { font-size: 1.05rem; line-height: 1.4; margin: 1.5rem 0 0.5rem; }
+.disclosure-body p { margin-block: 0.6rem; }
+.record-links { font-size: 0.82rem; margin: 0.65rem 0 0; }
+.argument-identity { font-size: 0.9rem; margin: 0 0 1rem; }
+.argument-identity span { color: var(--muted); }
+.argument-step > .supporting-label { margin-bottom: 0.6rem; }
+.premise-references { font-size: 0.9rem; }
+.joint-premises { padding-left: 1.5rem; }
+.joint-premises > li { margin-block: 1.5rem; padding-left: 0.25rem; }
+.joint-premises .statement-text, .conclusion-repeat { font-size: 1.05rem; line-height: 1.65; }
+.next-section { font-size: 0.9rem; padding-block: 0.5rem; }
+.reading-branch { margin-top: 2rem; }
+.reading-branch > .reading-section { padding-top: 0; }
+.reference-index { margin-top: 2rem; }
+.reference-index li { margin-block: 0.5rem; }
+.reasoning-help { border: none; font-size: 0.85rem; }
+.statement-detail .statement-appearance h1 { max-width: 60ch; font-size: clamp(1.55rem, 3vw, 2rem); line-height: 1.5; }
+.statement-detail .entry-summary { margin: 1.5rem 0; }
+.statement-detail > .reasoning-participation { padding-block: 0.5rem; border-block: 1px solid var(--line); }
+.statement-detail .entry-explanation h2 { font-size: 1.4rem; }
+.statement-detail .revision-dependencies { margin-top: 2rem; }
+.argument-detail > h1 { font-size: clamp(2rem, 4vw, 3rem); }
+.reference-list p { color: var(--muted); font-size: 0.92rem; }
+.model-reader img { max-width: 100%; height: auto; }
+.model-reader pre { overflow-x: auto; }
+@media (max-width: 600px) {
+	.model-reader .disclosure-body { padding-left: 0.65rem; }
+	.model-reader .reading-step { padding-block: 1.25rem; }
+	.joint-premises { padding-left: 1.1rem; }
+	.statement-meta { line-height: 1.5; }
+}
+@media (prefers-reduced-motion: reduce) {
+	html { scroll-behavior: auto; }
+}

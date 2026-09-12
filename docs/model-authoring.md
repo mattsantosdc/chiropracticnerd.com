@@ -87,6 +87,17 @@ confidence or remove adoption. Inspect section prose and forward-reference
 diagnostics without treating adjacency as inference or changing dependencies to
 fit the reading sequence. Catalog `domain`/`order` sorting remains separate.
 
+The default `/model/` interface renders that path as a scrolling document. Keep
+exact propositions visible, with summaries explicitly labeled and canonical
+explanations, source limits, and revision conditions in disclosures. Statement
+participation lists must retain all concluding and premise arguments from the shared
+index. Revision dependencies belong in a separate secondary disclosure; absence of
+those edges says nothing about argument participation or empirical support.
+Preserve detail-page routes, bare S-ID comment threads, and the general Model thread.
+Every new Model component, interaction, stylesheet, or presentation helper must be
+included in the explicit review inputs. Validate embedded Markdown namespaces and
+fragment/disclosure navigation as well as the data contracts.
+
 ## Workflow for every substantive change
 
 ### 1. State the claim precisely

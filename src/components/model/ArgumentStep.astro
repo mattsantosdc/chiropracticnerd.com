@@ -1,0 +1,41 @@
+---
+import { render } from 'astro:content';
+import type { ReasoningIndex } from '../../lib/reasoning.ts';
+import type { ResolvedReadingPath, ResolvedReadingStep } from '../../lib/reading-path.ts';
+import { readingHref, statementAppearance } from '../../lib/reading-navigation.ts';
+import StatementText from './StatementText.astro';
+import StatementMaterial from './StatementMaterial.astro';
+import ReasoningParticipation from './ReasoningParticipation.astro';
+import CanonicalBody from './CanonicalBody.astro';
+interface Props { step: Extract<ResolvedReadingStep, { kind: 'argument' }>; index: ReasoningIndex; path: ResolvedReadingPath; integrated?: boolean; }
+const { step, index, path, integrated = true } = Astro.props;
+const { argument } = step;
+const { data } = argument.entry;
+const { Content } = await render(argument.entry);
+const conclusionLocation = statementAppearance(path, step, argument.conclusion.entry.data.id, 'conclusion');
+---
+<article class="reading-step argument-step" id={step.location.anchor} tabindex="-1" data-reading-step={step.id} data-argument-id={step.id}>
+	<p class="argument-identity"><a href={argument.href}>{data.id} · {data.title}</a> <span>· {data.inferenceKind} reasoning</span></p>
+	<p class="supporting-label">Conclusion</p>
+	<StatementText statement={argument.conclusion} anchor={conclusionLocation.anchor} role="conclusion" />
+	<p class="premise-references">Joint premises: {argument.premises.map((premise, i) => <>{i > 0 && ', '}<a href={`#${statementAppearance(path, step, premise.entry.data.id, 'premise').anchor}`}>{premise.entry.data.id}</a></>)}</p>
+	<details class="model-disclosure argument-reasoning" open={!integrated}>
+		<summary>Follow the reasoning <span class="visually-hidden">of {step.id}</span></summary>
+		<div class="disclosure-body">
+			<h3>Summary</h3><p>{data.summary}</p>
+			<h3 id={!integrated ? "argument-structure-title" : undefined}>Premises used together in {data.id}</h3>
+			<ol class="joint-premises">{argument.premises.map((premise) => (
+				<li><StatementText statement={premise} anchor={statementAppearance(path, step, premise.entry.data.id, 'premise').anchor} role="premise" />
+					<p class="record-links"><a class="premise-origin" href={readingHref(path.primaryStatementLocations.get(premise.entry.data.id)!, integrated)}>Trace {premise.entry.data.id} in the reading path</a> · <a href={premise.href}>Full statement and support</a></p>
+				</li>
+			))}</ol>
+			<p class="inference-rule"><span>{data.inferenceKind}</span><strong>{data.scheme}</strong></p>
+			<h3>Conclusion of {data.id}</h3><p class="statement-text conclusion-repeat" data-exact-conclusion={data.conclusion}>{argument.conclusion.entry.data.statement}</p>
+			<h3>Explanation and limits</h3>
+			<CanonicalBody namespace={integrated ? `${step.location.anchor}--body` : undefined} recordId={data.id}><Content /></CanonicalBody>
+		</div>
+	</details>
+	{integrated && <details class="model-disclosure"><summary>Explanation and support for {data.conclusion}</summary><div class="disclosure-body"><h3>Summary</h3><p>{argument.conclusion.entry.data.summary}</p><h3>Explanation and support</h3><StatementMaterial statement={argument.conclusion} namespace={`${conclusionLocation.anchor}--body`} /></div></details>}
+	<ReasoningParticipation statement={argument.conclusion} index={index} path={path} integrated={integrated} />
+	<p class="record-links"><a href={argument.href}>Full argument</a> · <a href={argument.conclusion.href}>Full conclusion and support</a> · <a href={`${argument.conclusion.href}#discussion`}>Discuss {data.conclusion}</a>{!integrated && <> · <a href={readingHref(step.location, false)}>Read this argument in the Model</a></>}</p>
+</article>

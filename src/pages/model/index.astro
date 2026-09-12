@@ -1,8 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 import Comments from '../../components/Comments.astro';
-import DependencyLegend from '../../components/DependencyLegend.astro';
 import ModelAcknowledgment from '../../components/ModelAcknowledgment.astro';
+import ReadingSection from '../../components/model/ReadingSection.astro';
+import ReasoningHelp from '../../components/model/ReasoningHelp.astro';
 import Layout from '../../layouts/Layout.astro';
 import { modelIdentity, siteIdentity } from '../../lib/site';
 import { sortArguments } from '../../lib/arguments.ts';
@@ -10,84 +11,48 @@ import { domainLabels, domainOrder, sortStatements } from '../../lib/statements'
 import readingPathConfig from '../../data/model-reading-path.json';
 import { buildReasoningIndex } from '../../lib/reasoning.ts';
 import { resolveReadingPath } from '../../lib/reading-path.ts';
+import { argumentStep, readingHref } from '../../lib/reading-navigation.ts';
 
-const [statementEntries, argumentEntries] = await Promise.all([
-	getCollection('statements'),
-	getCollection('arguments'),
-]);
-const entries = sortStatements(statementEntries);
-const argumentsList = sortArguments(argumentEntries);
-// Validate the Stage 5 data during every production build; retain the current catalog markup.
-const readingPath = resolveReadingPath(readingPathConfig, buildReasoningIndex(statementEntries, argumentEntries));
-for (const diagnostic of readingPath.diagnostics) console.warn(diagnostic.message);
-const groups = domainOrder.map((domain) => ({
-	domain,
-	entries: entries.filter((entry) => entry.data.domain === domain),
-}));
+const [statementEntries, argumentEntries] = await Promise.all([getCollection('statements'), getCollection('arguments')]);
+const index = buildReasoningIndex(statementEntries, argumentEntries);
+const path = resolveReadingPath(readingPathConfig, index);
+for (const diagnostic of path.diagnostics) console.warn(diagnostic.message);
+const groups = domainOrder.map((domain) => ({ domain, entries: sortStatements(statementEntries).filter((entry) => entry.data.domain === domain) }));
 ---
-
-<Layout title={modelIdentity.name} description="The Coherent Chiropractic Model by Dr. Matt Santos. Version 0.1 presents its claims, reasoning, and preliminary evidence for examination.">
-	<p class="eyebrow">A {siteIdentity.name} project · v0.1</p>
-	<h1 class="model-title">{modelIdentity.name}</h1>
-	<p class="byline">By {siteIdentity.author}</p>
-	<ModelAcknowledgment />
-	<p class="lede">
-		The Coherent Chiropractic Model connects philosophy, science, and art in a public, revisable account
-		of chiropractic. Each statement expresses a proposition, definition, value
-		judgment, framework commitment, or strategy that can be examined, challenged, and revised.
-	</p>
-	<p class="section-intro">
-		Every statement included in this version expresses the Model’s current working position.
-		Evidence and confidence are assessed separately, and all statements remain open to revision.
-	</p>
-	<p class="section-intro">
-		Version 0.1 presents the Model’s proposed explanations and reasoning for examination.
-		Evidence appraisal is preliminary: some claims have limited supporting examples, while others
-		await review. Assessment methods, input selection, and criteria for meaningful benefit remain
-		to be validated. Each Science statement explains what its cited evidence supports and what remains
-		unresolved.
-	</p>
-	<p class="section-intro">
-		Read the highlighted <strong>statements</strong> to see what the Model says. The short titles
-		name the statements; open a statement for its summary, explanation, and supporting material.
-	</p>
-	<div class="meta-row" style="margin-top: 1.25rem">
-		<span class="pill">{entries.length} statements</span>
-		<span class="pill">{argumentsList.length} arguments</span>
-	</div>
-	<div class="hero-actions">
-		<a class="button secondary" href="/model/arguments/">Inspect the reasoning</a>
-	</div>
-
-	{groups.map(({ domain, entries: domainEntries }) => (
-		<section>
-			<h2>{domainLabels[domain]}</h2>
-			<div class="card-grid">
-				{domainEntries.map((entry) => (
-					<article class="card model-card">
-						<a class="card-link" href={`/model/${entry.data.slug}/`}>
-							<p class="entry-name"><span>{entry.data.id}</span> · {entry.data.title}</p>
-							<div class="entry-statement">
-								<p class="statement-label">Statement</p>
-								<h3 class="statement-text">{entry.data.statement}</h3>
-							</div>
-							<span class="entry-read-more">Explanation and support →</span>
-						</a>
-						<div class="meta-row">
-							<span>{entry.data.statementType}</span>
-							<span>confidence: {entry.data.confidence}</span>
-						</div>
-					</article>
-				))}
+<Layout title={modelIdentity.name} description="The Coherent Chiropractic Model by Dr. Matt Santos. Read its statements and follow their reasoning, with support for the premises available to inspect.">
+	<div class="model-reader">
+		<header class="reading-introduction">
+			<p class="eyebrow">A {siteIdentity.name} project · v{path.version}</p>
+			<h1 class="model-title">{modelIdentity.name}</h1>
+			<p class="byline">By {siteIdentity.author}</p>
+			<p class="lede">A revisable account of chiropractic, from living function to practical decisions. Read what the Model proposes, follow its reasoning, and separately examine the support for its premises.</p>
+			<ModelAcknowledgment />
+		</header>
+		<nav class="reading-toc" aria-label="Model sections" id="model-contents">
+			<details>
+				<summary>On this page · {path.main.length} sections</summary>
+				<ol>{path.main.map((section) => <li><a href={`#${section.anchor}`}>{section.title}</a></li>)}</ol>
+				<ul class="additional-reading-links">
+					{path.orientation && <li><a href={`#${path.orientation.anchor}`}>Optional: {path.orientation.title}</a></li>}
+					{path.supporting.map((section) => <li><a href={`#${section.anchor}`}>Supporting: {section.title}</a></li>)}
+					<li><a href="#model-reference">Statement and argument index</a></li>
+				</ul>
+			</details>
+		</nav>
+		<p class="reading-note">Sections give a reading order. Arguments identify the premises used together.</p>
+		<ReasoningHelp />
+		<div class="main-reading">{path.main.map((section, i) => <ReadingSection section={section} index={index} path={path} next={path.main[i + 1]} />)}</div>
+		{path.orientation && <details class="model-disclosure reading-branch"><summary>Optional orientation: {path.orientation.title}</summary><ReadingSection section={path.orientation} index={index} path={path} /></details>}
+		{path.supporting.map((section) => <details class="model-disclosure reading-branch"><summary>Supporting reading: {section.title}</summary><ReadingSection section={section} index={index} path={path} /></details>)}
+		<details class="model-disclosure reference-index" id="model-reference">
+			<summary>Statement and argument index</summary>
+			<div class="disclosure-body">
+				{groups.map(({ domain, entries }) => <section><h2>{domainLabels[domain]}</h2><ul>{entries.map((entry) => <li><a href={readingHref(path.primaryStatementLocations.get(entry.data.id)!)}>{entry.data.id}: {entry.data.title}</a> · <a href={index.statementsById.get(entry.data.id)!.href}>Full statement</a></li>)}</ul></section>)}
+				<h2>Arguments</h2><ul>{sortArguments(argumentEntries).map((entry) => <li><a href={readingHref(argumentStep(path, entry.data.id).location)}>{entry.data.id}: {entry.data.title}</a> · <a href={index.argumentsById.get(entry.data.id)!.href}>Full argument</a></li>)}</ul>
+				<p><a href="/model/arguments/">Browse all argument records</a></p>
 			</div>
-		</section>
-	))}
-
-	<DependencyLegend />
-
-	<Comments
-		threadId="model:general"
-		heading="Discuss the Coherent Chiropractic Model"
-		intro="Use this for questions and feedback on the Model’s overall structure, scope, assumptions, or approach. If your point applies to one specific statement, join the discussion on that statement instead."
-	/>
+		</details>
+		<div id="discussion" tabindex="-1"><Comments threadId="model:general" heading="Discuss the Coherent Chiropractic Model" intro="Questions and feedback on the Model’s structure, scope, assumptions, or approach are welcome here. Each statement also has its own discussion." /></div>
+	</div>
+	<script>import '../../scripts/model-fragments.ts';</script>
 </Layout>

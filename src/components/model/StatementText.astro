@@ -1,0 +1,14 @@
+---
+import type { ResolvedStatement } from '../../lib/reasoning.ts';
+import { domainLabels } from '../../lib/statements.ts';
+interface Props { statement: ResolvedStatement; anchor?: string; heading?: boolean; role?: string; }
+const { statement, anchor, heading = false, role = 'statement' } = Astro.props;
+const { data } = statement.entry;
+const Text = heading ? 'h1' : 'p';
+const typeLabels = { framework: 'Framework commitment', definition: 'Definition', empirical: 'Empirical claim', mixed: 'Mixed claim', value: 'Value judgment', strategy: 'Strategy' };
+---
+<div class="statement-appearance" id={anchor} tabindex={anchor ? '-1' : undefined} data-statement-id={data.id} data-role={role}>
+	<p class="entry-name"><a href={statement.href}>{data.id} · {data.title}</a></p>
+	<Text class="statement-text">{data.statement}</Text>
+	<p class="statement-meta"><span>Type: {typeLabels[data.statementType]}</span><span>Confidence: {data.confidence === 'not-applicable' ? 'Not applicable' : data.confidence}</span><span>{domainLabels[data.domain]}</span></p>
+</div>

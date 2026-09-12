@@ -1,0 +1,19 @@
+---
+import StatementText from './StatementText.astro';
+import StatementMaterial from './StatementMaterial.astro';
+import ReasoningParticipation from './ReasoningParticipation.astro';
+import type { ReasoningIndex } from '../../lib/reasoning.ts';
+import type { ResolvedReadingPath, ResolvedReadingStep } from '../../lib/reading-path.ts';
+interface Props { step: Extract<ResolvedReadingStep, { kind: 'statement' }>; index: ReasoningIndex; path: ResolvedReadingPath; }
+const { step, index, path } = Astro.props;
+const { statement } = step;
+---
+<article class="reading-step" data-reading-step={step.id}>
+	<StatementText statement={statement} anchor={step.location.anchor} />
+	<ReasoningParticipation statement={statement} index={index} path={path} />
+	<details class="model-disclosure">
+		<summary>Explanation and support <span class="visually-hidden">for {step.id}</span></summary>
+		<div class="disclosure-body"><h3>Summary</h3><p>{statement.entry.data.summary}</p><h3>Explanation and support</h3><StatementMaterial statement={statement} namespace={`${step.location.anchor}--body`} /></div>
+	</details>
+	<p class="record-links"><a href={statement.href}>Full statement</a> · <a href={`${statement.href}#discussion`}>Discuss {step.id}</a></p>
+</article>

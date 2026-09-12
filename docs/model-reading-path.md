@@ -84,8 +84,9 @@ are `reading-{sectionId}--{kind}-{lowercase permanent ID}`. An argument conclusi
 appends `--conclusion`; each premise appends `--premise-{lowercase statement ID}`.
 These deterministic local anchors survive slug changes and reordering within a
 section. Moving to another section changes the local location, never canonical
-identity. Stage 4 does not emit these anchors or link to nonexistent fragments.
-Stage 5 should mount them and derive premise back-links from the returned maps.
+identity. The integrated page mounts these exact anchors. `reading-navigation.ts`
+selects appearances by resolved section, step, placement, and role; templates never
+reconstruct anchor recipes. Premise origin links use `primaryStatementLocations`.
 
 ## Validation and forward references
 
@@ -109,7 +110,9 @@ not topological sorting, relationship deletion, or a logical-error label.
 
 The authored default has no such diagnostics. The Model overview frontmatter loads
 the JSON and full collections, builds the index, resolves the path, and logs any
-diagnostics. Its public markup and catalog sorting are unchanged. Structural
+diagnostics. It renders the resolved main sections in order, beginning with S-017;
+orientation and supporting branches use native disclosures. A secondary reference
+index retains domain/order catalog sorting. Structural
 errors therefore fail normal production builds even with a current semantic
 review. The review gate separately requires thoughtful review of all inputs; it
 cannot replace runtime validation or automatically approve a path.
@@ -119,9 +122,30 @@ cannot replace runtime validation or automatically approve a path.
 Canonical Markdown → Astro collections → `buildReasoningIndex` →
 `resolveReadingPath` with the authored JSON → integrated text walkthrough.
 
-Stage 5 should consume these sections, records, links, participation maps, and
-locations directly. It should preserve statement text, show inference kinds and
-joint premises, and keep independent empirical and evaluative premises visible.
-Layout, expandable reasoning, navigation changes, and revised detail-page
-presentation are deferred. A graphical map is optional later work; neither a UI
-framework nor a graph package is required by these helpers.
+The shared Astro components in `src/components/model/` consume these sections,
+records, links, participation maps, and locations directly. `StatementText` uses
+`entry.data.statement` for every appearance. `StatementMaterial` renders the canonical
+body through Astro's `render()` and retains reference notes and revision conditions.
+`ArgumentStep` presents one conclusion with its argument, joint ordered premises,
+inference kind, scheme, and complete explanation. Repeated premises link to their
+introductions or concluding arguments; no recursive expansion or unique-parent
+assumption is used. Every incoming and outgoing argument stays available.
+
+`CanonicalBody` renders its Astro content slot and passes the result to a structured
+parse5 transformation. Each embedded body has its own appearance namespace for IDs,
+local fragment links, and ID-reference attributes. Embedded headings shift under the
+surrounding disclosure headings. Detail body IDs retain their original fragments.
+External URLs and links to other detail records retain their meaning.
+
+The small `src/scripts/model-fragments.ts` enhancement opens ancestor disclosures
+and focuses/scrolls fragment targets on initial load, clicks, hash changes, history
+navigation, and page restoration. Native disclosures and full detail links work
+without JavaScript. The header is not sticky; targets have scroll margin and scripted
+navigation is immediate, including under reduced motion.
+
+Only the general Model discussion widget is mounted on the walkthrough. Statement
+pages keep bare S-ID threads and stable `#discussion` links, even if comments are
+disabled. Argument pages and the existing argument index retain their routes.
+
+See [Stage 5 integration](model-stage-5-integration.md) for implementation, semantic
+review and browser validation. A graphical map remains optional future work.

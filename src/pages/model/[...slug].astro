@@ -1,191 +1,52 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { getCollection } from 'astro:content';
 import Comments from '../../components/Comments.astro';
 import DependencyLegend from '../../components/DependencyLegend.astro';
+import StatementText from '../../components/model/StatementText.astro';
+import StatementMaterial from '../../components/model/StatementMaterial.astro';
+import ReasoningParticipation from '../../components/model/ReasoningParticipation.astro';
+import ReasoningHelp from '../../components/model/ReasoningHelp.astro';
 import Layout from '../../layouts/Layout.astro';
 import { modelIdentity } from '../../lib/site';
-import { sortArguments, validateArguments } from '../../lib/arguments.ts';
-import { domainLabels, getRelatedStatements, sortStatements, validateStatements } from '../../lib/statements.ts';
+import { getRelatedStatements } from '../../lib/statements.ts';
+import { buildReasoningIndex } from '../../lib/reasoning.ts';
+import { resolveReadingPath } from '../../lib/reading-path.ts';
+import { readingHref } from '../../lib/reading-navigation.ts';
+import config from '../../data/model-reading-path.json';
 
 export async function getStaticPaths() {
-	const [statementEntries, argumentEntries] = await Promise.all([
-		getCollection('statements'),
-		getCollection('arguments'),
-	]);
-	const allEntries = sortStatements(statementEntries);
-	const allArguments = sortArguments(argumentEntries);
-	validateStatements(allEntries);
-	validateArguments(allArguments, allEntries);
-
-	return allEntries.map((entry) => ({
-		params: { slug: entry.data.slug },
-		props: { contentId: entry.id },
-	}));
+	return (await getCollection('statements')).map((entry) => ({ params: { slug: entry.data.slug }, props: { statementId: entry.data.id } }));
 }
-
-const { contentId } = Astro.props;
-const [statementEntries, argumentEntries] = await Promise.all([
-	getCollection('statements'),
-	getCollection('arguments'),
-]);
-const allEntries = sortStatements(statementEntries);
-const allArguments = sortArguments(argumentEntries);
-const byId = validateStatements(allEntries);
-validateArguments(allArguments, allEntries);
-const entry = allEntries.find((candidate) => candidate.id === contentId);
-
-if (!entry) throw new Error(`Statement not found: ${contentId}`);
-
-const { Content } = await render(entry);
-
-const upstream = entry.data.upstream
-	.map((dependency) => ({ dependency, entry: byId.get(dependency.id)! }));
-
-const related = getRelatedStatements(allEntries, entry.data.id);
-const concludingArguments = allArguments.filter(
-	(argument) => argument.data.conclusion === entry.data.id,
-);
-const premiseArguments = allArguments.filter((argument) =>
-	argument.data.premises.includes(entry.data.id),
-);
-
-const downstream = allEntries.flatMap((candidate) =>
-	candidate.data.upstream
-		.filter((dependency) => dependency.id === entry.data.id)
-		.map((dependency) => ({ dependency, entry: candidate }))
-);
+const [statements, argumentsList] = await Promise.all([getCollection('statements'), getCollection('arguments')]);
+const index = buildReasoningIndex(statements, argumentsList);
+const path = resolveReadingPath(config, index);
+const statement = index.statementsById.get(Astro.props.statementId)!;
+const { entry } = statement;
+const upstream = entry.data.upstream.map((dependency) => ({ dependency, statement: index.statementsById.get(dependency.id)! }));
+const downstream = statements.flatMap((candidate) => candidate.data.upstream.filter((dependency) => dependency.id === entry.data.id).map((dependency) => ({ dependency, statement: index.statementsById.get(candidate.data.id)! })));
+const related = getRelatedStatements(statements, entry.data.id);
 ---
-
 <Layout title={`${entry.data.title} | ${modelIdentity.name}`} description={entry.data.summary}>
-	<header class="entry-header">
-		<p class="eyebrow">{modelIdentity.name} · {domainLabels[entry.data.domain]} · {entry.data.id}</p>
-		<p class="entry-name">{entry.data.title}</p>
-		<div class="entry-statement">
-			<p class="statement-label">Statement</p>
-			<h1 class="statement-text">{entry.data.statement}</h1>
-			<div class="meta-row">
-				<span class="pill">{entry.data.statementType}</span>
-				<span class="pill">confidence: {entry.data.confidence}</span>
-				<span class="pill">v{entry.data.version}</span>
+	<div class="model-reader statement-detail">
+		<p class="eyebrow">{modelIdentity.name} · v{entry.data.version}</p>
+		<p><a href={readingHref(path.primaryStatementLocations.get(entry.data.id)!, false)}>Read {entry.data.id} in the Model</a></p>
+		<StatementText statement={statement} heading />
+		<section class="entry-summary"><h2 id="entry-summary-title">Summary</h2><p>{entry.data.summary}</p></section>
+		<ReasoningParticipation statement={statement} index={index} path={path} integrated={false} />
+		<ReasoningHelp />
+		<article class="entry-explanation" id="entry-explanation" tabindex="-1" aria-label="Explanation and support">
+			<h2>Explanation and support</h2><StatementMaterial statement={statement} />
+		</article>
+		<details class="model-disclosure revision-dependencies">
+			<summary>Revision dependencies</summary>
+			<div class="disclosure-body">
+				<p>These relationships identify statements to reconsider after a revision. Argument participation is listed separately above.</p>
+				{[{ label: 'Dependencies recorded on this statement', entries: upstream, empty: 'No revision dependencies are recorded on this statement.' }, { label: 'Statements that depend on this one for revision', entries: downstream, empty: 'No other statement records a revision dependency on this statement.' }].map(({ label, entries, empty }) => <section><h3>{label}</h3>{entries.length ? <ul class="dependency-list">{entries.map(({ statement: item, dependency }) => <li><a href={item.href}>{item.entry.data.id}: {item.entry.data.title}</a><span class="dependency-role">{dependency.role}</span><span class="dependency-note">{dependency.note}</span></li>)}</ul> : <p>{empty}</p>}</section>)}
+				<DependencyLegend />
 			</div>
-		</div>
-	</header>
-
-	<div class="model-layout">
-		<div class="model-main">
-			<section class="entry-summary" aria-labelledby="entry-summary-title">
-				<h2 id="entry-summary-title">Summary</h2>
-				<p>{entry.data.summary}</p>
-				<a href="#entry-explanation">Read the explanation and support ↓</a>
-			</section>
-			<article class="model-body entry-explanation" id="entry-explanation" aria-label="Explanation and support" tabindex="-1">
-				<p class="supporting-label">Explanation and support</p>
-				<Content />
-
-				{entry.data.whatWouldChange && (
-					<section>
-						<h2>What would change this statement</h2>
-						<p>{entry.data.whatWouldChange}</p>
-					</section>
-				)}
-
-				{entry.data.references.length > 0 && (
-					<section>
-						<h2>Sources and anchors</h2>
-						<ul class="reference-list">
-							{entry.data.references.map((reference) => (
-								<li>
-									<a href={reference.url}>{reference.title}</a>
-									{' '}<span class="pill">{reference.kind}</span>
-									{reference.note && <div>{reference.note}</div>}
-								</li>
-							))}
-						</ul>
-					</section>
-				)}
-
-				<section class="reasoning-section">
-					<h2>Reasoning</h2>
-					<p>
-						Argument records show inferential routes separately from revision dependencies and
-						empirical support.
-					</p>
-
-					{concludingArguments.length > 0 && (
-						<>
-							<h3>Arguments concluding this statement</h3>
-							<ul class="argument-list">
-								{concludingArguments.map((argument) => (
-									<li>
-										<a href={`/model/arguments/${argument.data.slug}/`}>
-											{argument.data.id}: {argument.data.title}
-										</a>
-										<div class="meta-row">
-											<span class="pill">{argument.data.inferenceKind}</span>
-											<span>{argument.data.scheme}</span>
-										</div>
-										<div class="argument-links">
-											Premises:{' '}
-											{argument.data.premises.map((premiseId, index) => {
-												const premise = byId.get(premiseId)!;
-												return <>{index > 0 && ', '}<a href={`/model/${premise.data.slug}/`}>{premiseId}</a></>;
-											})}
-										</div>
-									</li>
-								))}
-							</ul>
-						</>
-					)}
-
-					{premiseArguments.length > 0 && (
-						<>
-							<h3>Arguments using this statement as a premise</h3>
-							<ul class="argument-list">
-								{premiseArguments.map((argument) => {
-									const conclusion = byId.get(argument.data.conclusion)!;
-									return (
-										<li>
-											<a href={`/model/arguments/${argument.data.slug}/`}>
-												{argument.data.id}: {argument.data.title}
-											</a>
-											<div class="meta-row">
-												<span class="pill">{argument.data.inferenceKind}</span>
-												<span>{argument.data.scheme}</span>
-											</div>
-											<div class="argument-links">
-												Conclusion: <a href={`/model/${conclusion.data.slug}/`}>
-													{conclusion.data.id}: {conclusion.data.title}
-												</a>
-											</div>
-										</li>
-									);
-								})}
-							</ul>
-						</>
-					)}
-
-					{concludingArguments.length === 0 && premiseArguments.length === 0 && (
-						<p>No structured argument currently cites this statement.</p>
-					)}
-					<p><a href="/model/arguments/">Browse all structured arguments →</a></p>
-				</section>
-			</article>
-
-			<Comments
-				threadId={entry.data.id}
-				heading="Discuss this statement"
-				intro="What holds up, what doesn’t, and what could make this stronger? Share missing evidence, alternative explanations, or problems with the premises or reasoning."
-			/>
-		</div>
-
-		<aside class="side-panel">
-			<h2>Depends on</h2>
-			{upstream.length ? <ul class="dependency-list">{upstream.map(({ entry: item, dependency }) => <li><a href={`/model/${item.data.slug}/`}>{item.data.id}: {item.data.title}</a><span class="dependency-role">{dependency.role}</span><span class="dependency-note">{dependency.note}</span></li>)}</ul> : <p>Root statement</p>}
-			<h2>Used by</h2>
-			{downstream.length ? <ul class="dependency-list">{downstream.map(({ entry: item, dependency }) => <li><a href={`/model/${item.data.slug}/`}>{item.data.id}: {item.data.title}</a><span class="dependency-role">{dependency.role}</span><span class="dependency-note">{dependency.note}</span></li>)}</ul> : <p>No downstream statements yet.</p>}
-			{related.length > 0 && <><h2>Related</h2><ul>{related.map((item) => <li><a href={`/model/${item.data.slug}/`}>{item.data.id}: {item.data.title}</a></li>)}</ul></>}
-			<DependencyLegend />
-			<a href="/model/">← Back to the Coherent Chiropractic Model</a>
-		</aside>
+		</details>
+		{related.length > 0 && <section><h2>See also</h2><ul>{related.map((item) => <li><a href={index.statementsById.get(item.data.id)!.href}>{item.data.id}: {item.data.title}</a></li>)}</ul></section>}
+		<div id="discussion" tabindex="-1"><Comments threadId={entry.data.id} heading="Discuss this statement" intro="What holds up, what doesn’t, and what could make this stronger? Share missing evidence, alternative explanations, or problems with the premises or reasoning." /></div>
 	</div>
+	<script>import '../../scripts/model-fragments.ts';</script>
 </Layout>

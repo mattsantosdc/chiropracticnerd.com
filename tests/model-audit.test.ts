@@ -119,6 +119,12 @@ test('reading configuration, contract, and production helpers are explicit revie
 	for (const path of [
 		'src/data/model-reading-path.json', 'docs/model-reading-path.md',
 		'src/lib/reading-path.ts', 'src/lib/reasoning.ts',
+		'src/lib/reading-navigation.ts', 'src/lib/embedded-markdown.ts',
+		'src/scripts/model-fragments.ts', 'src/styles/global.css',
+		'src/components/model/StatementText.astro', 'src/components/model/StatementMaterial.astro',
+		'src/components/model/CanonicalBody.astro', 'src/components/model/StatementStep.astro',
+		'src/components/model/ArgumentStep.astro', 'src/components/model/ReasoningParticipation.astro',
+		'src/components/model/ReadingSection.astro', 'src/components/model/ReasoningHelp.astro',
 	]) {
 		assert.ok(Object.hasOwn(packet.inputs, path), `${path} must not escape the explicit input list`);
 		put(path, `${packet.sources[path]}Changed reading behavior.`);

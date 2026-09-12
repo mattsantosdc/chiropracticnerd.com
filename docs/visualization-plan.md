@@ -1,9 +1,9 @@
 # Reading interface and optional visualization plan
 
 The agreed default experience is an integrated text walkthrough centered on exact
-statements and their recorded reasoning. Stage 4 prepares the
-[reading path and shared reasoning data](model-reading-path.md); Stage 5 will render
-it. The current catalog and detail pages remain available during this preparation.
+statements and their recorded reasoning. Stage 4 supplies the
+[reading path and shared reasoning data](model-reading-path.md); Stage 5 renders
+it at `/model/`, with a disclosed reference index and existing detail pages.
 A graphical map is optional later work, not a prerequisite or the default route.
 
 ## Architecture decision
@@ -23,7 +23,7 @@ renderers consume derived data and remain replaceable without migrating content.
 
 The main walkthrough begins with living organisms; the method orientation is
 optional and the broader-effect branch remains adopted supporting reading.
-Readers should encounter exact statements, then inspect their explanations and
+Readers encounter exact statements, then inspect their explanations and
 recorded reasoning through expandable details. Every argument retains its identity,
 ordered joint premises, conclusion, scheme, and deductive or defeasible kind.
 A statement may have several concluding arguments and also participate as a premise.
@@ -40,8 +40,9 @@ The integrated interface needs accessible navigation, keyboard-usable disclosure
 narrow-screen reading, stable local anchors, and usable text without JavaScript.
 Recursive reasoning display, if introduced, must bound traversal and mark revisited
 records without deleting relationships. Finite argument cycles are allowed and
-must never enter the separate dependency-DAG check. Layout, interaction, and revised
-statement-page presentation belong to Stage 5.
+must never enter the separate dependency-DAG check. Stage 5 implements a finite text presentation: links trace relationships and native
+disclosures expose canonical explanations without recursive nesting. See the
+[implementation and browser review](model-stage-5-integration.md).
 
 ## Visualization-readiness contract
 

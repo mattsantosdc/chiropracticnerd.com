@@ -120,6 +120,8 @@ test('reading configuration, contract, and production helpers are explicit revie
 		'src/data/model-reading-path.json', 'docs/model-reading-path.md',
 		'src/lib/reading-path.ts', 'src/lib/reasoning.ts',
 		'src/lib/reading-navigation.ts', 'src/lib/embedded-markdown.ts',
+		'src/lib/visualization.ts', 'src/styles/model-map.css', 'src/scripts/model-map.ts',
+		'src/components/model/MapNode.astro', 'src/components/model/MapSection.astro', 'src/pages/model/map.astro',
 		'src/scripts/model-fragments.ts', 'src/styles/global.css',
 		'src/components/model/StatementText.astro', 'src/components/model/StatementMaterial.astro',
 		'src/components/model/CanonicalBody.astro', 'src/components/model/StatementStep.astro',

@@ -148,4 +148,6 @@ pages keep bare S-ID threads and stable `#discussion` links, even if comments ar
 disabled. Argument pages and the existing argument index retain their routes.
 
 See [Stage 5 integration](model-stage-5-integration.md) for implementation, semantic
-review and browser validation. A graphical map remains optional future work.
+review and browser validation. The optional `/model/map/` walkthrough also consumes
+the resolved path, retaining primary statement locations and every argument step.
+Its HTML cards and SVG connections follow the [visualization contract](visualization-plan.md).

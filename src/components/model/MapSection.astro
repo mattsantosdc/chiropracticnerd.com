@@ -1,0 +1,14 @@
+---
+import type { ReasoningIndex } from '../../lib/reasoning.ts';
+import { visualizationAnchor, type VisualizationGraph, type VisualizationSection } from '../../lib/visualization.ts';
+import MapNode from './MapNode.astro';
+interface Props { section: VisualizationSection; graph: VisualizationGraph; index: ReasoningIndex; }
+const { section, graph, index } = Astro.props;
+---
+<section class="map-section" id={section.anchor} tabindex="-1" data-map-placement={section.placement}>
+	<header class="map-section-heading"><h2>{section.title}</h2>{section.introduction && <p>{section.introduction}</p>}</header>
+	<div class="map-steps">{section.steps.map((step) => <div class="map-step" id={step.anchor} data-map-step={step.id} data-focus-node={visualizationAnchor(step.focusNodeId)}>
+		{step.sharedConclusion && <p class="map-shared-conclusion">Another argument for <a href={`#${visualizationAnchor(step.sharedConclusion)}`}>{step.sharedConclusion.split(':')[1]}</a></p>}
+		{step.nodeIds.map((id) => <MapNode node={graph.nodes.find((node) => node.id === id)!} graph={graph} index={index} readingHref={step.readingHref} />)}
+	</div>)}</div>
+</section>

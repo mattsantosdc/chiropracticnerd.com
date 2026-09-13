@@ -28,7 +28,7 @@ const statementSchema = z
 			.string()
 			.regex(/^[a-z0-9]+(?:[/-][a-z0-9]+)*$/)
 			.refine((slug) => !isReservedStatementSlug(slug), {
-				message: 'The arguments route is reserved for structured argument pages.',
+				message: 'The arguments and map routes are reserved for Model interfaces.',
 			}),
 		title: z.string(),
 		statement: z.string(),

@@ -6,6 +6,7 @@ import { parse } from 'parse5';
 import { createSatteriMarkdownProcessor } from '@astrojs/markdown-satteri';
 import { buildReasoningIndex } from '../src/lib/reasoning.ts';
 import { resolveReadingPath } from '../src/lib/reading-path.ts';
+import { buildVisualizationGraph, buildVisualizationLayout, visualizationAnchor } from '../src/lib/visualization.ts';
 import { loadCanonicalContent } from './helpers/content.ts';
 import { domainLabels, getRelatedStatements, sortStatements } from '../src/lib/statements.ts';
 
@@ -23,6 +24,44 @@ const statementHref = (entry) => `/model/${entry.data.slug}/`;
 const argumentHref = (entry) => `/model/arguments/${entry.data.slug}/`;
 const readPage = (href) => parse(readFileSync(join('dist', href, 'index.html'), 'utf8'));
 const links = (page) => nodes(page).filter((node) => node.tagName === 'a').map((node) => attr(node, 'href'));
+
+test('visual map renders unique canonical nodes, exact propositions, ordered reasoning, and complete textual relationships', () => {
+	const index = buildReasoningIndex(statements, argumentsList);
+	const graph = buildVisualizationGraph(index);
+	const layout = buildVisualizationLayout(readingPath);
+	const page = readPage('/model/map/');
+	assert.ok(links(readPage('/model/')).includes('/model/map/'));
+	// Collection iteration is not reading order. Compare graph records by identity;
+	// ordered premises and the authored card sequence are asserted separately below.
+	const byIdentity = (graph) => ({ nodes: graph.nodes.toSorted((a, b) => a.id.localeCompare(b.id)), edges: graph.edges.toSorted((a, b) => a.id.localeCompare(b.id)) });
+	assert.deepEqual(byIdentity(JSON.parse(text(nodes(page).find((node) => attr(node, 'id') === 'model-map-graph')))), byIdentity(graph));
+	const cards = nodes(page).filter((node) => attr(node, 'data-map-node'));
+	assert.deepEqual(cards.map((node) => attr(node, 'data-map-node')), layout.flatMap((section) => section.steps.flatMap((step) => step.nodeIds)));
+	for (const expected of graph.nodes) {
+		const card = cards.find((node) => attr(node, 'data-map-node') === expected.id);
+		assert.equal(attr(card, 'id'), visualizationAnchor(expected.id));
+		assert.ok(links(card).includes(expected.href));
+		if (expected.kind === 'statement') {
+			assert.equal(normalize(text(nodes(card).find((node) => hasClass(node, 'statement-text')))), normalize(expected.statement));
+			if (expected.confidence !== 'not-applicable') assert.ok(text(card).includes(`Confidence: ${expected.confidence}`));
+		} else {
+			const canonical = argumentsList.find((entry) => entry.data.id === expected.canonicalId);
+			assert.deepEqual(nodes(card).filter((node) => attr(node, 'data-map-premise')).map((node) => attr(node, 'data-map-premise')), canonical.data.premises);
+			for (const node of nodes(card).filter((node) => attr(node, 'data-map-premise') || attr(node, 'data-map-conclusion'))) {
+				assert.equal(normalize(text(node)), normalize(byId.get(attr(node, 'data-map-premise') ?? attr(node, 'data-map-conclusion')).data.statement));
+			}
+			const body = nodes(card).find((node) => attr(node, 'data-canonical-body'));
+			const detailBody = nodes(readPage(expected.href)).find((node) => attr(node, 'data-canonical-body'));
+			assert.equal(normalize(text(body)), normalize(text(detailBody)));
+		}
+		const connections = graph.edges.filter((edge) => edge.source === expected.id || edge.target === expected.id);
+		assert.deepEqual(nodes(card).filter((node) => attr(node, 'data-map-relationship')).map((node) => attr(node, 'data-map-relationship')).sort(), connections.map((edge) => edge.id).sort());
+		for (const edge of connections) {
+			assert.ok(links(card).includes(`#${visualizationAnchor(edge.source === expected.id ? edge.target : edge.source)}`));
+			if (edge.note) assert.ok(normalize(text(card)).includes(normalize(edge.note)));
+		}
+	}
+});
 
 // Run after npm run build; exercising the output catches storage IDs being used as routes.
 test('overview and all statement pages retain explicit routes, statements, order, and relationship links', () => {

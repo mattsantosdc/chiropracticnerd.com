@@ -1,0 +1,54 @@
+---
+import { render } from 'astro:content';
+import type { ReasoningIndex } from '../../lib/reasoning.ts';
+import type { VisualizationGraph, VisualizationNode } from '../../lib/visualization.ts';
+import { visualizationAnchor } from '../../lib/visualization.ts';
+import StatementText from './StatementText.astro';
+import CanonicalBody from './CanonicalBody.astro';
+interface Props { node: VisualizationNode; graph: VisualizationGraph; index: ReasoningIndex; readingHref: string; }
+const { node, graph, index, readingHref } = Astro.props;
+const anchor = visualizationAnchor(node.id);
+const statement = node.kind === 'statement' ? index.statementsById.get(node.canonicalId)! : undefined;
+const argument = node.kind === 'argument' ? index.argumentsById.get(node.canonicalId)! : undefined;
+const rendered = argument ? await render(argument.entry) : undefined;
+const Content = rendered?.Content;
+const neighbors = graph.edges.filter((edge) => edge.source === node.id || edge.target === node.id).map((edge) => ({
+	edge, other: graph.nodes.find((other) => other.id === (edge.source === node.id ? edge.target : edge.source))!,
+	label: edge.kind === 'related' ? 'See also' : edge.kind === 'dependency'
+		? edge.target === node.id ? 'Depends on for revision' : 'Revision affects'
+		: edge.kind === 'premise' ? edge.target === node.id ? `Joint premise ${edge.premiseOrder}` : `Used as premise ${edge.premiseOrder} in`
+		: edge.target === node.id ? 'Conclusion of' : 'Concludes',
+}));
+---
+<article class:list={['map-node', `map-node-${node.kind}`]} id={anchor} tabindex="-1" data-map-node={node.id} aria-label={`${node.canonicalId}: ${node.label}`}>
+	{statement && <StatementText statement={statement} compact />}
+	{argument && <>
+		<p class="supporting-label">Argument · {argument.entry.data.inferenceKind}</p>
+		<h3 class="map-argument-title">{node.canonicalId} · {node.label}</h3>
+		<p>{argument.entry.data.summary}</p>
+		<details class="map-reasoning">
+			<summary>Follow the reasoning <span class="visually-hidden">of {node.canonicalId}</span></summary>
+			<h4>Premises used together</h4>
+			<ol>{argument.premises.map((premise) => <li>
+				<p class="map-premise" data-map-premise={premise.entry.data.id}>{premise.entry.data.statement}</p>
+				<a href={`#${visualizationAnchor(`statement:${premise.entry.data.id}`)}`}>Read {premise.entry.data.id} in the map</a>
+			</li>)}</ol>
+			<p class="inference-rule"><span>{argument.entry.data.inferenceKind}</span><strong>{argument.entry.data.scheme}</strong></p>
+			<h4>Conclusion</h4>
+			<p data-map-conclusion={argument.conclusion.entry.data.id}>{argument.conclusion.entry.data.statement}</p>
+			<p><a href={`#${visualizationAnchor(`statement:${argument.conclusion.entry.data.id}`)}`}>Read {argument.conclusion.entry.data.id} in the map</a></p>
+			<h4>Explanation and limits</h4>
+			{Content && <CanonicalBody namespace={`${anchor}--body`} recordId={node.canonicalId}><Content /></CanonicalBody>}
+		</details>
+	</>}
+	<details class="map-connections">
+		<summary>Connections ({neighbors.length}) <span class="visually-hidden">for {node.canonicalId}</span></summary>
+		{neighbors.length ? <ul>{neighbors.map(({ edge, other, label }) => <li data-map-relationship={edge.id}>
+			<span>{label}: </span><a href={`#${visualizationAnchor(other.id)}`}>{other.canonicalId} · {other.label}</a>
+			{edge.role && <span class="dependency-role">{edge.role}</span>}
+			{edge.note && <span class="dependency-note">{edge.note}</span>}
+		</li>)}</ul> : <p>No structured connections are recorded. Explanation and sources remain available on the detail page.</p>}
+	</details>
+	<p class="record-links"><a href={node.href}>{node.kind === 'statement' ? 'More about this statement' : 'Full argument'}</a> · <a href={readingHref}>Read in the text view</a></p>
+	<a class="map-select" href={`#${anchor}`} aria-label={`Select ${node.canonicalId} and highlight its connections`}>Select {node.canonicalId}</a>
+</article>

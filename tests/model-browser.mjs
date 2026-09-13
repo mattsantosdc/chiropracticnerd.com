@@ -3,6 +3,7 @@ import { chromium, firefox } from 'playwright';
 import { mkdirSync, readFileSync, statSync } from 'node:fs';
 import { createServer } from 'node:http';
 import { resolve, sep } from 'node:path';
+import { testModelMap } from './model-map-browser.mjs';
 const dist = resolve('dist');
 // Default to the real production build; an explicit URL can target Astro dev/preview.
 const server = process.env.MODEL_BASE_URL ? undefined : createServer((request, response) => {
@@ -121,4 +122,5 @@ try {
 	assert.equal(await page.locator('#discussion').count(), 1);
 	console.log('No JavaScript: main text, native disclosures, supporting reading and full detail navigation passed');
 	await context.close();
+	await testModelMap(browser, base, output);
 } finally { await browser.close(); server?.close(); }

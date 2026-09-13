@@ -4,7 +4,8 @@ The agreed default experience is an integrated text walkthrough centered on exac
 statements and their recorded reasoning. Stage 4 supplies the
 [reading path and shared reasoning data](model-reading-path.md); Stage 5 renders
 it at `/model/`, with a disclosed reference index and existing detail pages.
-A graphical map is optional later work, not a prerequisite or the default route.
+Model v0.1 also offers an optional ordered visual walkthrough at `/model/map/`.
+The integrated text walkthrough remains the default route.
 
 ## Architecture decision
 
@@ -82,7 +83,7 @@ These rules preserve the existing distinction between content semantics and thei
 
 ## Canonical graph projection
 
-The future visualization layer will project the collections as follows:
+The visualization layer projects the collections as follows:
 
 | Canonical record | Graph representation | Direction and meaning |
 | --- | --- | --- |
@@ -109,63 +110,77 @@ described only in narrative text.
 
 ## Derived graph interface
 
-When visualization work begins, add a small library-owned projection that accepts already
-validated statement and argument collections and returns a serializable, renderer-neutral graph. Its
-conceptual interface is:
+`buildVisualizationGraph(index)` in `src/lib/visualization.ts` accepts the full,
+validated reasoning index and returns a serializable, renderer-neutral
+`VisualizationGraph` with `nodes` and `edges` arrays. Every node has its permanent
+`canonicalId`, namespaced `id`, `kind`, `label` and current detail-page `href`.
+Statement nodes retain exact `statement`, `summary`, `statementType`, `confidence`
+and reference metadata; references remain source links, never inferred evidence edges.
+Argument nodes retain `summary`, `inferenceKind`, `scheme`, ordered premise node IDs
+and the conclusion node ID. Each edge has an implementation `id`, semantic `kind`,
+`source`, `target`, and `directed` flag. Premise edges retain one-based `premiseOrder`;
+dependency edges retain `role` and the complete limiting `note`.
 
-```ts
-type VisualizationNode = {
-	id: string;
-	kind: 'statement' | 'argument';
-	canonicalId: string;
-	label: string;
-	href: string;
-	metadata: Record<string, string>;
-};
+Node identities are namespaced, such as `statement:S-004` and `argument:ARG-001`.
+Edge IDs are deterministic: argument ID plus premise or conclusion ID, directed
+upstream/downstream pairs, or sorted undirected related pairs. Sorting a related
+pair defines identity only and never influences reading placement. These local
+edge IDs do not create public semantic identifiers.
 
-type VisualizationEdge = {
-	id: string;
-	kind: 'dependency' | 'premise' | 'conclusion' | 'related';
-	source: string;
-	target: string;
-	directed: boolean;
-	role?: DependencyRole;
-	note?: string;
-};
+The data flow is:
 
-type VisualizationGraph = {
-	nodes: VisualizationNode[];
-	edges: VisualizationEdge[];
-};
-```
+> canonical Markdown → Astro collections → existing validation and reasoning index
+> → graph projection → serialized data and HTML cards → interactive SVG enhancement
 
-Renderer IDs should be deterministic and namespaced by kind, such as `statement:S-004` and
-`argument:ARG-001`, so different resource kinds cannot collide. Existing semantic identifiers
-remain the canonical identifiers where defined. Deterministic IDs created solely for premise,
-conclusion, or related edges are implementation identifiers and must not be published as new
-semantic identifiers without extending the standards contract.
+The existing Model and argument pages remain the accessible, indexable textual
+account. No graph database, RDF store, API or linked-data export is introduced.
 
-The future data flow is:
+## Ordered visual walkthrough
 
-> canonical Markdown → Astro collections → existing validation → graph projection → serialized
-> graph data → interactive client renderer
+`buildVisualizationLayout(path)` derives sections and reading steps separately from
+graph topology. Each statement appears at its primary reading location and each
+argument appears at its authored step. An argument sits beside its conclusion on
+wide vertical layouts and below it on narrow screens and in horizontal mode. A
+later argument with the same conclusion links back to the existing statement node.
+Repeated premises never introduce duplicate graph nodes. Permanent IDs do not sort
+the layout. No reading-order edge is created.
 
-Astro should continue producing the existing Model and argument pages as the indexable and
-accessible textual representation. The visualizer enhances those pages or a dedicated map page; it
-does not replace them. No graph database, RDF store, API, or linked-data export is required for
-this client-side read model.
+The map uses Astro-rendered HTML cards, CSS layout, and a TypeScript SVG enhancement.
+Full statement text remains selectable and wraps naturally. Native disclosures
+provide canonical argument explanations, ordered joint premises, and connection
+lists. Statement details retain explanations, evidence notes and revision conditions.
+No graph package or UI framework is needed for this ordered document interface.
+The neutral projection permits another renderer later without content migration.
 
-## Optional graphical map
+Vertical page scrolling is the default. A layout control enables a contained,
+keyboard-focusable horizontal scroller. Selection and Previous/Next navigation use
+the visible authored steps; optional orientation and supporting reading remain in
+separate disclosures. Selection highlights direct visible relationships without
+removing the remaining nodes or edges. Manual scrolling updates the current step
+without adding history entries. Switching orientation retains the selected node.
+Stable `map-statement-s-###` and `map-argument-arg-###` fragments support deep links,
+history, repeated selection, and automatic opening of containing disclosures.
+Text-view links use resolved reading locations rather than reconstructing anchors.
 
-A later map may expose independently selected dependency, argument, and related
-layers with distinct node/edge treatments and an explicit legend. The dependency
-DAG is useful for revision work; it is not the reader's default explanation.
-Argument topology may branch, share conclusions, and cycle. Do not force it through
-a layered DAG layout or interpret a dependency arrow as support or causation.
+Reasoning is initially enabled; revision dependencies and see-also links are
+independently toggled and initially off. Solid directed reasoning edges retain
+argument intermediary nodes. Dashed revision edges retain direction, role and notes;
+dotted see-also links remain undirected. The legend and connection disclosures
+explain these distinctions. Every connection remains available textually regardless
+of layer selection. Edges to collapsed sections are visually hidden until revealed,
+with their endpoints still reachable through the connection lists.
 
-Select packages only when a concrete map use case exists, assessing current
-maintenance, accessibility, bundle size, and Astro compatibility then. No package
-is preferred, installed, or pinned by this stage. Preserve keyboard and screen-reader
-access to equivalent textual relationships and verify every visual edge against
-canonical structured data. Evidence, causal, objection, and provenance layers need
-their own canonical contracts before visualization.
+Geometry is derived from rendered card bounds after font loading, resizing,
+orientation changes and disclosure changes. Paths run outside cards through gaps
+and outer gutters. Backward connections and cycles remain finite and require no
+topological sorting. Multiple lines may share a gutter track; selecting a node
+highlights its connections and the textual list identifies each endpoint.
+
+The HTML cards, connection lists, argument explanations, section disclosures and
+detail links remain available without JavaScript. The script adds controls and SVG
+lines only when it loads. Keyboard focus stays visible and scripted navigation is
+immediate, including under reduced motion. The map route reserves the `map` slug
+namespace and all production inputs participate in the whole-Model semantic review.
+
+Graph editing, automatic layout, evidence, causal, objection and provenance layers
+remain later work. New relationship layers require their own canonical contracts.

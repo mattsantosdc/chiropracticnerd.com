@@ -1,0 +1,66 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import ModelAcknowledgment from '../../components/ModelAcknowledgment.astro';
+import DependencyLegend from '../../components/DependencyLegend.astro';
+import MapSection from '../../components/model/MapSection.astro';
+import { buildReasoningIndex } from '../../lib/reasoning.ts';
+import { resolveReadingPath } from '../../lib/reading-path.ts';
+import { buildVisualizationGraph, buildVisualizationLayout } from '../../lib/visualization.ts';
+import config from '../../data/model-reading-path.json';
+import { modelIdentity, siteIdentity } from '../../lib/site';
+import '../../styles/model-map.css';
+const [statements, argumentsList] = await Promise.all([getCollection('statements'), getCollection('arguments')]);
+const index = buildReasoningIndex(statements, argumentsList);
+const path = resolveReadingPath(config, index);
+for (const diagnostic of path.diagnostics) console.warn(diagnostic.message);
+const graph = buildVisualizationGraph(index);
+const sections = buildVisualizationLayout(path);
+---
+<Layout title={`Visual view · ${modelIdentity.name}`} description="Read the Coherent Chiropractic Model as an ordered map of statements and their recorded reasoning.">
+	<div class="model-map" data-orientation="vertical">
+		<header class="reading-introduction">
+			<p class="eyebrow">A {siteIdentity.name} project · v{path.version} · Visual view</p>
+			<h1 class="model-title">{modelIdentity.name}</h1>
+			<p class="byline">By {siteIdentity.author}</p>
+			<p class="lede">Follow the statements in reading order and explore the connections between them.</p>
+			<p><a href="/model/">Text view</a> · <a href="/model/#discussion">Discuss the Model</a></p>
+			<ModelAcknowledgment />
+		</header>
+		<nav class="map-contents" aria-label="Visual view sections">
+			<details><summary>Sections and map key</summary>
+				<ol>{sections.map((section) => <li><a href={`#${section.anchor}`}>{section.placement === 'orientation' ? 'Optional: ' : section.placement === 'supporting' ? 'Supporting: ' : ''}{section.title}</a></li>)}</ol>
+				<p>Position follows the reading order. Arrows show recorded relationships; neighboring statements need not be connected.</p>
+				<DependencyLegend />
+			</details>
+		</nav>
+		<div class="map-controls" id="map-controls" hidden>
+			<label>Layout <select name="map-orientation" aria-label="Map layout"><option value="vertical">Vertical</option><option value="horizontal">Horizontal</option></select></label>
+			<fieldset><legend>Connections shown</legend>
+				<label><input type="checkbox" name="reasoning" checked /> Reasoning</label>
+				<label><input type="checkbox" name="dependency" /> Revision dependencies</label>
+				<label><input type="checkbox" name="related" /> See also</label>
+			</fieldset>
+		</div>
+		<div class="map-key" aria-label="Connection key">
+			<span><i class="map-key-reasoning" aria-hidden="true"></i>Solid arrows: premises → argument → conclusion</span>
+			<span><i class="map-key-dependency" aria-hidden="true"></i>Dashed arrows: revision impact</span>
+			<span><i class="map-key-related" aria-hidden="true"></i>Dotted lines: see also</span>
+		</div>
+		<div class="map-travel" hidden><button type="button" data-map-previous>Previous step</button><button type="button" data-map-next>Next step</button><span class="map-progress" aria-live="polite"></span><a href="#map-controls">Map controls</a></div>
+		<noscript><p>The statement cards and connection lists work without JavaScript. Use Text view for the integrated walkthrough.</p></noscript>
+		<div class="map-scroller" tabindex="0" role="region" aria-label="Scrollable Model map">
+			<div class="map-surface">
+				<svg class="map-edges" aria-hidden="true" focusable="false"><defs>
+					<marker id="map-arrow-reasoning" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent)" /></marker>
+					<marker id="map-arrow-dependency" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--warm)" /></marker>
+				</defs><g data-map-edge-paths /></svg>
+				{sections.map((section) => section.placement === 'main'
+					? <MapSection section={section} graph={graph} index={index} />
+					: <details class="map-branch"><summary>{section.placement === 'orientation' ? 'Optional orientation' : 'Supporting reading'}: {section.title}</summary><MapSection section={section} graph={graph} index={index} /></details>)}
+			</div>
+		</div>
+		<script type="application/json" id="model-map-graph" set:html={JSON.stringify(graph).replace(/</g, '\\u003c')} />
+	</div>
+	<script>import '../../scripts/model-map.ts';</script>
+</Layout>

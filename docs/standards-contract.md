@@ -19,7 +19,7 @@ domain, or inferential meaning. Catalogs use `domain` and `order`; the editorial
 uses explicit section/step order. IDs must not determine statement sorting or graph layout. The [Stage 1 migration map](statements-stage-1-migration.md) records the explicitly authorized
 prepublication exception and the earlier domain-ID migration; old IDs are not accepted aliases.
 
-Statement and argument IDs are permanent identities; URL slugs are mutable presentation routes and must not be used as semantic identifiers. The `/model/arguments/` namespace is reserved for argument presentation, so statement slugs cannot be `arguments` or begin with `arguments/`.
+Statement and argument IDs are permanent identities; URL slugs are mutable presentation routes and must not be used as semantic identifiers. The `/model/arguments/` and `/model/map/` namespaces are reserved for argument presentation and the visual walkthrough, so statement slugs cannot use either root or its descendants.
 
 ## Active Markdown architecture
 
@@ -79,8 +79,10 @@ A focused [Model review](model-review.md) now records whole-file fingerprints an
 
 Field-level semantic fingerprints, incremental downstream invalidation, a hosted AI review runner, and a broader publication policy remain deferred. Their intended semantics, propagation rules, and implementation stages are defined in the [reasoning review and invalidation plan](review-invalidation-plan.md).
 
-Interactive visualization is a separate, also-deferred concern. It will use a renderer-neutral
-read model derived directly from the validated Markdown collections; it does not require linked
-data, a graph database, or new semantic identifiers. See the [visualization
-plan](visualization-plan.md). A future visualization package must not become a second source of
-graph meaning or introduce renderer-specific state into canonical content.
+The optional ordered visualization at `/model/map/` uses a renderer-neutral read
+model derived from the validated Markdown collections, with editorial placement
+derived separately from the reading path. It introduces no linked-data export,
+graph database or new semantic identifiers. Map fragments are presentation anchors.
+See the [visualization plan](visualization-plan.md). A visualization package must
+not become a second source of graph meaning or introduce renderer-specific state
+into canonical content.

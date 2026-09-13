@@ -1,0 +1,79 @@
+.model-map { --map-gutter: 56px; --map-gap: 48px; --map-nav-height: 6rem; }
+.model-map .reading-introduction { max-width: 800px; }
+.map-contents { margin-block: 1.5rem; }
+.model-map summary { cursor: pointer; font-weight: 650; }
+.model-map button, .model-map select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 0.4rem 0.6rem; }
+.model-map button { cursor: pointer; }
+.model-map button:disabled { cursor: default; opacity: 0.5; }
+.model-map input { accent-color: var(--accent); }
+.model-map :is(a, button, select, input, summary, [tabindex]):focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.map-controls:not([hidden]) { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; padding: 1rem; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+.map-controls fieldset { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; padding: 0; margin: 0; border: 0; }
+.map-controls legend { font-size: 0.78rem; color: var(--muted); }
+.map-controls label { font-size: 0.88rem; }
+.map-travel:not([hidden]) { position: sticky; top: 0; z-index: 4; display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; padding: 0.65rem; background: var(--paper); border-bottom: 1px solid var(--line); }
+.map-travel a { margin-left: auto; font-size: 0.8rem; }
+.model-map [id] { scroll-margin-top: calc(var(--map-nav-height) + 1rem); }
+.map-progress { color: var(--muted); font-size: 0.8rem; }
+.map-key { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-block: 1rem 2rem; font-size: 0.8rem; color: var(--muted); }
+.map-key > span { display: flex; align-items: center; gap: 0.5rem; }
+.map-key i { display: inline-block; width: 28px; border-top: 2px solid var(--accent); }
+.map-key .map-key-dependency { border-color: var(--warm); border-top-style: dashed; }
+.map-key .map-key-related { border-color: var(--muted); border-top-style: dotted; }
+.map-scroller { min-width: 0; scroll-behavior: auto; scroll-margin-block: 1rem; }
+.map-surface { position: relative; isolation: isolate; padding: 1rem var(--map-gutter) 3rem; }
+.map-section { position: relative; margin-bottom: 3rem; scroll-margin: 1rem; }
+.map-section-heading { position: relative; z-index: 1; background: var(--paper); padding-bottom: 1rem; }
+.map-section-heading h2 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); margin: 0 0 0.75rem; max-width: 34ch; }
+.map-section-heading p { margin-top: 0; }
+.map-steps { display: grid; gap: var(--map-gap); padding-top: var(--map-gap); }
+.map-step { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); align-items: start; gap: 1.5rem; }
+.map-node { position: relative; z-index: 1; min-width: 0; padding: 1.15rem; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); box-shadow: 0 3px 10px #19231f08; scroll-margin: 1.5rem; overflow-wrap: anywhere; }
+.map-node-statement { grid-column: 1; border-top: 3px solid var(--accent); }
+.map-node-argument { grid-column: 2; border-top: 3px double var(--warm); }
+.map-node.is-selected { outline: 3px solid var(--accent); outline-offset: 4px; }
+.map-node.is-connected { box-shadow: 0 0 0 2px var(--accent-soft); }
+.map-node .statement-text { font-size: 1.08rem; line-height: 1.65; margin-top: 0; }
+.map-node .statement-meta { font-size: 0.76rem; }
+.map-node .entry-name { font-size: 0.8rem; }
+.map-node .record-links { font-size: 0.8rem; margin-bottom: 0.65rem; }
+.map-argument-title { margin: 0.5rem 0; font-size: 1.05rem; line-height: 1.4; }
+.map-node-argument > p:not(.supporting-label) { font-size: 0.9rem; }
+.map-node details { margin-block: 1rem; font-size: 0.87rem; }
+.map-node details ul, .map-node details ol { padding-left: 1.15rem; }
+.map-node details li { margin-block: 0.9rem; }
+.map-node h4 { font-size: 0.95rem; margin-bottom: 0.4rem; }
+.map-node .inference-rule { padding: 0.75rem 0; }
+.map-select { display: inline-block; font-size: 0.75rem; }
+.map-shared-conclusion { grid-column: 1; margin: 0; }
+.map-branch { margin-block: 2rem; }
+.map-branch > summary { position: relative; z-index: 1; background: var(--paper); padding-block: 0.75rem; }
+.map-branch > .map-section { padding-top: 1.5rem; }
+.map-edges { position: absolute; inset: 0; pointer-events: none; overflow: visible; z-index: 0; }
+.map-edge { fill: none; stroke: var(--accent); stroke-width: 1.5; opacity: 0.45; stroke-linejoin: round; }
+.map-edge[data-kind="dependency"] { stroke: var(--warm); stroke-dasharray: 7 5; }
+.map-edge[data-kind="related"] { stroke: var(--muted); stroke-dasharray: 2 5; }
+.map-edge.is-highlighted { opacity: 1; stroke-width: 2.5; }
+.map-edge.is-muted { opacity: 0.14; }
+.model-map[data-orientation="horizontal"] .map-scroller { overflow: auto; max-height: 78vh; overscroll-behavior-x: contain; border: 1px solid var(--line); border-radius: 12px; }
+.model-map[data-orientation="horizontal"] .map-surface { display: flex; align-items: stretch; width: max-content; min-width: 100%; gap: 4rem; padding-top: var(--map-gutter); }
+.model-map[data-orientation="horizontal"] .map-section { flex: 0 0 auto; margin-bottom: 0; }
+.model-map[data-orientation="horizontal"] .map-steps { display: flex; align-items: start; gap: var(--map-gap); }
+.model-map[data-orientation="horizontal"] .map-step { display: flex; flex-direction: column; width: min(460px, calc(100vw - 7rem)); gap: var(--map-gap); }
+.model-map[data-orientation="horizontal"] .map-node { width: 100%; }
+.model-map[data-orientation="horizontal"] .map-section-heading { height: 130px; max-width: min(460px, calc(100vw - 7rem)); padding-right: 0.5rem; }
+.model-map[data-orientation="horizontal"] .map-branch { flex: 0 0 auto; margin: 0; }
+.model-map[data-orientation="horizontal"] .map-branch > summary { max-width: 300px; }
+.model-map[data-orientation="horizontal"] .map-branch > .map-section { padding-top: 1rem; }
+@media (max-width: 700px) {
+	.model-map { --map-gutter: 24px; --map-gap: 40px; }
+	.map-step { grid-template-columns: minmax(0, 1fr); gap: var(--map-gap); }
+	.map-node-argument { grid-column: 1; }
+	.map-node { padding: 0.9rem; }
+	.map-node .statement-text { font-size: 1rem; }
+	.model-map[data-orientation="horizontal"] .map-step { width: calc(100vw - 5rem); }
+	.model-map[data-orientation="horizontal"] .map-section-heading { max-width: calc(100vw - 5rem); height: 155px; }
+}
+@media (prefers-reduced-motion: reduce) {
+	html:has(.model-map) { scroll-behavior: auto; }
+}

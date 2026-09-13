@@ -12,8 +12,33 @@ export const policyPaths = [
 	'docs/standards-contract.md',
 	'docs/visualization-plan.md',
 	'docs/model-review.md',
+	'docs/model-reading-path.md',
 	'scripts/model-audit.mjs',
 	'src/content.config.ts',
+	'src/lib/statements.ts',
+	'src/lib/arguments.ts',
+	'src/lib/identifiers.ts',
+	'src/lib/dependencies.ts',
+	'src/lib/reasoning.ts',
+	'src/lib/reading-path.ts',
+	'src/data/model-reading-path.json',
+	'astro.config.mjs',
+	'package.json',
+	'package-lock.json',
+	'src/styles/global.css',
+	'src/scripts/model-fragments.ts',
+	'src/lib/reading-navigation.ts',
+	'src/lib/embedded-markdown.ts',
+	'src/components/model/ArgumentStep.astro',
+	'src/components/model/CanonicalBody.astro',
+	'src/components/model/ReadingSection.astro',
+	'src/components/model/ReasoningHelp.astro',
+	'src/components/model/ReasoningParticipation.astro',
+	'src/components/model/StatementMaterial.astro',
+	'src/components/model/StatementStep.astro',
+	'src/components/model/StatementText.astro',
+	'src/components/DependencyLegend.astro',
+	'src/components/Comments.astro',
 	'src/layouts/Layout.astro',
 	'src/lib/site.ts',
 	'src/components/ModelAcknowledgment.astro',
@@ -44,8 +69,8 @@ export function fingerprint(content) {
 
 export function collectInputs(root) {
 	const subjects = [
-		...markdownPaths(root, 'src/content/model'),
-		...markdownPaths(root, 'src/content/arguments'),
+		...markdownPaths(root, 'src/content/model/statements'),
+		...markdownPaths(root, 'src/content/model/arguments'),
 	].sort();
 	const paths = [...policyPaths, ...subjects].sort();
 	const sources = Object.fromEntries(paths.map((path) => [path, readFileSync(join(root, path), 'utf8')]));
@@ -82,7 +107,7 @@ export function checkReview(packet, review) {
 		}
 	}
 	if (!isObject(review.records)) {
-		issues.push('Malformed review: records must contain a finding for every Model entry and argument.');
+		issues.push('Malformed review: records must contain a finding for every statement and argument.');
 	} else {
 		for (const path of packet.subjects) {
 			const record = owns(review.records, path) ? review.records[path] : undefined;

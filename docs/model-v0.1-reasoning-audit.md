@@ -1,5 +1,9 @@
 # Model v0.1 reasoning audit
 
+This historical audit retains the baseline `M-###` identifiers and revision descriptions.
+Use the [Stage 1 migration map](statements-stage-1-migration.md) to locate current `S-###`
+statements and paths; the migration does not revise the propositions or reasoning recorded here.
+
 This audit evaluates M-004–M-006, M-007–M-013, and M-014–M-016 as written on 2026-09-09, alongside all four structured arguments. With the three Framework entries, the Model contains 16 entries and 23 direct revision dependencies. Claims and inferential roles were inspected before revising empirical proposals. Dependencies record revision impact, not reasoning or evidence. The original structural revision added no evidence review. The focused Science revision below added limited research examples for M-008 and M-009, without claiming comprehensive evidential appraisal or chiropractic confirmation. The subsequent M-012/M-013 split and Current evidence sections clarify the existing proposals and appraisal without adding empirical evidence or changing confidence.
 
 ## Overall finding

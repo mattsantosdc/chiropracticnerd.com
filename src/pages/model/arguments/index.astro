@@ -3,15 +3,15 @@ import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 import { modelIdentity } from '../../../lib/site';
 import { sortArguments, validateArguments } from '../../../lib/arguments.ts';
-import { sortModelEntries, validateModel } from '../../../lib/model.ts';
+import { sortStatements, validateStatements } from '../../../lib/statements.ts';
 
-const [modelEntries, argumentEntries] = await Promise.all([
-	getCollection('model'),
+const [statementEntries, argumentEntries] = await Promise.all([
+	getCollection('statements'),
 	getCollection('arguments'),
 ]);
-const entries = sortModelEntries(modelEntries);
+const entries = sortStatements(statementEntries);
 const argumentsList = sortArguments(argumentEntries);
-const byModelId = validateModel(entries);
+const byStatementId = validateStatements(entries);
 validateArguments(argumentsList, entries);
 ---
 
@@ -19,7 +19,7 @@ validateArguments(argumentsList, entries);
 	<p class="eyebrow">{modelIdentity.name} v0.1 · Reasoning</p>
 	<h1>Structured arguments</h1>
 	<p class="lede">
-		Each record names a specific inferential route from Model premises to one conclusion.
+		Each record names a specific inferential route from specified statements to one conclusion.
 		Arguments are distinct from revision dependencies, and their validity is evaluated separately
 		from the empirical support for their premises.
 	</p>
@@ -35,7 +35,7 @@ validateArguments(argumentsList, entries);
 	<section>
 		<div class="card-grid">
 			{argumentsList.map((argument) => {
-				const conclusion = byModelId.get(argument.data.conclusion)!;
+				const conclusion = byStatementId.get(argument.data.conclusion)!;
 				return (
 					<article class="card">
 						<a class="card-link" href={`/model/arguments/${argument.data.slug}/`}>

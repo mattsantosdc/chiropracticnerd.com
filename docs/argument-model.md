@@ -1,12 +1,12 @@
 # Argument model
 
-Structured arguments are the Model's explicit reasoning layer. They record a specified inferential route from one or more Model claims to exactly one Model conclusion. They do not replace Model entries, revision dependencies, or evidence.
+Structured arguments are the Model's explicit reasoning layer. They record a specified inferential route from one or more specified statements to exactly one statement serving as the conclusion. They do not replace statements, revision dependencies, or evidence.
 
 ## Four distinct relationships
 
 ### Dependency
 
-> If this upstream claim changes materially, the downstream entry must be reconsidered.
+> If this upstream claim changes materially, the downstream statement must be reconsidered.
 
 Dependencies form the existing acyclic revision-impact graph. A dependency role explains why revision propagates; it does not say that one claim supports, proves, causes, or entails another. Never infer an argument from an `upstream` edge.
 
@@ -14,13 +14,13 @@ Dependencies form the existing acyclic revision-impact graph. A dependency role 
 
 > These premises provide a specified inferential route to this conclusion.
 
-Arguments live in `src/content/arguments/`. They may have multiple premises, and multiple competing arguments may conclude the same Model entry. The same entry may be the conclusion of one argument and a premise in another. Argument structure may therefore be hierarchical or cyclic without changing the validity of the separate dependency DAG.
+Arguments live in `src/content/model/arguments/`. They may have multiple premises, and multiple competing arguments may conclude the same statement. The same statement may be the conclusion of one argument and a premise in another. Argument structure may therefore be hierarchical or cyclic without changing the validity of the separate dependency DAG.
 
 ### Evidence
 
 > These observations, studies, or other sources change our justification for accepting an empirical claim.
 
-Evidence affects confidence in empirical premises. It does not repair an invalid inference, and a valid inference does not strengthen its evidence. In v0.1, source-level evidence remains in Model-entry prose and `references`; a separate evidence ontology is not warranted.
+Evidence affects confidence in empirical premises. It does not repair an invalid inference, and a valid inference does not strengthen its evidence. In v0.1, source-level evidence remains in statement prose and `references`; a separate evidence ontology is not warranted.
 
 ### Causal hypothesis
 
@@ -34,14 +34,14 @@ Each Markdown record contains:
 
 - a permanent `ARG-###` `id` that is independent of its mutable route `slug`;
 - a title and short summary;
-- one or more unique premise Model IDs;
-- exactly one conclusion Model ID, which cannot also be a premise;
+- one or more unique premise statement IDs;
+- exactly one conclusion statement ID, which cannot also be a premise;
 - an `inferenceKind` of `deductive` or `defeasible`;
 - a named reasoning `scheme`;
 - version and updated date; and
 - prose explaining the inference, assumptions, uncertainty, and important limits.
 
-The conclusion stays classified by its actual Model claim type. Do not add a `logical` claim type. Do not add a `sound` Boolean: empirical premise truth is often unresolved and must be inspected through the premise entries' confidence, evidence, and revision conditions.
+The conclusion stays classified by its actual statement type. Do not add a `logical` statement type. Do not add a `sound` Boolean: empirical premise truth is often unresolved and must be inspected through the premise statements' confidence, evidence, and revision conditions.
 
 Inclusion in a version identifies an argument as part of the Model's current working reasoning. Arguments have no editorial `status` property. Adoption neither establishes premise truth nor settles the evaluation of the inference; a working argument can remain defeasible while its empirical premises have unresolved confidence.
 
@@ -53,14 +53,14 @@ An argument's failure shows that this route to the conclusion fails. It does not
 
 Before adding an argument:
 
-1. Write the premises and conclusion exactly as their Model entries state them.
+1. Write the premises and conclusion exactly as their statements state them.
 2. Identify modal terms, quantifiers, populations, conditions, outcomes, and timescales.
 3. Name the reasoning scheme and decide whether it is genuinely deductive or defeasible.
 4. Expose required bridge premises. Do not invent a premise merely to make a desired conclusion follow.
 5. Explain what the inference does and does not establish.
 6. Add or revise dependency metadata only if a distinct revision dependency also exists.
 
-Build-time validation rejects malformed or duplicate argument IDs and slugs, missing Model references, no premises, duplicate premises, a conclusion reused as its own premise, and unknown inference kinds. Argument cycles do not enter dependency cycle detection.
+Build-time validation rejects malformed or duplicate argument IDs and slugs, missing statement references, no premises, duplicate premises, a conclusion reused as its own premise, and unknown inference kinds. Argument cycles do not enter dependency cycle detection.
 
 Every change also receives the [Model review](model-review.md), including a check that arguments use each premise's actual commitment rather than weakening it to match unresolved confidence. The npm test and build commands require a fresh recorded review. This checks review coverage; natural-language validity remains an editorial judgment.
 

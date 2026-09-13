@@ -1,0 +1,15 @@
+---
+import { render } from 'astro:content';
+import type { ResolvedStatement } from '../../lib/reasoning.ts';
+import CanonicalBody from './CanonicalBody.astro';
+interface Props { statement: ResolvedStatement; namespace?: string; }
+const { statement, namespace } = Astro.props;
+const { entry } = statement;
+const { Content } = await render(entry);
+const Heading = namespace ? 'h4' : 'h2';
+---
+<CanonicalBody namespace={namespace} recordId={entry.data.id}><Content /></CanonicalBody>
+{entry.data.whatWouldChange && <section class="revision-condition"><Heading>What would change this statement</Heading><p>{entry.data.whatWouldChange}</p></section>}
+{entry.data.references.length > 0 && <section><Heading>Sources and anchors</Heading><ul class="reference-list">{entry.data.references.map((reference) => (
+	<li><a href={reference.url}>{reference.title}</a>{' '}<span class="source-kind">({reference.kind})</span>{reference.note && <p>{reference.note}</p>}</li>
+))}</ul></section>}

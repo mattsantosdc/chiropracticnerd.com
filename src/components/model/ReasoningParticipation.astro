@@ -1,0 +1,19 @@
+---
+import type { ReasoningIndex, ResolvedStatement } from '../../lib/reasoning.ts';
+import type { ResolvedReadingPath } from '../../lib/reading-path.ts';
+import { argumentStep, readingHref } from '../../lib/reading-navigation.ts';
+interface Props { statement: ResolvedStatement; index: ReasoningIndex; path: ResolvedReadingPath; integrated?: boolean; }
+const { statement, index, path, integrated = true } = Astro.props;
+const incoming = index.concludingArguments.get(statement.entry.data.id)!;
+const outgoing = index.premiseArguments.get(statement.entry.data.id)!;
+---
+<div class="reasoning-participation" data-participation={statement.entry.data.id}>
+	{[{ label: 'Reasoning for this statement', entries: incoming, empty: integrated ? 'No concluding argument is recorded.' : 'No concluding argument is recorded. Support can be examined in the explanation and sources.' }, { label: 'Arguments using this statement', entries: outgoing, empty: 'No argument currently records this statement as a premise.' }].map(({ label, entries, empty }) => (
+		<div>
+			<p class="relationship-label">{label}</p>
+			{entries.length ? <ul>{entries.map((argument) => (
+				<li><a href={readingHref(argumentStep(path, argument.entry.data.id).location, integrated)}>{argument.entry.data.id} → {argument.conclusion.entry.data.id}: {argument.conclusion.entry.data.title}</a>{' '}<span>({argument.entry.data.inferenceKind})</span>{!integrated && <> · <a href={argument.href}>Full argument</a></>}</li>
+			))}</ul> : <p class="relationship-empty">{empty}</p>}
+		</div>
+	))}
+</div>

@@ -1,0 +1,7 @@
+---
+import { namespaceMarkdown } from '../../lib/embedded-markdown.ts';
+interface Props { namespace?: string; recordId: string; }
+const { namespace, recordId } = Astro.props;
+const html = await Astro.slots.render('default');
+---
+<div class="canonical-body model-body" data-canonical-body={recordId} set:html={namespace ? namespaceMarkdown(html, namespace) : html} />

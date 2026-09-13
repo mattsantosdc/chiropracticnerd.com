@@ -1,7 +1,7 @@
 # Reasoning review and invalidation plan
 
 The Model is intended to change without allowing the effects of a revision to disappear into an
-untracked manual process. This document records a future system for detecting which entry,
+untracked manual process. This document records a future system for detecting which statement,
 dependency, and argument reviews have become stale; directing a human or AI-assisted review to
 the affected material; and stopping propagation when a reviewed downstream claim remains
 unchanged.
@@ -26,8 +26,8 @@ cannot support publication merely because its previous finding was favorable.
 
 This separation preserves the existing contracts:
 
-- a revision dependency says that changing an upstream entry requires reconsidering a downstream
-  entry; it does not assert inferential support;
+- a revision dependency says that changing an upstream statement requires reconsidering a downstream
+  statement; it does not assert inferential support;
 - an argument records one specified inferential route; failure of that route does not establish
   that its conclusion is false;
 - evidence changes justification for an empirical premise independently of whether an inference
@@ -43,12 +43,12 @@ The system should track three distinct kinds of review.
 
 | Review subject | Inputs that must remain current | Question answered |
 | --- | --- | --- |
-| Model entry | The entry's meaning-bearing canonical content | Has the claim been classified, scoped, explained, and qualified according to the authoring contract? |
-| Direct dependency | The upstream and downstream entry fingerprints plus the dependency role and note | Given the upstream entry as currently written, does the downstream entry still retain its intended meaning and content, or must it be revised? |
-| Structured argument | The argument record plus the exact claim fingerprints of every premise and its conclusion | Does this inferential route remain appropriately classified and explained for the claims exactly as written? |
+| Statement | The statement's meaning-bearing canonical content | Has the claim been classified, scoped, explained, and qualified according to the authoring contract? |
+| Direct dependency | The upstream and downstream statement fingerprints plus the dependency role and note | Given the upstream statement as currently written, does the downstream statement still retain its intended meaning and content, or must it be revised? |
+| Structured argument | The argument record plus the exact proposition fingerprints of every premise and its conclusion | Does this inferential route remain appropriately classified and explained for the claims exactly as written? |
 
 The dependency-review question must not be replaced with “does the upstream claim prove the
-downstream claim?” Dependencies and arguments remain independent even when the same Model entries
+downstream claim?” Dependencies and arguments remain independent even when the same statements
 participate in both layers.
 
 Argument review should examine validity for a deductive route and the stated reasoning,
@@ -63,9 +63,9 @@ the reviewed payload precisely and reproducibly.
 
 At minimum, distinguish these payloads:
 
-- an **entry fingerprint** for the meaning- and evaluation-bearing content of a Model entry;
-- a **claim fingerprint** for the permanent Model ID, exact proposition, and reasoning-relevant
-  classification used when the entry is a premise or conclusion; and
+- a **record fingerprint** for the meaning- and evaluation-bearing content of a statement;
+- a **proposition fingerprint** for the permanent statement ID, exact proposition, and reasoning-relevant
+  classification used when the statement is a premise or conclusion; and
 - an **argument fingerprint** for the argument's identity, premise and conclusion IDs, inference
   kind, scheme, summary, and explanatory prose.
 
@@ -78,8 +78,8 @@ object-key order. It should avoid treating presentation-only changes such as a r
 frontmatter object as substantive. Mutable routes, display ordering, and an `updated` timestamp
 should not silently become logical inputs merely because they occur in the same file.
 
-Fingerprints must be intrinsic rather than recursive. An entry's fingerprint must not contain the
-fingerprints of all of its upstream entries. Instead, a review attestation records the independent
+Fingerprints must be intrinsic rather than recursive. A statement's fingerprint must not contain the
+fingerprints of all of its upstream statements. Instead, a review attestation records the independent
 fingerprints of its subject and inputs. This prevents review bookkeeping from changing canonical
 content, avoids artificial cascades when an attestation is refreshed, and remains workable when
 argument topology contains cycles.
@@ -96,7 +96,7 @@ audit how the finding was reached. Its conceptual fields are:
 ```ts
 type ReviewAttestation = {
 	reviewId: string;
-	subjectKind: 'entry' | 'dependency' | 'argument';
+	subjectKind: 'statement' | 'dependency' | 'argument';
 	subjectId: string;
 	subjectFingerprint: string;
 	inputFingerprints: Record<string, string>;
@@ -129,27 +129,27 @@ The system should operate as an incremental work queue rather than blindly inval
 entire transitive closure forever.
 
 1. Compute current intrinsic fingerprints and compare them with committed attestations.
-2. Mark an entry's own review stale when its entry fingerprint changes.
+2. Mark a statement's own review stale when its record fingerprint changes.
 3. Mark a dependency review stale when either endpoint, its role, or its explanatory note no
    longer matches the attested inputs.
 4. Mark an argument review stale when the argument record or any referenced premise or conclusion
    claim no longer matches the attested inputs.
 5. Add every directly affected downstream dependency to the review frontier.
-6. If reconsideration leaves the downstream entry unchanged, refresh that dependency attestation
+6. If reconsideration leaves the downstream statement unchanged, refresh that dependency attestation
    and stop propagation along that branch.
-7. If reconsideration changes the downstream entry, recompute its fingerprints and apply the same
-   process to its entry review, incident dependencies, and referencing arguments.
+7. If reconsideration changes the downstream statement, recompute its fingerprints and apply the same
+   process to its statement review, incident dependencies, and referencing arguments.
 8. If an argument review finds that a route fails, record or resolve the failure for that argument.
    Do not change or invalidate the conclusion automatically; another route may support it, or its
    evidential support may remain unresolved.
 
-For example, changing M-011 would make the M-011 → M-012, M-011 → M-013, M-011 → M-014, and
-M-011 → M-015 dependency reviews and the ARG-002 argument review stale. These direct branches must each be
-reviewed. If M-014 is reconsidered and remains unchanged, propagation through M-014 stops; that
-does not clear the independent reviews of M-012, M-013, or M-015. If
-M-014 must be edited, its new fingerprint makes the M-014 → M-015 and M-014 → M-016 dependency
-reviews stale, makes ARG-002 stale because M-014 is its conclusion, and makes ARG-003 stale because
-M-014 is one of its premises.
+For example, changing S-011 would make the S-011 → S-012, S-011 → S-013, S-011 → S-014, and
+S-011 → S-015 dependency reviews and the ARG-002 argument review stale. These direct branches must each be
+reviewed. If S-014 is reconsidered and remains unchanged, propagation through S-014 stops; that
+does not clear the independent reviews of S-012, S-013, or S-015. If
+S-014 must be edited, its new fingerprint makes the S-014 → S-015 and S-014 → S-016 dependency
+reviews stale, makes ARG-002 stale because S-014 is its conclusion, and makes ARG-003 stale because
+S-014 is one of its premises.
 
 During review, the interface may distinguish a definitely stale subject from a potentially
 affected descendant waiting behind the current review frontier. The final status should be
@@ -173,7 +173,7 @@ For each queued subject, provide a structured packet containing only the relevan
 Require structured output that identifies the finding, rationale, possible hidden premises,
 scope or modal mismatches, affected fields, and recommended next action. AI-produced findings must
 be labeled as such. A later publication policy may require human approval for specified findings,
-claim types, or risk levels.
+statement types, or risk levels.
 
 An impact traversal can find only relationships already represented in canonical structured data.
 A separate whole-Model audit may ask AI or an editor to propose missing dependencies, arguments,
@@ -187,12 +187,12 @@ The implementation should add fixtures and tests for at least these behaviors:
   serialization details;
 - changing a meaning-bearing field changes the appropriate fingerprint;
 - changing an explicitly excluded presentation field does not;
-- changing review metadata does not change an entry, claim, or argument fingerprint;
-- a changed entry invalidates its own review, incident dependency reviews, and only the arguments
+- changing review metadata does not change a record, proposition, or argument fingerprint;
+- a changed statement invalidates its own review, incident dependency reviews, and only the arguments
   that reference it;
-- a refreshed dependency review with an unchanged downstream entry stops propagation along that
+- a refreshed dependency review with an unchanged downstream statement stops propagation along that
   branch;
-- changing the downstream entry continues propagation to its direct dependents;
+- changing the downstream statement continues propagation to its direct dependents;
 - a failed argument review does not automatically declare its conclusion false;
 - dependency traversal remains acyclic while cyclic argument topology remains supported;
 - changing the fingerprint schema or review-policy version has an explicit, tested invalidation
@@ -200,7 +200,7 @@ The implementation should add fixtures and tests for at least these behaviors:
 - reports identify missing, malformed, stale, adverse, and unresolved attestations distinctly.
 
 Representative integration fixtures should include branching dependencies, several premises in
-one argument, multiple arguments for one conclusion, an entry that is both a conclusion and a
+one argument, multiple arguments for one conclusion, a statement that is both a conclusion and a
 premise, and an argument cycle. Tests should assert the exact review frontier so an overly broad
 or incomplete invalidation algorithm cannot pass unnoticed.
 
@@ -209,7 +209,7 @@ or incomplete invalidation algorithm cannot pass unnoticed.
 ### 1. Read-only impact report
 
 Build a deterministic command that compares canonical content with a selected baseline and lists
-changed entries, incident dependencies, affected arguments, and the initial downstream review
+changed statements, incident dependencies, affected arguments, and the initial downstream review
 frontier. It should not write attestations, edit content, or block publication.
 
 ### 2. Persistent attestations
@@ -223,7 +223,7 @@ selection and review workflow are tested against real revisions.
 Once the process is reliable, allow CI to block publication when required reviews are missing or
 stale. The policy must distinguish unreviewed change from adopted working claims with unresolved
 confidence; publication need not imply certainty or a favorable finding. Adoption is identified by
-inclusion in a version, not by an editorial status property on a Model entry or argument.
+inclusion in a version, not by an editorial status property on a statement or argument.
 
 ### 4. AI-assisted queue processing
 

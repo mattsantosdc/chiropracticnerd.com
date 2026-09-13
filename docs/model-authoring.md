@@ -1,6 +1,20 @@
 # Model authoring
 
-This is the primary workflow for humans and coding agents changing Model entries or structured arguments. Read it together with the [dependency model](dependency-model.md), [argument model](argument-model.md), [standards contract](standards-contract.md), and [visualization plan](visualization-plan.md) before editing canonical content.
+This is the primary workflow for humans and coding agents changing statements or structured arguments. Read it together with the [dependency model](dependency-model.md), [argument model](argument-model.md), [standards contract](standards-contract.md), and [visualization plan](visualization-plan.md) before editing canonical content.
+
+## Canonical building blocks
+
+The Model is the complete account. Its building blocks are statements and arguments. A statement
+expresses a proposition, definition, value, framework commitment, or strategy. An argument records
+an inferential route from specified statements to a statement serving as its conclusion. A
+statement can be a premise in one argument and a conclusion in another.
+
+Author statements in `src/content/model/statements/` without domain subfolders, and arguments in
+`src/content/model/arguments/`. Their independent Astro collections are `statements` and `arguments`;
+load each exact directory, never their shared parent as an overlapping collection. Use `statement`
+and `statementType` in frontmatter; legacy field names and identifiers are rejected. Keep existing
+explicit slugs when moving files: routes use `data.slug`, permanent references use `data.id`, and
+Astro's generated content ID is only a loader key.
 
 ## Governing two-stage method
 
@@ -11,6 +25,8 @@ This is the primary workflow for humans and coding agents changing Model entries
 In compact form: **propose the model → expose the premises → establish the inference → test the empirical premises → revise whatever fails.** “First” describes the analytical order needed to make a claim inspectable, not a one-way history of inquiry or a ranking of philosophy over science. Evidence may suggest hypotheses, reveal missing premises, challenge the proposed structure, and require its premises, inference, scope, or conclusion to change.
 
 Do not substitute an evidence-first rationalization: gather studies, infer a broad conclusion from the literature, then construct premises afterward to make that conclusion appear to follow. Conclusions remain evidence-responsive and fully revisable, but any claimed inferential route must be inspectable independently of which conclusion the available evidence seems to favor.
+
+This analytical workflow does not require all Philosophy statements to precede all Science statements in a reader's route. An empirical biological premise can introduce the subject while philosophical work exposes how it is used. Domain classification identifies meaning, not inferential order or a prescribed reading sequence.
 
 ## State the proposition separately from confidence
 
@@ -24,9 +40,9 @@ Every change must receive the [Model review](model-review.md). It combines an AI
 
 ## Working adoption and confidence
 
-Every entry and argument included in a Model version forms part of its current working account. Adoption identifies what the Model proposes and how it reasons; it does not establish empirical truth, evidential strength, or inferential validity. An empirical claim with unresolved confidence is still an adopted working claim. All entries and arguments remain open to revision.
+Every statement and argument included in a Model version forms part of its current working account. Adoption identifies what the Model proposes and how it reasons; it does not establish empirical truth, evidential strength, or inferential validity. An empirical claim with unresolved confidence is still an adopted working claim. All statements and arguments remain open to revision.
 
-Model and argument records therefore have no editorial `status` property. Their inclusion and version identify the working account; claim type, confidence, evidence, and inference kind remain separately inspectable. Do not use unresolved evidence to describe an included claim as unadopted, or use adoption to upgrade confidence or remove defeasibility. A separate workflow for candidates or superseded material should be introduced only when it serves an actual editorial need.
+Statement and argument records therefore have no editorial `status` property. Their inclusion and version identify the working account; statement type, confidence, evidence, and inference kind remain separately inspectable. Do not use unresolved evidence to describe an included claim as unadopted, or use adoption to upgrade confidence or remove defeasibility. A separate workflow for candidates or superseded material should be introduced only when it serves an actual editorial need.
 
 ## Historical continuity without historical authority
 
@@ -48,14 +64,44 @@ Give general credit prominently and briefly in the Model overview and introducto
 
 Use **The Coherent Chiropractic Model** as the project name. “The Model” is appropriate within its own content. “Coherent” describes the consistency of the account from its premises to its practical conclusions; keep this use distinct from any concept of coherence addressed within the Model. The name does not certify logical completeness or empirical support. Attribute authorship to Dr. Matt Santos and present the Model as one project under his Chiropractic Nerd identity and Chiropractic Nerd Systems brand. Keep the introductory article titled **Toward a Coherent Model of Chiropractic**.
 
-## Permanent Model identifiers
+## Permanent statement identifiers
 
-Every Model entry has a globally unique `M-###` ID (three decimal digits). Model IDs are permanent,
+Every statement has a globally unique `S-###` ID (three decimal digits). Statement IDs are permanent,
 human-readable identifiers only. Their numeric values carry no ordering, hierarchy, domain, or
-inferential meaning. Keep an ID when its entry changes domain, position, wording, or slug, and
-never reuse it for another entry. Use `domain` for grouping and `order` for presentation order;
+inferential meaning. Keep an ID when its statement changes domain, position, wording, or slug, and
+never reuse it for another statement. Use `domain` and `order` for catalog grouping and sorting;
+the separate [reading path](model-reading-path.md) uses explicit section and step order;
 IDs must not determine sorting, including tie-breaking, or graph layout. `ARG-###` IDs remain
-separate. The [one-time migration map](model-id-migration.md) records the former Model IDs.
+separate. The [Stage 1 migration map](statements-stage-1-migration.md) records the explicitly authorized
+prepublication exception to ID preservation and the earlier, distinct domain-ID migration.
+
+## Editorial reading order
+
+Author the walkthrough in `src/data/model-reading-path.json` under the
+[reading-path contract](model-reading-path.md). Reference permanent statement and
+argument IDs only; resolve text and relationships from the full canonical
+collections. An argument step introduces its conclusion without a duplicate
+statement step. Keep every adopted record intentionally placed in main,
+optional orientation, or supporting reading. Supporting placement does not lower
+confidence or remove adoption. Inspect section prose and forward-reference
+diagnostics without treating adjacency as inference or changing dependencies to
+fit the reading sequence. Catalog `domain`/`order` sorting remains separate.
+
+The default `/model/` interface renders that path as a scrolling document. Keep
+exact propositions visible. Link to statement pages with “More about this statement”
+for labeled summaries, canonical explanations, source limits, and revision conditions;
+do not duplicate that material in overview disclosures. Recorded argument reasoning
+remains available in disclosures, including argument identity, inference kind, and
+joint premises. Keep statement type and applicable confidence visible in the overview;
+domain and not-applicable confidence remain on detail pages. Statement detail pages
+retain all concluding and premise arguments from the shared index and the statement
+discussion; the overview links there without repeating those relationship lists.
+Revision dependencies belong in a separate secondary disclosure; absence of
+those edges says nothing about argument participation or empirical support.
+Preserve detail-page routes, bare S-ID comment threads, and the general Model thread.
+Every new Model component, interaction, stylesheet, or presentation helper must be
+included in the explicit review inputs. Validate embedded Markdown namespaces and
+fragment/disclosure navigation as well as the data contracts.
 
 ## Workflow for every substantive change
 
@@ -65,11 +111,11 @@ Write one inspectable proposition where practical. Identify modal language and q
 
 ### 2. Classify the claim
 
-Decide whether the content is a definition, empirical claim, value judgment, strategy, framework commitment, or mixed claim. Do not let one part of a mixed claim borrow support from another category. Do not add a `logical` Model claim type; logic belongs to an argument record.
+Decide whether the content is a definition, empirical claim, value judgment, strategy, framework commitment, or mixed claim. Do not let one part of a mixed claim borrow support from another category. Do not add a `logical` statement type; logic belongs to an argument record.
 
 ### 3. Identify its role in reasoning
 
-Determine whether the entry is a premise, a conclusion, both, or neither. A claim may be the conclusion of one argument and a premise in a higher-level argument. Do not infer this role from dependency metadata.
+Determine whether the statement is a premise, a conclusion, both, or neither. A claim may be the conclusion of one argument and a premise in a higher-level argument. Do not infer this role from dependency metadata.
 
 ### 4. Check whether the intended conclusion follows
 
@@ -93,8 +139,8 @@ A strong study cannot repair an invalid inference. A valid inference cannot comp
 
 When a claim changes, use both layers:
 
-- follow `upstream → downstream` dependencies to locate entries whose meaning or content must be reconsidered; and
-- find arguments that use the entry as a premise or conclusion and reassess their premises, scope, inference kind, and conclusion.
+- follow `upstream → downstream` dependencies to locate statements whose meaning or content must be reconsidered; and
+- find arguments that use the statement as a premise or conclusion and reassess their premises, scope, inference kind, and conclusion.
 
 Do not add dependency edges merely to make the graph appear linear. Dependency and argument updates must each satisfy their own contract.
 
@@ -116,11 +162,11 @@ The three text fields have distinct roles:
 
 | Field | Role |
 | --- | --- |
-| `claim` | The actual statement of the entry: the wording readers inspect and arguments use as a premise or conclusion. Display it in full as the primary text, labeled **Statement**, on the Model overview and entry page. |
+| `statement` | The exact proposition expressed by the statement: the wording readers inspect and arguments use as a premise or conclusion. Display it in full as the primary text, labeled **Statement**, on the Model overview and statement page. |
 | `title` | A short name for identification and navigation. Keep it visually subordinate to the statement. |
-| `summary` | A brief explanation or orientation to the statement, displayed separately under **Summary** on the entry page. It must preserve the claim's scope and modality and must not substitute for it in reasoning. |
+| `summary` | A brief explanation or orientation to the statement, displayed separately under **Summary** on the statement page. It must preserve the claim's scope and modality and must not substitute for it in reasoning. |
 
-The body explains, qualifies, or supports the statement. Keep its rationale, limits, sources, and structured reasoning visibly separate from the statement itself. Visual prominence identifies what is asserted; claim type and confidence describe how to assess it. Inclusion in the stated version identifies it as part of the working account.
+The body explains, qualifies, or supports the statement. Keep its rationale, limits, sources, and structured reasoning visibly separate from the statement itself. Visual prominence identifies what is asserted; statement type and confidence describe how to assess it. Inclusion in the stated version identifies it as part of the working account.
 
 Write public Model and argument descriptions as self-contained accounts of the current position. Explain the claim and its reasoning without narrating earlier drafts, wording changes, retained record identities, or implementation choices. Keep editorial history and reasons for edits in commit messages, review records, or development documentation. Preserve substantive rationale, evidence limits, revision conditions, and historical source provenance when they help readers understand or evaluate the current account.
 
@@ -128,7 +174,7 @@ Write public Model and argument descriptions as self-contained accounts of the c
 
 Before finishing a change, verify that:
 
-- permanent Model and `ARG-###` IDs were preserved wherever possible;
+- permanent statement and `ARG-###` IDs were preserved wherever possible;
 - slugs are treated as routes, not semantic identities;
 - dependency notes state revision impact without inferential claims;
 - every relationship intended for future visualization is represented in canonical structured data rather than inferred from prose;
@@ -140,7 +186,7 @@ Before finishing a change, verify that:
 - inclusion identifies adoption independently of confidence, with no editorial `status` field or badge and no suggestion that unresolved support makes an included claim unadopted;
 - definitions do not imply existence, causal hypotheses are not treated as proof of outcomes, and normative premises remain visibly normative;
 - every new or changed argument explains its inference and limitations;
-- empirical entries have meaningful confidence and revision conditions; and
+- empirical statements have meaningful confidence and revision conditions; and
 - the semantic review in `reviews/model-review.json` covers the current exact inputs under [the review policy](model-review.md), and tests and the production build pass.
 
 The [v0.1 reasoning audit](model-v0.1-reasoning-audit.md) is the current worked example of applying this workflow without forcing deduction where it does not belong.

@@ -5,17 +5,18 @@ import {
 	argumentSemanticIdentifier,
 	dependencyRoleSemanticIdentifier,
 	dependencySemanticIdentifier,
-	modelSemanticIdentifier,
+	statementSemanticIdentifier,
+	statementIdPattern,
 } from '../src/lib/identifiers.ts';
 
 test('reserves stable semantic identifier patterns independently of slugs', () => {
 	assert.equal(
-		modelSemanticIdentifier('P-001'),
-		'https://chiropracticnerd.com/id/model/P-001',
+		statementSemanticIdentifier('S-004'),
+		'https://chiropracticnerd.com/id/statement/S-004',
 	);
 	assert.equal(
-		dependencySemanticIdentifier('P-001', 'P-002'),
-		'https://chiropracticnerd.com/id/dependency/P-001--P-002',
+		dependencySemanticIdentifier('S-004', 'S-005'),
+		'https://chiropracticnerd.com/id/dependency/S-004--S-005',
 	);
 	assert.equal(
 		argumentSemanticIdentifier('ARG-001'),
@@ -26,5 +27,10 @@ test('reserves stable semantic identifier patterns independently of slugs', () =
 		'https://chiropracticnerd.com/vocab/dependency-role/normative',
 	);
 	assert.match('ARG-001', argumentIdPattern);
-	assert.doesNotMatch('A-001', argumentIdPattern);
+	assert.doesNotMatch('S-014', argumentIdPattern);
+});
+
+test('statement identity uses the current scheme without historical aliases', () => {
+	assert.match('S-001', statementIdPattern);
+	assert.doesNotMatch('M-001', statementIdPattern);
 });

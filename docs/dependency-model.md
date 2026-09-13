@@ -1,34 +1,34 @@
 # Dependency model
 
-The Model records **direct revision dependencies between entries**. It does not attempt to encode every meaningful relationship between their subject matter.
+The Model records **direct revision dependencies between statements**. It does not attempt to encode every meaningful relationship between their subject matter.
 
-An edge is stored on the downstream entry and is displayed as:
+An edge is stored on the downstream statement and is displayed as:
 
 > upstream → downstream
 
-An edge qualifies for the dependency graph only when materially changing or removing the upstream entry would require the downstream claim, strategy, or intended meaning to be reconsidered. Mere topical similarity, a useful comparison, or repeated vocabulary is not enough.
+An edge qualifies for the dependency graph only when materially changing or removing the upstream statement would require the downstream claim, strategy, or intended meaning to be reconsidered. Mere topical similarity, a useful comparison, or repeated vocabulary is not enough.
 
 ## Authoring rules
 
-1. Record only direct dependencies. Do not repeat an ancestor merely because its influence can be traced through an intermediate entry.
-2. Classify the role the upstream entry plays, not the domain or claim type of either endpoint.
-3. Use one dependency per pair. Choose the primary reason the downstream entry depends on the upstream entry and explain any secondary consideration in the note.
+1. Record only direct dependencies. Do not repeat an ancestor merely because its influence can be traced through an intermediate statement.
+2. Classify the role the upstream statement plays, not the domain or statement type of either endpoint.
+3. Use one dependency per pair. Choose the primary reason the downstream statement depends on the upstream statement and explain any secondary consideration in the note.
 4. Give every dependency a note naming the exact dependency and its important limit. The note is required metadata.
-5. Do not carry a role across a path. Two conceptual dependencies, for example, do not establish a direct conceptual dependency between the first and third entries.
-6. Treat every dependency as defeasible. It identifies what must be reconsidered; it does not say that either entry is true or well supported.
+5. Do not carry a role across a path. Two conceptual dependencies, for example, do not establish a direct conceptual dependency between the first and third statements.
+6. Treat every dependency as defeasible. It identifies what must be reconsidered; it does not say that either statement is true or well supported.
 7. Use `related` only as an untyped, undirected see-also link when no dependency is asserted. Store it on either endpoint, not both. It carries no inferential, causal, evidential, temporal, or provenance meaning.
 
 ## Choosing a role
 
 Ask why revision upstream would force reconsideration downstream:
 
-| Role | Use when the upstream entry… | Do not read it as… |
+| Role | Use when the upstream statement… | Do not read it as… |
 | --- | --- | --- |
-| `methodological` | sets a rule for framing, classifying, evaluating, or revising the downstream entry | support for the subject-matter claim |
+| `methodological` | sets a rule for framing, classifying, evaluating, or revising the downstream statement | support for the subject-matter claim |
 | `normative` | supplies a value, purpose, or priority that justifies a downstream choice | deduction or empirical verification |
-| `conceptual` | supplies a concept or definition required for the downstream entry's intended meaning | evidence that the concept exists or is empirically adequate |
-| `empirical` | supplies a testable premise, observed relationship, or proposed mechanism needed by the downstream entry's empirical content | a report of evidential strength or proof |
-| `practical` | is translated by the downstream entry into a decision, procedure, or action | evidence of effectiveness, safety, or appropriateness |
+| `conceptual` | supplies a concept or definition required for the downstream statement's intended meaning | evidence that the concept exists or is empirically adequate |
+| `empirical` | supplies a testable premise, observed relationship, or proposed mechanism needed by the downstream statement's empirical content | a report of evidential strength or proof |
+| `practical` | is translated by the downstream statement into a decision, procedure, or action | evidence of effectiveness, safety, or appropriateness |
 
 These five roles form the complete vocabulary for the current dependency view. They are local Chiropractic Nerd terms, not asserted equivalents of properties from another ontology.
 
@@ -47,11 +47,17 @@ An inferential relationship does not automatically require a dependency edge, an
 
 ## Current graph audit
 
-The v0.1 graph contains 16 Model entries and 23 direct dependencies, alongside four structured arguments. Every dependency edge has one of the five roles and a required limiting note. `related` links and argument records remain outside the acyclic dependency graph. The [reasoning audit](model-v0.1-reasoning-audit.md) records why the revised spine adds, removes, or retains its direct dependencies; the graph is not a linear philosophical proof of chiropractic effectiveness.
+The v0.1 graph contains 28 statements and 38 direct dependencies, alongside seven structured arguments. Every dependency has one of the five roles and a required limiting note. `related` links and arguments remain outside the acyclic dependency graph. The historical [reasoning audit](model-v0.1-reasoning-audit.md), [Stage 2 integration](model-stage-2-integration.md), and [Stage 3 integration](model-stage-3-integration.md) record the decisions; the graph is not a linear proof of chiropractic effectiveness.
 
-S-006 retains dependencies on P-002 and S-005 for its net-positive benefit criterion and chiropractic-produced neuromotor changes. S-007 holds the separate neural-mediation proposal, with dependencies on S-001 and S-005. The two hypotheses are connected only by a `related` pair stored on S-007; neither hypothesis supplies a revision dependency or inferential route to the other.
+S-021 supplies the independently specified comparison of context-appropriate function. S-022 depends conceptually on that definition and supplies a normative dependency for S-005's professional aim. S-009, S-011, and S-012 now depend on S-021 for their empirical outcome meanings instead of treating S-005's aim as a definition of benefit.
 
-S-005 now directly proposes beneficial chiropractic effects through perturbation. Its P-002 dependency is conceptual: it supplies the net-positive benefit criterion, rather than justifying the intention to intervene. S-004 retains its empirical role for the proposed mechanism. The strengthened statement requires reconsidering S-006, S-007, A-001, A-002, and ARG-002 without establishing any of their additional claims.
+S-023 depends on S-008's neuromotor domain, S-024 on S-023's input definition, and S-025 on S-024's response and S-021's improvement comparison. These are conceptual revision dependencies, not evidence that inputs, adjustments, or successes occur. S-011 depends on S-024 for the response whose causal occurrence it asserts. S-026 depends on S-025 and S-022 for its evaluative conclusion; S-027 depends on S-011 and S-022 for actual scoped benefit. Their deductive routes are separately represented in ARG-006 and ARG-007, including S-024's definition as a premise. No transitive dependency on S-024 is duplicated on those conclusions merely because it participates in their arguments.
+
+S-028 holds the chiropractic perturbation mechanism, depending empirically on S-010's general mechanism and S-011's joint causal improvement claim. S-011 no longer depends on the perturbation account: a failed mechanism requires reconsidering the explanation without automatically rejecting an effect established by another route. S-015 translates S-028's proposed mechanism into intentional application. S-014 uses S-027's scoped benefit in prospective selection. S-016 additionally depends on S-025 for the meaning of success when interpreting findings; none of these dependencies validates a clinical method.
+
+S-012 retains its empirical dependency on S-011 for the input-produced changes whose broader transfer it proposes. S-013 retains S-007 and S-011 for neural integration and the input/response account. The S-012/S-013 pair, stored only on S-013, is see-also: broader improvement and principal neural mediation do not establish one another.
+
+S-020 retains conceptual dependencies on S-018 and S-008 and its see-also link to S-010. ARG-005 retains its six biological premises and defeasible S-004 rationale, without benefit or chiropractic premises. Its premise participation is not copied into S-004's dependencies. S-004's framework meaning remains independent of that particular rationale. ARG-004 adds S-022 as an explicit value premise; it does not need a duplicated transitive dependency on S-006, whose normative dependency remains on S-005.
 
 ## Future visualization
 

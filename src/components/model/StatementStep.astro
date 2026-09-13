@@ -1,0 +1,11 @@
+---
+import StatementText from './StatementText.astro';
+import type { ResolvedReadingStep } from '../../lib/reading-path.ts';
+interface Props { step: Extract<ResolvedReadingStep, { kind: 'statement' }>; }
+const { step } = Astro.props;
+const { statement } = step;
+---
+<article class="reading-step" data-reading-step={step.id}>
+	<StatementText statement={statement} anchor={step.location.anchor} compact />
+	<p class="record-links"><a href={statement.href}>More about this statement</a></p>
+</article>

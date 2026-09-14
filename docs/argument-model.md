@@ -64,6 +64,10 @@ Build-time validation rejects malformed or duplicate argument IDs and slugs, mis
 
 Every change also receives the [Model review](model-review.md), including a check that arguments use each premise's actual commitment rather than weakening it to match unresolved confidence. The npm test and build commands require a fresh recorded review. This checks review coverage; natural-language fidelity remains an editorial judgment. The separate reasoning suite checks the formal profile and its declared bindings, including rule identity, strict proof, conflicts and incomplete computation. Run both checks.
 
+## Professional-purpose application
+
+ARG-008 uses S-027's actual scoped functional benefit and S-029's explicit professional-purpose principle to support S-005. The inference remains defeasible: a reason for an aim can be defeated by a relevant ethical or professional objection. Actual benefit and its value arrive through ARG-007, without assuming the aim as a starting premise. S-004, S-028, a further symptom outcome and comparisons with other professions are not premises of ARG-008. Do not add them merely to motivate the conclusion.
+
 ## Common reasoning failures
 
 - **Hidden premise:** a necessary bridge is used without being stated and independently evaluated.

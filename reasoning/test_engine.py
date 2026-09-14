@@ -278,26 +278,83 @@ class FoundationTests(unittest.TestCase):
     def test_complete_current_model_has_explicit_premises_and_two_checked_deductions(self):
         t = load_model()
         result = evaluate(t)
-        self.assertEqual(len(t['statements']), 28)
-        self.assertEqual(len(t['rules']), 7)
+        self.assertEqual(len(t['statements']), 29)
+        self.assertEqual(len(t['rules']), 8)
         self.assertEqual(result['strictProofs'], ['ARG-006', 'ARG-007'])
         conclusions = {r['conclusion'] for r in t['rules']}
         self.assertFalse(conclusions & set(t['ordinaryPremises']))
 
+    def test_professional_aim_requires_benefit_and_normative_bridge_without_potential_or_mechanism(self):
+        t = load_model()
+        self.assertNotIn('S-005', t['ordinaryPremises'])
+        for removed in ['S-011', 'S-022', 'S-029']:
+            changed = copy.deepcopy(t)
+            changed['ordinaryPremises'].remove(removed)
+            result = evaluate(changed)
+            for downstream in ['S-005', 'S-006', 'S-014', 'S-016']:
+                self.assertEqual(status(result, downstream), 'no-argument', (removed, downstream))
+        independent = copy.deepcopy(t)
+        independent['rules'] = [r for r in independent['rules'] if r['id'] != 'ARG-005']
+        independent['ordinaryPremises'].remove('S-028')
+        result = evaluate(independent)
+        self.assertEqual(status(result, 'S-004'), 'no-argument')
+        self.assertEqual(status(result, 'S-028'), 'no-argument')
+        self.assertEqual(status(result, 'S-005'), 'accepted-support')
+        self.assertFalse(result['statements']['S-005']['assumed'])
+
+    def test_professional_purpose_undercut_propagates_without_negating_functional_benefit(self):
+        t = load_model()
+        t['signature'] += '\n(declare-fun PurposeObjection () Bool)'
+        t['statements'].append(dict(id='PurposeObjection', formula='PurposeObjection',
+                                    text='A hypothetical objection defeats this use of the professional-purpose bridge.',
+                                    role='hypothetical'))
+        t['ordinaryPremises'].append('PurposeObjection')
+        t['undercutters'] = [dict(statement='PurposeObjection', rule='ARG-008')]
+        result = evaluate(t)
+        for downstream in ['S-005', 'S-006', 'S-014', 'S-016']:
+            self.assertEqual(status(result, downstream), 'rejected-support')
+        self.assertEqual(status(result, 'S-027'), 'accepted-support')
+        self.assertEqual(status(result, '-S-005'), 'no-argument')
+
+    def test_professional_purpose_reason_is_not_a_strict_entailment(self):
+        t = pilot('ARG-008')
+        self.assertEqual(status(evaluate(t), 'S-005'), 'accepted-support')
+        t['rules'][0]['kind'] = 'strict'
+        with self.assertRaisesRegex(InvalidTheory, 'not entailed'):
+            evaluate(t)
+
     def test_migration_map_preserves_every_legacy_relationship_and_limiting_note(self):
         record = json.loads((ROOT / 'reasoning/dependency-migration.json').read_text())
+        self.assertEqual(record['schemaVersion'], 2)
+        self.assertEqual(len(record['relationships']), 38)
         actual = {}
         for sid, (data, _, _) in markdown_records('src/content/model/statements').items():
             for dependency in data['upstream']:
                 actual[(dependency['id'], sid)] = (dependency['role'], dependency['note'])
-        mapped = {(r['source'], r['target']): (r['legacyRole'], r['legacyNote']) for r in record['relationships']}
-        self.assertEqual(len(mapped), len(record['relationships']))
+        identities = {(r['source'], r['target']) for r in record['relationships']}
+        self.assertEqual(len(identities), len(record['relationships']))
+        retired = {('S-004', 'S-005'): 'retired-context-only',
+                   ('S-022', 'S-005'): 'replaced-by-argument-path'}
+        self.assertEqual({(r['source'], r['target']): r['disposition'] for r in record['relationships']
+                          if r['disposition'] in retired.values()}, retired)
+        mapped = {(r['source'], r['target']): (r['legacyRole'], r['legacyNote'])
+                  for r in record['relationships'] if (r['source'], r['target']) not in retired}
+        self.assertEqual(len(actual), 36)
         self.assertEqual(mapped, actual)
         rules = {r['id']: r for r in load_model()['rules']}
         for item in record['relationships']:
             for rid in item['applications']:
                 self.assertIn(item['source'], rules[rid]['premises'])
                 self.assertEqual(item['target'], rules[rid]['conclusion'])
+            if item['disposition'] == 'replaced-by-argument-path':
+                self.assertEqual(item['argumentPath'], ['ARG-007', 'ARG-008'])
+                current = item['source']
+                for rid in item['argumentPath']:
+                    self.assertIn(current, rules[rid]['premises'])
+                    current = rules[rid]['conclusion']
+                self.assertEqual(current, item['target'])
+            else:
+                self.assertNotIn('argumentPath', item)
 
 
 if __name__ == '__main__':

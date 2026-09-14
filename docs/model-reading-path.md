@@ -28,7 +28,7 @@ semantic review; they must not add premises or replace canonical propositions.
 Required text is trimmed during parsing. Section IDs are local presentation
 identifiers, not public semantic resources.
 
-The main route begins with living organisms. Orientation can be read independently.
+The main route begins with living organisms. Orientation can be read independently. The professional-purpose section follows actual scoped benefit, introduces S-029 and ARG-008, and then presents ARG-004. This lets readers inspect the aim after its premises without changing the canonical statement routes or S-ID discussion identities.
 Supporting placement does not change adoption, confidence, truth, or importance.
 An argument step presents that argument and its canonical conclusion, with every
 premise available in canonical order, regardless of where the premise is placed.

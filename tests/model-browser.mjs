@@ -107,6 +107,20 @@ try {
 		assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
 		await page.locator('#q-001').scrollIntoViewIfNeeded();
 		await page.screenshot({ path: `${output}/${engine.name()}-${width}-question.png` });
+		await page.goto(`${base}/model/philosophy/chiropractic-purpose/`);
+		assert.ok((await page.locator('[data-participation="S-005"]').innerText()).includes('ARG-008'));
+		await page.getByRole('link', { name: 'Read S-005 in the Model', exact: true }).click();
+		await page.waitForFunction(() => document.activeElement?.id === 'reading-professional-purpose--argument-arg-008--conclusion');
+		const purpose = page.locator('[data-argument-id="ARG-008"]');
+		await purpose.locator('summary').first().click();
+		assert.deepEqual(await purpose.locator('[data-role="premise"]').evaluateAll((nodes) => nodes.map((node) => node.dataset.statementId)), ['S-027', 'S-029']);
+		await purpose.scrollIntoViewIfNeeded();
+		await page.screenshot({ path: `${output}/${engine.name()}-${width}-purpose.png` });
+		await purpose.locator('[data-role="premise"][data-statement-id="S-027"]').locator('..').locator('.premise-origin').click();
+		await page.waitForFunction(() => document.activeElement?.id === 'reading-actual-input-effects--argument-arg-007--conclusion');
+		await page.goto(`${base}/model/arguments/functional-benefit-as-professional-aim/`);
+		await page.locator('#q-007 > summary').click();
+		assert.equal(await page.locator('#q-007 .disclosure-body').isVisible(), true);
 		await page.goto(`${base}/model/arguments/assessment-as-working-hypothesis/`);
 		assert.equal(await page.locator('[data-question-id]').count(), 2);
 		assert.equal(await page.locator('#q-003').count(), 1);
@@ -139,6 +153,9 @@ try {
 	await page.goto(`${base}/model/science/chiropractic-inputs/`);
 	await page.locator('#q-001 > summary').click();
 	assert.equal(await page.locator('#q-001 .disclosure-body').isVisible(), true);
+	await page.goto(`${base}/model/arguments/functional-benefit-as-professional-aim/`);
+	await page.locator('#q-007 > summary').click();
+	assert.equal(await page.locator('#q-007 .disclosure-body').isVisible(), true);
 	console.log('No JavaScript: main text, native disclosures, supporting reading and full detail navigation passed');
 	await context.close();
 } finally { await browser.close(); server?.close(); }

@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "sourceBranch": "model-v0.1",
   "sourceCommit": "bed3268155100f4a2d94354a3a38dca07a5b03d7",
   "relationships": [
@@ -39,18 +39,22 @@
       "target": "S-005",
       "legacyRole": "conceptual",
       "legacyNote": "Revising S-004's account of functional potential would require reconsidering the possibilities for improvement addressed by this aim; open-ended potential does not entail its normative legitimacy or chiropractic effectiveness.",
-      "disposition": "requires-semantic-decision",
+      "disposition": "retired-context-only",
       "applications": [],
-      "reviewNote": "Open-ended potential does not define the professional aim or entail its legitimacy. Review whether this is background rationale, a genuine semantic use, or a missing defeasible argument."
+      "reviewNote": "User-approved removal: open-ended potential can frame possibilities without determining the legitimacy of an achievable functional aim. Preserve the contextual explanation in S-005; the original limiting note remains here. No argument or semantic-use edge replaces this dependency."
     },
     {
       "source": "S-022",
       "target": "S-005",
       "legacyRole": "normative",
       "legacyNote": "Revising S-022's value of context-appropriate improvement would require reconsidering the value guiding this professional aim; valuing an outcome does not establish chiropractic effectiveness or warrant an input.",
-      "disposition": "requires-semantic-decision",
+      "disposition": "replaced-by-argument-path",
       "applications": [],
-      "reviewNote": "Valuing improvement does not alone establish the professional scope of chiropractic. Keep the adopted aim explicit; do not manufacture the missing normative bridge."
+      "reviewNote": "User-approved replacement: ARG-007 uses S-022, S-024 and S-011 to conclude scoped functional benefit in S-027. ARG-008 combines S-027 with the explicit normative bridge S-029 to support S-005 defeasibly. S-005 is no longer an ordinary starting premise. The original limiting note remains here; no duplicate authored dependency is retained.",
+      "argumentPath": [
+        "ARG-007",
+        "ARG-008"
+      ]
     },
     {
       "source": "S-004",

@@ -44,6 +44,16 @@ Every statement and argument in the canonical working collections forms part of 
 
 Statement and argument records therefore have no editorial `status` property. Their inclusion and version identify the working account; statement type, confidence, evidence, and inference kind remain separately inspectable. Do not use unresolved evidence to describe an included claim as unadopted, or use adoption to upgrade confidence or remove defeasibility. The critical-question layer now supplies that concrete need for a separate role: a question challenges or clarifies the account without asserting its suggested alternative. Formal premise membership remains explicit in the theory configuration, independently of working adoption.
 
+## Functional value and professional purpose
+
+Do not take condition treatment as the assumed default purpose of chiropractic. S-022 values qualifying context-appropriate functional improvement itself. A further outcome can coexist with that improvement without being necessary to establish its stated value. Keep the causal input/response account, the comparison that identifies improvement, the value attribution, and the professional aim explicit and independently examinable.
+
+ARG-007 derives actual scoped benefit in S-027 from S-011, S-024 and S-022. ARG-008 then uses S-027 and S-029's explicit normative principle to support the professional aim in S-005 defeasibly. Do not infer professional legitimacy from a valued outcome alone, or conceal a starting assumption of the aim behind the appearance of a derived conclusion. The working theory derives S-005; it does not also assume it.
+
+S-004's open-ended potential remains relevant to the rationale beyond symptoms in ARG-004, but is not a premise of the professional-purpose argument. The two resolved legacy dependencies into S-005 have been retired with their original notes preserved in the migration record. Seven other relationship decisions remain open.
+
+Comparisons supplied to explain the author's intent in conversation must not be copied into canonical claims as contrasts with medicine or other professions. Keep the argument focused on its actual premises. Do not add a claim that every symptom or condition effect follows through the proposed functional improvement unless that stronger causal relationship is explicitly authored and reviewed. A proposed specific perturbation mechanism remains distinct from the functional effect and its value.
+
 ## Historical continuity without historical authority
 
 Historical chiropractic sources can identify where a concept, distinction, or argument came from and provide a useful starting point for present analysis. Their historical importance does not make their claims true, complete, or binding, and citing one useful idea does not import the rest of a source's system.

@@ -50,7 +50,16 @@
     "kind": "scope",
     "question": "Does a worthwhile goal establish that chiropractic can achieve it?",
     "concern": "The legitimacy of an aim and the effectiveness of a means are separate questions.",
-    "response": "This statement identifies a professional aim. Claims about which inputs achieve it, in which circumstances, require their own reasoning and evidence.",
-    "wouldChange": "Evidence against a proposed means would require revising that means or its claimed effects. It would not, by itself, establish that the aim has no value."
+    "response": "ARG-008 supports the aim using a scoped functional-benefit claim and an explicit principle about professional purpose. The aim does not supply evidence for its own empirical premise. Whether a particular input produces the benefit requires its own assessment and evidence.",
+    "wouldChange": "Failure of the causal improvement claim would remove this particular argument for the aim. Revising an ineffective means or its claimed effects need not establish that the aim has no independent justification."
+  },
+  {
+    "id": "Q-007",
+    "target": "ARG-008",
+    "kind": "inference",
+    "question": "Does producing a benefit make it a legitimate professional aim?",
+    "concern": "A capacity to produce a benefit can coexist with ethical objections, conflicting responsibilities, or reasons against pursuing it.",
+    "response": "S-029 gives achievable benefit a role in justifying an aim. ARG-008 treats that reason as supporting legitimacy while remaining open to objections. It supplies neither an exclusive professional purpose nor sufficient justification for a particular input.",
+    "wouldChange": "A relevant objection to adopting this aim, or a reason to reject the bridge from achievable benefit to professional purpose, would require revising the argument even if some functional benefit occurs."
   }
 ]

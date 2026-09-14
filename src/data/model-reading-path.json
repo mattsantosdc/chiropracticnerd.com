@@ -30,12 +30,10 @@
     },
     {
       "id": "improvement-and-purpose",
-      "title": "What counts as improvement, and why pursue it?",
+      "title": "What counts as improvement and functional benefit?",
       "steps": [
         { "kind": "statement", "id": "S-021" },
-        { "kind": "statement", "id": "S-022" },
-        { "kind": "statement", "id": "S-005" },
-        { "kind": "argument", "id": "ARG-004" }
+        { "kind": "statement", "id": "S-022" }
       ]
     },
     {
@@ -61,6 +59,15 @@
         { "kind": "statement", "id": "S-011" },
         { "kind": "statement", "id": "S-028" },
         { "kind": "argument", "id": "ARG-007" }
+      ]
+    },
+    {
+      "id": "professional-purpose",
+      "title": "Why pursue functional improvement as a chiropractic aim?",
+      "steps": [
+        { "kind": "statement", "id": "S-029" },
+        { "kind": "argument", "id": "ARG-008" },
+        { "kind": "argument", "id": "ARG-004" }
       ]
     },
     {

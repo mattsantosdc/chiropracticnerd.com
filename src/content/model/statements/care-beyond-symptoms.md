@@ -9,13 +9,7 @@ domain: philosophy
 statementType: framework
 confidence: not-applicable
 order: 30
-upstream:
-  - id: S-004
-    role: conceptual
-    note: Narrowing S-004's open-ended potential by health or symptom status would require reconsidering this scope conclusion, even if the functional aim were retained; potential does not establish an actionable opportunity or benefit.
-  - id: S-005
-    role: normative
-    note: Revising S-005's legitimacy of functional improvement as an aim in its own right would require reconsidering this rationale beyond symptoms; the value choice does not demonstrate effectiveness in asymptomatic people.
+semanticUses: []
 related: []
 version: '0.1'
 updated: 2026-09-12

@@ -9,7 +9,7 @@ domain: science
 statementType: empirical
 confidence: unresolved
 order: 30
-upstream:
+semanticUses:
   - id: S-021
     role: conceptual
     note: Revising S-021's comparative improvement criterion would change what qualifies as an opportunity here; the definition supplies no evidence that such opportunities exist.

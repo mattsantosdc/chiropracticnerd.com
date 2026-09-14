@@ -9,13 +9,13 @@ domain: philosophy
 statementType: value
 confidence: not-applicable
 order: 14
-upstream:
+semanticUses:
   - id: S-021
     role: conceptual
     note: Revising S-021's comparative account of context-appropriate improvement would change which changes this value judgment calls beneficial; the definition establishes neither that value nor any actual improvement.
 related: []
 version: '0.1'
-updated: 2026-09-12
+updated: 2026-09-14
 ---
 
 ## An explicit evaluative commitment
@@ -28,4 +28,4 @@ This is a value judgment. Biology can inform what changes and measurement can in
 
 The benefit attributed here has exactly the scope of the improvement. S-021 requires relevant functional gains and losses to be considered together. A gain in a single metric is insufficient, and a local improvement does not establish broader transfer. Losses outside the specified scope must remain visible even when the local functional benefit is established.
 
-This criterion does not say that every intervention producing a functional benefit is worth pursuing. Costs, risks, burdens, alternatives, the person's priorities, and uncertainty remain part of S-014's practical judgment. S-005 separately adopts functional improvement as a legitimate chiropractic aim; professional purpose is not identical to either a benefit criterion or authorization to act.
+This criterion does not say that every intervention producing a functional benefit is worth pursuing. Costs, risks, burdens, alternatives, the person's priorities, and uncertainty remain part of S-014's practical judgment. ARG-007 combines this value with the causal improvement claim to establish S-027's scoped benefit. ARG-008 then uses that benefit and S-029's professional-purpose principle to support the aim in S-005. The value criterion alone supplies neither chiropractic effectiveness nor professional legitimacy.

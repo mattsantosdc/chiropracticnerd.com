@@ -42,8 +42,8 @@ test('overview and all statement pages retain explicit routes, statements, order
 		assert.ok(metadata.includes(domainLabels[entry.data.domain]));
 		assert.ok(metadata.includes(`Confidence: ${entry.data.confidence === 'not-applicable' ? 'Not applicable' : entry.data.confidence}`));
 		const neighbors = [
-			...entry.data.upstream.map(({ id }) => byId.get(id)),
-			...statements.filter((candidate) => candidate.data.upstream.some(({ id }) => id === entry.data.id)),
+			...entry.data.semanticUses.map(({ id }) => byId.get(id)),
+			...statements.filter((candidate) => candidate.data.semanticUses.some(({ id }) => id === entry.data.id)),
 			...getRelatedStatements(statements, entry.data.id),
 		];
 		for (const neighbor of neighbors) assert.ok(links(page).includes(statementHref(neighbor)));
@@ -138,7 +138,7 @@ test('all participation remains available on detail pages and distinct from revi
 	}
 	const s17 = readPage(statementHref(byId.get('S-017')));
 	assert.ok(nodes(s17).findIndex((node) => attr(node, 'data-participation') === 'S-017') < nodes(s17).findIndex((node) => attr(node, 'id') === 'entry-explanation'));
-	assert.match(text(s17), /No revision dependencies are recorded on this statement/);
+	assert.match(text(s17), /No additional meaning or mechanism references are recorded here/);
 	assert.doesNotMatch(text(s17), /Root statement|No downstream statements yet|Used by/);
 	const s7 = nodes(readPage(statementHref(byId.get('S-007')))).find((node) => attr(node, 'data-participation') === 'S-007');
 	assert.match(text(s7), /No concluding argument is recorded/);

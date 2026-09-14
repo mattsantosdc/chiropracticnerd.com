@@ -30,12 +30,10 @@
     },
     {
       "id": "improvement-and-purpose",
-      "title": "What counts as improvement, and why pursue it?",
+      "title": "What counts as improvement and functional benefit?",
       "steps": [
         { "kind": "statement", "id": "S-021" },
-        { "kind": "statement", "id": "S-022" },
-        { "kind": "statement", "id": "S-005" },
-        { "kind": "argument", "id": "ARG-004" }
+        { "kind": "statement", "id": "S-022" }
       ]
     },
     {
@@ -56,19 +54,31 @@
     {
       "id": "actual-input-effects",
       "title": "What does the Model propose chiropractic inputs actually do?",
+      "introduction": "The improving effect is independently proposed and also follows from the stronger perturbation claim. Its occurrence and its proposed mechanism require separate empirical evaluation.",
       "steps": [
         { "kind": "statement", "id": "S-010" },
-        { "kind": "statement", "id": "S-011" },
         { "kind": "statement", "id": "S-028" },
+        { "kind": "argument", "id": "ARG-009" },
         { "kind": "argument", "id": "ARG-007" }
+      ]
+    },
+    {
+      "id": "professional-purpose",
+      "title": "Why pursue functional improvement as a chiropractic aim?",
+      "steps": [
+        { "kind": "statement", "id": "S-029" },
+        { "kind": "argument", "id": "ARG-008" },
+        { "kind": "argument", "id": "ARG-004" }
       ]
     },
     {
       "id": "practice",
       "title": "How does the account guide practice?",
+      "introduction": "Assessment asks whether an input is warranted. An explicit practical principle then guides its delivery and evaluation; a proposed mechanism informs predictions without settling the decision to proceed.",
       "steps": [
         { "kind": "argument", "id": "ARG-002" },
-        { "kind": "statement", "id": "S-015" },
+        { "kind": "statement", "id": "S-032" },
+        { "kind": "argument", "id": "ARG-010" },
         { "kind": "argument", "id": "ARG-003" }
       ]
     }
@@ -77,8 +87,10 @@
     {
       "id": "broader-effects",
       "title": "Broader effects and their proposed mediation",
-      "introduction": "Additional empirical questions about broader effects and their mediation.",
+      "introduction": "The Model separately proposes influence between neural circuits, likely broader neural effects, broader functional improvement in some cases, and predominant mediation by motor-related neural changes. Each claim has its own empirical burden.",
       "steps": [
+        { "kind": "statement", "id": "S-030" },
+        { "kind": "statement", "id": "S-031" },
         { "kind": "statement", "id": "S-012" },
         { "kind": "statement", "id": "S-013" }
       ]

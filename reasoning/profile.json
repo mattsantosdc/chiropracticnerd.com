@@ -1,0 +1,20 @@
+{
+  "id": "cn-aspic-grounded-1",
+  "schemaVersion": 1,
+  "reference": "Modgil and Prakken 2013, with 2018 corrigendum",
+  "semantics": "grounded",
+  "ordering": "weakest-link-elitist",
+  "ordinaryPremisePriorities": "equal",
+  "defeasibleRulePriorities": "equal",
+  "axioms": "none",
+  "negation": "explicit-classical",
+  "rebut": "restricted-to-defeasible-subconclusions",
+  "strictClosure": "transposition",
+  "strictProof": "SMT-LIB-2-Z3-entailment-with-satisfiable-premises",
+  "productiveInferenceCycles": "reject-as-unsupported",
+  "maxArguments": 5000,
+  "solverTimeoutMs": 5000,
+  "engine": "python-argumentation==2.0.2",
+  "adapter": "cn-rule-identity-1",
+  "solver": "z3-solver==4.15.4.0"
+}

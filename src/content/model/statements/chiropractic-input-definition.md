@@ -9,7 +9,7 @@ domain: philosophy
 statementType: definition
 confidence: not-applicable
 order: 40
-upstream:
+semanticUses:
   - id: S-008
     role: conceptual
     note: Revising S-008's neuromotor domain would change the intended target of a chiropractic input; defining that target supplies no evidence of a response.

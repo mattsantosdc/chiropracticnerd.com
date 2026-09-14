@@ -1,0 +1,5 @@
+# Deliberately pinned pilot runtime. Update with the conformance suite and review.
+python-argumentation==2.0.2
+parse==1.22.1
+z3-solver==4.15.4.0
+PyYAML==6.0.3

@@ -1,0 +1,211 @@
+{
+  "schemaVersion": 1,
+  "scenarios": [
+    {
+      "id": "OP-001",
+      "description": "Withdraw both the independent effect premise and the stronger mechanism premise. This tests loss of support, without asserting that no effect occurs.",
+      "targets": [
+        "S-011",
+        "S-028"
+      ],
+      "questions": [
+        "Q-001",
+        "Q-016"
+      ],
+      "removePremises": [
+        "S-011",
+        "S-028"
+      ],
+      "addPremises": [],
+      "undercutters": [],
+      "expectedStatuses": {
+        "S-011": "no-argument",
+        "S-027": "no-argument",
+        "S-005": "no-argument",
+        "S-015": "no-argument",
+        "S-012": "accepted-support"
+      },
+      "role": "hypothetical"
+    },
+    {
+      "id": "OP-002",
+      "description": "Assume the exact effect claim false while retaining its adopted positive routes. This is stronger than a failed individual input or an insensitive null study.",
+      "targets": [
+        "S-011",
+        "S-028"
+      ],
+      "questions": [
+        "Q-001"
+      ],
+      "removePremises": [],
+      "addPremises": [
+        "-S-011"
+      ],
+      "undercutters": [],
+      "expectedStatuses": {
+        "S-011": "unresolved-support",
+        "S-028": "unresolved-support",
+        "S-027": "unresolved-support",
+        "S-012": "accepted-support"
+      },
+      "role": "hypothetical"
+    },
+    {
+      "id": "OP-003",
+      "description": "Replace the perturbation premise with its negation while keeping independent effect support. No alternative mechanism is thereby identified.",
+      "targets": [
+        "S-028",
+        "S-015"
+      ],
+      "questions": [
+        "Q-016",
+        "Q-018"
+      ],
+      "removePremises": [
+        "S-028"
+      ],
+      "addPremises": [
+        "-S-028"
+      ],
+      "undercutters": [],
+      "expectedStatuses": {
+        "-S-028": "accepted-support",
+        "S-011": "accepted-support",
+        "S-015": "accepted-support",
+        "S-016": "accepted-support"
+      },
+      "role": "hypothetical"
+    },
+    {
+      "id": "OP-004",
+      "description": "Assume an overriding professional responsibility defeats the application of achievable-benefit reasoning to this professional aim. This supposes a defeater, not an established ethical finding.",
+      "targets": [
+        "ARG-008",
+        "S-005"
+      ],
+      "questions": [
+        "Q-007"
+      ],
+      "removePremises": [],
+      "addPremises": [],
+      "undercutters": [
+        {
+          "id": "H-001",
+          "text": "In this application, the reason supplied by achievable benefit is outweighed by a relevant professional responsibility, defeating the inference to a legitimate professional aim.",
+          "rule": "ARG-008"
+        }
+      ],
+      "expectedStatuses": {
+        "S-005": "rejected-support",
+        "-S-005": "no-argument",
+        "S-027": "accepted-support",
+        "S-015": "rejected-support"
+      },
+      "role": "hypothetical"
+    },
+    {
+      "id": "OP-005",
+      "description": "Withdraw the intrinsic functional-value premise. This tests which conclusions need that value without denying the empirical improving response.",
+      "targets": [
+        "S-022"
+      ],
+      "questions": [
+        "Q-005"
+      ],
+      "removePremises": [
+        "S-022"
+      ],
+      "addPremises": [],
+      "undercutters": [],
+      "expectedStatuses": {
+        "S-011": "accepted-support",
+        "S-027": "no-argument",
+        "S-005": "no-argument",
+        "S-015": "no-argument"
+      },
+      "role": "hypothetical"
+    },
+    {
+      "id": "OP-006",
+      "description": "Withdraw the delivery principle while retaining the assessment and effect claims. A justified aim and a working assessment do not supply that missing normative commitment.",
+      "targets": [
+        "S-032",
+        "ARG-010"
+      ],
+      "questions": [
+        "Q-017",
+        "Q-024"
+      ],
+      "removePremises": [
+        "S-032"
+      ],
+      "addPremises": [],
+      "undercutters": [],
+      "expectedStatuses": {
+        "S-014": "accepted-support",
+        "S-015": "no-argument",
+        "S-016": "no-argument",
+        "-S-015": "no-argument"
+      },
+      "role": "hypothetical"
+    },
+    {
+      "id": "OP-007",
+      "description": "Suppose a substantive practical objection defeats the general use of the delivery principle here. A case in which the existing warranted condition is unmet would not by itself establish this defeater.",
+      "targets": [
+        "ARG-010"
+      ],
+      "questions": [
+        "Q-017",
+        "Q-024"
+      ],
+      "removePremises": [],
+      "addPremises": [],
+      "undercutters": [
+        {
+          "id": "H-002",
+          "text": "The inference from assessment and the delivery principle to the proposed general application strategy is defeated by an overriding practical objection to that use of the principle.",
+          "rule": "ARG-010"
+        }
+      ],
+      "expectedStatuses": {
+        "S-014": "accepted-support",
+        "S-032": "accepted-support",
+        "S-015": "rejected-support",
+        "S-016": "rejected-support",
+        "-S-015": "no-argument"
+      },
+      "role": "hypothetical"
+    },
+    {
+      "id": "OP-008",
+      "description": "Withdraw the broader-effect, predominance and chiropractic-specific likelihood claims. The scoped functional benefit and application strategy must remain independently supported.",
+      "targets": [
+        "S-012",
+        "S-013",
+        "S-031"
+      ],
+      "questions": [
+        "Q-009",
+        "Q-011",
+        "Q-012"
+      ],
+      "removePremises": [
+        "S-012",
+        "S-013",
+        "S-031"
+      ],
+      "addPremises": [],
+      "undercutters": [],
+      "expectedStatuses": {
+        "S-012": "no-argument",
+        "S-013": "no-argument",
+        "S-031": "no-argument",
+        "S-027": "accepted-support",
+        "S-005": "accepted-support",
+        "S-015": "accepted-support"
+      },
+      "role": "hypothetical"
+    }
+  ]
+}

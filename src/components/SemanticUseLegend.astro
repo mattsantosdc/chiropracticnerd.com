@@ -1,0 +1,26 @@
+---
+import { semanticUseRoleDefinitions, semanticUseRoles } from '../lib/semantic-uses.ts';
+---
+
+<aside class="dependency-legend" aria-labelledby="dependency-legend-title">
+	<h2 id="dependency-legend-title">How these references are used</h2>
+	<p>
+		Each reference records a specific use that needs reconsideration if the referenced statement
+		changes. Its role and note explain that use and its limits.
+	</p>
+	<dl>
+		{semanticUseRoles.map((role) => (
+			<div>
+				<dt>{role}</dt>
+				<dd>
+					{semanticUseRoleDefinitions[role].definition}{' '}
+					<span>{semanticUseRoleDefinitions[role].limit}</span>
+				</dd>
+			</div>
+		))}
+	</dl>
+	<p class="dependency-legend-rule">
+		A reference supplies no inference by itself. Roles apply to the direct use and do not carry
+		unchanged through a chain. See-also links identify related reading without asserting a revision relationship.
+	</p>
+</aside>

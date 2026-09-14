@@ -22,8 +22,45 @@ mkdirSync(output, { recursive: true });
 const config = JSON.parse(readFileSync('src/data/model-reading-path.json', 'utf8'));
 const engine = process.env.MODEL_BROWSER === 'firefox' ? firefox : chromium;
 let browser;
-try { browser = await engine.launch({ headless: true }); } catch (error) { server?.close(); throw error; }
+const executablePath = process.env.MODEL_BROWSER_EXECUTABLE;
+const browserArgs = process.env.MODEL_BROWSER_ARGS ? JSON.parse(process.env.MODEL_BROWSER_ARGS) : [];
+if (!Array.isArray(browserArgs) || browserArgs.some((argument) => typeof argument !== 'string')) throw new Error('MODEL_BROWSER_ARGS must be a JSON string array');
+try { browser = await engine.launch({ headless: true, ...(executablePath ? { executablePath } : {}), args: browserArgs }); } catch (error) { server?.close(); throw error; }
 console.log(`${engine.name()} ${browser.version()} · ${process.env.MODEL_BASE_URL ? 'provided server' : 'production build'}`);
+
+async function checkRevisionDetails(page, label) {
+ await page.goto(`${base}/model/philosophy/hypothesis-guided-application/`);
+ await page.getByText('Revision relationships', {exact:true}).click();
+ const candidates = page.locator('[data-revision-candidates="S-032"]');
+ assert.deepEqual(await candidates.locator('li a').evaluateAll(nodes => nodes.map(node => node.getAttribute('href'))), ['/model/art/chiropractic-application/','/model/art/reassessment-cycle/']);
+ assert.ok((await candidates.innerText()).includes('does not establish that those statements become false'));
+ await candidates.scrollIntoViewIfNeeded();
+ assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+ await page.screenshot({path:`${output}/${label}-revision.png`});
+ await page.goto(`${base}/model/art/chiropractic-application/`);
+ await page.getByText('Revision relationships', {exact:true}).click();
+ assert.ok((await page.locator('.dependency-note').first().innerText()).includes('does not establish success'));
+ await page.goto(`${base}/model/science/organismic-organization/`);
+ await page.getByText('Revision relationships', {exact:true}).click();
+ assert.ok((await page.locator('[data-revision-candidates="S-017"]').innerText()).includes('S-004'));
+ for (const [id, path] of [
+  ['q-019','arguments/regulatory-rationale-for-functional-potential'],
+  ['q-020','science/neuromotor-opportunity'],
+  ['q-021','philosophy/context-appropriate-function'],
+  ['q-022','art/reassessment-cycle'],
+  ['q-023','arguments/functional-rationale-beyond-symptoms'],
+  ['q-024','philosophy/hypothesis-guided-application'],
+ ]) {
+  await page.goto(`${base}/model/${path}/`);
+  await page.locator(`#${id} > summary`).click();
+  assert.equal(await page.locator(`#${id} .disclosure-body`).isVisible(),true);
+  assert.ok((await page.locator(`#${id}`).innerText()).includes('What would change:'));
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),true);
+ }
+ await page.locator('#q-024').scrollIntoViewIfNeeded();
+ await page.screenshot({path:`${output}/${label}-normative-question.png`});
+}
+
 try {
 	for (const width of [1280, 390]) {
 		const context = await browser.newContext({ viewport: { width, height: 900 }, reducedMotion: width === 390 ? 'reduce' : 'no-preference' });
@@ -43,6 +80,7 @@ try {
 		assert.ok(page.url().endsWith('/model/science/organismic-organization/'));
 		await page.locator('[data-participation="S-017"] a').first().click();
 		assert.ok(page.url().endsWith('#reading-functional-possibilities--argument-arg-005'));
+		await page.waitForFunction(() => document.activeElement?.id === 'reading-functional-possibilities--argument-arg-005');
 		const arg5 = page.locator('[data-argument-id="ARG-005"]');
 		assert.equal(await arg5.locator('.argument-identity').isVisible(), false);
 		assert.equal(await arg5.locator('.premise-references').isVisible(), false);
@@ -94,10 +132,38 @@ try {
 		await page.goto(`${base}/model/science/organismic-organization/`);
 		assert.ok((await page.locator('[data-participation="S-017"]').innerText()).includes('ARG-005 → S-004'));
 		await page.screenshot({ path: `${output}/${engine.name()}-${width}-s017-detail.png` });
+		await page.goto(`${base}/model/science/chiropractic-inputs/`);
+		assert.equal(await page.locator('[data-question-id="Q-001"]').count(), 1);
+		await page.locator('#q-001 > summary').focus();
+		await page.keyboard.press('Enter');
+		assert.equal(await page.locator('#q-001 .disclosure-body').isVisible(), true);
+		assert.ok((await page.locator('#q-001').innerText()).includes('What would change:'));
+		assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+		await page.locator('#q-001').scrollIntoViewIfNeeded();
+		await page.screenshot({ path: `${output}/${engine.name()}-${width}-question.png` });
+		await page.goto(`${base}/model/philosophy/chiropractic-purpose/`);
+		assert.ok((await page.locator('[data-participation="S-005"]').innerText()).includes('ARG-008'));
+		await page.getByRole('link', { name: 'Read S-005 in the Model', exact: true }).click();
+		await page.waitForFunction(() => document.activeElement?.id === 'reading-professional-purpose--argument-arg-008--conclusion');
+		const purpose = page.locator('[data-argument-id="ARG-008"]');
+		await purpose.locator('summary').first().click();
+		assert.deepEqual(await purpose.locator('[data-role="premise"]').evaluateAll((nodes) => nodes.map((node) => node.dataset.statementId)), ['S-027', 'S-029']);
+		await purpose.scrollIntoViewIfNeeded();
+		await page.screenshot({ path: `${output}/${engine.name()}-${width}-purpose.png` });
+		await purpose.locator('[data-role="premise"][data-statement-id="S-027"]').locator('..').locator('.premise-origin').click();
+		await page.waitForFunction(() => document.activeElement?.id === 'reading-actual-input-effects--argument-arg-007--conclusion');
+		await page.goto(`${base}/model/arguments/functional-benefit-as-professional-aim/`);
+		await page.locator('#q-007 > summary').click();
+		assert.equal(await page.locator('#q-007 .disclosure-body').isVisible(), true);
+		await page.goto(`${base}/model/arguments/assessment-as-working-hypothesis/`);
+		assert.equal(await page.locator('[data-question-id]').count(), 2);
+		assert.equal(await page.locator('#q-003').count(), 1);
+		assert.equal(await page.locator('#q-004').count(), 1);
 		await page.goto(`${base}/model/#reading-improvement-and-purpose--statement-s-021`);
 		await page.waitForFunction(() => document.activeElement?.id.endsWith('--statement-s-021'));
 		assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
 		await page.screenshot({ path: `${output}/${engine.name()}-${width}-long-statement.png` });
+		await checkRevisionDetails(page, `${engine.name()}-${width}`);
 		assert.deepEqual(errors, []);
 		await context.close();
 		console.log(`${engine.name()} ${width}px: navigation, keyboard disclosures, focus, history, deep links, overflow passed`);
@@ -119,6 +185,13 @@ try {
 	assert.ok(page.url().includes('/model/science/broader-functional-benefit/'));
 	assert.equal(await page.locator('[data-participation="S-012"]').isVisible(), true);
 	assert.equal(await page.locator('#discussion').count(), 1);
+	await page.goto(`${base}/model/science/chiropractic-inputs/`);
+	await page.locator('#q-001 > summary').click();
+	assert.equal(await page.locator('#q-001 .disclosure-body').isVisible(), true);
+	await page.goto(`${base}/model/arguments/functional-benefit-as-professional-aim/`);
+	await page.locator('#q-007 > summary').click();
+	assert.equal(await page.locator('#q-007 .disclosure-body').isVisible(), true);
+	await checkRevisionDetails(page, `${engine.name()}-390-no-js`);
 	console.log('No JavaScript: main text, native disclosures, supporting reading and full detail navigation passed');
 	await context.close();
 } finally { await browser.close(); server?.close(); }

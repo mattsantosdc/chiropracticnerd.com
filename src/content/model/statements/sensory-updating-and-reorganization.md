@@ -9,7 +9,7 @@ domain: science
 statementType: empirical
 confidence: unresolved
 order: 25
-upstream:
+semanticUses:
   - id: S-018
     role: conceptual
     note: Revising S-018's account of estimates of the body and environment would require reconsidering what is proposed to update here; using information and experience does not itself establish updating or strategy reorganization.

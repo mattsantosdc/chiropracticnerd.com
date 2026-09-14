@@ -4,12 +4,12 @@ slug: science/chiropractic-inputs
 title: Chiropractic inputs and beneficial neuromotor change
 statement: >-
   Some chiropractic inputs cause neuromotor reorganization that improves context-appropriate human function within a specified neuromotor scope, context, and timescale.
-summary: Some inputs are proposed to cause the same reorganization and functional improvement; the mechanism, benefit judgment, and selection of an input remain separately inspectable.
+summary: Some inputs are proposed to cause the same reorganization and functional improvement. This effect is independently proposed and also follows from the stronger perturbation claim; its empirical support remains unresolved.
 domain: science
 statementType: empirical
 confidence: unresolved
 order: 50
-upstream:
+semanticUses:
   - id: S-021
     role: conceptual
     note: Revising S-021's comparative improvement criterion would change the outcome this causal claim asserts; defining the outcome supplies no evidence that an input produces it.
@@ -18,7 +18,7 @@ upstream:
     note: Revising S-024's account of input-caused neuromotor reorganization would change the response asserted here; defining an adjustment does not establish that any occur or improve function.
 related: []
 version: '0.1'
-updated: 2026-09-12
+updated: 2026-09-14
 whatWouldChange: >-
   Narrow or reject specified effect hypotheses if prespecified inputs fail to cause the predicted reorganization and contextual functional improvement beyond credible comparisons in valid, adequately powered tests, accounting for relevant functional gains and losses over the specified timescale. Null findings bear on the tested conditions according to their sensitivity and coverage; intention or a favorable surrogate alone cannot rescue the claim.
 ---
@@ -33,6 +33,12 @@ S-023 defines a chiropractic input by deliberate delivery and intention. “Neur
 
 Input selection remains a prospective requirement for testing and practice. The relevant state, reason for selecting an input, predicted response, improvement criteria, and conditions for withholding or stopping must be specified before observing the outcome. Selection must eventually be reliable and empirically validated against credible alternatives. An input cannot become “appropriate” solely because a favorable result was observed, nor can every failure be dismissed as inappropriate selection. All relevant delivered inputs remain in the accounting, including no reorganization, reorganization without benefit, adverse responses, and uncertain outcomes. v0.1 supplies no validated selection protocol.
 
+## Independent effect and mechanism routes
+
+The Model adopts this effect claim as an independent empirical starting premise. ARG-009 additionally derives it from S-028, which asserts the same improving response with a perturbation mechanism. These are distinct routes to the same statement. Independent adoption is an explicit assumption to evaluate, not evidence created by the deduction.
+
+Withdrawing the perturbation hypothesis does not remove the independent effect premise. Conversely, withdrawing that independent premise need not remove the route through S-028. Establishing that the effect does not occur would be stronger than withdrawing one route: it would also challenge any mechanism claim that entails the effect. Neither independent adoption nor deduction validates the effect empirically.
+
 ## Current evidence
 
 The evidence documented in this account has not established input-caused reorganization with qualifying functional improvement. General sensory updating and motor-learning findings do not establish this chiropractic-specific overlap. S-009's beneficial modifiability does not show that chiropractic inputs realize it. This lack of documented support leaves confidence unresolved; it is not evidence that no input can ever have the asserted effect.
@@ -40,5 +46,7 @@ The evidence documented in this account has not established input-caused reorgan
 Occurrence and input causation, reliable detection, prospective prediction and success frequency, persistence or generalization, and the perturbation mechanism require separate tests. None is established simply because the effect claim is clear or the benefit inference is valid.
 
 ## Boundary
+
+The neural activity supporting motor function is distinct from an observed motor outcome. S-030 describes influence between circuits and S-031 proposes broader neural effects following chiropractic-induced circuit changes. S-012 proposes qualifying broader improvement through shared neural processes or connected circuitry. None requires the observed local motor improvement itself to cause every other effect, and none follows from the local improvement asserted here.
 
 No claim is made that every input produces reorganization, that every reorganization improves function, or that an immediate change lasts. A local improvement must not be enlarged into a claim about the whole person. A measured neuromotor response cannot substitute for S-021's functional comparison, evidence of broader transfer in S-012, or a judgment that an intervention's costs and risks are justified.

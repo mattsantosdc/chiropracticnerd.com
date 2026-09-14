@@ -9,13 +9,7 @@ domain: philosophy
 statementType: value
 confidence: not-applicable
 order: 70
-upstream:
-  - id: S-025
-    role: conceptual
-    note: Revising S-025's success definition would require reconsidering which responses this conclusion evaluates and its scope; the definition does not establish occurrence.
-  - id: S-022
-    role: normative
-    note: Revising S-022's value of qualifying improvement would require reconsidering the benefit attributed to successful adjustments; that value supplies no empirical confirmation of success.
+semanticUses: []
 related: []
 version: '0.1'
 updated: 2026-09-12

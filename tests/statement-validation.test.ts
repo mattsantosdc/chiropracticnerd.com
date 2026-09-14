@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { describe, test } from 'node:test';
 import {
-	dependencyRoles,
+	semanticUseRoles,
 	getRelatedStatements,
 	type StatementEntry,
 	sortStatements,
@@ -18,7 +18,7 @@ type EntryOverrides = {
 	slug?: string;
 	domain?: StatementEntry['data']['domain'];
 	order?: number;
-	upstream?: TestDependency[];
+	semanticUses?: TestDependency[];
 	related?: string[];
 	statementType?: StatementEntry['data']['statementType'];
 	confidence?: StatementEntry['data']['confidence'];
@@ -39,7 +39,7 @@ function entry(id: string, overrides: EntryOverrides = {}) {
 			statementType: overrides.statementType ?? 'framework',
 			confidence: overrides.confidence ?? 'not-applicable',
 			order: overrides.order ?? 0,
-			upstream: overrides.upstream ?? [],
+			semanticUses: overrides.semanticUses ?? [],
 			related: overrides.related ?? [],
 			version: '0.1',
 			updated: new Date('2026-01-01'),
@@ -96,7 +96,7 @@ describe('neutral statement identifiers', () => {
 
 describe('dependency vocabulary', () => {
 	test('contains exactly the five approved roles', () => {
-		assert.deepEqual(dependencyRoles, [
+		assert.deepEqual(semanticUseRoles, [
 			'methodological',
 			'normative',
 			'conceptual',
@@ -108,11 +108,11 @@ describe('dependency vocabulary', () => {
 	test('accepts a valid acyclic graph using every role', () => {
 		const entries = [
 			entry('S-001'),
-			entry('S-002', { upstream: [dependency('S-001', 'methodological')] }),
-			entry('S-004', { upstream: [dependency('S-002', 'normative')] }),
-			entry('S-007', { upstream: [dependency('S-004', 'conceptual')] }),
-			entry('S-008', { upstream: [dependency('S-007', 'empirical')] }),
-			entry('S-014', { upstream: [dependency('S-008', 'practical')] }),
+			entry('S-002', { semanticUses: [dependency('S-001', 'methodological')] }),
+			entry('S-004', { semanticUses: [dependency('S-002', 'normative')] }),
+			entry('S-007', { semanticUses: [dependency('S-004', 'conceptual')] }),
+			entry('S-008', { semanticUses: [dependency('S-007', 'empirical')] }),
+			entry('S-014', { semanticUses: [dependency('S-008', 'practical')] }),
 		];
 
 		assert.equal(validateStatements(entries).size, entries.length);
@@ -123,9 +123,9 @@ describe('dependency vocabulary', () => {
 			() =>
 				validateStatements([
 					entry('S-001'),
-					entry('S-002', { upstream: [dependency('S-001', 'logical')] }),
+					entry('S-002', { semanticUses: [dependency('S-001', 'logical')] }),
 				]),
-			/unknown dependency role logical/,
+			/unknown semantic-use role logical/,
 		);
 	});
 
@@ -134,7 +134,7 @@ describe('dependency vocabulary', () => {
 			() =>
 				validateStatements([
 					entry('S-001'),
-					entry('S-002', { upstream: [dependency('S-001', 'conceptual', '  ')] }),
+					entry('S-002', { semanticUses: [dependency('S-001', 'conceptual', '  ')] }),
 				]),
 			/requires an explanatory note/,
 		);
@@ -195,40 +195,36 @@ describe('graph integrity', () => {
 
 	test('rejects missing and self dependencies', () => {
 		assert.throws(
-			() => validateStatements([entry('S-001', { upstream: [dependency('S-999', 'conceptual')] })]),
+			() => validateStatements([entry('S-001', { semanticUses: [dependency('S-999', 'conceptual')] })]),
 			/references missing statement id S-999/,
 		);
 		assert.throws(
-			() => validateStatements([entry('S-001', { upstream: [dependency('S-001', 'conceptual')] })]),
+			() => validateStatements([entry('S-001', { semanticUses: [dependency('S-001', 'conceptual')] })]),
 			/cannot reference itself/,
 		);
 	});
 
-	test('rejects duplicate dependencies and dependency cycles', () => {
+	test('rejects duplicate semantic uses and permits finite semantic cycles', () => {
 		assert.throws(
 			() =>
 				validateStatements([
 					entry('S-001'),
 					entry('S-002', {
-						upstream: [
+						semanticUses: [
 							dependency('S-001', 'conceptual'),
 							dependency('S-001', 'empirical'),
 						],
 					}),
 				]),
-			/duplicate upstream dependency S-001/,
+			/duplicate semantic use S-001/,
 		);
-		assert.throws(
-			() =>
-				validateStatements([
-					entry('S-001', { upstream: [dependency('S-002', 'conceptual')] }),
-					entry('S-002', { upstream: [dependency('S-001', 'conceptual')] }),
-				]),
-			/Model dependency cycle/,
-		);
+		assert.equal(validateStatements([
+			entry('S-001', { semanticUses: [dependency('S-002', 'conceptual')] }),
+			entry('S-002', { semanticUses: [dependency('S-001', 'conceptual')] }),
+		]).size, 2);
 	});
 
-	test('rejects duplicate, reciprocal, and dependency-linked related entries', () => {
+	test('rejects duplicate, reciprocal, and semantic-use-linked related entries', () => {
 		assert.throws(
 			() => validateStatements([entry('S-001', { related: ['S-002', 'S-002'] }), entry('S-002')]),
 			/duplicate related entry S-002/,
@@ -245,9 +241,9 @@ describe('graph integrity', () => {
 			() =>
 				validateStatements([
 					entry('S-001', { related: ['S-002'] }),
-					entry('S-002', { upstream: [dependency('S-001', 'methodological')] }),
+					entry('S-002', { semanticUses: [dependency('S-001', 'methodological')] }),
 				]),
-			/cannot be both dependency-linked and related/,
+			/cannot be both semantic-use-linked and related/,
 		);
 	});
 

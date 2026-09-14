@@ -9,19 +9,7 @@ domain: art
 statementType: strategy
 confidence: unresolved
 order: 10
-upstream:
-  - id: S-005
-    role: normative
-    note: Revising S-005's professional aim of context-appropriate improvement would require reconsidering the purpose guiding assessment; that aim does not validate a finding or justify a particular input.
-  - id: S-006
-    role: conceptual
-    note: Revising S-006's rationale beyond symptoms would require reconsidering whether assessment can consider opportunities without symptoms or pathology; that scope does not establish an opportunity in any person.
-  - id: S-009
-    role: practical
-    note: Revising S-009's proposed modifiable opportunities would require reconsidering what assessment seeks to identify and act on; modifiability in some cases does not establish detectability or present actionability.
-  - id: S-027
-    role: practical
-    note: Revising S-027's scoped actual-benefit conclusion would require reconsidering the outcomes and predictions used in input selection; benefit in some cases supplies no validated person-level selection rule.
+semanticUses: []
 related: []
 version: '0.1'
 updated: 2026-09-12

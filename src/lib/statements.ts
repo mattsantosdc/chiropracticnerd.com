@@ -1,16 +1,16 @@
 import type { CollectionEntry } from 'astro:content';
-import { isDependencyRole } from './dependencies.ts';
+import { isSemanticUseRole } from './semantic-uses.ts';
 import { statementIdPattern } from './identifiers.ts';
 
 export {
-	dependencyRoleDefinitions,
-	dependencyRoles,
-	type DependencyRole,
-} from './dependencies.ts';
+	semanticUseRoleDefinitions,
+	semanticUseRoles,
+	type SemanticUseRole,
+} from './semantic-uses.ts';
 
 export type StatementEntry = CollectionEntry<'statements'>;
 export type StatementDomain = StatementEntry['data']['domain'];
-export type UpstreamDependency = StatementEntry['data']['upstream'][number];
+export type SemanticUse = StatementEntry['data']['semanticUses'][number];
 
 export const domainOrder: StatementDomain[] = ['framework', 'philosophy', 'science', 'art'];
 
@@ -44,6 +44,8 @@ export function validateStatements(entries: StatementEntry[]) {
 		[firstId, secondId].sort().join('\u0000');
 
 	for (const entry of entries) {
+		if ('upstream' in entry.data || 'downstream' in entry.data) throw new Error(`${entry.data.id} uses retired relationship fields`);
+		if (!Array.isArray(entry.data.semanticUses)) throw new Error(`${entry.data.id} requires semanticUses`);
 		if (!statementIdPattern.test(entry.data.id)) throw new Error(`Invalid statement id: ${entry.data.id}`);
 		if (byId.has(entry.data.id)) throw new Error(`Duplicate statement id: ${entry.data.id}`);
 		if (bySlug.has(entry.data.slug)) throw new Error(`Duplicate statement slug: ${entry.data.slug}`);
@@ -66,9 +68,9 @@ export function validateStatements(entries: StatementEntry[]) {
 
 	for (const entry of entries) {
 		const upstreamIds = new Set<string>();
-		for (const dependency of entry.data.upstream) {
+		for (const dependency of entry.data.semanticUses) {
 			if (upstreamIds.has(dependency.id)) {
-				throw new Error(`${entry.data.id} has duplicate upstream dependency ${dependency.id}`);
+				throw new Error(`${entry.data.id} has duplicate semantic use ${dependency.id}`);
 			}
 			upstreamIds.add(dependency.id);
 
@@ -78,12 +80,12 @@ export function validateStatements(entries: StatementEntry[]) {
 			if (dependency.id === entry.data.id) {
 				throw new Error(`${entry.data.id} cannot reference itself`);
 			}
-			if (!isDependencyRole(dependency.role)) {
-				throw new Error(`${entry.data.id} has unknown dependency role ${dependency.role}`);
+			if (!isSemanticUseRole(dependency.role)) {
+				throw new Error(`${entry.data.id} has unknown semantic-use role ${dependency.role}`);
 			}
 			if (typeof dependency.note !== 'string' || !dependency.note.trim()) {
 				throw new Error(
-					`${entry.data.id} dependency on ${dependency.id} requires an explanatory note`,
+					`${entry.data.id} semantic use of ${dependency.id} requires an explanatory note`,
 				);
 			}
 			dependencyPairs.add(pairKey(entry.data.id, dependency.id));
@@ -106,7 +108,7 @@ export function validateStatements(entries: StatementEntry[]) {
 			const relationshipPair = pairKey(entry.data.id, relatedId);
 			if (dependencyPairs.has(relationshipPair)) {
 				throw new Error(
-					`${entry.data.id} and ${relatedId} cannot be both dependency-linked and related`,
+					`${entry.data.id} and ${relatedId} cannot be both semantic-use-linked and related`,
 				);
 			}
 			if (relatedPairs.has(relationshipPair)) {
@@ -116,19 +118,6 @@ export function validateStatements(entries: StatementEntry[]) {
 		}
 	}
 
-	const visiting = new Set<string>();
-	const visited = new Set<string>();
-	const visit = (id: string, path: string[]) => {
-		if (visiting.has(id)) throw new Error(`Model dependency cycle: ${[...path, id].join(' -> ')}`);
-		if (visited.has(id)) return;
-		visiting.add(id);
-		const entry = byId.get(id);
-		for (const dependency of entry?.data.upstream ?? []) visit(dependency.id, [...path, id]);
-		visiting.delete(id);
-		visited.add(id);
-	};
-
-	for (const id of byId.keys()) visit(id, []);
 	return byId;
 }
 

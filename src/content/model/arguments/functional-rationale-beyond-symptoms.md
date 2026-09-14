@@ -11,12 +11,12 @@ conclusion: S-006
 inferenceKind: defeasible
 scheme: normative scope reasoning
 version: '0.1'
-updated: 2026-09-12
+updated: 2026-09-14
 ---
 
 ## Inferential route
 
-S-004 commits the framework to open-ended human functional potential: normality, good health, or absence of symptoms does not exhaust the possibility of functional improvement. S-022 explicitly values context-appropriate functional improvement in itself, within its specified scope. S-005 separately adopts facilitating that improvement as a legitimate aim of chiropractic care, without making it the exclusive aim. The benefit criterion does not require a separately identified symptom or health outcome, and professional purpose remains a further normative commitment.
+S-004 commits the framework to open-ended human functional potential: normality, good health, or absence of symptoms does not exhaust the possibility of functional improvement. S-022 explicitly values context-appropriate functional improvement in itself, within its specified scope. S-005 identifies facilitating that improvement as a legitimate aim of chiropractic care, supported separately by ARG-008's benefit and professional-purpose premises. The benefit criterion does not require a separately identified symptom or health outcome, and the aim is nonexclusive.
 
 The interpretive bridge is that an aim accepted as legitimate in its own right may supply a rationale wherever relevant improvement remains possible; it need not acquire that rationale from symptom or pathology treatment. Together with S-004's refusal to make health status an endpoint, this supports S-006's scope conclusion: symptoms, injury, disease, or identifiable pathology are not necessary as a rationale for chiropractic care.
 

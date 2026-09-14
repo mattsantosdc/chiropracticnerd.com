@@ -9,13 +9,7 @@ domain: art
 statementType: strategy
 confidence: unresolved
 order: 30
-upstream:
-  - id: S-014
-    role: practical
-    note: Revising S-014's target, prediction, or assessment method would require reconsidering what is reassessed and how findings bear on the hypothesis; repeating an assessment does not validate it.
-  - id: S-015
-    role: practical
-    note: Revising S-015's delivered input or intended response would require reconsidering the post-application comparison and next decision; temporal succession does not establish causation or benefit.
+semanticUses:
   - id: S-025
     role: conceptual
     note: Revising S-025's success criterion would change how reassessment interprets possible improvement independently of the intended input; the definition does not validate observations or resolve uncertain responses.

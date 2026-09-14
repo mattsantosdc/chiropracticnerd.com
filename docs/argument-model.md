@@ -1,20 +1,20 @@
 # Argument model
 
-Structured arguments are the Model's explicit reasoning layer. They record a specified inferential route from one or more specified statements to exactly one statement serving as the conclusion. They do not replace statements, revision dependencies, or evidence.
+Structured arguments are the Model's explicit reasoning layer. The [ASPIC+ contract](aspic-foundation.md) fixes the executable pilot; [critical questions](objection-authoring.md) provide a separate reader-facing examination layer. They record a specified inferential route from one or more specified statements to exactly one statement serving as the conclusion. They do not replace statements, revision dependencies, or evidence.
 
 ## Four distinct relationships
 
-### Dependency
+### Revision relationship
 
-> If this upstream claim changes materially, the downstream statement must be reconsidered.
+> A material change can require another statement to be reconsidered.
 
-Dependencies form the existing acyclic revision-impact graph. A dependency role explains why revision propagates; it does not say that one claim supports, proves, causes, or entails another. Never infer an argument from an `upstream` edge.
+Revision impact is derived from arguments, contradiction, strict transposition, directed undercut influence and additional explicit semantic uses. A `semanticUses` reference explains a use of meaning, method, value or mechanism that argument participation cannot recover. It does not assert support or causation. The retired `upstream` and `downstream` fields are rejected. Revision influence can be cyclic and is traversed finitely.
 
 ### Argument
 
 > These premises provide a specified inferential route to this conclusion.
 
-Arguments live in `src/content/model/arguments/`. They may have multiple premises, and multiple competing arguments may conclude the same statement. The same statement may be the conclusion of one argument and a premise in another. Argument structure may therefore be hierarchical or cyclic without changing the validity of the separate dependency DAG.
+Arguments live in `src/content/model/arguments/`. They may have multiple premises, and multiple competing arguments may conclude the same statement. The same statement may be the conclusion of one argument and a premise in another. The current executable profile rejects productive argument cycles explicitly; reciprocal semantic references and cyclic attack influence are separate and remain valid.
 
 ### Evidence
 
@@ -45,7 +45,7 @@ The conclusion stays classified by its actual statement type. Do not add a `logi
 
 Inclusion in a version identifies an argument as part of the Model's current working reasoning. Arguments have no editorial `status` property. Adoption neither establishes premise truth nor settles the evaluation of the inference; a working argument can remain defeasible while its empirical premises have unresolved confidence.
 
-Mark an argument `deductive` only when the conclusion necessarily follows from the premises exactly as written. Natural-language validity is an editor-curated intellectual assertion; the software validates structure and references, not the theorem itself. Use `defeasible` when the route is inductive, abductive, causal, mechanistic, normative, or practical and may be defeated without a formal contradiction.
+Mark an argument `deductive` only when the conclusion necessarily follows from the premises exactly as written. Natural-language fidelity remains a reviewed intellectual judgment. The ASPIC+ pilot additionally checks the formal entailment of every strict rule; ARG-006, ARG-007 and ARG-009 have quantified representations. Current ARG records bind concrete inference applications, while complete ASPIC+ arguments are generated derivations. An opaque proposition or a deductive label alone does not establish a theorem. Use `defeasible` when the route is inductive, abductive, causal, mechanistic, normative, or practical and may be defeated without a formal contradiction.
 
 An argument's failure shows that this route to the conclusion fails. It does not by itself show that the conclusion is false. Look for an alternative route, a premise that needs narrowing or replacement, or a conclusion whose scope must change.
 
@@ -58,13 +58,31 @@ Before adding an argument:
 3. Name the reasoning scheme and decide whether it is genuinely deductive or defeasible.
 4. Expose required bridge premises. Do not invent a premise merely to make a desired conclusion follow.
 5. Explain what the inference does and does not establish.
-6. Add or revise dependency metadata only if a distinct revision dependency also exists.
+6. Add or revise `semanticUses` only for a distinct noninferential reference, with its own limiting note. Do not duplicate premise/conclusion participation.
 
-Build-time validation rejects malformed or duplicate argument IDs and slugs, missing statement references, no premises, duplicate premises, a conclusion reused as its own premise, and unknown inference kinds. Argument cycles do not enter dependency cycle detection.
+Build-time validation rejects malformed or duplicate argument IDs and slugs, missing statement references, no premises, duplicate premises, a conclusion reused as its own premise, and unknown inference kinds. The engine separately rejects unsupported productive argument cycles; semantic-use cycles do not invalidate content.
 
-Every change also receives the [Model review](model-review.md), including a check that arguments use each premise's actual commitment rather than weakening it to match unresolved confidence. The npm test and build commands require a fresh recorded review. This checks review coverage; natural-language validity remains an editorial judgment.
+Every change also receives the [Model review](model-review.md), including a check that arguments use each premise's actual commitment rather than weakening it to match unresolved confidence. The npm test and build commands require a fresh recorded review. This checks review coverage; natural-language fidelity remains an editorial judgment. The separate reasoning suite checks the formal profile and its declared bindings, including rule identity, strict proof, conflicts and incomplete computation. Run both checks.
+
+## Professional-purpose application
+
+ARG-008 uses S-027's actual scoped functional benefit and S-029's explicit professional-purpose principle to support S-005. The inference remains defeasible: a reason for an aim can be defeated by a relevant ethical or professional objection. Actual benefit and its value arrive through ARG-007, without assuming the aim as a starting premise. S-004, S-028, a further symptom outcome and comparisons with other professions are not premises of ARG-008. Do not add them merely to motivate the conclusion.
+
+## Perturbation and effect projection
+
+ARG-009 uses only S-028 to conclude S-011 deductively. S-028 preserves S-011's same input, reorganization, improvement, scope, context and interval and adds a perturbation mechanism conjunct. Removing that additional attribution entails the effect without discovering its cause. The empirical causal claim remains challengeable even though this projection is strict. Neither S-010's general capacity nor S-011's independently proposed effect entails S-028.
+
+S-011 now has both an explicit ordinary-premise route and the ARG-009 route. These are disclosed separately in the statement and argument explanations and in the reading introduction. Additional routes do not count as independent corroborating evidence or confer voting strength. A withdrawn premise membership need not remove a derived argument; a negated effect also challenges S-028 through strict transposition. Tests distinguish route withdrawal, effect negation and an effect surviving a rejected mechanism.
+
+## Conditional application
+
+ARG-010 uses S-014 and the explicit normative delivery principle S-032 to support S-015 defeasibly. S-015 is derived, not also an ordinary starting premise. The conclusion remains conditional on a warranted decision; neither assessment, a testable prediction nor the opportunity to learn establishes that condition. S-028 to S-015 remains a semantic use of the proposed mechanism for intended disturbance and prediction, not a supporting premise. Reconsider mechanism-dependent choices when that account changes, while allowing adequately justified application through independently supported effects or another explanation. Preserve the distinction between a general strategy and a person-specific indication; no technique, dose, threshold or causal success is supplied by the argument.
+
+S-032 is an independently challengeable ordinary normative premise. An undercut of ARG-010 reaches its S-015 derivations and ARG-003 reassessment arguments while leaving the assessment strategy and effect claims separately evaluable. Withdrawing S-032 removes this route without asserting the strategies false. The opaque bindings encode no case-specific warrant or clinical event; a completed evaluation of S-015 concerns the conditional strategy only.
 
 ## Common reasoning failures
+
+For the broader-effects branch, S-030's general capacity and S-031's chiropractic-specific likelihood do not derive S-012's broader benefit. These remain explicit empirical premises. An argument may eventually use S-011 with independently testable bridges, but the bridge must establish the relevant neural change, its influence or shared-process contribution, and the qualifying broader outcome in overlapping cases. Calling an unsupported step defeasible does not supply its missing reason. The resolved S-011 to S-012 and S-011 to S-013 relationships retain semantic revision meaning, not inference applications. S-013 independently assumes that input-induced motor-related neural change is the predominant mediator of broader effects. Neither S-007's integration, S-011's local improvement nor S-030's capacity supplies that comparative causal claim. The initial sensory input, proposed mediator, and subsequent motor-dependent feedback must not be confused or counted as independent competing causes. Open pathway questions do not become premises without an explicit, independently defensible commitment.
 
 - **Hidden premise:** a necessary bridge is used without being stated and independently evaluated.
 - **Confidence substituted for content:** an asserted effect is paraphrased as a possibility or intention solely because evidence is unresolved, or a capacity or action condition is removed merely to sound more certain.

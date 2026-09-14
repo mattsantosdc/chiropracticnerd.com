@@ -8,6 +8,7 @@ import { argumentStep, readingHref } from '../../../lib/reading-navigation.ts';
 import config from '../../../data/model-reading-path.json';
 import ArgumentStep from '../../../components/model/ArgumentStep.astro';
 import ReasoningHelp from '../../../components/model/ReasoningHelp.astro';
+import CriticalQuestions from '../../../components/model/CriticalQuestions.astro';
 
 export async function getStaticPaths() {
 	return (await getCollection('arguments')).map((entry) => ({ params: { slug: entry.data.slug }, props: { argumentId: entry.data.id } }));
@@ -25,6 +26,7 @@ const { data } = step.argument.entry;
 		<h1>{data.title}</h1>
 		<p><a href={readingHref(step.location, false)}>Read {data.id} in the Model</a> · <a href="/model/arguments/">All argument records</a></p>
 		<ArgumentStep step={step} index={index} path={path} integrated={false} />
+		<CriticalQuestions target={data.id} index={index} />
 		<ReasoningHelp />
 	</div>
 	<script>import '../../../scripts/model-fragments.ts';</script>

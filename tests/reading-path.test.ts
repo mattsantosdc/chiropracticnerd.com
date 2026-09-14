@@ -16,7 +16,7 @@ const resolve = (value: unknown) => resolveReadingPath(value, index);
 function smallFixture() {
 	const entries = ['S-901', 'S-100', 'S-450'].map((id) => ({
 		...structuredClone(statements[0]), id: `loader-${id}`,
-		data: { ...structuredClone(statements[0].data), id, slug: `route-${id.toLowerCase()}`, upstream: [], related: [] },
+		data: { ...structuredClone(statements[0].data), id, slug: `route-${id.toLowerCase()}`, semanticUses: [], related: [] },
 	}));
 	const argumentsFixture = [
 		{ id: 'ARG-901', premises: ['S-100', 'S-901'], conclusion: 'S-450' },
@@ -184,7 +184,7 @@ test('canonical version mismatches and missing endpoints cannot be omitted or su
 
 test('shared conclusions and cycles retain finite full-collection participation independently of dependency topology', () => {
 	const { entries, argumentsFixture, path } = smallFixture();
-	entries[2].data.upstream = [{ id: 'S-100', role: 'conceptual', note: 'Separate revision dependency.' }];
+	entries[2].data.semanticUses = [{ id: 'S-100', role: 'conceptual', note: 'Separate revision dependency.' }];
 	const reasoning = buildReasoningIndex(entries, argumentsFixture);
 	assert.equal(validateStatements(entries).size, 3);
 	assert.deepEqual(reasoning.concludingArguments.get('S-450')!.map(({ entry }) => entry.data.id), ['ARG-901', 'ARG-100']);
@@ -196,8 +196,8 @@ test('shared conclusions and cycles retain finite full-collection participation 
 	assert.equal(resolved.primaryStatementLocations.get('S-450')!.anchor, 'reading-main-branch--argument-arg-901--conclusion');
 	assert.equal(resolved.statementLocations.get('S-450')!.filter(({ role }) => role === 'conclusion').length, 2);
 	assert.deepEqual(resolveReadingPath(path, buildReasoningIndex(entries.toReversed(), argumentsFixture.toReversed())).primaryStatementLocations, resolved.primaryStatementLocations);
-	entries[1].data.upstream = [{ id: 'S-450', role: 'conceptual', note: 'A forbidden dependency cycle.' }];
-	assert.throws(() => buildReasoningIndex(entries, argumentsFixture), /Model dependency cycle/);
+	entries[1].data.semanticUses = [{ id: 'S-450', role: 'conceptual', note: 'A reciprocal semantic use, without inferential support.' }];
+	assert.equal(buildReasoningIndex(entries, argumentsFixture).revisionCandidates('S-100').length, 2);
 });
 
 test('primary location precedence is main, orientation, then supporting, with every alternative retained', () => {
@@ -254,8 +254,11 @@ test('repeated premises share canonical identity and helpers do not mutate froze
 	assert.equal(new Set(locations.map(({ anchor }) => anchor)).size, locations.length);
 	assert.equal(path.primaryStatementLocations.get('S-026')!.role, 'conclusion');
 	assert.deepEqual({ sourceStatements, sourceArguments, sourceConfig }, before);
-	// Biological adjacency, the mechanism's dependency, and related/source links supply no new inference.
+	// Biological adjacency and related/source links supply no inference; S-028 uses its authored ARG-009.
 	assert.deepEqual(reasoning.concludingArguments.get('S-007'), []);
-	assert.deepEqual(reasoning.premiseArguments.get('S-028'), []);
+	assert.deepEqual(reasoning.premiseArguments.get('S-028')!.map(({ entry }) => entry.data.id), ['ARG-009']);
+	assert.deepEqual(reasoning.concludingArguments.get('S-011')!.map(({ entry }) => entry.data.id), ['ARG-009']);
+	assert.deepEqual(reasoning.concludingArguments.get('S-015')!.map(({ entry }) => entry.data.id), ['ARG-010']);
+	assert.deepEqual(reasoning.premiseArguments.get('S-032')!.map(({ entry }) => entry.data.id), ['ARG-010']);
 	assert.deepEqual(reasoning.premiseArguments.get('S-012'), []);
 });

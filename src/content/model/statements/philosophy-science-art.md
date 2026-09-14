@@ -9,7 +9,7 @@ domain: framework
 statementType: framework
 confidence: not-applicable
 order: 10
-upstream: []
+semanticUses: []
 related: []
 version: '0.1'
 updated: 2026-09-09

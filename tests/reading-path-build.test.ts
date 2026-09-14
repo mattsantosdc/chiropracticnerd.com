@@ -1,10 +1,10 @@
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
-import { closeSync, cpSync, mkdtempSync, openSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
+import { closeSync, cpSync, existsSync, mkdirSync, mkdtempSync, openSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
 import { test } from 'node:test';
-import { checkReview, collectInputs, reviewPath, rubricFields } from '../scripts/model-audit.mjs';
+import { checkReview, collectInputs, policyPaths, reviewPath, rubricFields } from '../scripts/model-audit.mjs';
 
 async function buildFixture(t: { after: (callback: () => void) => void }, configure: (root: string) => void) {
 	const root = mkdtempSync(join(tmpdir(), 'model-path-build-test-'));
@@ -12,17 +12,33 @@ async function buildFixture(t: { after: (callback: () => void) => void }, config
 	for (const path of ['src', 'public', 'docs', 'scripts', 'reviews', 'AGENTS.md', 'package-lock.json', 'package.json', 'astro.config.mjs', 'tsconfig.json']) {
 		cpSync(path, join(root, path), { recursive: true });
 	}
+	for (const path of policyPaths) {
+		const destination = join(root, path);
+		if (!existsSync(destination)) {
+			mkdirSync(dirname(destination), { recursive: true });
+			cpSync(path, destination);
+		}
+	}
 	symlinkSync(join(process.cwd(), 'node_modules'), join(root, 'node_modules'), 'dir');
 	configure(root);
 	const packet = collectInputs(root);
 	// Synthetic bookkeeping only in this disposable fixture: not a semantic approval.
 	const review = {
-		schemaVersion: 1,
+		schemaVersion: 2,
 		reviewedAt: '2026-09-12T00:00:00Z',
 		reviewer: { kind: 'ai', identifier: 'Test-only synthetic coverage fixture', model: 'test-only' },
 		inputs: packet.inputs,
+		snapshot: packet.snapshot,
+		wholeModelReview: {
+			reviewedAt: new Date().toISOString(),
+			reviewer: { kind: 'ai', identifier: 'Test-only synthetic coverage fixture', model: 'test-only' },
+			inputs: packet.inputs,
+		},
 		records: Object.fromEntries(packet.subjects.map((path: string) => [path, {
 			finding: 'consistent',
+			basis: packet.bases[path],
+			reviewedAt: new Date().toISOString(),
+			reviewer: { kind: 'ai', identifier: 'Test-only synthetic coverage fixture', model: 'test-only' },
 			...Object.fromEntries(rubricFields.map((field: string) => [field, 'Test-only coverage fixture, not a semantic review.'])),
 		}])),
 	};
@@ -54,22 +70,22 @@ test('production overview rejects a malformed path even after fixture review fre
 	const { code, output } = await buildFixture(t, (root) => {
 		const file = join(root, 'src/data/model-reading-path.json');
 		const config = JSON.parse(readFileSync(file, 'utf8'));
-		config.main[0].steps[0].id = 'S-999';
+		config.main[0].steps[0].kind = 'argument';
 		writeFileSync(file, JSON.stringify(config));
 	});
 	assert.equal(code, 1, output);
-	assert.match(output, /main section "living-organisms" step 1: missing statement S-999/);
+	assert.match(output, /main\.0\.steps\.0\.id.*S-017.*Expected an argument ID \(ARG-###\)/);
 });
 
 test('production components render shared conclusions and cyclic argument participation finitely', async (t) => {
 	const { root, code, output } = await buildFixture(t, (root) => {
 		const file = join(root, 'src/data/model-reading-path.json');
 		const config = JSON.parse(readFileSync(file, 'utf8'));
-		config.main.at(-1).steps.push({ kind: 'argument', id: 'ARG-008' });
+		config.main.at(-1).steps.push({ kind: 'argument', id: 'ARG-999' });
 		writeFileSync(file, JSON.stringify(config));
-		// Synthetic route only: S-004 -> ARG-004 -> S-006 -> ARG-008 -> S-004.
+		// Synthetic route only: S-004 -> ARG-004 -> S-006 -> ARG-999 -> S-004.
 		writeFileSync(join(root, 'src/content/model/arguments/cycle-fixture.md'), `---
-id: ARG-008
+id: ARG-999
 slug: cycle-fixture
 title: Synthetic alternative route
 summary: Test-only fixture, not an adopted Model argument.
@@ -90,7 +106,7 @@ Test-only cyclic participation.
 	const nodes = (node: any): any[] => [node, ...(node.childNodes ?? []).flatMap(nodes)];
 	const attr = (node: any, key: string) => node.attrs?.find((attr: any) => attr.name === key)?.value;
 	const all = nodes(page);
-	assert.equal(all.filter((node) => attr(node, 'data-argument-id') === 'ARG-008').length, 1);
+	assert.equal(all.filter((node) => attr(node, 'data-argument-id') === 'ARG-999').length, 1);
 	const ids = all.map((node) => attr(node, 'id')).filter(Boolean);
 	assert.equal(ids.length, new Set(ids).size);
 	assert.equal(all.filter((node) => attr(node, 'data-participation')).length, 0);
@@ -99,9 +115,9 @@ Test-only cyclic participation.
 	assert.equal(participation.length, 1);
 	for (const block of participation) {
 		const hrefs = nodes(block).map((node) => attr(node, 'href')).filter(Boolean);
-		for (const id of ['arg-005', 'arg-008', 'arg-004']) assert.ok(hrefs.some((href: string) => href.endsWith(`--argument-${id}`)));
+		for (const id of ['arg-005', 'arg-999', 'arg-004']) assert.ok(hrefs.some((href: string) => href.endsWith(`--argument-${id}`)));
 	}
 	const s6Detail = parse(readFileSync(join(root, 'dist/model/philosophy/care-beyond-symptoms/index.html'), 'utf8'));
 	const s6 = nodes(s6Detail).find((node) => attr(node, 'data-participation') === 'S-006');
-	assert.ok(nodes(s6).some((node) => attr(node, 'href')?.endsWith('--argument-arg-008')));
+	assert.ok(nodes(s6).some((node) => attr(node, 'href')?.endsWith('--argument-arg-999')));
 });

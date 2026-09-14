@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { test } from 'node:test';
-import { dependencyRoles } from '../src/lib/dependencies.ts';
+import { semanticUseRoles } from '../src/lib/semantic-uses.ts';
 
 function markdownFiles(directory: string): string[] {
 	return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -12,7 +12,7 @@ function markdownFiles(directory: string): string[] {
 	});
 }
 
-test('statement content uses the five-role dependency contract', () => {
+test('statement content uses the explicit semantic-use contract', () => {
 	const content = markdownFiles('src/content/model/statements')
 		.map((path) => readFileSync(path, 'utf8'))
 		.join('\n');
@@ -20,8 +20,9 @@ test('statement content uses the five-role dependency contract', () => {
 
 	assert.ok(roles.length > 0);
 	assert.ok(
-		roles.every((role) => dependencyRoles.includes(role as (typeof dependencyRoles)[number])),
+		roles.every((role) => semanticUseRoles.includes(role as (typeof semanticUseRoles)[number])),
 	);
+	assert.doesNotMatch(content, /^(upstream|downstream):/m);
 	assert.doesNotMatch(content, /^\s+relation:\s+/m);
 	assert.doesNotMatch(content, /^statementType:\s+logical\s*$/m);
 	assert.doesNotMatch(content, /^inference:\s*$/m);

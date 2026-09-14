@@ -9,7 +9,7 @@ domain: science
 statementType: empirical
 confidence: unresolved
 order: 12
-upstream: []
+semanticUses: []
 related: []
 version: '0.1'
 updated: 2026-09-12

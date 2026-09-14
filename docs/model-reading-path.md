@@ -28,7 +28,7 @@ semantic review; they must not add premises or replace canonical propositions.
 Required text is trimmed during parsing. Section IDs are local presentation
 identifiers, not public semantic resources.
 
-The main route begins with living organisms. Orientation can be read independently.
+The main route begins with living organisms. Orientation can be read independently. The professional-purpose section follows actual scoped benefit, introduces S-029 and ARG-008, and then presents ARG-004. This lets readers inspect the aim after its premises without changing the canonical statement routes or S-ID discussion identities.
 Supporting placement does not change adoption, confidence, truth, or importance.
 An argument step presents that argument and its canonical conclusion, with every
 premise available in canonical order, regardless of where the premise is placed.
@@ -57,7 +57,7 @@ and introduction and has an `anchor`, `placement`, and resolved `steps`. A state
 step attaches `statement`; an argument step attaches `argument`, including its full
 joint premise list and conclusion. No recursive graph traversal is performed.
 Argument cycles and multiple arguments for a conclusion remain finite adjacency
-lists. Only the separate dependency validator enforces a DAG.
+lists. The executable profile separately rejects productive inference cycles. Semantic references and revision influence may be cyclic; `revisionCandidates(id)` uses finite traversal through the shared formal and semantic-use graph. Reading placement never filters that graph.
 
 ## Coverage, duplicates, and locations
 

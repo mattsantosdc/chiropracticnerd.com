@@ -9,13 +9,7 @@ domain: framework
 statementType: framework
 confidence: not-applicable
 order: 30
-upstream:
-  - id: S-001
-    role: methodological
-    note: S-001 assigns philosophy the work of exposing proposed structure and science the work of testing empirical premises; S-003 turns that division into an explicit reasoning method.
-  - id: S-002
-    role: methodological
-    note: S-002 distinguishes validity, premise truth, and epistemic strength; S-003 applies those distinctions to argument records and revision.
+semanticUses: []
 related: []
 version: '0.1'
 updated: 2026-09-09

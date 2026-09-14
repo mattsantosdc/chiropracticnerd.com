@@ -1,0 +1,21 @@
+---
+import questionData from '../../data/model-questions.json';
+import { validateQuestions } from '../../lib/questions.ts';
+import type { ReasoningIndex } from '../../lib/reasoning.ts';
+interface Props { target: string; index: ReasoningIndex }
+const { target, index } = Astro.props;
+const questions = validateQuestions(questionData, new Set(index.statementsById.keys()), new Set(index.argumentsById.keys()))
+	.filter((question) => question.target === target);
+---
+{questions.length > 0 && <section class="critical-questions" aria-labelledby="questions-heading">
+	<h2 id="questions-heading">Questions and alternative explanations</h2>
+	<p>These questions help clarify what the account establishes, where it remains open, and what could change it.</p>
+	{questions.map((item) => <details class="model-disclosure" id={item.id.toLowerCase()} data-question-id={item.id}>
+		<summary>{item.question}</summary>
+		<div class="disclosure-body">
+			<p>{item.concern}</p>
+			<p>{item.response}</p>
+			<p><strong>What would change:</strong> {item.wouldChange}</p>
+		</div>
+	</details>)}
+</section>}

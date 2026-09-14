@@ -11,7 +11,7 @@ conclusion: S-027
 inferenceKind: deductive
 scheme: existential application of a value criterion
 version: '0.1'
-updated: 2026-09-12
+updated: 2026-09-14
 ---
 
 ## Exact route
@@ -31,5 +31,7 @@ Assume S-011 true and take one of its input-produced reorganizations. S-024 defi
 S-011 must be true for this route to establish actual benefit. Its unresolved confidence is not improved by the deduction. S-009's general modifiability and S-020's sensory-updating capacity cannot replace the joint causal premise: their cases need not overlap with chiropractic inputs that produce improving reorganization.
 
 The success definition and S-026 are unnecessary premises here. Defining success supplies no occurrence evidence. Likewise, S-028's perturbation explanation is a separate empirical commitment; the benefit inference can remain valid if another mechanism explains S-011's effect.
+
+S-030's capacity for neural influence and S-031's predicted broader neural effects are not premises of this scoped benefit argument. S-012 separately proposes broader improvement. A change in shared neural processes or influence between circuits could explain that outcome without the observed local motor improvement being its cause; this argument supplies no such causal or outcome bridge.
 
 None of the premises supplies a success frequency, prospective selection rule, reliable assessment, durable change beyond the specified interval, broader benefit, principal neural mediation, or sufficient justification to proceed with an intervention. ARG-005 and the practical arguments remain defeasible. The conclusion preserves S-022's functional-benefit scope throughout; it makes no judgment about the intervention's worth after all costs, risks, and alternatives are considered.

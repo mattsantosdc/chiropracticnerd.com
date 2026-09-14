@@ -1,49 +1,75 @@
 ---
 id: S-013
 slug: science/neural-mediation
-title: Neural mediation of broader chiropractic effects
+title: Predominant mediation by motor-related neural change
 statement: >-
-  Chiropractic inputs influence broader human function principally through nervous-system-mediated change.
-summary: Neural mediation is the proposed principal route to broader chiropractic effects; its occurrence, primacy, and particular pathways remain empirical questions.
+  Chiropractic inputs influence broader human function predominantly through changes they induce in the activity or responsiveness of neural circuitry involved in motor control.
+summary: Motor-related neural change is the proposed predominant mediator of broader chiropractic effects; its central and proprioceptive routes, timing, and relative contributions remain questions to investigate.
 domain: science
 statementType: empirical
 confidence: unresolved
 order: 70
-upstream:
-  - id: S-007
-    role: empirical
-    note: Revising S-007's integrative role would require reconsidering the proposal that neural mediation is the principal route to broader chiropractic effects; an integrative role does not demonstrate any chiropractic effect.
+semanticUses:
   - id: S-011
     role: empirical
     note: Revising S-011's proposed input-caused reorganization and improvement would require reconsidering the input and response account used in this neural-mediation proposal; neuromotor improvement establishes neither mediation of broader effects nor neural primacy.
+  - id: S-030
+    role: empirical
+    note: Revising S-030's circuit-influence account would require reconsidering the proposed motor-related neural mediator and its central route; capacity for influence establishes neither chiropractic mediation nor its predominance.
 related:
+  - S-007
   - S-012
+  - S-031
 version: '0.1'
-updated: 2026-09-12
+updated: 2026-09-14
+references:
+  - title: Diverse and complex muscle spindle afferent firing properties emerge from multiscale muscle mechanics
+    url: https://doi.org/10.7554/eLife.55177
+    kind: empirical
+    note: Blum and colleagues (2020) combined passive-stretch recordings in rats with biophysical modeling; the independent effects of alpha and gamma drive were simulated. This informs a candidate motor-dependent feedback route, without demonstrating chiropractic mediation or its predominance.
 whatWouldChange: >-
-  Narrow or reject specified neural-mediation hypotheses if valid controlled studies find that the proposed neural changes do not mediate prespecified broader effects under conditions capable of detecting that mediation. Revise the principal-pathway proposal if credible causal evidence shows that competing pathways better explain those effects. Revise particular pathway proposals when their predicted temporal or causal relationships fail in suitably sensitive tests.
+  Narrow or reject specified mediation hypotheses when suitably sensitive causal tests find that the proposed input-induced circuit changes do not mediate the prespecified broader effect, or when another common cause better explains their association. Revise predominance when credible comparisons favor pathways bypassing that mediator. Revise particular downstream routes when their temporal or causal predictions fail, without treating failure of one route as rejection of every route. Local improvement or an unspecified neural change cannot rescue a failed prediction.
 ---
 
-## Broader effects and neural mediation
+## The proposed mediator
 
-The Model proposes that chiropractic inputs influence broader function and that nervous-system-mediated change is their principal route. These are empirical commitments to test, with confidence assessed separately. This chiropractic-specific proposal is stronger than S-007's general integrative role. S-011's proposed input-produced neuromotor changes likewise do not establish the route to broader effects.
+The Model proposes that changes induced in motor-related neural circuitry are the predominant mediator of broader chiropractic effects. The mediator is a change in neural activity or responsiveness. Muscle tone, posture, and motor performance can be observable expressions of that change without uniquely identifying it or themselves causing the broader outcome.
 
-This hypothesis concerns broader functional effects, including effects whose value remains unresolved. S-012 separately proposes that some chiropractic-produced neuromotor changes contribute to broader context-appropriate improvement, evaluated in a specified broader scope. Neural mediation does not make an effect beneficial, and evidence of broader benefit would not by itself establish neural mediation or its primacy. A successful adjustment under S-025 settles neither broader transfer nor the principal pathway of any broader effect. Neither hypothesis establishes the other.
+S-030 supplies the circuit-influence account: shared neural processes can participate in motor and other functions, and altered synaptic drive can influence connected circuits. S-011 supplies the local input and response account from which this broader proposal is distinguished. Neither establishes the present mediation or predominance claim. S-007's general integrative role provides biological background, without being a required premise for this particular mechanism.
 
-## Three separate empirical questions
+## Downstream routes remain open
 
-- **Mediation:** Does an input produce a neural change that contributes causally to a specified broader effect? An accompanying neuromotor response could be an indicator rather than a mediator; association alone cannot distinguish them.
-- **Primacy:** Is neural mediation the principal route to that effect when compared with competing explanations? Evidence that a neural process contributes does not establish that it is the principal pathway.
-- **Particular pathways:** Which neural processes account for the proposed relationship, with what temporal sequence and under which conditions? A general mediation finding does not identify a specific pathway.
+Two candidate routes follow from the proposed motor-related circuit change:
 
-Each question requires a specified input, population, state, outcome, and timescale, with credible comparisons and measures appropriate to that question. Findings concerning one effect or context do not settle the proposal across every aspect of human function.
+- **Central influence:** changed activity alters synaptic drive within shared or connected neural systems, without requiring a new peripheral receptor event at each step.
+- **Motor-dependent proprioceptive feedback:** changed motor drive alters the peripheral conditions and spindle sensitivity that shape subsequent afferent input, which can then influence further processing.
+
+Alpha drive acts on extrafusal muscle fibers; gamma drive acts on intrafusal fibers and influences spindle sensitivity. These influences interact with muscle mechanics. A change in tone or movement does not specify a simple, fixed change in spindle firing. Blum and colleagues' recordings and modeling help formulate this candidate feedback route, without establishing its contribution after a chiropractic input.
+
+Proprioceptive feedback could account for most of the downstream influence while remaining part of a pathway through the proposed motor-related mediator. Its contribution is not an independent competitor to the upstream change that generated it. Initial sensory activity evoked by the applied stimulus can precede and help initiate that circuit change; it must be distinguished from subsequent feedback altered by the circuit change. The hypothesis does not put every sensory event downstream of motor change.
+
+Which circuits participate, whether one or both routes contribute, their temporal relationships, and their relative contributions remain open. The Model does not assign an established percentage to either route or require every effect to use the same sequence.
+
+## What predominance would require
+
+Predominance compares pathways passing through the specified motor-related neural change with pathways bypassing it. Establishing one contribution is insufficient. Each test must define its input, population, initial state, circuits, broader outcome, timescale, competing explanation, and comparative meaning of predominant before observing results. Nested steps must not be added as though their contributions were independent, and interacting routes may resist a simple percentage allocation.
+
+The motor-related criterion must identify circuitry and measurements prospectively. It cannot expand after the results to label every changed neural process part of the proposed mediator. A motor finding and a broader outcome can share another cause; their correlation or temporal order alone does not distinguish that account from mediation.
+
+## Questions for evidence and research
+
+The account creates specific questions without supplying their answers: what evidence links a defined input to the proposed circuit change; what links that change to a specified broader outcome; how much influence passes through central and motor-dependent feedback routes; and what findings would favor a pathway bypassing the proposed mediator?
+
+Observations in practice can identify repeatable patterns, candidate measures, time courses, and exceptions. A prospectively stated observational prediction can be checked within those limits. Keep unchanged, unfavorable, and uncertain findings alongside favorable observations. Tone or performance measurements alone do not establish the underlying circuit state or its causal role.
+
+Mechanistic studies need measurements and comparisons capable of distinguishing mediation, shared causes, and bypass routes. Randomizing the delivered input can help test its effects without, by itself, identifying which measured response mediates them. The strength of a conclusion depends on the design and evidence, including the ability to detect a predicted effect. An open question should guide evidence appraisal or a testable prediction rather than be filled with an assumed answer.
 
 ## Current evidence
 
-This statement has not yet documented evidence establishing neural mediation or its primacy for broader chiropractic effects. General nervous-system integration does not establish either proposition. Evidence for particular neural pathways also remains to be appraised separately.
+The documented evidence has not established this chiropractic-specific mediation or its predominance. S-030's network evidence informs the central route. Blum and colleagues' rat recordings and simulations inform how mechanics and motor drive can shape spindle signaling; their alpha/gamma simulations do not directly measure these contributions in people receiving chiropractic inputs. General physiological plausibility supplies research candidates, not a demonstrated allocation of broader effects.
 
 ## Boundary
 
-“Principally” proposes a main route without asserting that every effect must be exclusively neural. The statement proposes an effect and its principal mediation; it does not guarantee an effect from every input or in every person. Its empirical support remains unresolved. An immediate change establishes neither the proposed mechanism nor its durability or broader significance.
+Predominant does not mean exclusive, guaranteed, or beneficial. S-031 separately proposes the likelihood of broader neural changes; S-012 separately proposes qualifying broader improvement in some cases. Neither establishes the present comparative mechanism claim, and this claim does not establish either of them. Its unresolved confidence remains separate from the proposed causal structure.
 
-If this explanation fails, it must be revised; failure does not establish the impossibility of every chiropractic effect by another route. Conversely, a broader outcome observed without evidence for neural mediation would not validate this mechanism. Particular pathways and the proposed primacy of neural mediation remain revisable.
+Failure of a specified mechanism requires revising that explanation. A broader effect established through another route would not validate this mediator, while failure of this mediator would not establish the impossibility of every broader effect.

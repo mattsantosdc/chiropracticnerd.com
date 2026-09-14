@@ -9,7 +9,7 @@ domain: philosophy
 statementType: definition
 confidence: not-applicable
 order: 50
-upstream:
+semanticUses:
   - id: S-023
     role: conceptual
     note: Revising S-023's definition of chiropractic input would change which causes qualify a reorganization as an adjustment; the definition supplies no evidence that any input causes it.

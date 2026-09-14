@@ -24,12 +24,21 @@ async function buildFixture(t: { after: (callback: () => void) => void }, config
 	const packet = collectInputs(root);
 	// Synthetic bookkeeping only in this disposable fixture: not a semantic approval.
 	const review = {
-		schemaVersion: 1,
+		schemaVersion: 2,
 		reviewedAt: '2026-09-12T00:00:00Z',
 		reviewer: { kind: 'ai', identifier: 'Test-only synthetic coverage fixture', model: 'test-only' },
 		inputs: packet.inputs,
+		snapshot: packet.snapshot,
+		wholeModelReview: {
+			reviewedAt: new Date().toISOString(),
+			reviewer: { kind: 'ai', identifier: 'Test-only synthetic coverage fixture', model: 'test-only' },
+			inputs: packet.inputs,
+		},
 		records: Object.fromEntries(packet.subjects.map((path: string) => [path, {
 			finding: 'consistent',
+			basis: packet.bases[path],
+			reviewedAt: new Date().toISOString(),
+			reviewer: { kind: 'ai', identifier: 'Test-only synthetic coverage fixture', model: 'test-only' },
 			...Object.fromEntries(rubricFields.map((field: string) => [field, 'Test-only coverage fixture, not a semantic review.'])),
 		}])),
 	};
@@ -61,11 +70,11 @@ test('production overview rejects a malformed path even after fixture review fre
 	const { code, output } = await buildFixture(t, (root) => {
 		const file = join(root, 'src/data/model-reading-path.json');
 		const config = JSON.parse(readFileSync(file, 'utf8'));
-		config.main[0].steps[0].id = 'S-999';
+		config.main[0].steps[0].kind = 'argument';
 		writeFileSync(file, JSON.stringify(config));
 	});
 	assert.equal(code, 1, output);
-	assert.match(output, /main section "living-organisms" step 1: missing statement S-999/);
+	assert.match(output, /main\.0\.steps\.0\.id.*S-017.*Expected an argument ID \(ARG-###\)/);
 });
 
 test('production components render shared conclusions and cyclic argument participation finitely', async (t) => {

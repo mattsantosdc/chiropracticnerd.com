@@ -1,5 +1,6 @@
 import copy
 import json
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -36,6 +37,44 @@ def status(result, literal):
 
 
 class FoundationTests(unittest.TestCase):
+    def test_review_impact_contains_actual_full_evaluation_changes(self):
+        base = theory(premises=['p', 'u'], rules=[rule('d1', ['p'], 'q'), rule('d2', ['q'], 'r')])
+        base['undercutters'] = [dict(statement='u', rule='d1')]
+        cases = []
+        # Withdrawal can reinstate support; a negative premise can rebut it.
+        for premises in [['p'], ['p', 'u', '-q'], ['u'], ['p', 'q', 'u']]:
+            changed = copy.deepcopy(base)
+            changed['ordinaryPremises'] = premises
+            cases.append((base, changed))
+        no_attack = copy.deepcopy(base)
+        no_attack['undercutters'] = []
+        cases.append((base, no_attack))
+        no_rule = copy.deepcopy(no_attack)
+        no_rule['rules'] = no_rule['rules'][1:]
+        cases.append((no_attack, no_rule))
+        alternative = copy.deepcopy(base)
+        alternative['rules'].append(rule('d3', ['p'], 'q'))
+        cases.append((base, alternative))
+        cycle = theory(names=['p', 'a', 'b', 'c'], premises=['p'], rules=[rule(f'd{x}', ['p'], x) for x in 'abc'])
+        cycle['undercutters'] = [dict(statement='a', rule='db'), dict(statement='b', rule='dc'), dict(statement='c', rule='da')]
+        broken = copy.deepcopy(cycle)
+        broken['undercutters'].pop()
+        cases.append((cycle, broken))
+        completed = subprocess.run(['node', 'tests/helpers/review-impact-theory.mjs'],
+                                   input=json.dumps(dict(cases=cases, canonical=load_model())), text=True, capture_output=True,
+                                   cwd=ROOT, check=True, timeout=10)
+        comparison = json.loads(completed.stdout)
+        self.assertEqual(comparison['missingCanonicalEdges'], [])
+        impacts = comparison['impacts']
+        changed_count = 0
+        for (before, after), affected in zip(cases, impacts, strict=True):
+            old_result, new_result = evaluate(before), evaluate(after)
+            changed = {sid for sid in old_result['statements']
+                       if status(old_result, sid) != status(new_result, sid)}
+            changed_count += len(changed)
+            self.assertTrue(changed <= set(affected), (changed, affected))
+        self.assertGreater(changed_count, 0)
+
     def test_f01_joint_premises_are_not_alternative_support(self):
         t = theory(rules=[rule('d1', ['p', 'q'], 'r')])
         self.assertEqual(status(evaluate(t), 'r'), 'no-argument')

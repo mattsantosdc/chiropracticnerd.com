@@ -154,11 +154,7 @@ When a claim changes, use both layers:
 
 During the transition retain the existing dependency data until every relationship has an explicit migration disposition. The target impact model derives inference dependencies and also follows objections, defenses, rule identity, profile changes and semantic uses. Do not stop computational propagation merely because an intermediate statement retains the same wording. Never use a reading path to exclude an admitted challenge.
 
-The deferred [reasoning review and invalidation plan](review-invalidation-plan.md) describes how
-content fingerprints and review attestations may later make this impact traversal semi-automatic
-without treating a hash or AI finding as proof of truth, validity, or soundness.
-
-The current [Model review](model-review.md) already checks review freshness for the whole Model. Incremental dependency propagation remains deferred; a content or policy change currently requires reconsidering the complete review.
+The implemented [review impact contract](review-invalidation-plan.md) derives a review plan from previous and current relationships. Run `npm run audit:model -- --plan`, reconsider the required records and preserve unaffected findings and provenance. Per-record bases prevent a global fingerprint refresh from certifying unreviewed consequences. Shared-policy and broad structural changes still require global examination; periodic whole-model reviews look for missing relationships. Complete formal evaluation and automated checks always remain global.
 
 ### 9. Separate argument failure from conclusion falsity
 

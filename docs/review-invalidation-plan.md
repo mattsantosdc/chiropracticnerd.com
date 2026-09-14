@@ -1,53 +1,67 @@
-# Reasoning review and invalidation plan
+# Review impact and invalidation contract
 
-The current whole-Model review remains mandatory. Incremental review is deferred. The [ASPIC+ foundation](aspic-foundation.md) changes the requirements for any future incremental system: supporting arguments, attacks, defenses, rule identity, profile settings and semantic uses can all affect a result.
+Impact-based semantic review is implemented in `scripts/model-review-impact.mjs` and enforced by `scripts/model-audit.mjs`. Full-theory evaluation remains mandatory. The impact graph proposes editorial reconsideration; it does not determine truth, confidence, adoption or ASPIC+ acceptance.
 
-## Distinguish review freshness from evaluation
+## Two independent kinds of freshness
 
-A fingerprint establishes which exact inputs a review or computation used. It establishes neither truth nor the quality of the review. Keep statement meaning, evidential confidence, working adoption, formal premise membership, argument status and review freshness separate.
+A review records the sources and relationships its reviewer examined. An evaluation records the complete theory and profile it computed. Changing an attacker can reinstate an argument whose text has not changed, so an unchanged intermediate statement is never a reason to stop formal reevaluation.
 
-The current gate records whole-file fingerprints and specific semantic findings for every working statement and argument. Critical-question data, formal bindings, engine policy and implementation are now explicit inputs too. Review critical questions alongside their target records. Any change in this input set requires a renewed review under [model-review.md](model-review.md).
+Every ordinary Model change still runs all automated reasoning, integrity, build and route checks. Only semantic reconsideration is scoped. Incremental formal evaluation, query slicing and hosted AI review remain deferred.
 
-## Derived impact, explicit semantic uses
+## Canonical inputs and derived relationships
 
-The final system should derive inferential use from canonical applications rather than maintain a second authored list. Preserve non-inferential relationships such as use of a definition when the formal representation does not recover them. The [migration assessment](aspic-migration.md) records every existing relationship and its proposed disposition; it must be resolved before the legacy fields are retired.
+The snapshot uses stable statement/application IDs and typed directed edges. No new authored upstream or downstream list is introduced. Inferential edges come from canonical applications and their explicit formal bindings. During an incomplete edit, both sets of endpoints remain visible; the independent reasoning loader rejects binding drift before completion. Existing `upstream` records supply their explicit semantic-use roles and notes until their authorized migration is complete. Retired migration entries are history, never active edges.
 
-Maintain separate, typed indexes for:
+The graph includes:
 
-- premises used by inference applications and conclusions supplied by those applications;
-- propositions contrary to other propositions;
-- propositions that undercut named defeasible rules;
-- derived arguments containing a challenged premise or application;
-- semantic uses of definitions, scope vocabulary and authoring methods;
-- explicit premise membership, rule sets, priorities and evaluation-profile choices; and
-- source and proposition versions used by a recorded review or result.
+- premise-to-application and application-to-conclusion links, preserving each application and all joint premises;
+- conclusion-to-application review links, so changing a conclusion also prompts reconsideration of every argument for it, including alternatives;
+- each declared proposition's explicit classical-negation counterpart under the fixed profile;
+- strict transposition paths under that profile, without adding defeasible contraposition;
+- directed undercutter-to-rule links when supplied to the supported theory adapter; and
+- explicit semantic uses from the current legacy dependency records.
 
-Do not infer a relationship from a reading sequence, shared terminology, an unreviewed prose interpretation or a public comment. An editorial critical question is not automatically an attack; a formal attacker requires an admitted proposition and supporting argument.
+Contradiction and undercut paths can reach defenders, attacks on those defenders, and their downstream uses. Cycles terminate by visited identity. These are conservative influence paths, not claims that attacks succeed. Joint-premise edges do not assert that any individual premise is sufficient.
 
-## Recompute before optimizing
+The canonical binding loader currently admits no authored opposing corpus and returns an empty undercutter list. The review adapter mirrors that exact supported schema. Synthetic tests exercise directed undercuts, defense cycles and strict transpositions. New binding capabilities, contrary policies or authored opposition require updating both loaders and their tests; unknown top-level binding fields fail rather than being ignored. An editorial critical question is never automatically a formal attacker.
 
-Reevaluate the complete declared theory after an input changes. Grounded acceptance is nonmonotonic: removing an attacker can reinstate another argument without changing either argument's wording. A change can propagate through defenses and alternative derivations as well as through premise-to-conclusion paths.
+## Input units and scope
 
-An unchanged intermediate statement therefore does not justify stopping computational propagation. Editorial review of that statement's wording may remain applicable after inspection, while its evaluated status and the status of arguments that depend on it still require recomputation. Keep those decisions separate.
+| Input | Review scope |
+| --- | --- |
+| Proposition, summary, title, body, evidence, qualifiers, references, or semantic relationship data | Its record, then its influence closure |
+| Date/version or formatting-only frontmatter change | Exact local record; no inference propagation |
+| Slug, order, title or related-link presentation | The record and directly affected participation/link context |
+| Formal statement binding or explicit premise membership | That statement and its influence closure |
+| Formal application binding or canonical argument | That application, participants as reader context, and its influence closure |
+| Critical question | Its previous and current target records only |
+| Reading section text, steps, placement or adjacent-section identity | The section's displayed statements/applications and explicit argument participants, using previous and current placement |
+| Dependency migration entry | Its surviving source/target records as historical review context; no active dependency inferred |
+| Shared contracts, schema, engine/profile/signature, helpers or renderer | All canonical records |
+| Registered input without a specific adapter | All canonical records |
 
-`reasoning/engine.py` includes a conservative impact helper for inference and conflict relationships. It is a review aid, not a complete incremental evaluation algorithm, and it does not include the legacy semantic relationships by itself. No current command uses it to skip whole-theory evaluation or the whole-Model review.
+Whole-file fingerprints still account for every exact source after newline normalization. Parsed field units narrow propagation where meaning can be separated mechanically. The adapter does not infer semantic equivalence from wording. Markdown body changes, including body whitespace, conservatively propagate. JSON key reordering or whitespace can require inspecting the changed file without invalidating any canonical finding. Unrelated application/article files do not affect this review.
 
-## Future incremental acceptance criteria
+## Previous and current graphs
 
-Before introducing a blocking incremental system:
+The saved snapshot preserves previous subject identities, input-unit fingerprints and typed edges. `--plan` compares it with the current snapshot, seeds changed/added/removed units and relationships, then walks the union of both graphs. It reports explanatory routes and labels each edge as previous, current or both. Deleting a dependency or argument therefore cannot erase its former impact from the plan. Retargeting checks both former and new participants. Removed record paths remain explicit cleanup items.
 
-1. Specify exactly which changes affect proposition meaning, confidence, inference structure, formal role, source identity and presentation. Use versioned canonical serialization and immutable, nonrecursive fingerprints.
-2. Treat profiles, rule definitions and formal bindings as first-class inputs. A changed ordering or contrary mapping can change results without any English text changing.
-3. Identify affected argument structures and the complete attack/defense region needed by the selected semantics. Account for argument creation and deletion, not only changed existing nodes.
-4. Establish that a query slice or incremental computation preserves the selected full-theory result. Test additions, withdrawals, alternative support, undercutters, reinstatement and attack cycles against complete evaluation.
-5. Keep unsupported inputs, timeouts and incomplete results explicit. A traversal limit cannot certify acceptance or absence of support.
-6. Separate editorial reconsideration from computed status. A failed argument does not establish that its conclusion is false; another argument may support it.
-7. Preserve a periodic whole-Model examination for missing relationships. An index cannot discover an omitted premise or objection by itself.
+## Per-record bases and provenance
 
-## Review records and governance
+Each record has its own `basis`, timestamp and reviewer. Its basis hashes a versioned canonical serialization of its identity/path, relevant units and relevant typed edges. Propagating units are included when their targets lie in the record's reverse influence closure. Local units are included only at their specified targets. Global units appear in every basis. These are flat source identities, not recursively nested argument/review hashes.
 
-Store review findings outside the material they fingerprint. Identify the reviewer, the applicable rubric, the exact inputs, the finding and its rationale. AI review uses the same contract as human review; a hash refresh is never a substitute for reconsideration.
+The checker independently recomputes every expected basis. Updating the root input map and snapshot cannot make an old affected basis current. Unaffected findings, their timestamp and reviewer remain verbatim. A fresh input hash is not a claim that someone performed a review; only the reviewer records an attestation after examining the content.
 
-A future review interface may distinguish a definitely stale input from a potentially affected record awaiting assessment. Such labels are derived review information. They must not become author-editable scientific confidence or formal acceptance labels.
+The review envelope and workflow are defined in [model-review.md](model-review.md). Schema-1 history is preserved during the explicit baseline migration. Review metadata and generated inspection output remain outside canonical propositions and outside their own fingerprint inputs.
 
-The existing CI workflow runs the current complete checks. It does not deploy, merge or certify empirical support. Any later publication or incremental policy must preserve the branch workflow and the user's authorization requirements in `AGENTS.md`.
+## Whole-model examinations
+
+Shared changes invalidate all bases. A whole-model examination is also required before a Model-version release, after a broad restructuring or discovered missing relationship, and at least every 90 days. The checker enforces the interval when invoked and exposes `--full` for an explicitly requested full plan. A completed whole-model attestation records its own exact input set; an incremental transaction never refreshes that date merely to clear the periodic gate.
+
+A whole-model examination looks for missing premises, objections and semantic uses that no existing index can discover. The reviewer can also expand a local review when the diff reveals an omitted relationship, and should record the missing relationship explicitly before relying on future scope calculations.
+
+## Validation boundaries
+
+Tests cover joint-premise support, alternative arguments, conclusion edits, additions, deletions, retargeting, semantic dependencies, negative literals, directed undercut/defense cycles, strict transposition, local questions/reading changes, global policy changes, periodic reviews, preserved provenance and stale-basis rejection after a superficial snapshot refresh. A cross-runtime conformance test checks that changed statuses from complete ASPIC+ evaluations fall within the review graph's impact after withdrawals, rebuttal, alternative support and defense changes. Complete evaluation itself is unchanged.
+
+The planner is conservative rather than minimal. A broad shared-policy change may still require all records. It does not prove English fidelity, evidential support or completeness of the relationship corpus. It neither authorizes a merge nor prepares a PR. Finish the seven remaining relationship decisions before PR preparation; the user will review and merge manually.

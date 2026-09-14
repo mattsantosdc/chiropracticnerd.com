@@ -75,9 +75,9 @@ Argument cycles, future objection links, or competing reasoning paths must not i
 
 The authorized ASPIC+ pilot now uses Z3 to check formal strict inferences and provides experimental AIF interchange. An RDF store, SPARQL endpoint, public JSON-LD export, SHACL runtime, full evidence ontology and nanopublication packaging remain deferred until a concrete integration requires them. Before a public RDF/JSON-LD export begins, all reserved HTTP identifiers it emits must resolve and its generated graph must pass the declared SHACL shapes. The isolated AIF pilot does not publish those reserved identifiers.
 
-A focused [Model review](model-review.md) now records whole-file fingerprints and AI-assisted or human semantic findings outside canonical content. The npm test and build commands require the review to cover the current Model, arguments, and governing policy. These records introduce no public route, semantic identifier, or canonical content-schema change; they track review coverage, not truth, validity, soundness, or evidential sufficiency.
+The [Model review](model-review.md) records whole-file fingerprints, scoped per-record bases and AI-assisted or human semantic findings outside canonical content. The npm test and build commands require the review to cover the current Model, arguments, and governing policy. These records introduce no public route, semantic identifier, or canonical content-schema change; they track review coverage, not truth, validity, soundness, or evidential sufficiency.
 
-Field-level semantic fingerprints, incremental downstream invalidation, a hosted AI review runner, and a broader publication policy remain deferred. Their intended semantics, propagation rules, and implementation stages are defined in the [reasoning review and invalidation plan](review-invalidation-plan.md).
+The [review impact contract](review-invalidation-plan.md) implements conservative field-level scoping, previous/current graph propagation and per-record provenance. Full-theory evaluation continues after every Model change. Incremental formal evaluation, a hosted AI review runner and a broader publication policy remain deferred.
 
 Interactive visualization is a separate, also-deferred concern. It will use a renderer-neutral
 read model derived directly from the validated Markdown collections; it does not require linked

@@ -171,3 +171,7 @@ is preferred, installed, or pinned by this stage. Preserve keyboard and screen-r
 access to equivalent textual relationships and verify every visual edge against
 canonical structured data. Evidence, causal, objection, and provenance layers need
 their own canonical contracts before visualization.
+
+## Question-specific reading
+
+The [answer views](model-answer-views.md) now implement a finite textual view of authored upstream reasoning. They preserve argument identities and joint premises and disclose independent starting assumptions. Additional semantic references remain separately labeled; further uses are available on the full record. The view creates no graph relation and does not filter formal evaluation. An interactive node map remains deferred until it adds a concrete benefit beyond these views.

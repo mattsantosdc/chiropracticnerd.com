@@ -65,3 +65,7 @@ A whole-model examination looks for missing premises, objections and semantic us
 Tests cover joint-premise support, alternative arguments, conclusion edits, additions, deletions, retargeting, semantic dependencies, negative literals, directed undercut/defense cycles, strict transposition, local questions/reading changes, global policy changes, periodic reviews, preserved provenance and stale-basis rejection after a superficial snapshot refresh. A cross-runtime conformance test checks that changed statuses from complete ASPIC+ evaluations fall within the review graph's impact after withdrawals, rebuttal, alternative support and defense changes. Complete evaluation itself is unchanged.
 
 The planner is conservative rather than minimal. A broad shared-policy change may still require all records. It does not prove English fidelity, evidential support or completeness of the relationship corpus. It neither authorizes a merge nor prepares a PR. The relationship decisions and schema migration are complete; the user will review and merge manually.
+
+## Navigation question scoping
+
+`src/data/model-answer-questions.json` contains local prompts pointing to canonical answer statements. Each prompt and its display position forms a local review unit for that S-ID. Retargeting or deletion includes the previous target; prompt changes do not propagate through inference or add edges. The answer resolver and shared rendering contract remain global inputs.

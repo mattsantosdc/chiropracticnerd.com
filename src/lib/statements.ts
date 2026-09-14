@@ -21,7 +21,7 @@ export const domainLabels: Record<StatementDomain, string> = {
 	art: 'Art',
 };
 
-export const reservedStatementSlugRoots = ['arguments'] as const;
+export const reservedStatementSlugRoots = ['arguments', 'answers'] as const;
 
 export function isReservedStatementSlug(slug: string) {
 	const [root] = slug.split('/');

@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [model-v0.1, main]
   push:
-    branches: [model-v0.1, model-v0.1-aspic-foundation, main]
+    branches: [model-v0.1, model-v0.1-aspic-foundation, model-v0.1-question-navigation, main]
 
 permissions:
   contents: read

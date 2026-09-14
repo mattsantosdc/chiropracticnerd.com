@@ -10,6 +10,7 @@ import CriticalQuestions from '../../components/model/CriticalQuestions.astro';
 import Layout from '../../layouts/Layout.astro';
 import { modelIdentity } from '../../lib/site';
 import { getRelatedStatements } from '../../lib/statements.ts';
+import { answerHref } from '../../lib/answer-view.ts';
 import { buildReasoningIndex } from '../../lib/reasoning.ts';
 import { resolveReadingPath } from '../../lib/reading-path.ts';
 import { readingHref } from '../../lib/reading-navigation.ts';
@@ -31,7 +32,7 @@ const related = getRelatedStatements(statements, entry.data.id);
 <Layout title={`${entry.data.title} | ${modelIdentity.name}`} description={entry.data.summary}>
 	<div class="model-reader statement-detail">
 		<p class="eyebrow">{modelIdentity.name} · v{entry.data.version}</p>
-		<p><a href={readingHref(path.primaryStatementLocations.get(entry.data.id)!, false)}>Read {entry.data.id} in the Model</a></p>
+		<p><a href={readingHref(path.primaryStatementLocations.get(entry.data.id)!, false)}>Read {entry.data.id} in the Model</a> · <a href={answerHref(statement)}>Examine this answer and its premises</a></p>
 		<StatementText statement={statement} heading />
 		<section class="entry-summary"><h2 id="entry-summary-title">Summary</h2><p>{entry.data.summary}</p></section>
 		<ReasoningParticipation statement={statement} index={index} path={path} integrated={false} />

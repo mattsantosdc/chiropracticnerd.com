@@ -2,6 +2,7 @@
 
 `src/data/model-reading-path.json` authors one editorial route for Model v0.1.
 Canonical propositions and reasoning remain in the two Markdown collections.
+[Question-specific answer views](model-answer-views.md) provide a second entrance: readers select a statement and trace its authored premises without reading downstream uses. The overview offers those questions before the existing walkthrough.
 Reading order, argument structure, and revision dependencies are independent.
 Adjacency introduces no premise, support, causal relationship, or revision edge.
 Domains and `order` still sort the existing catalog; they do not order this route.

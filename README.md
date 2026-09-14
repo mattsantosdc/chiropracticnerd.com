@@ -55,6 +55,10 @@ Article and Model metadata deliberately separate permanent identity from routing
 
 All Model domains share the `S-###` identifier namespace. The [Stage 1 migration map](docs/statements-stage-1-migration.md) records the previous IDs and paths, separately from the earlier domain-ID migration. Statement IDs are permanent and must never be reused; their numbers carry no ordering, hierarchy, domain, or inferential meaning. Keep presentation grouping in `domain` and presentation order in `order`; IDs must not determine sorting or graph layout. New articles receive the next explicit `article-NNN` ID rather than deriving one from a filename, title, slug, date, or collection entry ID.
 
+## Question-specific reading
+
+The Model overview now offers eight starting questions. Every statement also has an answer view that follows its authored arguments and joint premises upstream, with explicit starting assumptions and critical questions. The complete walkthrough, full records and existing discussions remain available. See the [answer-view contract](docs/model-answer-views.md). These pages change reading scope, not formal evaluation or empirical confidence.
+
 ## Model v0.1
 
 The Model is **guided by first principles and tested against reality**. First principles expose assumptions and help make the framework coherent; they do not deduce chiropractic upward or settle empirical questions.

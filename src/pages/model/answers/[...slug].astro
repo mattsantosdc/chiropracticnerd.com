@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import AnswerStatement from '../../../components/model/AnswerStatement.astro';
+import { buildReasoningIndex } from '../../../lib/reasoning.ts';
+import { buildAnswerView } from '../../../lib/answer-view.ts';
+import { modelIdentity } from '../../../lib/site';
+import bindings from '../../../../reasoning/model-bindings.json';
+
+export async function getStaticPaths() {
+	return (await getCollection('statements')).map((entry) => ({ params: { slug: entry.data.slug }, props: { statementId: entry.data.id } }));
+}
+const [statements, argumentsList] = await Promise.all([getCollection('statements'), getCollection('arguments')]);
+const index = buildReasoningIndex(statements, argumentsList);
+const view = buildAnswerView(index, Astro.props.statementId, bindings.ordinaryPremises);
+---
+<Layout title={`${view.target.entry.data.title}: answer and reasoning | ${modelIdentity.name}`} description={view.target.entry.data.summary}>
+	<div class="model-reader answer-view" data-answer-target={view.target.entry.data.id}>
+		<p class="eyebrow">{modelIdentity.name} · v{view.target.entry.data.version}</p>
+		<p><a href="/model/#model-questions">Choose a question</a> · <a href="/model/#model-contents">Complete walkthrough</a></p>
+		<AnswerStatement group={view.groups[0]} index={index} target />
+		{view.groups.length > 1 && <section class="answer-rationale" aria-labelledby="answer-rationale-title"><h2 id="answer-rationale-title">Statements behind this answer</h2><p>Follow the recorded premises and alternative arguments toward their starting assumptions. Each argument keeps its premises together. The linked explanations and questions examine what supports or challenges these claims.</p>{view.groups.slice(1).map((group) => <AnswerStatement group={group} index={index} />)}</section>}
+		<p class="answer-scope">This view follows the Model's authored reasoning for one statement. It does not establish that the premises are true or that the answer withstands every objection. Other uses of this answer are available in its <a href={view.target.href}>full statement record</a>.</p>
+	</div>
+	<script>import '../../../scripts/model-fragments.ts';</script>
+</Layout>

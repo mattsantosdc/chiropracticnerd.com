@@ -41,7 +41,7 @@ Statements, inference applications, derived arguments, evaluation premises, edit
 
 `reasoning/model-bindings.json` lists 23 ordinary premises explicitly. The eight current conclusion statements are derived rather than independently assumed. The loader does not infer starting-premise membership from publication, missing incoming arrows, confidence or statement type. It rejects changed statement wording or changed application premises, conclusion, inference kind or scheme until their bindings are reviewed.
 
-S-030 and S-031 are explicitly admitted ordinary empirical premises for general circuit influence and chiropractic-specific likelihood. S-012 remains an ordinary empirical premise with revised wording that allows shared neural processes and circuit-to-circuit influence. No argument derives likelihood or broader improvement from S-011 or connectivity. A withdrawal test checks that the engine cannot invent these bridges and that the local benefit and professional-purpose routes remain independent. The two new formulas are opaque propositions; no probabilistic calculus or stronger proof claim is introduced.
+S-030 and S-031 are explicitly admitted ordinary empirical premises for general circuit influence and chiropractic-specific likelihood. S-012 remains an ordinary empirical premise with revised wording that allows shared neural processes and circuit-to-circuit influence. No argument derives likelihood or broader improvement from S-011 or connectivity. A withdrawal test checks that the engine cannot invent these bridges and that the local benefit and professional-purpose routes remain independent. The two new formulas are opaque propositions; no probabilistic calculus or stronger proof claim is introduced. S-013's revised exact text independently assumes predominant mediation by input-induced motor-related neural change. Its opaque binding does not encode causal paths or compute mediation shares. The withdrawal test also checks that integration, local improvement and capacity cannot recreate this premise, while the local-benefit and purpose arguments remain intact.
 
 S-029 is an explicit ordinary normative premise. ARG-008 uses it with S-027 to derive S-005, which is no longer independently assumed. Tests withdraw the bridge or causal premise, undercut the purpose inference, and reject its promotion to strict. The purpose route does not require S-004 or S-028.
 
@@ -90,7 +90,7 @@ The rationality argument for the supported profile relies on no axioms, a symmet
 
 ## Critical questions and formal opposition
 
-Follow [objection-authoring.md](objection-authoring.md). The eleven public questions target actual claims and inferential boundaries without attributing errors to other practitioners. They are canonical editorial content in `src/data/model-questions.json`, displayed on their target detail pages.
+Follow [objection-authoring.md](objection-authoring.md). The fourteen public questions target actual claims and inferential boundaries without attributing errors to other practitioners. They are canonical editorial content in `src/data/model-questions.json`, displayed on their target detail pages.
 
 A question does not assert its suggested alternative as true. A scope boundary need not defeat a correctly limited argument. A formal attacker needs a proposition, an explicitly declared role in a theory, and support under that theory. The pilot's synthetic counterarguments exercise undermining, rebutting and undercutting; they are not adopted clinical propositions.
 

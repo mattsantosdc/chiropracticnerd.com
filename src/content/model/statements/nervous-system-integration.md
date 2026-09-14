@@ -12,7 +12,7 @@ order: 10
 upstream: []
 related: []
 version: '0.1'
-updated: 2026-09-12
+updated: 2026-09-14
 whatWouldChange: >-
   Revise the scope of the claimed integrative role if studies of specified functions show that neural activity does not organize, coordinate, or regulate them as proposed, or that a different account better explains the relevant integration.
 ---
@@ -31,4 +31,4 @@ A claim-specific evidence appraisal has not yet been documented for this broad f
 
 The person includes interacting endocrine, immune, metabolic, cardiovascular, musculoskeletal, and other systems, as well as an environment and social context. This claim neither makes the nervous system a sole controller nor labels every neural change beneficial.
 
-An integrative role alone does not show that chiropractic influences broader function. S-013 separately proposes nervous-system-mediated change as the principal chiropractic pathway and carries the empirical burden of that more specific proposal.
+An integrative role alone does not show that chiropractic influences broader function. S-013 separately proposes motor-related neural change as the predominant mediator of broader chiropractic effects and carries the empirical burden of that more specific proposal. General integration provides background for investigating it.

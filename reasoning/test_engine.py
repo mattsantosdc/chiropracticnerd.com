@@ -362,21 +362,22 @@ class FoundationTests(unittest.TestCase):
         with self.assertRaisesRegex(InvalidTheory, 'not entailed'):
             evaluate(t)
 
-    def test_network_capacity_does_not_invent_likelihood_or_beneficial_transfer(self):
+    def test_network_capacity_does_not_invent_likelihood_benefit_or_predominance(self):
         t = load_model()
-        self.assertTrue({'S-012', 'S-030', 'S-031'} <= set(t['ordinaryPremises']))
-        for removed in ['S-012', 'S-031']:
+        self.assertTrue({'S-012', 'S-013', 'S-030', 'S-031'} <= set(t['ordinaryPremises']))
+        for removed in ['S-012', 'S-013', 'S-031']:
             changed = copy.deepcopy(t)
             changed['ordinaryPremises'].remove(removed)
             result = evaluate(changed)
             self.assertEqual(status(result, removed), 'no-argument')
             self.assertEqual(status(result, 'S-011'), 'accepted-support')
             self.assertEqual(status(result, 'S-030'), 'accepted-support')
+            self.assertEqual(status(result, 'S-007'), 'accepted-support')
         independent = copy.deepcopy(t)
         independent['ordinaryPremises'] = [sid for sid in t['ordinaryPremises']
-                                          if sid not in ['S-012', 'S-030', 'S-031']]
+                                          if sid not in ['S-012', 'S-013', 'S-030', 'S-031']]
         result = evaluate(independent)
-        for sid in ['S-012', 'S-030', 'S-031']:
+        for sid in ['S-012', 'S-013', 'S-030', 'S-031']:
             self.assertEqual(status(result, sid), 'no-argument')
         for sid in ['S-027', 'S-005']:
             self.assertEqual(status(result, sid), 'accepted-support')
@@ -393,6 +394,7 @@ class FoundationTests(unittest.TestCase):
         identities = {(r['source'], r['target']) for r in record['relationships']}
         self.assertEqual(len(identities), len(record['relationships']))
         retired = {('S-004', 'S-005'): 'retired-context-only',
+                   ('S-007', 'S-013'): 'retired-context-only',
                    ('S-022', 'S-005'): 'replaced-by-argument-path'}
         self.assertEqual({(r['source'], r['target']): r['disposition'] for r in record['relationships']
                           if r['disposition'] in retired.values()}, retired)
@@ -403,12 +405,16 @@ class FoundationTests(unittest.TestCase):
         # These uses were authored after the original migration snapshot. Keep
         # the original 38 identities and notes intact instead of falsifying their origin.
         self.assertEqual(set(actual) - identities, {('S-008', 'S-030'), ('S-030', 'S-031'),
-                                                   ('S-024', 'S-031'), ('S-030', 'S-012')})
+                                                   ('S-024', 'S-031'), ('S-030', 'S-012'),
+                                                   ('S-030', 'S-013')})
         self.assertEqual(next(r['disposition'] for r in record['relationships']
                               if (r['source'], r['target']) == ('S-011', 'S-012')),
                          'retain-explicit-semantic-use')
+        self.assertEqual(next(r['disposition'] for r in record['relationships']
+                              if (r['source'], r['target']) == ('S-011', 'S-013')),
+                         'retain-explicit-semantic-use')
         self.assertEqual(sum(r['disposition'] == 'requires-semantic-decision'
-                             for r in record['relationships']), 6)
+                             for r in record['relationships']), 4)
         rules = {r['id']: r for r in load_model()['rules']}
         for item in record['relationships']:
             for rid in item['applications']:

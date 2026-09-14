@@ -36,7 +36,7 @@ Local neuromotor improvement is already valuable under S-022. This statement pro
 
 Studies must establish the input's causal contribution to the relevant neural change and that change's contribution to a prespecified broader improvement, preserving population, state, input, and timescale overlap. Shared-process and circuit-influence explanations require evidence appropriate to their respective causal claims. A favorable before-and-after association does not distinguish them or exclude another explanation. Consequences outside the broader functional comparison additionally bear on whether an intervention is worthwhile.
 
-S-013 separately proposes neural mediation as the principal route to broader chiropractic effects. This statement concerns broader improvement, valued as benefit under S-022; it does not require that neural mediation be the principal pathway. Neither hypothesis establishes the other.
+S-013 separately proposes motor-related neural change as the predominant mediator of broader chiropractic effects. This statement concerns broader improvement, valued as benefit under S-022; it does not require that this mediator be predominant. Neither hypothesis establishes the other.
 
 ## Current evidence
 

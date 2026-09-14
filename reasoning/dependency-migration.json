@@ -146,18 +146,18 @@
       "target": "S-013",
       "legacyRole": "empirical",
       "legacyNote": "Revising S-007's integrative role would require reconsidering the proposal that neural mediation is the principal route to broader chiropractic effects; an integrative role does not demonstrate any chiropractic effect.",
-      "disposition": "requires-semantic-decision",
+      "disposition": "retired-context-only",
       "applications": [],
-      "reviewNote": "General neural integration does not establish principal mediation of chiropractic effects. Distinguish background rationale from a supported explanatory inference."
+      "reviewNote": "The agreed motor-related mediator does not require S-007's broad integrative claim as a premise. Retire the dependency as biological background and preserve a see-also link on S-013. The original role and limiting note remain here. No supporting inference replaces it."
     },
     {
       "source": "S-011",
       "target": "S-013",
       "legacyRole": "empirical",
       "legacyNote": "Revising S-011's proposed input-caused reorganization and improvement would require reconsidering the input and response account used in this neural-mediation proposal; neuromotor improvement establishes neither mediation of broader effects nor neural primacy.",
-      "disposition": "requires-semantic-decision",
+      "disposition": "retain-explicit-semantic-use",
       "applications": [],
-      "reviewNote": "Local input-caused improvement does not establish neural primacy for broader outcomes. The response vocabulary can be a semantic use; the stronger empirical claim needs independent support."
+      "reviewNote": "Retain the original empirical role and limiting note as an explicit use of the local input/response account. S-013 now proposes input-induced motor-related neural change as the predominant mediator; observed motor improvement is not itself the mediator or evidence of predominance. S-030 supplies a separately authored circuit-influence use. No inference from integration, local improvement or general capacity is introduced."
     },
     {
       "source": "S-005",

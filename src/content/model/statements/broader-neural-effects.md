@@ -51,4 +51,4 @@ The evidence documented here has not established the proposed likelihood. The hy
 
 ## Boundary
 
-Broader neural effects can be neutral, harmful, transient, or unrelated to improved performance. S-012's claim of qualifying broader improvement in some cases remains separate. Frequent spread would not establish benefit; rare beneficial effects could remain possible if the likelihood claim fails. S-013's proposed primacy of neural mediation also requires its own evidence.
+Broader neural effects can be neutral, harmful, transient, or unrelated to improved performance. S-012's claim of qualifying broader improvement in some cases remains separate. Frequent spread would not establish benefit; rare beneficial effects could remain possible if the likelihood claim fails. S-013's proposed predominance of motor-related neural mediation also requires its own evidence.

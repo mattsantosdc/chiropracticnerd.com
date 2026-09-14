@@ -1,12 +1,12 @@
 # ASPIC+ migration assessment
 
-The foundation pilot runs the current 31 statements and eight applications. The professional-purpose update added the explicit normative principle S-029 and ARG-008. The broader-effects decision adds S-030's general circuit-influence capacity and S-031's chiropractic-specific likelihood, and clarifies S-012's neural causal contribution. These are explicit empirical premises, not conclusions manufactured from the local-benefit argument. It checks the two declared strict deductions and uses explicit starting premises. It also includes eleven neutral critical questions and a tested representation of formal attacks in synthetic scenarios.
+The foundation pilot runs the current 31 statements and eight applications. The professional-purpose update added the explicit normative principle S-029 and ARG-008. The broader-effects decision adds S-030's general circuit-influence capacity and S-031's chiropractic-specific likelihood, and clarifies S-012's neural causal contribution. These are explicit empirical premises, not conclusions manufactured from the local-benefit argument. It checks the two declared strict deductions and uses explicit starting premises. It also includes fourteen neutral critical questions and a tested representation of formal attacks in synthetic scenarios.
 
 ## Dependency disposition
 
-The original 38 relationships have been reviewed individually. Two have now been retired, leaving 36 active legacy dependencies. Four new semantic uses bring the current total to 40 dependencies; they are identified below and remain canonical in the statement records, rather than being misattributed to the original snapshot. The machine-readable record in `reasoning/dependency-migration.json` preserves every original role and limiting note. Its schema-2 dispositions distinguish completed retirements from proposed future migration. It is review history, not a second source of canonical graph meaning. The original source commit, roles and notes remain intact.
+The original 38 relationships have been reviewed individually. Three have now been retired, leaving 35 active legacy dependencies. Five new semantic uses bring the current total to 40 dependencies; they are identified below and remain canonical in the statement records, rather than being misattributed to the original snapshot. The machine-readable record in `reasoning/dependency-migration.json` preserves every original role and limiting note. Its schema-2 dispositions distinguish completed retirements from proposed future migration. It is review history, not a second source of canonical graph meaning. The original source commit, roles and notes remain intact.
 
-14 derive-from-existing-application; 6 requires-semantic-decision; 16 retain-explicit-semantic-use; 1 retired-context-only; 1 replaced-by-argument-path.
+14 derive-from-existing-application; 4 requires-semantic-decision; 17 retain-explicit-semantic-use; 2 retired-context-only; 1 replaced-by-argument-path.
 
 Relationships covered by an existing application can derive their inferential impact from that application after the shared revision index is updated. Semantic uses must remain explicit until their meaning can be recovered from a formal representation. The remaining decisions involve background rationale, scope references, professional values or conditional practical reasoning that the existing arguments do not yet encode. These cannot be converted into new arguments automatically.
 
@@ -28,8 +28,8 @@ The legacy `upstream` schema remains operational for the other relationships dur
 | S-024 | S-011 | retain-explicit-semantic-use | None |
 | S-011 | S-012 | retain-explicit-semantic-use | None |
 | S-021 | S-012 | retain-explicit-semantic-use | None |
-| S-007 | S-013 | requires-semantic-decision | None |
-| S-011 | S-013 | requires-semantic-decision | None |
+| S-007 | S-013 | retired-context-only | None |
+| S-011 | S-013 | retain-explicit-semantic-use | None |
 | S-005 | S-014 | derive-from-existing-application | ARG-002 |
 | S-006 | S-014 | derive-from-existing-application | ARG-002 |
 | S-009 | S-014 | derive-from-existing-application | ARG-002 |
@@ -79,12 +79,25 @@ Four semantic uses were introduced with this decision, after commit `3b51b7d5550
 
 S-031 and S-012 additionally have a see-also relationship. Likelihood of broader processing change and beneficial occurrence can be revised independently. The supporting reading introduces the general capacity, likelihood, broader benefit, and principal mediation as distinct claims. Four new neutral questions examine buffering, testable likelihood, shared causes, and the difference between neural change and benefit.
 
-S-013's explanation is aligned with the clarified wording, but its two unresolved relationships are unchanged. The remaining six relationship decisions form three groups: neural primacy, perturbation mechanism, and assessment/application. No PR is prepared or revised before those decisions are handled.
+At completion of the broader-effects decision, six relationships remained unresolved. The following decision resolves the two concerning S-013.
+
+## Completed predominant-mediation decisions
+
+S-013 now identifies input-induced changes in the activity or responsiveness of motor-related neural circuitry as the predominant mediator of broader chiropractic effects. This deliberately narrows the earlier general neural-mediation claim in line with the user's proposed mechanism. Predominance remains an independently challengeable empirical premise with unresolved confidence. The exact opaque binding is updated without introducing an argument, axiom, numerical probability or causal-inference capability.
+
+- **S-007 to S-013:** Retire the dependency as biological background and preserve a see-also link on S-013. The broad integrative role does not supply a required premise for the specific motor-related mediation hypothesis.
+- **S-011 to S-013:** Retain the original empirical role and limiting note as an explicit use of the local input/response account. Observed motor improvement is not itself the proposed mediator, and local improvement does not establish predominant mediation of broader outcomes.
+
+A fifth post-snapshot semantic use, **S-030 to S-013**, is introduced after commit `6806f8c7af6e9c540c2ca2de916788da1777e1e2`. Its empirical role identifies the circuit-influence explanation; its limiting note rejects inferring chiropractic mediation or predominance from capacity. The original migration inventory and all original roles and notes remain intact. S-013 also stores see-also links to S-012 and S-031 because beneficial occurrence, likelihood and predominant mediation have separate empirical burdens.
+
+Central synaptic influence and motor-dependent proprioceptive feedback remain candidate downstream routes. Feedback can account for most downstream influence while passing through the proposed mediator. Initial sensory activity can precede that mediator. The comparison for predominance concerns pathways through the specified circuit change versus pathways bypassing it, with scope and comparisons defined prospectively and no double-counting of nested steps.
+
+Q-012 through Q-014 expose unresolved route contributions, mediation versus parallel responses, and what observations in practice can establish. They guide evidence appraisal and testable predictions without asserting a pathway allocation or importing alternatives as counterpremises. The Blum source informs spindle physiology and modeling only; it is not a chiropractic mediation result. Withdrawal coverage now includes S-013.
+
+Four relationship decisions remain in two groups: perturbation mechanism and assessment/application. No PR is prepared or revised before those decisions are handled.
 
 ## Decisions requiring substantive review
 
-- **S-007 to S-013:** General neural integration does not establish principal mediation of chiropractic effects. Distinguish background rationale from a supported explanatory inference.
-- **S-011 to S-013:** Local input-caused improvement does not establish neural primacy for broader outcomes. The response vocabulary can be a semantic use; the stronger empirical claim needs independent support.
 - **S-010 to S-028:** A general perturbation capacity cannot establish chiropractic realization. Preserve the mechanism vocabulary separately from the specific empirical hypothesis.
 - **S-011 to S-028:** The mechanism statement includes the joint effect claim. Review its formal implication in the reverse direction before adding any inference; mechanism and effect evidence remain independent.
 - **S-014 to S-015:** Application requires a warranted-to-proceed condition and a practical bridge. Those conditions cannot be supplied by the dependency arrow or by assessment alone.
@@ -102,7 +115,7 @@ S-013's explanation is aligned with the clarified wording, but its two unresolve
 
 ## Pilot conclusions and remaining limits
 
-The current deductions pass under their reviewed quantified representation. Existential occurrence, the same causal event and the same scope/context/interval are preserved. The practical argument remains defeasible and supplies no arbitrary individual indication. Those results do not settle the six remaining substantive relationship decisions above.
+The current deductions pass under their reviewed quantified representation. Existential occurrence, the same causal event and the same scope/context/interval are preserved. The practical argument remains defeasible and supplies no arbitrary individual indication. Those results do not settle the four remaining substantive relationship decisions above.
 
 The implemented engine profile deliberately rejects productive inference cycles. It supports attack cycles and unproductive support cycles without inventing premises. A future productive cyclic theory requires a reviewed capability extension rather than deleting paths. The formal bindings explicitly identify 25 opaque propositions; only the six statements needed by the existing deductions currently have quantified internal structure.
 

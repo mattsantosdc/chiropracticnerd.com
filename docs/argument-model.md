@@ -70,6 +70,8 @@ ARG-008 uses S-027's actual scoped functional benefit and S-029's explicit profe
 
 ## Common reasoning failures
 
+For the broader-effects branch, S-030's general capacity and S-031's chiropractic-specific likelihood do not derive S-012's broader benefit. These remain explicit empirical premises. An argument may eventually use S-011 with independently testable bridges, but the bridge must establish the relevant neural change, its influence or shared-process contribution, and the qualifying broader outcome in overlapping cases. Calling an unsupported step defeasible does not supply its missing reason. The resolved S-011 to S-012 relationship currently retains semantic revision meaning, not an inference application.
+
 - **Hidden premise:** a necessary bridge is used without being stated and independently evaluated.
 - **Confidence substituted for content:** an asserted effect is paraphrased as a possibility or intention solely because evidence is unresolved, or a capacity or action condition is removed merely to sound more certain.
 - **Circular definition:** the definition assumes the conclusion or makes a finding true by how the terms are chosen.

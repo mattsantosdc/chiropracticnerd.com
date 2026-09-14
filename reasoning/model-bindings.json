@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "signature": "(declare-sort Input 0)\n(declare-sort Event 0)\n(declare-sort FunctionalScope 0)\n(declare-sort Context 0)\n(declare-sort Interval 0)\n(declare-fun Reorganization (Event) Bool)\n(declare-fun Change (Event) Bool)\n(declare-fun NeuromotorOrganization (Event) Bool)\n(declare-fun Adjustment (Event) Bool)\n(declare-fun Causes (Input Event) Bool)\n(declare-fun Neuromotor (FunctionalScope) Bool)\n(declare-fun Improves (Event FunctionalScope Context Interval) Bool)\n(declare-fun Benefit (Event FunctionalScope Context Interval) Bool)\n(declare-fun Successful (Event FunctionalScope Context Interval) Bool)\n(declare-fun P-S-014 () Bool)\n(declare-fun P-S-012 () Bool)\n(declare-fun P-S-006 () Bool)\n(declare-fun P-S-015 () Bool)\n(declare-fun P-S-023 () Bool)\n(declare-fun P-S-028 () Bool)\n(declare-fun P-S-002 () Bool)\n(declare-fun P-S-021 () Bool)\n(declare-fun P-S-003 () Bool)\n(declare-fun P-S-004 () Bool)\n(declare-fun P-S-018 () Bool)\n(declare-fun P-S-007 () Bool)\n(declare-fun P-S-013 () Bool)\n(declare-fun P-S-009 () Bool)\n(declare-fun P-S-017 () Bool)\n(declare-fun P-S-001 () Bool)\n(declare-fun P-S-005 () Bool)\n(declare-fun P-S-016 () Bool)\n(declare-fun P-S-019 () Bool)\n(declare-fun P-S-010 () Bool)\n(declare-fun P-S-020 () Bool)\n(declare-fun P-S-008 () Bool)\n(declare-fun OccurredInput (Input) Bool)\n(declare-fun P-S-029 () Bool)",
+  "signature": "(declare-sort Input 0)\n(declare-sort Event 0)\n(declare-sort FunctionalScope 0)\n(declare-sort Context 0)\n(declare-sort Interval 0)\n(declare-fun Reorganization (Event) Bool)\n(declare-fun Change (Event) Bool)\n(declare-fun NeuromotorOrganization (Event) Bool)\n(declare-fun Adjustment (Event) Bool)\n(declare-fun Causes (Input Event) Bool)\n(declare-fun Neuromotor (FunctionalScope) Bool)\n(declare-fun Improves (Event FunctionalScope Context Interval) Bool)\n(declare-fun Benefit (Event FunctionalScope Context Interval) Bool)\n(declare-fun Successful (Event FunctionalScope Context Interval) Bool)\n(declare-fun P-S-014 () Bool)\n(declare-fun P-S-012 () Bool)\n(declare-fun P-S-006 () Bool)\n(declare-fun P-S-015 () Bool)\n(declare-fun P-S-023 () Bool)\n(declare-fun P-S-028 () Bool)\n(declare-fun P-S-002 () Bool)\n(declare-fun P-S-021 () Bool)\n(declare-fun P-S-003 () Bool)\n(declare-fun P-S-004 () Bool)\n(declare-fun P-S-018 () Bool)\n(declare-fun P-S-007 () Bool)\n(declare-fun P-S-013 () Bool)\n(declare-fun P-S-009 () Bool)\n(declare-fun P-S-017 () Bool)\n(declare-fun P-S-001 () Bool)\n(declare-fun P-S-005 () Bool)\n(declare-fun P-S-016 () Bool)\n(declare-fun P-S-019 () Bool)\n(declare-fun P-S-010 () Bool)\n(declare-fun P-S-020 () Bool)\n(declare-fun P-S-008 () Bool)\n(declare-fun OccurredInput (Input) Bool)\n(declare-fun P-S-029 () Bool)\n(declare-fun P-S-030 () Bool)\n(declare-fun P-S-031 () Bool)",
   "ordinaryPremises": [
     "S-001",
     "S-002",
@@ -22,7 +22,9 @@
     "S-024",
     "S-025",
     "S-028",
-    "S-029"
+    "S-029",
+    "S-030",
+    "S-031"
   ],
   "statements": {
     "S-001": {
@@ -81,7 +83,7 @@
       "representation": "quantified-pilot"
     },
     "S-012": {
-      "text": "Some chiropractic-produced neuromotor changes contribute to improvement in context-appropriate human function beyond the initially affected neuromotor scope.",
+      "text": "Some chiropractic-induced changes in neural circuitry involved in motor control contribute to improvement in context-appropriate human function beyond the initially assessed neuromotor scope.",
       "formula": "P-S-012",
       "representation": "opaque-proposition"
     },
@@ -168,6 +170,16 @@
     "S-029": {
       "text": "A benefit that a profession's interventions can produce provides a reason to adopt that benefit as a professional aim.",
       "formula": "P-S-029",
+      "representation": "opaque-proposition"
+    },
+    "S-030": {
+      "text": "Changes in the ongoing activity or responsiveness of neural circuits involved in motor control can alter processing in connected circuits, including circuits involved in other functions, through changes in their synaptic influence.",
+      "formula": "P-S-030",
+      "representation": "opaque-proposition"
+    },
+    "S-031": {
+      "text": "Chiropractic-induced changes in the activity or responsiveness of neural circuitry involved in motor control are likely to alter processing in connected neural circuits beyond the initially assessed neuromotor function, with the effects depending on the circuits engaged, their connections, and the person's existing state.",
+      "formula": "P-S-031",
       "representation": "opaque-proposition"
     }
   },

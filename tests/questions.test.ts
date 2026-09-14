@@ -4,11 +4,11 @@ import { test } from 'node:test';
 import { validateQuestions } from '../src/lib/questions.ts';
 
 const questions = JSON.parse(readFileSync('src/data/model-questions.json', 'utf8'));
-const statements = new Set(['S-005', 'S-011', 'S-022']);
+const statements = new Set(['S-005', 'S-011', 'S-012', 'S-022', 'S-030', 'S-031']);
 const argumentsList = new Set(['ARG-002', 'ARG-007', 'ARG-008']);
 
 test('critical questions preserve targets without becoming adopted counterpremises', () => {
-	assert.equal(validateQuestions(questions, statements, argumentsList).length, 7);
+	assert.equal(validateQuestions(questions, statements, argumentsList).length, 11);
 	for (const extra of [{ status: 'accepted' }, { ordinaryPremise: true }, { defeats: 'ARG-007' }]) {
 		assert.throws(() => validateQuestions([{ ...questions[0], ...extra }], statements, argumentsList));
 	}

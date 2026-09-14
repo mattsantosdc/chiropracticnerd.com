@@ -18,7 +18,7 @@ upstream:
     note: Revising S-024's account of input-caused neuromotor reorganization would change the response asserted here; defining an adjustment does not establish that any occur or improve function.
 related: []
 version: '0.1'
-updated: 2026-09-12
+updated: 2026-09-14
 whatWouldChange: >-
   Narrow or reject specified effect hypotheses if prespecified inputs fail to cause the predicted reorganization and contextual functional improvement beyond credible comparisons in valid, adequately powered tests, accounting for relevant functional gains and losses over the specified timescale. Null findings bear on the tested conditions according to their sensitivity and coverage; intention or a favorable surrogate alone cannot rescue the claim.
 ---
@@ -40,5 +40,7 @@ The evidence documented in this account has not established input-caused reorgan
 Occurrence and input causation, reliable detection, prospective prediction and success frequency, persistence or generalization, and the perturbation mechanism require separate tests. None is established simply because the effect claim is clear or the benefit inference is valid.
 
 ## Boundary
+
+The neural activity supporting motor function is distinct from an observed motor outcome. S-030 describes influence between circuits and S-031 proposes broader neural effects following chiropractic-induced circuit changes. S-012 proposes qualifying broader improvement through shared neural processes or connected circuitry. None requires the observed local motor improvement itself to cause every other effect, and none follows from the local improvement asserted here.
 
 No claim is made that every input produces reorganization, that every reorganization improves function, or that an immediate change lasts. A local improvement must not be enlarged into a claim about the whole person. A measured neuromotor response cannot substitute for S-021's functional comparison, evidence of broader transfer in S-012, or a judgment that an intervention's costs and risks are justified.

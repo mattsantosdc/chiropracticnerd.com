@@ -50,9 +50,19 @@ Do not take condition treatment as the assumed default purpose of chiropractic. 
 
 ARG-007 derives actual scoped benefit in S-027 from S-011, S-024 and S-022. ARG-008 then uses S-027 and S-029's explicit normative principle to support the professional aim in S-005 defeasibly. Do not infer professional legitimacy from a valued outcome alone, or conceal a starting assumption of the aim behind the appearance of a derived conclusion. The working theory derives S-005; it does not also assume it.
 
-S-004's open-ended potential remains relevant to the rationale beyond symptoms in ARG-004, but is not a premise of the professional-purpose argument. The two resolved legacy dependencies into S-005 have been retired with their original notes preserved in the migration record. Seven other relationship decisions remain open.
+S-004's open-ended potential remains relevant to the rationale beyond symptoms in ARG-004, but is not a premise of the professional-purpose argument. The two resolved legacy dependencies into S-005 have been retired with their original notes preserved in the migration record. The S-011 to S-012 decision now retains a narrowly explained semantic use; six other relationship decisions remain open.
 
 Comparisons supplied to explain the author's intent in conversation must not be copied into canonical claims as contrasts with medicine or other professions. Keep the argument focused on its actual premises. Do not add a claim that every symptom or condition effect follows through the proposed functional improvement unless that stronger causal relationship is explicitly authored and reviewed. A proposed specific perturbation mechanism remains distinct from the functional effect and its value.
+
+## Neural mechanisms and broader effects
+
+The broader-effects account distinguishes S-030's general circuit-influence capacity, S-031's proposed likelihood of broader neural processing changes after chiropractic-induced circuit changes, and S-012's occurrence of qualifying broader improvement in some cases. Preserve those different modalities and empirical burdens. “Likely” belongs to the proposed propensity, not a confidence badge or a computed ASPIC+ probability. Tests must define a reference class, observable effect, threshold, comparison and interval before estimating that propensity.
+
+Distinguish motor performance from the neural activity supporting it. Shared neural processes can have several outputs, and motor-related circuits can influence connected circuits through altered synaptic drive. A fresh sensory-receptor event is not required for every central interaction; proprioceptive feedback remains an interacting route. Do not expand neuromotor function to mean every neural function, infer a global central state from one motor measure, or require observed local improvement itself to cause all broader effects.
+
+S-012, S-030 and S-031 are explicitly admitted empirical premises with unresolved confidence. The existing schema can represent them without a new causal-edge type or a forced inference. No current argument derives the chiropractic-specific likelihood or broader benefit from local improvement and connectivity. A future argument using S-011 must add independently defensible propagation and outcome bridges for the same cases. A likelihood of change does not entail a beneficial occurrence. Keep physiological feedback separate from the direction of inferential justification.
+
+Regional neurophysiology can guide a prospective outcome choice or comparative prediction, such as cervical input and vestibular integration. It does not prove an intervention effect, a cervical-versus-lumbar ranking, or a guaranteed non-motor benefit. Historical illustrations and clinical observations can motivate questions without becoming unexamined mechanism premises. S-013's neural-primacy relationships remain separate decisions.
 
 ## Historical continuity without historical authority
 

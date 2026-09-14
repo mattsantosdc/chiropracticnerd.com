@@ -61,5 +61,41 @@
     "concern": "A capacity to produce a benefit can coexist with ethical objections, conflicting responsibilities, or reasons against pursuing it.",
     "response": "S-029 gives achievable benefit a role in justifying an aim. ARG-008 treats that reason as supporting legitimacy while remaining open to objections. It supplies neither an exclusive professional purpose nor sufficient justification for a particular input.",
     "wouldChange": "A relevant objection to adopting this aim, or a reason to reject the bridge from achievable benefit to professional purpose, would require revising the argument even if some functional benefit occurs."
+  },
+  {
+    "id": "Q-008",
+    "target": "S-030",
+    "kind": "premise",
+    "question": "Could connected circuits buffer the change?",
+    "concern": "An anatomical connection does not guarantee effective influence in the current state or a measurable change in another function.",
+    "response": "S-030 asserts a capacity, not obligatory spread. Specified pathways must be tested for changed synaptic influence and downstream processing, including compensation and changes in shared inputs.",
+    "wouldChange": "Evidence that a proposed pathway does not transmit the relevant influence would revise that mechanism and its predictions. It would not automatically reject every pathway or establish that a local effect did not occur."
+  },
+  {
+    "id": "Q-009",
+    "target": "S-031",
+    "kind": "scope",
+    "question": "What would establish that broader effects are likely?",
+    "concern": "Finding some remote neural changes does not establish a high response frequency, particularly if outcomes or participants were chosen after seeing the results.",
+    "response": "A test must prespecify its reference class, input, circuit-change criterion, broader processing outcome, detectable effect threshold, expected frequency or comparative likelihood, and timescale. The current hypothesis does not supply an established numerical probability.",
+    "wouldChange": "A suitably sensitive study showing substantially fewer qualifying effects than predicted would revise the tested likelihood claim. An unspecified change somewhere in the nervous system cannot rescue the prediction."
+  },
+  {
+    "id": "Q-010",
+    "target": "S-012",
+    "kind": "premise",
+    "question": "Do motor and broader outcomes share a cause?",
+    "concern": "Two outcomes changing together does not show that improved motor performance caused the broader improvement, or that either reflects the proposed neural mechanism.",
+    "response": "The claim concerns input-induced change in motor-related neural circuitry. It allows shared neural processes and influence between circuits. Studies must distinguish the contributions of shared processes, circuit influence, and sensory feedback while testing alternative common causes and measurement or context effects; a motor observation may be an indicator.",
+    "wouldChange": "Evidence favoring another causal account would change the mechanism attributed to those outcomes. Broader improvement without the asserted neural contribution would not establish this particular claim."
+  },
+  {
+    "id": "Q-011",
+    "target": "S-012",
+    "kind": "scope",
+    "question": "Does changed neural processing establish broader benefit?",
+    "concern": "A remote activity change can be transient, neutral or harmful, and a favorable test result may not represent improved function within the broader comparison.",
+    "response": "Broader benefit requires a prespecified functional comparison using S-021, with relevant gains and losses considered together. Neither local success, S-030's capacity nor S-031's likelihood supplies that outcome.",
+    "wouldChange": "Failure of the qualifying broader improvement would require revising the tested benefit claim even if a neural effect occurred. A new supporting argument would need an explicit empirical bridge for that outcome."
   }
 ]

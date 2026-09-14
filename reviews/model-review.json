@@ -1,36 +1,36 @@
 {
   "schemaVersion": 2,
-  "reviewedAt": "2026-09-14T10:27:34.715Z",
+  "reviewedAt": "2026-09-14T15:44:20.612Z",
   "reviewer": {
     "kind": "ai",
     "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-    "identifier": "Codex working agent; reviewed the schema-2 impact policy, source adapters, previous/current influence paths, strict transposition, local display dependencies and per-record basis checks against all 37 retained semantic findings. Verified every canonical source is identical to the completed prior review. The five-field findings remain applicable: no proposition, qualifier, empirical confidence, formal premise, inference, reading content or unresolved relationship decision changed. Rechecked all recorded inference/semantic-use findings against the derived graph. The prior examination and its exact sources are preserved in migratedFrom. This baseline review changes review governance, not acceptance semantics or empirical confidence. Final implementation review verified locale-independent graph serialization and conformance with the canonical theory returned by the Python loader, including a failure if a future admitted canonical attack is absent from the review adapter. Cross-runtime status-impact checks pass. These verification changes preserve every canonical source and the retained semantic findings."
+    "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
   },
   "inputs": {
     ".github/workflows/model-checks.yml": "34f758fb68cd752f495233a82d04a8c7be5ab9d26b35a940557f8e84cf1ecdba",
-    "AGENTS.md": "875c2f97f87e061b0d0ebdb2661e77f59738151f85a47b568624caff730e4a6b",
+    "AGENTS.md": "7cb2740ac95d95bf95fe2db2f771c0b2f38e772323419d31cb5a325273e7ba9e",
     "astro.config.mjs": "023e2ea9698cdd6517a1eb192ffec930ccf5b6a507951b691c449801270f644d",
-    "docs/argument-model.md": "4daea9c52330d66e0684b903c795978306eeb522c7e6b1f0fb8a624a84d985dc",
-    "docs/aspic-foundation.md": "475cb197de944b0450f1a9c2b75066ab0d0959b3df7fef73ac9407331816b6dc",
-    "docs/aspic-migration.md": "51b8992fc3c098655a73c2f4b0726e673e4780e64de35d8b20862ecf30d3b7d0",
-    "docs/dependency-model.md": "d6c5ea493e0aeff6f47e9aa3abaed49eb44bc3f792b4a732afd250920503bf8d",
-    "docs/model-authoring.md": "e33d92baac37980ddbf556a85a78e8ba5104ff9460b21862f51195b669d6bf56",
+    "docs/argument-model.md": "27b833f197d31753e773a86e7d01103fe94179a2854171b4f3cf2c0b2f7f1bde",
+    "docs/aspic-foundation.md": "0dfb407ebf603a603fd22066ec39bb531b81d12152bcf015ccaa760371fb1573",
+    "docs/aspic-migration.md": "4e3e2cf7b856ab611941eb12d6d6a8724884a1c40f488c8807dbe1b10c4ecf39",
+    "docs/dependency-model.md": "175be682626b4e1a209f94c2b12c116d708437b7ad0cb1e4df40132f261d843e",
+    "docs/model-authoring.md": "38263e8f6081c9c2c9f41117e52f619317c33a24bcea0e52be3a2cf6b283b852",
     "docs/model-reading-path.md": "2b00698181cb1d12812d511855ea78cd70329c874da5011835e7e05383dcd4a8",
     "docs/model-review.md": "4802bd418d9ae36366f68bf281e4b541c7c8c01592836cee72f7ba1aeace46fc",
     "docs/objection-authoring.md": "abf844c95f58277d403fa307e9ead5c570c5e05663d3930063783e4ab49b65f2",
-    "docs/review-invalidation-plan.md": "5837a688ba0be1ea68016bf611068f2f0c3143f21e275878905f6be1c978568a",
+    "docs/review-invalidation-plan.md": "ec38cb28ed9a01dffc7c4497bc7056d224b1452716a9ac61b859229a10efd7fa",
     "docs/standards-contract.md": "629dcc98f40e82437f834164c324bfdd42ee1a425d0377ca2fe395248f8fa95a",
     "docs/visualization-plan.md": "66889cf00519bb65db1d67fd9e22b30ff13c9d484da51ad4467798ad9c4edb58",
     "package-lock.json": "0cfbe6b0070db4b1bc01324f25814cc4d2cc5c0088ba8ee339e0c132f123c3d0",
     "package.json": "3a762cbfc75effb76b12c99b03c6b39c033a2c5e142b5c4c2865d5fc967892dd",
-    "reasoning/dependency-migration.json": "6f91bfb05ed0e54459508a385a6ab103d174ba57a11d9dd6994fca16d344fe37",
+    "reasoning/dependency-migration.json": "d1516591ec437b25f2a9c545554c76da2f1f1e764ebe25c70fd72a6fd35c9ee6",
     "reasoning/engine.py": "07f7eb078b64bbbb7ce80edcca8ed0d08da0b8eeceaf2f45407c384497a7e130",
-    "reasoning/model-bindings.json": "3b3f8a68953693d80704d13581c23ee425bde2e4aa50f61934129a936c891da1",
+    "reasoning/model-bindings.json": "0dee3e35da64489336f2c71aa94ea8982f73ddf56a3e8aac40a65692c5bfc09c",
     "reasoning/model.py": "bbe8fe3d65b96f44604414d1fcfb88cd0a44a3bb078617d3e7fb96fe8f54e208",
     "reasoning/profile.json": "974f243463294fe2f95d91f9f13951a12bd842cf93c9a3f0bf117b4274ed1321",
     "reasoning/requirements.txt": "ee509163640cad2c9cdc7966ff2f11db9dd3558b0a1917c0690017fec2d00130",
     "reasoning/run.py": "c0d7c367434249c210ffae2162854467e134e7af1ea9b114ecdbf068604384b6",
-    "reasoning/test_engine.py": "2ddc2eaa7a5ef760aa4a37b413b35240e925e885eb4ba0447a5dfb9601b37d6c",
+    "reasoning/test_engine.py": "8f9019594bfb8535b460d50115e6941ff0b0dcb2ec3c731b4fb392c5ffeab252",
     "scripts/model-audit.mjs": "beb477ee7b8f91743dd0bc439a780ba5c08394f692cb2be090f79e253162ed6f",
     "scripts/model-review-impact.mjs": "d8c902b827ff40f8d464f576e7f47876a3371484166e72a49ac01b10d1b5eaf3",
     "scripts/reasoning.mjs": "bc5e55f4ff1010098acc679794a07c6fa1dd2229a6acb4e57a77c0e13d3a6c7c",
@@ -47,7 +47,7 @@
     "src/components/model/StatementStep.astro": "7cf9efe8107970ada91e6669f7f94c802ee805c4e0b154da0ca2c6d54ee3ca82",
     "src/components/model/StatementText.astro": "a429d084b22029c485141926f2090ff85de5d2ffb4b382f0399d0318b97f5eb1",
     "src/content.config.ts": "ae041dc82735e90e128d862f9b427f7075d60927ecc1cd7ad4d936b231a9c47c",
-    "src/content/model/arguments/actual-chiropractic-benefit.md": "19a8b6b75bfa07974030dfbd02b752e68857c47b47b4075bee17f1a91f8cdb3d",
+    "src/content/model/arguments/actual-chiropractic-benefit.md": "5b7a3afb9408c7d1b184ec3601bbf9ce17359e35c78f5c98f1c2588aa51db3cc",
     "src/content/model/arguments/assessment-as-working-hypothesis.md": "3a8ed30204dd5481bc0ccba3734db56f429e566371ce7b469a47b48e646ef491",
     "src/content/model/arguments/functional-benefit-as-professional-aim.md": "8361832b73d80a9a622ab88d8f12b5feaf859aace9be11c051c68c21039a471a",
     "src/content/model/arguments/functional-rationale-beyond-symptoms.md": "b4e4e0da573a6d6eb2e6d8dd1524a37d3d8643156c241572c6877f7639461949",
@@ -59,11 +59,12 @@
     "src/content/model/statements/adjustment.md": "8431b3ef2ff691e9f9bc7968ce896ab6a4dc37316d0b93f171da4e1b6dc2e0a5",
     "src/content/model/statements/assessment.md": "2c636c3331df8ff9533854a3bb555430fdf8f5bf7648edfa38fbb1a8eec41826",
     "src/content/model/statements/benefit-as-professional-aim.md": "a23c6c75cea98c5a0bbf9c89af1f99b1c081786160a6a31cda5d729fb66dca9a",
-    "src/content/model/statements/broader-functional-benefit.md": "0467690cc6426a09fe1875802cca86e4745ab13cec2441f21df65a2002216c1e",
+    "src/content/model/statements/broader-functional-benefit.md": "af4db97774270725695ec2e6669fc0956bf08e1d5410082c288c6a6a2e1e1a54",
+    "src/content/model/statements/broader-neural-effects.md": "75fc7bce16f7ba1dd842c0b65678018adbd5881138aed49cff7bdd6eac0070d6",
     "src/content/model/statements/care-beyond-symptoms.md": "3f669a0a113ef72c32de4f74864ac3daa6101243bcbc40e1a5f34dfc904f546a",
     "src/content/model/statements/chiropractic-application.md": "d37c70cba0cf4e9f802d84a64ee3f7118507b99a8e33bbc86071d34c6bb81462",
     "src/content/model/statements/chiropractic-input-definition.md": "543488f114a8b469134742e6532ca1e92dea8e2bf001e7d3ea7d796ce1bf3cdc",
-    "src/content/model/statements/chiropractic-inputs.md": "6bbc9bf110dab653d0b00a5cb49661a0627ee7cfddfe271dcece20576b8d7c55",
+    "src/content/model/statements/chiropractic-inputs.md": "75d0c0c7fba001121459c28feb8871fc408c42d5e3de18b1b3651fa6206f19ff",
     "src/content/model/statements/chiropractic-perturbation-mechanism.md": "5340e7526d5fee198eb9a33616622c13b44c9cf6f4a5e15536d99916117cae11",
     "src/content/model/statements/claim-discipline.md": "74c24644389be4cc301aff747df0a79e5b6b730cf01bfc39c9bc2961d0482030",
     "src/content/model/statements/context-appropriate-function.md": "714190bb91859a9c42e2a00b135b9e67ad2c48e0e9e162931ebcb4c094c2f8a9",
@@ -72,7 +73,8 @@
     "src/content/model/statements/functional-potential.md": "9b215523b2846cab14544dfd7f45aec18097f81694584ea6c481111e1fa23adf",
     "src/content/model/statements/information-in-neural-regulation.md": "852b87c54fde667ee45ff8c77d9cc34e3e33b4ce01b69f244f26d5e3e608319d",
     "src/content/model/statements/nervous-system-integration.md": "436ea7124971ec3ac986d2840a8216a7f9e12ba4164ae1f21f7eca1d7e4aa631",
-    "src/content/model/statements/neural-mediation.md": "13a64448d708688ecfc201c85eb56a753b90ef9ba5d8e6f5055d7da1913cd7ad",
+    "src/content/model/statements/neural-mediation.md": "805331fcd7bb49b298c736c5b2daaf6ff4fbd64ac184ad0024700843fb1ecc87",
+    "src/content/model/statements/neural-network-influence.md": "626bc5e14b9fa470e65f18805f4589c3337969897cd63d5ccf26654d5a5a995c",
     "src/content/model/statements/neuromotor-opportunity.md": "c550316ebb3a4354cc5ce20871e073028460793858da60fc5dc65b49d8677775",
     "src/content/model/statements/organismic-organization.md": "215646ee68efbfce66eb75ce2c364bd87d6f4a826a8634cdacb1a7198cc79d4c",
     "src/content/model/statements/philosophy-science-art.md": "84c35e9117193f356d3847c229316d90aa8bf289e26865c36b1f8c830daba63f",
@@ -84,8 +86,8 @@
     "src/content/model/statements/state-dependent-neuromotor-function.md": "adb711ebf02568c10bd498ea618f9659fc1d21e01a5c8ea04d551695f2b6c602",
     "src/content/model/statements/success-and-functional-benefit.md": "a05ae3afad79d2babf71e10f03725ece58e1d2ef7a9419876a7ca72d348c8f61",
     "src/content/model/statements/successful-adjustment.md": "2ae122b558dc791d99e55a4a078c2921d409124dac1d02923fbd00eeb1a617e8",
-    "src/data/model-questions.json": "7a571d24b4f6de2f03c07208a5f50b7b9472af7854763f2a6ddfa7c528654be7",
-    "src/data/model-reading-path.json": "9c1ac2135a994178807df0176fa69dd7ca8b6d682a22375c67fb6c6d2d270228",
+    "src/data/model-questions.json": "e077b2dce9ffc7b8923a5a1f3f970db391e797cbba91062baaee97055ddb4ef6",
+    "src/data/model-reading-path.json": "8aa72706ea6b08def3554205cbe972f030edb395a047ff5db4e7570c9a2a25eb",
     "src/layouts/Layout.astro": "db33633c4f36d7c86656fcbd3701c19eeb8f3abaed204f78985762f29a551110",
     "src/lib/arguments.ts": "9dae59a30f52df16dea9e5fb3bea29fa378f582ef108aeba426801dee605bb0b",
     "src/lib/dependencies.ts": "fdf835fefa0dcb4fbcb238320ffe6e06f8dec426ef5190f1ba32f322687e0609",
@@ -282,6 +284,16 @@
         "from": "-S-029",
         "kind": "contradiction",
         "to": "S-029"
+      },
+      {
+        "from": "-S-030",
+        "kind": "contradiction",
+        "to": "S-030"
+      },
+      {
+        "from": "-S-031",
+        "kind": "contradiction",
+        "to": "S-031"
       },
       {
         "from": "ARG-001",
@@ -512,6 +524,11 @@
         "from": "S-008",
         "kind": "semantic-use:conceptual",
         "to": "S-023"
+      },
+      {
+        "from": "S-008",
+        "kind": "semantic-use:conceptual",
+        "to": "S-030"
       },
       {
         "from": "S-009",
@@ -800,6 +817,11 @@
       },
       {
         "from": "S-024",
+        "kind": "semantic-use:conceptual",
+        "to": "S-031"
+      },
+      {
+        "from": "S-024",
         "kind": "transposed-premise",
         "to": "transposition:ARG-006:S-022"
       },
@@ -904,6 +926,26 @@
         "to": "ARG-008"
       },
       {
+        "from": "S-030",
+        "kind": "contradiction",
+        "to": "-S-030"
+      },
+      {
+        "from": "S-030",
+        "kind": "semantic-use:empirical",
+        "to": "S-012"
+      },
+      {
+        "from": "S-030",
+        "kind": "semantic-use:empirical",
+        "to": "S-031"
+      },
+      {
+        "from": "S-031",
+        "kind": "contradiction",
+        "to": "-S-031"
+      },
+      {
         "from": "transposition:ARG-006:S-022",
         "kind": "transposed-conclusion",
         "to": "-S-022"
@@ -971,7 +1013,9 @@
       "S-026": "src/content/model/statements/success-and-functional-benefit.md",
       "S-027": "src/content/model/statements/actual-chiropractic-benefit.md",
       "S-028": "src/content/model/statements/chiropractic-perturbation-mechanism.md",
-      "S-029": "src/content/model/statements/benefit-as-professional-aim.md"
+      "S-029": "src/content/model/statements/benefit-as-professional-aim.md",
+      "S-030": "src/content/model/statements/neural-network-influence.md",
+      "S-031": "src/content/model/statements/broader-neural-effects.md"
     },
     "units": {
       ".github/workflows/model-checks.yml": {
@@ -981,7 +1025,7 @@
         "targets": null
       },
       "AGENTS.md": {
-        "digest": "aa442af45091d6c5c6c2b554e535126412631837f1adfc21c2d7b2e619d78870",
+        "digest": "134c0f351a3fb89b24437f8aa9ad580a5d049739f47ad8036bf92f09bab38722",
         "path": "AGENTS.md",
         "propagate": true,
         "targets": null
@@ -993,31 +1037,31 @@
         "targets": null
       },
       "docs/argument-model.md": {
-        "digest": "3859555cd6b4986e69e4ff2b10398620670065f1ce55d0171c986352bc7b0c4b",
+        "digest": "1a10a56838e0811210f9bdea41a1dcefaeab7160c08859c48de0a79c5cbc1329",
         "path": "docs/argument-model.md",
         "propagate": true,
         "targets": null
       },
       "docs/aspic-foundation.md": {
-        "digest": "4e9e06395b4ce372c2e8f7aef03a8a32c1b69b2b254ef00bf2823c53106916d3",
+        "digest": "d1e37c1f21b99b1ed7f01954cab1576b58413864f468ffa9b1ba91bd561f4c04",
         "path": "docs/aspic-foundation.md",
         "propagate": true,
         "targets": null
       },
       "docs/aspic-migration.md": {
-        "digest": "fbda42ffd5d1d87cad2504bec01e1e273a8797c3499657e5947729f79d5069ee",
+        "digest": "ac83b462730a4641c9fd70cacc7e3c88c27b27d6e147b598c74b8bdf941ec848",
         "path": "docs/aspic-migration.md",
         "propagate": true,
         "targets": null
       },
       "docs/dependency-model.md": {
-        "digest": "ce579d0f083c85111384011074803bc4752ad17ae4f99ea8be155ecd784caccc",
+        "digest": "8f47dfe7418a715c18fda38024d7552c0135d1c2ade5774f7c93bb9e5df19f86",
         "path": "docs/dependency-model.md",
         "propagate": true,
         "targets": null
       },
       "docs/model-authoring.md": {
-        "digest": "a845a0df069a66668a34d394e14d8841f5e530cf8baf14e655f23c3656275e31",
+        "digest": "040ae7895b2171cebfb1c331a73a077efb6aedd70c3a4d52d559dd5fece9a98e",
         "path": "docs/model-authoring.md",
         "propagate": true,
         "targets": null
@@ -1041,7 +1085,7 @@
         "targets": null
       },
       "docs/review-invalidation-plan.md": {
-        "digest": "fbd1edc8f00a6fe6ef3b0df2d39df61476568a291f991364b0c69d0572c306f4",
+        "digest": "36768971de3901262accf7bece9f283e58564cc90b60b81cba16333263c63d63",
         "path": "docs/review-invalidation-plan.md",
         "propagate": true,
         "targets": null
@@ -1206,7 +1250,7 @@
         ]
       },
       "reasoning/dependency-migration.json#S-011:S-012": {
-        "digest": "aa93a1752040b83b41bbfb0ddcddf519649c928ea9a3c9cbd74395cdd8139f1c",
+        "digest": "85aeac455fd52ae56c3e5ead9e9564ad1dbff15e1aea8ae39aa735c914421fe3",
         "path": "reasoning/dependency-migration.json",
         "propagate": false,
         "targets": [
@@ -1577,7 +1621,7 @@
         ]
       },
       "reasoning/model-bindings.json#S-012": {
-        "digest": "6498522e5d896b8850dd79e57cc7d32a56649cd744afbd5ee1f8328e548d8346",
+        "digest": "fd37142e9c767ff1af9f35864862e318aec88f952e48718c2c9d824262c68df5",
         "path": "reasoning/model-bindings.json",
         "propagate": true,
         "targets": [
@@ -1720,8 +1764,24 @@
           "S-029"
         ]
       },
+      "reasoning/model-bindings.json#S-030": {
+        "digest": "9d38514436582e57053162cf6d4d79b787c81be0f973f25cbd7f7866387ea970",
+        "path": "reasoning/model-bindings.json",
+        "propagate": true,
+        "targets": [
+          "S-030"
+        ]
+      },
+      "reasoning/model-bindings.json#S-031": {
+        "digest": "3aa7aa2bad2312d2f8610537c5e7e22fe667ee247c225285a99f67442614c65d",
+        "path": "reasoning/model-bindings.json",
+        "propagate": true,
+        "targets": [
+          "S-031"
+        ]
+      },
       "reasoning/model-bindings.json#language": {
-        "digest": "cb0ecd5d581fc611e96e86038246ddf719f5386bdedd01874c29f7d72e1ad992",
+        "digest": "fb75130b1a6bd83101b8cc859a114f4fc9a2e2a1f7e2d3114e5fc452be678523",
         "path": "reasoning/model-bindings.json",
         "propagate": true,
         "targets": null
@@ -1751,7 +1811,7 @@
         "targets": null
       },
       "reasoning/test_engine.py": {
-        "digest": "e839023e0998690288e894f32193684c14e5adde5dad159a5c6615dbbc1e1614",
+        "digest": "e950311042334ba74e776d8ea4f69b5a753c89752273115146d8261f48157150",
         "path": "reasoning/test_engine.py",
         "propagate": true,
         "targets": null
@@ -1853,7 +1913,7 @@
         "targets": null
       },
       "src/content/model/arguments/actual-chiropractic-benefit.md#file": {
-        "digest": "d089cde9c5059afc0bb392b7b6146e62dea8a781242cf34363069561895f58a0",
+        "digest": "c19b739e5a79ee64e3dfb7981b15f68ce04161e9954fbfd2c485c98a018950f1",
         "path": "src/content/model/arguments/actual-chiropractic-benefit.md",
         "propagate": false,
         "targets": [
@@ -1861,7 +1921,7 @@
         ]
       },
       "src/content/model/arguments/actual-chiropractic-benefit.md#meaning": {
-        "digest": "5a9dbf64857f2b1189ac41f6673b18f6c1f6daa9bb71d7b5dcb874cd1c313452",
+        "digest": "b6699ce6b39cda3ecb28bb203149389b47a2b344a6a34326cdb7ed5ca5e9ef79",
         "path": "src/content/model/arguments/actual-chiropractic-benefit.md",
         "propagate": true,
         "targets": [
@@ -2149,7 +2209,8 @@
           "ARG-007",
           "S-011",
           "S-024",
-          "S-025"
+          "S-025",
+          "S-031"
         ]
       },
       "src/content/model/statements/assessment.md#dependency-display": {
@@ -2226,17 +2287,18 @@
         ]
       },
       "src/content/model/statements/broader-functional-benefit.md#dependency-display": {
-        "digest": "1aba0f3556e3eafe508fe2b528c86a6d6b8efca4ecd455717243be8a53d02c84",
+        "digest": "57f5c1c9d178f958d3959bb713e7bc524222e581518621f35acbc2fbe3768811",
         "path": "src/content/model/statements/broader-functional-benefit.md",
         "propagate": false,
         "targets": [
           "S-011",
           "S-012",
-          "S-021"
+          "S-021",
+          "S-030"
         ]
       },
       "src/content/model/statements/broader-functional-benefit.md#file": {
-        "digest": "64546bcce4cea9a6a03253de008c52cdd5f6bae089db665c29dba361ac4b7dd7",
+        "digest": "31544468f32f9f9056b02e4b995d27adcaf3c9504e40d41294db593e6507dfc5",
         "path": "src/content/model/statements/broader-functional-benefit.md",
         "propagate": false,
         "targets": [
@@ -2244,7 +2306,7 @@
         ]
       },
       "src/content/model/statements/broader-functional-benefit.md#meaning": {
-        "digest": "8e16ae8ad2840cd8cba9b86593ae049796e42f166170f82ba86d26cd2ec12006",
+        "digest": "cd6b9715af7979a7534a2dfaf3ffd6f8090c3d05ca47824abdd0149a6e1d81dc",
         "path": "src/content/model/statements/broader-functional-benefit.md",
         "propagate": true,
         "targets": [
@@ -2252,12 +2314,48 @@
         ]
       },
       "src/content/model/statements/broader-functional-benefit.md#presentation": {
-        "digest": "8c2f0ef847f4a5206ebc2a9fe4092d167886917bf169962116b64ef283e5d747",
+        "digest": "04107e3f1b929dd88a4884d0037a2b16f063dd5b19d1a4f70f77e5bcfca4cfdb",
         "path": "src/content/model/statements/broader-functional-benefit.md",
         "propagate": false,
         "targets": [
           "S-012",
-          "S-013"
+          "S-013",
+          "S-031"
+        ]
+      },
+      "src/content/model/statements/broader-neural-effects.md#dependency-display": {
+        "digest": "8534f1aabc3aea6fdda9ef4cb0dc49efa16651e9cb46cab85324565273d44d40",
+        "path": "src/content/model/statements/broader-neural-effects.md",
+        "propagate": false,
+        "targets": [
+          "S-024",
+          "S-030",
+          "S-031"
+        ]
+      },
+      "src/content/model/statements/broader-neural-effects.md#file": {
+        "digest": "4c4f7526a62a96467a5c45b32a17ccc3ae8404621d03d9d656b648a557140559",
+        "path": "src/content/model/statements/broader-neural-effects.md",
+        "propagate": false,
+        "targets": [
+          "S-031"
+        ]
+      },
+      "src/content/model/statements/broader-neural-effects.md#meaning": {
+        "digest": "6844eb8a55fc1baa6bba21220a8cef840084236a77c480537fa1a906e202f34d",
+        "path": "src/content/model/statements/broader-neural-effects.md",
+        "propagate": true,
+        "targets": [
+          "S-031"
+        ]
+      },
+      "src/content/model/statements/broader-neural-effects.md#presentation": {
+        "digest": "d439878d6a2debae4d8f05487c6b2170428fa16716c0f0660d3e8dba37ef2a82",
+        "path": "src/content/model/statements/broader-neural-effects.md",
+        "propagate": false,
+        "targets": [
+          "S-012",
+          "S-031"
         ]
       },
       "src/content/model/statements/care-beyond-symptoms.md#dependency-display": {
@@ -2378,7 +2476,7 @@
         ]
       },
       "src/content/model/statements/chiropractic-inputs.md#file": {
-        "digest": "54236b05115e4ab94542b555a74418a8de8f00ca3649270955fc8b032b9f6694",
+        "digest": "e4512c689b64d55e1c3fbc2e0a2be8aa67d01c55721fa8069ac757081aef45af",
         "path": "src/content/model/statements/chiropractic-inputs.md",
         "propagate": false,
         "targets": [
@@ -2386,7 +2484,7 @@
         ]
       },
       "src/content/model/statements/chiropractic-inputs.md#meaning": {
-        "digest": "89339215c3e89e0005ae74bce4027b5ad46583d8833dc5c98ecdf6ba822c4537",
+        "digest": "95a250bd98b24a8ecaa8e1c90d274d4c09184d89be419cb14317408b4b1c34e9",
         "path": "src/content/model/statements/chiropractic-inputs.md",
         "propagate": true,
         "targets": [
@@ -2394,7 +2492,7 @@
         ]
       },
       "src/content/model/statements/chiropractic-inputs.md#presentation": {
-        "digest": "58e0779519f66626d84922d13030754361b31ae1919b54e421f67c01ca223388",
+        "digest": "8471b3a8e0f1bb511b369af2d4f357fff8dd3e6a9857ed384cf476a244b59e86",
         "path": "src/content/model/statements/chiropractic-inputs.md",
         "propagate": false,
         "targets": [
@@ -2700,7 +2798,7 @@
         ]
       },
       "src/content/model/statements/neural-mediation.md#file": {
-        "digest": "268cbe61128fa3748e1adacc7e100a9bea5b953f6238353bda5a7a798fc93e31",
+        "digest": "11c9f6c077a87e5f7274a15a57fe395dfe54265fda46acbcef773c707bd602a4",
         "path": "src/content/model/statements/neural-mediation.md",
         "propagate": false,
         "targets": [
@@ -2708,7 +2806,7 @@
         ]
       },
       "src/content/model/statements/neural-mediation.md#meaning": {
-        "digest": "a52894d02f64a10129b15e9e5c54fc3e056055771496a9a0a275abffbb8ecc16",
+        "digest": "c36659be1ce43980911f35b0851a2959b8ae13150b7a4e7b799571d7d8e4d2d5",
         "path": "src/content/model/statements/neural-mediation.md",
         "propagate": true,
         "targets": [
@@ -2716,12 +2814,47 @@
         ]
       },
       "src/content/model/statements/neural-mediation.md#presentation": {
-        "digest": "df61d9eb1be35d01ed39bd8478dd629cf0a93f22ee2ad61157bad753b9a3716d",
+        "digest": "13b1b04f551c709918fc3321ee824cfd439e5b164f4b6a42096187810460e7d0",
         "path": "src/content/model/statements/neural-mediation.md",
         "propagate": false,
         "targets": [
           "S-012",
           "S-013"
+        ]
+      },
+      "src/content/model/statements/neural-network-influence.md#dependency-display": {
+        "digest": "c2f45ec40c7f96d3ecd7f388f5a02ca2043b6f771e35725574da044509e87603",
+        "path": "src/content/model/statements/neural-network-influence.md",
+        "propagate": false,
+        "targets": [
+          "S-008",
+          "S-030"
+        ]
+      },
+      "src/content/model/statements/neural-network-influence.md#file": {
+        "digest": "0054c444fbfadeaa03581ad7276b076cb6b541efcb50f48295693a9de2bd7818",
+        "path": "src/content/model/statements/neural-network-influence.md",
+        "propagate": false,
+        "targets": [
+          "S-030"
+        ]
+      },
+      "src/content/model/statements/neural-network-influence.md#meaning": {
+        "digest": "56d195d142be0760f09f4d846a9baef2f7d290d421db925adf912997104b0552",
+        "path": "src/content/model/statements/neural-network-influence.md",
+        "propagate": true,
+        "targets": [
+          "S-030"
+        ]
+      },
+      "src/content/model/statements/neural-network-influence.md#presentation": {
+        "digest": "401cb8f2bc94c2b67408772bb8de6eb72ae6ce1ccd2820871f5d020223643feb",
+        "path": "src/content/model/statements/neural-network-influence.md",
+        "propagate": false,
+        "targets": [
+          "S-012",
+          "S-030",
+          "S-031"
         ]
       },
       "src/content/model/statements/neuromotor-opportunity.md#dependency-display": {
@@ -3039,7 +3172,8 @@
           "S-009",
           "S-010",
           "S-020",
-          "S-023"
+          "S-023",
+          "S-030"
         ]
       },
       "src/content/model/statements/success-and-functional-benefit.md#dependency-display": {
@@ -3170,6 +3304,38 @@
           "ARG-008"
         ]
       },
+      "src/data/model-questions.json#Q-008": {
+        "digest": "44c1812957f920fde4d001b70886df9fca18d157929c7c1568dc0fe0a0d94590",
+        "path": "src/data/model-questions.json",
+        "propagate": false,
+        "targets": [
+          "S-030"
+        ]
+      },
+      "src/data/model-questions.json#Q-009": {
+        "digest": "025488a876d25325fde2e74747a38be3f0dd0bc671eec2f155b98447a745a62b",
+        "path": "src/data/model-questions.json",
+        "propagate": false,
+        "targets": [
+          "S-031"
+        ]
+      },
+      "src/data/model-questions.json#Q-010": {
+        "digest": "51db5e9cf041ebfa0675044f22c7ca538c541b6b27683faa4ab8d06db512dc0c",
+        "path": "src/data/model-questions.json",
+        "propagate": false,
+        "targets": [
+          "S-012"
+        ]
+      },
+      "src/data/model-questions.json#Q-011": {
+        "digest": "4d4a491887d6ff4772660d7e4b3f3cd1390055a95224570eeb4121543ddd247b",
+        "path": "src/data/model-questions.json",
+        "propagate": false,
+        "targets": [
+          "S-012"
+        ]
+      },
       "src/data/model-reading-path.json#main:actual-input-effects": {
         "digest": "372bfd5a3b95ba6dcf1b0fff654236712f4a91ed0b98d42fd67a85f26708ee39",
         "path": "src/data/model-reading-path.json",
@@ -3287,12 +3453,14 @@
         ]
       },
       "src/data/model-reading-path.json#supporting:broader-effects": {
-        "digest": "76d09d4c36a4700d0a7159fd3293669f342cd8b3e675804a6f141822fb3041d5",
+        "digest": "4159b706fff562cd2bcf28dcaa097c7f2a9cb9ade8acccb129e2ef0e366a4899",
         "path": "src/data/model-reading-path.json",
         "propagate": false,
         "targets": [
           "S-012",
-          "S-013"
+          "S-013",
+          "S-030",
+          "S-031"
         ]
       },
       "src/data/model-reading-path.json#version": {
@@ -3419,37 +3587,37 @@
     "version": 1
   },
   "wholeModelReview": {
-    "reviewedAt": "2026-09-14T10:27:34.715Z",
+    "reviewedAt": "2026-09-14T15:44:20.612Z",
     "reviewer": {
       "kind": "ai",
       "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-      "identifier": "Codex working agent; reviewed the schema-2 impact policy, source adapters, previous/current influence paths, strict transposition, local display dependencies and per-record basis checks against all 37 retained semantic findings. Verified every canonical source is identical to the completed prior review. The five-field findings remain applicable: no proposition, qualifier, empirical confidence, formal premise, inference, reading content or unresolved relationship decision changed. Rechecked all recorded inference/semantic-use findings against the derived graph. The prior examination and its exact sources are preserved in migratedFrom. This baseline review changes review governance, not acceptance semantics or empirical confidence. Final implementation review verified locale-independent graph serialization and conformance with the canonical theory returned by the Python loader, including a failure if a future admitted canonical attack is absent from the review adapter. Cross-runtime status-impact checks pass. These verification changes preserve every canonical source and the retained semantic findings."
+      "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
     },
     "inputs": {
       ".github/workflows/model-checks.yml": "34f758fb68cd752f495233a82d04a8c7be5ab9d26b35a940557f8e84cf1ecdba",
-      "AGENTS.md": "875c2f97f87e061b0d0ebdb2661e77f59738151f85a47b568624caff730e4a6b",
+      "AGENTS.md": "7cb2740ac95d95bf95fe2db2f771c0b2f38e772323419d31cb5a325273e7ba9e",
       "astro.config.mjs": "023e2ea9698cdd6517a1eb192ffec930ccf5b6a507951b691c449801270f644d",
-      "docs/argument-model.md": "4daea9c52330d66e0684b903c795978306eeb522c7e6b1f0fb8a624a84d985dc",
-      "docs/aspic-foundation.md": "475cb197de944b0450f1a9c2b75066ab0d0959b3df7fef73ac9407331816b6dc",
-      "docs/aspic-migration.md": "51b8992fc3c098655a73c2f4b0726e673e4780e64de35d8b20862ecf30d3b7d0",
-      "docs/dependency-model.md": "d6c5ea493e0aeff6f47e9aa3abaed49eb44bc3f792b4a732afd250920503bf8d",
-      "docs/model-authoring.md": "e33d92baac37980ddbf556a85a78e8ba5104ff9460b21862f51195b669d6bf56",
+      "docs/argument-model.md": "27b833f197d31753e773a86e7d01103fe94179a2854171b4f3cf2c0b2f7f1bde",
+      "docs/aspic-foundation.md": "0dfb407ebf603a603fd22066ec39bb531b81d12152bcf015ccaa760371fb1573",
+      "docs/aspic-migration.md": "4e3e2cf7b856ab611941eb12d6d6a8724884a1c40f488c8807dbe1b10c4ecf39",
+      "docs/dependency-model.md": "175be682626b4e1a209f94c2b12c116d708437b7ad0cb1e4df40132f261d843e",
+      "docs/model-authoring.md": "38263e8f6081c9c2c9f41117e52f619317c33a24bcea0e52be3a2cf6b283b852",
       "docs/model-reading-path.md": "2b00698181cb1d12812d511855ea78cd70329c874da5011835e7e05383dcd4a8",
       "docs/model-review.md": "4802bd418d9ae36366f68bf281e4b541c7c8c01592836cee72f7ba1aeace46fc",
       "docs/objection-authoring.md": "abf844c95f58277d403fa307e9ead5c570c5e05663d3930063783e4ab49b65f2",
-      "docs/review-invalidation-plan.md": "5837a688ba0be1ea68016bf611068f2f0c3143f21e275878905f6be1c978568a",
+      "docs/review-invalidation-plan.md": "ec38cb28ed9a01dffc7c4497bc7056d224b1452716a9ac61b859229a10efd7fa",
       "docs/standards-contract.md": "629dcc98f40e82437f834164c324bfdd42ee1a425d0377ca2fe395248f8fa95a",
       "docs/visualization-plan.md": "66889cf00519bb65db1d67fd9e22b30ff13c9d484da51ad4467798ad9c4edb58",
       "package-lock.json": "0cfbe6b0070db4b1bc01324f25814cc4d2cc5c0088ba8ee339e0c132f123c3d0",
       "package.json": "3a762cbfc75effb76b12c99b03c6b39c033a2c5e142b5c4c2865d5fc967892dd",
-      "reasoning/dependency-migration.json": "6f91bfb05ed0e54459508a385a6ab103d174ba57a11d9dd6994fca16d344fe37",
+      "reasoning/dependency-migration.json": "d1516591ec437b25f2a9c545554c76da2f1f1e764ebe25c70fd72a6fd35c9ee6",
       "reasoning/engine.py": "07f7eb078b64bbbb7ce80edcca8ed0d08da0b8eeceaf2f45407c384497a7e130",
-      "reasoning/model-bindings.json": "3b3f8a68953693d80704d13581c23ee425bde2e4aa50f61934129a936c891da1",
+      "reasoning/model-bindings.json": "0dee3e35da64489336f2c71aa94ea8982f73ddf56a3e8aac40a65692c5bfc09c",
       "reasoning/model.py": "bbe8fe3d65b96f44604414d1fcfb88cd0a44a3bb078617d3e7fb96fe8f54e208",
       "reasoning/profile.json": "974f243463294fe2f95d91f9f13951a12bd842cf93c9a3f0bf117b4274ed1321",
       "reasoning/requirements.txt": "ee509163640cad2c9cdc7966ff2f11db9dd3558b0a1917c0690017fec2d00130",
       "reasoning/run.py": "c0d7c367434249c210ffae2162854467e134e7af1ea9b114ecdbf068604384b6",
-      "reasoning/test_engine.py": "2ddc2eaa7a5ef760aa4a37b413b35240e925e885eb4ba0447a5dfb9601b37d6c",
+      "reasoning/test_engine.py": "8f9019594bfb8535b460d50115e6941ff0b0dcb2ec3c731b4fb392c5ffeab252",
       "scripts/model-audit.mjs": "beb477ee7b8f91743dd0bc439a780ba5c08394f692cb2be090f79e253162ed6f",
       "scripts/model-review-impact.mjs": "d8c902b827ff40f8d464f576e7f47876a3371484166e72a49ac01b10d1b5eaf3",
       "scripts/reasoning.mjs": "bc5e55f4ff1010098acc679794a07c6fa1dd2229a6acb4e57a77c0e13d3a6c7c",
@@ -3466,7 +3634,7 @@
       "src/components/model/StatementStep.astro": "7cf9efe8107970ada91e6669f7f94c802ee805c4e0b154da0ca2c6d54ee3ca82",
       "src/components/model/StatementText.astro": "a429d084b22029c485141926f2090ff85de5d2ffb4b382f0399d0318b97f5eb1",
       "src/content.config.ts": "ae041dc82735e90e128d862f9b427f7075d60927ecc1cd7ad4d936b231a9c47c",
-      "src/content/model/arguments/actual-chiropractic-benefit.md": "19a8b6b75bfa07974030dfbd02b752e68857c47b47b4075bee17f1a91f8cdb3d",
+      "src/content/model/arguments/actual-chiropractic-benefit.md": "5b7a3afb9408c7d1b184ec3601bbf9ce17359e35c78f5c98f1c2588aa51db3cc",
       "src/content/model/arguments/assessment-as-working-hypothesis.md": "3a8ed30204dd5481bc0ccba3734db56f429e566371ce7b469a47b48e646ef491",
       "src/content/model/arguments/functional-benefit-as-professional-aim.md": "8361832b73d80a9a622ab88d8f12b5feaf859aace9be11c051c68c21039a471a",
       "src/content/model/arguments/functional-rationale-beyond-symptoms.md": "b4e4e0da573a6d6eb2e6d8dd1524a37d3d8643156c241572c6877f7639461949",
@@ -3478,11 +3646,12 @@
       "src/content/model/statements/adjustment.md": "8431b3ef2ff691e9f9bc7968ce896ab6a4dc37316d0b93f171da4e1b6dc2e0a5",
       "src/content/model/statements/assessment.md": "2c636c3331df8ff9533854a3bb555430fdf8f5bf7648edfa38fbb1a8eec41826",
       "src/content/model/statements/benefit-as-professional-aim.md": "a23c6c75cea98c5a0bbf9c89af1f99b1c081786160a6a31cda5d729fb66dca9a",
-      "src/content/model/statements/broader-functional-benefit.md": "0467690cc6426a09fe1875802cca86e4745ab13cec2441f21df65a2002216c1e",
+      "src/content/model/statements/broader-functional-benefit.md": "af4db97774270725695ec2e6669fc0956bf08e1d5410082c288c6a6a2e1e1a54",
+      "src/content/model/statements/broader-neural-effects.md": "75fc7bce16f7ba1dd842c0b65678018adbd5881138aed49cff7bdd6eac0070d6",
       "src/content/model/statements/care-beyond-symptoms.md": "3f669a0a113ef72c32de4f74864ac3daa6101243bcbc40e1a5f34dfc904f546a",
       "src/content/model/statements/chiropractic-application.md": "d37c70cba0cf4e9f802d84a64ee3f7118507b99a8e33bbc86071d34c6bb81462",
       "src/content/model/statements/chiropractic-input-definition.md": "543488f114a8b469134742e6532ca1e92dea8e2bf001e7d3ea7d796ce1bf3cdc",
-      "src/content/model/statements/chiropractic-inputs.md": "6bbc9bf110dab653d0b00a5cb49661a0627ee7cfddfe271dcece20576b8d7c55",
+      "src/content/model/statements/chiropractic-inputs.md": "75d0c0c7fba001121459c28feb8871fc408c42d5e3de18b1b3651fa6206f19ff",
       "src/content/model/statements/chiropractic-perturbation-mechanism.md": "5340e7526d5fee198eb9a33616622c13b44c9cf6f4a5e15536d99916117cae11",
       "src/content/model/statements/claim-discipline.md": "74c24644389be4cc301aff747df0a79e5b6b730cf01bfc39c9bc2961d0482030",
       "src/content/model/statements/context-appropriate-function.md": "714190bb91859a9c42e2a00b135b9e67ad2c48e0e9e162931ebcb4c094c2f8a9",
@@ -3491,7 +3660,8 @@
       "src/content/model/statements/functional-potential.md": "9b215523b2846cab14544dfd7f45aec18097f81694584ea6c481111e1fa23adf",
       "src/content/model/statements/information-in-neural-regulation.md": "852b87c54fde667ee45ff8c77d9cc34e3e33b4ce01b69f244f26d5e3e608319d",
       "src/content/model/statements/nervous-system-integration.md": "436ea7124971ec3ac986d2840a8216a7f9e12ba4164ae1f21f7eca1d7e4aa631",
-      "src/content/model/statements/neural-mediation.md": "13a64448d708688ecfc201c85eb56a753b90ef9ba5d8e6f5055d7da1913cd7ad",
+      "src/content/model/statements/neural-mediation.md": "805331fcd7bb49b298c736c5b2daaf6ff4fbd64ac184ad0024700843fb1ecc87",
+      "src/content/model/statements/neural-network-influence.md": "626bc5e14b9fa470e65f18805f4589c3337969897cd63d5ccf26654d5a5a995c",
       "src/content/model/statements/neuromotor-opportunity.md": "c550316ebb3a4354cc5ce20871e073028460793858da60fc5dc65b49d8677775",
       "src/content/model/statements/organismic-organization.md": "215646ee68efbfce66eb75ce2c364bd87d6f4a826a8634cdacb1a7198cc79d4c",
       "src/content/model/statements/philosophy-science-art.md": "84c35e9117193f356d3847c229316d90aa8bf289e26865c36b1f8c830daba63f",
@@ -3503,8 +3673,8 @@
       "src/content/model/statements/state-dependent-neuromotor-function.md": "adb711ebf02568c10bd498ea618f9659fc1d21e01a5c8ea04d551695f2b6c602",
       "src/content/model/statements/success-and-functional-benefit.md": "a05ae3afad79d2babf71e10f03725ece58e1d2ef7a9419876a7ca72d348c8f61",
       "src/content/model/statements/successful-adjustment.md": "2ae122b558dc791d99e55a4a078c2921d409124dac1d02923fbd00eeb1a617e8",
-      "src/data/model-questions.json": "7a571d24b4f6de2f03c07208a5f50b7b9472af7854763f2a6ddfa7c528654be7",
-      "src/data/model-reading-path.json": "9c1ac2135a994178807df0176fa69dd7ca8b6d682a22375c67fb6c6d2d270228",
+      "src/data/model-questions.json": "e077b2dce9ffc7b8923a5a1f3f970db391e797cbba91062baaee97055ddb4ef6",
+      "src/data/model-reading-path.json": "8aa72706ea6b08def3554205cbe972f030edb395a047ff5db4e7570c9a2a25eb",
       "src/layouts/Layout.astro": "db33633c4f36d7c86656fcbd3701c19eeb8f3abaed204f78985762f29a551110",
       "src/lib/arguments.ts": "9dae59a30f52df16dea9e5fb3bea29fa378f582ef108aeba426801dee605bb0b",
       "src/lib/dependencies.ts": "fdf835fefa0dcb4fbcb238320ffe6e06f8dec426ef5190f1ba32f322687e0609",
@@ -3640,17 +3810,17 @@
   "records": {
     "src/content/model/arguments/actual-chiropractic-benefit.md": {
       "finding": "consistent",
-      "proposition": "deductive existential application of a value criterion: joint ordered premises S-022, S-024, S-011 conclude S-027. All exact referenced propositions and the canonical argument body were rechecked; none changed in this revision.",
-      "qualifiers": "Assuming S-011, take one input-caused improving reorganization; S-024 identifies that very response as a change and S-022 attributes benefit in the same functional scope. S-027 retains existential occurrence and input causation without a new causal link or expanded outcome.",
-      "evidenceSeparation": "The deductive kind remains explicit inside the reasoning disclosure and does not confirm premises. Exact premise and conclusion appearances retain statement type and applicable confidence in the overview, with domain and not-applicable confidence on detail pages. Unresolved support does not mean non-adoption. No empirical literature appraisal was added. The full working theory currently has no substantive opposing premises; successful evaluation is conditional and does not constitute a completed dialectical review.",
-      "alignment": "The actual-input-effects section leads with exact S-027. Ordered S-022/S-024/S-011 and the existential value-criterion scheme remain inspectable, retaining input causation and the same improving response. No success definition, perturbation mechanism, or broader transfer replaces the empirical premise. Argument identity, joint-premise links, inference kind, and scheme now sit inside the native reasoning disclosure; the full argument route and all explanation text remain. Conclusion participation and discussion are accessible on detail pages. The targeted Questions and alternative explanations section states the concern, current response and revision consequence without attributing motives or turning the question into an asserted counterpremise.",
-      "inferenceAndImpact": "Assuming S-011, take one input-caused improving reorganization; S-024 identifies that very response as a change and S-022 attributes benefit in the same functional scope. S-027 retains existential occurrence and input causation without a new causal link or expanded outcome. Foundation review: Z3 verifies satisfiable S-022/S-024/S-011 premises and unsatisfiability with negated S-027. Removing the existential premise, substituting disjoint existential witnesses, broadening scope, or concluding benefit for all inputs fails the required route/proof. Q-002 correctly separates a scoped benefit from the overall worth of pursuing an input. The unchanged deduction now additionally supplies S-027 to ARG-008; the latter adds an explicit normative premise and remains defeasible. No medical comparison or symptom outcome is introduced into this deduction.",
-      "basis": "19ad70f3d5130f3c0b9d951f0849890db5b83b8e52b33d0b7063af94e46e81be",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "proposition": "Deductive existential value application: ordered joint premises S-022, S-024 and S-011 conclude S-027. The exact premises, conclusion, inference kind, scheme and executable application are unchanged. A new boundary paragraph distinguishes the broader neural hypotheses.",
+      "qualifiers": "The same input-caused reorganization, improving response, functional scope, context and timescale carry through the deduction. Some does not become all or a response probability. The benefit remains within the original neuromotor comparison.",
+      "evidenceSeparation": "The deduction remains conditional on S-011's unresolved empirical premise and the adopted definitions/value criterion. Network studies and the likelihood hypothesis do not improve that evidence. No public question is imported as an asserted attacker, and unopposed acceptance does not complete a substantive opposition audit.",
+      "alignment": "The exact quoted propositions match canonical bindings. The added explanation names S-030/S-031 as separate claims and S-012 as broader improvement; it supplies neither a new mechanism nor outcome bridge. Q-002 retains the distinction between scoped benefit and intervention worth. The main reading retains exact joint premises and conclusion.",
+      "inferenceAndImpact": "Z3 checks the unchanged strict implication with satisfiable premises. S-027 continues to support ARG-008 with the explicit normative S-029 bridge and ARG-002 for assessment. No rule for broader likelihood or benefit was added. Withdrawal tests confirm the local benefit and purpose derivations remain independent of all three broader premises.",
+      "basis": "c5883070b74d7a7f38e653acecc8c9468eff77f631bc12ce8e748b981d6e1cc1",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -3661,12 +3831,12 @@
       "evidenceSeparation": "The defeasible kind remains explicit inside the reasoning disclosure and does not confirm premises. Exact premise and conclusion appearances retain statement type and applicable confidence in the overview, with domain and not-applicable confidence on detail pages. Unresolved support does not mean non-adoption. No empirical literature appraisal was added. The full working theory currently has no substantive opposing premises; successful evaluation is conditional and does not constitute a completed dialectical review.",
       "alignment": "Practice leads with exact S-014; ordered S-005/S-006/S-009/S-027 remain available together. Premise-origin navigation still reaches S-027 at ARG-007. The practical bridge remains defeasible, preserving person/input overlap, detection, selection, and no-action limits. Argument identity, joint-premise links, inference kind, and scheme now sit inside the native reasoning disclosure; the full argument route and all explanation text remain. Conclusion participation and discussion are accessible on detail pages. The targeted Questions and alternative explanations section states the concern, current response and revision consequence without attributing motives or turning the question into an asserted counterpremise.",
       "inferenceAndImpact": "The practical scheme supplies a normative decision bridge under uncertainty. S-009 modifiability and S-027 occurrence need not overlap for a person/input; no-action, reliability, selection, safety, and alternatives remain unresolved rather than hidden factual premises. Foundation review: The executable application retains all four joint premises and remains defeasible. The isolated scenario explicitly assumes those premises; the full theory derives S-005, S-006 and S-027. Tests show no individual-indication conclusion and reject promotion to strict. Q-003 exposes noncoinciding populations/conditions; Q-004 makes alternatives and no input explicit. Neither question automatically becomes an asserted counterargument. The new purpose route supplies a subargument rather than a duplicate ordinary assumption. Its withdrawal or defeat affects S-014 and onward S-016 while person/input overlap, selection and no-action requirements remain unchanged.",
-      "basis": "0a247a7383af65dfc38a52e293f74f9bb035d6c6a5653fc442163c82624025a9",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "basis": "29efcd34003bb65d6a0bca92f6125f2e87daad1be489ab315267d6d501ab50ae",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -3676,13 +3846,13 @@
       "qualifiers": "Some inputs and the same specified neuromotor scope/context/timescale retain S-027's limited effect claim. S-029 provides a reason rather than sufficient conditions for unconditional legitimacy. The scheme applies that reason defeasibly to the nonexclusive aim in S-005, without broadening efficacy to everyone or every functional domain.",
       "evidenceSeparation": "S-027 retains mixed classification and unresolved confidence; S-029 is a challengeable value premise. The argument remains defeasible even when both premises are granted. The formal engine rejects promotion to strict. No new empirical claim, confidence upgrade, comparative medical premise, or claim about all symptom mechanisms was introduced.",
       "alignment": "The complete argument identifies its two premises, explains why the resulting reason supports legitimacy defeasibly, and preserves relevant objections. Functional value is sufficient for the benefit at issue without requiring an additional outcome. Q-007 directly examines whether achievable benefit warrants an aim and acknowledges ethical/professional objections. Desktop and mobile views show exact premises in order; the S-027 origin link reaches ARG-007 and Q-007 works with JavaScript disabled.",
-      "inferenceAndImpact": "The full theory derives S-027 through ARG-007 and takes S-029 as an explicit ordinary premise. S-005 is not independently assumed. Withdrawal and undercut tests prevent an unnoticed assumption route from protecting the aim. The rule neither uses S-004 nor S-028; their absence leaves this aim argument intact. Its defeat propagates through S-006, S-014 and S-016 without negating S-027 or S-005. An independent opposing corpus remains future work; Q-007 is not an asserted attacking premise.",
-      "basis": "e0542851a0cb3fbe3861e59a25294748cdf4ecb146c1680666a488467c7d1377",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "inferenceAndImpact": "The full theory derives S-027 through ARG-007 and takes S-029 as an explicit ordinary premise. S-005 is not independently assumed. Withdrawal and undercut tests prevent an unnoticed assumption route from protecting the aim. The rule neither uses S-004 nor S-028; their absence leaves this aim argument intact. Its defeat propagates through S-006, S-014 and S-016 without negating S-027 or S-005. An independent opposing corpus remains future work; Q-007 is not an asserted attacking premise. Current network review: withdrawal of all three broader premises leaves this professional-purpose route supported by its original joint premises, with no new empirical or normative bridge.",
+      "basis": "c8ca6c6a1a593bd2b98cdea23dbf44a616ff297cd2c1b7ba226b8fe3c8cbc98a",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -3693,12 +3863,12 @@
       "evidenceSeparation": "The argument retains defeasible classification. S-005 is now derived through scoped actual benefit and a normative bridge in the full theory. This does not add direct empirical premises to ARG-004 or upgrade confidence in its background claims.",
       "alignment": "ARG-004 follows ARG-008 in the new professional-purpose reading section, so all three premises have been introduced. The revised body names the purpose argument without a condition-treatment default or comparison to another profession. The reader can examine S-005's rationale separately.",
       "inferenceAndImpact": "S-004 remains a necessary premise of this route to S-006 while it is unnecessary to ARG-008's route to S-005. Removing the old S-004 to S-005 dependency therefore does not remove open-ended potential from the beyond-symptoms reasoning. Withdrawal or defeat of the new S-005 route propagates through ARG-004 and ARG-002; it does not prove S-006 false or establish a person-level action.",
-      "basis": "f45572f4e17ef1f6cad51342cb0e66e3a369761c0e026f971cacd0062cd314b5",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "basis": "d0011fae3c1f85d242d0b6fef3b2b1f2b45faca03484b1bc564413eab4061d3b",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -3709,12 +3879,12 @@
       "evidenceSeparation": "The defeasible kind remains explicit inside the reasoning disclosure and does not confirm premises. Exact premise and conclusion appearances retain statement type and applicable confidence in the overview, with domain and not-applicable confidence on detail pages. Unresolved support does not mean non-adoption. No empirical literature appraisal was added. The full working theory currently has no substantive opposing premises; successful evaluation is conditional and does not constitute a completed dialectical review.",
       "alignment": "Optional orientation leads with exact S-003; S-001 and S-002 remain joint ordered premises in the disclosure. Methodological synthesis remains defeasible and supplies no mandatory unique method. Argument identity, joint-premise links, inference kind, and scheme now sit inside the native reasoning disclosure; the full argument route and all explanation text remain. Conclusion participation and discussion are accessible on detail pages.",
       "inferenceAndImpact": "Methodological synthesis remains defeasible; jointly accepting the division of work and evaluation rules does not force one unique authoring method. Foundation review: The executable application remains defeasible with joint S-001/S-002 and derived S-003. Opaque formulas do not claim internal logical proof; the methodological choice is explicit.",
-      "basis": "fdca70b252fb9e6877d566191c3043b66c6d2f70a6b7913fed25fc992bdf8d42",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "basis": "d496c86c01831db003392097496c96e7a4d48c2e4cc16ef76ed9eabe97762e2c",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -3725,12 +3895,12 @@
       "evidenceSeparation": "The defeasible kind remains explicit inside the reasoning disclosure and does not confirm premises. Exact premise and conclusion appearances retain statement type and applicable confidence in the overview, with domain and not-applicable confidence on detail pages. Unresolved support does not mean non-adoption. No empirical literature appraisal was added. The full working theory currently has no substantive opposing premises; successful evaluation is conditional and does not constitute a completed dialectical review.",
       "alignment": "Practice ends with exact S-016; S-014 and S-015 remain the two ordered premises. Iterative testing remains defeasible, with stopping and observation alternatives intact and S-025 retained as interpretive context rather than an added premise. Argument identity, joint-premise links, inference kind, and scheme now sit inside the native reasoning disclosure; the full argument route and all explanation text remain. Conclusion participation and discussion are accessible on detail pages.",
       "inferenceAndImpact": "Iterative testing is a defeasible practical principle. S-014 and conditional S-015 do not deductively establish that reassessment works or mandate further input. Observation alternatives and uncertain outcomes remain explicit. Foundation review: The executable application remains defeasible with joint S-014/S-015. The full theory derives S-014 and explicitly assumes the conditional S-015 strategy. S-025 is retained as interpretation context rather than a hidden premise. The new purpose derivation is part of its upstream argument structure. Whole-theory tests confirm that an undercut to ARG-008 propagates here, while the conditional practical wording and no-action/stopping options remain intact.",
-      "basis": "86752b6001dc06cde57fb216a8c90903ac1ca4ca409105efadab625e24a22f4f",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "basis": "0f177450aebbe74a8f065b4ccca2905c770f2f8c79fe2193fccbb08ab1e55a1f",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -3741,12 +3911,12 @@
       "evidenceSeparation": "The defeasible kind remains explicit inside the reasoning disclosure and does not confirm premises. Exact premise and conclusion appearances retain statement type and applicable confidence in the overview, with domain and not-applicable confidence on detail pages. Unresolved support does not mean non-adoption. No empirical literature appraisal was added. The full working theory currently has no substantive opposing premises; successful evaluation is conditional and does not constitute a completed dialectical review.",
       "alignment": "The functional-possibilities section leads with exact S-004. The disclosure retains ordered S-017/S-007/S-018/S-019/S-008/S-020, the complete biological rationale, and its defeasible interpretation. Maintenance and adaptability still do not entail an actionable improvement now. Argument identity, joint-premise links, inference kind, and scheme now sit inside the native reasoning disclosure; the full argument route and all explanation text remain. Conclusion participation and discussion are accessible on detail pages.",
       "inferenceAndImpact": "The six empirical premises motivate a framework choice; they do not entail open-ended potential exactly as written. A locally best feasible response with no improvement now is compatible with maintenance, limited information, and adaptation. Foundation review: The executable application preserves all six joint empirical premises and the defeasible framework conclusion. Reading position and argument count do not confer priority or strengthen the biological rationale to a deduction.",
-      "basis": "2d44c60deb174a8f42b40573a61488da9568634bb45dee07621879a8c97fdd38",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "basis": "615ea45fba2c82d57023b6a6f61c25e6b63e58b7b16836290e7eba354d16192a",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -3757,12 +3927,12 @@
       "evidenceSeparation": "The deductive kind remains explicit inside the reasoning disclosure and does not confirm premises. Exact premise and conclusion appearances retain statement type and applicable confidence in the overview, with domain and not-applicable confidence on detail pages. Unresolved support does not mean non-adoption. No empirical literature appraisal was added. The full working theory currently has no substantive opposing premises; successful evaluation is conditional and does not constitute a completed dialectical review.",
       "alignment": "The benefit-of-success section leads with exact S-026. Ordered S-022/S-024/S-025 and the universal value-criterion scheme remain inspectable. The same-scope deduction remains compatible with no successful adjustments and distinct from actual occurrence. Argument identity, joint-premise links, inference kind, and scheme now sit inside the native reasoning disclosure; the full argument route and all explanation text remain. Conclusion participation and discussion are accessible on detail pages.",
       "inferenceAndImpact": "For any successful adjustment, S-024 identifies a change and S-025 supplies improvement; S-022 attributes benefit in that same scope/context/timescale. The universal conclusion follows conditionally without existence, frequency, detection, or intervention-worth claims. Foundation review: Z3 verifies satisfiable S-022/S-024/S-025 premises and unsatisfiability with negated S-026. The same scope/context/interval is retained. Strict transposition is generated. Separate tests permit no actual inputs, no actual benefit and no successes, preserving the universal conditional boundary.",
-      "basis": "a3733bc57e894ee1a5156ef1a785f445d509705d3a30942c9b00517c1e337fb7",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "basis": "460a4884fc91fa60e463bd34415cdc543b8e14ab56596b9a042a5809dd7b37eb",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -3772,13 +3942,13 @@
       "qualifiers": "Some retains actual occurrence in the same input-caused improving reorganizations, without frequency, universal benefit, or person-level predictability.",
       "evidenceSeparation": "Mixed classification and unresolved confidence remain visible beside the deductive argument. Valid inference does not confirm S-011 or supply broader transfer. The pilot treats this as a derived conclusion. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
       "alignment": "ARG-007 leads with the exact mixed conclusion and unresolved confidence. Its three premises and deductive scheme remain inspectable in the disclosure; S-011 remains the actual occurrence premise. The statement page preserves same-response overlap, scope limits, full metadata, and ARG-007, ARG-008 and ARG-002 participation. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
-      "inferenceAndImpact": "ARG-007 concludes S-027 from S-022, S-024 and S-011 with exact shared causal event and scope. Premise participation now includes ARG-008 as well as ARG-002. ARG-008 adds S-029's normative bridge rather than deriving professional legitimacy from benefit alone. The empirical and normative legacy dependencies on S-011/S-022 are unchanged. An undercut to ARG-008 leaves S-027 supported; a failed purpose argument therefore does not negate functional benefit.",
-      "basis": "61c4e07f65179b0537bdde86f3fb9300edb58cd9bad24f199593e40fbb444814",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "inferenceAndImpact": "ARG-007 concludes S-027 from S-022, S-024 and S-011 with exact shared causal event and scope. Premise participation now includes ARG-008 as well as ARG-002. ARG-008 adds S-029's normative bridge rather than deriving professional legitimacy from benefit alone. The empirical and normative legacy dependencies on S-011/S-022 are unchanged. An undercut to ARG-008 leaves S-027 supported; a failed purpose argument therefore does not negate functional benefit. Current network review: removing S-012, S-030 and S-031 preserves this derivation. The new circuit hypotheses do not broaden its outcome or become hidden empirical premises.",
+      "basis": "c71a65958e3afbd1c976b7e42f1917ffb53d9e754eff8f914d3f9aac7bde6a94",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -3788,13 +3958,13 @@
       "qualifiers": "Caused by the input and change in organization define the response; passive displacement or a changed measurement alone does not satisfy it.",
       "evidenceSeparation": "Not-applicable confidence concerns a definition. The full body preserves no-response, nonbeneficial, adverse, and uncertain cases in accounting. The pilot treats this as an explicitly declared ordinary premise. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
       "alignment": "The exact response definition remains complete in its introduction and both benefit arguments. Definition remains visible; full metadata, ordinary-usage clarification, causation limits, all-input accounting, and both ARG-006/ARG-007 uses remain on the statement page. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
-      "inferenceAndImpact": "ARG-006 and ARG-007 both use S-024 to identify reorganization as a change; neither obtains existence evidence from it. S-023 conceptual revision dependence stays separate. Reviewed complete participation: concluding arguments none; premise arguments ARG-007, ARG-006. Foundation review: The quantified definition relates reorganization to change and adjustment to input causation. Tests allow no actual delivered inputs and no successful events when only definitions/value criteria are assumed. It supplies classification, not occurrence. Its existing role in ARG-007 now also reaches the professional-purpose argument through S-027. The exact proposition, scope, confidence and formal binding are unchanged; the added normative bridge supplies no empirical confirmation.",
-      "basis": "43e31a50ba1fd14164146fbac8e218c6e288ad0d96c004e2da490b2413f57526",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "inferenceAndImpact": "ARG-006 and ARG-007 both use S-024 to identify reorganization as a change; neither obtains existence evidence from it. S-023 conceptual revision dependence stays separate. Reviewed complete participation: concluding arguments none; premise arguments ARG-007, ARG-006. Foundation review: The quantified definition relates reorganization to change and adjustment to input causation. Tests allow no actual delivered inputs and no successful events when only definitions/value criteria are assumed. It supplies classification, not occurrence. Its existing role in ARG-007 now also reaches the professional-purpose argument through S-027. The exact proposition, scope, confidence and formal binding are unchanged; the added normative bridge supplies no empirical confirmation. Current network review: the new conceptual use by S-031 is explicitly limited. Activity/responsiveness change alone need not satisfy reorganization, and the S-031 body requires that relationship to be investigated when claiming an adjustment. Definitions still supply neither occurrence nor spread.",
+      "basis": "be204b6db9490d8610069d2878407266ff0c0b11edde350a0316e329a3f9444a",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -3805,12 +3975,12 @@
       "evidenceSeparation": "Strategy confidence remains unresolved. Neither the benefit deduction nor an intention validates a test, prediction, or selection method. The pilot treats this as a derived conclusion. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
       "alignment": "Practice leads with the exact assessment strategy and unresolved confidence. ARG-002 premises remain in their original order inside the disclosure, with S-027 traceable to ARG-007. The detail page retains missed opportunities, no-action decisions, selection limits, and ARG-003 participation. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
       "inferenceAndImpact": "ARG-002 stays defeasible with all four premises; ARG-003 separately uses S-014 and conditional application. The detailed body preserves costs, risks, alternatives, safety, and no-action outcomes. Reviewed complete participation: concluding arguments ARG-002; premise arguments ARG-003. Foundation review: The full theory derives this strategy through ARG-002; it is not an additional initial premise. Its onward use in ARG-003 is preserved. Assessment alone does not discharge the warranted-to-proceed condition in S-015. The new purpose derivation is part of its upstream argument structure. Whole-theory tests confirm that an undercut to ARG-008 propagates here, while the conditional practical wording and no-action/stopping options remain intact.",
-      "basis": "ec4bbb4f0c37ca4a615697078210871c474a70adfdd77c8d5a1079a12a08cf24",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "basis": "b351c6f5c513fef9ab7a6392219d56994e3f3cb89038fea7be10aa2b7fd3b1ae",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -3821,30 +3991,45 @@
       "evidenceSeparation": "This is an ordinary, challengeable value premise with not-applicable empirical confidence, not a domain axiom or a scientific claim. S-027 independently supplies the scoped benefit attributed to chiropractic inputs. The binding is explicitly opaque and does not claim formal proof of the internal normative language.",
       "alignment": "Title, summary, statement and body consistently present an achievable benefit as a defeasible reason for an aim. The revision condition distinguishes reconsidering the principle from correcting an application that overstates it. It is introduced immediately before ARG-008 in professional-purpose reading, with its own stable S-ID, route and discussion. The explanation contains no medical comparison or required further symptom outcome.",
       "inferenceAndImpact": "ARG-008 uses S-029 jointly with S-027. Neither the professional aim nor the benefit is inferred from this principle alone. Withdrawing this premise removes the aim route and its onward uses in ARG-004, ARG-002 and ARG-003. No legacy revision dependency is invented for the new normative premise; the argument index records its actual participation.",
-      "basis": "f677820bd6b05224897ee0b3af2d824574ad196f7bf095408d4b07e5a20f5897",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "basis": "3d16ddb0d1ec6b102b2a3b7ad3b99139dad0b791c960c8802afe0d890c3e183e",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
     "src/content/model/statements/broader-functional-benefit.md": {
       "finding": "consistent",
-      "proposition": "empirical: Some chiropractic-produced neuromotor changes contribute to improvement in context-appropriate human function beyond the initially affected neuromotor scope. The full canonical record was rechecked and is unchanged by this foundation revision.",
-      "qualifiers": "Some asserts broader transfer in some cases without frequency, a universal benefit, or durability beyond the evaluated scope.",
-      "evidenceSeparation": "Empirical type and unresolved confidence remain on the supporting introduction. Local changes and general learning do not supply missing transfer evidence. The pilot treats this as an explicitly declared ordinary premise. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
-      "alignment": "Supporting reading retains the exact broader-transfer hypothesis and unresolved confidence. More about this statement reaches its full causal discussion, source and revision material, relationships, and discussion anchor. The supporting statement anchor still opens its branch; supporting placement does not downgrade adoption. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
-      "inferenceAndImpact": "S-021 conceptual and S-011 empirical revision roles and S-013 see-also are retained. No incoming argument from local benefit or outgoing route to the benefit deduction is manufactured. Reviewed complete participation: concluding arguments none; premise arguments none. Foundation review: The broader-transfer claim remains an independent ordinary premise, not a consequence of local benefit. The local-response relationship still needs a scope-use disposition; its semantic use of S-021 is retained.",
-      "basis": "d666fabc75309cdf32da33cf894968af7cc614f9206d9967344be1db33aef48f",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "proposition": "Empirical occurrence: some chiropractic-induced changes in motor-related neural circuitry contribute causally to context-appropriate improvement beyond the initially assessed neuromotor scope. The changed causal contributor intentionally distinguishes neural processing from observed motor performance and permits shared neural processes or influence between circuits.",
+      "qualifiers": "Some retains beneficial occurrence without a frequency claim. Initially affected scope is deliberately clarified to initially assessed scope, fixed before outcomes are observed. The new wording does not require local motor improvement itself to mediate another outcome. Context, functional comparison and relevant gains/losses remain mandatory; neural change is not equated with improvement.",
+      "evidenceSeparation": "Unresolved confidence remains separate from adoption. No documented evidence establishes the proposed chiropractic-induced beneficial contribution. S-030's network evidence and S-031's anatomical example inform hypotheses without establishing this outcome. S-012 remains an explicitly assumed ordinary empirical premise, not an engine-proved clinical conclusion.",
+      "alignment": "Title, summary, explanation and revision conditions align on broader qualifying improvement from motor-related neural change. The body distinguishes shared and propagated accounts, valid circuit measurements and functional outcomes. Q-010 treats sensory feedback as a possible interacting contribution while testing other causes; Q-011 separates change from benefit. Supporting placement does not imply a chain of entailments. Browser review: Chromium 153 production build passed existing navigation, keyboard, history and disclosure checks at 1280px and 390px, plus 390px without JavaScript. Targeted checks covered all three broader-effect pages, all four new questions, supporting order, canonical wording, confidence, navigation and horizontal overflow. Inspected desktop supporting-reading, mobile S-031 and no-JavaScript S-012 question screenshots; text and disclosures are readable.",
+      "inferenceAndImpact": "S-011 to S-012 is resolved as an explicit semantic use with its original empirical role and limiting note preserved. S-021 supplies the outcome comparison; new S-030 supplies proposed neural-explanation context. No new argument is authored. S-031 and S-013 are see-also links, not supporting paths. Withdrawing S-012 leaves no argument despite local improvement, capacity and likelihood; removing all three broader premises leaves S-027 and S-005 derived. The legacy migration now has six undecided relationships.",
+      "basis": "a6edfab3c997235a2173552ce6d2bb08de353057308884e51531eef5acb76672",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
+    },
+    "src/content/model/statements/broader-neural-effects.md": {
+      "proposition": "Empirical likelihood hypothesis: chiropractic-induced activity or responsiveness changes in motor-related circuitry are likely to alter connected neural processing beyond the initially assessed motor function, with effects dependent on circuitry, connections and existing state. This adopts the user's stronger propensity claim independently of general capacity.",
+      "qualifiers": "Likely is stronger than possible and is part of the proposition, not a confidence rating or ASPIC+ probability. The condition is an independently established circuit change; delivering an input or a changed motor score is insufficient. Studies must specify frequency/comparison, reference class, effect threshold and interval. It does not guarantee spread or benefit.",
+      "evidenceSeparation": "Confidence remains unresolved and no documented evidence establishes the chiropractic response frequency. Gdowski/McCrea supplies primate neck/vestibular convergence, not a chiropractic intervention, cervical-versus-lumbar ranking, or beneficial outcome. General connectivity motivates a prospective prediction without becoming evidence for its frequency.",
+      "alignment": "The statement, summary, evidence section and revision criteria retain the likelihood claim and its empirical burden. Circuit activity change is explicitly distinguished from S-024's reorganization criterion. Q-009 requires prospective outcomes and unfavorable cases; the supporting reading places this separately from capacity, broader benefit and primacy. Vestibular measures are not automatically non-motor outcomes. Browser review: Chromium 153 production build passed existing navigation, keyboard, history and disclosure checks at 1280px and 390px, plus 390px without JavaScript. Targeted checks covered all three broader-effect pages, all four new questions, supporting order, canonical wording, confidence, navigation and horizontal overflow. Inspected desktop supporting-reading, mobile S-031 and no-JavaScript S-012 question screenshots; text and disclosures are readable.",
+      "inferenceAndImpact": "S-030 supplies an explicit empirical mechanism use and S-024 an explicit conceptual input/response use. Their notes reject deriving likelihood from capacity or occurrence from definition. S-012 is see-also, with neither direction treated as inference. There are no premise or conclusion applications for this opaque ordinary premise. Withdrawal leaves no argument for S-031 despite assumed S-011/S-030; local benefit/purpose remain independent.",
+      "finding": "consistent",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
+      "reviewer": {
+        "kind": "ai",
+        "model": "GPT; exact model identifier and runtime revision unavailable in this session",
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
+      },
+      "basis": "5294bcf242fce45cf78ef10d0d91e5f88276d5072c521af2746f003b4972f276"
     },
     "src/content/model/statements/care-beyond-symptoms.md": {
       "finding": "consistent",
@@ -3853,12 +4038,12 @@
       "evidenceSeparation": "Framework confidence is not applicable. The explanation retains separate empirical and practical requirements for a warranted input. The pilot treats this as a derived conclusion. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
       "alignment": "ARG-004 leads with the exact framework scope conclusion. Its three joint premises and normative scope limits remain inside the argument disclosure; the statement page preserves input-target, safety, and comfort distinctions, complete metadata, and ARG-002 participation. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes. Its ARG-004 introduction now follows the explicit professional-purpose argument; the canonical statement, boundaries and detail route remain unchanged.",
       "inferenceAndImpact": "ARG-004 is defeasible and S-006 participates onward in ARG-002 with the additional aim, modifiability, and actual-benefit premises visible. S-004/S-005 revision roles alone supply no reasoning. Reviewed complete participation: concluding arguments ARG-004; premise arguments ARG-002. Foundation review: Derived by defeasible ARG-004, then used by ARG-002. The inference does not establish asymptomatic efficacy or an indication. The full theory now obtains S-005 through ARG-008 rather than a starting assumption. A challenge to that purpose route propagates here, without adding a new requirement that symptom treatment be the default aim.",
-      "basis": "b88be58779bd9ba63689d55f166f9e4925e00faad2f74813da2c1688f0eca901",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "basis": "06c62cdc02623db1116348e3df45e4b8dd8192474aa5466de3a274739d2c6bb1",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -3869,12 +4054,12 @@
       "evidenceSeparation": "Unresolved confidence is separate from the conditional strategy. A delivered stimulus remains in the accounting even when ineffective, harmful, or uncertain. The pilot treats this as an explicitly declared ordinary premise. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
       "alignment": "Practice retains the conditional intentional-application strategy between its practical arguments, with unresolved confidence. Its statement page keeps ineffective, adverse, and uncertain responses, mechanism and assessment dependencies, and ARG-003 participation; delivery is not displayed as an established adjustment. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
       "inferenceAndImpact": "S-028/S-014 practical revision roles remain secondary. ARG-003 uses S-015 with S-014; the renderer does not convert an empirical mechanism into a guaranteed outcome. Reviewed complete participation: concluding arguments none; premise arguments ARG-003. Foundation review: An explicit ordinary strategy premise in the pilot, retaining the warranted-to-proceed condition. The S-014 and S-028 relationships require a practical/semantic decision before replacement. The theory does not derive an individual authorization.",
-      "basis": "d0742f1f3d10507840aa4a8bc2bfda5d76e3d0d5f582b81906a6cd388c8fc584",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "basis": "2ab2ed3b56e21830aa517113531ebe0b0d00f7f8577bb0baca0235370dccb3ee",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -3885,28 +4070,28 @@
       "evidenceSeparation": "Definition and not-applicable confidence do not establish a technique, dose, learning, or occurrence of successful adjustment. The pilot treats this as an explicitly declared ordinary premise. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
       "alignment": "The input-adjustment-success section retains the complete input definition as a separate statement. Its detail page preserves deliberate delivery, intention, full metadata, conceptual relationships, and the absence of validated technique or response guarantees. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
       "inferenceAndImpact": "S-008 conceptual revision impact and S-024 downstream meaning are retained separately. There is no recorded argument participation and none is invented from the sequence. Reviewed complete participation: concluding arguments none; premise arguments none. Foundation review: The input definition remains opaque and an ordinary premise. The formal input sort names possible identifiers; OccurredInput separately asserts actual delivery. Its use in S-024 remains an explicit semantic relationship.",
-      "basis": "e31a416b67d65aeb89bf89cb2dab6a400b3bf1cdb5f0072b9278f9eeec1a7f78",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "basis": "88f83271a2c4ccab65e27ee7c3a2afd4a2c0e4135167de3a80f76276701aa2ca",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
     "src/content/model/statements/chiropractic-inputs.md": {
       "finding": "consistent",
-      "proposition": "empirical: Some chiropractic inputs cause neuromotor reorganization that improves context-appropriate human function within a specified neuromotor scope, context, and timescale. The full canonical record was rechecked and is unchanged by this foundation revision.",
-      "qualifiers": "Some asserts actual input-caused reorganization and improvement in the same cases, with specified neuromotor scope, context, and timescale.",
-      "evidenceSeparation": "Confidence remains unresolved and the evidence discussion says the joint effect is not established by the documented evidence. The proposition is not weakened into intention or possibility. The pilot treats this as an explicitly declared ordinary premise. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
-      "alignment": "The actual-input-effects section retains the exact joint causal-improvement proposition and unresolved confidence. Its statement page preserves all-delivered-input accounting, prespecified comparisons, evidence limits, and ARG-007 participation. Neither visual simplification nor later deduction upgrades the causal premise. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes. The targeted Questions and alternative explanations section states the concern, current response and revision consequence without attributing motives or turning the question into an asserted counterpremise.",
-      "inferenceAndImpact": "ARG-007 premise 3 remains S-011, not the success definition or S-026. S-021/S-024 conceptual revision notes supply meaning without occurrence evidence; S-028 failure need not erase an independently supported effect. Reviewed complete participation: concluding arguments none; premise arguments ARG-007. Foundation review: The quantified existential binding preserves actual delivery and one same caused reorganization, improvement, scope, context and interval. Q-001 identifies alternative explanations and calls for discriminating comparisons; it does not assert those alternatives as true. The S-012, S-013 and S-028 links remain explicitly unresolved for migration. Its existing role in ARG-007 now also reaches the professional-purpose argument through S-027. The exact proposition, scope, confidence and formal binding are unchanged; the added normative bridge supplies no empirical confirmation.",
-      "basis": "e4d8c175a1d3c988721d05b2040aadfca014d0015811094c98ebf0bfbfb6160d",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "proposition": "Empirical joint effect: some chiropractic inputs cause neuromotor reorganization that improves function in the same specified neuromotor scope, context and interval. Exact proposition and quantified binding are unchanged; the body clarifies neural activity versus measured motor outcome.",
+      "qualifiers": "Some preserves actual occurrence in overlapping causal cases rather than mere intention or capacity. Specified functional scope and interval do not expand with the new network hypotheses. No all-input response, durability or broader outcome is asserted.",
+      "evidenceSeparation": "Confidence remains unresolved; the current documented evidence does not establish the joint causal improvement. General learning and network findings do not fill that gap. Q-001 continues to expose alternative explanations without adopting them as premises. Formal support remains conditional.",
+      "alignment": "The new boundary links S-030's capacity, S-031's likelihood and S-012's broader improvement while explicitly rejecting their derivation from local improvement. Existing all-input accounting, prospective selection, improvement criteria and adverse/uncertain outcomes remain. The main reading retains the exact proposition and ARG-007 displays it verbatim.",
+      "inferenceAndImpact": "ARG-007 still uses S-011 as its third joint premise; S-021 and S-024 remain conceptual revision uses. S-012's legacy relationship now has a completed semantic-use disposition without a new inference. S-013 and S-028 decisions remain open. The existing strict ARG-007 and defeasible ARG-008 route remains independent of S-012/S-030/S-031.",
+      "basis": "a025c596863ced2f6126be7993c5605f5d82556dc81ee85d819b41aef85b5531",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -3917,12 +4102,12 @@
       "evidenceSeparation": "Empirical confidence remains unresolved; the absence of a documented mechanism appraisal is retained. An effect does not identify its mechanism. The pilot treats this as an explicitly declared ordinary premise. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
       "alignment": "The independent mechanism claim remains between S-011 and ARG-007 with empirical type and unresolved confidence. Its statement page retains independent salience, causal tests, revision dependencies, and survival of an effect under another explanation; no argument participation is invented. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
       "inferenceAndImpact": "S-010/S-011 empirical revision inputs and S-015 practical impact remain secondary. No recorded argument participation is invented, and S-011/S-027 may survive failure of this explanation. Reviewed complete participation: concluding arguments none; premise arguments none. Foundation review: Remains an independent opaque empirical premise. General capacity does not prove specific realization. Because this mechanism includes the effect claim, the possible reverse implication to S-011 needs formal review before adding a rule; effect evidence alone does not establish the mechanism.",
-      "basis": "9bc20e55d1dc357f2dcbe736a6ac2a89dec210544d2381f10a8e2d718f9913ce",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "basis": "4bb593bc1448117fa3c4cc4f15d8c5d5a4fa09afc40d0939aa7ca45bca9e78af",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -3933,12 +4118,12 @@
       "evidenceSeparation": "Validity, premise truth, and evidential strength remain separate in the exact text, body, and shared help. Inclusion is a working commitment, with no status badge. The pilot treats this as an explicitly declared ordinary premise. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
       "alignment": "Optional orientation retains the exact claim-discipline commitment and framework type. The detail page keeps all ARG-001 participation. Moving shared reading help inside contents preserves the distinction between reading order, inference, confidence, and adoption. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
       "inferenceAndImpact": "S-001 is a methodological revision dependency. Its joint ARG-001 role is separately recorded; the renderer fabricates no concluding argument for S-002. Reviewed complete participation: concluding arguments none; premise arguments ARG-001. Foundation review: Methodological classification remains an ordinary premise of ARG-001. Formal results implement the validity/confidence distinction and do not change adoption.",
-      "basis": "a490ee5bb77120bf00773fb91eed8c7d4921c9095c462a8f2f23394778dc3ce3",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "basis": "8c3dbb46d0f238ac64a1f70cd554c40fa5999656b4038ea326452a3a852a9c66",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -3948,13 +4133,13 @@
       "qualifiers": "Actual conditions, identified comparison, relevant gains/losses, functional scope, and timescale constrain improvement; no single favorable metric suffices.",
       "evidenceSeparation": "Definition and not-applicable confidence remain separate from evidence of actual improvement and S-022 evaluative adoption. The pilot treats this as an explicitly declared ordinary premise. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
       "alignment": "The complete long definition remains readable without truncation or horizontal overflow at desktop and mobile widths. The overview shows Definition; its domain and not-applicable confidence remain on the detail page alongside gains/losses and intervention-worth limits. The value criterion follows the definition; the professional-purpose argument is introduced later after its benefit premise. S-021 remains a distinct definition with its original anchor. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
-      "inferenceAndImpact": "No incoming or outgoing argument is fabricated for this independent definition. Its conceptual revision uses remain visible, and the benefit arguments retain their actual canonical premise lists. Reviewed complete participation: concluding arguments none; premise arguments none. Foundation review: Its internal English definition remains opaque; the quantified pilot explicitly interprets Improves through the full gains/losses comparison. That interpretation is a reviewed semantic commitment, not a new premise or a claim to have proved the definition. Its semantic uses remain tracked.",
-      "basis": "d2be3a58fd7af6753aac22651ef579b40e275b824507be35dac7df27cc8035e5",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "inferenceAndImpact": "No incoming or outgoing argument is fabricated for this independent definition. Its conceptual revision uses remain visible, and the benefit arguments retain their actual canonical premise lists. Reviewed complete participation: concluding arguments none; premise arguments none. Foundation review: Its internal English definition remains opaque; the quantified pilot explicitly interprets Improves through the full gains/losses comparison. That interpretation is a reviewed semantic commitment, not a new premise or a claim to have proved the definition. Its semantic uses remain tracked. Current network review: S-012 still uses this independently specified gains/losses comparison. Prespecifying the initial and broader scopes prevents retrospectively shrinking local scope to manufacture transfer; no new universal quality score is introduced.",
+      "basis": "d3dbef6487f0626eddeee8a7ccdbd0141bb1f47499a39eb83404b3cf65c952c5",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -3965,12 +4150,12 @@
       "evidenceSeparation": "Framework confidence remains not applicable. The full explanation retains the distinction between missing evidence and informative evidence of absence. The pilot treats this as a derived conclusion. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
       "alignment": "ARG-001 still introduces this exact methodological conclusion once. The argument disclosure retains both premises and the defeasible scheme, and the statement page retains analytical-order and scope explanations. Removing not-applicable confidence from the overview creates no empirical confidence claim. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
       "inferenceAndImpact": "S-001/S-002 methodological revision impact is distinct from ARG-001 inferential participation. The route remains a defeasible methodological choice. Reviewed complete participation: concluding arguments ARG-001; premise arguments none. Foundation review: This methodological conclusion is derived by ARG-001 rather than assumed in the full theory. Its opaque formula does not claim the method is a necessary consequence.",
-      "basis": "1c4e1f0d547d44398be6b86beb042fc1d13d8b1125f9518cca19430c4a6ffaa7",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "basis": "acedb62f88668ed50e6720785da27a8c417d7b8033bb3e0035d56c25bd82d3f4",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -3980,13 +4165,13 @@
       "qualifiers": "Any quantifies qualifying improving changes while retaining the same comparison dimensions. Intrinsic functional value does not require a further symptom outcome, and local scope does not establish overall intervention worth.",
       "evidenceSeparation": "Value classification and not-applicable empirical confidence remain appropriate. S-022 is an ordinary quantified premise, distinct from S-011's unresolved causal effect. Neither adoption nor formal acceptance establishes empirical truth.",
       "alignment": "The updated closing explanation follows the actual-benefit route through ARG-007 and the professional-purpose route through ARG-008 with S-029. It no longer implies an unsupported standalone connection to professional legitimacy. The reading section now introduces only the comparison and value before effects and purpose. Q-005 continues to examine the evaluative commitment.",
-      "inferenceAndImpact": "Direct premise participation remains ARG-004, ARG-006 and ARG-007. Its S-021 semantic dependency remains intact. Its former direct dependency into S-005 is retired and preserved in migration history, with an explicit ordered ARG-007 to ARG-008 replacement path through S-027. This path requires all joint premises; S-022 alone does not establish an effect or a legitimate professional aim.",
-      "basis": "4f523e993bbd33d3596692aff17a598ccc004c4813a5fe20665e764e8862dc64",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "inferenceAndImpact": "Direct premise participation remains ARG-004, ARG-006 and ARG-007. Its S-021 semantic dependency remains intact. Its former direct dependency into S-005 is retired and preserved in migration history, with an explicit ordered ARG-007 to ARG-008 replacement path through S-027. This path requires all joint premises; S-022 alone does not establish an effect or a legitimate professional aim. Current network review: new neural-processing hypotheses supply no value premise and do not make activity change beneficial. The exact existing quantified value criterion is unchanged.",
+      "basis": "aec96485e1954c3f9d39a648d82f8e5872e1819a267cb7b76ecd88ca4b2c1787",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -3997,12 +4182,12 @@
       "evidenceSeparation": "Framework classification remains visible beside the proposition. Not-applicable confidence remains on the statement page; ARG-005 is labeled defeasible inside its disclosure. Neither the reading position nor omitted inapplicable metadata makes the proposition empirically confirmed. The pilot treats this as a derived conclusion. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
       "alignment": "The functional-possibilities section leads with the exact open-ended-potential statement and framework type. ARG-005 identity, six premises, and defeasible interpretation are inside Follow the reasoning. The statement page retains its limited meaning, ARG-005/ARG-004 participation, and complete metadata. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
       "inferenceAndImpact": "ARG-005 still concludes S-004 and ARG-004 uses it with S-022 and S-005. Its legacy relationship into S-005 is now retired as approved: open-ended potential can frame possibilities without establishing the legitimacy of an achievable aim. The original limiting note remains in migration history and contextual explanation remains in S-005. Removing the ARG-005 route in the test removes support for S-004 and S-006 while leaving ARG-008's support for S-005 intact.",
-      "basis": "a1d54af0ea2188aed44fe66f9a8ad622dd8190e09b7e800d1fb56c4503102fe8",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "basis": "7a80949adc84d4c03758ada3b07e564d93357cdfea83b2d64b23c2ceae3274db",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -4010,15 +4195,15 @@
       "finding": "consistent",
       "proposition": "empirical: The nervous system regulates human function using available sensory information and prior experience to estimate the state of the body and environment. The full canonical record was rechecked and is unchanged by this foundation revision.",
       "qualifiers": "Available information and prior experience describe estimation without completeness, accuracy, consciousness, or a universal computation.",
-      "evidenceSeparation": "The Körding/Wolpert reaching example and limiting note remain intact. Its bounded behavioral result does not establish neural implementation across all regulation or chiropractic effects. The pilot treats this as an explicitly declared ordinary premise. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
+      "evidenceSeparation": "The K\u00f6rding/Wolpert reaching example and limiting note remain intact. Its bounded behavioral result does not establish neural implementation across all regulation or chiropractic effects. The pilot treats this as an explicitly declared ordinary premise. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
       "alignment": "The biological sequence retains the exact estimation claim and unresolved confidence. Its statement page keeps the bounded reaching evidence, paper link, source limitations, revision tests, and ARG-005 participation. Removing repeated relationship lists does not infer neural implementation or chiropractic effects. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
-      "inferenceAndImpact": "ARG-005 receives premise 3 independently. S-020 conceptual revision impact supplies estimate meaning but cannot establish updating or reorganization. Reviewed complete participation: concluding arguments none; premise arguments ARG-005. Foundation review: An ordinary opaque empirical premise in ARG-005. Its S-020 semantic use remains explicit; formal acceptance does not establish the scope of the cited reaching example.",
-      "basis": "495c4f39b57f722eb1218b4c05d96f91417032bbeb96f331626f2ca44065e38c",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "inferenceAndImpact": "ARG-005 receives premise 3 independently. S-020 conceptual revision impact supplies estimate meaning but cannot establish updating or reorganization. Reviewed complete participation: concluding arguments none; premise arguments ARG-005. Foundation review: An ordinary opaque empirical premise in ARG-005. Its S-020 semantic use remains explicit; formal acceptance does not establish the scope of the cited reaching example. Current network review: sensory estimation is explicitly nonexclusive in this record. Central synaptic influence in S-030 does not contradict it or require a new formal edge; its original ARG-005 and S-020 roles remain.",
+      "basis": "6ae5d382e57359cebd1673065d0f695959a2223a4dfa1898863dd9570ce96439",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -4029,30 +4214,45 @@
       "evidenceSeparation": "The broad claim-specific appraisal remains unresolved, without implying that every component is equally uncertain. No empirical confidence is upgraded. The pilot treats this as an explicitly declared ordinary premise. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
       "alignment": "The second biological introduction remains an independent empirical premise with unresolved confidence. The detail page retains its ARG-005 participation and distinction between the human nervous system and organismic scope. Removing an empty relationship message from the overview does not create an inference from S-017. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
       "inferenceAndImpact": "ARG-005 uses this as premise 2; S-013 has separate empirical revision impact. Neither reading adjacency nor that dependency supplies an incoming argument or chiropractic mediation evidence. Reviewed complete participation: concluding arguments none; premise arguments ARG-005. Foundation review: Its use in ARG-005 is explicit. The integration-to-principal-mediation relation to S-013 remains a substantive migration decision; ordinary-premise status supplies no clinical evidence.",
-      "basis": "fae3b07852b954209227ece0330ac3db9dee75a63755f933d3041718044ebcf3",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "basis": "a97c6a57da509593f4b9f8876f33b9939079cc5a14581b1daaa9172fa700cdf4",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
     "src/content/model/statements/neural-mediation.md": {
       "finding": "consistent",
-      "proposition": "empirical: Chiropractic inputs influence broader human function principally through nervous-system-mediated change. The full canonical record was rechecked and is unchanged by this foundation revision.",
-      "qualifiers": "Principally proposes a main pathway without exclusivity or a response to every input. Occurrence, mediation, primacy, and particular pathways are separate burdens.",
-      "evidenceSeparation": "Unresolved confidence remains explicit. The integrative role and a local response do not establish broader neural mediation or its primacy. The pilot treats this as an explicitly declared ordinary premise. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
-      "alignment": "Supporting reading keeps the exact principal-mediation proposition and unresolved confidence. Its statement page preserves mediation, primacy, and pathway tests, the S-012 see-also link, and both revision dependencies. Placement beside S-012 supplies no argument equating mediation with benefit. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
-      "inferenceAndImpact": "S-007/S-011 empirical revision dependencies are separate from the S-012 see-also pair. No argument participation is invented; broader effects may have unresolved value. Reviewed complete participation: concluding arguments none; premise arguments none. Foundation review: The principal-mediation claim remains an independent ordinary premise. Neither integration nor local improvement is silently made a sufficient argument; both legacy links have explicit pending dispositions.",
-      "basis": "90be4e716b0797304c4949d113d2d1236b48e31b7eada22e7138f767679f7f4d",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "proposition": "Empirical effect and principal-mediation hypothesis: chiropractic inputs influence broader human function principally through nervous-system-mediated change. Exact proposition, binding and both dependency decisions are unchanged; only explanatory alignment with S-012 is revised.",
+      "qualifiers": "Principally proposes a main route, not exclusivity or guaranteed response. Occurrence, mediation, primacy and individual pathways retain separate burdens. Neural contribution does not establish primacy or beneficial value.",
+      "evidenceSeparation": "Unresolved confidence remains explicit. No documented claim-specific evidence establishes the principal chiropractic pathway. Integration, local improvement, connectivity and the new propensity hypothesis do not provide missing mediation/primacy evidence.",
+      "alignment": "The body accurately describes S-012's motor-related neural contribution, shared processes and influence between circuits. Its three empirical questions remain distinct. The supporting introduction separates this principal-mediation claim from capacity, likelihood and benefit; placement supplies no new premises.",
+      "inferenceAndImpact": "S-007 and S-011 empirical revision uses retain their original notes and unresolved dispositions. S-012 remains see-also; no new dependency or inference is added. S-013 is still an ordinary opaque premise with no authored premise/conclusion participation. Resolving S-011 to S-012 does not settle either relationship into S-013.",
+      "basis": "cf4c87d4b517f2bd3d3629774b11f41031d67326c25630e84d20c2b4e35d0dd6",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
+    },
+    "src/content/model/statements/neural-network-influence.md": {
+      "proposition": "Empirical capacity: changes in ongoing activity or responsiveness of motor-related neural circuits can alter processing in connected circuits through changed synaptic influence, including circuits participating in other functions. This is a new independently challengeable working premise.",
+      "qualifiers": "Can asserts capacity under suitable conditions, not a high frequency or necessary spread. Motor-related does not mean exclusively motor; neither every neuron nor every connection is claimed to change another function. Activity, excitability and observed motor performance are distinguished.",
+      "evidenceSeparation": "Confidence is unresolved. Gordon supplies bounded network anatomy/task context, Garcia supplies a small remote-stimulation example outside the proposed motor/chiropractic setting, and Blum supplies interacting spindle mechanics and central-drive context. None establishes chiropractic likelihood or benefit. Explicit ordinary-premise acceptance remains conditional on the theory.",
+      "alignment": "The title, summary and body describe neural influence, shared processes and an interacting proprioceptive route without requiring a fresh receptor event for every central step. Central integrated state is confined to specified circuits/processes and independently interpretable measures. Supporting placement retains adoption; Q-008 neutrally examines buffering without asserting an attacker. Browser review: Chromium 153 production build passed existing navigation, keyboard, history and disclosure checks at 1280px and 390px, plus 390px without JavaScript. Targeted checks covered all three broader-effect pages, all four new questions, supporting order, canonical wording, confidence, navigation and horizontal overflow. Inspected desktop supporting-reading, mobile S-031 and no-JavaScript S-012 question screenshots; text and disclosures are readable.",
+      "inferenceAndImpact": "S-008 is an explicit conceptual use defining the neuromotor domain, not proof of influence. New S-030 to S-031 and S-030 to S-012 dependencies expose mechanism revision impact with limiting notes. No inference application uses or concludes S-030. The opaque binding makes no internal causal proof, and feedback physiology supplies no circular justification.",
+      "finding": "consistent",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
+      "reviewer": {
+        "kind": "ai",
+        "model": "GPT; exact model identifier and runtime revision unavailable in this session",
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
+      },
+      "basis": "78b0609c5be68b807ea80b950d02ece985d83cd8a2729f28a16eed08a6f51ff9"
     },
     "src/content/model/statements/neuromotor-opportunity.md": {
       "finding": "consistent",
@@ -4061,12 +4261,12 @@
       "evidenceSeparation": "The Franklin source remains a limited motor-adaptation example. Its note does not validate the constraint construct, assessment, comparison criterion, or chiropractic selection. The pilot treats this as an explicitly declared ordinary premise. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
       "alignment": "The input-adjustment-success section still begins with this independent empirical capacity claim, with unresolved confidence visible. The statement page retains the constraint/opportunity/subluxation discussion, limited Franklin source, and ARG-002 participation without implying chiropractic responsiveness. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
       "inferenceAndImpact": "ARG-002 receives its exact capacity claim; S-021/S-008 conceptual revision roles remain separate. The interface leaves the person/input overlap and detection gaps explicit. Reviewed complete participation: concluding arguments none; premise arguments ARG-002. Foundation review: An ordinary opaque capacity premise of ARG-002. Q-003 on that argument correctly exposes the missing person/input overlap without weakening the capacity claim.",
-      "basis": "fcdaeb8fc958f0cff9904b12e0455ab09b00c8251459ead90176a50f117ec1ee",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "basis": "2dc0c00cf1ecaab72e8fa3e09ec0812ba0b5eac955c77e2d964378c7377fb03c",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -4077,12 +4277,12 @@
       "evidenceSeparation": "Empirical confidence remains unresolved across organisms, processes, and life stages. The full revision test distinguishes active organization from passive persistence. The pilot treats this as an explicitly declared ordinary premise. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
       "alignment": "The substantive walkthrough still begins with the full organismic proposition and unresolved confidence. Its single detail link leads to ARG-005 participation independently of empty revision dependencies. Desktop/mobile browser checks exercise that route from statement to detail and back to ARG-005. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
       "inferenceAndImpact": "No dependency was added. Both empty dependency messages explicitly concern revision impact. S-017 is ARG-005 premise 1 and changes require reviewing that argument independently of the empty dependency lists; S-007 remains an additional premise. Reviewed complete participation: concluding arguments none; premise arguments ARG-005. Foundation review: An explicitly declared ordinary biological premise of ARG-005. The complete argument index captures its downstream use despite an empty legacy upstream list; the reading starting position grants no logical priority.",
-      "basis": "fb0f5d3eaa7d63db4b785ec28381f162435c2d7fda6bf6d5fc08f5c8748181bd",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "basis": "162ca80fe06583803b406b47d9f5b4f807a5143e87a538dcf2a31157251bbb34",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -4093,12 +4293,12 @@
       "evidenceSeparation": "Framework confidence is not applicable. Stephenson and Strauss references are historical provenance, not confirmation of modern empirical claims. The pilot treats this as an explicitly declared ordinary premise. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
       "alignment": "Optional orientation retains the complete triad and its framework type. The statement page preserves the historical discussion and source notes; the opening retains authorship and general acknowledgment. Reading guidance remains available inside contents without making philosophy a prerequisite to the biological sequence. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
       "inferenceAndImpact": "ARG-001 uses its division of responsibilities jointly with S-002. Optional placement leaves the framework adopted; S-017 can introduce the substantive subject without a prior deduction from philosophy. Reviewed complete participation: concluding arguments none; premise arguments ARG-001. Foundation review: The division of inquiry remains an ordinary framework premise; no biology is inferred from historical provenance. Its semantic use by S-002 remains explicit in the migration map.",
-      "basis": "4655a813ed4957049d01bd637f4b5f7204847876d8b18df63eaa35628c8e9509",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "basis": "00794eb6bbebac4caf4bae797cb8ec98e4b1e53b668fc9d752885a8e1744b79d",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -4108,13 +4308,13 @@
       "qualifiers": "A legitimate aim permits a professional purpose without asserting an exclusive purpose, efficacy for everyone, or sufficient justification for any input. Scoped neuromotor benefit supplies a reason for the aim without asserting benefits across all functional domains. Open-ended potential is unnecessary to that reason.",
       "evidenceSeparation": "The aim retains value classification and not-applicable empirical confidence. Its justification depends on the unresolved causal improvement premise through S-027 as well as S-029. S-005 is removed from ordinary premise membership and derived by ARG-008, so accepting the aim cannot bypass that route or certify its empirical premise.",
       "alignment": "The summary, revised explanation and new revision condition identify scoped benefit, its value and the professional-purpose bridge. The professional-purpose section introduces S-005 as ARG-008 after its two premises. Q-006 now distinguishes support for the aim from evidence for its underlying effect premise; it allows another independent justification. No comparison with another profession or assumed symptom-treatment default appears in the statement or argument.",
-      "inferenceAndImpact": "ARG-008 uses S-027 and S-029 jointly to conclude S-005 defeasibly. The S-004 and S-022 legacy dependencies are removed; both original notes are preserved in schema-2 migration history. S-022 impact is recovered through ARG-007, S-027 and ARG-008. ARG-004 and ARG-002 still use S-005. Tests show withdrawal of S-011, S-022 or S-029 removes this support and affected downstream routes; undercutting ARG-008 rejects those derivations while S-027 remains supported. Neither missing support nor a defeated argument entails that the aim is false.",
-      "basis": "f948eef47f0e5fbc8bd9a7bd85eae820d6e4ac635c6caf01c67e48d84ba54446",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "inferenceAndImpact": "ARG-008 uses S-027 and S-029 jointly to conclude S-005 defeasibly. The S-004 and S-022 legacy dependencies are removed; both original notes are preserved in schema-2 migration history. S-022 impact is recovered through ARG-007, S-027 and ARG-008. ARG-004 and ARG-002 still use S-005. Tests show withdrawal of S-011, S-022 or S-029 removes this support and affected downstream routes; undercutting ARG-008 rejects those derivations while S-027 remains supported. Neither missing support nor a defeated argument entails that the aim is false. Current network review: the professional aim remains derived without broader processing likelihood or benefit; no symptom outcome is added to justify functional value.",
+      "basis": "511783acb3d7fc781a149ff78c86b66516bbeb35b7cff619c7007f0819f1f7a5",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -4125,12 +4325,12 @@
       "evidenceSeparation": "Unresolved confidence and unvalidated observations remain explicit. Temporal change alone does not establish causation or classify uncertain outcomes as successes. The pilot treats this as a derived conclusion. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
       "alignment": "The final practical entry leads with the exact reassessment strategy and unresolved confidence. ARG-003 retains both premises and its defeasible scheme in the disclosure. The statement page keeps stopping, revision, observation alternatives, and complete relationships; the last reading position implies no continuing-treatment requirement. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
       "inferenceAndImpact": "ARG-003 remains a defeasible iterative method. S-025 conceptual revision impact informs success interpretation but is not silently added as an argument premise. Reviewed complete participation: concluding arguments ARG-003; premise arguments none. Foundation review: Derived through defeasible ARG-003. The S-025 interpretation dependency is retained as semantic use; no success definition is added to the inference premises. The new purpose derivation is part of its upstream argument structure. Whole-theory tests confirm that an undercut to ARG-008 propagates here, while the conditional practical wording and no-action/stopping options remain intact.",
-      "basis": "b53192d48dbf48c026b624155d746ce79b687152ae45b3a9b795ef3b627ab7e2",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "basis": "24c59ae90e54cfb89bcd0a601c11dc71d165e6b22d9dbdca8aabca093779d378",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -4141,12 +4341,12 @@
       "evidenceSeparation": "Combined appraisal remains unresolved. Examples associated with S-018/S-008 do not establish every limitation or their interactions. The pilot treats this as an explicitly declared ordinary premise. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
       "alignment": "The biological sequence keeps the exact combined regulatory-limits claim and unresolved confidence. Its statement page retains separate information, feasibility, and competing-demand explanations and ARG-005 participation without implying universal poor fit or available improvement. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
       "inferenceAndImpact": "ARG-005 premise 4 remains defeasible. A locally best feasible response can coexist with these limits; no dependency or claimed route to beneficial modifiability was added. Reviewed complete participation: concluding arguments none; premise arguments ARG-005. Foundation review: An ordinary opaque empirical premise in ARG-005. Incomplete information and competing demands still do not entail an available improvement.",
-      "basis": "db1341c34497ebde657901dc981cb5fdce7ded52e78820f83431bc51d4df8aa3",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "basis": "c735e98a3cf3110b736c1ca5249720513c2d9df83ce3098d8f02bb3a9bce4e35",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -4157,12 +4357,12 @@
       "evidenceSeparation": "Unresolved confidence and no documented claim-specific appraisal remain visible. A general perturbation hypothesis supplies no chiropractic occurrence evidence. The pilot treats this as an explicitly declared ordinary premise. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
       "alignment": "The general perturbation capacity remains visible with empirical type and unresolved confidence. The statement page keeps independent salience criteria and neutral or harmful responses. Empty participation information is available there, without implying that adjacency to S-011 creates an argument. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
       "inferenceAndImpact": "S-008 conceptual impact and S-020 see-also remain revision/reference information. S-028 carries the specific mechanism claim; there are no recorded arguments using or concluding S-010. Reviewed complete participation: concluding arguments none; premise arguments none. Foundation review: The general capacity remains independently assumed for conditional evaluation. Its relation to chiropractic realization in S-028 needs a semantic disposition; no realization is inferred.",
-      "basis": "b08ba2270290cffc1a7140e899ac671627950c3b22096529d534246b2194db6d",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "basis": "4b32804b4b3a76aecfaea508779289c0648bdb5eb3d9b75105557de5aa9b05ef",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -4172,13 +4372,13 @@
       "qualifiers": "Can lead asserts sensory contribution capacity; updating estimates and changing strategies are distinct, with no guarantee of benefit.",
       "evidenceSeparation": "The Shadmehr/Mussa-Ivaldi source and its practice/mechanical confounds remain visible. Confidence stays unresolved; no chiropractic effect follows from the example. The pilot treats this as an explicitly declared ordinary premise. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
       "alignment": "The biological section ends with the exact updating-and-capacity proposition and unresolved confidence. The statement page retains distinct process tests, sensory/practice/mechanical limits, source notes, ARG-005 participation, and separate conceptual dependencies and see-also link. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
-      "inferenceAndImpact": "ARG-005 receives premise 6. S-018/S-008 conceptual dependencies and S-010 see-also do not become argument edges or proof of the specific perturbation mechanism. Reviewed complete participation: concluding arguments none; premise arguments ARG-005. Foundation review: An ordinary opaque empirical premise in ARG-005. Its two definition/scope dependencies are preserved; sensory updating does not become chiropractic efficacy.",
-      "basis": "a044ffd257d3de76afe2e5877b28666ffbb684a37ec178011d851eae4e21a455",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "inferenceAndImpact": "ARG-005 receives premise 6. S-018/S-008 conceptual dependencies and S-010 see-also do not become argument edges or proof of the specific perturbation mechanism. Reviewed complete participation: concluding arguments none; premise arguments ARG-005. Foundation review: An ordinary opaque empirical premise in ARG-005. Its two definition/scope dependencies are preserved; sensory updating does not become chiropractic efficacy. Current network review: this sensory capacity remains compatible with non-sensory central interactions. It neither makes peripheral input exclusive nor supplies the new chiropractic likelihood premise.",
+      "basis": "74bb1d9c9aed5573fef254150a9c120414c2a1ce9d18b2875e270715b653fa75",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -4188,13 +4388,13 @@
       "qualifiers": "In some circumstances limits the poor-fit claim. Context dependence alone does not assert universal limitation or a modifiable opportunity.",
       "evidenceSeparation": "Carpenter and Gribble examples remain task-bounded, with their limiting notes intact. Unresolved confidence does not weaken the asserted context dependence. The pilot treats this as an explicitly declared ordinary premise. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
       "alignment": "The biological section keeps the exact context-dependent control claim and unresolved confidence. Its detail page retains task-specific evidence notes, measurement alternatives, and all conceptual revision relationships separately from ARG-005 participation. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
-      "inferenceAndImpact": "Premise 5 of ARG-005 remains distinct from conceptual revision effects on S-009/S-010/S-020/S-023. All those effects remain visible without being projected as arguments. Reviewed complete participation: concluding arguments none; premise arguments ARG-005. Foundation review: An ordinary opaque empirical premise of ARG-005. Its conceptual uses by S-009, S-010, S-020 and S-023 are retained explicitly rather than treated as deductions.",
-      "basis": "c5fd7c1045f50f6108f693f8e606778da6c61cce310f45982fdbd8d1238a8cdf",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "inferenceAndImpact": "Premise 5 of ARG-005 remains distinct from conceptual revision effects on S-009/S-010/S-020/S-023. All those effects remain visible without being projected as arguments. Reviewed complete participation: concluding arguments none; premise arguments ARG-005. Foundation review: An ordinary opaque empirical premise of ARG-005. Its conceptual uses by S-009, S-010, S-020 and S-023 are retained explicitly rather than treated as deductions. Current network review: the new conceptual use by S-030 identifies the motor-control domain without establishing circuit influence. Observed tone/posture remain nonunique indicators; neuromotor is not expanded to mean all neural function.",
+      "basis": "4078da39434d6d5b5f324d57295321855e48888f17c1ffe9dc18b42495d17acf",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -4205,12 +4405,12 @@
       "evidenceSeparation": "Value classification remains visible in the overview. Not-applicable confidence remains on detail pages and the deductive kind is in the argument disclosure. The conclusion is still compatible with zero successful adjustments; no observed benefit is asserted by that classification. The pilot treats this as a derived conclusion. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
       "alignment": "ARG-006 leads with the exact universal value conclusion. Its three premises, identity, deductive kind, scheme, and explanation remain inside Follow the reasoning. The statement page retains compatibility with zero successes and limits on broader benefit and intervention worth, with full metadata and participation. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
       "inferenceAndImpact": "The deduction applies S-022 to the improving change defined by S-024/S-025 in the same scope. S-026 is not substituted into ARG-007 or any occurrence claim. Reviewed complete participation: concluding arguments ARG-006; premise arguments none. Foundation review: Derived by the formally checked ARG-006 rather than assumed. Its universal conditional is compatible with no actual inputs, successes or beneficial instances; it supplies no frequency or intervention-worth claim.",
-      "basis": "6025d8952d76fe9d02c9a180020633d1c31e060e849f009d0381d2ecc93c6fae",
-      "reviewedAt": "2026-09-14T10:27:34.715Z",
+      "basis": "ebe984e043875d4c314e0755809ca629d409603679610a3ea74130ae6a0d0dda",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
       },
       "migratedFrom": "schema-1-baseline"
     },
@@ -4220,15 +4420,137 @@
       "qualifiers": "Success requires qualifying improvement in a specified neuromotor comparison; uncertain observations do not settle its fulfillment.",
       "evidenceSeparation": "Definition and not-applicable confidence do not assert that any success occurs. Occurrence belongs to independent empirical S-011. The pilot treats this as an explicitly declared ordinary premise. Computed unopposed support is conditional on the declared theory and does not upgrade empirical confidence or complete an opposition audit.",
       "alignment": "The exact success definition remains separate from empirical occurrence. Its detail page retains independent comparison criteria, uncertain observations, all-input accounting, complete metadata, and ARG-006 participation; omitting not-applicable confidence from the overview does not certify success. All canonical wording, summary, explanation, source notes, revision conditions, and relationship data are unchanged. Statement discussions remain on their existing detail routes.",
-      "inferenceAndImpact": "ARG-006 uses this premise to evaluate qualifying successes. It is absent from ARG-007, which uses S-011. S-024/S-021 conceptual roles and S-016 revision effects do not add argument premises. Reviewed complete participation: concluding arguments none; premise arguments ARG-006. Foundation review: The quantified success definition preserves adjustment, neuromotor scope and qualifying improvement in one tuple. ARG-006 can be accepted with zero successes. S-021/S-024 and onward S-016 semantic uses remain separate.",
-      "basis": "0f67d71d3d70a326125c5a9d518b707713e21267d3fa543aca95479dd2c3181b",
+      "inferenceAndImpact": "ARG-006 uses this premise to evaluate qualifying successes. It is absent from ARG-007, which uses S-011. S-024/S-021 conceptual roles and S-016 revision effects do not add argument premises. Reviewed complete participation: concluding arguments none; premise arguments ARG-006. Foundation review: The quantified success definition preserves adjustment, neuromotor scope and qualifying improvement in one tuple. ARG-006 can be accepted with zero successes. S-021/S-024 and onward S-016 semantic uses remain separate. Current network review: neither likelihood of broader effects nor broader benefit is added to the success definition. Neural activity measurements alone cannot satisfy reorganization and improvement.",
+      "basis": "e8c6bb685f90e5ed2645a5ff07287f35fad973978cb4231ae468fd32f65c2e5b",
+      "reviewedAt": "2026-09-14T15:44:20.612Z",
+      "reviewer": {
+        "kind": "ai",
+        "model": "GPT; exact model identifier and runtime revision unavailable in this session",
+        "identifier": "Codex working agent; examined all 31 statement and eight argument sources under the broader-effects policy and expanded formal signature. Reconsidered exact propositions, modal scope, evidence limits, reading placement, questions, argument participation and explicit semantic uses. Retained prior rubric findings where still applicable and replaced findings for changed content; prior whole-model provenance remains in previousWholeModelReviews and migratedFrom."
+      },
+      "migratedFrom": "schema-1-baseline"
+    }
+  },
+  "previousWholeModelReviews": [
+    {
       "reviewedAt": "2026-09-14T10:27:34.715Z",
       "reviewer": {
         "kind": "ai",
         "model": "GPT; exact model identifier and runtime revision unavailable in this session",
-        "identifier": "Codex working agent; reconsidered the incremental-review contract and derived scope against this source-identical record and its retained five-field findings. Prior semantic-review provenance is preserved in migratedFrom."
+        "identifier": "Codex working agent; reviewed the schema-2 impact policy, source adapters, previous/current influence paths, strict transposition, local display dependencies and per-record basis checks against all 37 retained semantic findings. Verified every canonical source is identical to the completed prior review. The five-field findings remain applicable: no proposition, qualifier, empirical confidence, formal premise, inference, reading content or unresolved relationship decision changed. Rechecked all recorded inference/semantic-use findings against the derived graph. The prior examination and its exact sources are preserved in migratedFrom. This baseline review changes review governance, not acceptance semantics or empirical confidence. Final implementation review verified locale-independent graph serialization and conformance with the canonical theory returned by the Python loader, including a failure if a future admitted canonical attack is absent from the review adapter. Cross-runtime status-impact checks pass. These verification changes preserve every canonical source and the retained semantic findings."
       },
-      "migratedFrom": "schema-1-baseline"
+      "inputs": {
+        ".github/workflows/model-checks.yml": "34f758fb68cd752f495233a82d04a8c7be5ab9d26b35a940557f8e84cf1ecdba",
+        "AGENTS.md": "875c2f97f87e061b0d0ebdb2661e77f59738151f85a47b568624caff730e4a6b",
+        "astro.config.mjs": "023e2ea9698cdd6517a1eb192ffec930ccf5b6a507951b691c449801270f644d",
+        "docs/argument-model.md": "4daea9c52330d66e0684b903c795978306eeb522c7e6b1f0fb8a624a84d985dc",
+        "docs/aspic-foundation.md": "475cb197de944b0450f1a9c2b75066ab0d0959b3df7fef73ac9407331816b6dc",
+        "docs/aspic-migration.md": "51b8992fc3c098655a73c2f4b0726e673e4780e64de35d8b20862ecf30d3b7d0",
+        "docs/dependency-model.md": "d6c5ea493e0aeff6f47e9aa3abaed49eb44bc3f792b4a732afd250920503bf8d",
+        "docs/model-authoring.md": "e33d92baac37980ddbf556a85a78e8ba5104ff9460b21862f51195b669d6bf56",
+        "docs/model-reading-path.md": "2b00698181cb1d12812d511855ea78cd70329c874da5011835e7e05383dcd4a8",
+        "docs/model-review.md": "4802bd418d9ae36366f68bf281e4b541c7c8c01592836cee72f7ba1aeace46fc",
+        "docs/objection-authoring.md": "abf844c95f58277d403fa307e9ead5c570c5e05663d3930063783e4ab49b65f2",
+        "docs/review-invalidation-plan.md": "5837a688ba0be1ea68016bf611068f2f0c3143f21e275878905f6be1c978568a",
+        "docs/standards-contract.md": "629dcc98f40e82437f834164c324bfdd42ee1a425d0377ca2fe395248f8fa95a",
+        "docs/visualization-plan.md": "66889cf00519bb65db1d67fd9e22b30ff13c9d484da51ad4467798ad9c4edb58",
+        "package-lock.json": "0cfbe6b0070db4b1bc01324f25814cc4d2cc5c0088ba8ee339e0c132f123c3d0",
+        "package.json": "3a762cbfc75effb76b12c99b03c6b39c033a2c5e142b5c4c2865d5fc967892dd",
+        "reasoning/dependency-migration.json": "6f91bfb05ed0e54459508a385a6ab103d174ba57a11d9dd6994fca16d344fe37",
+        "reasoning/engine.py": "07f7eb078b64bbbb7ce80edcca8ed0d08da0b8eeceaf2f45407c384497a7e130",
+        "reasoning/model-bindings.json": "3b3f8a68953693d80704d13581c23ee425bde2e4aa50f61934129a936c891da1",
+        "reasoning/model.py": "bbe8fe3d65b96f44604414d1fcfb88cd0a44a3bb078617d3e7fb96fe8f54e208",
+        "reasoning/profile.json": "974f243463294fe2f95d91f9f13951a12bd842cf93c9a3f0bf117b4274ed1321",
+        "reasoning/requirements.txt": "ee509163640cad2c9cdc7966ff2f11db9dd3558b0a1917c0690017fec2d00130",
+        "reasoning/run.py": "c0d7c367434249c210ffae2162854467e134e7af1ea9b114ecdbf068604384b6",
+        "reasoning/test_engine.py": "2ddc2eaa7a5ef760aa4a37b413b35240e925e885eb4ba0447a5dfb9601b37d6c",
+        "scripts/model-audit.mjs": "beb477ee7b8f91743dd0bc439a780ba5c08394f692cb2be090f79e253162ed6f",
+        "scripts/model-review-impact.mjs": "d8c902b827ff40f8d464f576e7f47876a3371484166e72a49ac01b10d1b5eaf3",
+        "scripts/reasoning.mjs": "bc5e55f4ff1010098acc679794a07c6fa1dd2229a6acb4e57a77c0e13d3a6c7c",
+        "src/components/Comments.astro": "a6f49e300a91679dcb4041dd91cd20abc07bf4ea96bff1bbe52ffb5f56c0f80d",
+        "src/components/DependencyLegend.astro": "584f8eb138f08bb24765d2e4c2e2f5305df354317275cd2ec01513cf34f05e7b",
+        "src/components/ModelAcknowledgment.astro": "a3fdced09f249e78da1b17b9b29af64a369b07d02518dad67d3f143e4d9984ed",
+        "src/components/model/ArgumentStep.astro": "7812f1d8b5ce65686dfbed53159061148d997fc5c422d7fff9d3dae914f00e64",
+        "src/components/model/CanonicalBody.astro": "f461f2ed1437198b1c96a051f812178a2e8f063ad4a8b007a9cba24f7eb9df11",
+        "src/components/model/CriticalQuestions.astro": "d92c2a3ea901cf3e47acf2fea687c5e155681684199a193d7290d7a8d6e6b7d9",
+        "src/components/model/ReadingSection.astro": "6991200164516670927a87015d049435eec24576626530151b3ffa14bc2b621d",
+        "src/components/model/ReasoningHelp.astro": "df8d5800812d7660ebe3869bac27c7f7654d2b66bd9db638e36a710b38da5df4",
+        "src/components/model/ReasoningParticipation.astro": "edda619b7ee57e7cb152595096ce704c8fd4b39c56942b5618b623e0ec450103",
+        "src/components/model/StatementMaterial.astro": "3bbac45ef42bccc34390265a63dc9ffefe25564921320bf03659d9b873e52969",
+        "src/components/model/StatementStep.astro": "7cf9efe8107970ada91e6669f7f94c802ee805c4e0b154da0ca2c6d54ee3ca82",
+        "src/components/model/StatementText.astro": "a429d084b22029c485141926f2090ff85de5d2ffb4b382f0399d0318b97f5eb1",
+        "src/content.config.ts": "ae041dc82735e90e128d862f9b427f7075d60927ecc1cd7ad4d936b231a9c47c",
+        "src/content/model/arguments/actual-chiropractic-benefit.md": "19a8b6b75bfa07974030dfbd02b752e68857c47b47b4075bee17f1a91f8cdb3d",
+        "src/content/model/arguments/assessment-as-working-hypothesis.md": "3a8ed30204dd5481bc0ccba3734db56f429e566371ce7b469a47b48e646ef491",
+        "src/content/model/arguments/functional-benefit-as-professional-aim.md": "8361832b73d80a9a622ab88d8f12b5feaf859aace9be11c051c68c21039a471a",
+        "src/content/model/arguments/functional-rationale-beyond-symptoms.md": "b4e4e0da573a6d6eb2e6d8dd1524a37d3d8643156c241572c6877f7639461949",
+        "src/content/model/arguments/methodological-synthesis.md": "f76e9f81719a503e175eee02c7e690c906bd64b7437b1d42c6c0a333e8dda51d",
+        "src/content/model/arguments/reassessment-after-application.md": "4928574617e35ce0f792e4e171a9d38236f6714e70ba7a42d2d28608c7b656e2",
+        "src/content/model/arguments/regulatory-rationale-for-functional-potential.md": "34cadb4dc81953467caeebd593567b06e74ee35c17752de88504a300225c02fb",
+        "src/content/model/arguments/success-and-benefit.md": "54aa13a1e3741a72815a0ece6b21654452af9fb55e3a2303da9fc2f7302831f3",
+        "src/content/model/statements/actual-chiropractic-benefit.md": "0c2f14f4ce40e224dd12bc5c2d67a621f09686c24b6187c80f6917439dae0cb1",
+        "src/content/model/statements/adjustment.md": "8431b3ef2ff691e9f9bc7968ce896ab6a4dc37316d0b93f171da4e1b6dc2e0a5",
+        "src/content/model/statements/assessment.md": "2c636c3331df8ff9533854a3bb555430fdf8f5bf7648edfa38fbb1a8eec41826",
+        "src/content/model/statements/benefit-as-professional-aim.md": "a23c6c75cea98c5a0bbf9c89af1f99b1c081786160a6a31cda5d729fb66dca9a",
+        "src/content/model/statements/broader-functional-benefit.md": "0467690cc6426a09fe1875802cca86e4745ab13cec2441f21df65a2002216c1e",
+        "src/content/model/statements/care-beyond-symptoms.md": "3f669a0a113ef72c32de4f74864ac3daa6101243bcbc40e1a5f34dfc904f546a",
+        "src/content/model/statements/chiropractic-application.md": "d37c70cba0cf4e9f802d84a64ee3f7118507b99a8e33bbc86071d34c6bb81462",
+        "src/content/model/statements/chiropractic-input-definition.md": "543488f114a8b469134742e6532ca1e92dea8e2bf001e7d3ea7d796ce1bf3cdc",
+        "src/content/model/statements/chiropractic-inputs.md": "6bbc9bf110dab653d0b00a5cb49661a0627ee7cfddfe271dcece20576b8d7c55",
+        "src/content/model/statements/chiropractic-perturbation-mechanism.md": "5340e7526d5fee198eb9a33616622c13b44c9cf6f4a5e15536d99916117cae11",
+        "src/content/model/statements/claim-discipline.md": "74c24644389be4cc301aff747df0a79e5b6b730cf01bfc39c9bc2961d0482030",
+        "src/content/model/statements/context-appropriate-function.md": "714190bb91859a9c42e2a00b135b9e67ad2c48e0e9e162931ebcb4c094c2f8a9",
+        "src/content/model/statements/explicit-reasoning-empirical-testing.md": "1b1b6a05ef49b3016b230fca1fed6c41c82bf34bcb0769f580daa5f7a2a42109",
+        "src/content/model/statements/functional-benefit-criterion.md": "e592d24e8879c216de6a5f4a4883e65390c7fb45d6d798ce31eda743d1d5334d",
+        "src/content/model/statements/functional-potential.md": "9b215523b2846cab14544dfd7f45aec18097f81694584ea6c481111e1fa23adf",
+        "src/content/model/statements/information-in-neural-regulation.md": "852b87c54fde667ee45ff8c77d9cc34e3e33b4ce01b69f244f26d5e3e608319d",
+        "src/content/model/statements/nervous-system-integration.md": "436ea7124971ec3ac986d2840a8216a7f9e12ba4164ae1f21f7eca1d7e4aa631",
+        "src/content/model/statements/neural-mediation.md": "13a64448d708688ecfc201c85eb56a753b90ef9ba5d8e6f5055d7da1913cd7ad",
+        "src/content/model/statements/neuromotor-opportunity.md": "c550316ebb3a4354cc5ce20871e073028460793858da60fc5dc65b49d8677775",
+        "src/content/model/statements/organismic-organization.md": "215646ee68efbfce66eb75ce2c364bd87d6f4a826a8634cdacb1a7198cc79d4c",
+        "src/content/model/statements/philosophy-science-art.md": "84c35e9117193f356d3847c229316d90aa8bf289e26865c36b1f8c830daba63f",
+        "src/content/model/statements/purpose.md": "5185984a1c6d61131556370d26afab38143bad3aab91f6fe5cdc2b2af6c9f89c",
+        "src/content/model/statements/reassessment-cycle.md": "227c6b8aefe9429151876999805eae77e1fee6bf596ef1c15fc18626a65c6314",
+        "src/content/model/statements/regulatory-limits-and-demands.md": "b4e5932d3c216ceecaafb0b85f15f7bab944f99c2779bfde26c59b5f8a3b80be",
+        "src/content/model/statements/salient-perturbation.md": "e5ab150789fb290c5a209edce90fce719d4400df2c6ed68bd7808a962d2cb704",
+        "src/content/model/statements/sensory-updating-and-reorganization.md": "6fa114d2fb9854c232ffd3a2b53782785de0399806cde150ad814c2dc2a6d046",
+        "src/content/model/statements/state-dependent-neuromotor-function.md": "adb711ebf02568c10bd498ea618f9659fc1d21e01a5c8ea04d551695f2b6c602",
+        "src/content/model/statements/success-and-functional-benefit.md": "a05ae3afad79d2babf71e10f03725ece58e1d2ef7a9419876a7ca72d348c8f61",
+        "src/content/model/statements/successful-adjustment.md": "2ae122b558dc791d99e55a4a078c2921d409124dac1d02923fbd00eeb1a617e8",
+        "src/data/model-questions.json": "7a571d24b4f6de2f03c07208a5f50b7b9472af7854763f2a6ddfa7c528654be7",
+        "src/data/model-reading-path.json": "9c1ac2135a994178807df0176fa69dd7ca8b6d682a22375c67fb6c6d2d270228",
+        "src/layouts/Layout.astro": "db33633c4f36d7c86656fcbd3701c19eeb8f3abaed204f78985762f29a551110",
+        "src/lib/arguments.ts": "9dae59a30f52df16dea9e5fb3bea29fa378f582ef108aeba426801dee605bb0b",
+        "src/lib/dependencies.ts": "fdf835fefa0dcb4fbcb238320ffe6e06f8dec426ef5190f1ba32f322687e0609",
+        "src/lib/embedded-markdown.ts": "3815e643b485929b25765b458c4c596285eda32855ec881a27ef7db9a464a4ab",
+        "src/lib/identifiers.ts": "58d5f25903406ece51bed324eef512a00b6b359ec37367f34da626b8bc0b73f2",
+        "src/lib/questions.ts": "98b788a9f5de9fd8f3dc56f145fe69fa95e2024930f1f33b2c1c18128b4981b7",
+        "src/lib/reading-navigation.ts": "fc0bf8d06416ef70c507945901e7a2c824b9cdfa1b3173d7f7ba727ffd51aa55",
+        "src/lib/reading-path.ts": "66050402ffa87a650231a2cdc79ccde0ca64851de6b0e177eb61049535f79b19",
+        "src/lib/reasoning.ts": "19e73f4884f689b9cecad81c722e0183ed126f31f8cec40dbb868f6f933f27eb",
+        "src/lib/site.ts": "9798f25aca640c208fe18b9058342d25c0f93c7d0edaef3c78224bbb68643816",
+        "src/lib/statements.ts": "6928bff517bc6d9971288bf233e406042886516fc3f938a7531e72b1a14286fa",
+        "src/pages/model/[...slug].astro": "4f40c7f0af496bfa512d2314d477fe74bb08451369f5b6d0f88a517d8c7cde15",
+        "src/pages/model/arguments/[...slug].astro": "82262cb451e9c364e0f76baa8f3f2b3febdc86b651382e91a4dded867ecb18a8",
+        "src/pages/model/arguments/index.astro": "24648a21ec19fb65ddd75248452f4582ae02906688fa38ca359956e2dd141d42",
+        "src/pages/model/index.astro": "7ac1fd21421cade9913d198fe0477d7ffa07c6d01f32152a85c267a11ccab7d0",
+        "src/scripts/model-fragments.ts": "5d72eab86b1a3c22029467de3a49c51436128673a7a8b404c8606bcbccbbf691",
+        "src/styles/global.css": "738fd72b12f355caf798f99311d8514b19ce2adae06e032ccff1f22aa86a8b22",
+        "tests/helpers/review-impact-theory.mjs": "12bfae9d0803c8fcfb64665d5cd75055baa64ca6ee8284d542169f3d593856e2",
+        "tests/model-browser.mjs": "6ce2a2ef5eeded8d01dd08382f9df6f65adfd86212d4bf17f66caf17a599a32f"
+      }
     }
+  ],
+  "validation": {
+    "semanticScope": "Whole model: all 31 statements and eight arguments; shared policy and formal-signature changes required this scope.",
+    "automated": [
+      "npm test: 63 passed",
+      "npm run test:reasoning: 35 passed",
+      "npm run reasoning:pilot: all three theories complete; ARG-006 and ARG-007 strict proofs pass",
+      "npm run build: 44 pages built",
+      "npm run test:routes: seven passed"
+    ],
+    "presentation": "Browser review: Chromium 153 production build passed existing navigation, keyboard, history and disclosure checks at 1280px and 390px, plus 390px without JavaScript. Targeted checks covered all three broader-effect pages, all four new questions, supporting order, canonical wording, confidence, navigation and horizontal overflow. Inspected desktop supporting-reading, mobile S-031 and no-JavaScript S-012 question screenshots; text and disclosures are readable.",
+    "limits": "These checks establish content/inference integrity and recorded review coverage, not empirical truth. The three broader-effect statements remain ordinary empirical premises with unresolved confidence; six relationship decisions remain."
   }
 }

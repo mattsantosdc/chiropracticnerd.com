@@ -317,7 +317,7 @@ class FoundationTests(unittest.TestCase):
     def test_complete_current_model_has_explicit_premises_and_two_checked_deductions(self):
         t = load_model()
         result = evaluate(t)
-        self.assertEqual(len(t['statements']), 29)
+        self.assertEqual(len(t['statements']), 31)
         self.assertEqual(len(t['rules']), 8)
         self.assertEqual(result['strictProofs'], ['ARG-006', 'ARG-007'])
         conclusions = {r['conclusion'] for r in t['rules']}
@@ -362,6 +362,26 @@ class FoundationTests(unittest.TestCase):
         with self.assertRaisesRegex(InvalidTheory, 'not entailed'):
             evaluate(t)
 
+    def test_network_capacity_does_not_invent_likelihood_or_beneficial_transfer(self):
+        t = load_model()
+        self.assertTrue({'S-012', 'S-030', 'S-031'} <= set(t['ordinaryPremises']))
+        for removed in ['S-012', 'S-031']:
+            changed = copy.deepcopy(t)
+            changed['ordinaryPremises'].remove(removed)
+            result = evaluate(changed)
+            self.assertEqual(status(result, removed), 'no-argument')
+            self.assertEqual(status(result, 'S-011'), 'accepted-support')
+            self.assertEqual(status(result, 'S-030'), 'accepted-support')
+        independent = copy.deepcopy(t)
+        independent['ordinaryPremises'] = [sid for sid in t['ordinaryPremises']
+                                          if sid not in ['S-012', 'S-030', 'S-031']]
+        result = evaluate(independent)
+        for sid in ['S-012', 'S-030', 'S-031']:
+            self.assertEqual(status(result, sid), 'no-argument')
+        for sid in ['S-027', 'S-005']:
+            self.assertEqual(status(result, sid), 'accepted-support')
+            self.assertFalse(result['statements'][sid]['assumed'])
+
     def test_migration_map_preserves_every_legacy_relationship_and_limiting_note(self):
         record = json.loads((ROOT / 'reasoning/dependency-migration.json').read_text())
         self.assertEqual(record['schemaVersion'], 2)
@@ -378,8 +398,17 @@ class FoundationTests(unittest.TestCase):
                           if r['disposition'] in retired.values()}, retired)
         mapped = {(r['source'], r['target']): (r['legacyRole'], r['legacyNote'])
                   for r in record['relationships'] if (r['source'], r['target']) not in retired}
-        self.assertEqual(len(actual), 36)
-        self.assertEqual(mapped, actual)
+        self.assertEqual(len(actual), 40)
+        self.assertEqual(mapped, {pair: value for pair, value in actual.items() if pair in identities})
+        # These uses were authored after the original migration snapshot. Keep
+        # the original 38 identities and notes intact instead of falsifying their origin.
+        self.assertEqual(set(actual) - identities, {('S-008', 'S-030'), ('S-030', 'S-031'),
+                                                   ('S-024', 'S-031'), ('S-030', 'S-012')})
+        self.assertEqual(next(r['disposition'] for r in record['relationships']
+                              if (r['source'], r['target']) == ('S-011', 'S-012')),
+                         'retain-explicit-semantic-use')
+        self.assertEqual(sum(r['disposition'] == 'requires-semantic-decision'
+                             for r in record['relationships']), 6)
         rules = {r['id']: r for r in load_model()['rules']}
         for item in record['relationships']:
             for rid in item['applications']:

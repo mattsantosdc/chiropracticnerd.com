@@ -1,12 +1,12 @@
 # ASPIC+ migration assessment
 
-The foundation pilot runs the current 29 statements and eight applications. The professional-purpose update preserves existing propositions while adding the explicit normative principle S-029 and ARG-008. It checks the two declared strict deductions and uses explicit starting premises. It also introduces seven neutral critical questions and a tested representation of formal attacks in synthetic scenarios.
+The foundation pilot runs the current 31 statements and eight applications. The professional-purpose update added the explicit normative principle S-029 and ARG-008. The broader-effects decision adds S-030's general circuit-influence capacity and S-031's chiropractic-specific likelihood, and clarifies S-012's neural causal contribution. These are explicit empirical premises, not conclusions manufactured from the local-benefit argument. It checks the two declared strict deductions and uses explicit starting premises. It also includes eleven neutral critical questions and a tested representation of formal attacks in synthetic scenarios.
 
 ## Dependency disposition
 
-The original 38 relationships have been reviewed individually. Two have now been retired, leaving 36 active legacy dependencies. The machine-readable record in `reasoning/dependency-migration.json` preserves every original role and limiting note. Its schema-2 dispositions distinguish completed retirements from proposed future migration. It is review history, not a second source of canonical graph meaning. The original source commit, roles and notes remain intact.
+The original 38 relationships have been reviewed individually. Two have now been retired, leaving 36 active legacy dependencies. Four new semantic uses bring the current total to 40 dependencies; they are identified below and remain canonical in the statement records, rather than being misattributed to the original snapshot. The machine-readable record in `reasoning/dependency-migration.json` preserves every original role and limiting note. Its schema-2 dispositions distinguish completed retirements from proposed future migration. It is review history, not a second source of canonical graph meaning. The original source commit, roles and notes remain intact.
 
-14 derive-from-existing-application; 7 requires-semantic-decision; 15 retain-explicit-semantic-use; 1 retired-context-only; 1 replaced-by-argument-path.
+14 derive-from-existing-application; 6 requires-semantic-decision; 16 retain-explicit-semantic-use; 1 retired-context-only; 1 replaced-by-argument-path.
 
 Relationships covered by an existing application can derive their inferential impact from that application after the shared revision index is updated. Semantic uses must remain explicit until their meaning can be recovered from a formal representation. The remaining decisions involve background rationale, scope references, professional values or conditional practical reasoning that the existing arguments do not yet encode. These cannot be converted into new arguments automatically.
 
@@ -26,7 +26,7 @@ The legacy `upstream` schema remains operational for the other relationships dur
 | S-008 | S-010 | retain-explicit-semantic-use | None |
 | S-021 | S-011 | retain-explicit-semantic-use | None |
 | S-024 | S-011 | retain-explicit-semantic-use | None |
-| S-011 | S-012 | requires-semantic-decision | None |
+| S-011 | S-012 | retain-explicit-semantic-use | None |
 | S-021 | S-012 | retain-explicit-semantic-use | None |
 | S-007 | S-013 | requires-semantic-decision | None |
 | S-011 | S-013 | requires-semantic-decision | None |
@@ -58,11 +58,31 @@ The legacy `upstream` schema remains operational for the other relationships dur
 - **S-004 to S-005:** Removed as authorized by the user. Open-ended potential remains contextual explanation and retains its separate role in ARG-004. An achievable functional benefit can support a professional aim without requiring potential to be open-ended.
 - **S-022 to S-005:** Replaced by explicit reasoning. ARG-007 combines S-022, S-024 and S-011 to conclude S-027. ARG-008 combines S-027 with the new normative principle S-029 to support S-005 defeasibly. The premise set no longer assumes S-005, and the redundant authored dependency is removed. The benefit can have additional consequences, but the argument does not require them or any comparison with other professions.
 
-The migration record retains both retired entries and their original limiting notes. `replaced-by-argument-path` adds an ordered `argumentPath`; each application must use the preceding statement and supply the statement used by the next application, ending at the original target. This documents only the relevant path through joint-premise arguments, not independent sufficiency of the original source. The conformance test checks the path, keeps retired entries out of the active dependency comparison, and requires every remaining legacy edge and note to match canonical content.
+The migration record retains both retired entries and their original limiting notes. `replaced-by-argument-path` adds an ordered `argumentPath`; each application must use the preceding statement and supply the statement used by the next application, ending at the original target. This documents only the relevant path through joint-premise arguments, not independent sufficiency of the original source. The conformance test checks the path, keeps retired entries out of the active dependency comparison, and requires every remaining original legacy edge and note to match canonical content. Newly authored relationships are checked separately so their provenance is not confused with the original inventory.
+
+## Completed broader-effects decision
+
+**S-011 to S-012:** Retain the original dependency and limiting note as an explicit semantic use of the local input/response account and comparison scope. It does not make observed local improvement the mediator of broader benefit. S-012 now names input-induced change in motor-related neural circuitry as the proposed causal contributor and permits shared neural processes and influence between connected circuits. Its existential commitment to qualifying improvement remains unchanged; the initial comparison is explicitly the assessed scope, fixed before observing outcomes.
+
+S-030 states the general capacity for circuit-to-circuit influence. S-031 states the user's stronger, chiropractic-specific likelihood hypothesis. Both are independently challengeable empirical starting premises with unresolved confidence. The likelihood is not weakened to bare possibility or presented as an estimated probability. A test must define its reference class and outcome. S-012 remains an independent empirical premise because propagation and qualifying benefit in the same causal cases have not been supplied by the local-effect claim. The decision does not create an argument from capacity to likelihood or from likely neural change to benefit.
+
+The adopted account includes central synaptic input without requiring a new sensory-receptor event for every interaction. Proprioceptive feedback remains an interacting route; shared neural activity and causal influence between circuits can coexist. A global quality score, guaranteed non-motor change, exclusive proprioceptive mechanism, Jacksonian restoration premise, and a proven cervical-versus-lumbar ranking are not adopted. The cited anatomical and network work informs mechanisms and prospective predictions within its stated limits.
+
+Four semantic uses were introduced with this decision, after commit `3b51b7d5550c79b2c60afc091b953fdf4e6b0ef9`. They are not entries in the original 38-edge migration snapshot:
+
+| Source | Target | Role and limiting meaning |
+| --- | --- | --- |
+| S-008 | S-030 | Conceptual: identifies the motor-control domain; state dependence does not establish other-function influence. |
+| S-030 | S-031 | Empirical: supplies the proposed circuit-influence mechanism; capacity does not establish chiropractic likelihood. |
+| S-024 | S-031 | Conceptual: identifies input-caused reorganization; definition does not establish occurrence or spread. |
+| S-030 | S-012 | Empirical: supplies the proposed neural explanation; capacity does not establish beneficial realization. |
+
+S-031 and S-012 additionally have a see-also relationship. Likelihood of broader processing change and beneficial occurrence can be revised independently. The supporting reading introduces the general capacity, likelihood, broader benefit, and principal mediation as distinct claims. Four new neutral questions examine buffering, testable likelihood, shared causes, and the difference between neural change and benefit.
+
+S-013's explanation is aligned with the clarified wording, but its two unresolved relationships are unchanged. The remaining six relationship decisions form three groups: neural primacy, perturbation mechanism, and assessment/application. No PR is prepared or revised before those decisions are handled.
 
 ## Decisions requiring substantive review
 
-- **S-011 to S-012:** The broader-transfer hypothesis uses the local-response account, but local improvement does not entail broader transfer. Resolve a scope-use relationship without inventing an inferential rule.
 - **S-007 to S-013:** General neural integration does not establish principal mediation of chiropractic effects. Distinguish background rationale from a supported explanatory inference.
 - **S-011 to S-013:** Local input-caused improvement does not establish neural primacy for broader outcomes. The response vocabulary can be a semantic use; the stronger empirical claim needs independent support.
 - **S-010 to S-028:** A general perturbation capacity cannot establish chiropractic realization. Preserve the mechanism vocabulary separately from the specific empirical hypothesis.
@@ -82,8 +102,8 @@ The migration record retains both retired entries and their original limiting no
 
 ## Pilot conclusions and remaining limits
 
-The current deductions pass under their reviewed quantified representation. Existential occurrence, the same causal event and the same scope/context/interval are preserved. The practical argument remains defeasible and supplies no arbitrary individual indication. Those results do not settle the seven remaining substantive relationship decisions above.
+The current deductions pass under their reviewed quantified representation. Existential occurrence, the same causal event and the same scope/context/interval are preserved. The practical argument remains defeasible and supplies no arbitrary individual indication. Those results do not settle the six remaining substantive relationship decisions above.
 
-The implemented engine profile deliberately rejects productive inference cycles. It supports attack cycles and unproductive support cycles without inventing premises. A future productive cyclic theory requires a reviewed capability extension rather than deleting paths. The formal bindings explicitly identify 23 opaque propositions; only the six statements needed by the existing deductions currently have quantified internal structure.
+The implemented engine profile deliberately rejects productive inference cycles. It supports attack cycles and unproductive support cycles without inventing premises. A future productive cyclic theory requires a reviewed capability extension rather than deleting paths. The formal bindings explicitly identify 25 opaque propositions; only the six statements needed by the existing deductions currently have quantified internal structure.
 
 This foundation is ready for review as a pilot. Full schema migration and a complete substantive opposition audit are distinct remaining work. The branch must not be described as a fully completed Model migration or merged on that basis.

@@ -50,9 +50,15 @@ Do not take condition treatment as the assumed default purpose of chiropractic. 
 
 ARG-007 derives actual scoped benefit in S-027 from S-011, S-024 and S-022. ARG-008 then uses S-027 and S-029's explicit normative principle to support the professional aim in S-005 defeasibly. Do not infer professional legitimacy from a valued outcome alone, or conceal a starting assumption of the aim behind the appearance of a derived conclusion. The working theory derives S-005; it does not also assume it.
 
-S-004's open-ended potential remains relevant to the rationale beyond symptoms in ARG-004, but is not a premise of the professional-purpose argument. The two resolved legacy dependencies into S-005 have been retired with their original notes preserved in the migration record. The S-011 to S-012 decision now retains a narrowly explained semantic use; the S-013 and perturbation relationships are also resolved, leaving the two assessment/application decisions open.
+S-004's open-ended potential remains relevant to the rationale beyond symptoms in ARG-004, but is not a premise of the professional-purpose argument. The two resolved legacy dependencies into S-005 have been retired with their original notes preserved in the migration record. The S-011 to S-012 decision now retains a narrowly explained semantic use; the S-013, perturbation and assessment/application relationships are also resolved. Structural schema migration and the substantive opposition audit remain separate work.
 
 Comparisons supplied to explain the author's intent in conversation must not be copied into canonical claims as contrasts with medicine or other professions. Keep the argument focused on its actual premises. Do not add a claim that every symptom or condition effect follows through the proposed functional improvement unless that stronger causal relationship is explicitly authored and reviewed. A proposed specific perturbation mechanism remains distinct from the functional effect and its value.
+
+## Assessment-guided application
+
+ARG-010 uses S-014 and the explicit normative delivery principle S-032 to support S-015 defeasibly. S-015 is derived, not also an ordinary starting premise. The conclusion remains conditional on a warranted decision; neither assessment, a testable prediction nor the opportunity to learn establishes that condition. S-028 to S-015 remains a semantic use of the proposed mechanism for intended disturbance and prediction, not a supporting premise. Reconsider mechanism-dependent choices when that account changes, while allowing adequately justified application through independently supported effects or another explanation. Preserve the distinction between a general strategy and a person-specific indication; no technique, dose, threshold or causal success is supplied by the argument.
+
+The S-014 to S-015 legacy dependency is retired, with its original limiting note preserved in the migration inventory and the practical boundary retained in S-015. ARG-010 supplies its inferential impact. Keep the S-028 semantic use explicit so a mechanism revision still reaches application even when an independent effect route preserves formal support.
 
 ## Perturbation and independent effect routes
 

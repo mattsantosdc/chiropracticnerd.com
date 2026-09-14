@@ -74,9 +74,11 @@
     {
       "id": "practice",
       "title": "How does the account guide practice?",
+      "introduction": "Assessment asks whether an input is warranted. An explicit practical principle then guides its delivery and evaluation; a proposed mechanism informs predictions without settling the decision to proceed.",
       "steps": [
         { "kind": "argument", "id": "ARG-002" },
-        { "kind": "statement", "id": "S-015" },
+        { "kind": "statement", "id": "S-032" },
+        { "kind": "argument", "id": "ARG-010" },
         { "kind": "argument", "id": "ARG-003" }
       ]
     }

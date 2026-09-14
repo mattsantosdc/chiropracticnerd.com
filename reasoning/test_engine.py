@@ -61,10 +61,13 @@ class FoundationTests(unittest.TestCase):
         broken['undercutters'].pop()
         cases.append((cycle, broken))
         canonical = load_model()
-        for removed in [['S-028'], ['S-011', 'S-028']]:
+        for removed in [['S-028'], ['S-011', 'S-028'], ['S-032']]:
             changed = copy.deepcopy(canonical)
             changed['ordinaryPremises'] = [sid for sid in canonical['ordinaryPremises'] if sid not in removed]
             cases.append((canonical, changed))
+        no_application_rule = copy.deepcopy(canonical)
+        no_application_rule['rules'] = [r for r in canonical['rules'] if r['id'] != 'ARG-010']
+        cases.append((canonical, no_application_rule))
         negative_effect = copy.deepcopy(canonical)
         negative_effect['ordinaryPremises'].append('-S-011')
         cases.append((canonical, negative_effect))
@@ -325,8 +328,8 @@ class FoundationTests(unittest.TestCase):
     def test_complete_current_model_has_explicit_routes_and_three_checked_deductions(self):
         t = load_model()
         result = evaluate(t)
-        self.assertEqual(len(t['statements']), 31)
-        self.assertEqual(len(t['rules']), 9)
+        self.assertEqual(len(t['statements']), 32)
+        self.assertEqual(len(t['rules']), 10)
         self.assertEqual(result['strictProofs'], ['ARG-006', 'ARG-007', 'ARG-009'])
         conclusions = {r['conclusion'] for r in t['rules']}
         self.assertEqual(conclusions & set(t['ordinaryPremises']), {'S-011'})
@@ -338,7 +341,7 @@ class FoundationTests(unittest.TestCase):
             changed = copy.deepcopy(t)
             changed['ordinaryPremises'] = [sid for sid in t['ordinaryPremises'] if sid not in removed]
             result = evaluate(changed)
-            for downstream in ['S-005', 'S-006', 'S-014', 'S-016']:
+            for downstream in ['S-005', 'S-006', 'S-014', 'S-015', 'S-016']:
                 self.assertEqual(status(result, downstream), 'no-argument', (removed, downstream))
         independent = copy.deepcopy(t)
         independent['rules'] = [r for r in independent['rules'] if r['id'] != 'ARG-005']
@@ -358,7 +361,7 @@ class FoundationTests(unittest.TestCase):
         t['ordinaryPremises'].append('PurposeObjection')
         t['undercutters'] = [dict(statement='PurposeObjection', rule='ARG-008')]
         result = evaluate(t)
-        for downstream in ['S-005', 'S-006', 'S-014', 'S-016']:
+        for downstream in ['S-005', 'S-006', 'S-014', 'S-015', 'S-016']:
             self.assertEqual(status(result, downstream), 'rejected-support')
         self.assertEqual(status(result, 'S-027'), 'accepted-support')
         self.assertEqual(status(result, '-S-005'), 'no-argument')
@@ -448,6 +451,59 @@ class FoundationTests(unittest.TestCase):
         self.assertEqual(status(result, 'S-028'), 'unresolved-support')
         self.assertEqual(status(result, 'S-011'), 'accepted-support')
 
+    def test_application_strategy_requires_assessment_and_explicit_delivery_principle(self):
+        t = load_model()
+        self.assertNotIn('S-015', t['ordinaryPremises'])
+        self.assertIn('S-032', t['ordinaryPremises'])
+        isolated = pilot('ARG-010')
+        baseline = evaluate(isolated)
+        self.assertEqual(status(baseline, 'S-015'), 'accepted-support')
+        self.assertFalse(baseline['statements']['S-015']['assumed'])
+        for sid in ['S-014', 'S-032']:
+            missing = copy.deepcopy(isolated)
+            missing['ordinaryPremises'].remove(sid)
+            self.assertEqual(status(evaluate(missing), 'S-015'), 'no-argument')
+        without_principle = copy.deepcopy(t)
+        without_principle['ordinaryPremises'].remove('S-032')
+        result = evaluate(without_principle)
+        for sid in ['S-015', 'S-016']:
+            self.assertEqual(status(result, sid), 'no-argument')
+        for sid in ['S-014', 'S-028', 'S-027']:
+            self.assertEqual(status(result, sid), 'accepted-support')
+        # Mechanism guidance supplies no implicit premise for application.
+        for reject in [False, True]:
+            independent = copy.deepcopy(t)
+            independent['ordinaryPremises'].remove('S-028')
+            if reject:
+                independent['ordinaryPremises'].append('-S-028')
+            result = evaluate(independent)
+            for sid in ['S-011', 'S-014', 'S-015', 'S-016']:
+                self.assertEqual(status(result, sid), 'accepted-support')
+            if reject:
+                self.assertEqual(status(result, '-S-028'), 'accepted-support')
+
+    def test_application_undercut_reaches_reassessment_without_negating_strategy(self):
+        t = load_model()
+        t['signature'] += '\n(declare-fun ApplicationObjection () Bool)'
+        t['statements'].append(dict(id='ApplicationObjection', formula='ApplicationObjection',
+                                    text='A hypothetical objection defeats this use of the delivery principle.',
+                                    role='hypothetical'))
+        t['ordinaryPremises'].append('ApplicationObjection')
+        t['undercutters'] = [dict(statement='ApplicationObjection', rule='ARG-010')]
+        result = evaluate(t)
+        for sid in ['S-015', 'S-016']:
+            self.assertEqual(status(result, sid), 'rejected-support')
+            self.assertEqual(status(result, '-' + sid), 'no-argument')
+        for sid in ['S-014', 'S-032', 'S-027']:
+            self.assertEqual(status(result, sid), 'accepted-support')
+        self.assertTrue(any('undercut' in a['kinds'] and a['defeat'] for a in result['attacks']))
+
+    def test_application_practical_bridge_is_not_a_strict_entailment(self):
+        t = pilot('ARG-010')
+        t['rules'][0]['kind'] = 'strict'
+        with self.assertRaisesRegex(InvalidTheory, 'not entailed'):
+            evaluate(t)
+
     def test_migration_map_preserves_every_legacy_relationship_and_limiting_note(self):
         record = json.loads((ROOT / 'reasoning/dependency-migration.json').read_text())
         self.assertEqual(record['schemaVersion'], 2)
@@ -461,12 +517,13 @@ class FoundationTests(unittest.TestCase):
         retired = {('S-004', 'S-005'): 'retired-context-only',
                    ('S-007', 'S-013'): 'retired-context-only',
                    ('S-022', 'S-005'): 'replaced-by-argument-path',
+                   ('S-014', 'S-015'): 'replaced-by-argument-path',
                    ('S-011', 'S-028'): 'replaced-by-reverse-application'}
         self.assertEqual({(r['source'], r['target']): r['disposition'] for r in record['relationships']
                           if r['disposition'] in retired.values()}, retired)
         mapped = {(r['source'], r['target']): (r['legacyRole'], r['legacyNote'])
                   for r in record['relationships'] if (r['source'], r['target']) not in retired}
-        self.assertEqual(len(actual), 39)
+        self.assertEqual(len(actual), 38)
         self.assertEqual(mapped, {pair: value for pair, value in actual.items() if pair in identities})
         # These uses were authored after the original migration snapshot. Keep
         # the original 38 identities and notes intact instead of falsifying their origin.
@@ -480,14 +537,15 @@ class FoundationTests(unittest.TestCase):
                               if (r['source'], r['target']) == ('S-011', 'S-013')),
                          'retain-explicit-semantic-use')
         self.assertEqual(sum(r['disposition'] == 'requires-semantic-decision'
-                             for r in record['relationships']), 2)
+                             for r in record['relationships']), 0)
         rules = {r['id']: r for r in load_model()['rules']}
         for item in record['relationships']:
             for rid in item['applications']:
                 self.assertIn(item['source'], rules[rid]['premises'])
                 self.assertEqual(item['target'], rules[rid]['conclusion'])
             if item['disposition'] == 'replaced-by-argument-path':
-                self.assertEqual(item['argumentPath'], ['ARG-007', 'ARG-008'])
+                expected_path = ['ARG-010'] if item['target'] == 'S-015' else ['ARG-007', 'ARG-008']
+                self.assertEqual(item['argumentPath'], expected_path)
                 current = item['source']
                 for rid in item['argumentPath']:
                     self.assertIn(current, rules[rid]['premises'])

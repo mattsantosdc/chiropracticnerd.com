@@ -142,5 +142,23 @@
     "concern": "A disturbance and an improving response can occur together without the disturbance causing the reorganization that improves function.",
     "response": "S-028 asserts that causal contribution in the same cases. Tests need to distinguish it from accompanying activity, mechanical displacement and other causal accounts. ARG-009 derives only the effect already included in the hypothesis. The Model also retains S-011 as an independent empirical premise, whose evidence is assessed separately.",
     "wouldChange": "Evidence favoring another mechanism would revise the perturbation attribution for those responses while leaving independently supported effect claims available. Evidence against the improving effect itself would also challenge this stronger mechanism-and-effect claim."
+  },
+  {
+    "id": "Q-017",
+    "target": "ARG-010",
+    "kind": "practical-bridge",
+    "question": "Does the opportunity to test a hypothesis justify delivering an input?",
+    "concern": "A clear prediction and a chance to learn may make an input informative without making it worthwhile for this person.",
+    "response": "S-032 applies only when the intervention is sufficiently justified. ARG-010 supports a conditional delivery strategy without asserting that its action condition has been met. Assessment findings, input selection, the person's priorities and relevant consequences require their own justification.",
+    "wouldChange": "If the case for proceeding rests only on curiosity, a proposed mechanism or an unsupported selection judgment, withhold or revise the proposed input. The existence of the conditional strategy does not supply the missing warrant."
+  },
+  {
+    "id": "Q-018",
+    "target": "S-015",
+    "kind": "scope",
+    "question": "Could an input remain justified if its proposed mechanism changes?",
+    "concern": "A delivery choice may rely on perturbation even when an observed benefit could have another explanation.",
+    "response": "Reconsider the predictions and delivery choices that depend on the disputed mechanism. The general strategy can remain supported through ARG-010, but any particular input still requires adequate justification. Independently supported effects or another explanation can supply a basis for reconsidered application; an unspecified alternative cannot.",
+    "wouldChange": "Withdraw or revise an input choice whose justification fails with the mechanism. Retain it only when an adequate independent justification remains, with the explanation and predictions revised accordingly."
   }
 ]

@@ -208,18 +208,23 @@
       "target": "S-015",
       "legacyRole": "practical",
       "legacyNote": "Revising S-014's working hypothesis or criteria for action would require reconsidering whether and what input is delivered; a selected input is not thereby effective, safe, or appropriate.",
-      "disposition": "requires-semantic-decision",
-      "applications": [],
-      "reviewNote": "Application requires a warranted-to-proceed condition and a practical bridge. Those conditions cannot be supplied by the dependency arrow or by assessment alone."
+      "disposition": "replaced-by-argument-path",
+      "applications": [
+        "ARG-010"
+      ],
+      "reviewNote": "ARG-010 uses S-014 jointly with the explicit normative delivery principle S-032 to support the conditional strategy S-015 defeasibly. S-015 is derived only. The argument establishes no individual warrant, validated selection method or response; the original limiting note is preserved here and its substantive boundary remains in S-015.",
+      "argumentPath": [
+        "ARG-010"
+      ]
     },
     {
       "source": "S-028",
       "target": "S-015",
       "legacyRole": "practical",
       "legacyNote": "Revising S-028's perturbation account would require reconsidering the mechanism application intentionally pursues, even if S-014 retained its assessment strategy; the mechanism claim does not establish success for the selected input here.",
-      "disposition": "requires-semantic-decision",
+      "disposition": "retain-explicit-semantic-use",
       "applications": [],
-      "reviewNote": "A proposed mechanism can guide intended application without proving it works. Any practical inference needs its explicit action conditions and normative bridge."
+      "reviewNote": "Retain the original practical role and limiting note as mechanism guidance for the intended disturbance and prediction. S-028 supplies no individual indication or success guarantee and is not a premise of ARG-010. Reconsider mechanism-dependent choices if it changes, while allowing independently justified application through an effect or another explanation."
     },
     {
       "source": "S-014",

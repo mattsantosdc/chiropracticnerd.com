@@ -258,5 +258,7 @@ test('repeated premises share canonical identity and helpers do not mutate froze
 	assert.deepEqual(reasoning.concludingArguments.get('S-007'), []);
 	assert.deepEqual(reasoning.premiseArguments.get('S-028')!.map(({ entry }) => entry.data.id), ['ARG-009']);
 	assert.deepEqual(reasoning.concludingArguments.get('S-011')!.map(({ entry }) => entry.data.id), ['ARG-009']);
+	assert.deepEqual(reasoning.concludingArguments.get('S-015')!.map(({ entry }) => entry.data.id), ['ARG-010']);
+	assert.deepEqual(reasoning.premiseArguments.get('S-032')!.map(({ entry }) => entry.data.id), ['ARG-010']);
 	assert.deepEqual(reasoning.premiseArguments.get('S-012'), []);
 });

@@ -1,16 +1,16 @@
 # ASPIC+ migration assessment
 
-The foundation pilot runs the current 31 statements and nine applications. The professional-purpose update added the explicit normative principle S-029 and ARG-008. The broader-effects decision adds S-030's general circuit-influence capacity and S-031's chiropractic-specific likelihood, and clarifies S-012's neural causal contribution. These are explicit empirical premises, not conclusions manufactured from the local-benefit argument. It checks the three declared strict deductions and uses explicit starting premises. It also includes sixteen neutral critical questions and a tested representation of formal attacks in synthetic scenarios.
+The foundation pilot runs the current 32 statements and ten applications. The professional-purpose update added the explicit normative principle S-029 and ARG-008. The broader-effects decision adds S-030's general circuit-influence capacity and S-031's chiropractic-specific likelihood, and clarifies S-012's neural causal contribution. These are explicit empirical premises, not conclusions manufactured from the local-benefit argument. It checks the three declared strict deductions and uses explicit starting premises. It also includes eighteen neutral critical questions and a tested representation of formal attacks in synthetic scenarios.
 
 ## Dependency disposition
 
-The original 38 relationships have been reviewed individually. Four have now been retired, leaving 34 active legacy dependencies. Five new semantic uses bring the current total to 39 dependencies; they are identified below and remain canonical in the statement records, rather than being misattributed to the original snapshot. The machine-readable record in `reasoning/dependency-migration.json` preserves every original role and limiting note. Its schema-2 dispositions distinguish completed retirements from proposed future migration. It is review history, not a second source of canonical graph meaning. The original source commit, roles and notes remain intact.
+The original 38 relationships have been reviewed individually. Five have now been retired, leaving 33 active legacy dependencies. Five new semantic uses bring the current total to 38 dependencies; they are identified below and remain canonical in the statement records, rather than being misattributed to the original snapshot. The machine-readable record in `reasoning/dependency-migration.json` preserves every original role and limiting note. Its schema-2 dispositions distinguish completed retirements from proposed future migration. It is review history, not a second source of canonical graph meaning. The original source commit, roles and notes remain intact.
 
-14 derive-from-existing-application; 2 requires-semantic-decision; 18 retain-explicit-semantic-use; 2 retired-context-only; 1 replaced-by-argument-path; 1 replaced-by-reverse-application.
+14 derive-from-existing-application; 0 requires-semantic-decision; 19 retain-explicit-semantic-use; 2 retired-context-only; 2 replaced-by-argument-path; 1 replaced-by-reverse-application.
 
-Relationships covered by an existing application can derive their inferential impact from that application after the shared revision index is updated. Semantic uses must remain explicit until their meaning can be recovered from a formal representation. The remaining decisions involve background rationale, scope references, professional values or conditional practical reasoning that the existing arguments do not yet encode. These cannot be converted into new arguments automatically.
+Relationships covered by an existing application can derive their inferential impact from that application after the shared revision index is updated. Semantic uses must remain explicit until their meaning can be recovered from a formal representation. All original relationship decisions are resolved. The remaining structural migration must preserve these distinctions rather than converting semantic uses into arguments automatically.
 
-The legacy `upstream` schema remains operational for the other relationships during this pilot. Do not delete it wholesale: that would lose information. Do not maintain its inferential duplicates permanently either. Complete the dispositions below, implement the replacement index, then retire the duplicated fields and update their reader-facing view together.
+The legacy `upstream` schema remains operational for the other relationships during this pilot. Do not delete it wholesale: that would lose information. Do not maintain its inferential duplicates permanently either. Use the completed dispositions below to finish the canonical replacement representation, then retire the duplicated fields and update their reader-facing view together.
 
 | Source | Target | Disposition | Existing application |
 | --- | --- | --- | --- |
@@ -34,8 +34,8 @@ The legacy `upstream` schema remains operational for the other relationships dur
 | S-006 | S-014 | derive-from-existing-application | ARG-002 |
 | S-009 | S-014 | derive-from-existing-application | ARG-002 |
 | S-027 | S-014 | derive-from-existing-application | ARG-002 |
-| S-014 | S-015 | requires-semantic-decision | None |
-| S-028 | S-015 | requires-semantic-decision | None |
+| S-014 | S-015 | replaced-by-argument-path | ARG-010 with S-032 |
+| S-028 | S-015 | retain-explicit-semantic-use | None |
 | S-014 | S-016 | derive-from-existing-application | ARG-003 |
 | S-015 | S-016 | derive-from-existing-application | ARG-003 |
 | S-025 | S-016 | retain-explicit-semantic-use | None |
@@ -58,7 +58,7 @@ The legacy `upstream` schema remains operational for the other relationships dur
 - **S-004 to S-005:** Removed as authorized by the user. Open-ended potential remains contextual explanation and retains its separate role in ARG-004. An achievable functional benefit can support a professional aim without requiring potential to be open-ended.
 - **S-022 to S-005:** Replaced by explicit reasoning. ARG-007 combines S-022, S-024 and S-011 to conclude S-027. ARG-008 combines S-027 with the new normative principle S-029 to support S-005 defeasibly. The premise set no longer assumes S-005, and the redundant authored dependency is removed. The benefit can have additional consequences, but the argument does not require them or any comparison with other professions.
 
-The migration record retains both retired entries and their original limiting notes. `replaced-by-argument-path` adds an ordered `argumentPath`; each application must use the preceding statement and supply the statement used by the next application, ending at the original target. This documents only the relevant path through joint-premise arguments, not independent sufficiency of the original source. The conformance test checks the path, keeps retired entries out of the active dependency comparison, and requires every remaining original legacy edge and note to match canonical content. Newly authored relationships are checked separately so their provenance is not confused with the original inventory.
+The migration record retains these two retired professional-purpose entries and their original limiting notes. `replaced-by-argument-path` adds an ordered `argumentPath`; each application must use the preceding statement and supply the statement used by the next application, ending at the original target. This documents only the relevant path through joint-premise arguments, not independent sufficiency of the original source. The conformance test checks the path, keeps retired entries out of the active dependency comparison, and requires every remaining original legacy edge and note to match canonical content. Newly authored relationships are checked separately so their provenance is not confused with the original inventory.
 
 ## Completed broader-effects decision
 
@@ -109,12 +109,20 @@ S-028's quantified binding retains the same input, event, scope, context and int
 
 S-011 remains explicitly listed among ordinary premises and also has a generated ARG-009 derivation. The statement, argument and reading introduction disclose both routes. Withdrawing one route leaves the other available; withdrawing both removes these routes to the effect and its benefit/purpose consequences. Asserting the effect false is different from withdrawing an independent premise. Multiple routes do not raise confidence or act as votes. No engine or profile change is required.
 
-Q-015 and Q-016 address outcome-independent salience and competing mechanisms. They remain questions rather than adopted counterpremises. Two original relationship decisions remain, both in assessment/application. No PR is prepared or revised before they are handled.
+Q-015 and Q-016 address outcome-independent salience and competing mechanisms. They remain questions rather than adopted counterpremises. At completion of this perturbation group, two original relationship decisions remained in assessment/application. Those decisions are resolved below.
 
-## Decisions requiring substantive review
+## Completed assessment/application decisions
 
-- **S-014 to S-015:** Application requires a warranted-to-proceed condition and a practical bridge. Those conditions cannot be supplied by the dependency arrow or by assessment alone.
-- **S-028 to S-015:** A proposed mechanism can guide intended application without proving it works. Any practical inference needs its explicit action conditions and normative bridge.
+The user approved an explicit bridge from assessment to conditional application, with perturbation retained as mechanism guidance. S-032 states the normative principle that a sufficiently justified intervention should pursue the assessed benefit and preserve an evaluable prediction. ARG-010 uses S-014 jointly with S-032 to support S-015 defeasibly. S-015's exact proposition is unchanged; it is now derived only, while S-032 is an explicit ordinary premise. The total remains 23 starting premises.
+
+- **S-014 to S-015:** Retire the legacy dependency in favor of ARG-010. The `replaced-by-argument-path` disposition uses the one-application path `[ARG-010]`; the original role and note remain intact. The new principle and both joint premises are required. S-015's explanation retains the original warning that selecting an input does not establish effectiveness, safety or appropriateness.
+- **S-028 to S-015:** Retain the original practical role and limiting note as an explicit semantic use. The proposed mechanism guides intended disturbance and predictions without establishing a case-specific warrant. It is not a premise of ARG-010. Revising the mechanism requires reconsidering choices relying on it; independent effects or another adequately justified account may preserve application.
+
+The inference supports a conditional strategy, not a finding that the condition for action has been met. Curiosity and a testable prediction supply no missing indication. Training identifies the input's intended role without asserting learning, retention, reorganization or benefit. Measurements, input choices and person-specific thresholds remain empirical and practical tasks.
+
+The new binding is an opaque normative proposition and the rule remains defeasible. No action predicate, clinical-event assertion, deontic calculus, protected axiom or evaluation-profile change is introduced. Tests remove each joint premise in the isolated argument, remove S-032 in the complete theory, undercut ARG-010, reject its promotion to strict, and check survival of the application strategy when S-028 is withdrawn or negated while independent effect support remains. The formal support change also reaches ARG-003's reassessment route. Neither loss of support nor an undercut asserts the strategies false.
+
+Q-017 asks whether testing alone warrants an input; Q-018 asks how application changes with its mechanism. Both remain editorial questions. The practice reading places S-032 before ARG-010's S-015 conclusion, followed by ARG-003. Every original relationship decision is now resolved. Remaining work includes the canonical schema/dependency migration and substantive opposition audit; completion of this group must not be described as full completion of the ASPIC+ transition.
 
 ## Schema migration sequence
 
@@ -128,8 +136,8 @@ Q-015 and Q-016 address outcome-independent salience and competing mechanisms. T
 
 ## Pilot conclusions and remaining limits
 
-The current deductions pass under their reviewed quantified representation. Existential occurrence, the same causal event and the same scope/context/interval are preserved. The practical argument remains defeasible and supplies no arbitrary individual indication. Those results do not settle the two remaining substantive relationship decisions above.
+The current deductions pass under their reviewed quantified representation. Existential occurrence, the same causal event and the same scope/context/interval are preserved. The practical arguments remain defeasible and supply no arbitrary individual indication. All original relationship decisions now have reviewed dispositions; this does not complete the structural schema migration or substantive opposition audit.
 
-The implemented engine profile deliberately rejects productive inference cycles. It supports attack cycles and unproductive support cycles without inventing premises. A future productive cyclic theory requires a reviewed capability extension rather than deleting paths. The formal bindings explicitly identify 24 opaque propositions; only the seven statements needed by the existing deductions currently have quantified internal structure.
+The implemented engine profile deliberately rejects productive inference cycles. It supports attack cycles and unproductive support cycles without inventing premises. A future productive cyclic theory requires a reviewed capability extension rather than deleting paths. The formal bindings explicitly identify 25 opaque propositions; only the seven statements needed by the existing deductions currently have quantified internal structure.
 
 This foundation is ready for review as a pilot. Full schema migration and a complete substantive opposition audit are distinct remaining work. The branch must not be described as a fully completed Model migration or merged on that basis.

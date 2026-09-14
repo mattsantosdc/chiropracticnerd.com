@@ -1,0 +1,42 @@
+[
+  {
+    "id": "purpose",
+    "question": "What aim does the Model propose for chiropractic care?",
+    "statement": "S-005"
+  },
+  {
+    "id": "adjustment",
+    "question": "What does this Model mean by an adjustment?",
+    "statement": "S-024"
+  },
+  {
+    "id": "effect",
+    "question": "What effect does the Model propose for chiropractic inputs?",
+    "statement": "S-011"
+  },
+  {
+    "id": "mechanism",
+    "question": "What mechanism does the Model propose?",
+    "statement": "S-028"
+  },
+  {
+    "id": "broader-benefit",
+    "question": "What broader benefits does the Model propose?",
+    "statement": "S-012"
+  },
+  {
+    "id": "assessment",
+    "question": "How should the need for an input be assessed?",
+    "statement": "S-014"
+  },
+  {
+    "id": "application",
+    "question": "How should a justified input be applied?",
+    "statement": "S-015"
+  },
+  {
+    "id": "reassessment",
+    "question": "What should happen after an input?",
+    "statement": "S-016"
+  }
+]

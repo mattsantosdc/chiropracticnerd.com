@@ -28,6 +28,42 @@ if (!Array.isArray(browserArgs) || browserArgs.some((argument) => typeof argumen
 try { browser = await engine.launch({ headless: true, ...(executablePath ? { executablePath } : {}), args: browserArgs }); } catch (error) { server?.close(); throw error; }
 console.log(`${engine.name()} ${browser.version()} · ${process.env.MODEL_BASE_URL ? 'provided server' : 'production build'}`);
 
+async function checkQuestionAnswers(page, label, enhanced = true) {
+ await page.goto(`${base}/model/`);
+ await page.getByRole('link',{name:'What aim does the Model propose for chiropractic care?',exact:true}).click();
+ assert.equal(await page.locator('[data-answer-target]').getAttribute('data-answer-target'),'S-005');
+ for (const id of ['S-014','S-015','S-016','S-012']) assert.equal(await page.locator(`[data-answer-statement="${id}"]`).count(),0);
+ assert.equal(await page.locator('[data-answer-argument]').count(),3);
+ const argument=page.locator('[data-answer-argument="ARG-008"]');
+ await argument.locator(':scope > summary').focus();
+ await page.keyboard.press('Enter');
+ assert.equal(await argument.getAttribute('open'),'');
+ assert.deepEqual(await argument.locator('[data-answer-premise]').evaluateAll(nodes=>nodes.map(n=>n.dataset.answerPremise)),['S-027','S-029']);
+ await argument.scrollIntoViewIfNeeded();
+ assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+ await page.screenshot({path:`${output}/${label}-purpose-answer.png`});
+ await argument.locator('a[href="#answer-statement-s-027"]').click();
+ assert.ok(page.url().endsWith('#answer-statement-s-027'));
+ if (enhanced) await page.waitForFunction(()=>document.activeElement?.id==='answer-statement-s-027');
+ await page.goBack();
+ await page.locator('#answer-arg-008--q-007 > summary').click();
+ assert.equal(await page.locator('#answer-arg-008--q-007 .disclosure-body').isVisible(),true);
+ if (enhanced) {
+  await page.goto(`${base}/model/answers/philosophy/chiropractic-purpose/#answer-arg-008--q-007`);
+  await page.waitForFunction(()=>document.activeElement?.id==='answer-arg-008--q-007');
+  assert.equal(await page.locator('[data-answer-argument="ARG-008"]').getAttribute('open'),'');
+ }
+ await page.goto(`${base}/model/answers/science/chiropractic-inputs/`);
+ assert.equal(await page.locator('[data-starting-premise="S-011"]').count(),1);
+ assert.equal(await page.locator('[data-answer-argument="ARG-009"]').count(),1);
+ await page.goto(`${base}/model/answers/science/broader-functional-benefit/`);
+ assert.equal(await page.locator('[data-answer-statement]').count(),1);
+ assert.equal(await page.locator('[data-starting-premise="S-012"]').count(),1);
+ assert.equal(await page.locator('[data-answer-argument]').count(),0);
+ assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+ await page.screenshot({path:`${output}/${label}-broader-answer.png`});
+}
+
 async function checkRevisionDetails(page, label) {
  await page.goto(`${base}/model/philosophy/hypothesis-guided-application/`);
  await page.getByText('Revision relationships', {exact:true}).click();
@@ -164,6 +200,7 @@ try {
 		assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
 		await page.screenshot({ path: `${output}/${engine.name()}-${width}-long-statement.png` });
 		await checkRevisionDetails(page, `${engine.name()}-${width}`);
+		await checkQuestionAnswers(page, `${engine.name()}-${width}`);
 		assert.deepEqual(errors, []);
 		await context.close();
 		console.log(`${engine.name()} ${width}px: navigation, keyboard disclosures, focus, history, deep links, overflow passed`);
@@ -192,6 +229,7 @@ try {
 	await page.locator('#q-007 > summary').click();
 	assert.equal(await page.locator('#q-007 .disclosure-body').isVisible(), true);
 	await checkRevisionDetails(page, `${engine.name()}-390-no-js`);
+	await checkQuestionAnswers(page, `${engine.name()}-390-no-js`, false);
 	console.log('No JavaScript: main text, native disclosures, supporting reading and full detail navigation passed');
 	await context.close();
 } finally { await browser.close(); server?.close(); }

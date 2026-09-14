@@ -132,7 +132,7 @@ Q-017 asks whether testing alone warrants an input; Q-018 asks how application c
 4. Extend canonical content for substantive alternative propositions and named defeasible rules when they are authored. Keep adoption, corpus role, premise membership, confidence and computed status separate. Questions alone do not populate this opposing corpus.
 5. Derive revision candidates through supporting applications, contrary propositions, undercut targets, rule/profile changes and semantic uses. The implemented review planner now scopes semantic reconsideration using previous/current graphs and per-record bases. Continue complete formal evaluation; incremental evaluation still requires proof that it preserves the selected result.
 6. Replace the legacy dependency presentation and remove redundant authored fields in the same change. Preserve all existing limiting notes in the migration record and carry substantive limits into the appropriate canonical explanation.
-7. Add question-specific navigation after those relationships are authoritative. Keep the existing walkthrough as a presentation option; its sequence never controls the engine.
+7. Question-specific navigation is now implemented after the relationship migration. [Answer views](model-answer-views.md) follow authored upstream applications and explicit premise roles. The existing walkthrough remains a presentation option; neither its sequence nor the selected answer controls the engine.
 
 ## Pilot conclusions and remaining limits
 

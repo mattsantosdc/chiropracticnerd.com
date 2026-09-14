@@ -104,3 +104,7 @@ into independent premise-to-conclusion edges or merge inferential edges with dep
 experience.
 
 See [model-authoring.md](model-authoring.md) for the complete change workflow and [dependency-model.md](dependency-model.md) for the revision-impact contract.
+
+## Answer-relative presentation
+
+[Answer views](model-answer-views.md) follow every authored application into the chosen conclusion. Joint premises, independent ordinary-premise roles and alternative applications remain distinct. Each shared statement is displayed once; duplicate routes add no evidential weight. A positive-ancestry view does not show every generated strict transposition, opponent or defense and must never be used as the input to a partial acceptance calculation.

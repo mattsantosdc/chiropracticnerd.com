@@ -1,0 +1,41 @@
+---
+import { render } from 'astro:content';
+import type { AnswerStatement as AnswerStatementData } from '../../lib/answer-view.ts';
+import { answerAnchor, answerHref } from '../../lib/answer-view.ts';
+import type { ReasoningIndex } from '../../lib/reasoning.ts';
+import StatementText from './StatementText.astro';
+import CanonicalBody from './CanonicalBody.astro';
+import CriticalQuestions from './CriticalQuestions.astro';
+interface Props { group: AnswerStatementData; index: ReasoningIndex; target?: boolean; }
+const { group, index, target = false } = Astro.props;
+const { statement } = group;
+const { data } = statement.entry;
+const argumentsWithContent = await Promise.all(group.arguments.map(async (argument) => ({ argument, ...(await render(argument.entry)) })));
+---
+<section class="answer-statement" id={answerAnchor(data.id)} tabindex="-1" data-answer-statement={data.id}>
+	{target ? <p class="supporting-label">Answer being examined</p> : <h2 class="answer-record-heading">{data.id}: {data.title}</h2>}
+	<StatementText statement={statement} heading={target} role={target ? 'answer' : 'supporting-statement'} />
+	{target && <p class="entry-summary">{data.summary}</p>}
+	{group.assumed && <p class="answer-assumption" data-starting-premise={data.id}>{group.arguments.length ? 'This statement is also independently assumed in the working Model. The argument below is another route, not independent evidence.' : 'This is an explicitly assumed starting premise of the working Model.'} Its justification remains open to examination.</p>}
+	{group.contraryAssumed && <p class="answer-assumption">The working Model also assumes the negation of this statement. The conflict requires examination.</p>}
+	{!group.assumed && !group.contraryAssumed && !group.arguments.length && <p>No starting-premise membership or concluding argument is recorded for this statement.</p>}
+	<p class="record-links"><a href={statement.href}>Explanation and evidence for {data.id}</a> · <a href={`${statement.href}#discussion`}>Discuss {data.id}</a>{!target && <> · <a href={answerHref(statement)}>Examine {data.id} as the answer</a></>}</p>
+	{argumentsWithContent.map(({ argument, Content }) => (
+		<details class="model-disclosure answer-argument" data-answer-argument={argument.entry.data.id}>
+			<summary>{argument.entry.data.id}: {argument.entry.data.title}</summary>
+			<div class="disclosure-body">
+				<p class="inference-rule"><span>{argument.entry.data.inferenceKind}</span><strong>{argument.entry.data.scheme}</strong></p>
+				<p>{argument.entry.data.summary}</p>
+				<h3>{argument.premises.length === 1 ? 'Premise' : 'Premises used together'}</h3>
+				<ol class="joint-premises">{argument.premises.map((premise) => <li data-answer-premise={premise.entry.data.id}><p class="statement-text">{premise.entry.data.statement}</p><a href={`#${answerAnchor(premise.entry.data.id)}`}>Trace {premise.entry.data.id}: {premise.entry.data.title}</a></li>)}</ol>
+				<h3>Conclusion</h3><p class="statement-text" data-answer-conclusion={data.id}>{data.statement}</p>
+				<h3>Explanation and limits</h3>
+				<CanonicalBody namespace={`answer-${argument.entry.data.id.toLowerCase()}--body`} recordId={argument.entry.data.id}><Content /></CanonicalBody>
+				<p><a href={argument.href}>Full record for {argument.entry.data.id}</a></p>
+				<CriticalQuestions target={argument.entry.data.id} index={index} namespace={`answer-${argument.entry.data.id.toLowerCase()}`} />
+			</div>
+		</details>
+	))}
+	<CriticalQuestions target={data.id} index={index} namespace={`answer-${data.id.toLowerCase()}`} />
+	{data.semanticUses.length > 0 && <details class="model-disclosure answer-references"><summary>Additional references for {data.id}</summary><div class="disclosure-body"><p>These references clarify meaning or a proposed explanation. They do not supply additional inferential premises.</p><ul class="dependency-list">{data.semanticUses.map((use) => <li><a href={index.statementsById.get(use.id)!.href}>{use.id}: {index.statementsById.get(use.id)!.entry.data.title}</a><span class="dependency-role">{use.role}</span><span class="dependency-note">{use.note}</span></li>)}</ul></div></details>}
+</section>

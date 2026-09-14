@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import { test } from 'node:test';
 import { parse } from 'parse5';
 import { createSatteriMarkdownProcessor } from '@astrojs/markdown-satteri';
+import { buildAnswerView, answerHref, resolveAnswerQuestions } from '../src/lib/answer-view.ts';
 import { buildReasoningIndex } from '../src/lib/reasoning.ts';
 import { resolveReadingPath } from '../src/lib/reading-path.ts';
 import { loadCanonicalContent } from './helpers/content.ts';
@@ -182,4 +183,35 @@ test('every resolver appearance is mounted exactly once and comment threads reta
 		if (widgets.length) assert.equal(attr(widgets[0], 'id'), `fastcomments-${expected}`);
 		assert.ok(nodes(page).some((node) => attr(node, 'id') === 'discussion'));
 	}
+});
+
+
+test('all answer pages preserve exact authored ancestry, premise roles, critical questions and unique fragments', () => {
+ const index = buildReasoningIndex(statements,argumentsList);
+ const bindings = JSON.parse(readFileSync('reasoning/model-bindings.json','utf8'));
+ const questions = resolveAnswerQuestions(JSON.parse(readFileSync('src/data/model-answer-questions.json','utf8')),index);
+ const critical = JSON.parse(readFileSync('src/data/model-questions.json','utf8'));
+ const overview = readPage('/model/');
+ for (const question of questions) assert.ok(links(overview).includes(question.href));
+ for (const statement of index.statementsById.values()) {
+  const view = buildAnswerView(index,statement.entry.data.id,bindings.ordinaryPremises);
+  const page = readPage(answerHref(statement)); const all = nodes(page);
+  assert.equal(normalize(text(all.find(n=>n.tagName==='h1'))),normalize(statement.entry.data.statement));
+  assert.deepEqual(all.filter(n=>attr(n,'data-answer-statement')).map(n=>attr(n,'data-answer-statement')),view.groups.map(g=>g.statement.entry.data.id));
+  const argumentsInView = view.groups.flatMap(g=>g.arguments);
+  assert.deepEqual(all.filter(n=>attr(n,'data-answer-argument')).map(n=>attr(n,'data-answer-argument')),argumentsInView.map(a=>a.entry.data.id));
+  assert.deepEqual(all.filter(n=>attr(n,'data-starting-premise')).map(n=>attr(n,'data-starting-premise')),view.groups.filter(g=>g.assumed).map(g=>g.statement.entry.data.id));
+  for (const argument of argumentsInView) {
+   const node=all.find(n=>attr(n,'data-answer-argument')===argument.entry.data.id);
+   assert.deepEqual(nodes(node).filter(n=>attr(n,'data-answer-premise')).map(n=>attr(n,'data-answer-premise')),argument.premises.map(p=>p.entry.data.id));
+   assert.equal(normalize(text(nodes(node).find(n=>attr(n,'data-answer-conclusion')))),normalize(argument.conclusion.entry.data.statement));
+  }
+  const targets=new Set([...view.groups.map(g=>g.statement.entry.data.id),...argumentsInView.map(a=>a.entry.data.id)]);
+  assert.deepEqual(all.filter(n=>attr(n,'data-question-id')).map(n=>attr(n,'data-question-id')).sort(),critical.filter(q=>targets.has(q.target)).map(q=>q.id).sort());
+  const fragmentIds=all.map(n=>attr(n,'id')).filter(Boolean);
+  assert.equal(new Set(fragmentIds).size,fragmentIds.length,answerHref(statement));
+  for (const href of links(page).filter(h=>h.startsWith('#'))) assert.ok(fragmentIds.includes(decodeURIComponent(href.slice(1))),href);
+  assert.ok(links(readPage(statement.href)).includes(answerHref(statement)));
+  assert.ok(links(page).includes(`${statement.href}#discussion`));
+ }
 });

@@ -125,3 +125,7 @@ For every Model change, run the impact-based semantic review (with whole-model r
 - [PyArg ASPIC+ documentation](https://daphneodekerken.github.io/PyArg/aspic_examples.html) and [upstream source](https://github.com/DaphneOdekerken/PyArg): existing implementation and defaults. The installed 2.0.2 source was inspected and is pinned here.
 - [Z3 Python API](https://z3prover.github.io/api/html/namespacez3py.html): SMT-LIB parsing and solver results.
 - [AIF specification](https://www.arg-tech.org/wp-content/uploads/2011/09/aif-spec.pdf): interchange graph rather than replacement of the argumentation formalism.
+
+## Question-specific presentation
+
+The canonical migration now feeds [answer views](model-answer-views.md). They show exact answer statements, incoming applications and explicit ordinary-premise roles while retaining the full walkthrough. They are not filtered formal evaluations; the complete working theory and all eight hypothetical scenarios continue to run independently of the question selected.

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "signature": "(declare-sort Input 0)\n(declare-sort Event 0)\n(declare-sort FunctionalScope 0)\n(declare-sort Context 0)\n(declare-sort Interval 0)\n(declare-fun Reorganization (Event) Bool)\n(declare-fun Change (Event) Bool)\n(declare-fun NeuromotorOrganization (Event) Bool)\n(declare-fun Adjustment (Event) Bool)\n(declare-fun Causes (Input Event) Bool)\n(declare-fun Neuromotor (FunctionalScope) Bool)\n(declare-fun Improves (Event FunctionalScope Context Interval) Bool)\n(declare-fun Benefit (Event FunctionalScope Context Interval) Bool)\n(declare-fun Successful (Event FunctionalScope Context Interval) Bool)\n(declare-fun P-S-014 () Bool)\n(declare-fun P-S-012 () Bool)\n(declare-fun P-S-006 () Bool)\n(declare-fun P-S-015 () Bool)\n(declare-fun P-S-023 () Bool)\n(declare-fun P-S-028 () Bool)\n(declare-fun P-S-002 () Bool)\n(declare-fun P-S-021 () Bool)\n(declare-fun P-S-003 () Bool)\n(declare-fun P-S-004 () Bool)\n(declare-fun P-S-018 () Bool)\n(declare-fun P-S-007 () Bool)\n(declare-fun P-S-013 () Bool)\n(declare-fun P-S-009 () Bool)\n(declare-fun P-S-017 () Bool)\n(declare-fun P-S-001 () Bool)\n(declare-fun P-S-005 () Bool)\n(declare-fun P-S-016 () Bool)\n(declare-fun P-S-019 () Bool)\n(declare-fun P-S-010 () Bool)\n(declare-fun P-S-020 () Bool)\n(declare-fun P-S-008 () Bool)\n(declare-fun OccurredInput (Input) Bool)\n(declare-fun P-S-029 () Bool)\n(declare-fun P-S-030 () Bool)\n(declare-fun P-S-031 () Bool)",
+  "signature": "(declare-sort Input 0)\n(declare-sort Event 0)\n(declare-sort FunctionalScope 0)\n(declare-sort Context 0)\n(declare-sort Interval 0)\n(declare-fun Reorganization (Event) Bool)\n(declare-fun Change (Event) Bool)\n(declare-fun NeuromotorOrganization (Event) Bool)\n(declare-fun Adjustment (Event) Bool)\n(declare-fun Causes (Input Event) Bool)\n(declare-fun Neuromotor (FunctionalScope) Bool)\n(declare-fun Improves (Event FunctionalScope Context Interval) Bool)\n(declare-fun Benefit (Event FunctionalScope Context Interval) Bool)\n(declare-fun Successful (Event FunctionalScope Context Interval) Bool)\n(declare-fun P-S-014 () Bool)\n(declare-fun P-S-012 () Bool)\n(declare-fun P-S-006 () Bool)\n(declare-fun P-S-015 () Bool)\n(declare-fun P-S-023 () Bool)\n(declare-fun ThroughMotorStrategyPerturbation (Input Event) Bool)\n(declare-fun P-S-002 () Bool)\n(declare-fun P-S-021 () Bool)\n(declare-fun P-S-003 () Bool)\n(declare-fun P-S-004 () Bool)\n(declare-fun P-S-018 () Bool)\n(declare-fun P-S-007 () Bool)\n(declare-fun P-S-013 () Bool)\n(declare-fun P-S-009 () Bool)\n(declare-fun P-S-017 () Bool)\n(declare-fun P-S-001 () Bool)\n(declare-fun P-S-005 () Bool)\n(declare-fun P-S-016 () Bool)\n(declare-fun P-S-019 () Bool)\n(declare-fun P-S-010 () Bool)\n(declare-fun P-S-020 () Bool)\n(declare-fun P-S-008 () Bool)\n(declare-fun OccurredInput (Input) Bool)\n(declare-fun P-S-029 () Bool)\n(declare-fun P-S-030 () Bool)\n(declare-fun P-S-031 () Bool)",
   "ordinaryPremises": [
     "S-001",
     "S-002",
@@ -164,8 +164,8 @@
     },
     "S-028": {
       "text": "By perturbing established motor strategies, some chiropractic inputs cause neuromotor reorganization that improves context-appropriate human function within a specified neuromotor scope, context, and timescale.",
-      "formula": "P-S-028",
-      "representation": "opaque-proposition"
+      "formula": "(exists ((i Input) (e Event) (s FunctionalScope) (c Context) (t Interval)) (and (OccurredInput i) (Causes i e) (Reorganization e) (Neuromotor s) (Improves e s c t) (ThroughMotorStrategyPerturbation i e)))",
+      "representation": "quantified-pilot"
     },
     "S-029": {
       "text": "A benefit that a profession's interventions can produce provides a reason to adopt that benefit as a professional aim.",
@@ -264,6 +264,14 @@
       "conclusion": "S-005",
       "inferenceKind": "defeasible",
       "scheme": "achievable-benefit reasoning about professional purpose"
+    },
+    "ARG-009": {
+      "premises": [
+        "S-028"
+      ],
+      "conclusion": "S-011",
+      "inferenceKind": "deductive",
+      "scheme": "conjunction elimination within an existential claim"
     }
   }
 }

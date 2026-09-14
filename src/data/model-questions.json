@@ -124,5 +124,23 @@
     "concern": "Repeatable observations can guide inquiry, but their interpretation can exceed what the measurements and comparisons establish.",
     "response": "Observations can identify candidate outcomes, repeatability, time courses and exceptions, and test bounded observational predictions. Retain unchanged, unfavorable and uncertain findings. Causal mediation and relative pathway contributions require suitable causal designs and measurements; a formal research setting alone does not supply them.",
     "wouldChange": "Failure of a prospective observational prediction should revise that prediction or its measurement account. A claim about mediation or predominance changes when evidence capable of testing that claim supports the revision, without treating an insensitive null result as proof of absence."
+  },
+  {
+    "id": "Q-015",
+    "target": "S-010",
+    "kind": "premise",
+    "question": "Can salience be identified without using the outcome?",
+    "concern": "If every favorable response defines a salient input and every failure defines an insufficient one, the explanation cannot distinguish a failed prediction from a relabeled input.",
+    "response": "Specify the disturbance, current control pattern, state and proposed salience criteria before testing, independently of reorganization and improvement. The Model has not yet established validated criteria or thresholds. Retain inputs meeting the criteria even when the predicted response is absent.",
+    "wouldChange": "Sensitive tests in which prospectively qualifying perturbations fail to produce predicted reorganization would require revising the tested mechanism or its conditions. Changing those criteria afterward requires an explicit new prediction, not retrospective rescue."
+  },
+  {
+    "id": "Q-016",
+    "target": "S-028",
+    "kind": "premise",
+    "question": "Could the improving response have another mechanism?",
+    "concern": "A disturbance and an improving response can occur together without the disturbance causing the reorganization that improves function.",
+    "response": "S-028 asserts that causal contribution in the same cases. Tests need to distinguish it from accompanying activity, mechanical displacement and other causal accounts. ARG-009 derives only the effect already included in the hypothesis. The Model also retains S-011 as an independent empirical premise, whose evidence is assessed separately.",
+    "wouldChange": "Evidence favoring another mechanism would revise the perturbation attribution for those responses while leaving independently supported effect claims available. Evidence against the improving effect itself would also challenge this stronger mechanism-and-effect claim."
   }
 ]

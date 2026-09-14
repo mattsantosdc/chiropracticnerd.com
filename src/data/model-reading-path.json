@@ -54,10 +54,11 @@
     {
       "id": "actual-input-effects",
       "title": "What does the Model propose chiropractic inputs actually do?",
+      "introduction": "The improving effect is independently proposed and also follows from the stronger perturbation claim. Its occurrence and its proposed mechanism require separate empirical evaluation.",
       "steps": [
         { "kind": "statement", "id": "S-010" },
-        { "kind": "statement", "id": "S-011" },
         { "kind": "statement", "id": "S-028" },
+        { "kind": "argument", "id": "ARG-009" },
         { "kind": "argument", "id": "ARG-007" }
       ]
     },

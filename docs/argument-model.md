@@ -45,7 +45,7 @@ The conclusion stays classified by its actual statement type. Do not add a `logi
 
 Inclusion in a version identifies an argument as part of the Model's current working reasoning. Arguments have no editorial `status` property. Adoption neither establishes premise truth nor settles the evaluation of the inference; a working argument can remain defeasible while its empirical premises have unresolved confidence.
 
-Mark an argument `deductive` only when the conclusion necessarily follows from the premises exactly as written. Natural-language fidelity remains a reviewed intellectual judgment. The ASPIC+ pilot additionally checks the formal entailment of every strict rule; ARG-006 and ARG-007 have quantified representations. Current ARG records bind concrete inference applications, while complete ASPIC+ arguments are generated derivations. An opaque proposition or a deductive label alone does not establish a theorem. Use `defeasible` when the route is inductive, abductive, causal, mechanistic, normative, or practical and may be defeated without a formal contradiction.
+Mark an argument `deductive` only when the conclusion necessarily follows from the premises exactly as written. Natural-language fidelity remains a reviewed intellectual judgment. The ASPIC+ pilot additionally checks the formal entailment of every strict rule; ARG-006, ARG-007 and ARG-009 have quantified representations. Current ARG records bind concrete inference applications, while complete ASPIC+ arguments are generated derivations. An opaque proposition or a deductive label alone does not establish a theorem. Use `defeasible` when the route is inductive, abductive, causal, mechanistic, normative, or practical and may be defeated without a formal contradiction.
 
 An argument's failure shows that this route to the conclusion fails. It does not by itself show that the conclusion is false. Look for an alternative route, a premise that needs narrowing or replacement, or a conclusion whose scope must change.
 
@@ -67,6 +67,12 @@ Every change also receives the [Model review](model-review.md), including a chec
 ## Professional-purpose application
 
 ARG-008 uses S-027's actual scoped functional benefit and S-029's explicit professional-purpose principle to support S-005. The inference remains defeasible: a reason for an aim can be defeated by a relevant ethical or professional objection. Actual benefit and its value arrive through ARG-007, without assuming the aim as a starting premise. S-004, S-028, a further symptom outcome and comparisons with other professions are not premises of ARG-008. Do not add them merely to motivate the conclusion.
+
+## Perturbation and effect projection
+
+ARG-009 uses only S-028 to conclude S-011 deductively. S-028 preserves S-011's same input, reorganization, improvement, scope, context and interval and adds a perturbation mechanism conjunct. Removing that additional attribution entails the effect without discovering its cause. The empirical causal claim remains challengeable even though this projection is strict. Neither S-010's general capacity nor S-011's independently proposed effect entails S-028.
+
+S-011 now has both an explicit ordinary-premise route and the ARG-009 route. These are disclosed separately in the statement and argument explanations and in the reading introduction. Additional routes do not count as independent corroborating evidence or confer voting strength. A withdrawn premise membership need not remove a derived argument; a negated effect also challenges S-028 through strict transposition. Tests distinguish route withdrawal, effect negation and an effect surviving a rejected mechanism.
 
 ## Common reasoning failures
 

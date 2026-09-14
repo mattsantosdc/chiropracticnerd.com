@@ -81,11 +81,11 @@ test('production components render shared conclusions and cyclic argument partic
 	const { root, code, output } = await buildFixture(t, (root) => {
 		const file = join(root, 'src/data/model-reading-path.json');
 		const config = JSON.parse(readFileSync(file, 'utf8'));
-		config.main.at(-1).steps.push({ kind: 'argument', id: 'ARG-009' });
+		config.main.at(-1).steps.push({ kind: 'argument', id: 'ARG-999' });
 		writeFileSync(file, JSON.stringify(config));
-		// Synthetic route only: S-004 -> ARG-004 -> S-006 -> ARG-009 -> S-004.
+		// Synthetic route only: S-004 -> ARG-004 -> S-006 -> ARG-999 -> S-004.
 		writeFileSync(join(root, 'src/content/model/arguments/cycle-fixture.md'), `---
-id: ARG-009
+id: ARG-999
 slug: cycle-fixture
 title: Synthetic alternative route
 summary: Test-only fixture, not an adopted Model argument.
@@ -106,7 +106,7 @@ Test-only cyclic participation.
 	const nodes = (node: any): any[] => [node, ...(node.childNodes ?? []).flatMap(nodes)];
 	const attr = (node: any, key: string) => node.attrs?.find((attr: any) => attr.name === key)?.value;
 	const all = nodes(page);
-	assert.equal(all.filter((node) => attr(node, 'data-argument-id') === 'ARG-009').length, 1);
+	assert.equal(all.filter((node) => attr(node, 'data-argument-id') === 'ARG-999').length, 1);
 	const ids = all.map((node) => attr(node, 'id')).filter(Boolean);
 	assert.equal(ids.length, new Set(ids).size);
 	assert.equal(all.filter((node) => attr(node, 'data-participation')).length, 0);
@@ -115,9 +115,9 @@ Test-only cyclic participation.
 	assert.equal(participation.length, 1);
 	for (const block of participation) {
 		const hrefs = nodes(block).map((node) => attr(node, 'href')).filter(Boolean);
-		for (const id of ['arg-005', 'arg-009', 'arg-004']) assert.ok(hrefs.some((href: string) => href.endsWith(`--argument-${id}`)));
+		for (const id of ['arg-005', 'arg-999', 'arg-004']) assert.ok(hrefs.some((href: string) => href.endsWith(`--argument-${id}`)));
 	}
 	const s6Detail = parse(readFileSync(join(root, 'dist/model/philosophy/care-beyond-symptoms/index.html'), 'utf8'));
 	const s6 = nodes(s6Detail).find((node) => attr(node, 'data-participation') === 'S-006');
-	assert.ok(nodes(s6).some((node) => attr(node, 'href')?.endsWith('--argument-arg-009')));
+	assert.ok(nodes(s6).some((node) => attr(node, 'href')?.endsWith('--argument-arg-999')));
 });

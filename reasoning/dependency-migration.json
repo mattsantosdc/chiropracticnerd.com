@@ -364,18 +364,19 @@
       "target": "S-028",
       "legacyRole": "empirical",
       "legacyNote": "Revising S-010's general perturbation mechanism would require reconsidering this chiropractic instantiation; a general capacity does not establish any chiropractic response or improvement.",
-      "disposition": "requires-semantic-decision",
+      "disposition": "retain-explicit-semantic-use",
       "applications": [],
-      "reviewNote": "A general perturbation capacity cannot establish chiropractic realization. Preserve the mechanism vocabulary separately from the specific empirical hypothesis."
+      "reviewNote": "Retain the original empirical role and limiting note as an explanatory use of the general perturbation mechanism. S-028 independently asserts chiropractic realization and improvement; neither capacity nor the independent effect claim supplies that mechanism."
     },
     {
       "source": "S-011",
       "target": "S-028",
       "legacyRole": "empirical",
       "legacyNote": "Revising S-011's joint causal improvement claim would require reconsidering the effect whose perturbation mechanism is asserted here; effect evidence alone does not identify its mechanism.",
-      "disposition": "requires-semantic-decision",
+      "disposition": "replaced-by-reverse-application",
       "applications": [],
-      "reviewNote": "The mechanism statement includes the joint effect claim. Review its formal implication in the reverse direction before adding any inference; mechanism and effect evidence remain independent."
+      "reviewNote": "Retire the legacy dependency after formalizing the stronger S-028 claim and its strict implication to S-011 in ARG-009. The original role and limiting note remain here. The rule and its transposition expose effect/mechanism revision impact without inferring mechanism from effect. S-011 retains its separately disclosed ordinary-premise route. Withdrawing that route is not equivalent to asserting the effect false.",
+      "reverseApplication": "ARG-009"
     }
   ]
 }

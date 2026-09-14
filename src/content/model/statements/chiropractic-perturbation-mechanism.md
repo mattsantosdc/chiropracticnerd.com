@@ -13,21 +13,24 @@ upstream:
   - id: S-010
     role: empirical
     note: Revising S-010's general perturbation mechanism would require reconsidering this chiropractic instantiation; a general capacity does not establish any chiropractic response or improvement.
-  - id: S-011
-    role: empirical
-    note: Revising S-011's joint causal improvement claim would require reconsidering the effect whose perturbation mechanism is asserted here; effect evidence alone does not identify its mechanism.
 related: []
 version: '0.1'
-updated: 2026-09-12
+updated: 2026-09-14
 whatWouldChange: >-
   Narrow or reject specified perturbation accounts if inputs meeting prospectively stated perturbation and salience criteria fail to cause the predicted reorganization and functional improvement in adequately sensitive controlled tests, or if credible causal comparisons favor another mechanism for the improvement. Retain or revise the effect claim separately when the proposed mechanism fails.
 ---
 
 ## A mechanism of the same improving response
 
-This hypothesis instantiates S-010's perturbation proposal in chiropractic and links it to the same reorganization and functional improvement asserted in S-011. It proposes more than a disturbance, a changed measurement, or an intention to train. The perturbation must contribute causally to the reorganization that improves function in the specified comparison.
+This hypothesis instantiates S-010's perturbation proposal in chiropractic and links it to the same reorganization and functional improvement asserted in S-011. It proposes more than a disturbance, a changed measurement, or an intention to train. The input is proposed to disturb an ongoing pattern of motor-control activity, creating an opportunity for the organization of control to change. That disturbance must contribute causally to the same reorganization that improves function in the specified comparison. Accompanying mechanical displacement or neural activity alone does not establish that relationship. The particular circuitry and processes remain questions to investigate.
 
 S-010's general capacity does not establish that a chiropractic input meets the relevant conditions. Salience must be specified independently of success, and neither salience nor a favorable outcome may be used retrospectively to explain away every failure. S-023 defines delivery independently of the response.
+
+## Relationship to the effect claim
+
+If this mechanism-and-effect claim is true, the improving effect in S-011 follows. ARG-009 records that deduction: it retains the same input, reorganization, functional scope, context, and timescale while omitting the additional mechanism claim. It supplies no inference in the reverse direction.
+
+The Model also adopts S-011 as an independent empirical starting premise. Its justification must be assessed separately; the deduction does not make that assumption disappear or confirm its evidence. Withdrawing this perturbation hypothesis leaves that independent route available. Rejecting the improving effect itself would challenge this stronger claim as well, because the claimed mechanism includes that effect.
 
 ## Current evidence
 

@@ -1,12 +1,12 @@
 # ASPIC+ migration assessment
 
-The foundation pilot runs the current 31 statements and eight applications. The professional-purpose update added the explicit normative principle S-029 and ARG-008. The broader-effects decision adds S-030's general circuit-influence capacity and S-031's chiropractic-specific likelihood, and clarifies S-012's neural causal contribution. These are explicit empirical premises, not conclusions manufactured from the local-benefit argument. It checks the two declared strict deductions and uses explicit starting premises. It also includes fourteen neutral critical questions and a tested representation of formal attacks in synthetic scenarios.
+The foundation pilot runs the current 31 statements and nine applications. The professional-purpose update added the explicit normative principle S-029 and ARG-008. The broader-effects decision adds S-030's general circuit-influence capacity and S-031's chiropractic-specific likelihood, and clarifies S-012's neural causal contribution. These are explicit empirical premises, not conclusions manufactured from the local-benefit argument. It checks the three declared strict deductions and uses explicit starting premises. It also includes sixteen neutral critical questions and a tested representation of formal attacks in synthetic scenarios.
 
 ## Dependency disposition
 
-The original 38 relationships have been reviewed individually. Three have now been retired, leaving 35 active legacy dependencies. Five new semantic uses bring the current total to 40 dependencies; they are identified below and remain canonical in the statement records, rather than being misattributed to the original snapshot. The machine-readable record in `reasoning/dependency-migration.json` preserves every original role and limiting note. Its schema-2 dispositions distinguish completed retirements from proposed future migration. It is review history, not a second source of canonical graph meaning. The original source commit, roles and notes remain intact.
+The original 38 relationships have been reviewed individually. Four have now been retired, leaving 34 active legacy dependencies. Five new semantic uses bring the current total to 39 dependencies; they are identified below and remain canonical in the statement records, rather than being misattributed to the original snapshot. The machine-readable record in `reasoning/dependency-migration.json` preserves every original role and limiting note. Its schema-2 dispositions distinguish completed retirements from proposed future migration. It is review history, not a second source of canonical graph meaning. The original source commit, roles and notes remain intact.
 
-14 derive-from-existing-application; 4 requires-semantic-decision; 17 retain-explicit-semantic-use; 2 retired-context-only; 1 replaced-by-argument-path.
+14 derive-from-existing-application; 2 requires-semantic-decision; 18 retain-explicit-semantic-use; 2 retired-context-only; 1 replaced-by-argument-path; 1 replaced-by-reverse-application.
 
 Relationships covered by an existing application can derive their inferential impact from that application after the shared revision index is updated. Semantic uses must remain explicit until their meaning can be recovered from a formal representation. The remaining decisions involve background rationale, scope references, professional values or conditional practical reasoning that the existing arguments do not yet encode. These cannot be converted into new arguments automatically.
 
@@ -50,8 +50,8 @@ The legacy `upstream` schema remains operational for the other relationships dur
 | S-025 | S-026 | derive-from-existing-application | ARG-006 |
 | S-011 | S-027 | derive-from-existing-application | ARG-007 |
 | S-022 | S-027 | derive-from-existing-application | ARG-007 |
-| S-010 | S-028 | requires-semantic-decision | None |
-| S-011 | S-028 | requires-semantic-decision | None |
+| S-010 | S-028 | retain-explicit-semantic-use | None |
+| S-011 | S-028 | replaced-by-reverse-application | ARG-009: S-028 to S-011 |
 
 ## Completed professional-purpose decisions
 
@@ -94,12 +94,25 @@ Central synaptic influence and motor-dependent proprioceptive feedback remain ca
 
 Q-012 through Q-014 expose unresolved route contributions, mediation versus parallel responses, and what observations in practice can establish. They guide evidence appraisal and testable predictions without asserting a pathway allocation or importing alternatives as counterpremises. The Blum source informs spindle physiology and modeling only; it is not a chiropractic mediation result. Withdrawal coverage now includes S-013.
 
-Four relationship decisions remain in two groups: perturbation mechanism and assessment/application. No PR is prepared or revised before those decisions are handled.
+At completion of the predominant-mediation decision, four relationships remained. The following decision resolves the perturbation group.
+
+## Completed perturbation decisions
+
+The user approved perturbation as disturbing an ongoing pattern of motor-control activity, creating an opportunity for the organization of control to change. S-010 retains its general capacity claim. Its explanation distinguishes the disturbance from reorganization and improvement, leaves specific circuitry open, and requires salience criteria independent of the outcomes. S-028 retains its stronger empirical commitment to a perturbation mechanism and improving response in the same cases.
+
+- **S-010 to S-028:** Retain the original empirical role and limiting note as an explicit explanatory use. General capacity does not establish chiropractic realization or qualifying improvement.
+- **S-011 to S-028:** Retire the legacy dependency and encode the strict implication in the reverse direction through ARG-009. S-028 includes S-011's improving effect with an additional mechanism attribution. The original role and note are preserved in the migration inventory.
+
+The new `replaced-by-reverse-application` disposition is review history only. Its `reverseApplication` identifies a strict rule whose sole premise is the original target and whose conclusion is the original source. The migration test validates that mapping and excludes the retired dependency from active comparisons. `applications` remains reserved for inferences matching the original direction. No new canonical dependency or inference type is introduced.
+
+S-028's quantified binding retains the same input, event, scope, context and interval as S-011 and adds the mechanism predicate `ThroughMotorStrategyPerturbation(i,e)`. That predicate asserts causal participation, without formalizing the unresolved neural details or supplying an axiom. ARG-009 removes only the added mechanism conjunct. Strict transposition propagates a negated S-011 to a negated S-028; neither the effect nor general capacity supplies a positive reverse inference.
+
+S-011 remains explicitly listed among ordinary premises and also has a generated ARG-009 derivation. The statement, argument and reading introduction disclose both routes. Withdrawing one route leaves the other available; withdrawing both removes these routes to the effect and its benefit/purpose consequences. Asserting the effect false is different from withdrawing an independent premise. Multiple routes do not raise confidence or act as votes. No engine or profile change is required.
+
+Q-015 and Q-016 address outcome-independent salience and competing mechanisms. They remain questions rather than adopted counterpremises. Two original relationship decisions remain, both in assessment/application. No PR is prepared or revised before they are handled.
 
 ## Decisions requiring substantive review
 
-- **S-010 to S-028:** A general perturbation capacity cannot establish chiropractic realization. Preserve the mechanism vocabulary separately from the specific empirical hypothesis.
-- **S-011 to S-028:** The mechanism statement includes the joint effect claim. Review its formal implication in the reverse direction before adding any inference; mechanism and effect evidence remain independent.
 - **S-014 to S-015:** Application requires a warranted-to-proceed condition and a practical bridge. Those conditions cannot be supplied by the dependency arrow or by assessment alone.
 - **S-028 to S-015:** A proposed mechanism can guide intended application without proving it works. Any practical inference needs its explicit action conditions and normative bridge.
 
@@ -115,8 +128,8 @@ Four relationship decisions remain in two groups: perturbation mechanism and ass
 
 ## Pilot conclusions and remaining limits
 
-The current deductions pass under their reviewed quantified representation. Existential occurrence, the same causal event and the same scope/context/interval are preserved. The practical argument remains defeasible and supplies no arbitrary individual indication. Those results do not settle the four remaining substantive relationship decisions above.
+The current deductions pass under their reviewed quantified representation. Existential occurrence, the same causal event and the same scope/context/interval are preserved. The practical argument remains defeasible and supplies no arbitrary individual indication. Those results do not settle the two remaining substantive relationship decisions above.
 
-The implemented engine profile deliberately rejects productive inference cycles. It supports attack cycles and unproductive support cycles without inventing premises. A future productive cyclic theory requires a reviewed capability extension rather than deleting paths. The formal bindings explicitly identify 25 opaque propositions; only the six statements needed by the existing deductions currently have quantified internal structure.
+The implemented engine profile deliberately rejects productive inference cycles. It supports attack cycles and unproductive support cycles without inventing premises. A future productive cyclic theory requires a reviewed capability extension rather than deleting paths. The formal bindings explicitly identify 24 opaque propositions; only the seven statements needed by the existing deductions currently have quantified internal structure.
 
 This foundation is ready for review as a pilot. Full schema migration and a complete substantive opposition audit are distinct remaining work. The branch must not be described as a fully completed Model migration or merged on that basis.

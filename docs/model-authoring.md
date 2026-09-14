@@ -50,9 +50,15 @@ Do not take condition treatment as the assumed default purpose of chiropractic. 
 
 ARG-007 derives actual scoped benefit in S-027 from S-011, S-024 and S-022. ARG-008 then uses S-027 and S-029's explicit normative principle to support the professional aim in S-005 defeasibly. Do not infer professional legitimacy from a valued outcome alone, or conceal a starting assumption of the aim behind the appearance of a derived conclusion. The working theory derives S-005; it does not also assume it.
 
-S-004's open-ended potential remains relevant to the rationale beyond symptoms in ARG-004, but is not a premise of the professional-purpose argument. The two resolved legacy dependencies into S-005 have been retired with their original notes preserved in the migration record. The S-011 to S-012 decision now retains a narrowly explained semantic use; the two S-013 relationships are also resolved, leaving four relationship decisions open.
+S-004's open-ended potential remains relevant to the rationale beyond symptoms in ARG-004, but is not a premise of the professional-purpose argument. The two resolved legacy dependencies into S-005 have been retired with their original notes preserved in the migration record. The S-011 to S-012 decision now retains a narrowly explained semantic use; the S-013 and perturbation relationships are also resolved, leaving the two assessment/application decisions open.
 
 Comparisons supplied to explain the author's intent in conversation must not be copied into canonical claims as contrasts with medicine or other professions. Keep the argument focused on its actual premises. Do not add a claim that every symptom or condition effect follows through the proposed functional improvement unless that stronger causal relationship is explicitly authored and reviewed. A proposed specific perturbation mechanism remains distinct from the functional effect and its value.
+
+## Perturbation and independent effect routes
+
+For perturbation, S-010 describes a disturbance of an ongoing motor-control pattern that creates an opportunity for reorganization. Keep the disturbance, reorganization and improvement distinguishable; specify salience independently of either outcome. S-028 independently asserts the perturbation mechanism and improving response in the same cases. ARG-009 strictly derives S-011 by retaining the effect and omitting the extra mechanism conjunct. S-011 also remains an explicitly disclosed ordinary empirical premise. Preserve both routes and distinguish withdrawing a route from asserting the effect false. The effect does not establish its mechanism, and general capacity supplies no missing chiropractic realization.
+
+S-010 to S-028 retains its original explanatory dependency and limiting note. The legacy S-011 to S-028 arrow is retired with its note preserved: the reviewed ARG-009 implication runs from the stronger S-028 to S-011, and strict transposition carries negation of the effect back to negation of the stronger claim. Do not infer a reverse positive rule or turn withdrawal of the independent S-011 premise into rejection of all its arguments.
 
 ## Neural mechanisms and broader effects
 

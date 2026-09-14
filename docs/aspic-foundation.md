@@ -2,7 +2,7 @@
 
 ## Decision and scope
 
-The Model adopts an explicitly configured ASPIC+ foundation. This branch implements a bounded executable pilot and reader-facing critical questions. Canonical statement and argument Markdown remains authoritative. The pilot binds all 31 statements and eight inference applications to their exact current content; it does not turn publication into a starting premise.
+The Model adopts an explicitly configured ASPIC+ foundation. This branch implements a bounded executable pilot and reader-facing critical questions. Canonical statement and argument Markdown remains authoritative. The pilot binds all 31 statements and nine inference applications to their exact current content; it does not turn publication into a starting premise.
 
 This is not a claim that every English statement has received a complete logical formalization, that the opposition corpus is complete, or that the full canonical schema migration is finished. The [migration assessment](aspic-migration.md) records what still requires semantic decisions before the legacy dependency fields can be removed.
 
@@ -39,13 +39,13 @@ The profile can change, but a changed choice requires a new documented profile i
 
 Statements, inference applications, derived arguments, evaluation premises, editorial questions and reading paths have distinct roles. A statement may be a conclusion in one application and a premise in another. A question can stop at any statement. A reading path has no authority over the set of arguments considered by the engine.
 
-`reasoning/model-bindings.json` lists 23 ordinary premises explicitly. The eight current conclusion statements are derived rather than independently assumed. The loader does not infer starting-premise membership from publication, missing incoming arrows, confidence or statement type. It rejects changed statement wording or changed application premises, conclusion, inference kind or scheme until their bindings are reviewed.
+`reasoning/model-bindings.json` lists 23 ordinary premises explicitly. Eight conclusion statements are derived without independent assumption. A ninth, S-011, is both explicitly assumed and derived through ARG-009; both routes are disclosed and tested. The loader does not infer starting-premise membership from publication, missing incoming arrows, confidence or statement type. It rejects changed statement wording or changed application premises, conclusion, inference kind or scheme until their bindings are reviewed.
 
 S-030 and S-031 are explicitly admitted ordinary empirical premises for general circuit influence and chiropractic-specific likelihood. S-012 remains an ordinary empirical premise with revised wording that allows shared neural processes and circuit-to-circuit influence. No argument derives likelihood or broader improvement from S-011 or connectivity. A withdrawal test checks that the engine cannot invent these bridges and that the local benefit and professional-purpose routes remain independent. The two new formulas are opaque propositions; no probabilistic calculus or stronger proof claim is introduced. S-013's revised exact text independently assumes predominant mediation by input-induced motor-related neural change. Its opaque binding does not encode causal paths or compute mediation shares. The withdrawal test also checks that integration, local improvement and capacity cannot recreate this premise, while the local-benefit and purpose arguments remain intact.
 
 S-029 is an explicit ordinary normative premise. ARG-008 uses it with S-027 to derive S-005, which is no longer independently assumed. Tests withdraw the bridge or causal premise, undercut the purpose inference, and reject its promotion to strict. The purpose route does not require S-004 or S-028.
 
-All domain, empirical, value and definitional commitments remain challengeable. There are no protected chiropractic axioms. A statement may later be both independently assumed and derived, but that additional assumption route must be disclosed and reviewed. It cannot be passed off as successful support from the other route.
+All domain, empirical, value and definitional commitments remain challengeable. There are no protected chiropractic axioms. S-011 is both independently assumed and derived; this is a disclosed and reviewed additional route, not a default for every conclusion. It cannot be passed off as successful support from the other route.
 
 The runtime generates complete derivations. It retains separate rule identities, the joint premises of each application, subarguments, all applicable attack types, successful defeats and grounded statuses. Public comments never become graph assertions automatically.
 
@@ -53,7 +53,7 @@ The runtime generates complete derivations. It retains separate rule identities,
 
 The interchange language for formulas is a deliberately restricted SMT-LIB 2 syntax: uninterpreted sorts, Boolean predicates, Boolean connectives, equality and quantification. Signatures accept only sort and predicate declarations. They cannot contain hidden asserted premises, definitions, commands or user code. Formula inputs are parsed as one closed Boolean expression.
 
-Six statements currently have quantified representations: S-011, S-022, S-024, S-025, S-026 and S-027. These cover both existing deductions, ARG-006 and ARG-007. The other 25 statements are explicitly labelled `opaque-proposition` in the binding file. They participate in declared defeasible rules without claiming that their internal English logic has been proved. Promoting any such rule to strict requires a suitable reviewed formalization that actually passes the entailment check.
+Seven statements currently have quantified representations: S-011, S-022, S-024, S-025, S-026, S-027 and S-028. These cover the three deductions, ARG-006, ARG-007 and ARG-009. The other 24 statements are explicitly labelled `opaque-proposition` in the binding file. They participate in declared defeasible rules without claiming that their internal English logic has been proved. Promoting any such rule to strict requires a suitable reviewed formalization that actually passes the entailment check.
 
 The formal vocabulary has these meanings:
 
@@ -62,6 +62,7 @@ The formal vocabulary has these meanings:
 | `Input`, `Event` | Domains of possible input/event identifiers; the nonempty sort alone does not assert actual delivery or a qualifying response |
 | `OccurredInput(i)` | An actual delivered chiropractic input |
 | `Causes(i,e)` | The asserted input-to-event causal relationship |
+| `ThroughMotorStrategyPerturbation(i,e)` | Input i causes reorganization e through disturbance of an established motor-control pattern; this is the asserted mechanism contribution, not merely an accompanying event |
 | `Change(e)` | An actual change |
 | `NeuromotorOrganization(e)` | A change concerning organization of neuromotor control or coordination |
 | `Reorganization(e)` | The conjunction specified through S-024 |
@@ -73,6 +74,8 @@ The formal vocabulary has these meanings:
 | `Successful(e,s,c,t)` | S-025's definition, retaining exactly the same comparison dimensions |
 
 S-011 and S-027 use existential quantification over the same input, response, scope, context and interval. S-024 supplies the change/reorganization relation needed by S-022. S-025 and S-026 retain their universal conditional meaning without asserting that any successful adjustment occurs. The occurrence predicate prevents a nonempty logical sort from supplying empirical occurrence by definition.
+
+S-028 uses S-011's full existential conjunction and adds `ThroughMotorStrategyPerturbation(i,e)` for the same input and event. ARG-009 drops only that mechanism conjunct. The new predicate leaves specific circuitry, salience thresholds and causal measurements uninterpreted; it does not assert a universal perturbation law or prove mechanism from co-occurrence. No axiom or engine/profile change is introduced. The exact English commitments and causal overlap were reviewed before admitting the strict rule.
 
 For every authored strict rule, the solver first checks that its premises are satisfiable, then checks that the premises together with the negation of the conclusion are unsatisfiable. This rejects inconsistent-premise shortcuts. `unknown` or timeout is an incomplete evaluation, never proof. Generated transpositions implement the approved strict-rule closure and do not transpose defeasible rules.
 
@@ -90,7 +93,7 @@ The rationality argument for the supported profile relies on no axioms, a symmet
 
 ## Critical questions and formal opposition
 
-Follow [objection-authoring.md](objection-authoring.md). The fourteen public questions target actual claims and inferential boundaries without attributing errors to other practitioners. They are canonical editorial content in `src/data/model-questions.json`, displayed on their target detail pages.
+Follow [objection-authoring.md](objection-authoring.md). The sixteen public questions target actual claims and inferential boundaries without attributing errors to other practitioners. They are canonical editorial content in `src/data/model-questions.json`, displayed on their target detail pages.
 
 A question does not assert its suggested alternative as true. A scope boundary need not defeat a correctly limited argument. A formal attacker needs a proposition, an explicitly declared role in a theory, and support under that theory. The pilot's synthetic counterarguments exercise undermining, rebutting and undercutting; they are not adopted clinical propositions.
 
@@ -108,7 +111,7 @@ Create a local environment with `python3 -m venv .venv-reasoning`, then install 
 
 Run `npm run test:reasoning` for the adversarial suite and `npm run reasoning:pilot` for both representative arguments and the full current working theory. Reports and AIF documents go to ignored `reasoning/output/`. They contain exact theory/profile digests, source fingerprints, adapter identity and computed derivations. They are snapshots, not author-editable certifications or public acceptance badges.
 
-The tests cover the original 18 adversarial requirements plus quantified strengthening, existential overlap, occurrence by definition, productive cycles, explicit profile rejection, signature injection, formal binding drift, canonical inventory coverage, and the engine identity issue. The current suite contains 35 tests, including a cross-runtime check that the semantic review graph covers changed full-evaluation statuses after premise/rule withdrawal, an outside rebuttal, alternative support and undercut/defense changes. The two pilot scenarios explicitly assume their listed premises; this does not change the full working theory's independently declared premise set.
+The tests cover the original 18 adversarial requirements plus quantified strengthening, existential overlap, occurrence by definition, productive cycles, explicit profile rejection, signature injection, formal binding drift, canonical inventory coverage, and the engine identity issue. The current suite contains 37 tests, including a cross-runtime check that the semantic review graph covers changed full-evaluation statuses after premise/rule withdrawal, an outside rebuttal, alternative support and undercut/defense changes. Perturbation tests verify both S-011 routes, withdrawal of each and both, rejection of the reverse capacity-plus-effect implication, and strict transposition from a negated effect. Review-impact tests also exercise these canonical changes. The two pilot scenarios explicitly assume their listed premises; this does not change the full working theory's independently declared premise set.
 
 For every Model change, run the impact-based semantic review (with whole-model review for global changes and periodic checks), `npm test`, `npm run test:reasoning`, `npm run reasoning:pilot`, `npm run build` and `npm run test:routes`. Run the browser checks for presentation changes. The static Astro site does not ship Python or execute the engine in a reader's browser. The CI workflow runs the reasoning checks separately from the static build.
 

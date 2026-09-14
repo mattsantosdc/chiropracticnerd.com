@@ -60,6 +60,14 @@ class FoundationTests(unittest.TestCase):
         broken = copy.deepcopy(cycle)
         broken['undercutters'].pop()
         cases.append((cycle, broken))
+        canonical = load_model()
+        for removed in [['S-028'], ['S-011', 'S-028']]:
+            changed = copy.deepcopy(canonical)
+            changed['ordinaryPremises'] = [sid for sid in canonical['ordinaryPremises'] if sid not in removed]
+            cases.append((canonical, changed))
+        negative_effect = copy.deepcopy(canonical)
+        negative_effect['ordinaryPremises'].append('-S-011')
+        cases.append((canonical, negative_effect))
         completed = subprocess.run(['node', 'tests/helpers/review-impact-theory.mjs'],
                                    input=json.dumps(dict(cases=cases, canonical=load_model())), text=True, capture_output=True,
                                    cwd=ROOT, check=True, timeout=10)
@@ -314,21 +322,21 @@ class FoundationTests(unittest.TestCase):
             with self.assertRaises(InvalidTheory):
                 evaluate(t)
 
-    def test_complete_current_model_has_explicit_premises_and_two_checked_deductions(self):
+    def test_complete_current_model_has_explicit_routes_and_three_checked_deductions(self):
         t = load_model()
         result = evaluate(t)
         self.assertEqual(len(t['statements']), 31)
-        self.assertEqual(len(t['rules']), 8)
-        self.assertEqual(result['strictProofs'], ['ARG-006', 'ARG-007'])
+        self.assertEqual(len(t['rules']), 9)
+        self.assertEqual(result['strictProofs'], ['ARG-006', 'ARG-007', 'ARG-009'])
         conclusions = {r['conclusion'] for r in t['rules']}
-        self.assertFalse(conclusions & set(t['ordinaryPremises']))
+        self.assertEqual(conclusions & set(t['ordinaryPremises']), {'S-011'})
 
     def test_professional_aim_requires_benefit_and_normative_bridge_without_potential_or_mechanism(self):
         t = load_model()
         self.assertNotIn('S-005', t['ordinaryPremises'])
-        for removed in ['S-011', 'S-022', 'S-029']:
+        for removed in [['S-011', 'S-028'], ['S-022'], ['S-029']]:
             changed = copy.deepcopy(t)
-            changed['ordinaryPremises'].remove(removed)
+            changed['ordinaryPremises'] = [sid for sid in t['ordinaryPremises'] if sid not in removed]
             result = evaluate(changed)
             for downstream in ['S-005', 'S-006', 'S-014', 'S-016']:
                 self.assertEqual(status(result, downstream), 'no-argument', (removed, downstream))
@@ -383,6 +391,63 @@ class FoundationTests(unittest.TestCase):
             self.assertEqual(status(result, sid), 'accepted-support')
             self.assertFalse(result['statements'][sid]['assumed'])
 
+    def test_perturbation_effect_routes_remain_distinct_under_withdrawal(self):
+        t = load_model()
+        baseline = evaluate(t)
+        routes = [a for a in baseline['arguments'] if a['conclusion'] == 'S-011']
+        self.assertEqual({a['topRule'] for a in routes}, {None, 'ARG-009'})
+        self.assertEqual(len(routes), 2)
+        for removed, remaining_rule, assumed in [('S-028', None, True), ('S-011', 'ARG-009', False)]:
+            changed = copy.deepcopy(t)
+            changed['ordinaryPremises'].remove(removed)
+            result = evaluate(changed)
+            self.assertEqual(result['statements']['S-011']['assumed'], assumed)
+            self.assertEqual([a['topRule'] for a in result['arguments'] if a['conclusion'] == 'S-011'], [remaining_rule])
+            for sid in ['S-011', 'S-027', 'S-005']:
+                self.assertEqual(status(result, sid), 'accepted-support')
+        neither = copy.deepcopy(t)
+        neither['ordinaryPremises'] = [sid for sid in t['ordinaryPremises'] if sid not in ['S-011', 'S-028']]
+        result = evaluate(neither)
+        for sid in ['S-011', 'S-028', 'S-027', 'S-005']:
+            self.assertEqual(status(result, sid), 'no-argument')
+
+    def test_perturbation_implication_is_one_way_and_effect_negation_transposes(self):
+        t = pilot('ARG-009')
+        result = evaluate(t)
+        self.assertEqual(result['strictProofs'], ['ARG-009'])
+        self.assertEqual(status(result, 'S-011'), 'accepted-support')
+        self.assertFalse(result['statements']['S-011']['assumed'])
+        # General capacity plus an improving effect cannot establish its mechanism.
+        reverse = copy.deepcopy(t)
+        reverse['ordinaryPremises'] = ['S-010', 'S-011']
+        reverse['rules'][0]['premises'] = ['S-010', 'S-011']
+        reverse['rules'][0]['conclusion'] = 'S-028'
+        with self.assertRaisesRegex(InvalidTheory, 'not entailed'):
+            evaluate(reverse)
+        negative_effect = copy.deepcopy(t)
+        negative_effect['ordinaryPremises'] = ['-S-011']
+        result = evaluate(negative_effect)
+        self.assertEqual(status(result, '-S-028'), 'accepted-support')
+        self.assertEqual(status(result, 'S-028'), 'no-argument')
+        # A false mechanism need not negate the independently assumed effect.
+        alternative = copy.deepcopy(t)
+        alternative['ordinaryPremises'] = ['S-011', '-S-028']
+        result = evaluate(alternative)
+        self.assertEqual(status(result, 'S-011'), 'accepted-support')
+        self.assertEqual(status(result, '-S-011'), 'no-argument')
+        self.assertEqual(status(result, '-S-028'), 'accepted-support')
+        # Extra routes cannot outvote an explicit contradiction under equal priorities.
+        challenged = load_model()
+        challenged['ordinaryPremises'].append('-S-011')
+        result = evaluate(challenged)
+        for sid in ['S-011', 'S-028']:
+            self.assertEqual(status(result, sid), 'unresolved-support')
+        mechanism_only = load_model()
+        mechanism_only['ordinaryPremises'].append('-S-028')
+        result = evaluate(mechanism_only)
+        self.assertEqual(status(result, 'S-028'), 'unresolved-support')
+        self.assertEqual(status(result, 'S-011'), 'accepted-support')
+
     def test_migration_map_preserves_every_legacy_relationship_and_limiting_note(self):
         record = json.loads((ROOT / 'reasoning/dependency-migration.json').read_text())
         self.assertEqual(record['schemaVersion'], 2)
@@ -395,12 +460,13 @@ class FoundationTests(unittest.TestCase):
         self.assertEqual(len(identities), len(record['relationships']))
         retired = {('S-004', 'S-005'): 'retired-context-only',
                    ('S-007', 'S-013'): 'retired-context-only',
-                   ('S-022', 'S-005'): 'replaced-by-argument-path'}
+                   ('S-022', 'S-005'): 'replaced-by-argument-path',
+                   ('S-011', 'S-028'): 'replaced-by-reverse-application'}
         self.assertEqual({(r['source'], r['target']): r['disposition'] for r in record['relationships']
                           if r['disposition'] in retired.values()}, retired)
         mapped = {(r['source'], r['target']): (r['legacyRole'], r['legacyNote'])
                   for r in record['relationships'] if (r['source'], r['target']) not in retired}
-        self.assertEqual(len(actual), 40)
+        self.assertEqual(len(actual), 39)
         self.assertEqual(mapped, {pair: value for pair, value in actual.items() if pair in identities})
         # These uses were authored after the original migration snapshot. Keep
         # the original 38 identities and notes intact instead of falsifying their origin.
@@ -414,7 +480,7 @@ class FoundationTests(unittest.TestCase):
                               if (r['source'], r['target']) == ('S-011', 'S-013')),
                          'retain-explicit-semantic-use')
         self.assertEqual(sum(r['disposition'] == 'requires-semantic-decision'
-                             for r in record['relationships']), 4)
+                             for r in record['relationships']), 2)
         rules = {r['id']: r for r in load_model()['rules']}
         for item in record['relationships']:
             for rid in item['applications']:
@@ -429,6 +495,13 @@ class FoundationTests(unittest.TestCase):
                 self.assertEqual(current, item['target'])
             else:
                 self.assertNotIn('argumentPath', item)
+            if item['disposition'] == 'replaced-by-reverse-application':
+                reverse = rules[item['reverseApplication']]
+                self.assertEqual(reverse['premises'], [item['target']])
+                self.assertEqual(reverse['conclusion'], item['source'])
+                self.assertEqual(reverse['kind'], 'strict')
+            else:
+                self.assertNotIn('reverseApplication', item)
 
 
 if __name__ == '__main__':

@@ -4,7 +4,7 @@ slug: science/chiropractic-inputs
 title: Chiropractic inputs and beneficial neuromotor change
 statement: >-
   Some chiropractic inputs cause neuromotor reorganization that improves context-appropriate human function within a specified neuromotor scope, context, and timescale.
-summary: Some inputs are proposed to cause the same reorganization and functional improvement; the mechanism, benefit judgment, and selection of an input remain separately inspectable.
+summary: Some inputs are proposed to cause the same reorganization and functional improvement. This effect is independently proposed and also follows from the stronger perturbation claim; its empirical support remains unresolved.
 domain: science
 statementType: empirical
 confidence: unresolved
@@ -32,6 +32,12 @@ S-022 separately values the improvement, and ARG-007 draws the corresponding fun
 S-023 defines a chiropractic input by deliberate delivery and intention. “Neurobiomechanical training stimulus” describes its intended use, including a single input; it does not imply learning, retention, or improvement. S-015 uses this intentional description for application. The effect claim here would fail if its proposed responses never occurred, even if the intention to produce them remained.
 
 Input selection remains a prospective requirement for testing and practice. The relevant state, reason for selecting an input, predicted response, improvement criteria, and conditions for withholding or stopping must be specified before observing the outcome. Selection must eventually be reliable and empirically validated against credible alternatives. An input cannot become “appropriate” solely because a favorable result was observed, nor can every failure be dismissed as inappropriate selection. All relevant delivered inputs remain in the accounting, including no reorganization, reorganization without benefit, adverse responses, and uncertain outcomes. v0.1 supplies no validated selection protocol.
+
+## Independent effect and mechanism routes
+
+The Model adopts this effect claim as an independent empirical starting premise. ARG-009 additionally derives it from S-028, which asserts the same improving response with a perturbation mechanism. These are distinct routes to the same statement. Independent adoption is an explicit assumption to evaluate, not evidence created by the deduction.
+
+Withdrawing the perturbation hypothesis does not remove the independent effect premise. Conversely, withdrawing that independent premise need not remove the route through S-028. Establishing that the effect does not occur would be stronger than withdrawing one route: it would also challenge any mechanism claim that entails the effect. Neither independent adoption nor deduction validates the effect empirically.
 
 ## Current evidence
 

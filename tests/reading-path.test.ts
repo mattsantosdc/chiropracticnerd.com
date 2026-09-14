@@ -254,8 +254,9 @@ test('repeated premises share canonical identity and helpers do not mutate froze
 	assert.equal(new Set(locations.map(({ anchor }) => anchor)).size, locations.length);
 	assert.equal(path.primaryStatementLocations.get('S-026')!.role, 'conclusion');
 	assert.deepEqual({ sourceStatements, sourceArguments, sourceConfig }, before);
-	// Biological adjacency, the mechanism's dependency, and related/source links supply no new inference.
+	// Biological adjacency and related/source links supply no inference; S-028 uses its authored ARG-009.
 	assert.deepEqual(reasoning.concludingArguments.get('S-007'), []);
-	assert.deepEqual(reasoning.premiseArguments.get('S-028'), []);
+	assert.deepEqual(reasoning.premiseArguments.get('S-028')!.map(({ entry }) => entry.data.id), ['ARG-009']);
+	assert.deepEqual(reasoning.concludingArguments.get('S-011')!.map(({ entry }) => entry.data.id), ['ARG-009']);
 	assert.deepEqual(reasoning.premiseArguments.get('S-012'), []);
 });

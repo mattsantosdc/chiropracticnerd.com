@@ -50,7 +50,7 @@ Do not take condition treatment as the assumed default purpose of chiropractic. 
 
 ARG-007 derives actual scoped benefit in S-027 from S-011, S-024 and S-022. ARG-008 then uses S-027 and S-029's explicit normative principle to support the professional aim in S-005 defeasibly. Do not infer professional legitimacy from a valued outcome alone, or conceal a starting assumption of the aim behind the appearance of a derived conclusion. The working theory derives S-005; it does not also assume it.
 
-S-004's open-ended potential remains relevant to the rationale beyond symptoms in ARG-004, but is not a premise of the professional-purpose argument. The two resolved legacy dependencies into S-005 have been retired with their original notes preserved in the migration record. The S-011 to S-012 decision now retains a narrowly explained semantic use; the S-013, perturbation and assessment/application relationships are also resolved. Structural schema migration and the substantive opposition audit remain separate work.
+S-004's open-ended potential remains relevant to the rationale beyond symptoms in ARG-004, but is not a premise of the professional-purpose argument. The two resolved legacy dependencies into S-005 have been retired with their original notes preserved in the migration record. The S-011 to S-012 decision now retains a narrowly explained semantic use; the S-013, perturbation and assessment/application relationships are also resolved. The canonical migration is complete: arguments supply inferential revision paths and `semanticUses` retains additional meaning and mechanism references. The [substantive opposition audit](model-opposition-audit.md) records the current challenges, hypothetical evaluation scenarios and unresolved burdens.
 
 Comparisons supplied to explain the author's intent in conversation must not be copied into canonical claims as contrasts with medicine or other professions. Keep the argument focused on its actual premises. Do not add a claim that every symptom or condition effect follows through the proposed functional improvement unless that stronger causal relationship is explicitly authored and reviewed. A proposed specific perturbation mechanism remains distinct from the functional effect and its value.
 
@@ -177,7 +177,7 @@ A strong study cannot repair an invalid inference. A valid inference cannot comp
 
 When a claim changes, use both layers:
 
-- follow `upstream → downstream` dependencies to locate statements whose meaning or content must be reconsidered; and
+- follow the shared derived revision graph, including explicit `semanticUses`, to locate statements whose meaning or content must be reconsidered; and
 - find arguments that use the statement as a premise or conclusion and reassess their premises, scope, inference kind, and conclusion.
 
 During the transition retain the existing dependency data until every relationship has an explicit migration disposition. The target impact model derives inference dependencies and also follows objections, defenses, rule identity, profile changes and semantic uses. Do not stop computational propagation merely because an intermediate statement retains the same wording. Never use a reading path to exclude an admitted challenge.

@@ -57,7 +57,7 @@ and introduction and has an `anchor`, `placement`, and resolved `steps`. A state
 step attaches `statement`; an argument step attaches `argument`, including its full
 joint premise list and conclusion. No recursive graph traversal is performed.
 Argument cycles and multiple arguments for a conclusion remain finite adjacency
-lists. Only the separate dependency validator enforces a DAG.
+lists. The executable profile separately rejects productive inference cycles. Semantic references and revision influence may be cyclic; `revisionCandidates(id)` uses finite traversal through the shared formal and semantic-use graph. Reading placement never filters that graph.
 
 ## Coverage, duplicates, and locations
 

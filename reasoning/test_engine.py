@@ -19,6 +19,7 @@ from py_arg.aspic_classes.literal import Literal
 from engine import (PROFILE, ROOT, InvalidTheory, IncompleteEvaluation, check_sat,
                     construct, evaluate, from_aif, impact, to_aif, validate)
 from model import load_model, pilot, markdown_records
+from opposition import load_opposition_scenarios, check_expectations
 
 
 def theory(names=('p', 'q', 'r', 'u'), premises=('p',), rules=()):
@@ -76,6 +77,8 @@ class FoundationTests(unittest.TestCase):
                                    cwd=ROOT, check=True, timeout=10)
         comparison = json.loads(completed.stdout)
         self.assertEqual(comparison['missingCanonicalEdges'], [])
+        for sid, reached in comparison['canonicalReach'].items():
+            self.assertEqual(impact(canonical, [sid]), reached)
         impacts = comparison['impacts']
         changed_count = 0
         for (before, after), affected in zip(cases, impacts, strict=True):
@@ -504,13 +507,45 @@ class FoundationTests(unittest.TestCase):
         with self.assertRaisesRegex(InvalidTheory, 'not entailed'):
             evaluate(t)
 
+    def test_opposition_scenarios_are_complete_evaluations_without_working_adoption(self):
+        before = load_model()
+        scenarios = load_opposition_scenarios()
+        self.assertEqual(len(scenarios), 8)
+        working_ids = {s['id'] for s in before['statements']}
+        for scenario, t in scenarios:
+            self.assertEqual(scenario['role'], 'hypothetical')
+            self.assertTrue(working_ids <= {s['id'] for s in t['statements']})
+            self.assertEqual(t['rules'], before['rules'])
+            check_expectations(scenario, evaluate(t))
+            for statement in t['statements']:
+                if statement['id'] not in working_ids:
+                    self.assertEqual(statement['role'], 'hypothetical')
+        self.assertEqual(load_model(), before)
+        self.assertFalse(before['undercutters'])
+
+    def test_opposition_loader_rejects_role_drift_injection_and_invalid_targets(self):
+        original = json.loads((ROOT / 'reasoning/opposition-scenarios.json').read_text())
+        cases = []
+        changed = copy.deepcopy(original); changed['scenarios'][0]['role'] = 'working-claim'; cases.append(changed)
+        changed = copy.deepcopy(original); changed['scenarios'][0]['addPremises'] = ['S-999']; cases.append(changed)
+        changed = copy.deepcopy(original); changed['scenarios'][0]['questions'] = ['Q-999']; cases.append(changed)
+        changed = copy.deepcopy(original); changed['scenarios'][3]['undercutters'][0]['rule'] = 'ARG-009'; cases.append(changed)
+        changed = copy.deepcopy(original); changed['scenarios'][3]['undercutters'][0]['id'] = 'H-001) (assert true)'; cases.append(changed)
+        changed = copy.deepcopy(original); changed['scenarios'].append(copy.deepcopy(changed['scenarios'][0])); cases.append(changed)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'scenarios.json'
+            for case in cases:
+                path.write_text(json.dumps(case))
+                with patch('opposition.PATH', path), self.assertRaises(InvalidTheory):
+                    load_opposition_scenarios()
+
     def test_migration_map_preserves_every_legacy_relationship_and_limiting_note(self):
         record = json.loads((ROOT / 'reasoning/dependency-migration.json').read_text())
         self.assertEqual(record['schemaVersion'], 2)
         self.assertEqual(len(record['relationships']), 38)
         actual = {}
         for sid, (data, _, _) in markdown_records('src/content/model/statements').items():
-            for dependency in data['upstream']:
+            for dependency in data['semanticUses']:
                 actual[(dependency['id'], sid)] = (dependency['role'], dependency['note'])
         identities = {(r['source'], r['target']) for r in record['relationships']}
         self.assertEqual(len(identities), len(record['relationships']))
@@ -522,8 +557,8 @@ class FoundationTests(unittest.TestCase):
         self.assertEqual({(r['source'], r['target']): r['disposition'] for r in record['relationships']
                           if r['disposition'] in retired.values()}, retired)
         mapped = {(r['source'], r['target']): (r['legacyRole'], r['legacyNote'])
-                  for r in record['relationships'] if (r['source'], r['target']) not in retired}
-        self.assertEqual(len(actual), 38)
+                  for r in record['relationships'] if r['disposition'] == 'retain-explicit-semantic-use'}
+        self.assertEqual(len(actual), 24)
         self.assertEqual(mapped, {pair: value for pair, value in actual.items() if pair in identities})
         # These uses were authored after the original migration snapshot. Keep
         # the original 38 identities and notes intact instead of falsifying their origin.

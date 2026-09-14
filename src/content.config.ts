@@ -2,7 +2,7 @@ import { defineCollection } from 'astro/content/config';
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 import { inferenceKinds } from './lib/arguments.ts';
-import { dependencyRoles } from './lib/dependencies.ts';
+import { semanticUseRoles } from './lib/semantic-uses.ts';
 import { statementIdPattern } from './lib/identifiers.ts';
 import { isReservedStatementSlug } from './lib/statements.ts';
 
@@ -15,11 +15,11 @@ const referenceSchema = z.object({
 
 const statementIdSchema = z.string().regex(statementIdPattern);
 
-const upstreamDependencySchema = z.object({
+const semanticUseSchema = z.object({
 	id: statementIdSchema,
-	role: z.enum(dependencyRoles),
+	role: z.enum(semanticUseRoles),
 	note: z.string().trim().min(1),
-});
+}).strict();
 
 const statementSchema = z
 	.object({
@@ -37,7 +37,7 @@ const statementSchema = z
 		statementType: z.enum(['framework', 'definition', 'empirical', 'mixed', 'value', 'strategy']),
 		confidence: z.enum(['high', 'moderate', 'low', 'unresolved', 'not-applicable']),
 		order: z.number().int().nonnegative(),
-		upstream: z.array(upstreamDependencySchema).default([]),
+		semanticUses: z.array(semanticUseSchema).default([]),
 		related: z.array(statementIdSchema).default([]),
 		version: z.literal('0.1'),
 		updated: z.coerce.date(),

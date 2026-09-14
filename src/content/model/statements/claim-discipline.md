@@ -9,7 +9,7 @@ domain: framework
 statementType: framework
 confidence: not-applicable
 order: 20
-upstream:
+semanticUses:
   - id: S-001
     role: methodological
     note: S-002 operationalizes S-001's division of labor by requiring support and evaluation appropriate to each kind of claim.

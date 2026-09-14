@@ -9,9 +9,9 @@ Public routes may change; semantic identifiers may not. The reserved patterns ar
 | Resource | Identifier pattern |
 | --- | --- |
 | Statement | `https://chiropracticnerd.com/id/statement/{STATEMENT-ID}` |
-| Direct dependency | `https://chiropracticnerd.com/id/dependency/{UPSTREAM-ID}--{DOWNSTREAM-ID}` |
+| Semantic-use relationship (reserved legacy URI) | `https://chiropracticnerd.com/id/dependency/{UPSTREAM-ID}--{DOWNSTREAM-ID}` |
 | Argument | `https://chiropracticnerd.com/id/argument/{ARGUMENT-ID}` |
-| Dependency role | `https://chiropracticnerd.com/vocab/dependency-role/{ROLE}` |
+| Semantic-use role (reserved legacy URI) | `https://chiropracticnerd.com/vocab/dependency-role/{ROLE}` |
 
 Statement IDs use `S-###` (three decimal digits), unique across all domains. Argument IDs use `ARG-###`.
 Statement IDs are permanent identifiers only: their numeric values carry no ordering, hierarchy,
@@ -26,7 +26,7 @@ Statement and argument IDs are permanent identities; URL slugs are mutable prese
 The Model is the complete account, built from statements and arguments. Statements in
 `src/content/model/statements/` express propositions, definitions, values, framework commitments,
 and strategies. The `statements` and `arguments` Astro collections load only their respective
-canonical sibling directories; no collection loads the shared parent. Direct `upstream` metadata remains the legacy revision-impact graph during the explicitly tracked [migration](aspic-migration.md). Its removal must preserve non-inferential semantic uses and the information in its limiting notes.
+canonical sibling directories; no collection loads the shared parent. Arguments are the sole authored inference applications. Additional noninferential references use `semanticUses: [{ id, role, note }]`; the retired `upstream` and `downstream` fields are rejected. The completed [migration](aspic-migration.md) preserves retained limiting notes and historical dispositions. Retained semantic uses keep their already reserved dependency URI and role URI patterns; retirement never permits identity reuse. The namespace spelling is not an authored field or a claim of inference.
 
 Argument records in `src/content/model/arguments/` are now the canonical structured reasoning layer. Each contains one or more statement premises, one statement conclusion, an inference kind, a named scheme, version and updated date, and explanatory prose. Arguments do not create a `logical` statement type and do not use a Boolean soundness field. Multiple arguments may conclude the same statement, and a statement may be both a conclusion and a premise across the hierarchy.
 
@@ -34,7 +34,7 @@ Inclusion in a version identifies statements and arguments as the Model's workin
 
 The [Argument Interchange Format](https://www.arg-tech.org/wp-content/uploads/2011/09/aif-spec.pdf) now supplies the graph structure for the pilot's experimental JSON interchange. Required project extensions preserve the ASPIC+ theory and evaluation profile. The importer rejects disagreement or loss between those layers. This is not a general AIF importer or a public RDF/JSON-LD export. ASPIC+ supplies the formal argumentation framework; AIF supplies interchange. Natural-language fidelity remains an editor-curated judgment.
 
-Public comments are discussion, not graph assertions. Working statements and inference applications remain canonical Markdown. `src/data/model-questions.json` now contains separately identified critical questions under the [objection contract](objection-authoring.md). Recording a question does not assert its proposed alternative or create a formal attacker. The runtime supports explicit alternative and hypothetical roles; substantive opposition requires its own declared propositions, premise membership and support before evaluation.
+Public comments are discussion, not graph assertions. Working statements and inference applications remain canonical Markdown. `src/data/model-questions.json` now contains separately identified critical questions under the [objection contract](objection-authoring.md). Recording a question does not assert its proposed alternative or create a formal attacker. The runtime supports explicit alternative and hypothetical roles; substantive opposition requires its own declared propositions, premise membership and support before evaluation. Eight versioned scenarios in `reasoning/opposition-scenarios.json` make their hypothetical removals, additions and undercuts explicit. They are validated and evaluated as full-theory copies and never silently change the working account.
 
 ## Editorial reading architecture
 
@@ -55,8 +55,8 @@ An eventual export will use stable RDF 1.1 semantics and JSON-LD 1.1. It will re
 | Model concern | Future export mapping |
 | --- | --- |
 | Statement metadata | Dublin Core terms such as `dcterms:identifier`, `dcterms:title`, `dcterms:modified`, and `dcterms:hasVersion`, plus `cn:StatementEntry` |
-| Direct dependency | Downstream `dcterms:requires` upstream; the qualified dependency resource uses `cn:upstream`, `cn:downstream`, `cn:role`, and `dcterms:description` |
-| Dependency role | One of the five local role identifiers; no external equivalence is asserted |
+| Semantic-use relationship (reserved legacy URI) | A qualified local relationship records the referenced and using statement, role and limiting note; use an external predicate only after checking that this specific reference matches it |
+| Semantic-use role (reserved legacy URI) | One of the five local role identifiers; no external equivalence is asserted |
 | See-also link | Symmetric `dcterms:relation` statements |
 | Concepts and terminology | [SKOS](https://www.w3.org/TR/skos-reference/) only after concepts are separated from the statements that define or discuss them |
 | Structured reasoning | A claim/scheme-node representation compatible with AIF |
@@ -65,11 +65,11 @@ An eventual export will use stable RDF 1.1 semantics and JSON-LD 1.1. It will re
 | Evidence method | [ECO](https://evidenceontology.org/) only when an exact biomedical evidence term applies |
 | Export constraints | [SHACL](https://www.w3.org/TR/shacl/) shapes generated and tested alongside the export |
 
-[`dcterms:requires`](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/requires/) is the generic dependency predicate because its published definition covers a resource required to support another resource's function, delivery, or coherence. A qualified dependency is also represented as its own resource because the local role and explanatory note describe the dependency itself, not either endpoint.
+The former blanket `dcterms:requires` mapping is deferred. A semantic use can guide interpretation or a mechanism-dependent choice without being logically necessary for the claim. An exporter must preserve that distinction and the qualified note rather than imply necessity for every reference. No public export changes in this migration.
 
 SKOS's direct-versus-transitive distinction informs the direct-edge rule, but statements are not automatically `skos:Concept` resources. CiTO describes why a publication is cited, not why one statement depends on another. PROV-O describes lineage, not argumentative support. These boundaries prevent convenient but false ontology mappings.
 
-Argument cycles, future objection links, or competing reasoning paths must not invalidate the reader-facing dependency DAG. The two layers are validated independently and need not have the same topology.
+The shared revision graph permits cycles and derives finite reachability. It does not dictate productive inference topology or acceptance; the formal profile validates and evaluates those separately.
 
 ## Deferred work
 

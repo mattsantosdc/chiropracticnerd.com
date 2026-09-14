@@ -17,36 +17,8 @@ const unique = (values) => [...new Set(values)].sort();
 const edgeKey = (edge) => serialize(edge);
 const compareEdges = (a, b) => edgeKey(a) < edgeKey(b) ? -1 : edgeKey(a) > edgeKey(b) ? 1 : 0;
 
-/** Conservative influence under the supported profile, including strict transpositions.
- * Contradiction links are bidirectional; undercuts are directed. Walking these links
- * follows defenses and reinstatement without asserting that any attack succeeds.
- */
-export function theoryEdges(theory) {
-	const edges = [];
-	const add = (from, to, kind) => edges.push({ from, to, kind });
-	for (const { id } of theory.statements) {
-		add(id, negative(id), 'contradiction');
-		add(negative(id), id, 'contradiction');
-	}
-	for (const rule of theory.rules) {
-		if (!['strict', 'defeasible'].includes(rule.kind)) throw new Error(`Unknown inference kind: ${rule.id}`);
-		for (const premise of rule.premises) add(premise, rule.id, 'premise');
-		add(rule.id, rule.conclusion, 'conclusion');
-		// Reviewing a changed conclusion also requires inspecting every argument for it.
-		add(rule.conclusion, rule.id, 'conclusion-use');
-		if (rule.kind === 'strict') {
-			for (const premise of rule.premises) {
-				const transposition = `transposition:${rule.id}:${premise}`;
-				add(rule.id, transposition, 'strict-rule');
-				add(negative(rule.conclusion), transposition, 'transposed-premise');
-				for (const other of rule.premises) if (other !== premise) add(other, transposition, 'transposed-premise');
-				add(transposition, negative(premise), 'transposed-conclusion');
-			}
-		}
-	}
-	for (const attack of theory.undercutters) add(attack.statement, attack.rule, 'undercut');
-	return edges;
-}
+export { theoryEdges } from '../src/lib/revision-graph.mjs';
+import { theoryEdges, semanticUseEdges } from '../src/lib/revision-graph.mjs';
 
 const bindingPath = 'reasoning/model-bindings.json';
 const questionPath = 'src/data/model-questions.json';
@@ -90,15 +62,15 @@ export function buildSnapshot(sources, subjects) {
 			const { updated, version, ...participation } = data;
 			addUnit(`${path}#participation`, path, participation, participants, false);
 		} else {
-			addUnit(`${path}#dependency-display`, path, data.upstream ?? [], [data.id, ...(data.upstream ?? []).map((dependency) => dependency.id)], false);
-			for (const dependency of data.upstream ?? []) {
+			addUnit(`${path}#semantic-use-display`, path, data.semanticUses ?? [], [data.id, ...(data.semanticUses ?? []).map((dependency) => dependency.id)], false);
+			for (const dependency of data.semanticUses ?? []) {
 				targetExists(dependency.id);
-				edges.push({ from: dependency.id, to: data.id, kind: `semantic-use:${dependency.role}` });
+
 			}
 			const readers = [data.id];
 			for (const related of data.related ?? []) { targetExists(related); readers.push(related); }
 			for (const other of Object.values(records)) {
-				if ((other.data.related ?? []).includes(data.id) || (other.data.upstream ?? []).some((d) => d.id === data.id)) readers.push(other.data.id);
+				if ((other.data.related ?? []).includes(data.id) || (other.data.semanticUses ?? []).some((d) => d.id === data.id)) readers.push(other.data.id);
 			}
 			for (const argument of argumentsList) {
 				if (argument.data.premises.includes(data.id) || argument.data.conclusion === data.id) readers.push(argument.data.id);
@@ -107,6 +79,7 @@ export function buildSnapshot(sources, subjects) {
 		}
 	}
 
+	edges.push(...semanticUseEdges(Object.values(records).filter(({ data }) => data.id.startsWith('S-')).map(({ data }) => data)));
 	// This mirrors the current binding loader's supported configuration. An extension
 	// must update both adapters, never silently omit newly admitted attack data.
 	const bindings = JSON.parse(sources[bindingPath]);
@@ -143,6 +116,26 @@ export function buildSnapshot(sources, subjects) {
 		targetExists(question.target);
 		addUnit(`${questionPath}#${question.id}`, questionPath, question, [question.target], false);
 	}
+	const oppositionPath = 'reasoning/opposition-scenarios.json';
+	const opposition = JSON.parse(sources[oppositionPath]);
+	exactKeys(opposition, ['schemaVersion', 'scenarios'], oppositionPath);
+	if (opposition.schemaVersion !== 1 || !Array.isArray(opposition.scenarios)) throw new Error('Unsupported opposition scenarios');
+	routed.add(oppositionPath);
+	addUnit(`${oppositionPath}#version`, oppositionPath, opposition.schemaVersion, [], false);
+	for (const scenario of opposition.scenarios) {
+		exactKeys(scenario, ['id', 'role', 'description', 'targets', 'questions', 'removePremises', 'addPremises', 'undercutters', 'expectedStatuses'], oppositionPath);
+		if (scenario.role !== 'hypothetical') throw new Error('Opposition scenario must be hypothetical');
+		const targets = [...scenario.targets, ...scenario.removePremises, ...scenario.addPremises.map((id) => id.startsWith('-') ? negative(id) : id), ...scenario.undercutters.map(({ rule }) => rule), ...Object.keys(scenario.expectedStatuses).map((id) => id.startsWith('-') ? negative(id) : id)];
+		for (const id of targets) targetExists(id);
+		for (const id of scenario.questions) {
+			const question = questions.find((q) => q.id === id);
+			if (!question) throw new Error(`Unknown scenario question: ${id}`);
+			targets.push(question.target);
+		}
+		// Scenario assumptions never become working-theory edges or premises.
+		addUnit(`${oppositionPath}#${scenario.id}`, oppositionPath, scenario, targets, false);
+	}
+
 	const reading = JSON.parse(sources[readingPath]);
 	exactKeys(reading, ['version', 'orientation', 'main', 'supporting'], readingPath);
 	routed.add(readingPath);

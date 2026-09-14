@@ -9,7 +9,7 @@ domain: philosophy
 statementType: value
 confidence: not-applicable
 order: 20
-upstream: []
+semanticUses: []
 related: []
 version: '0.1'
 updated: 2026-09-14

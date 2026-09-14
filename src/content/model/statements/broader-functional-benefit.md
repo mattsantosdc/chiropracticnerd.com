@@ -9,7 +9,7 @@ domain: science
 statementType: empirical
 confidence: unresolved
 order: 60
-upstream:
+semanticUses:
   - id: S-021
     role: conceptual
     note: Revising S-021's contextual improvement comparison would change how the broader outcome is judged independently of the local response; the definition supplies no evidence of transfer.

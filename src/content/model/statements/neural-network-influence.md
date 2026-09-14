@@ -9,7 +9,7 @@ domain: science
 statementType: empirical
 confidence: unresolved
 order: 56
-upstream:
+semanticUses:
   - id: S-008
     role: conceptual
     note: Revising S-008's neuromotor domain would require reconsidering which circuits and functions are distinguished here; state-dependent motor control does not establish influence on other functions.

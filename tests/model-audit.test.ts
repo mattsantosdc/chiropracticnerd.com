@@ -29,9 +29,9 @@ function fixture(t: { after: (callback: () => void) => void }) {
 	for (const path of policyPaths) put(path, `Policy for ${path}\n`);
 	const statements: any = Object.fromEntries(Array.from({ length: 7 }, (_, i) => {
 		const id = `S-00${i + 1}`;
-		return [id, { id, statement: `Some ${id} events occur.`, summary: `Summary of ${id}.`, confidence: 'unresolved', updated: '2026-09-14', upstream: [], related: [] }];
+		return [id, { id, statement: `Some ${id} events occur.`, summary: `Summary of ${id}.`, confidence: 'unresolved', updated: '2026-09-14', semanticUses: [], related: [] }];
 	}));
-	statements['S-007'].upstream = [{ id: 'S-004', role: 'conceptual', note: 'Uses its definition without inferring effectiveness.' }];
+	statements['S-007'].semanticUses = [{ id: 'S-004', role: 'conceptual', note: 'Uses its definition without inferring effectiveness.' }];
 	const args: any = {
 		'ARG-001': { id: 'ARG-001', premises: ['S-001', 'S-002'], conclusion: 'S-003', inferenceKind: 'defeasible', scheme: 'test' },
 		'ARG-002': { id: 'ARG-002', premises: ['S-003'], conclusion: 'S-004', inferenceKind: 'defeasible', scheme: 'test' },
@@ -50,6 +50,7 @@ function fixture(t: { after: (callback: () => void) => void }) {
 	json('src/data/model-questions.json', [{ id: 'Q-001', target: 'S-001', question: 'Another explanation?' }]);
 	const reading = { version: '0.1', orientation: { id: 'guide', steps: [] }, main: [{ id: 'unrelated', title: 'Unrelated', steps: [{ kind: 'statement', id: 'S-005' }] }, { id: 'account', title: 'Account', steps: [{ kind: 'argument', id: 'ARG-002' }] }], supporting: [] };
 	json('src/data/model-reading-path.json', reading);
+	json('reasoning/opposition-scenarios.json', { schemaVersion: 1, scenarios: [] });
 	json('reasoning/dependency-migration.json', { schemaVersion: 2, sourceBranch: 'model-v0.1', sourceCommit: 'test-only', relationships: [] });
 	const packet = collectInputs(root);
 	const review = reviewed(packet);
@@ -100,16 +101,16 @@ test('argument deletion follows previous edges and retains the alternative suppo
 });
 
 test('removed dependencies retain former impact and new dependencies expose the new path', (t) => {
-	const f = fixture(t); f.statements['S-007'].upstream = []; f.writeStatement('S-007');
+	const f = fixture(t); f.statements['S-007'].semanticUses = []; f.writeStatement('S-007');
 	f.statements['S-004'].statement = 'A revised definition.'; f.writeStatement('S-004'); f.bind();
 	assert.ok(f.plan().required.find((r: any) => r.id === 'S-007').reasons.some((r: any) => r.via.some((e: any) => e.kind === 'semantic-use:conceptual' && e.graphs.includes('previous'))));
-	f.statements['S-005'].upstream = [{ id: 'S-007', role: 'conceptual', note: 'New explicit use.' }]; f.writeStatement('S-005');
+	f.statements['S-005'].semanticUses = [{ id: 'S-007', role: 'conceptual', note: 'New explicit use.' }]; f.writeStatement('S-005');
 	assert.ok(ids(f.plan()).includes('S-005'));
 });
 
 test('dependency notes refresh both displayed endpoints without propagating backward through an inference', (t) => {
 	const f = fixture(t);
-	f.statements['S-007'].upstream[0].note = 'Revised limiting note.'; f.writeStatement('S-007');
+	f.statements['S-007'].semanticUses[0].note = 'Revised limiting note.'; f.writeStatement('S-007');
 	assert.deepEqual(ids(f.plan()), ['S-004', 'S-007']);
 });
 
@@ -220,4 +221,21 @@ test('line endings normalize without erasing meaningful changes', (t) => {
 	assert.deepEqual(collectInputs(f.root), f.packet);
 	assert.equal(fingerprint('Text\r\n'), fingerprint('Text\n'));
 	assert.notEqual(fingerprint('Some inputs work.'), fingerprint('Some inputs may work.'));
+});
+
+
+test('hypothetical scenarios review explicit assumptions and observed outcomes without adding working attacks', (t) => {
+ const f = fixture(t);
+ const path = 'reasoning/opposition-scenarios.json';
+ const scenario: any = { id: 'OP-001', role: 'hypothetical', description: 'A declared inference challenge.', targets: ['S-005'], questions: ['Q-001'], removePremises: ['S-006'], addPremises: ['-S-002'], undercutters: [{id:'H-001',text:'Assumed defeater.',rule:'ARG-001'}], expectedStatuses: {'S-004':'no-argument'} };
+ const write = () => f.json(path, {schemaVersion:1,scenarios:[scenario]});
+ write();
+ assert.deepEqual(ids(f.plan()), ['ARG-001','S-001','S-002','S-004','S-005','S-006']);
+ assert.deepEqual(collectInputs(f.root).snapshot.edges, f.packet.snapshot.edges);
+ scenario.role = 'working-claim'; write();
+ assert.throws(() => collectInputs(f.root), /hypothetical/);
+ scenario.role = 'hypothetical'; scenario.questions = ['Q-999']; write();
+ assert.throws(() => collectInputs(f.root), /Unknown scenario question/);
+ scenario.questions = ['Q-001']; scenario.expectedStatuses = {'S-999':'no-argument'}; write();
+ assert.throws(() => collectInputs(f.root), /missing canonical target/);
 });

@@ -1,4 +1,4 @@
-import type { DependencyRole } from './dependencies.ts';
+import type { SemanticUseRole } from './semantic-uses.ts';
 
 export const semanticIdentifierBase = 'https://chiropracticnerd.com/id';
 export const dependencyRoleVocabularyBase =
@@ -19,6 +19,6 @@ export function argumentSemanticIdentifier(argumentId: string) {
 	return `${semanticIdentifierBase}/argument/${argumentId}`;
 }
 
-export function dependencyRoleSemanticIdentifier(role: DependencyRole) {
+export function dependencyRoleSemanticIdentifier(role: SemanticUseRole) {
 	return `${dependencyRoleVocabularyBase}/${role}`;
 }

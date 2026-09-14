@@ -15,7 +15,7 @@ test('schemas accept current statement IDs and reject old IDs at every endpoint'
 	assert.ok(collections.arguments.schema.safeParse(argumentData).success);
 	for (const data of [
 		{ ...statementData, id: 'M-001' },
-		{ ...statementData, upstream: [{ id: 'M-001', role: 'conceptual', note: 'Old endpoint.' }] },
+		{ ...statementData, semanticUses: [{ id: 'M-001', role: 'conceptual', note: 'Old endpoint.' }] },
 		{ ...statementData, related: ['M-001'] },
 	]) assert.equal(collections.statements.schema.safeParse(data).success, false);
 	for (const data of [
@@ -25,7 +25,7 @@ test('schemas accept current statement IDs and reject old IDs at every endpoint'
 });
 
 test('legacy fields fail even alongside valid replacement fields', () => {
-	for (const legacy of [{ claim: 'Old field' }, { claimType: 'framework' }]) {
+	for (const legacy of [{ claim: 'Old field' }, { claimType: 'framework' }, { upstream: [] }, { downstream: [] }]) {
 		assert.equal(collections.statements.schema.safeParse({ ...statementData, ...legacy }).success, false);
 	}
 	const { statement, statementType, ...rest } = statementData;

@@ -9,7 +9,7 @@ domain: science
 statementType: empirical
 confidence: unresolved
 order: 50
-upstream:
+semanticUses:
   - id: S-021
     role: conceptual
     note: Revising S-021's comparative improvement criterion would change the outcome this causal claim asserts; defining the outcome supplies no evidence that an input produces it.

@@ -4,17 +4,17 @@ Structured arguments are the Model's explicit reasoning layer. The [ASPIC+ contr
 
 ## Four distinct relationships
 
-### Dependency
+### Revision relationship
 
-> If this upstream claim changes materially, the downstream statement must be reconsidered.
+> A material change can require another statement to be reconsidered.
 
-Dependencies form the existing acyclic revision-impact graph. A dependency role explains why revision propagates; it does not say that one claim supports, proves, causes, or entails another. Never infer an argument from an `upstream` edge.
+Revision impact is derived from arguments, contradiction, strict transposition, directed undercut influence and additional explicit semantic uses. A `semanticUses` reference explains a use of meaning, method, value or mechanism that argument participation cannot recover. It does not assert support or causation. The retired `upstream` and `downstream` fields are rejected. Revision influence can be cyclic and is traversed finitely.
 
 ### Argument
 
 > These premises provide a specified inferential route to this conclusion.
 
-Arguments live in `src/content/model/arguments/`. They may have multiple premises, and multiple competing arguments may conclude the same statement. The same statement may be the conclusion of one argument and a premise in another. Argument structure may therefore be hierarchical or cyclic without changing the validity of the separate dependency DAG.
+Arguments live in `src/content/model/arguments/`. They may have multiple premises, and multiple competing arguments may conclude the same statement. The same statement may be the conclusion of one argument and a premise in another. The current executable profile rejects productive argument cycles explicitly; reciprocal semantic references and cyclic attack influence are separate and remain valid.
 
 ### Evidence
 
@@ -58,9 +58,9 @@ Before adding an argument:
 3. Name the reasoning scheme and decide whether it is genuinely deductive or defeasible.
 4. Expose required bridge premises. Do not invent a premise merely to make a desired conclusion follow.
 5. Explain what the inference does and does not establish.
-6. Add or revise dependency metadata only if a distinct revision dependency also exists.
+6. Add or revise `semanticUses` only for a distinct noninferential reference, with its own limiting note. Do not duplicate premise/conclusion participation.
 
-Build-time validation rejects malformed or duplicate argument IDs and slugs, missing statement references, no premises, duplicate premises, a conclusion reused as its own premise, and unknown inference kinds. Argument cycles do not enter dependency cycle detection.
+Build-time validation rejects malformed or duplicate argument IDs and slugs, missing statement references, no premises, duplicate premises, a conclusion reused as its own premise, and unknown inference kinds. The engine separately rejects unsupported productive argument cycles; semantic-use cycles do not invalidate content.
 
 Every change also receives the [Model review](model-review.md), including a check that arguments use each premise's actual commitment rather than weakening it to match unresolved confidence. The npm test and build commands require a fresh recorded review. This checks review coverage; natural-language fidelity remains an editorial judgment. The separate reasoning suite checks the formal profile and its declared bindings, including rule identity, strict proof, conflicts and incomplete computation. Run both checks.
 

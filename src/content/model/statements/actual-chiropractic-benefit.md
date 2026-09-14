@@ -9,13 +9,7 @@ domain: science
 statementType: mixed
 confidence: unresolved
 order: 55
-upstream:
-  - id: S-011
-    role: empirical
-    note: Revising S-011's joint input-caused reorganization and improvement claim would require reconsidering this actual-benefit conclusion; that empirical premise remains unresolved.
-  - id: S-022
-    role: normative
-    note: Revising S-022's value criterion would require reconsidering whether the asserted improvement is a functional benefit; evidence of a change cannot independently establish its value.
+semanticUses: []
 related: []
 version: '0.1'
 updated: 2026-09-12

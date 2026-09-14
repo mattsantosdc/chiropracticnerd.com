@@ -23,7 +23,7 @@ The Model is the complete account, built from statements and arguments. Statemen
 
 - a globally unique, permanent `S-###` statement ID and a URL slug
 - a proposition in `statement`, its `statementType`, and current confidence
-- explicit, typed upstream dependencies and untyped related statements
+- explicit, typed semantic uses and untyped related statements
 - a version and updated date
 - rationale, boundaries, open questions, and sources where useful
 
@@ -34,23 +34,17 @@ Structured reasoning lives separately in `src/content/model/arguments/`. Each ar
 
 Inclusion in a version identifies statements and arguments as the Model's current working account. Adoption is separate from evidential confidence: an unresolved claim can be an adopted working claim, and inclusion does not establish empirical truth or inferential validity. Statement and argument records have no editorial `status` property or public status badges. Every change is reviewed for this distinction alongside the separation of propositions from confidence.
 
-Every upstream dependency is an object containing an `id`, a `role`, and a required explanatory `note`. An edge reads `upstream → downstream` and is admitted only when materially revising the upstream statement would require the downstream claim or its intended meaning to be reconsidered. The supported roles are:
+Additional references use `semanticUses: [{ id, role, note }]`. They record meaning, methodological framing, value interpretation, empirical explanation or practical guidance that argument participation cannot recover. Their five local roles are `methodological`, `normative`, `conceptual`, `empirical` and `practical`. None is an inference kind or a premise declaration.
 
-- `methodological`: a rule for how the downstream statement is framed, evaluated, or revised
-- `normative`: a value, purpose, or priority that justifies a downstream choice
-- `conceptual`: a concept or definition required for the downstream statement's intended meaning
-- `empirical`: a testable premise, observed relationship, or proposed mechanism needed by the downstream statement's empirical content
-- `practical`: understanding translated into a downstream decision, procedure, or action
+The retired `upstream` and `downstream` fields are rejected. Revision candidates are derived from argument participation, contradiction, strict transposition, directed undercut influence and the retained semantic uses. Semantic-use cycles are permitted and traversed finitely; the executable profile separately rejects unsupported productive argument cycles. `related` remains an undirected see-also link without revision influence. The [relationship contract](docs/dependency-model.md) specifies authoring and validation.
 
-The architecture keeps that method's layers distinct: the dependency graph shows revision impact, argument records show specified inferential routes, and empirical evidence changes confidence in empirical premises. No dependency role reports truth, confidence, causal strength, chronology, provenance, or inferential sufficiency. Roles are direct and are not automatically transitive.
+Astro validates roles and limiting notes, IDs and routes, statement and argument references, empirical revision conditions and duplicate/self relationships. Model pages show argument participation, additional references and a derived list of statements to reconsider. That list signals review scope, not falsity or loss of every supporting route.
 
-The primary workflow is [`docs/model-authoring.md`](docs/model-authoring.md). The detailed contracts are [`docs/dependency-model.md`](docs/dependency-model.md), [`docs/argument-model.md`](docs/argument-model.md), and [`docs/standards-contract.md`](docs/standards-contract.md). Deferred functionality is documented in the [`reasoning review and invalidation plan`](docs/review-invalidation-plan.md) and [`visualization plan`](docs/visualization-plan.md).
+The primary workflow is [Model authoring](docs/model-authoring.md). Follow the [argument](docs/argument-model.md), [standards](docs/standards-contract.md), and [review impact](docs/review-invalidation-plan.md) contracts alongside the relationship contract.
 
-Astro validates dependency roles and notes, IDs and routes, statement and argument references, empirical revision conditions, duplicate/self relationships, and the upstream dependency DAG during the build. Argument topology is validated independently and cannot make the dependency graph cyclic. `related` remains an undirected, non-dependency see-also link. Model pages generate dependency and reasoning links from canonical metadata rather than hardcoded navigation; dedicated argument pages provide the deeper inspection layer without displacing each statement's plain-language claim.
+Markdown remains canonical. The executable pilot uses an experimental AIF interchange profile; ASPIC+ supplies its reasoning framework. Stable semantic identifiers and other future standards mappings are documented in the standards contract, and no linked-data export is published yet.
 
-Markdown remains canonical. AIF is reserved only as a future interchange representation for the active Markdown argument layer; it is not the reasoning method. Stable semantic identifiers and other future standards mappings are documented in the standards contract, and no linked-data export is published yet.
-
-Interactive graph rendering is also deferred while the Model is small. The visualization plan defines how canonical statements, dependencies, arguments, and related links will project into a renderer-neutral graph without allowing presentation concerns or inferred relationships into the Markdown source of truth.
+Interactive graph rendering is also deferred while the Model is small. The visualization plan defines how canonical statements, semantic uses, arguments, and related links will project into a renderer-neutral graph without allowing presentation concerns or inferred relationships into the Markdown source of truth.
 
 The [Model review](docs/model-review.md) checks that propositions remain separate from confidence. Impact-based review is the default: `npm run audit:model -- --plan` lists affected records and why, while `--packet` supplies their exact sources and expected bases. Unaffected findings retain their original provenance; per-record bases prevent a snapshot refresh from hiding stale reviews. Shared changes and periodic whole-model examinations retain broader coverage. All automated reasoning, tests and npm builds remain global. Review identity and coverage do not establish truth, validity or evidential strength. Incremental formal evaluation and a hosted AI reviewer remain deferred.
 
@@ -65,7 +59,7 @@ All Model domains share the `S-###` identifier namespace. The [Stage 1 migration
 
 The Model is **guided by first principles and tested against reality**. First principles expose assumptions and help make the framework coherent; they do not deduce chiropractic upward or settle empirical questions.
 
-Version 0.1 is deliberately low-resolution. It contains 32 statements, 38 direct revision dependencies, and ten structured arguments. Three Framework statements—including S-003's explicit reasoning and empirical testing method—organize these domains. The analytical workflow does not require Philosophy to precede Science in a reader's route:
+Version 0.1 is deliberately low-resolution. It contains 32 statements, 24 additional semantic uses, and ten structured arguments. Three Framework statements—including S-003's explicit reasoning and empirical testing method—organize these domains. The analytical workflow does not require Philosophy to precede Science in a reader's route:
 
 1. Philosophy: open-ended potential (`S-004`), context-appropriate function and comparative improvement (`S-021`), the value of that improvement (`S-022`), the professional-purpose principle (`S-029`) and supported aim (`S-005`), the justified-delivery principle (`S-032`), a rationale beyond symptoms (`S-006`), definitions of input, adjustment, and success (`S-023`–`S-025`), and the functional benefit of successful adjustment (`S-026`).
 2. Science: organismic and neural regulation (`S-017`, `S-007`, `S-018`, `S-019`), context-dependent strategies and sensory updating (`S-008`, `S-020`), modifiable opportunities (`S-009`), general perturbation (`S-010`), actual input-caused reorganization and improvement (`S-011`), its chiropractic perturbation mechanism (`S-028`), the corresponding functional-benefit conclusion (`S-027`), general circuit influence (`S-030`), predicted broader neural effects (`S-031`), broader improvement (`S-012`), and predominant mediation of broader effects by motor-related neural change (`S-013`). S-027 is explicitly mixed because it combines an empirical commitment with an adopted value.
@@ -118,6 +112,6 @@ After creating the FastComments account, configure these items manually in the F
 
 See [the foundation contract](docs/aspic-foundation.md) for the exact profile, supported language, engine adapter, limitations and setup. Create `.venv-reasoning` and install `reasoning/requirements.txt`, then run `npm run test:reasoning` and `npm run reasoning:pilot` alongside the existing Model review, tests and build. The static website does not require a Python runtime.
 
-[Questions and alternative explanations](docs/objection-authoring.md) have a separate authoring contract. [The migration assessment](docs/aspic-migration.md) records the remaining work before retiring legacy dependency fields. All transition work branches from `model-v0.1`; pull requests target that branch and remain unmerged until reviewed with the user.
+[Questions and alternative explanations](docs/objection-authoring.md) have a separate authoring contract. [The migration assessment](docs/aspic-migration.md) records the completed retirement of legacy dependency fields and the retained semantic uses. All transition work branches from `model-v0.1`; pull requests target that branch and remain unmerged until reviewed with the user.
 
-The assessment/application relationship uses ARG-010 with the explicit normative premise S-032. Application remains conditional on a warranted input, and S-028 guides the proposed mechanism without serving as a required premise of that strategy. The original relationship decisions are resolved; canonical dependency-schema migration and a substantive opposition audit remain separate work.
+The assessment/application relationship uses ARG-010 with the explicit normative premise S-032. Application remains conditional on a warranted input, and S-028 guides the proposed mechanism without serving as a required premise of that strategy. The relationship decisions and canonical schema migration are complete. The [substantive opposition audit](docs/model-opposition-audit.md) covers all current records, adds six questions for a total of 24, and specifies eight hypothetical scenarios evaluated without changing the working account. Unresolved empirical and normative questions remain explicit.

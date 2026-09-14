@@ -6,16 +6,21 @@ from pathlib import Path
 
 from engine import IncompleteEvaluation, InvalidTheory, evaluate, to_aif, from_aif
 from model import load_model, pilot
+from opposition import load_opposition_scenarios, check_expectations
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--output', type=Path, help='Directory for generated reports; omitted means stdout')
     args = parser.parse_args()
-    theories = [pilot('ARG-007'), pilot('ARG-002'), load_model()]
+    scenarios = load_opposition_scenarios()
+    theories = [pilot('ARG-007'), pilot('ARG-002'), load_model(), *[theory for _, theory in scenarios]]
+    by_theory = {theory['id']: scenario for scenario, theory in scenarios}
     results = []
     for theory in theories:
         result = evaluate(theory)
+        if theory['id'] in by_theory:
+            check_expectations(by_theory[theory['id']], result)
         aif = to_aif(theory)
         if evaluate(from_aif(aif)) != result:
             raise InvalidTheory('Interchange changed evaluation')

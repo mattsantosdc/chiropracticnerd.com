@@ -1,6 +1,7 @@
 import { validateArguments, type ArgumentEntry } from './arguments.ts';
 import { validateStatements, type StatementEntry } from './statements.ts';
 import { argumentSemanticIdentifier, statementSemanticIdentifier } from './identifiers.ts';
+import { theoryEdges, semanticUseEdges, revisionReach } from './revision-graph.mjs';
 
 export type ResolvedStatement = {
 	entry: StatementEntry;
@@ -21,6 +22,7 @@ export type ReasoningIndex = {
 	argumentsById: ReadonlyMap<string, ResolvedArgument>;
 	concludingArguments: ReadonlyMap<string, readonly ResolvedArgument[]>;
 	premiseArguments: ReadonlyMap<string, readonly ResolvedArgument[]>;
+	revisionCandidates: (id: string) => readonly ResolvedStatement[];
 };
 
 /** Finite participation lists, never a recursive expansion or a dependency projection. */
@@ -55,5 +57,18 @@ export function buildReasoningIndex(
 		concludingArguments.get(entry.data.conclusion)!.push(argument);
 		for (const id of entry.data.premises) premiseArguments.get(id)!.push(argument);
 	}
-	return { statementsById, argumentsById, concludingArguments, premiseArguments };
+	const revisionEdges = [
+		...theoryEdges({
+			statements: statements.map(({ data }) => ({ id: data.id })),
+			rules: argumentsList.map(({ data }) => ({ ...data, kind: data.inferenceKind === 'deductive' ? 'strict' : 'defeasible' })),
+			undercutters: [],
+		}),
+		...semanticUseEdges(statements.map(({ data }) => data)),
+	];
+	const revisionCandidates = (id: string) => {
+		if (!statementsById.has(id) && !argumentsById.has(id)) throw new Error(`Unknown revision source: ${id}`);
+		const reached = revisionReach(revisionEdges, [id]);
+		return [...statementsById.values()].filter(({ entry }) => entry.data.id !== id && reached.has(entry.data.id));
+	};
+	return { statementsById, argumentsById, concludingArguments, premiseArguments, revisionCandidates };
 }

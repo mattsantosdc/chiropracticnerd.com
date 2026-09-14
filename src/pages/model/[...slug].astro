@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Comments from '../../components/Comments.astro';
-import DependencyLegend from '../../components/DependencyLegend.astro';
+import SemanticUseLegend from '../../components/SemanticUseLegend.astro';
 import StatementText from '../../components/model/StatementText.astro';
 import StatementMaterial from '../../components/model/StatementMaterial.astro';
 import ReasoningParticipation from '../../components/model/ReasoningParticipation.astro';
@@ -23,8 +23,9 @@ const index = buildReasoningIndex(statements, argumentsList);
 const path = resolveReadingPath(config, index);
 const statement = index.statementsById.get(Astro.props.statementId)!;
 const { entry } = statement;
-const upstream = entry.data.upstream.map((dependency) => ({ dependency, statement: index.statementsById.get(dependency.id)! }));
-const downstream = statements.flatMap((candidate) => candidate.data.upstream.filter((dependency) => dependency.id === entry.data.id).map((dependency) => ({ dependency, statement: index.statementsById.get(candidate.data.id)! })));
+const uses = entry.data.semanticUses.map((use) => ({ use, statement: index.statementsById.get(use.id)! }));
+const usedBy = statements.flatMap((candidate) => candidate.data.semanticUses.filter((use) => use.id === entry.data.id).map((use) => ({ use, statement: index.statementsById.get(candidate.data.id)! })));
+const revisionCandidates = index.revisionCandidates(entry.data.id);
 const related = getRelatedStatements(statements, entry.data.id);
 ---
 <Layout title={`${entry.data.title} | ${modelIdentity.name}`} description={entry.data.summary}>
@@ -40,11 +41,16 @@ const related = getRelatedStatements(statements, entry.data.id);
 		</article>
 		<CriticalQuestions target={entry.data.id} index={index} />
 		<details class="model-disclosure revision-dependencies">
-			<summary>Revision dependencies</summary>
+			<summary>Revision relationships</summary>
 			<div class="disclosure-body">
-				<p>These relationships identify statements to reconsider after a revision. Argument participation is listed separately above.</p>
-				{[{ label: 'Dependencies recorded on this statement', entries: upstream, empty: 'No revision dependencies are recorded on this statement.' }, { label: 'Statements that depend on this one for revision', entries: downstream, empty: 'No other statement records a revision dependency on this statement.' }].map(({ label, entries, empty }) => <section><h3>{label}</h3>{entries.length ? <ul class="dependency-list">{entries.map(({ statement: item, dependency }) => <li><a href={item.href}>{item.entry.data.id}: {item.entry.data.title}</a><span class="dependency-role">{dependency.role}</span><span class="dependency-note">{dependency.note}</span></li>)}</ul> : <p>{empty}</p>}</section>)}
-				<DependencyLegend />
+				<p>Reasoning links are listed above. The references below identify additional uses of meaning, values or proposed mechanisms.</p>
+				{[{ label: 'References used in this statement', entries: uses, empty: 'No additional meaning or mechanism references are recorded here.' }, { label: 'Statements using this reference', entries: usedBy, empty: 'No other statement records an additional use of this reference.' }].map(({ label, entries, empty }) => <section><h3>{label}</h3>{entries.length ? <ul class="dependency-list">{entries.map(({ statement: item, use }) => <li><a href={item.href}>{item.entry.data.id}: {item.entry.data.title}</a><span class="dependency-role">{use.role}</span><span class="dependency-note">{use.note}</span></li>)}</ul> : <p>{empty}</p>}</section>)}
+				<section data-revision-candidates={entry.data.id}>
+					<h3>Statements to reconsider after a change</h3>
+					<p>This list follows the recorded arguments, contrary-claim relationships and additional references. It identifies review candidates; it does not establish that those statements become false or lose every supporting argument.</p>
+					{revisionCandidates.length ? <ul>{revisionCandidates.map((item) => <li><a href={item.href}>{item.entry.data.id}: {item.entry.data.title}</a></li>)}</ul> : <p>No other statement is reached through the recorded relationships.</p>}
+				</section>
+				<SemanticUseLegend />
 			</div>
 		</details>
 		{related.length > 0 && <section><h2>See also</h2><ul>{related.map((item) => <li><a href={index.statementsById.get(item.data.id)!.href}>{item.data.id}: {item.data.title}</a></li>)}</ul></section>}

@@ -9,7 +9,7 @@ domain: philosophy
 statementType: value
 confidence: not-applicable
 order: 14
-upstream:
+semanticUses:
   - id: S-021
     role: conceptual
     note: Revising S-021's comparative account of context-appropriate improvement would change which changes this value judgment calls beneficial; the definition establishes neither that value nor any actual improvement.

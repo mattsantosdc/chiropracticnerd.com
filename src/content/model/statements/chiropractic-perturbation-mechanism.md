@@ -9,7 +9,7 @@ domain: science
 statementType: empirical
 confidence: unresolved
 order: 52
-upstream:
+semanticUses:
   - id: S-010
     role: empirical
     note: Revising S-010's general perturbation mechanism would require reconsidering this chiropractic instantiation; a general capacity does not establish any chiropractic response or improvement.

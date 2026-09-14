@@ -61,9 +61,9 @@ Apply these rules to every future Model, argument, and relationship change:
 2. Keep relationship layers semantically distinct. A dependency is revision impact, an argument
    is an inferential route, evidence changes justification for an empirical claim, a causal
    hypothesis proposes an empirical relationship, and `related` is only see-also.
-3. Store each fact once. Dependencies remain on the downstream statement as `upstream` metadata;
-   downstream adjacency is derived. A `related` pair remains stored on only one endpoint and is
-   projected symmetrically.
+3. Store each fact once. Argument records supply inferential participation. Additional references
+   remain on the using statement as `semanticUses`; inverse adjacency and revision reach are
+   derived. A `related` pair remains stored on only one endpoint and is projected symmetrically.
 4. Use permanent statement and argument IDs for graph identity. Use slugs only to construct reader
    navigation links. A route change must not create a new graph node. Statement ID numbers must not
    determine sorting, hierarchy, domain, inference, or graph layout; use `order` for presentation
@@ -87,7 +87,7 @@ The future visualization layer will project the collections as follows:
 | Canonical record | Graph representation | Direction and meaning |
 | --- | --- | --- |
 | Statement | Statement node | An addressable claim, definition, value, framework commitment, or strategy |
-| `upstream` dependency | Dependency edge | `upstream statement → downstream statement`; revision impact only |
+| `semanticUses` reference | Semantic-use edge | `referenced statement → using statement`; additional meaning or mechanism use, not support |
 | Argument record | Argument node | An addressable inferential route, distinct from its premises and conclusion |
 | Argument premise | Premise edge | `premise statement → argument`; participation in that specific inference |
 | Argument conclusion | Conclusion edge | `argument → conclusion statement`; the result asserted by that inference |

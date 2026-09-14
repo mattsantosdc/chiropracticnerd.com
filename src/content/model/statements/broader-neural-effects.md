@@ -9,7 +9,7 @@ domain: science
 statementType: empirical
 confidence: unresolved
 order: 58
-upstream:
+semanticUses:
   - id: S-030
     role: empirical
     note: Revising S-030's account of circuit-to-circuit influence would require reconsidering the mechanism and predictions proposed here; a general capacity supplies neither a chiropractic effect nor its likelihood.

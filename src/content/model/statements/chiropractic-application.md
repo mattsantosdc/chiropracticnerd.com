@@ -9,7 +9,7 @@ domain: art
 statementType: strategy
 confidence: unresolved
 order: 20
-upstream:
+semanticUses:
   - id: S-028
     role: practical
     note: Revising S-028's perturbation account would require reconsidering the mechanism application intentionally pursues, even if S-014 retained its assessment strategy; the mechanism claim does not establish success for the selected input here.

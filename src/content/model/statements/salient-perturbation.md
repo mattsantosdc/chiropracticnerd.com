@@ -9,7 +9,7 @@ domain: science
 statementType: empirical
 confidence: unresolved
 order: 40
-upstream:
+semanticUses:
   - id: S-008
     role: conceptual
     note: Revising S-008's account of state-dependent neuromotor strategies would require reconsidering what is proposed to reorganize and under which conditions; that domain supplies no evidence for the perturbation mechanism.

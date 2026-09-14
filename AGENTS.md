@@ -2,7 +2,7 @@
 
 The Model is a network of statements with question-specific conclusions, not one global beginning and ending. Follow [the ASPIC+ foundation contract](docs/aspic-foundation.md), [objection authoring](docs/objection-authoring.md), and [the migration assessment](docs/aspic-migration.md) for this transition. These documents adopt the user's authorized formal foundation and supersede older deferrals of the pilot.
 
-Create all transition branches from `model-v0.1`; eventual pull requests target that branch. The original relationship decisions are resolved; `docs/aspic-migration.md` identifies remaining structural migration and opposition-audit work. The user will review and merge manually; do not merge into `model-v0.1` or `main`. Continue implementation and branch commits without interrupting the work for PR preparation. Keep the governing instructions current with each schema, engine, content and presentation change.
+Create all transition branches from `model-v0.1`; eventual pull requests target that branch. The relationship decisions and canonical schema migration are complete. `docs/aspic-migration.md` records their dispositions; `docs/model-opposition-audit.md` records the substantive audit and remaining empirical and normative questions. The user will review and merge manually; do not merge into `model-v0.1` or `main`. Continue implementation and branch commits without interrupting the work for PR preparation. Keep the governing instructions current with each schema, engine, content and presentation change.
 
 No domain axioms, implicit input premises, authored acceptance labels, confidence-based priorities, or unchecked strict-rule labels. Use the pinned grounded profile with explicit equal base priorities. Preserve rule identities, joint premises, attacks on premises/inferences, and alternative derivations. Read the profile's supported language and cycle limits before adding formal content. An unsupported input or incomplete computation must fail visibly.
 
@@ -20,7 +20,9 @@ Use explicit questions to expose unknown mechanisms and guide evidence appraisal
 
 Distinguish the adopted working account, recorded alternatives, hypothetical evaluation premises and critical questions. A question is not an asserted counterpremise. Present challenges neutrally under “Questions and alternative explanations”; assess claims and reasoning without speculating about practitioners' motives. Rigor takes priority when a real conflict must be stated. Use [objection-authoring.md](docs/objection-authoring.md) for exact targets, strong charitable formulations and revision consequences.
 
-Run `npm run test:reasoning` and `npm run reasoning:pilot` alongside the existing required Model checks. Include new reasoning policy, bindings, adapters, critical-question data and renderers in `scripts/model-audit.mjs` review inputs. Do not retire a legacy dependency until its meaning and limiting note have an explicit disposition in the migration assessment. The final inference impact index must follow attacks and defenses as well as support; a reading path cannot filter evaluation.
+Run `npm run test:reasoning` and `npm run reasoning:pilot` alongside the existing required Model checks. Include new reasoning policy, bindings, adapters, critical-question data and renderers in `scripts/model-audit.mjs` review inputs. The retired `upstream` and `downstream` fields are rejected. Record additional noninferential references only in `semanticUses`, with an exact role and limiting note; derive inferential revision impact from argument participation. Do not duplicate an inference as a semantic use or require semantic references to form a DAG. The shared revision index follows support, contradiction, strict transposition and directed undercut/defense influence. A reading path cannot filter evaluation. Preserve the historical migration inventory and its original limiting notes.
+
+The eight scenarios in `reasoning/opposition-scenarios.json` are explicitly hypothetical full-theory copies, checked by `reasoning/opposition.py`. They do not change working premise membership. Run all scenarios with the pilot; require explicit targets, assumptions and expected consequences. Do not turn a null result into the negation of an existential effect, or a failed case condition into a refutation of a conditional strategy.
 
 ## Development
 
@@ -52,8 +54,8 @@ Before changing anything in `src/content/model/statements/` or `src/content/mode
 
 Apply these guardrails to every Model change:
 
-- Do not infer argument support from dependency arrows.
-- Do not add dependencies merely to make the graph appear linear.
+- Do not infer argument support from semantic uses or revision paths.
+- Do not add relationships merely to make the graph appear linear.
 - Do not create an empirical premise solely because a desired conclusion requires it.
 - Do not silently strengthen modal language such as `may` to `does`, `can` to `will`, or `some` to `all`.
 - Do not silently weaken an asserted effect into a possibility or an intention merely because empirical confidence is unresolved.

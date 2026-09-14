@@ -7,7 +7,7 @@ import {
 } from '../src/lib/arguments.ts';
 import { type StatementEntry, validateStatements } from '../src/lib/statements.ts';
 
-function statementEntry(id: string, upstream: StatementEntry['data']['upstream'] = []) {
+function statementEntry(id: string, semanticUses: StatementEntry['data']['semanticUses'] = []) {
 	return {
 		id: id.toLowerCase(),
 		collection: 'statements',
@@ -21,7 +21,7 @@ function statementEntry(id: string, upstream: StatementEntry['data']['upstream']
 			statementType: 'framework',
 			confidence: 'not-applicable',
 			order: 0,
-			upstream,
+			semanticUses,
 			related: [],
 			version: '0.1',
 			updated: new Date('2026-01-01'),
@@ -132,7 +132,7 @@ describe('argument references', () => {
 		);
 	});
 
-	test('allows reasoning cycles without changing dependency DAG validation', () => {
+	test('allows reasoning cycles independently of semantic-use topology', () => {
 		const dependencyStatements = [
 			statementEntry('S-001'),
 			statementEntry('S-002', [

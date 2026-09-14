@@ -10,7 +10,7 @@ Every ordinary Model change still runs all automated reasoning, integrity, build
 
 ## Canonical inputs and derived relationships
 
-The snapshot uses stable statement/application IDs and typed directed edges. No new authored upstream or downstream list is introduced. Inferential edges come from canonical applications and their explicit formal bindings. During an incomplete edit, both sets of endpoints remain visible; the independent reasoning loader rejects binding drift before completion. Existing `upstream` records supply their explicit semantic-use roles and notes until their authorized migration is complete. Retired migration entries are history, never active edges.
+The snapshot uses stable statement/application IDs and typed directed edges. No new authored upstream or downstream list is introduced. Inferential edges come from canonical applications and their explicit formal bindings. During an incomplete edit, both sets of endpoints remain visible; the independent reasoning loader rejects binding drift before completion. Canonical `semanticUses` records supply additional reference roles and notes after the completed migration. `src/lib/revision-graph.mjs` shares formal influence and semantic-use edge construction with the public reader index. Retired migration entries are history, never active edges.
 
 The graph includes:
 
@@ -23,7 +23,7 @@ The graph includes:
 
 Contradiction and undercut paths can reach defenders, attacks on those defenders, and their downstream uses. Cycles terminate by visited identity. These are conservative influence paths, not claims that attacks succeed. Joint-premise edges do not assert that any individual premise is sufficient.
 
-The canonical binding loader currently admits no authored opposing corpus and returns an empty undercutter list. The review adapter mirrors that exact supported schema. Synthetic tests exercise directed undercuts, defense cycles and strict transpositions. New binding capabilities, contrary policies or authored opposition require updating both loaders and their tests; unknown top-level binding fields fail rather than being ignored. An editorial critical question is never automatically a formal attacker.
+The canonical binding loader currently admits no authored opposing corpus and returns an empty undercutter list. The review adapter mirrors that exact supported schema. Synthetic tests exercise directed undercuts, defense cycles and strict transpositions. The eight explicit opposition scenarios are isolated hypothetical full-theory copies. Their review adapter targets their named records, premise changes, undercut rules, observed status targets and linked question targets locally; scenario edits do not add attacks or premises to the working graph. New binding capabilities, contrary policies or authored opposition require updating both loaders and their tests; unknown top-level binding fields fail rather than being ignored. An editorial critical question is never automatically a formal attacker.
 
 ## Input units and scope
 
@@ -64,4 +64,4 @@ A whole-model examination looks for missing premises, objections and semantic us
 
 Tests cover joint-premise support, alternative arguments, conclusion edits, additions, deletions, retargeting, semantic dependencies, negative literals, directed undercut/defense cycles, strict transposition, local questions/reading changes, global policy changes, periodic reviews, preserved provenance and stale-basis rejection after a superficial snapshot refresh. A cross-runtime conformance test checks that changed statuses from complete ASPIC+ evaluations fall within the review graph's impact after withdrawals, rebuttal, alternative support and defense changes. Complete evaluation itself is unchanged.
 
-The planner is conservative rather than minimal. A broad shared-policy change may still require all records. It does not prove English fidelity, evidential support or completeness of the relationship corpus. It neither authorizes a merge nor prepares a PR. Finish the remaining relationship decisions in the migration assessment before PR preparation; the user will review and merge manually.
+The planner is conservative rather than minimal. A broad shared-policy change may still require all records. It does not prove English fidelity, evidential support or completeness of the relationship corpus. It neither authorizes a merge nor prepares a PR. The relationship decisions and schema migration are complete; the user will review and merge manually.

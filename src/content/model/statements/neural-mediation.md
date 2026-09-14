@@ -9,7 +9,7 @@ domain: science
 statementType: empirical
 confidence: unresolved
 order: 70
-upstream:
+semanticUses:
   - id: S-011
     role: empirical
     note: Revising S-011's proposed input-caused reorganization and improvement would require reconsidering the input and response account used in this neural-mediation proposal; neuromotor improvement establishes neither mediation of broader effects nor neural primacy.

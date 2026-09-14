@@ -9,7 +9,7 @@ domain: philosophy
 statementType: definition
 confidence: not-applicable
 order: 60
-upstream:
+semanticUses:
   - id: S-024
     role: conceptual
     note: Revising S-024's response definition would change what can count as a successful adjustment; delivery alone establishes neither reorganization nor its cause.

@@ -426,10 +426,17 @@ def from_aif(value):
 
 
 def impact(theory, changed):
-    """Conservative review index, not a replacement for full-theory reevaluation."""
+    """Conservative review influence, matching the shared presentation/audit graph."""
     affected = set(changed)
-    links = [(p, r['id']) for r in theory['rules'] for p in r['premises']]
-    links += [(r['id'], r['conclusion']) for r in theory['rules']]
+    links = []
+    for r in theory['rules']:
+        links += [(p, r['id']) for p in r['premises']]
+        links += [(r['id'], r['conclusion']), (r['conclusion'], r['id'])]
+        if r['kind'] == 'strict':
+            for p in r['premises']:
+                tid = f"transposition:{r['id']}:{p}"
+                links += [(r['id'], tid), (negative(r['conclusion']), tid), (tid, negative(p))]
+                links += [(other, tid) for other in r['premises'] if other != p]
     links += [(a['statement'], a['rule']) for a in theory['undercutters']]
     for s in theory['statements']:
         links += [(s['id'], negative(s['id'])), (negative(s['id']), s['id'])]

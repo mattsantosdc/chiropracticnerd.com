@@ -30,3 +30,9 @@ To turn a substantive objection into a formal attacking argument, record its pro
 Unanswered critical questions have no universal default meaning. A scheme must specify whether an answer is a required premise, an exception, an undercutter, or an issue left for investigation. Absence of evidence is not automatically explicit negation. Keep hypothetical scenarios separately identified from the working theory.
 
 The runtime must consider admitted opposition independently of what the selected reading path displays. Publication, omission from the walkthrough, or a reassuring response must not suppress an otherwise applicable formal attack.
+
+## Executable hypothetical scenarios
+
+The [current opposition audit](model-opposition-audit.md) covers the present statements and arguments. `reasoning/opposition-scenarios.json` records explicitly hypothetical full-theory scenarios, with stable IDs, exact targets, linked questions, premise removals/additions, optional named undercutters and expected statuses. `reasoning/opposition.py` validates these assumptions and preserves the working theory unchanged. `reasoning:pilot` evaluates every scenario and its AIF round trip before writing reports.
+
+Scenario edits receive local semantic review for their named targets, changed premises, undercut rules, observed statement statuses and linked question targets. Shared loader or schema edits receive global review. Questions do not become attacks, hypothetical undercutters do not become adopted counterclaims, and an expectation must describe support under the stipulated assumptions rather than empirical truth. A claim that some effects occur is not refuted by a failed individual case. An unmet condition of a practical strategy does not itself refute that conditional strategy.

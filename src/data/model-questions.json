@@ -160,5 +160,59 @@
     "concern": "A delivery choice may rely on perturbation even when an observed benefit could have another explanation.",
     "response": "Reconsider the predictions and delivery choices that depend on the disputed mechanism. The general strategy can remain supported through ARG-010, but any particular input still requires adequate justification. Independently supported effects or another explanation can supply a basis for reconsidered application; an unspecified alternative cannot.",
     "wouldChange": "Withdraw or revise an input choice whose justification fails with the mechanism. Retain it only when an adequate independent justification remains, with the explanation and predictions revised accordingly."
+  },
+  {
+    "id": "Q-019",
+    "target": "ARG-005",
+    "kind": "inference",
+    "question": "Does continuing regulation establish open-ended potential?",
+    "concern": "An organism can maintain and adapt its organization while already having the best feasible function under specified conditions.",
+    "response": "ARG-005 uses an explicit framework interpretation rather than a deduction of perpetual improvement. Its biological premises motivate keeping possibilities open across changing conditions, while remaining compatible with no better feasible response now.",
+    "wouldChange": "An account that better justifies treating health status as completed function would require revising this framework inference or its scope. Continued biological activity alone cannot exclude that alternative."
+  },
+  {
+    "id": "Q-020",
+    "target": "S-009",
+    "kind": "scope",
+    "question": "Can the observed pattern identify a beneficially modifiable opportunity?",
+    "concern": "A repeatable finding could reflect a useful strategy, tissue properties or the measurement procedure, and identifying a constraint need not predict responsiveness to an available input.",
+    "response": "The Model separates repeatability, interpretation of a constraint, beneficial modifiability and input selection. Each requires its own comparison. Naming the target does not validate a test or establish that the same person, state and input satisfy all these conditions.",
+    "wouldChange": "If a finding fails to distinguish a relevant modifiable opportunity or predict the intended response, revise the measure or selection hypothesis. Do not relabel every unfavorable outcome as an inappropriate input after observing it."
+  },
+  {
+    "id": "Q-021",
+    "target": "S-021",
+    "kind": "scope",
+    "question": "Could the improvement criterion be chosen to favor the result?",
+    "concern": "Changing the comparison, functional scope or importance assigned to competing outcomes after observing an input can make almost any response appear beneficial.",
+    "response": "Specify relevant demands, baseline or alternative, functional gains and losses, priorities and timescale before interpreting the response. A favorable metric alone does not establish improved fit, and competing priorities can leave the comparison unresolved.",
+    "wouldChange": "If the proposed comparison cannot distinguish improvement from selective reporting, revise the criterion or withhold the improvement judgment. Preserve relevant losses even when reporting a narrower gain."
+  },
+  {
+    "id": "Q-022",
+    "target": "S-016",
+    "kind": "scope",
+    "question": "Could repeated assessment create the apparent improvement?",
+    "concern": "Practice, expectations, natural variation or changes in effort and testing conditions can change a later observation without an input-caused improvement.",
+    "response": "Reassessment compares findings with a prospective hypothesis but does not by itself identify the input's causal contribution. Reliable measures and suitable comparisons are required to distinguish these explanations. Uncertain findings remain uncertain.",
+    "wouldChange": "If another explanation better accounts for the observed difference, revise its interpretation and any input-selection prediction based on it. The need to check and reconsider a decision can remain while the proposed method changes."
+  },
+  {
+    "id": "Q-023",
+    "target": "ARG-004",
+    "kind": "scope",
+    "question": "Does a rationale without symptoms establish benefit in people without symptoms?",
+    "concern": "Permission to consider a functional aim could be read as empirical evidence that chiropractic benefits people without symptoms.",
+    "response": "The argument supports a rationale that does not require symptoms. It supplies no prevalence, efficacy claim or indication for a particular person. Modifiable opportunity, input responsiveness, qualifying benefit and the decision to proceed remain separately examinable.",
+    "wouldChange": "A claim of benefit in an asymptomatic population would require its own empirical support and scoped argument. Keep that claim separate rather than using the philosophical rationale as its evidence."
+  },
+  {
+    "id": "Q-024",
+    "target": "S-032",
+    "kind": "premise",
+    "question": "Could requiring an evaluable prediction be too restrictive?",
+    "concern": "An intervention might have adequate independent justification while the available assessment cannot produce a sufficiently informative test of its predicted response.",
+    "response": "S-032 openly adopts evaluability as a practical commitment. A clear prediction does not guarantee informative observations. If that commitment excludes otherwise justified action without adequate benefit to decision making, its scope or application needs reconsideration.",
+    "wouldChange": "Revise or reject the principle if the proposed requirement cannot be justified relative to the person's interests and available alternatives. Neither proven benefit nor an uninformative observation automatically settles that normative question."
   }
 ]

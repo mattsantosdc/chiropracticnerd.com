@@ -1,6 +1,6 @@
 # Argument model
 
-Structured arguments are the Model's explicit reasoning layer. They record a specified inferential route from one or more specified statements to exactly one statement serving as the conclusion. They do not replace statements, revision dependencies, or evidence.
+Structured arguments are the Model's explicit reasoning layer. The [ASPIC+ contract](aspic-foundation.md) fixes the executable pilot; [critical questions](objection-authoring.md) provide a separate reader-facing examination layer. They record a specified inferential route from one or more specified statements to exactly one statement serving as the conclusion. They do not replace statements, revision dependencies, or evidence.
 
 ## Four distinct relationships
 
@@ -45,7 +45,7 @@ The conclusion stays classified by its actual statement type. Do not add a `logi
 
 Inclusion in a version identifies an argument as part of the Model's current working reasoning. Arguments have no editorial `status` property. Adoption neither establishes premise truth nor settles the evaluation of the inference; a working argument can remain defeasible while its empirical premises have unresolved confidence.
 
-Mark an argument `deductive` only when the conclusion necessarily follows from the premises exactly as written. Natural-language validity is an editor-curated intellectual assertion; the software validates structure and references, not the theorem itself. Use `defeasible` when the route is inductive, abductive, causal, mechanistic, normative, or practical and may be defeated without a formal contradiction.
+Mark an argument `deductive` only when the conclusion necessarily follows from the premises exactly as written. Natural-language fidelity remains a reviewed intellectual judgment. The ASPIC+ pilot additionally checks the formal entailment of every strict rule; ARG-006 and ARG-007 have quantified representations. Current ARG records bind concrete inference applications, while complete ASPIC+ arguments are generated derivations. An opaque proposition or a deductive label alone does not establish a theorem. Use `defeasible` when the route is inductive, abductive, causal, mechanistic, normative, or practical and may be defeated without a formal contradiction.
 
 An argument's failure shows that this route to the conclusion fails. It does not by itself show that the conclusion is false. Look for an alternative route, a premise that needs narrowing or replacement, or a conclusion whose scope must change.
 
@@ -62,7 +62,7 @@ Before adding an argument:
 
 Build-time validation rejects malformed or duplicate argument IDs and slugs, missing statement references, no premises, duplicate premises, a conclusion reused as its own premise, and unknown inference kinds. Argument cycles do not enter dependency cycle detection.
 
-Every change also receives the [Model review](model-review.md), including a check that arguments use each premise's actual commitment rather than weakening it to match unresolved confidence. The npm test and build commands require a fresh recorded review. This checks review coverage; natural-language validity remains an editorial judgment.
+Every change also receives the [Model review](model-review.md), including a check that arguments use each premise's actual commitment rather than weakening it to match unresolved confidence. The npm test and build commands require a fresh recorded review. This checks review coverage; natural-language fidelity remains an editorial judgment. The separate reasoning suite checks the formal profile and its declared bindings, including rule identity, strict proof, conflicts and incomplete computation. Run both checks.
 
 ## Common reasoning failures
 

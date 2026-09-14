@@ -1,6 +1,6 @@
 # Dependency model
 
-The Model records **direct revision dependencies between statements**. It does not attempt to encode every meaningful relationship between their subject matter.
+The Model currently records **direct revision dependencies between statements**. This is a transition format, not the target ASPIC+ inference source. Follow [the migration assessment](aspic-migration.md): retire authored inference dependencies once their meaning is preserved by canonical arguments, and retain explicit semantic uses that inference paths cannot recover. Derive impact through support, attacks, defenses, rules and profile changes. Never convert an old dependency into an inference automatically. It does not attempt to encode every meaningful relationship between their subject matter.
 
 An edge is stored on the downstream statement and is displayed as:
 

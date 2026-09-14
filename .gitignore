@@ -6,6 +6,10 @@ dist/
 
 # dependencies
 node_modules/
+.venv-reasoning/
+__pycache__/
+*.pyc
+reasoning/output/
 
 # logs
 npm-debug.log*

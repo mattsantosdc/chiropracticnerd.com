@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 1,
+  "signature": "(declare-sort Input 0)\n(declare-sort Event 0)\n(declare-sort FunctionalScope 0)\n(declare-sort Context 0)\n(declare-sort Interval 0)\n(declare-fun Reorganization (Event) Bool)\n(declare-fun Change (Event) Bool)\n(declare-fun NeuromotorOrganization (Event) Bool)\n(declare-fun Adjustment (Event) Bool)\n(declare-fun Causes (Input Event) Bool)\n(declare-fun Neuromotor (FunctionalScope) Bool)\n(declare-fun Improves (Event FunctionalScope Context Interval) Bool)\n(declare-fun Benefit (Event FunctionalScope Context Interval) Bool)\n(declare-fun Successful (Event FunctionalScope Context Interval) Bool)\n(declare-fun P-S-014 () Bool)\n(declare-fun P-S-012 () Bool)\n(declare-fun P-S-006 () Bool)\n(declare-fun P-S-015 () Bool)\n(declare-fun P-S-023 () Bool)\n(declare-fun P-S-028 () Bool)\n(declare-fun P-S-002 () Bool)\n(declare-fun P-S-021 () Bool)\n(declare-fun P-S-003 () Bool)\n(declare-fun P-S-004 () Bool)\n(declare-fun P-S-018 () Bool)\n(declare-fun P-S-007 () Bool)\n(declare-fun P-S-013 () Bool)\n(declare-fun P-S-009 () Bool)\n(declare-fun P-S-017 () Bool)\n(declare-fun P-S-001 () Bool)\n(declare-fun P-S-005 () Bool)\n(declare-fun P-S-016 () Bool)\n(declare-fun P-S-019 () Bool)\n(declare-fun P-S-010 () Bool)\n(declare-fun P-S-020 () Bool)\n(declare-fun P-S-008 () Bool)\n(declare-fun OccurredInput (Input) Bool)",
+  "ordinaryPremises": [
+    "S-001",
+    "S-002",
+    "S-005",
+    "S-007",
+    "S-008",
+    "S-009",
+    "S-010",
+    "S-011",
+    "S-012",
+    "S-013",
+    "S-015",
+    "S-017",
+    "S-018",
+    "S-019",
+    "S-020",
+    "S-021",
+    "S-022",
+    "S-023",
+    "S-024",
+    "S-025",
+    "S-028"
+  ],
+  "statements": {
+    "S-001": {
+      "text": "Philosophy, science, and art perform distinct, connected roles within one revisable approach: philosophy clarifies chiropractic's questions, concepts, purposes, assumptions, and reasoning; science tests and refines its empirical premises and explanations; and art applies the best-supported understanding contextually while returning observations and questions for reconsideration.",
+      "formula": "P-S-001",
+      "representation": "opaque-proposition"
+    },
+    "S-002": {
+      "text": "Definitions, empirical claims, value judgments, strategies, and conclusions must be identified and evaluated according to their kind, with logical validity kept distinct from premise truth and evidential strength.",
+      "formula": "P-S-002",
+      "representation": "opaque-proposition"
+    },
+    "S-003": {
+      "text": "Where the Model proposes that a conclusion follows from other claims, it should first make the required premises, scope, modality, and inference explicit and evaluate whether that inference supports the conclusion as claimed, then use science to evaluate its empirical premises independently.",
+      "formula": "P-S-003",
+      "representation": "opaque-proposition"
+    },
+    "S-004": {
+      "text": "Human functional potential is open-ended.",
+      "formula": "P-S-004",
+      "representation": "opaque-proposition"
+    },
+    "S-005": {
+      "text": "Facilitating improvement in context-appropriate human function is a legitimate aim of chiropractic care.",
+      "formula": "P-S-005",
+      "representation": "opaque-proposition"
+    },
+    "S-006": {
+      "text": "Symptoms, injury, disease, or identifiable pathology are not necessary as a rationale for chiropractic care.",
+      "formula": "P-S-006",
+      "representation": "opaque-proposition"
+    },
+    "S-007": {
+      "text": "The nervous system plays a central integrative role in organizing, coordinating, and regulating human function.",
+      "formula": "P-S-007",
+      "representation": "opaque-proposition"
+    },
+    "S-008": {
+      "text": "Neuromotor function varies with the person's state, task, and environment; in some circumstances, the available motor strategies are limited or poorly suited to current demands.",
+      "formula": "P-S-008",
+      "representation": "opaque-proposition"
+    },
+    "S-009": {
+      "text": "Some motor strategies that limit functional options in a given context can be modified to improve context-appropriate human function within a specified neuromotor scope and timescale.",
+      "formula": "P-S-009",
+      "representation": "opaque-proposition"
+    },
+    "S-010": {
+      "text": "A sufficiently salient neurobiomechanical perturbation can prompt reevaluation and reorganization of an established neuromotor strategy.",
+      "formula": "P-S-010",
+      "representation": "opaque-proposition"
+    },
+    "S-011": {
+      "text": "Some chiropractic inputs cause neuromotor reorganization that improves context-appropriate human function within a specified neuromotor scope, context, and timescale.",
+      "formula": "(exists ((i Input) (e Event) (s FunctionalScope) (c Context) (t Interval)) (and (OccurredInput i) (Causes i e) (Reorganization e) (Neuromotor s) (Improves e s c t)))",
+      "representation": "quantified-pilot"
+    },
+    "S-012": {
+      "text": "Some chiropractic-produced neuromotor changes contribute to improvement in context-appropriate human function beyond the initially affected neuromotor scope.",
+      "formula": "P-S-012",
+      "representation": "opaque-proposition"
+    },
+    "S-013": {
+      "text": "Chiropractic inputs influence broader human function principally through nervous-system-mediated change.",
+      "formula": "P-S-013",
+      "representation": "opaque-proposition"
+    },
+    "S-014": {
+      "text": "Chiropractic assessment develops a working hypothesis about whether a presently actionable opportunity for beneficial neuromotor change can be identified and what, if any, available input is most likely to produce that change.",
+      "formula": "P-S-014",
+      "representation": "opaque-proposition"
+    },
+    "S-015": {
+      "text": "When proceeding is warranted, a selected chiropractic input is applied as a neurobiomechanical training stimulus intended to test and act on the working hypothesis by beneficially altering the targeted neuromotor pattern.",
+      "formula": "P-S-015",
+      "representation": "opaque-proposition"
+    },
+    "S-016": {
+      "text": "Assessment is repeated following chiropractic input; the post-application findings test the working hypothesis and guide whether to stop, revise it, or consider a different subsequent input when justified.",
+      "formula": "P-S-016",
+      "representation": "opaque-proposition"
+    },
+    "S-017": {
+      "text": "Living organisms actively maintain and adapt their functional organization.",
+      "formula": "P-S-017",
+      "representation": "opaque-proposition"
+    },
+    "S-018": {
+      "text": "The nervous system regulates human function using available sensory information and prior experience to estimate the state of the body and environment.",
+      "formula": "P-S-018",
+      "representation": "opaque-proposition"
+    },
+    "S-019": {
+      "text": "Neural regulation operates with incomplete information and within biological constraints and competing demands.",
+      "formula": "P-S-019",
+      "representation": "opaque-proposition"
+    },
+    "S-020": {
+      "text": "The nervous system updates its estimates using incoming sensory information, and new sensory information can lead to reorganization of neuromotor strategies.",
+      "formula": "P-S-020",
+      "representation": "opaque-proposition"
+    },
+    "S-021": {
+      "text": "Context-appropriate function is functional organization suited to the person's actual internal state, environment, and relevant demands. Improvement means organization better suited to those conditions relative to an identified baseline or alternative, with relevant functional gains and losses considered together within a specified functional scope and timescale.",
+      "formula": "P-S-021",
+      "representation": "opaque-proposition"
+    },
+    "S-022": {
+      "text": "Any change that improves context-appropriate human function within a specified functional scope, context, and timescale provides a functional benefit within that scope, context, and timescale.",
+      "formula": "(forall ((e Event) (s FunctionalScope) (c Context) (t Interval)) (=> (and (Change e) (Improves e s c t)) (Benefit e s c t)))",
+      "representation": "quantified-pilot"
+    },
+    "S-023": {
+      "text": "A chiropractic input is a deliberately applied neurobiomechanical stimulus intended to influence neuromotor function.",
+      "formula": "P-S-023",
+      "representation": "opaque-proposition"
+    },
+    "S-024": {
+      "text": "An adjustment is neuromotor reorganization caused by a chiropractic input, where reorganization means a change in the organization of neuromotor control or coordination.",
+      "formula": "(and (forall ((e Event)) (= (Reorganization e) (and (Change e) (NeuromotorOrganization e)))) (forall ((e Event)) (= (Adjustment e) (and (Reorganization e) (exists ((i Input)) (and (OccurredInput i) (Causes i e)))))))",
+      "representation": "quantified-pilot"
+    },
+    "S-025": {
+      "text": "A successful adjustment is an adjustment that improves context-appropriate human function within a specified neuromotor scope, context, and timescale.",
+      "formula": "(forall ((e Event) (s FunctionalScope) (c Context) (t Interval)) (= (Successful e s c t) (and (Adjustment e) (Neuromotor s) (Improves e s c t))))",
+      "representation": "quantified-pilot"
+    },
+    "S-026": {
+      "text": "Every successful adjustment provides a functional benefit within its specified neuromotor scope, context, and timescale.",
+      "formula": "(forall ((e Event) (s FunctionalScope) (c Context) (t Interval)) (=> (Successful e s c t) (Benefit e s c t)))",
+      "representation": "quantified-pilot"
+    },
+    "S-027": {
+      "text": "Some chiropractic inputs cause neuromotor reorganization that provides a functional benefit within a specified neuromotor scope, context, and timescale.",
+      "formula": "(exists ((i Input) (e Event) (s FunctionalScope) (c Context) (t Interval)) (and (OccurredInput i) (Causes i e) (Reorganization e) (Neuromotor s) (Benefit e s c t)))",
+      "representation": "quantified-pilot"
+    },
+    "S-028": {
+      "text": "By perturbing established motor strategies, some chiropractic inputs cause neuromotor reorganization that improves context-appropriate human function within a specified neuromotor scope, context, and timescale.",
+      "formula": "P-S-028",
+      "representation": "opaque-proposition"
+    }
+  },
+  "applications": {
+    "ARG-001": {
+      "premises": [
+        "S-001",
+        "S-002"
+      ],
+      "conclusion": "S-003",
+      "inferenceKind": "defeasible",
+      "scheme": "methodological synthesis"
+    },
+    "ARG-002": {
+      "premises": [
+        "S-005",
+        "S-006",
+        "S-009",
+        "S-027"
+      ],
+      "conclusion": "S-014",
+      "inferenceKind": "defeasible",
+      "scheme": "practical synthesis under uncertainty"
+    },
+    "ARG-003": {
+      "premises": [
+        "S-014",
+        "S-015"
+      ],
+      "conclusion": "S-016",
+      "inferenceKind": "defeasible",
+      "scheme": "iterative hypothesis testing"
+    },
+    "ARG-004": {
+      "premises": [
+        "S-004",
+        "S-022",
+        "S-005"
+      ],
+      "conclusion": "S-006",
+      "inferenceKind": "defeasible",
+      "scheme": "normative scope reasoning"
+    },
+    "ARG-005": {
+      "premises": [
+        "S-017",
+        "S-007",
+        "S-018",
+        "S-019",
+        "S-008",
+        "S-020"
+      ],
+      "conclusion": "S-004",
+      "inferenceKind": "defeasible",
+      "scheme": "biologically informed framework reasoning"
+    },
+    "ARG-006": {
+      "premises": [
+        "S-022",
+        "S-024",
+        "S-025"
+      ],
+      "conclusion": "S-026",
+      "inferenceKind": "deductive",
+      "scheme": "universal application of a value criterion"
+    },
+    "ARG-007": {
+      "premises": [
+        "S-022",
+        "S-024",
+        "S-011"
+      ],
+      "conclusion": "S-027",
+      "inferenceKind": "deductive",
+      "scheme": "existential application of a value criterion"
+    }
+  }
+}

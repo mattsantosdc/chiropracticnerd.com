@@ -6,6 +6,7 @@ import StatementText from '../../components/model/StatementText.astro';
 import StatementMaterial from '../../components/model/StatementMaterial.astro';
 import ReasoningParticipation from '../../components/model/ReasoningParticipation.astro';
 import ReasoningHelp from '../../components/model/ReasoningHelp.astro';
+import CriticalQuestions from '../../components/model/CriticalQuestions.astro';
 import Layout from '../../layouts/Layout.astro';
 import { modelIdentity } from '../../lib/site';
 import { getRelatedStatements } from '../../lib/statements.ts';
@@ -37,6 +38,7 @@ const related = getRelatedStatements(statements, entry.data.id);
 		<article class="entry-explanation" id="entry-explanation" tabindex="-1" aria-label="Explanation and support">
 			<h2>Explanation and support</h2><StatementMaterial statement={statement} />
 		</article>
+		<CriticalQuestions target={entry.data.id} index={index} />
 		<details class="model-disclosure revision-dependencies">
 			<summary>Revision dependencies</summary>
 			<div class="disclosure-body">

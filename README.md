@@ -113,3 +113,9 @@ After creating the FastComments account, configure these items manually in the F
 | `npm run build` | Require a current Model review, validate content, and build the site |
 | `npm run test:routes` | After building, check every statement/argument page and internal link |
 | `npm run preview` | Preview the production build |
+
+## ASPIC+ foundation pilot
+
+See [the foundation contract](docs/aspic-foundation.md) for the exact profile, supported language, engine adapter, limitations and setup. Create `.venv-reasoning` and install `reasoning/requirements.txt`, then run `npm run test:reasoning` and `npm run reasoning:pilot` alongside the existing Model review, tests and build. The static website does not require a Python runtime.
+
+[Questions and alternative explanations](docs/objection-authoring.md) have a separate authoring contract. [The migration assessment](docs/aspic-migration.md) records the remaining work before retiring legacy dependency fields. All transition work branches from `model-v0.1`; pull requests target that branch and remain unmerged until reviewed with the user.

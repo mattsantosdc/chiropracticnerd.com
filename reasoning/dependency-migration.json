@@ -1,0 +1,377 @@
+{
+  "schemaVersion": 1,
+  "sourceBranch": "model-v0.1",
+  "sourceCommit": "bed3268155100f4a2d94354a3a38dca07a5b03d7",
+  "relationships": [
+    {
+      "source": "S-001",
+      "target": "S-002",
+      "legacyRole": "methodological",
+      "legacyNote": "S-002 operationalizes S-001's division of labor by requiring support and evaluation appropriate to each kind of claim.",
+      "disposition": "retain-explicit-semantic-use",
+      "applications": [],
+      "reviewNote": "The referenced record supplies terminology, a definition or an authoring method. Retain an explicit, narrowly named use relation unless the reviewed formal representation makes it derivable; do not treat it as evidence or a sufficient premise."
+    },
+    {
+      "source": "S-001",
+      "target": "S-003",
+      "legacyRole": "methodological",
+      "legacyNote": "S-001 assigns philosophy the work of exposing proposed structure and science the work of testing empirical premises; S-003 turns that division into an explicit reasoning method.",
+      "disposition": "derive-from-existing-application",
+      "applications": [
+        "ARG-001"
+      ],
+      "reviewNote": "The existing joint-premise application already records inferential participation. Preserve this limiting note in migration review; do not flatten the application into independent support arrows."
+    },
+    {
+      "source": "S-002",
+      "target": "S-003",
+      "legacyRole": "methodological",
+      "legacyNote": "S-002 distinguishes validity, premise truth, and epistemic strength; S-003 applies those distinctions to argument records and revision.",
+      "disposition": "derive-from-existing-application",
+      "applications": [
+        "ARG-001"
+      ],
+      "reviewNote": "The existing joint-premise application already records inferential participation. Preserve this limiting note in migration review; do not flatten the application into independent support arrows."
+    },
+    {
+      "source": "S-004",
+      "target": "S-005",
+      "legacyRole": "conceptual",
+      "legacyNote": "Revising S-004's account of functional potential would require reconsidering the possibilities for improvement addressed by this aim; open-ended potential does not entail its normative legitimacy or chiropractic effectiveness.",
+      "disposition": "requires-semantic-decision",
+      "applications": [],
+      "reviewNote": "Open-ended potential does not define the professional aim or entail its legitimacy. Review whether this is background rationale, a genuine semantic use, or a missing defeasible argument."
+    },
+    {
+      "source": "S-022",
+      "target": "S-005",
+      "legacyRole": "normative",
+      "legacyNote": "Revising S-022's value of context-appropriate improvement would require reconsidering the value guiding this professional aim; valuing an outcome does not establish chiropractic effectiveness or warrant an input.",
+      "disposition": "requires-semantic-decision",
+      "applications": [],
+      "reviewNote": "Valuing improvement does not alone establish the professional scope of chiropractic. Keep the adopted aim explicit; do not manufacture the missing normative bridge."
+    },
+    {
+      "source": "S-004",
+      "target": "S-006",
+      "legacyRole": "conceptual",
+      "legacyNote": "Narrowing S-004's open-ended potential by health or symptom status would require reconsidering this scope conclusion, even if the functional aim were retained; potential does not establish an actionable opportunity or benefit.",
+      "disposition": "derive-from-existing-application",
+      "applications": [
+        "ARG-004"
+      ],
+      "reviewNote": "The existing joint-premise application already records inferential participation. Preserve this limiting note in migration review; do not flatten the application into independent support arrows."
+    },
+    {
+      "source": "S-005",
+      "target": "S-006",
+      "legacyRole": "normative",
+      "legacyNote": "Revising S-005's legitimacy of functional improvement as an aim in its own right would require reconsidering this rationale beyond symptoms; the value choice does not demonstrate effectiveness in asymptomatic people.",
+      "disposition": "derive-from-existing-application",
+      "applications": [
+        "ARG-004"
+      ],
+      "reviewNote": "The existing joint-premise application already records inferential participation. Preserve this limiting note in migration review; do not flatten the application into independent support arrows."
+    },
+    {
+      "source": "S-008",
+      "target": "S-009",
+      "legacyRole": "conceptual",
+      "legacyNote": "Revising S-008's state-dependent neuromotor domain would require reconsidering the states and limitations addressed here; state dependence alone establishes neither modifiability nor improvement.",
+      "disposition": "retain-explicit-semantic-use",
+      "applications": [],
+      "reviewNote": "The referenced record supplies terminology, a definition or an authoring method. Retain an explicit, narrowly named use relation unless the reviewed formal representation makes it derivable; do not treat it as evidence or a sufficient premise."
+    },
+    {
+      "source": "S-021",
+      "target": "S-009",
+      "legacyRole": "conceptual",
+      "legacyNote": "Revising S-021's comparative improvement criterion would change what qualifies as an opportunity here; the definition supplies no evidence that such opportunities exist.",
+      "disposition": "retain-explicit-semantic-use",
+      "applications": [],
+      "reviewNote": "The referenced record supplies terminology, a definition or an authoring method. Retain an explicit, narrowly named use relation unless the reviewed formal representation makes it derivable; do not treat it as evidence or a sufficient premise."
+    },
+    {
+      "source": "S-008",
+      "target": "S-010",
+      "legacyRole": "conceptual",
+      "legacyNote": "Revising S-008's account of state-dependent neuromotor strategies would require reconsidering what is proposed to reorganize and under which conditions; that domain supplies no evidence for the perturbation mechanism.",
+      "disposition": "retain-explicit-semantic-use",
+      "applications": [],
+      "reviewNote": "The referenced record supplies terminology, a definition or an authoring method. Retain an explicit, narrowly named use relation unless the reviewed formal representation makes it derivable; do not treat it as evidence or a sufficient premise."
+    },
+    {
+      "source": "S-021",
+      "target": "S-011",
+      "legacyRole": "conceptual",
+      "legacyNote": "Revising S-021's comparative improvement criterion would change the outcome this causal claim asserts; defining the outcome supplies no evidence that an input produces it.",
+      "disposition": "retain-explicit-semantic-use",
+      "applications": [],
+      "reviewNote": "The referenced record supplies terminology, a definition or an authoring method. Retain an explicit, narrowly named use relation unless the reviewed formal representation makes it derivable; do not treat it as evidence or a sufficient premise."
+    },
+    {
+      "source": "S-024",
+      "target": "S-011",
+      "legacyRole": "conceptual",
+      "legacyNote": "Revising S-024's account of input-caused neuromotor reorganization would change the response asserted here; defining an adjustment does not establish that any occur or improve function.",
+      "disposition": "retain-explicit-semantic-use",
+      "applications": [],
+      "reviewNote": "The referenced record supplies terminology, a definition or an authoring method. Retain an explicit, narrowly named use relation unless the reviewed formal representation makes it derivable; do not treat it as evidence or a sufficient premise."
+    },
+    {
+      "source": "S-011",
+      "target": "S-012",
+      "legacyRole": "empirical",
+      "legacyNote": "Revising S-011's joint input-caused reorganization and improvement claim would require reconsidering the input-produced changes whose broader effects are proposed here; local improvement does not establish broader transfer.",
+      "disposition": "requires-semantic-decision",
+      "applications": [],
+      "reviewNote": "The broader-transfer hypothesis uses the local-response account, but local improvement does not entail broader transfer. Resolve a scope-use relationship without inventing an inferential rule."
+    },
+    {
+      "source": "S-021",
+      "target": "S-012",
+      "legacyRole": "conceptual",
+      "legacyNote": "Revising S-021's contextual improvement comparison would change how the broader outcome is judged independently of the local response; the definition supplies no evidence of transfer.",
+      "disposition": "retain-explicit-semantic-use",
+      "applications": [],
+      "reviewNote": "The referenced record supplies terminology, a definition or an authoring method. Retain an explicit, narrowly named use relation unless the reviewed formal representation makes it derivable; do not treat it as evidence or a sufficient premise."
+    },
+    {
+      "source": "S-007",
+      "target": "S-013",
+      "legacyRole": "empirical",
+      "legacyNote": "Revising S-007's integrative role would require reconsidering the proposal that neural mediation is the principal route to broader chiropractic effects; an integrative role does not demonstrate any chiropractic effect.",
+      "disposition": "requires-semantic-decision",
+      "applications": [],
+      "reviewNote": "General neural integration does not establish principal mediation of chiropractic effects. Distinguish background rationale from a supported explanatory inference."
+    },
+    {
+      "source": "S-011",
+      "target": "S-013",
+      "legacyRole": "empirical",
+      "legacyNote": "Revising S-011's proposed input-caused reorganization and improvement would require reconsidering the input and response account used in this neural-mediation proposal; neuromotor improvement establishes neither mediation of broader effects nor neural primacy.",
+      "disposition": "requires-semantic-decision",
+      "applications": [],
+      "reviewNote": "Local input-caused improvement does not establish neural primacy for broader outcomes. The response vocabulary can be a semantic use; the stronger empirical claim needs independent support."
+    },
+    {
+      "source": "S-005",
+      "target": "S-014",
+      "legacyRole": "normative",
+      "legacyNote": "Revising S-005's professional aim of context-appropriate improvement would require reconsidering the purpose guiding assessment; that aim does not validate a finding or justify a particular input.",
+      "disposition": "derive-from-existing-application",
+      "applications": [
+        "ARG-002"
+      ],
+      "reviewNote": "The existing joint-premise application already records inferential participation. Preserve this limiting note in migration review; do not flatten the application into independent support arrows."
+    },
+    {
+      "source": "S-006",
+      "target": "S-014",
+      "legacyRole": "conceptual",
+      "legacyNote": "Revising S-006's rationale beyond symptoms would require reconsidering whether assessment can consider opportunities without symptoms or pathology; that scope does not establish an opportunity in any person.",
+      "disposition": "derive-from-existing-application",
+      "applications": [
+        "ARG-002"
+      ],
+      "reviewNote": "The existing joint-premise application already records inferential participation. Preserve this limiting note in migration review; do not flatten the application into independent support arrows."
+    },
+    {
+      "source": "S-009",
+      "target": "S-014",
+      "legacyRole": "practical",
+      "legacyNote": "Revising S-009's proposed modifiable opportunities would require reconsidering what assessment seeks to identify and act on; modifiability in some cases does not establish detectability or present actionability.",
+      "disposition": "derive-from-existing-application",
+      "applications": [
+        "ARG-002"
+      ],
+      "reviewNote": "The existing joint-premise application already records inferential participation. Preserve this limiting note in migration review; do not flatten the application into independent support arrows."
+    },
+    {
+      "source": "S-027",
+      "target": "S-014",
+      "legacyRole": "practical",
+      "legacyNote": "Revising S-027's scoped actual-benefit conclusion would require reconsidering the outcomes and predictions used in input selection; benefit in some cases supplies no validated person-level selection rule.",
+      "disposition": "derive-from-existing-application",
+      "applications": [
+        "ARG-002"
+      ],
+      "reviewNote": "The existing joint-premise application already records inferential participation. Preserve this limiting note in migration review; do not flatten the application into independent support arrows."
+    },
+    {
+      "source": "S-014",
+      "target": "S-015",
+      "legacyRole": "practical",
+      "legacyNote": "Revising S-014's working hypothesis or criteria for action would require reconsidering whether and what input is delivered; a selected input is not thereby effective, safe, or appropriate.",
+      "disposition": "requires-semantic-decision",
+      "applications": [],
+      "reviewNote": "Application requires a warranted-to-proceed condition and a practical bridge. Those conditions cannot be supplied by the dependency arrow or by assessment alone."
+    },
+    {
+      "source": "S-028",
+      "target": "S-015",
+      "legacyRole": "practical",
+      "legacyNote": "Revising S-028's perturbation account would require reconsidering the mechanism application intentionally pursues, even if S-014 retained its assessment strategy; the mechanism claim does not establish success for the selected input here.",
+      "disposition": "requires-semantic-decision",
+      "applications": [],
+      "reviewNote": "A proposed mechanism can guide intended application without proving it works. Any practical inference needs its explicit action conditions and normative bridge."
+    },
+    {
+      "source": "S-014",
+      "target": "S-016",
+      "legacyRole": "practical",
+      "legacyNote": "Revising S-014's target, prediction, or assessment method would require reconsidering what is reassessed and how findings bear on the hypothesis; repeating an assessment does not validate it.",
+      "disposition": "derive-from-existing-application",
+      "applications": [
+        "ARG-003"
+      ],
+      "reviewNote": "The existing joint-premise application already records inferential participation. Preserve this limiting note in migration review; do not flatten the application into independent support arrows."
+    },
+    {
+      "source": "S-015",
+      "target": "S-016",
+      "legacyRole": "practical",
+      "legacyNote": "Revising S-015's delivered input or intended response would require reconsidering the post-application comparison and next decision; temporal succession does not establish causation or benefit.",
+      "disposition": "derive-from-existing-application",
+      "applications": [
+        "ARG-003"
+      ],
+      "reviewNote": "The existing joint-premise application already records inferential participation. Preserve this limiting note in migration review; do not flatten the application into independent support arrows."
+    },
+    {
+      "source": "S-025",
+      "target": "S-016",
+      "legacyRole": "conceptual",
+      "legacyNote": "Revising S-025's success criterion would change how reassessment interprets possible improvement independently of the intended input; the definition does not validate observations or resolve uncertain responses.",
+      "disposition": "retain-explicit-semantic-use",
+      "applications": [],
+      "reviewNote": "The referenced record supplies terminology, a definition or an authoring method. Retain an explicit, narrowly named use relation unless the reviewed formal representation makes it derivable; do not treat it as evidence or a sufficient premise."
+    },
+    {
+      "source": "S-008",
+      "target": "S-020",
+      "legacyRole": "conceptual",
+      "legacyNote": "Revising S-008's meanings of neuromotor function and motor strategy would require reconsidering what reorganizes here; context dependence and limited strategies supply no evidence that sensory information prompts reorganization.",
+      "disposition": "retain-explicit-semantic-use",
+      "applications": [],
+      "reviewNote": "The referenced record supplies terminology, a definition or an authoring method. Retain an explicit, narrowly named use relation unless the reviewed formal representation makes it derivable; do not treat it as evidence or a sufficient premise."
+    },
+    {
+      "source": "S-018",
+      "target": "S-020",
+      "legacyRole": "conceptual",
+      "legacyNote": "Revising S-018's account of estimates of the body and environment would require reconsidering what is proposed to update here; using information and experience does not itself establish updating or strategy reorganization.",
+      "disposition": "retain-explicit-semantic-use",
+      "applications": [],
+      "reviewNote": "The referenced record supplies terminology, a definition or an authoring method. Retain an explicit, narrowly named use relation unless the reviewed formal representation makes it derivable; do not treat it as evidence or a sufficient premise."
+    },
+    {
+      "source": "S-021",
+      "target": "S-022",
+      "legacyRole": "conceptual",
+      "legacyNote": "Revising S-021's comparative account of context-appropriate improvement would change which changes this value judgment calls beneficial; the definition establishes neither that value nor any actual improvement.",
+      "disposition": "retain-explicit-semantic-use",
+      "applications": [],
+      "reviewNote": "The referenced record supplies terminology, a definition or an authoring method. Retain an explicit, narrowly named use relation unless the reviewed formal representation makes it derivable; do not treat it as evidence or a sufficient premise."
+    },
+    {
+      "source": "S-008",
+      "target": "S-023",
+      "legacyRole": "conceptual",
+      "legacyNote": "Revising S-008's neuromotor domain would change the intended target of a chiropractic input; defining that target supplies no evidence of a response.",
+      "disposition": "retain-explicit-semantic-use",
+      "applications": [],
+      "reviewNote": "The referenced record supplies terminology, a definition or an authoring method. Retain an explicit, narrowly named use relation unless the reviewed formal representation makes it derivable; do not treat it as evidence or a sufficient premise."
+    },
+    {
+      "source": "S-023",
+      "target": "S-024",
+      "legacyRole": "conceptual",
+      "legacyNote": "Revising S-023's definition of chiropractic input would change which causes qualify a reorganization as an adjustment; the definition supplies no evidence that any input causes it.",
+      "disposition": "retain-explicit-semantic-use",
+      "applications": [],
+      "reviewNote": "The referenced record supplies terminology, a definition or an authoring method. Retain an explicit, narrowly named use relation unless the reviewed formal representation makes it derivable; do not treat it as evidence or a sufficient premise."
+    },
+    {
+      "source": "S-021",
+      "target": "S-025",
+      "legacyRole": "conceptual",
+      "legacyNote": "Revising S-021's improvement comparison would change the success criterion independently of whether an adjustment occurs; the criterion supplies no evidence of its fulfillment.",
+      "disposition": "retain-explicit-semantic-use",
+      "applications": [],
+      "reviewNote": "The referenced record supplies terminology, a definition or an authoring method. Retain an explicit, narrowly named use relation unless the reviewed formal representation makes it derivable; do not treat it as evidence or a sufficient premise."
+    },
+    {
+      "source": "S-024",
+      "target": "S-025",
+      "legacyRole": "conceptual",
+      "legacyNote": "Revising S-024's response definition would change what can count as a successful adjustment; delivery alone establishes neither reorganization nor its cause.",
+      "disposition": "retain-explicit-semantic-use",
+      "applications": [],
+      "reviewNote": "The referenced record supplies terminology, a definition or an authoring method. Retain an explicit, narrowly named use relation unless the reviewed formal representation makes it derivable; do not treat it as evidence or a sufficient premise."
+    },
+    {
+      "source": "S-022",
+      "target": "S-026",
+      "legacyRole": "normative",
+      "legacyNote": "Revising S-022's value of qualifying improvement would require reconsidering the benefit attributed to successful adjustments; that value supplies no empirical confirmation of success.",
+      "disposition": "derive-from-existing-application",
+      "applications": [
+        "ARG-006"
+      ],
+      "reviewNote": "The existing joint-premise application already records inferential participation. Preserve this limiting note in migration review; do not flatten the application into independent support arrows."
+    },
+    {
+      "source": "S-025",
+      "target": "S-026",
+      "legacyRole": "conceptual",
+      "legacyNote": "Revising S-025's success definition would require reconsidering which responses this conclusion evaluates and its scope; the definition does not establish occurrence.",
+      "disposition": "derive-from-existing-application",
+      "applications": [
+        "ARG-006"
+      ],
+      "reviewNote": "The existing joint-premise application already records inferential participation. Preserve this limiting note in migration review; do not flatten the application into independent support arrows."
+    },
+    {
+      "source": "S-011",
+      "target": "S-027",
+      "legacyRole": "empirical",
+      "legacyNote": "Revising S-011's joint input-caused reorganization and improvement claim would require reconsidering this actual-benefit conclusion; that empirical premise remains unresolved.",
+      "disposition": "derive-from-existing-application",
+      "applications": [
+        "ARG-007"
+      ],
+      "reviewNote": "The existing joint-premise application already records inferential participation. Preserve this limiting note in migration review; do not flatten the application into independent support arrows."
+    },
+    {
+      "source": "S-022",
+      "target": "S-027",
+      "legacyRole": "normative",
+      "legacyNote": "Revising S-022's value criterion would require reconsidering whether the asserted improvement is a functional benefit; evidence of a change cannot independently establish its value.",
+      "disposition": "derive-from-existing-application",
+      "applications": [
+        "ARG-007"
+      ],
+      "reviewNote": "The existing joint-premise application already records inferential participation. Preserve this limiting note in migration review; do not flatten the application into independent support arrows."
+    },
+    {
+      "source": "S-010",
+      "target": "S-028",
+      "legacyRole": "empirical",
+      "legacyNote": "Revising S-010's general perturbation mechanism would require reconsidering this chiropractic instantiation; a general capacity does not establish any chiropractic response or improvement.",
+      "disposition": "requires-semantic-decision",
+      "applications": [],
+      "reviewNote": "A general perturbation capacity cannot establish chiropractic realization. Preserve the mechanism vocabulary separately from the specific empirical hypothesis."
+    },
+    {
+      "source": "S-011",
+      "target": "S-028",
+      "legacyRole": "empirical",
+      "legacyNote": "Revising S-011's joint causal improvement claim would require reconsidering the effect whose perturbation mechanism is asserted here; effect evidence alone does not identify its mechanism.",
+      "disposition": "requires-semantic-decision",
+      "applications": [],
+      "reviewNote": "The mechanism statement includes the joint effect claim. Review its formal implication in the reverse direction before adding any inference; mechanism and effect evidence remain independent."
+    }
+  ]
+}

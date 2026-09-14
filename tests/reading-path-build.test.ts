@@ -1,16 +1,23 @@
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
-import { closeSync, cpSync, mkdtempSync, openSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
+import { closeSync, cpSync, existsSync, mkdirSync, mkdtempSync, openSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
 import { test } from 'node:test';
-import { checkReview, collectInputs, reviewPath, rubricFields } from '../scripts/model-audit.mjs';
+import { checkReview, collectInputs, policyPaths, reviewPath, rubricFields } from '../scripts/model-audit.mjs';
 
 async function buildFixture(t: { after: (callback: () => void) => void }, configure: (root: string) => void) {
 	const root = mkdtempSync(join(tmpdir(), 'model-path-build-test-'));
 	t.after(() => rmSync(root, { recursive: true, force: true }));
 	for (const path of ['src', 'public', 'docs', 'scripts', 'reviews', 'AGENTS.md', 'package-lock.json', 'package.json', 'astro.config.mjs', 'tsconfig.json']) {
 		cpSync(path, join(root, path), { recursive: true });
+	}
+	for (const path of policyPaths) {
+		const destination = join(root, path);
+		if (!existsSync(destination)) {
+			mkdirSync(dirname(destination), { recursive: true });
+			cpSync(path, destination);
+		}
 	}
 	symlinkSync(join(process.cwd(), 'node_modules'), join(root, 'node_modules'), 'dir');
 	configure(root);

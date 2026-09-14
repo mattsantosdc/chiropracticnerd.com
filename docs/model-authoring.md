@@ -1,10 +1,10 @@
 # Model authoring
 
-This is the primary workflow for humans and coding agents changing statements or structured arguments. Read it together with the [dependency model](dependency-model.md), [argument model](argument-model.md), [standards contract](standards-contract.md), and [visualization plan](visualization-plan.md) before editing canonical content.
+This is the primary workflow for humans and coding agents changing statements or structured arguments. The [ASPIC+ foundation](aspic-foundation.md), [objection contract](objection-authoring.md), and [migration assessment](aspic-migration.md) also govern the current transition. Read it together with the [dependency model](dependency-model.md), [argument model](argument-model.md), [standards contract](standards-contract.md), and [visualization plan](visualization-plan.md) before editing canonical content.
 
 ## Canonical building blocks
 
-The Model is the complete account. Its building blocks are statements and arguments. A statement
+The Model is the complete account. It is a network with question-specific conclusions and no required global entry or exit. Its building blocks are statements and arguments. A statement
 expresses a proposition, definition, value, framework commitment, or strategy. An argument records
 an inferential route from specified statements to a statement serving as its conclusion. A
 statement can be a premise in one argument and a conclusion in another.
@@ -40,9 +40,9 @@ Every change must receive the [Model review](model-review.md). It combines an AI
 
 ## Working adoption and confidence
 
-Every statement and argument included in a Model version forms part of its current working account. Adoption identifies what the Model proposes and how it reasons; it does not establish empirical truth, evidential strength, or inferential validity. An empirical claim with unresolved confidence is still an adopted working claim. All statements and arguments remain open to revision.
+Every statement and argument in the canonical working collections forms part of the adopted account. Critical questions, recorded alternatives and hypothetical evaluation scenarios have separate roles; repository inclusion alone does not adopt their suggested propositions. Adoption identifies what the Model proposes and how it reasons; it does not establish empirical truth, evidential strength, or inferential validity. An empirical claim with unresolved confidence is still an adopted working claim. All statements and arguments remain open to revision.
 
-Statement and argument records therefore have no editorial `status` property. Their inclusion and version identify the working account; statement type, confidence, evidence, and inference kind remain separately inspectable. Do not use unresolved evidence to describe an included claim as unadopted, or use adoption to upgrade confidence or remove defeasibility. A separate workflow for candidates or superseded material should be introduced only when it serves an actual editorial need.
+Statement and argument records therefore have no editorial `status` property. Their inclusion and version identify the working account; statement type, confidence, evidence, and inference kind remain separately inspectable. Do not use unresolved evidence to describe an included claim as unadopted, or use adoption to upgrade confidence or remove defeasibility. The critical-question layer now supplies that concrete need for a separate role: a question challenges or clarifies the account without asserting its suggested alternative. Formal premise membership remains explicit in the theory configuration, independently of working adoption.
 
 ## Historical continuity without historical authority
 
@@ -119,7 +119,7 @@ Determine whether the statement is a premise, a conclusion, both, or neither. A 
 
 ### 4. Check whether the intended conclusion follows
 
-If necessity is claimed, write every required premise and audit the inference for hidden assumptions. Mark an argument deductive only when the conclusion necessarily follows from the premises exactly as written. Check that modal terms and scopes overlap.
+If necessity is claimed, write every required premise and audit the inference for hidden assumptions. Mark an argument deductive only when the conclusion necessarily follows from the premises exactly as written. Check that modal terms and scopes overlap. Every strict pilot rule must additionally pass the formal entailment check under the reviewed binding. A label, a satisfiability result or a confidence score cannot replace that check.
 
 ### 5. Do not manufacture missing premises
 
@@ -142,7 +142,7 @@ When a claim changes, use both layers:
 - follow `upstream → downstream` dependencies to locate statements whose meaning or content must be reconsidered; and
 - find arguments that use the statement as a premise or conclusion and reassess their premises, scope, inference kind, and conclusion.
 
-Do not add dependency edges merely to make the graph appear linear. Dependency and argument updates must each satisfy their own contract.
+During the transition retain the existing dependency data until every relationship has an explicit migration disposition. The target impact model derives inference dependencies and also follows objections, defenses, rule identity, profile changes and semantic uses. Do not stop computational propagation merely because an intermediate statement retains the same wording. Never use a reading path to exclude an admitted challenge.
 
 The deferred [reasoning review and invalidation plan](review-invalidation-plan.md) describes how
 content fingerprints and review attestations may later make this impact traversal semi-automatic
@@ -154,7 +154,11 @@ The current [Model review](model-review.md) already checks review freshness for 
 
 If a premise fails or a conclusion does not follow, mark that inferential route as failed or revise it. Search for alternative explanations or argument paths before declaring the conclusion false. A downstream conclusion may survive through a different argument, while a failed mechanism may leave a higher-order effect unresolved.
 
-### 10. Preserve readability
+### 10. Examine questions and alternatives
+
+Follow [objection-authoring.md](objection-authoring.md). Identify the exact premise, inference, scope or practical bridge under examination. State the strongest reasonable concern, the current response, and what would require revision. Preserve unresolved issues; a written response does not automatically defeat an objection. Questions are not automatically ordinary premises or attacking arguments.
+
+### 11. Preserve readability
 
 Keep the public claim and explanation understandable to an ordinary chiropractor. Structured argument records provide a deeper inspection layer; they should not turn every Model page into a symbolic-logic textbook. Define technical language and state limitations in plain terms.
 

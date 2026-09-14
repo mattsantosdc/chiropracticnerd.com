@@ -85,6 +85,7 @@ const argumentsCollection = defineCollection({
 			version: z.literal('0.1'),
 			updated: z.coerce.date(),
 		})
+		.strict()
 		.superRefine((argument, context) => {
 			const premiseIds = new Set(argument.premises);
 			if (premiseIds.size !== argument.premises.length) {

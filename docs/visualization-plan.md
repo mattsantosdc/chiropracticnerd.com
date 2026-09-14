@@ -1,6 +1,6 @@
 # Reading interface and optional visualization plan
 
-The agreed default experience is an integrated text walkthrough centered on exact
+The Model is a network with question-specific conclusions. The existing presentation remains an integrated text walkthrough centered on exact
 statements and their recorded reasoning. Stage 4 supplies the
 [reading path and shared reasoning data](model-reading-path.md); Stage 5 renders
 it at `/model/`, with a disclosed reference index and existing detail pages.
@@ -101,6 +101,8 @@ Arguments must be projected as intermediary nodes:
 Flattening an argument into independent premise-to-conclusion arrows would lose the fact that its
 premises may operate jointly, erase the identity of the reasoning route, and blur arguments with
 dependencies. Multiple arguments concluding the same statement remain separate argument nodes.
+
+The [critical-question contract](objection-authoring.md) now governs neutral questions on targeted statement and argument detail pages. These editorial records are not inferred graph attacks and do not change evaluation by their presentation. The ASPIC+ pilot supplies explicit attack and defeat structures separately.
 
 The following are intentionally excluded until separately modeled: claims inferred from prose,
 causal edges inferred from empirical language, evidence-support edges inferred from references,

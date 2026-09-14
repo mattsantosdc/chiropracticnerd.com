@@ -1,3 +1,15 @@
+## ASPIC+ transition and branch workflow
+
+The Model is a network of statements with question-specific conclusions, not one global beginning and ending. Follow [the ASPIC+ foundation contract](docs/aspic-foundation.md), [objection authoring](docs/objection-authoring.md), and [the migration assessment](docs/aspic-migration.md) for this transition. These documents adopt the user's authorized formal foundation and supersede older deferrals of the pilot.
+
+Create all transition branches from `model-v0.1`; target that branch in pull requests. Do not merge into `model-v0.1` or `main` until the user directs it after review. Keep the governing instructions current with each schema, engine, content and presentation change.
+
+No domain axioms, implicit input premises, authored acceptance labels, confidence-based priorities, or unchecked strict-rule labels. Use the pinned grounded profile with explicit equal base priorities. Preserve rule identities, joint premises, attacks on premises/inferences, and alternative derivations. Read the profile's supported language and cycle limits before adding formal content. An unsupported input or incomplete computation must fail visibly.
+
+Distinguish the adopted working account, recorded alternatives, hypothetical evaluation premises and critical questions. A question is not an asserted counterpremise. Present challenges neutrally under “Questions and alternative explanations”; assess claims and reasoning without speculating about practitioners' motives. Rigor takes priority when a real conflict must be stated. Use [objection-authoring.md](docs/objection-authoring.md) for exact targets, strong charitable formulations and revision consequences.
+
+Run `npm run test:reasoning` and `npm run reasoning:pilot` alongside the existing required Model checks. Include new reasoning policy, bindings, adapters, critical-question data and renderers in `scripts/model-audit.mjs` review inputs. Do not retire a legacy dependency until its meaning and limiting note have an explicit disposition in the migration assessment. The final inference impact index must follow attacks and defenses as well as support; a reading path cannot filter evaluation.
+
 ## Development
 
 When starting the dev server, use background mode:
@@ -16,7 +28,7 @@ Only after the inferential structure is explicit should evidence be used to eval
 
 **State the proposed truth separately from confidence in it.** Use the statement to express the proposition the Model proposes; use confidence and evidence sections to express its justification. Do not add uncertainty language merely because support is unresolved. Retain qualifiers that define scope, capacity, or necessary conditions. Both weakening and strengthening a proposition require explicit reasoning; neither is an automatic response to a confidence label.
 
-**Adoption is separate from evidential confidence.** Inclusion in a Model version identifies a statement or argument as part of its current working account. Unresolved confidence does not mean a claim is unadopted, and adoption does not establish empirical truth or inferential validity. Statement and argument records do not use an editorial `status` property or public status badges. Audit this distinction on every change; introduce a separate candidate or publication workflow only when it has a concrete purpose.
+**Adoption is separate from evidential confidence.** Inclusion in the canonical working statement and argument collections identifies adoption into that working account. Recorded critical questions, alternatives and hypothetical evaluation inputs have separate roles and are not adopted merely by appearing in the repository. Unresolved confidence does not mean a claim is unadopted, and adoption does not establish empirical truth or inferential validity. Statement and argument records do not use an editorial `status` property or public status badges. Audit this distinction on every change; introduce a separate candidate or publication workflow only when it has a concrete purpose.
 
 Before changing anything in `src/content/model/statements/` or `src/content/model/arguments/`, read these documents in order:
 
@@ -41,7 +53,7 @@ Apply these guardrails to every Model change:
 - Represent relationships intended for future visualization in canonical structured data; do not infer them from prose, terminology, comments, or transitive paths.
 - Keep renderer-specific coordinates, styling, layout state, and package identifiers out of canonical Model and argument content.
 
-Keep revision dependencies, structured arguments, empirical evidence, and causal hypotheses distinct. For deductive arguments, verify that the conclusion necessarily follows from the premises exactly as written; the software validates structure and references, not natural-language validity.
+Keep revision dependencies, structured arguments, empirical evidence, and causal hypotheses distinct. For deductive arguments, verify that the conclusion necessarily follows from the premises exactly as written; the content validators check structure and references, while the ASPIC+ pilot additionally checks formal strict entailment. Natural-language fidelity remains a semantic review task.
 
 ## Required Model review
 

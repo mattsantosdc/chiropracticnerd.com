@@ -1,6 +1,6 @@
 # Standards contract
 
-This contract reserves stable identifiers and defines how the canonical Markdown architecture may later map to established interchange standards. No RDF, JSON-LD, or nanopublication is emitted yet, so the reserved identifiers are not presented as currently dereferenceable resources.
+This contract reserves stable identifiers and defines the relationship between canonical content and established interchange standards. The [ASPIC+ foundation](aspic-foundation.md) now implements an executable pilot and an experimental AIF JSON application profile. No RDF, JSON-LD, or nanopublication is emitted yet, so the reserved identifiers are not presented as currently dereferenceable resources.
 
 ## Stable identifiers
 
@@ -26,15 +26,15 @@ Statement and argument IDs are permanent identities; URL slugs are mutable prese
 The Model is the complete account, built from statements and arguments. Statements in
 `src/content/model/statements/` express propositions, definitions, values, framework commitments,
 and strategies. The `statements` and `arguments` Astro collections load only their respective
-canonical sibling directories; no collection loads the shared parent. Direct `upstream` metadata remains the canonical acyclic revision-impact graph.
+canonical sibling directories; no collection loads the shared parent. Direct `upstream` metadata remains the legacy revision-impact graph during the explicitly tracked [migration](aspic-migration.md). Its removal must preserve non-inferential semantic uses and the information in its limiting notes.
 
 Argument records in `src/content/model/arguments/` are now the canonical structured reasoning layer. Each contains one or more statement premises, one statement conclusion, an inference kind, a named scheme, version and updated date, and explanatory prose. Arguments do not create a `logical` statement type and do not use a Boolean soundness field. Multiple arguments may conclude the same statement, and a statement may be both a conclusion and a premise across the hierarchy.
 
 Inclusion in a version identifies statements and arguments as the Model's working account. Neither collection uses an editorial `status` property. Adoption remains separate from evidential confidence and inferential evaluation; it is not a claim of truth or validity.
 
-The [Argument Interchange Format](https://www.arg-tech.org/wp-content/uploads/2011/09/aif-spec.pdf) is reserved as a future interchange representation for these structured records. AIF is not the Model's reasoning methodology and is not part of current authoring or delivery. Natural-language validity remains an editor-curated judgment.
+The [Argument Interchange Format](https://www.arg-tech.org/wp-content/uploads/2011/09/aif-spec.pdf) now supplies the graph structure for the pilot's experimental JSON interchange. Required project extensions preserve the ASPIC+ theory and evaluation profile. The importer rejects disagreement or loss between those layers. This is not a general AIF importer or a public RDF/JSON-LD export. ASPIC+ supplies the formal argumentation framework; AIF supplies interchange. Natural-language fidelity remains an editor-curated judgment.
 
-Public comments are discussion, not graph assertions. Only editor-curated statement and argument Markdown is canonical. Addressable objections may be added when the content requires them; no objection ontology is introduced for v0.1.
+Public comments are discussion, not graph assertions. Working statements and inference applications remain canonical Markdown. `src/data/model-questions.json` now contains separately identified critical questions under the [objection contract](objection-authoring.md). Recording a question does not assert its proposed alternative or create a formal attacker. The runtime supports explicit alternative and hypothetical roles; substantive opposition requires its own declared propositions, premise membership and support before evaluation.
 
 ## Editorial reading architecture
 
@@ -73,7 +73,7 @@ Argument cycles, future objection links, or competing reasoning paths must not i
 
 ## Deferred work
 
-Do not introduce an RDF store, SPARQL endpoint, JSON-LD export, SHACL runtime, theorem prover, full evidence ontology, or nanopublication packaging until an actual integration or independent publication use case exists. When export begins, all reserved HTTP identifiers must resolve and the generated graph must pass its SHACL shapes before publication.
+The authorized ASPIC+ pilot now uses Z3 to check formal strict inferences and provides experimental AIF interchange. An RDF store, SPARQL endpoint, public JSON-LD export, SHACL runtime, full evidence ontology and nanopublication packaging remain deferred until a concrete integration requires them. Before a public RDF/JSON-LD export begins, all reserved HTTP identifiers it emits must resolve and its generated graph must pass the declared SHACL shapes. The isolated AIF pilot does not publish those reserved identifiers.
 
 A focused [Model review](model-review.md) now records whole-file fingerprints and AI-assisted or human semantic findings outside canonical content. The npm test and build commands require the review to cover the current Model, arguments, and governing policy. These records introduce no public route, semantic identifier, or canonical content-schema change; they track review coverage, not truth, validity, soundness, or evidential sufficiency.
 

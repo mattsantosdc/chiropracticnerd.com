@@ -1,0 +1,56 @@
+[
+  {
+    "id": "Q-001",
+    "target": "S-011",
+    "kind": "premise",
+    "question": "Could the observed change have another explanation?",
+    "concern": "A difference after an input could reflect measurement variation, changed effort or test conditions, expectation, or change that would have occurred without the input.",
+    "response": "The claim requires the input to cause the same reorganization that improves function. A before-and-after difference alone does not establish that relationship. The comparison must distinguish the proposed effect from credible alternatives.",
+    "wouldChange": "Evidence favoring an alternative explanation would require narrowing or revising the causal claim for the conditions tested. It would also require reconsidering the benefit argument that uses this premise."
+  },
+  {
+    "id": "Q-002",
+    "target": "ARG-007",
+    "kind": "scope",
+    "question": "Does this benefit establish that an input is worth pursuing?",
+    "concern": "A functional benefit within one scope does not settle the overall value of an intervention.",
+    "response": "This argument concludes only that the specified functional benefit occurs in some cases. A decision to proceed still requires a separate judgment about the person's circumstances, priorities, alternatives, and the relevant benefits and harms.",
+    "wouldChange": "A broader conclusion would require additional premises and a separate argument. The existing conclusion must retain its stated scope."
+  },
+  {
+    "id": "Q-003",
+    "target": "ARG-002",
+    "kind": "inference",
+    "question": "Do the opportunity and the beneficial input coincide in this person?",
+    "concern": "Modifiable opportunities in some cases and beneficial inputs in some cases do not establish that they coincide in the present person, state, task, or timescale.",
+    "response": "The assessment strategy asks whether that match can be identified. It does not assume that a match exists or that a particular assessment can reliably detect it. No actionable opportunity identified remains an admissible result.",
+    "wouldChange": "If the proposed observations cannot identify a credible match, the assessment method or selection hypothesis must be revised. The general existence claims cannot supply the missing person-specific justification."
+  },
+  {
+    "id": "Q-004",
+    "target": "ARG-002",
+    "kind": "practical-bridge",
+    "question": "Could another approach, or no input, be the better choice?",
+    "concern": "Even an input expected to produce a functional benefit may be less worthwhile than an available alternative.",
+    "response": "The practical judgment includes the person's goals and preferences, uncertainty, relevant benefits and harms, and alternatives. The phrase 'what, if any, available input' permits a decision to withhold an input.",
+    "wouldChange": "An alternative with a better justified balance of relevant consequences would change the proposed action. That need not negate the goal of care or every possible benefit of the original input."
+  },
+  {
+    "id": "Q-005",
+    "target": "S-022",
+    "kind": "premise",
+    "question": "Why count this functional improvement as a benefit?",
+    "concern": "A description of how function changes does not by itself establish what should be valued.",
+    "response": "The Model makes its evaluative commitment explicit: context-appropriate functional improvement has value within the specified scope. This commitment can be examined independently of whether a measured change occurred.",
+    "wouldChange": "A persuasive reason to deny the value of qualifying improvement within that same scope would require revising this criterion and the benefit conclusions that use it."
+  },
+  {
+    "id": "Q-006",
+    "target": "S-005",
+    "kind": "scope",
+    "question": "Does a worthwhile goal establish that chiropractic can achieve it?",
+    "concern": "The legitimacy of an aim and the effectiveness of a means are separate questions.",
+    "response": "This statement identifies a professional aim. Claims about which inputs achieve it, in which circumstances, require their own reasoning and evidence.",
+    "wouldChange": "Evidence against a proposed means would require revising that means or its claimed effects. It would not, by itself, establish that the aim has no value."
+  }
+]

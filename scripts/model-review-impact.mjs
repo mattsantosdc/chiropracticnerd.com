@@ -136,6 +136,17 @@ export function buildSnapshot(sources, subjects) {
 		addUnit(`${oppositionPath}#${scenario.id}`, oppositionPath, scenario, targets, false);
 	}
 
+	const answerQuestionPath = 'src/data/model-answer-questions.json';
+	const answerQuestions = JSON.parse(sources[answerQuestionPath]);
+	if (!Array.isArray(answerQuestions)) throw new Error('Answer questions must be an array');
+	routed.add(answerQuestionPath);
+	for (const [position, question] of answerQuestions.entries()) {
+		exactKeys(question, ['id', 'question', 'statement'], answerQuestionPath);
+		targetExists(question.statement);
+		if (!question.statement.startsWith('S-')) throw new Error('An answer question must target a statement');
+		addUnit(`${answerQuestionPath}#${question.id}`, answerQuestionPath, { question, position }, [question.statement], false);
+	}
+
 	const reading = JSON.parse(sources[readingPath]);
 	exactKeys(reading, ['version', 'orientation', 'main', 'supporting'], readingPath);
 	routed.add(readingPath);

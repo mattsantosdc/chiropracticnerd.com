@@ -50,6 +50,7 @@ function fixture(t: { after: (callback: () => void) => void }) {
 	json('src/data/model-questions.json', [{ id: 'Q-001', target: 'S-001', question: 'Another explanation?' }]);
 	const reading = { version: '0.1', orientation: { id: 'guide', steps: [] }, main: [{ id: 'unrelated', title: 'Unrelated', steps: [{ kind: 'statement', id: 'S-005' }] }, { id: 'account', title: 'Account', steps: [{ kind: 'argument', id: 'ARG-002' }] }], supporting: [] };
 	json('src/data/model-reading-path.json', reading);
+	json('src/data/model-answer-questions.json', [{id:'purpose',question:'What is the aim?',statement:'S-005'}]);
 	json('reasoning/opposition-scenarios.json', { schemaVersion: 1, scenarios: [] });
 	json('reasoning/dependency-migration.json', { schemaVersion: 2, sourceBranch: 'model-v0.1', sourceCommit: 'test-only', relationships: [] });
 	const packet = collectInputs(root);
@@ -238,4 +239,14 @@ test('hypothetical scenarios review explicit assumptions and observed outcomes w
  assert.throws(() => collectInputs(f.root), /Unknown scenario question/);
  scenario.questions = ['Q-001']; scenario.expectedStatuses = {'S-999':'no-argument'}; write();
  assert.throws(() => collectInputs(f.root), /missing canonical target/);
+});
+
+
+test('answer question wording and retargeting review the named answers without creating inference edges', (t) => {
+ const f = fixture(t); const path = 'src/data/model-answer-questions.json';
+ f.json(path, [{id:'purpose',question:'A revised question?',statement:'S-001'}]);
+ assert.deepEqual(ids(f.plan()), ['S-001','S-005']);
+ assert.deepEqual(collectInputs(f.root).snapshot.edges, f.packet.snapshot.edges);
+ f.json(path, [{id:'purpose',question:'A revised question?',statement:'ARG-001'}]);
+ assert.throws(() => collectInputs(f.root), /must target a statement/);
 });

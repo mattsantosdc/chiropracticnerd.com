@@ -24,6 +24,10 @@ Run `npm run test:reasoning` and `npm run reasoning:pilot` alongside the existin
 
 The eight scenarios in `reasoning/opposition-scenarios.json` are explicitly hypothetical full-theory copies, checked by `reasoning/opposition.py`. They do not change working premise membership. Run all scenarios with the pilot; require explicit targets, assumptions and expected consequences. Do not turn a null result into the negation of an existential effect, or a failed case condition into a refutation of a conditional strategy.
 
+The user requested separate review of navigation work. Keep it on `model-v0.1-question-navigation`, branched from foundation commit `91c80e73d68f6652fd7b205d8770dabcfe4ef509`. Do not add navigation commits to `model-v0.1-aspic-foundation`. Compare the navigation branch against that foundation baseline so the reviews remain separate.
+
+Question-specific navigation is implemented in `docs/model-answer-views.md`. Navigation questions target exact canonical statements; they author no new answer prose or premise. Answer views follow all authored incoming applications and their joint premises, preserve independent ordinary-premise membership, and render shared statements once. They do not use semantic references as arguments or treat an unsupported leaf as an assumed premise. Keep downstream application details out of an upstream answer's reasoning. Full-theory evaluation, including admitted opposition, remains independent of the selected view. Reserve `/model/answers/` and preserve the original record/discussion routes. Local question wording changes receive local target review; shared resolver or renderer changes receive global review.
+
 ## Development
 
 When starting the dev server, use background mode:

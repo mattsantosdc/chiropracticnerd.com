@@ -228,3 +228,7 @@ Before finishing a change, verify that:
 - the semantic review in `reviews/model-review.json` covers the current exact inputs under [the review policy](model-review.md), and tests and the production build pass.
 
 The [v0.1 reasoning audit](model-v0.1-reasoning-audit.md) is the current worked example of applying this workflow without forcing deduction where it does not belong.
+
+## Questions as entrances
+
+Navigation prompts in `model-answer-questions.json` point to existing S-IDs and must fit their exact scope. Author no alternative answer prose there. The [answer-view contract](model-answer-views.md) preserves all incoming applications, joint premises and independent ordinary-premise membership. A display can omit downstream uses without changing the theory or its full evaluation. Keep empirical, normative and practical assumptions visible; lack of an authored concluding argument does not admit a premise automatically.

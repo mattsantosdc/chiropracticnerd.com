@@ -9,7 +9,10 @@ const python = process.env.REASONING_PYTHON || (existsSync(localPython) ? localP
 const mode = process.argv[2];
 if (!['test', 'pilot'].includes(mode) || process.argv.length !== 3) throw new Error('Usage: node scripts/reasoning.mjs test|pilot');
 const args = mode === 'test' ? ['-m', 'unittest', 'discover', '-s', 'reasoning', '-p', 'test_*.py', '-v'] : ['reasoning/run.py', '--output', 'reasoning/output'];
-const result = spawnSync(python, args, { cwd: root, stdio: 'inherit', timeout: 60000 });
+// The complete test suite runs many separately bounded evaluations. Its aggregate
+// budget is distinct from the pilot and the engine's per-evaluation limits.
+const timeout = mode === 'test' ? 180000 : 60000;
+const result = spawnSync(python, args, { cwd: root, stdio: 'inherit', timeout });
 if (result.error || result.signal) {
 	console.error(`Reasoning did not complete: ${result.error?.message || result.signal}. See docs/aspic-foundation.md for setup. No exact result is certified.`);
 }

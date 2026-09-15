@@ -116,6 +116,7 @@ test('canonical alternative content renders with explicit roles, signed claims a
 	writeFileSync(qPath, JSON.stringify(JSON.parse(readFileSync(qPath, 'utf8')).filter((q: any) => q.id !== 'Q-025')));
 	const withdrawn = await runFixtureBuild(root);
 	assert.equal(withdrawn.code, 0, withdrawn.output);
+	assert.doesNotMatch(withdrawn.output, /The collection "(?:alternatives|alternativeArguments)" does not exist or is empty/);
 	assert.match(text(read('alternatives')), /No formal alternative claims/);
 	assert.equal(nodes(read('alternatives')).filter((n) => attr(n, 'data-alternative-record')).length, 0);
 	assert.equal(nodes(read('philosophy/chiropractic-purpose')).filter((n) => attr(n, 'data-formal-opposition')).length, 0);
@@ -156,6 +157,7 @@ Test-only cyclic participation.
 `);
 	});
 	assert.equal(code, 0, output);
+	assert.doesNotMatch(output, /The collection "(?:alternatives|alternativeArguments)" does not exist or is empty/);
 	const { parse } = await import('parse5');
 	const page = parse(readFileSync(join(root, 'dist/model/index.html'), 'utf8'));
 	const nodes = (node: any): any[] => [node, ...(node.childNodes ?? []).flatMap(nodes)];

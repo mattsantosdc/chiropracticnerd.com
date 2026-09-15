@@ -7,6 +7,8 @@ import StatementMaterial from '../../components/model/StatementMaterial.astro';
 import ReasoningParticipation from '../../components/model/ReasoningParticipation.astro';
 import ReasoningHelp from '../../components/model/ReasoningHelp.astro';
 import CriticalQuestions from '../../components/model/CriticalQuestions.astro';
+import FormalOpposition from '../../components/model/FormalOpposition.astro';
+import { loadFormalOpposition } from '../../lib/load-opposition.ts';
 import Layout from '../../layouts/Layout.astro';
 import { modelIdentity } from '../../lib/site';
 import { getRelatedStatements } from '../../lib/statements.ts';
@@ -20,7 +22,8 @@ export async function getStaticPaths() {
 	return (await getCollection('statements')).map((entry) => ({ params: { slug: entry.data.slug }, props: { statementId: entry.data.id } }));
 }
 const [statements, argumentsList] = await Promise.all([getCollection('statements'), getCollection('arguments')]);
-const index = buildReasoningIndex(statements, argumentsList);
+const opposition = await loadFormalOpposition();
+const index = buildReasoningIndex(statements, argumentsList, opposition);
 const path = resolveReadingPath(config, index);
 const statement = index.statementsById.get(Astro.props.statementId)!;
 const { entry } = statement;
@@ -41,6 +44,7 @@ const related = getRelatedStatements(statements, entry.data.id);
 			<h2>Explanation and support</h2><StatementMaterial statement={statement} />
 		</article>
 		<CriticalQuestions target={entry.data.id} index={index} />
+		<FormalOpposition target={entry.data.id} corpus={opposition} />
 		<details class="model-disclosure revision-dependencies">
 			<summary>Revision relationships</summary>
 			<div class="disclosure-body">

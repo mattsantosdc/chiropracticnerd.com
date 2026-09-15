@@ -5,6 +5,7 @@ import { inferenceKinds } from './lib/arguments.ts';
 import { semanticUseRoles } from './lib/semantic-uses.ts';
 import { statementIdPattern } from './lib/identifiers.ts';
 import { isReservedStatementSlug } from './lib/statements.ts';
+import { canonicalGlob } from './lib/canonical-loader.ts';
 
 const referenceSchema = z.object({
 	title: z.string(),
@@ -28,7 +29,7 @@ const statementSchema = z
 			.string()
 			.regex(/^[a-z0-9]+(?:[/-][a-z0-9]+)*$/)
 			.refine((slug) => !isReservedStatementSlug(slug), {
-				message: 'The arguments and answers routes are reserved for Model views.',
+				message: 'The arguments, answers and alternatives routes are reserved for Model views.',
 			}),
 		title: z.string(),
 		statement: z.string(),
@@ -70,16 +71,14 @@ const statements = defineCollection({
 	schema: statementSchema,
 });
 
-const argumentsCollection = defineCollection({
-	loader: glob({ base: './src/content/model/arguments', pattern: '**/*.{md,mdx}' }),
-	schema: z
+const argumentSchema = (endpoint: typeof statementIdSchema) => z
 		.object({
 			id: z.string().regex(/^ARG-\d{3}$/),
 			slug: z.string().regex(/^[a-z0-9]+(?:[/-][a-z0-9]+)*$/),
 			title: z.string().trim().min(1),
 			summary: z.string().trim().min(1),
-			premises: z.array(statementIdSchema).min(1),
-			conclusion: statementIdSchema,
+			premises: z.array(endpoint).min(1),
+			conclusion: endpoint,
 			inferenceKind: z.enum(inferenceKinds),
 			scheme: z.string().trim().min(1),
 			version: z.literal('0.1'),
@@ -103,7 +102,21 @@ const argumentsCollection = defineCollection({
 					message: 'An argument cannot use its conclusion as a premise.',
 				});
 			}
-		}),
+		});
+
+const argumentsCollection = defineCollection({
+	loader: glob({ base: './src/content/model/arguments', pattern: '**/*.{md,mdx}' }),
+	schema: argumentSchema(statementIdSchema),
+});
+
+// Collection membership records adoption, never premise membership or acceptance.
+const alternatives = defineCollection({
+	loader: canonicalGlob('./src/content/model/alternatives'),
+	schema: statementSchema,
+});
+const alternativeArguments = defineCollection({
+	loader: canonicalGlob('./src/content/model/alternative-arguments'),
+	schema: argumentSchema(z.string().regex(/^-?S-\d{3}$/)),
 });
 
 const articles = defineCollection({
@@ -117,4 +130,4 @@ const articles = defineCollection({
 	}),
 });
 
-export const collections = { arguments: argumentsCollection, articles, statements };
+export const collections = { arguments: argumentsCollection, articles, statements, alternatives, alternativeArguments };

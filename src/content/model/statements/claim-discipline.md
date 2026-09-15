@@ -15,7 +15,7 @@ semanticUses:
     note: S-002 operationalizes S-001's division of labor by requiring support and evaluation appropriate to each kind of claim.
 related: []
 version: '0.1'
-updated: 2026-09-08
+updated: 2026-09-15
 ---
 
 ## Three separate evaluations
@@ -34,7 +34,7 @@ Because empirical premises are commonly uncertain, an argument must not be descr
 
 A definition stipulates or clarifies meaning; it does not prove that the defined phenomenon exists. An empirical claim is answerable to observation. A value judgment identifies what matters or ought to be pursued without masquerading as a scientific result. A strategy proposes what to do and remains open to revision even when its background science is strong. A mixed claim must expose its different parts rather than borrow support across categories.
 
-Every statement therefore carries a stable ID, statement type, confidence, version, revision conditions where applicable, and explicit dependencies. Inclusion in a version identifies the Model's current working position; it does not establish empirical truth or evidential strength. An unresolved claim can be an adopted working claim. Structured arguments record the Model's current inferential routes separately, with their reasoning and premise support open to examination. Supporting prose should distinguish direct evidence, defeasible scientific inference, logical consequence, practical observation, and speculation whenever that distinction matters.
+Every statement therefore carries a stable ID, statement type, confidence, version, and relevant references and revision conditions. The Model's working statements and arguments identify its adopted account; adoption does not establish empirical truth or evidential strength. An unresolved claim can be an adopted working claim. Recorded alternatives are presented separately for examination; recording a position does not adopt it or make it a starting assumption. Structured arguments expose the inferential routes, with their reasoning and premise support open to examination. Supporting prose should distinguish direct evidence, defeasible scientific inference, logical consequence, practical observation, and speculation whenever that distinction matters.
 
 ## Conflicts clarify
 

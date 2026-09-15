@@ -44,6 +44,8 @@ Whole-file fingerprints still account for every exact source after newline norma
 
 ## Previous and current graphs
 
+Alternative Markdown files are canonical review subjects. `reasoning/opposition-bindings.json` is split into exact statement/application units, additional premise-admission units and undercut-designation units. Admissions seed the referenced statement, including its negation paths. Undercut changes seed both the challenging proposition and the targeted application; removed designations retain their former influence. The additional formal signature is global. Both canonical and temporarily divergent binding endpoints contribute review edges, while actual evaluation rejects drift. The public context uses the same support, contradiction, transposition and undercut/defense relationships.
+
 The saved snapshot preserves previous subject identities, input-unit fingerprints and typed edges. `--plan` compares it with the current snapshot, seeds changed/added/removed units and relationships, then walks the union of both graphs. It reports explanatory routes and labels each edge as previous, current or both. Deleting a dependency or argument therefore cannot erase its former impact from the plan. Retargeting checks both former and new participants. Removed record paths remain explicit cleanup items.
 
 ## Per-record bases and provenance

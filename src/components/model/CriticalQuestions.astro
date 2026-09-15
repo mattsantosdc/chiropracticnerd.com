@@ -2,11 +2,13 @@
 import questionData from '../../data/model-questions.json';
 import { validateQuestions } from '../../lib/questions.ts';
 import type { ReasoningIndex } from '../../lib/reasoning.ts';
-interface Props { target: string; index: ReasoningIndex; namespace?: string }
-const { target, index, namespace } = Astro.props;
+import { loadFormalOpposition } from '../../lib/load-opposition.ts';
+interface Props { target: string; index?: ReasoningIndex; namespace?: string }
+const { target, namespace } = Astro.props;
 const headingId = namespace ? `${namespace}--questions-heading` : 'questions-heading';
 const questionId = (id: string) => namespace ? `${namespace}--${id.toLowerCase()}` : id.toLowerCase();
-const questions = validateQuestions(questionData, new Set(index.statementsById.keys()), new Set(index.argumentsById.keys()))
+const corpus = await loadFormalOpposition();
+const questions = validateQuestions(questionData, new Set(corpus.statements.keys()), new Set(corpus.argumentsById.keys()))
 	.filter((question) => question.target === target);
 ---
 {questions.length > 0 && <section class="critical-questions" aria-labelledby={headingId}>

@@ -30,6 +30,8 @@ A causal hypothesis is an empirical claim requiring suitable evidence and altern
 
 ## Argument record contract
 
+Recorded alternative applications use `src/content/model/alternative-arguments/` with the same fields and globally unique ARG-IDs. Their premise and conclusion endpoints can name either corpus and can use `-S-###` for the exact classical negation of a complete proposition. They enter full evaluation through exact bindings without automatically admitting their premises. The [objection contract](objection-authoring.md) defines additional premise admissions and named defeasible-application undercutters. These applications can challenge or defend either side; working adoption is separate from formal acceptance.
+
 Each Markdown record contains:
 
 - a permanent `ARG-###` `id` that is independent of its mutable route `slug`;

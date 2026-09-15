@@ -24,7 +24,7 @@ References must resolve, have a known role and a nonblank note, and cannot be se
 
 `revisionReach` returns finite review candidates, not accepted arguments or changed truth values. `scripts/model-review-impact.mjs` uses this graph and the union of previous and current relationships for review invalidation. `reasoning.engine.impact` implements the same formal influence rules; cross-runtime tests compare their reach for every working statement. The Python theory has no semantic-use evidence or assumptions because those references do not participate in inference.
 
-The public detail page shows argument participation, additional references, and a derived list of statements to reconsider. The current working theory has no admitted formal undercutters. Separately labeled opposition scenarios supply their own explicit hypothetical assumptions and undercuts, and are evaluated in full. They never become working-theory edges merely by being displayed or recorded. A reading path does not filter an evaluation.
+The public detail page shows argument participation, additional references, and a derived list of statements to reconsider. Formal undercutters are supplied by `reasoning/opposition-bindings.json`; the initial empty configuration admits none. The shared review and public context include every recorded alternative application and admitted attack. Separately labeled opposition scenarios supply their own explicit hypothetical assumptions and undercuts, and are evaluated in full. They never become working-theory edges merely by being displayed or recorded. A reading path does not filter an evaluation.
 
 ## Completed migration
 

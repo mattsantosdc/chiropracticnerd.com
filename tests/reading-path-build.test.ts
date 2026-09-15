@@ -21,6 +21,10 @@ async function buildFixture(t: { after: (callback: () => void) => void }, config
 	}
 	symlinkSync(join(process.cwd(), 'node_modules'), join(root, 'node_modules'), 'dir');
 	configure(root);
+	return runFixtureBuild(root);
+}
+
+function refreshFixtureReview(root: string) {
 	const packet = collectInputs(root);
 	// Synthetic bookkeeping only in this disposable fixture: not a semantic approval.
 	const review = {
@@ -44,6 +48,10 @@ async function buildFixture(t: { after: (callback: () => void) => void }, config
 	};
 	writeFileSync(join(root, reviewPath), JSON.stringify(review));
 	assert.deepEqual(checkReview(packet, review), []);
+}
+
+async function runFixtureBuild(root: string) {
+	refreshFixtureReview(root);
 	// File-backed output also works in environments that intercept child-process pipes.
 	const logPath = join(root, 'build.log');
 	const log = openSync(logPath, 'w');
@@ -65,6 +73,53 @@ async function buildFixture(t: { after: (callback: () => void) => void }, config
 	assert.doesNotMatch(output, /Stale reviewed input|Missing reviewed input/);
 	return { root, code, output };
 }
+
+test('canonical alternative content renders with explicit roles, signed claims and admission context', async (t) => {
+	const { root, code, output } = await buildFixture(t, (root) => {
+		const statement = { id: 'S-033', slug: 'synthetic-purpose-exception', title: 'Synthetic purpose exception', statement: 'The purpose inference is inapplicable under this test stipulation.', summary: 'An isolated test proposition, not a clinical claim.', domain: 'framework', statementType: 'framework', confidence: 'not-applicable', order: 100, semanticUses: [{ id: 'S-029', role: 'normative', note: 'The test exception uses the purpose principle without negating it.' }], related: ['S-005'], version: '0.1', updated: '2026-09-15', references: [{ title: 'Synthetic source label', url: 'https://example.org/test-only', kind: 'foundational', note: 'Test source note.' }], whatWouldChange: 'Revising the test assumptions.' };
+		const argument = { id: 'ARG-011', slug: 'synthetic-purpose-defense', title: 'Synthetic purpose defense', summary: 'An isolated test route.', premises: ['-S-033'], conclusion: 'S-005', inferenceKind: 'defeasible', scheme: 'synthetic test rule', version: '0.1', updated: '2026-09-15' };
+		for (const [directory, data] of [['alternatives', statement], ['alternative-arguments', argument]] as const) writeFileSync(join(root, `src/content/model/${directory}/${data.id}.md`), `---\n${JSON.stringify(data)}\n---\n## Boundary\nSynthetic test content only.\n`);
+		writeFileSync(join(root, 'reasoning/opposition-bindings.json'), JSON.stringify({ schemaVersion: 1, signature: '(declare-fun S-033 () Bool)', statements: { 'S-033': { text: statement.statement, formula: 'S-033', representation: 'opaque-proposition' } }, applications: { 'ARG-011': Object.fromEntries(['premises', 'conclusion', 'inferenceKind', 'scheme'].map((key) => [key, argument[key]])) }, ordinaryPremises: [{ literal: 'S-033', rationale: 'This is an isolated test assumption.' }], undercutters: [{ statement: 'S-033', rule: 'ARG-008', rationale: 'A test challenge to the purpose inference.' }] }));
+		const qPath = join(root, 'src/data/model-questions.json');
+		const questions = JSON.parse(readFileSync(qPath, 'utf8'));
+		questions.push({ id: 'Q-025', target: 'S-033', kind: 'premise', question: 'Does the test exception hold?', concern: 'A test concern.', response: 'This is stipulated only in the test.', wouldChange: 'Reconsider the stipulation.' });
+		writeFileSync(qPath, JSON.stringify(questions));
+	});
+	assert.equal(code, 0, output);
+	const { parse } = await import('parse5');
+	const nodes = (node: any): any[] => [node, ...(node.childNodes ?? []).flatMap(nodes)];
+	const text = (node: any): string => node.nodeName === '#text' ? node.value : (node.childNodes ?? []).map(text).join('');
+	const attr = (node: any, key: string) => node.attrs?.find((a: any) => a.name === key)?.value;
+	const read = (path: string) => parse(readFileSync(join(root, 'dist/model', path, 'index.html'), 'utf8'));
+	const alternatives = read('alternatives');
+	assert.match(text(alternatives), /It is not the case that: The purpose inference/);
+	for (const value of ['Recorded alternative', 'Synthetic source label', 'Test source note.', 'Revising the test assumptions.', 'Does the test exception hold?', 'The test exception uses the purpose principle without negating it.']) assert.ok(text(alternatives).includes(value), value);
+	assert.deepEqual(nodes(alternatives).filter((n) => attr(n, 'data-alternative-record')).map((n) => attr(n, 'data-alternative-record')), ['S-033', 'ARG-011']);
+	for (const path of ['philosophy/chiropractic-purpose', 'answers/philosophy/chiropractic-purpose', 'arguments/functional-benefit-as-professional-aim']) {
+		const page = read(path);
+		assert.ok(nodes(page).some((n) => attr(n, 'data-formal-opposition')));
+		assert.ok(nodes(page).some((n) => attr(n, 'href') === '/model/alternatives/#s-033'));
+		assert.match(text(page), /This is an isolated test assumption/);
+	}
+	assert.equal(nodes(read('science/actual-chiropractic-benefit')).filter((n) => attr(n, 'data-formal-opposition')).length, 0);
+	assert.equal(nodes(read('')).filter((n) => attr(n, 'data-statement-id') === 'S-033').length, 0);
+	for (const page of [alternatives, read('answers/philosophy/chiropractic-purpose')]) {
+		const ids = nodes(page).map((n) => attr(n, 'id')).filter(Boolean);
+		assert.equal(new Set(ids).size, ids.length);
+	}
+	// Optional local visual inspection of this isolated fixture, never canonical content.
+	if (process.env.MODEL_OPPOSITION_FIXTURE_OUTPUT) cpSync(join(root, 'dist'), process.env.MODEL_OPPOSITION_FIXTURE_OUTPUT, { recursive: true });
+	// Reuse the populated content cache when withdrawing the final alternative.
+	for (const path of ['alternatives/S-033.md', 'alternative-arguments/ARG-011.md']) rmSync(join(root, 'src/content/model', path));
+	writeFileSync(join(root, 'reasoning/opposition-bindings.json'), JSON.stringify({ schemaVersion: 1, signature: '', statements: {}, applications: {}, ordinaryPremises: [], undercutters: [] }));
+	const qPath = join(root, 'src/data/model-questions.json');
+	writeFileSync(qPath, JSON.stringify(JSON.parse(readFileSync(qPath, 'utf8')).filter((q: any) => q.id !== 'Q-025')));
+	const withdrawn = await runFixtureBuild(root);
+	assert.equal(withdrawn.code, 0, withdrawn.output);
+	assert.match(text(read('alternatives')), /No formal alternative claims/);
+	assert.equal(nodes(read('alternatives')).filter((n) => attr(n, 'data-alternative-record')).length, 0);
+	assert.equal(nodes(read('philosophy/chiropractic-purpose')).filter((n) => attr(n, 'data-formal-opposition')).length, 0);
+});
 
 test('production overview rejects a malformed path even after fixture review freshness passes', async (t) => {
 	const { code, output } = await buildFixture(t, (root) => {

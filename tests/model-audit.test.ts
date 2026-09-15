@@ -23,6 +23,7 @@ function reviewed(packet: any): any {
 }
 function fixture(t: { after: (callback: () => void) => void }) {
 	const root = mkdtempSync(join(tmpdir(), 'model-audit-test-'));
+	for (const directory of ['alternatives', 'alternative-arguments']) mkdirSync(join(root, 'src/content/model', directory), { recursive: true });
 	t.after(() => rmSync(root, { recursive: true }));
 	const put = (path: string, text: string) => { mkdirSync(dirname(join(root, path)), { recursive: true }); writeFileSync(join(root, path), text); };
 	const json = (path: string, data: any) => put(path, JSON.stringify(data));
@@ -52,6 +53,7 @@ function fixture(t: { after: (callback: () => void) => void }) {
 	json('src/data/model-reading-path.json', reading);
 	json('src/data/model-answer-questions.json', [{id:'purpose',question:'What is the aim?',statement:'S-005'}]);
 	json('reasoning/opposition-scenarios.json', { schemaVersion: 1, scenarios: [] });
+	json('reasoning/opposition-bindings.json', { schemaVersion: 1, signature: '', statements: {}, applications: {}, ordinaryPremises: [], undercutters: [] });
 	json('reasoning/dependency-migration.json', { schemaVersion: 2, sourceBranch: 'model-v0.1', sourceCommit: 'test-only', relationships: [] });
 	const packet = collectInputs(root);
 	const review = reviewed(packet);

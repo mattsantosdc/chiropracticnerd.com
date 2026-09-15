@@ -47,7 +47,7 @@ test('statement classification enums and empirical requirements are preserved', 
 });
 
 test('real collections load independently and completely from the canonical sibling directories', () => {
-	assert.deepEqual(Object.keys(collections).sort(), ['arguments', 'articles', 'statements']);
+	assert.deepEqual(Object.keys(collections).sort(), ['alternativeArguments', 'alternatives', 'arguments', 'articles', 'statements']);
 	for (const [name, records] of [['statements', statements], ['arguments', argumentsList]] as const) {
 		const paths = markdownPaths(`src/content/model/${name}`);
 		assert.ok(paths.length > 0);

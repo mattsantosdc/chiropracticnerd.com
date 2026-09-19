@@ -6,7 +6,7 @@ The Model adopts an explicitly configured ASPIC+ foundation. The merged implemen
 
 The canonical relationship migration and the [substantive opposition audit](model-opposition-audit.md) are complete for the present records. Arguments supply inference paths, and `semanticUses` preserves additional references; legacy relationship fields are rejected. This does not claim complete logical formalization of every English statement, an exhaustive opposing corpus or empirical verification. The [migration assessment](aspic-migration.md) records the dispositions and remaining limits.
 
-The user has merged the original transition into `main`. Follow-up work starts on a separate branch from current `main` and targets `main` for manual user review and merge. The formal-opposition authoring branch is based on `76c12ed7daa0a85df9c77f4cd12e2c4e95211082`.
+The user has merged the original transition into `main`. Follow-up work starts on a separate branch from current `main` and targets `main` for manual user review and merge, unless Matt specifies another base. The formal-opposition authoring branch is based on `76c12ed7daa0a85df9c77f4cd12e2c4e95211082`. The original foundation branch was based on `bed3268155100f4a2d94354a3a38dca07a5b03d7`; these references record history rather than the base for new work.
 
 ## Fixed evaluation profile
 
@@ -69,7 +69,7 @@ The formal vocabulary has these meanings:
 | `NeuromotorOrganization(e)` | A change concerning organization of neuromotor control or coordination |
 | `Reorganization(e)` | The conjunction specified through S-024 |
 | `Adjustment(e)` | Reorganization caused by an actual chiropractic input, under S-024 |
-| `FunctionalScope`, `Context`, `Interval` | Identified comparison dimensions; these are abstract domains, not claims of clinical events |
+| `FunctionalScope`, `Context`, `Interval` | Identified comparison dimensions; these are abstract domains, not claims of events in practice |
 | `Neuromotor(s)` | The specified scope is neuromotor; its domain is already a functional scope |
 | `Improves(e,s,c,t)` | The full S-021 contextual comparison, including relevant gains and losses, not merely an improved test score |
 | `Benefit(e,s,c,t)` | The scoped value attribution supplied by S-022 |
@@ -97,7 +97,7 @@ The rationality argument for the supported profile relies on no axioms, a symmet
 
 Follow [objection-authoring.md](objection-authoring.md). The 24 public questions target actual claims and inferential boundaries without attributing errors to other practitioners. They are canonical editorial content in `src/data/model-questions.json`, displayed on their target detail pages.
 
-A question does not assert its suggested alternative as true. A scope boundary need not defeat a correctly limited argument. A formal attacker needs a proposition, an explicitly declared role in a theory, and support under that theory. The pilot's synthetic counterarguments exercise undermining, rebutting and undercutting; they are not adopted clinical propositions.
+A question does not assert its suggested alternative as true. A scope boundary need not defeat a correctly limited argument. A formal attacker needs a proposition, an explicitly declared role in a theory, and support under that theory. The pilot's synthetic counterarguments exercise undermining, rebutting and undercutting; they are not adopted propositions about chiropractic practice.
 
 The runtime permits `working-claim`, `alternative` and `hypothetical` corpus roles. Canonical alternatives and their applications now have separate Markdown collections, reusing statement and argument schemas and permanent IDs. `reasoning/opposition-bindings.json` binds their exact text and applications and separately declares additional starting premises and named undercutters, each with a rationale. The loader composes the full theory before validation and evaluation. A negative endpoint is the exact classical negation of a named proposition; it is not inferred from prose. Strict alternative applications receive the same proof checks, transposition and cycle restrictions as working applications. Reports fingerprint both binding files as well as canonical source records.
 

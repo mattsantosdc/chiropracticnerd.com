@@ -16,7 +16,7 @@ This checklist separates completion of a capability from empirical support for t
 | Demonstrated interoperability with an independent AIF consumer | Pending; next standards integration task |
 | Public linked-data/provenance/evidence export | Deliberately deferred; see standards-contract.md |
 
-The formal-opposition milestone does not change the ASPIC+ evaluation profile, adopt new clinical counterclaims, upgrade empirical confidence or certify unrestricted framework conformance. The supported profile has legitimate explicit limits. Seven quantified representations cover the current three strict deductions; opaque propositions elsewhere do not claim machine-checked internal English semantics.
+The formal-opposition milestone does not change the ASPIC+ evaluation profile, adopt new counterclaims about chiropractic practice, upgrade empirical confidence or certify unrestricted framework conformance. The supported profile has legitimate explicit limits. Seven quantified representations cover the current three strict deductions; opaque propositions elsewhere do not claim machine-checked internal English semantics.
 
 The next standards milestone should version the AIF interchange contract, provide machine-checkable compatibility fixtures, and demonstrate an independent consumer preserving the supported relationships and required semantics. The current importer recovers its embedded project theory and checks the graph against it; that round trip alone does not establish external compatibility.
 

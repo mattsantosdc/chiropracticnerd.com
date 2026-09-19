@@ -40,6 +40,14 @@ astro dev --background
 
 Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
 
+## Author's practice and conceptual context
+
+Before changing Model statements, arguments, explanations, terminology, or practice examples, read [the author's context](docs/author-context.md) alongside the existing Model authoring requirements. It records Matt Santos's intended account of chiropractic, muscle-palpation analysis, state-dependent opportunities, and proposed neuroadaptive mechanisms.
+
+Keep authorial intent, reported observations, interpretations, mechanistic hypotheses, and established evidence distinct. The context supplies no formal premises or validation of assessment and application methods. Flag differences from the canonical Model explicitly; follow Matt's current instructions without silently changing his account or the Model's scope. Exploratory details remain exploratory.
+
+Use practice-oriented wording such as “practice,” “practitioner,” “observations in practice,” and “assessment and application,” choosing the term that fits the meaning. Preserve exact source titles and quotations. A wording preference does not itself justify changing a canonical proposition's scope or meaning.
+
 ## Model authoring
 
 The default method is: **build the reasoning first; test the empirical premises second.** Start with the proposed conclusion, then expose every premise it requires and inspect the statement types, scope, modality, and inference. Where deductive necessity is claimed, verify that the conclusion must follow from the premises exactly as written. Keep inherently inductive, abductive, causal, mechanistic, normative, and practical reasoning defeasible.

@@ -10,6 +10,8 @@ Shared names and authorship live in `src/lib/site.ts`. A brief acknowledgment of
 [Stage 1 migration](docs/statements-stage-1-migration.md) records the authorized identifier and
 discussion-key changes separately from the earlier domain-ID migration.
 
+The [author's practice and conceptual context](docs/author-context.md) records Matt's intended neuroadaptive account, reported observations, working terminology, and exploratory mechanisms. Read it alongside the Model authoring guidance; it supplies context without adding formal premises or establishing empirical support.
+
 ## Core reasoning method
 
 **Build the reasoning first. Test the empirical premises second.** For any proposed conclusion, the Model first exposes the premises it would require, along with their scope and modality, and makes the inferential route inspectable. Where deduction is claimed, the conclusion must necessarily follow from the premises exactly as written. Inductive, abductive, causal, mechanistic, normative, and practical reasoning may appropriately remain defeasible.
@@ -116,6 +118,6 @@ After creating the FastComments account, configure these items manually in the F
 
 See [the foundation contract](docs/aspic-foundation.md) for the exact profile, supported language, engine adapter, limitations and setup. Create `.venv-reasoning` and install `reasoning/requirements.txt`, then run `npm run test:reasoning` and `npm run reasoning:pilot` alongside the existing Model review, tests and build. The static website does not require a Python runtime.
 
-[Questions and alternative explanations](docs/objection-authoring.md) have a separate authoring contract. [The migration assessment](docs/aspic-migration.md) records the completed retirement of legacy dependency fields and the retained semantic uses. All transition work branches from `model-v0.1`; pull requests target that branch and remain unmerged until reviewed with the user.
+[Questions and alternative explanations](docs/objection-authoring.md) have a separate authoring contract. [The migration assessment](docs/aspic-migration.md) records the completed retirement of legacy dependency fields and the retained semantic uses. Follow-up work branches from current `main`; pull requests target `main` and remain unmerged for manual user review, unless Matt specifies another base.
 
 The assessment/application relationship uses ARG-010 with the explicit normative premise S-032. Application remains conditional on a warranted input, and S-028 guides the proposed mechanism without serving as a required premise of that strategy. The relationship decisions and canonical schema migration are complete. The [substantive opposition audit](docs/model-opposition-audit.md) covers all current records, adds six questions for a total of 24, and specifies eight hypothetical scenarios evaluated without changing the working account. Unresolved empirical and normative questions remain explicit.

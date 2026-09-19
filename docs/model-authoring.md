@@ -2,6 +2,12 @@
 
 This is the primary workflow for humans and coding agents changing statements or structured arguments. The [ASPIC+ foundation](aspic-foundation.md), [objection contract](objection-authoring.md), and [migration assessment](aspic-migration.md) also govern the current transition. Read it together with the [dependency model](dependency-model.md), [argument model](argument-model.md), [standards contract](standards-contract.md), and [visualization plan](visualization-plan.md) before editing canonical content.
 
+## Author context and terminology
+
+Read [the author's practice and conceptual context](author-context.md) before changing Model content, explanations, terminology, or practice examples. Use it to represent Matt's account faithfully while evaluating its support independently. The canonical collections still identify the adopted working account; reported observations, exploratory mechanisms, and open author-context questions supply no additional formal premises or established evidence. Identify any conflict explicitly before making a semantic change.
+
+Prefer practice-oriented descriptions: observations in practice, practitioner judgment, assessment methods, and predictions about an input's response. Choose wording by meaning rather than applying a single replacement mechanically. Preserve exact source titles and quotations. Terminology edits must retain the distinction between an observation, its interpretation, a proposed mechanism, and evidence of benefit.
+
 ## Canonical building blocks
 
 The Model is the complete account. It is a network with question-specific conclusions and no required global entry or exit. Its building blocks are statements and arguments. A statement
@@ -76,7 +82,7 @@ Distinguish motor performance from the neural activity supporting it. Shared neu
 
 S-012, S-013, S-030 and S-031 are explicitly admitted empirical premises with unresolved confidence. The existing schema can represent them without a new causal-edge type or a forced inference. No current argument derives the chiropractic-specific likelihood or broader benefit from local improvement and connectivity. A future argument using S-011 must add independently defensible propagation and outcome bridges for the same cases. A likelihood of change does not entail a beneficial occurrence. Keep physiological feedback separate from the direction of inferential justification.
 
-Regional neurophysiology can guide a prospective outcome choice or comparative prediction, such as cervical input and vestibular integration. It does not prove an intervention effect, a cervical-versus-lumbar ranking, or a guaranteed non-motor benefit. Historical illustrations and clinical observations can motivate questions without becoming unexamined mechanism premises.
+Regional neurophysiology can guide a prospective outcome choice or comparative prediction, such as cervical input and vestibular integration. It does not prove an intervention effect, a cervical-versus-lumbar ranking, or a guaranteed non-motor benefit. Historical illustrations and observations in practice can motivate questions without becoming unexamined mechanism premises.
 
 S-013 proposes motor-related neural change as the predominant mediator of broader effects, independently of local improvement, general connectivity, or likely spread. Central influence and motor-dependent proprioceptive feedback are candidate downstream routes; their relative contributions remain open. Compare pathways through the specified mediator with pathways bypassing it, without double-counting nested steps. Initial sensory activity can precede the circuit change. Do not identify the mediator from tone alone, expand motor-related to cover any observed neural change, or supply an untested route allocation.
 

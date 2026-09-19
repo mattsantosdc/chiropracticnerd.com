@@ -63,7 +63,7 @@
       "representation": "opaque-proposition"
     },
     "S-008": {
-      "text": "Neuromotor function varies with the person's state, task, and environment; in some circumstances, the available motor strategies are limited or poorly suited to current demands.",
+      "text": "Neuromotor function changes with a person’s state, task, and environment. In some circumstances, the motor strategies available to the person are limited or poorly matched to current demands.",
       "formula": "P-S-008",
       "representation": "opaque-proposition"
     },

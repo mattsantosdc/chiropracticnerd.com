@@ -1,4 +1,5 @@
 ---
+import ModelProse from './ModelProse.astro';
 import questionData from '../../data/model-questions.json';
 import { validateQuestions } from '../../lib/questions.ts';
 import type { ReasoningIndex } from '../../lib/reasoning.ts';
@@ -15,11 +16,11 @@ const questions = validateQuestions(questionData, new Set(corpus.statements.keys
 	<h2 id={headingId}>Questions and alternative explanations</h2>
 	<p>These questions help clarify what the account establishes, where it remains open, and what could change it.</p>
 	{questions.map((item) => <details class="model-disclosure" id={questionId(item.id)} data-question-id={item.id}>
-		<summary>{item.question}</summary>
+		<summary><ModelProse>{item.question}</ModelProse></summary>
 		<div class="disclosure-body">
-			<p>{item.concern}</p>
-			<p>{item.response}</p>
-			<p><strong>What would change:</strong> {item.wouldChange}</p>
+			<p><ModelProse>{item.concern}</ModelProse></p>
+			<p><ModelProse>{item.response}</ModelProse></p>
+			<p><strong>What would change:</strong> <ModelProse>{item.wouldChange}</ModelProse></p>
 		</div>
 	</details>)}
 </section>}

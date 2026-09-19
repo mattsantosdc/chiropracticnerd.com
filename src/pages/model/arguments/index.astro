@@ -1,4 +1,5 @@
 ---
+import ModelProse from '../../../components/model/ModelProse.astro';
 import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 import { modelIdentity } from '../../../lib/site';
@@ -38,17 +39,17 @@ validateArguments(argumentsList, entries);
 				const conclusion = byStatementId.get(argument.data.conclusion)!;
 				return (
 					<article class="card">
-						<a class="card-link" href={`/model/arguments/${argument.data.slug}/`}>
+						<div class="card-link">
 							<div class="meta-row">
 								<span>{argument.data.id}</span>
 								<span class="pill">{argument.data.inferenceKind}</span>
 							</div>
-							<h2>{argument.data.title}</h2>
-							<p>{argument.data.summary}</p>
-						</a>
+							<h2><a href={`/model/arguments/${argument.data.slug}/`}>{argument.data.title}</a></h2>
+							<p><ModelProse>{argument.data.summary}</ModelProse></p>
+						</div>
 						<div class="argument-links">
 							{argument.data.premises.length} premise{argument.data.premises.length === 1 ? '' : 's'}
-							{' '}→ <a href={`/model/${conclusion.data.slug}/`}>{conclusion.data.id}</a>
+							{' '}→ <a href={`/model/${conclusion.data.slug}/`}>{conclusion.data.title}</a>
 						</div>
 					</article>
 				);

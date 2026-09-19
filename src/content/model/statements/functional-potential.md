@@ -12,7 +12,7 @@ order: 10
 semanticUses: []
 related: []
 version: '0.1'
-updated: 2026-09-12
+updated: 2026-09-19
 whatWouldChange: >-
   Reconsider this commitment if open-ended potential cannot be stated coherently without implying unlimited capacity or a guaranteed opportunity for improvement at every moment.
 ---
@@ -23,7 +23,7 @@ The Model adopts a philosophical commitment about how to regard human possibilit
 
 “Open-ended” means that the framework does not identify a final state of completed human function from health or symptom status alone. It does not mean limitless performance, inevitable progress, or freedom from biological constraints. This is a framework commitment, not a finding established by an empirical study. Claims about particular capacities or interventions must be tested separately.
 
-ARG-005 gives this commitment a defeasible biological rationale through active organismic organization and context-dependent neural regulation. Those premises motivate keeping functional possibilities open across changing circumstances; they do not prove that a better feasible strategy or an actionable improvement exists for a person now.
+[The biological rationale for open-ended potential](/model/arguments/regulatory-rationale-for-functional-potential/) gives this commitment a defeasible biological rationale through active organismic organization and context-dependent neural regulation. Those premises motivate keeping functional possibilities open across changing circumstances; they do not prove that a better feasible strategy or an actionable improvement exists for a person now.
 
 ## Boundary
 

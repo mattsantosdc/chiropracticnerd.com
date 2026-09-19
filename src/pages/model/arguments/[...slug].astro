@@ -25,7 +25,7 @@ const { data } = step.argument.entry;
 	<div class="model-reader argument-detail">
 		<p class="eyebrow">{modelIdentity.name} · Reasoning · v{data.version}</p>
 		<h1>{data.title}</h1>
-		<p><a href={readingHref(step.location, false)}>Read {data.id} in the Model</a> · <a href="/model/arguments/">All argument records</a></p>
+		<p><a href={readingHref(step.location, false)}>Read this argument in the Model</a> · <a href="/model/arguments/">All argument records</a></p>
 		<ArgumentStep step={step} index={index} path={path} integrated={false} />
 		<CriticalQuestions target={data.id} index={index} />
 		<FormalOpposition target={data.id} />

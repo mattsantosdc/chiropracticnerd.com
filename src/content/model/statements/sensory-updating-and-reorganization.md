@@ -19,7 +19,7 @@ semanticUses:
 related:
   - S-010
 version: '0.1'
-updated: 2026-09-12
+updated: 2026-09-19
 references:
   - title: Adaptive representation of dynamics during learning of a motor task
     url: https://doi.org/10.1523/JNEUROSCI.14-05-03208.1994
@@ -31,7 +31,7 @@ whatWouldChange: >-
 
 ## Updating estimates and changing strategies
 
-The estimates concern relevant conditions of the body and environment, as described in S-018. **Neuromotor function** and **motor strategy** retain the meanings defined in S-008. Updating an estimate concerns the conditions used in regulation; changing a strategy concerns the pattern of muscle activation and coordination. One does not automatically establish the other.
+The estimates concern relevant conditions of the body and environment, as described in [the sensory-information account](/model/science/information-in-neural-regulation/). **Neuromotor function** and **motor strategy** retain the meanings defined in [the state-dependent motor-control claim](/model/science/state-dependent-neuromotor-function/). Updating an estimate concerns the conditions used in regulation; changing a strategy concerns the pattern of muscle activation and coordination. One does not automatically establish the other.
 
 Incoming sensory information participates in ordinary regulation and learning. The proposition does not say that every signal changes an estimate or that every updated estimate changes a strategy. “Can lead” asserts a capacity for sensory information to contribute to reorganization under suitable conditions, not a guaranteed response to novelty. A proposed mechanism must specify those conditions before judging its success.
 
@@ -43,6 +43,6 @@ This task does not isolate new sensory information from practice and mechanical 
 
 ## Boundary
 
-S-010 proposes the more specific capacity of a sufficiently salient neurobiomechanical perturbation to prompt reevaluation and reorganization. Ordinary sensory updating does not require that perturbation, and the present claim does not establish its salience conditions or mechanism. The two statements carry separate empirical burdens.
+[The general perturbation account](/model/science/salient-perturbation/) proposes the more specific capacity of a sufficiently salient neurobiomechanical perturbation to prompt reevaluation and reorganization. Ordinary sensory updating does not require that perturbation, and the present claim does not establish its salience conditions or mechanism. The two statements carry separate empirical burdens.
 
-New information need not be better information. Reorganization can be neutral, transient, or harmful, and retaining a response does not prove that it is beneficial. S-009's beneficial modification and S-011's chiropractic effects remain additional empirical commitments.
+New information need not be better information. Reorganization can be neutral, transient, or harmful, and retaining a response does not prove that it is beneficial. [The beneficial-modification claim](/model/science/neuromotor-opportunity/) and [the chiropractic-effect claim](/model/science/chiropractic-inputs/) remain additional empirical commitments.

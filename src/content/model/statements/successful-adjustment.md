@@ -31,7 +31,7 @@ An adjustment without qualifying improvement is not successful in this sense. If
 
 ## What success does and does not establish
 
-ARG-006 uses this definition and S-022's value premise to conclude S-026: successful adjustments provide the corresponding functional benefit. This is analytic given that value premise. It provides no evidence that any successful adjustment occurs; S-011 separately asserts that some inputs cause qualifying reorganization and improvement.
+[The argument from success to benefit](/model/arguments/success-and-benefit/) uses this definition and [the value premise](/model/philosophy/functional-benefit-criterion/) to reach [the conclusion about successful adjustments and benefit](/model/philosophy/success-and-functional-benefit/): successful adjustments provide the corresponding functional benefit. This is analytic given that value premise. It provides no evidence that any successful adjustment occurs; [the beneficial neuromotor-effect claim](/model/science/chiropractic-inputs/) separately asserts that some inputs cause qualifying reorganization and improvement.
 
 Success concerns the specified neuromotor outcome. It does not establish broader transfer, neural primacy for broader effects, or improvement beyond the evaluated timescale. Failure to obtain separately hoped-for symptom relief need not negate a demonstrated neuromotor improvement, but symptoms affecting the relevant functions cannot be excluded from that comparison. Functional success also does not establish that an intervention was worth its costs, risks, or other consequences.
 

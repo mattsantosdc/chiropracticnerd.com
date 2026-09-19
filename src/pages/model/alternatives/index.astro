@@ -1,12 +1,16 @@
 ---
+import ModelProse from '../../../components/model/ModelProse.astro';
 import { render } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 import CanonicalBody from '../../../components/model/CanonicalBody.astro';
 import CriticalQuestions from '../../../components/model/CriticalQuestions.astro';
 import { loadFormalOpposition } from '../../../lib/load-opposition.ts';
 import { baseLiteral, literalText, oppositionHref } from '../../../lib/formal-opposition.mjs';
+import { buildModelReferences, modelReference } from '../../../lib/model-references.ts';
 import { modelIdentity } from '../../../lib/site';
 const corpus = await loadFormalOpposition();
+const references = buildModelReferences([...corpus.statements.values(), ...corpus.argumentsById.values()], corpus.alternativeIds);
+const label = (literal: string) => modelReference(literal, references).label;
 const records = await Promise.all([...corpus.alternatives, ...corpus.alternativeArguments].map(async (entry) => ({ entry, ...(await render(entry)) })));
 const href = (literal) => {
 	const id = baseLiteral(literal);
@@ -23,7 +27,7 @@ const href = (literal) => {
 		<p>These positions are recorded for examination alongside the working account. Each proposition retains its own evidence and limitations. Its inclusion here does not imply endorsement.</p>
 		{!corpus.hasContent && <p>No formal alternative claims or additional opposing assumptions have been admitted yet. Questions remain available on the individual statement and argument pages.</p>}
 		{records.map(({ entry, Content }) => <section id={entry.data.id.toLowerCase()} tabindex="-1" data-alternative-record={entry.data.id}>
-			<h2>{entry.data.id}: {entry.data.title}</h2>
+			<h2>{entry.data.title} <span class="record-id">({entry.data.id})</span></h2>
 			{'statement' in entry.data ? <>
 				<p class="statement-text">{entry.data.statement}</p>
 				<p>Recorded alternative · v{entry.data.version} · {entry.data.statementType} · Confidence: {entry.data.confidence === 'not-applicable' ? 'Not applicable' : entry.data.confidence}</p>
@@ -31,19 +35,19 @@ const href = (literal) => {
 			</> : <>
 				<p>{entry.data.inferenceKind} · {entry.data.scheme}</p>
 				<h3>Premises used together</h3>
-				<ol>{entry.data.premises.map((literal) => <li><p class="statement-text">{literalText(literal, corpus.statements)}</p><a href={href(literal)}>Examine {literal}</a></li>)}</ol>
-				<h3>Conclusion</h3><p class="statement-text">{literalText(entry.data.conclusion, corpus.statements)}</p><p><a href={href(entry.data.conclusion)}>Examine {entry.data.conclusion}</a></p>
+				<ol>{entry.data.premises.map((literal) => <li><p class="statement-text">{literalText(literal, corpus.statements)}</p><a href={href(literal)}>Examine: {label(literal)}</a></li>)}</ol>
+				<h3>Conclusion</h3><p class="statement-text">{literalText(entry.data.conclusion, corpus.statements)}</p><p><a href={href(entry.data.conclusion)}>Examine: {label(entry.data.conclusion)}</a></p>
 			</>}
-			<h3>Summary</h3><p>{entry.data.summary}</p>
+			<h3>Summary</h3><p><ModelProse>{entry.data.summary}</ModelProse></p>
 			<h3>Explanation and support</h3><CanonicalBody namespace={`alternative-${entry.data.id.toLowerCase()}`} recordId={entry.data.id}><Content /></CanonicalBody>
-			{'references' in entry.data && entry.data.references.length > 0 && <section><h3>Sources</h3><ul>{entry.data.references.map((reference) => <li><a href={reference.url}>{reference.title}</a>{reference.note && <p>{reference.note}</p>}</li>)}</ul></section>}
-			{'whatWouldChange' in entry.data && entry.data.whatWouldChange && <p><strong>What would change this claim:</strong> {entry.data.whatWouldChange}</p>}
-			{'semanticUses' in entry.data && entry.data.semanticUses.length > 0 && <section><h3>Additional references</h3><p>These references clarify meaning or an explanation; they do not supply inferential premises.</p><ul>{entry.data.semanticUses.map((use) => <li><a href={href(use.id)}>{use.id}: {corpus.statements.get(use.id).data.title}</a><p>{use.role}: {use.note}</p></li>)}</ul></section>}
-			{'related' in entry.data && entry.data.related.length > 0 && <section><h3>See also</h3><ul>{entry.data.related.map((id) => <li><a href={href(id)}>{id}: {corpus.statements.get(id).data.title}</a></li>)}</ul></section>}
+			{'references' in entry.data && entry.data.references.length > 0 && <section><h3>Sources</h3><ul>{entry.data.references.map((reference) => <li><a href={reference.url}>{reference.title}</a>{reference.note && <p><ModelProse>{reference.note}</ModelProse></p>}</li>)}</ul></section>}
+			{'whatWouldChange' in entry.data && entry.data.whatWouldChange && <p><strong>What would change this claim:</strong> <ModelProse>{entry.data.whatWouldChange}</ModelProse></p>}
+			{'semanticUses' in entry.data && entry.data.semanticUses.length > 0 && <section><h3>Additional references</h3><p>These references clarify meaning or an explanation; they do not supply inferential premises.</p><ul>{entry.data.semanticUses.map((use) => <li><a href={href(use.id)}>{corpus.statements.get(use.id).data.title}</a><p>{use.role}: <ModelProse>{use.note}</ModelProse></p></li>)}</ul></section>}
+			{'related' in entry.data && entry.data.related.length > 0 && <section><h3>See also</h3><ul>{entry.data.related.map((id) => <li><a href={href(id)}>{corpus.statements.get(id).data.title}</a></li>)}</ul></section>}
 			<CriticalQuestions target={entry.data.id} namespace={`alternative-${entry.data.id.toLowerCase()}`} />
 		</section>)}
-		{corpus.admissions.length > 0 && <section><h2>Additional starting assumptions</h2><p>These assumptions participate in the complete evaluation. Admission does not establish their truth or override contrary evidence.</p>{corpus.admissions.map((item) => <section><p class="statement-text">{literalText(item.literal, corpus.statements)}</p><p>{item.rationale}</p><a href={href(item.literal)}>Examine {item.literal}</a></section>)}</section>}
-		{corpus.undercutters.length > 0 && <section><h2>Challenges to an inference</h2><p>A designated challenge affects an inference only when an argument supports the challenging proposition. It does not negate the conclusion automatically.</p>{corpus.undercutters.map((item) => <section><p class="statement-text">{literalText(item.statement, corpus.statements)}</p><p>{item.rationale}</p><p><a href={href(item.statement)}>Examine {item.statement}</a> · <a href={href(item.rule)}>Challenged inference: {item.rule}</a></p></section>)}</section>}
+		{corpus.admissions.length > 0 && <section><h2>Additional starting assumptions</h2><p>These assumptions participate in the complete evaluation. Admission does not establish their truth or override contrary evidence.</p>{corpus.admissions.map((item) => <section><p class="statement-text">{literalText(item.literal, corpus.statements)}</p><p><ModelProse>{item.rationale}</ModelProse></p><a href={href(item.literal)}>Examine: {label(item.literal)}</a></section>)}</section>}
+		{corpus.undercutters.length > 0 && <section><h2>Challenges to an inference</h2><p>A designated challenge affects an inference only when an argument supports the challenging proposition. It does not negate the conclusion automatically.</p>{corpus.undercutters.map((item) => <section><p class="statement-text">{literalText(item.statement, corpus.statements)}</p><p><ModelProse>{item.rationale}</ModelProse></p><p><a href={href(item.statement)}>Examine: {label(item.statement)}</a> · <a href={href(item.rule)}>Challenged inference: {label(item.rule)}</a></p></section>)}</section>}
 	</div>
 	<script>import '../../../scripts/model-fragments.ts';</script>
 </Layout>

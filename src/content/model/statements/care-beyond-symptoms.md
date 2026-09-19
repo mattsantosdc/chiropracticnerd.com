@@ -12,18 +12,18 @@ order: 30
 semanticUses: []
 related: []
 version: '0.1'
-updated: 2026-09-12
+updated: 2026-09-19
 ---
 
 ## Functional grounds for considering care
 
-S-004 declines to treat normality or good health as an endpoint to functional potential. S-022 values context-appropriate improvement in itself, and S-005 adopts facilitating that improvement as a legitimate professional aim. On that basis, the Model does not require symptoms, injury, disease, or identifiable pathology to supply the rationale for considering chiropractic care. The structured route and its limits are recorded in ARG-004.
+[The open-ended potential commitment](/model/philosophy/functional-potential/) declines to treat normality or good health as an endpoint to functional potential. [The functional-benefit criterion](/model/philosophy/functional-benefit-criterion/) values context-appropriate improvement in itself, and [the functional aim of chiropractic](/model/philosophy/chiropractic-purpose/) adopts facilitating that improvement as a legitimate professional aim. On that basis, the Model does not require symptoms, injury, disease, or identifiable pathology to supply the rationale for considering chiropractic care. The structured route and its limits are recorded in [the argument for a rationale beyond symptoms](/model/arguments/functional-rationale-beyond-symptoms/).
 
 ## Boundary
 
 A functional rationale for chiropractic care does not, by itself, establish that a particular input will improve function or that proceeding is justified for a particular person.
 
-Within this Model, a chiropractic input is selected with the aim of beneficially modifying a neuromotor constraint. The grounds for applying it rest on a working assessment of that opportunity, as described in S-014. Symptoms, injury, disease, and identifiable pathology are not sufficient indicators for an input: their presence does not establish a neuromotor constraint or an opportunity to improve function by modifying it. An adjustment names the input-caused reorganization in S-024, not the act of delivery.
+Within this Model, a chiropractic input is selected with the aim of beneficially modifying a neuromotor constraint. The grounds for applying it rest on a working assessment of that opportunity, as described in [the assessment strategy](/model/art/assessment/). Symptoms, injury, disease, and identifiable pathology are not sufficient indicators for an input: their presence does not establish a neuromotor constraint or an opportunity to improve function by modifying it. An adjustment names the input-caused reorganization in [the adjustment definition](/model/philosophy/adjustment/), not the act of delivery.
 
 Symptoms and pathology may nevertheless matter to the assessment of safety and comfort. They may require withholding an input or modifying how it is delivered. Considering them for those purposes does not supply a missing functional target, and a person's hoped-for symptomatic outcome does not change the functional basis for selecting the input.
 

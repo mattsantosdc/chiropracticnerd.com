@@ -28,6 +28,23 @@ if (!Array.isArray(browserArgs) || browserArgs.some((argument) => typeof argumen
 try { browser = await engine.launch({ headless: true, ...(executablePath ? { executablePath } : {}), args: browserArgs }); } catch (error) { server?.close(); throw error; }
 console.log(`${engine.name()} ${browser.version()} · ${process.env.MODEL_BASE_URL ? 'provided server' : 'production build'}`);
 
+async function checkDescriptiveLinks(page, label) {
+ await page.goto(`${base}/model/arguments/regulatory-rationale-for-functional-potential/`);
+ const reference = page.locator('.canonical-body a[href="/model/science/organismic-organization/"]').first();
+ assert.equal(await reference.innerText(), 'The organismic-organization claim');
+ await reference.scrollIntoViewIfNeeded();
+ assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+ await page.screenshot({ path: `${output}/${label}-descriptive-links.png` });
+ await reference.click();
+ assert.equal(await page.locator('h1').innerText(), 'Living organisms actively maintain and adapt their functional organization.');
+ await page.goto(`${base}/model/philosophy/chiropractic-purpose/`);
+ await page.locator('#q-006 > summary').click();
+ const questionLink = page.locator('#q-006 [data-model-reference="ARG-008"]');
+ assert.equal(await questionLink.innerText(), '“Why functional benefit supports a chiropractic aim”');
+ await questionLink.click();
+ assert.ok(page.url().endsWith('/model/arguments/functional-benefit-as-professional-aim/'));
+}
+
 async function checkQuestionAnswers(page, label, enhanced = true) {
  await page.goto(`${base}/model/`);
  await page.getByRole('link',{name:'What aim does the Model propose for chiropractic care?',exact:true}).click();
@@ -78,7 +95,7 @@ async function checkRevisionDetails(page, label) {
  assert.ok((await page.locator('.dependency-note').first().innerText()).includes('does not establish success'));
  await page.goto(`${base}/model/science/organismic-organization/`);
  await page.getByText('Revision relationships', {exact:true}).click();
- assert.ok((await page.locator('[data-revision-candidates="S-017"]').innerText()).includes('S-004'));
+ assert.equal(await page.locator('[data-revision-candidates="S-017"] a[href="/model/philosophy/functional-potential/"]').innerText(), 'Open-ended human functional potential');
  for (const [id, path] of [
   ['q-019','arguments/regulatory-rationale-for-functional-potential'],
   ['q-020','science/neuromotor-opportunity'],
@@ -166,7 +183,7 @@ try {
 		await page.goto(`${base}/model/#reading-examine-the-model--argument-arg-001--premise-s-001`);
 		await page.waitForFunction(() => document.activeElement?.id.endsWith('--premise-s-001'));
 		await page.goto(`${base}/model/science/organismic-organization/`);
-		assert.ok((await page.locator('[data-participation="S-017"]').innerText()).includes('ARG-005 → S-004'));
+		assert.ok((await page.locator('[data-participation="S-017"]').innerText()).includes('A biological rationale for open-ended functional potential'));
 		await page.screenshot({ path: `${output}/${engine.name()}-${width}-s017-detail.png` });
 		await page.goto(`${base}/model/science/chiropractic-inputs/`);
 		assert.equal(await page.locator('[data-question-id="Q-001"]').count(), 1);
@@ -178,8 +195,8 @@ try {
 		await page.locator('#q-001').scrollIntoViewIfNeeded();
 		await page.screenshot({ path: `${output}/${engine.name()}-${width}-question.png` });
 		await page.goto(`${base}/model/philosophy/chiropractic-purpose/`);
-		assert.ok((await page.locator('[data-participation="S-005"]').innerText()).includes('ARG-008'));
-		await page.getByRole('link', { name: 'Read S-005 in the Model', exact: true }).click();
+		assert.ok((await page.locator('[data-participation="S-005"]').innerText()).includes('Why functional benefit supports a chiropractic aim'));
+		await page.getByRole('link', { name: 'Read this statement in the Model', exact: true }).click();
 		await page.waitForFunction(() => document.activeElement?.id === 'reading-professional-purpose--argument-arg-008--conclusion');
 		const purpose = page.locator('[data-argument-id="ARG-008"]');
 		await purpose.locator('summary').first().click();
@@ -201,6 +218,7 @@ try {
 		await page.screenshot({ path: `${output}/${engine.name()}-${width}-long-statement.png` });
 		await checkRevisionDetails(page, `${engine.name()}-${width}`);
 		await checkQuestionAnswers(page, `${engine.name()}-${width}`);
+		await checkDescriptiveLinks(page, `${engine.name()}-${width}`);
 		assert.deepEqual(errors, []);
 		await context.close();
 		console.log(`${engine.name()} ${width}px: navigation, keyboard disclosures, focus, history, deep links, overflow passed`);
@@ -230,6 +248,7 @@ try {
 	assert.equal(await page.locator('#q-007 .disclosure-body').isVisible(), true);
 	await checkRevisionDetails(page, `${engine.name()}-390-no-js`);
 	await checkQuestionAnswers(page, `${engine.name()}-390-no-js`, false);
+	await checkDescriptiveLinks(page, `${engine.name()}-390-no-js`);
 	console.log('No JavaScript: main text, native disclosures, supporting reading and full detail navigation passed');
 	await context.close();
 } finally { await browser.close(); server?.close(); }

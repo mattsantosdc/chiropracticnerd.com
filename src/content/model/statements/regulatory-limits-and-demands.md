@@ -12,7 +12,7 @@ order: 14
 semanticUses: []
 related: []
 version: '0.1'
-updated: 2026-09-12
+updated: 2026-09-19
 whatWouldChange: >-
   Revise specified accounts of regulatory limitation if valid measures show that the proposed information deficit, response constraint, or conflict between demands is absent, or does not constrain regulation as predicted. Manipulate these factors separately where possible, and distinguish an unavailable response from an inaccurate estimate or a measurement limit.
 ---
@@ -25,8 +25,8 @@ These are distinct limitations. Knowing a condition accurately does not remove a
 
 ## Current evidence
 
-Confidence in the combined formulation remains unresolved. A claim-specific appraisal of information limits, biological constraints, and competing demands has not been documented here. The sensory example discussed in S-018 and the task-sensitive control examples in S-008 address limited aspects of this account; they do not establish all three components or their interaction across human regulation. Explanations require comparisons that distinguish these proposed limits from unmeasured information, different task priorities, and measurement error.
+Confidence in the combined formulation remains unresolved. A claim-specific appraisal of information limits, biological constraints, and competing demands has not been documented here. The sensory example discussed in [the sensory-information account](/model/science/information-in-neural-regulation/) and the task-sensitive control examples in [the state-dependent motor-control claim](/model/science/state-dependent-neuromotor-function/) address limited aspects of this account; they do not establish all three components or their interaction across human regulation. Explanations require comparisons that distinguish these proposed limits from unmeasured information, different task priorities, and measurement error.
 
 ## Boundary
 
-S-008 independently asserts context-dependent neuromotor function and limited or poorly suited strategies in some circumstances. The present limits account does not establish that every response is poorly suited, that a better feasible strategy exists, or that an accessible input could produce it. Even an accurate estimate can coexist with an unavoidable tradeoff. S-009 separately asserts beneficial modifiability in some cases; that commitment cannot be obtained from incomplete information or competing demands alone.
+[The state-dependent motor-control claim](/model/science/state-dependent-neuromotor-function/) independently asserts context-dependent neuromotor function and limited or poorly suited strategies in some circumstances. The present limits account does not establish that every response is poorly suited, that a better feasible strategy exists, or that an accessible input could produce it. Even an accurate estimate can coexist with an unavoidable tradeoff. [The neuromotor-opportunity claim](/model/science/neuromotor-opportunity/) separately asserts beneficial modifiability in some cases; that commitment cannot be obtained from incomplete information or competing demands alone.

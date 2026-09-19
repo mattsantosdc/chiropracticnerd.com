@@ -18,6 +18,8 @@ const byId = new Map(statements.map((entry) => [entry.data.id, entry]));
 const normalize = (text) => text.replace(/\s+/g, ' ').trim();
 const text = (node) => node.nodeName === '#text' ? node.value : (node.childNodes ?? []).map(text).join('');
 const attr = (node, name) => node.attrs?.find((attribute) => attribute.name === name)?.value;
+// Recover only presentation substitutions; all other canonical wording must stay exact.
+const sourceText = (node) => attr(node, 'data-model-reference') ?? (node.nodeName === '#text' ? node.value : (node.childNodes ?? []).map(sourceText).join(''));
 const nodes = (node) => [node, ...(node.childNodes ?? []).flatMap(nodes)];
 const hasClass = (node, name) => attr(node, 'class')?.split(/\s+/).includes(name);
 const statementHref = (entry) => `/model/${entry.data.slug}/`;
@@ -38,7 +40,7 @@ test('overview and all statement pages retain explicit routes, statements, order
 		assert.ok(links(overview).includes(statementHref(entry)));
 		assert.equal(normalize(text(nodes(page).find((node) => node.tagName === 'h1'))), normalize(entry.data.statement));
 		assert.ok(normalize(text(page)).includes(entry.data.id));
-		assert.ok(normalize(text(page)).includes(normalize(entry.data.summary)));
+		assert.ok(normalize(sourceText(page)).includes(normalize(entry.data.summary)));
 		const metadata = text(nodes(page).find((node) => hasClass(node, 'statement-meta')));
 		assert.ok(metadata.includes(domainLabels[entry.data.domain]));
 		assert.ok(metadata.includes(`Confidence: ${entry.data.confidence === 'not-applicable' ? 'Not applicable' : entry.data.confidence}`));
@@ -106,14 +108,14 @@ test('all walkthrough appearances and supporting material match the canonical re
 		const detail = readPage(entry.data.id.startsWith('ARG') ? argumentHref(entry) : statementHref(entry));
 		const original = nodes(detail).find((node) => attr(node, 'data-canonical-body') === entry.data.id);
 		const canonicalBody = parse((await markdown.render(entry.body)).code);
-		assert.equal(normalize(text(original)), normalize(text(canonicalBody)), `${entry.data.id} canonical body differs`);
+		assert.equal(normalize(sourceText(original)), normalize(text(canonicalBody)), `${entry.data.id} canonical body differs`);
 		for (const body of bodies) assert.equal(normalize(text(body)), normalize(text(original)), `${entry.data.id} body differs from canonical detail`);
 		const material = entry.data.id.startsWith('ARG') ? overview : detail;
-		assert.ok(normalize(text(material)).includes(normalize(entry.data.summary)), `${entry.data.id} summary`);
-		if (entry.data.whatWouldChange) assert.ok(normalize(text(material)).includes(normalize(entry.data.whatWouldChange)), `${entry.data.id} revision condition`);
+		assert.ok(normalize(sourceText(material)).includes(normalize(entry.data.summary)), `${entry.data.id} summary`);
+		if (entry.data.whatWouldChange) assert.ok(normalize(sourceText(material)).includes(normalize(entry.data.whatWouldChange)), `${entry.data.id} revision condition`);
 		for (const ref of entry.data.references ?? []) {
 			assert.ok(links(material).includes(ref.url), `${entry.data.id} reference`);
-			if (ref.note) assert.ok(normalize(text(material)).includes(normalize(ref.note)), `${entry.data.id} source limit`);
+			if (ref.note) assert.ok(normalize(sourceText(material)).includes(normalize(ref.note)), `${entry.data.id} source limit`);
 		}
 	}
 });
@@ -131,7 +133,7 @@ test('all participation remains available on detail pages and distinct from revi
 				const linked = new Set(links(block).filter((href) => href.includes('--argument-')).map((href) => href.match(/--argument-(arg-\d+)/)[1].toUpperCase()));
 				assert.deepEqual([...linked].sort(), expected.map((arg) => arg.data.id).sort());
 				for (const arg of expected) {
-					assert.ok(text(block).includes(arg.data.conclusion));
+					assert.ok(text(block).includes(byId.get(arg.data.conclusion).data.title));
 					assert.ok(text(block).includes(arg.data.inferenceKind));
 				}
 			}
@@ -214,4 +216,33 @@ test('all answer pages preserve exact authored ancestry, premise roles, critical
   assert.ok(links(readPage(statement.href)).includes(answerHref(statement)));
   assert.ok(links(page).includes(`${statement.href}#discussion`));
  }
+});
+
+
+test('Model prose and navigation use descriptive links to exact records', () => {
+ const records = new Map([...statements, ...argumentsList].map((entry) => [entry.data.id, entry]));
+ const pages = ['/model/', '/model/arguments/', '/model/alternatives/', ...statements.flatMap((entry) => [statementHref(entry), `/model/answers/${entry.data.slug}/`]), ...argumentsList.map(argumentHref)];
+ let references = 0;
+ for (const route of pages) {
+  const page = readPage(route);
+  for (const node of nodes(page)) {
+   if (node.tagName === 'a') assert.ok(!/^(?:S|ARG)-\d{3}$/.test(normalize(text(node))), `${route}: ID-only link`);
+   const id = attr(node, 'data-model-reference');
+   if (id) {
+    const entry = records.get(id);
+    assert.ok(entry, `${route}: unknown reference ${id}`);
+    assert.equal(normalize(text(node)), `“${entry.data.title}”`);
+    assert.equal(attr(node, 'href'), id.startsWith('ARG') ? argumentHref(entry) : statementHref(entry));
+    assert.equal(attr(node, 'title'), id);
+    references++;
+   }
+   if (node.nodeName === '#text' && /\b(?:S|ARG)-\d{3}\b/.test(node.value)) {
+    const ancestors = [];
+    for (let ancestor = node.parentNode; ancestor; ancestor = ancestor.parentNode) ancestors.push(ancestor);
+    if (ancestors.some((item) => ['a', 'code', 'pre', 'blockquote', 'q', 'cite'].includes(item.tagName))) continue;
+    assert.ok(!ancestors.some((item) => ['canonical-body', 'dependency-note', 'critical-questions'].some((name) => hasClass(item, name))), `${route}: unexplained prose ID ${node.value}`);
+   }
+  }
+ }
+ assert.ok(references > 100, 'References must be present throughout the Model');
 });

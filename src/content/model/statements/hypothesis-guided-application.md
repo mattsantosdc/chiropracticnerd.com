@@ -12,7 +12,7 @@ order: 19
 semanticUses: []
 related: []
 version: '0.1'
-updated: 2026-09-14
+updated: 2026-09-19
 whatWouldChange: >-
   Reconsider this principle if fidelity to the assessed benefit and an evaluable prediction do not provide a reason to guide delivery. Reconsider an application if its prediction cannot be evaluated meaningfully, circumstances change, or preserving the proposed test conflicts with the person's interests or choice.
 ---
@@ -27,7 +27,7 @@ The condition must be met before proceeding. The desire to test an idea, an inte
 
 The prediction identifies the intended change, its functional scope, relevant context and timescale, and observations that would count for or against it. Specifying those features makes the intended application inspectable; it does not validate the measurements or guarantee an informative response. An uncertain observation must remain uncertain, and an unfavorable result must not be rescued by changing the original prediction afterward.
 
-ARG-010 uses this principle with S-014's assessment strategy to support S-015's conditional application strategy. The reason concerns fidelity to the assessment and the ability to evaluate what happens. Neither a particular delivery method nor its effectiveness follows from this principle.
+[The application argument](/model/arguments/hypothesis-guided-application/) uses this principle with [the assessment strategy](/model/art/assessment/) to support [the conditional application strategy](/model/art/chiropractic-application/). The reason concerns fidelity to the assessment and the ability to evaluate what happens. Neither a particular delivery method nor its effectiveness follows from this principle.
 
 ## Boundary
 

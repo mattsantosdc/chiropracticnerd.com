@@ -21,7 +21,7 @@ related:
   - S-012
   - S-031
 version: '0.1'
-updated: 2026-09-14
+updated: 2026-09-19
 references:
   - title: Diverse and complex muscle spindle afferent firing properties emerge from multiscale muscle mechanics
     url: https://doi.org/10.7554/eLife.55177
@@ -35,7 +35,7 @@ whatWouldChange: >-
 
 The Model proposes that changes induced in motor-related neural circuitry are the predominant mediator of broader chiropractic effects. The mediator is a change in neural activity or responsiveness. Muscle tone, posture, and motor performance can be observable expressions of that change without uniquely identifying it or themselves causing the broader outcome.
 
-S-030 supplies the circuit-influence account: shared neural processes can participate in motor and other functions, and altered synaptic drive can influence connected circuits. S-011 supplies the local input and response account from which this broader proposal is distinguished. Neither establishes the present mediation or predominance claim. S-007's general integrative role provides biological background, without being a required premise for this particular mechanism.
+[The neural circuit-influence account](/model/science/neural-network-influence/) supplies the circuit-influence account: shared neural processes can participate in motor and other functions, and altered synaptic drive can influence connected circuits. [The beneficial neuromotor-effect claim](/model/science/chiropractic-inputs/) supplies the local input and response account from which this broader proposal is distinguished. Neither establishes the present mediation or predominance claim. [The general integrative role](/model/science/nervous-system-integration/) provides biological background, without being a required premise for this particular mechanism.
 
 ## Downstream routes remain open
 
@@ -66,10 +66,10 @@ Mechanistic studies need measurements and comparisons capable of distinguishing 
 
 ## Current evidence
 
-The documented evidence has not established this chiropractic-specific mediation or its predominance. S-030's network evidence informs the central route. Blum and colleagues' rat recordings and simulations inform how mechanics and motor drive can shape spindle signaling; their alpha/gamma simulations do not directly measure these contributions in people receiving chiropractic inputs. General physiological plausibility supplies research candidates, not a demonstrated allocation of broader effects.
+The documented evidence has not established this chiropractic-specific mediation or its predominance. [The network evidence](/model/science/neural-network-influence/) informs the central route. Blum and colleagues' rat recordings and simulations inform how mechanics and motor drive can shape spindle signaling; their alpha/gamma simulations do not directly measure these contributions in people receiving chiropractic inputs. General physiological plausibility supplies research candidates, not a demonstrated allocation of broader effects.
 
 ## Boundary
 
-Predominant does not mean exclusive, guaranteed, or beneficial. S-031 separately proposes the likelihood of broader neural changes; S-012 separately proposes qualifying broader improvement in some cases. Neither establishes the present comparative mechanism claim, and this claim does not establish either of them. Its unresolved confidence remains separate from the proposed causal structure.
+Predominant does not mean exclusive, guaranteed, or beneficial. [The broader neural-effects prediction](/model/science/broader-neural-effects/) separately proposes the likelihood of broader neural changes; [the broader functional-benefit claim](/model/science/broader-functional-benefit/) separately proposes qualifying broader improvement in some cases. Neither establishes the present comparative mechanism claim, and this claim does not establish either of them. Its unresolved confidence remains separate from the proposed causal structure.
 
 Failure of a specified mechanism requires revising that explanation. A broader effect established through another route would not validate this mediator, while failure of this mediator would not establish the impossibility of every broader effect.

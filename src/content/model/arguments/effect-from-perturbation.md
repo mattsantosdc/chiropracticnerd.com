@@ -9,24 +9,24 @@ conclusion: S-011
 inferenceKind: deductive
 scheme: conjunction elimination within an existential claim
 version: '0.1'
-updated: 2026-09-14
+updated: 2026-09-19
 ---
 
 ## Exact route
 
-S-028 states: “By perturbing established motor strategies, some chiropractic inputs cause neuromotor reorganization that improves context-appropriate human function within a specified neuromotor scope, context, and timescale.”
+[The chiropractic perturbation claim](/model/science/chiropractic-perturbation-mechanism/) states: “By perturbing established motor strategies, some chiropractic inputs cause neuromotor reorganization that improves context-appropriate human function within a specified neuromotor scope, context, and timescale.”
 
-Therefore S-011: “Some chiropractic inputs cause neuromotor reorganization that improves context-appropriate human function within a specified neuromotor scope, context, and timescale.”
+Therefore [the beneficial neuromotor-effect claim](/model/science/chiropractic-inputs/): “Some chiropractic inputs cause neuromotor reorganization that improves context-appropriate human function within a specified neuromotor scope, context, and timescale.”
 
-Assume S-028 true. At least one input causes an improving reorganization through the proposed perturbation. That same input therefore causes an improving reorganization. Omitting the additional mechanism attribution preserves the input, response, neuromotor scope, context, timescale, and existential commitment. No new causal relationship or improvement is supplied by the inference.
+Assume [the chiropractic perturbation claim](/model/science/chiropractic-perturbation-mechanism/) true. At least one input causes an improving reorganization through the proposed perturbation. That same input therefore causes an improving reorganization. Omitting the additional mechanism attribution preserves the input, response, neuromotor scope, context, timescale, and existential commitment. No new causal relationship or improvement is supplied by the inference.
 
-This is a deduction from a causal claim, not a deduction establishing that causal claim. S-010's general perturbation capacity is unnecessary as a premise here: S-028 already asserts the particular mechanism and improving effect together. Combining general capacity with an independently observed effect would not establish that perturbation explains the effect.
+This is a deduction from a causal claim, not a deduction establishing that causal claim. [The general perturbation capacity](/model/science/salient-perturbation/) is unnecessary as a premise here: [the chiropractic perturbation claim](/model/science/chiropractic-perturbation-mechanism/) already asserts the particular mechanism and improving effect together. Combining general capacity with an independently observed effect would not establish that perturbation explains the effect.
 
 ## Two routes to the effect
 
-The Model also adopts S-011 as an independent empirical starting premise. It can be investigated without committing to the perturbation explanation. This assumption remains explicit and must be evaluated on its own merits; it is not made credible merely because another argument concludes the same statement.
+The Model also adopts [the beneficial neuromotor-effect claim](/model/science/chiropractic-inputs/) as an independent empirical starting premise. It can be investigated without committing to the perturbation explanation. This assumption remains explicit and must be evaluated on its own merits; it is not made credible merely because another argument concludes the same statement.
 
-Withdrawing S-028 leaves the independent S-011 route available. Withdrawing the independent S-011 premise leaves this deduction available if S-028 remains accepted. Withdrawing both removes these routes. Rejecting the effect itself would also contradict this stronger mechanism-and-effect claim. None of those relationships proves that every possible alternative effect explanation has been considered.
+Withdrawing [the chiropractic perturbation claim](/model/science/chiropractic-perturbation-mechanism/) leaves the independent [beneficial neuromotor-effect claim](/model/science/chiropractic-inputs/) route available. Withdrawing the independent [beneficial neuromotor-effect claim](/model/science/chiropractic-inputs/) premise leaves this deduction available if [the chiropractic perturbation claim](/model/science/chiropractic-perturbation-mechanism/) remains accepted. Withdrawing both removes these routes. Rejecting the effect itself would also contradict this stronger mechanism-and-effect claim. None of those relationships proves that every possible alternative effect explanation has been considered.
 
 ## Boundary
 

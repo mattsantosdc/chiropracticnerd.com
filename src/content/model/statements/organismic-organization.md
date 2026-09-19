@@ -50,6 +50,6 @@ Together, these findings support the general biological claim by convergence acr
 
 ## Boundary
 
-S-007 separately proposes the nervous system's integrative role in humans. Living organisms do not all have nervous systems, and this general organismic claim does not establish that additional neural premise.
+[The neural-integration claim](/model/science/nervous-system-integration/) separately proposes the nervous system's integrative role in humans. Living organisms do not all have nervous systems, and this general organismic claim does not establish that additional neural premise.
 
 Maintaining or adapting organization need not improve function overall. Responses can preserve one function at a cost to another or fail to meet current demands. The proposition asserts neither universal self-healing nor limitless capacity, inevitable progress, or responsiveness to chiropractic. Its biological content remains empirical even when it serves as a starting point for the Model's philosophical reasoning.

@@ -12,7 +12,7 @@ order: 18
 semanticUses: []
 related: []
 version: '0.1'
-updated: 2026-09-14
+updated: 2026-09-19
 whatWouldChange: >-
   Reconsider this principle if producing a benefit supplies no reason to pursue it as a professional aim. Reconsider an application that treats a limited benefit as sufficient to override relevant ethical or practical objections without thereby assuming the principle itself is false.
 ---
@@ -23,7 +23,7 @@ Professional aims guide which outcomes a practice seeks to produce. When its int
 
 The reason can be outweighed or defeated. A benefit does not settle whether its pursuit respects the person's priorities, appropriate professional responsibilities, or relevant consequences. Establishing an aim also leaves the choice of an intervention to a separate practical judgment.
 
-S-022 identifies context-appropriate functional improvement as valuable in itself. S-027 asserts that some chiropractic inputs produce the corresponding scoped functional benefit. ARG-008 applies this professional-purpose principle to that benefit. An additional consequence is not required to supply the value attributed by S-022.
+[The functional-benefit criterion](/model/philosophy/functional-benefit-criterion/) identifies context-appropriate functional improvement as valuable in itself. [The actual functional-benefit conclusion](/model/science/actual-chiropractic-benefit/) asserts that some chiropractic inputs produce the corresponding scoped functional benefit. [The professional-purpose argument](/model/arguments/functional-benefit-as-professional-aim/) applies this professional-purpose principle to that benefit. An additional consequence is not required to supply the value attributed by [the functional-benefit criterion](/model/philosophy/functional-benefit-criterion/).
 
 ## Boundary
 

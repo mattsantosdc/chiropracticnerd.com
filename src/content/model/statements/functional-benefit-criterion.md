@@ -15,17 +15,17 @@ semanticUses:
     note: Revising S-021's comparative account of context-appropriate improvement would change which changes this value judgment calls beneficial; the definition establishes neither that value nor any actual improvement.
 related: []
 version: '0.1'
-updated: 2026-09-14
+updated: 2026-09-19
 ---
 
 ## An explicit evaluative commitment
 
-The Model adopts improved context-appropriate human function as valuable in itself. A change that meets S-021's comparative criterion counts as a functional benefit in the specified respects. It need not first relieve symptoms or produce a separate health outcome to have that value.
+The Model adopts improved context-appropriate human function as valuable in itself. A change that meets [the comparative criterion](/model/philosophy/context-appropriate-function/) counts as a functional benefit in the specified respects. It need not first relieve symptoms or produce a separate health outcome to have that value.
 
 This is a value judgment. Biology can inform what changes and measurement can inform whether function better fits the identified demands; neither deductively supplies the underlying judgment that such improvement matters. The commitment remains open to evaluative criticism. It would need reconsideration if its scope classified changes as functional benefits despite a persuasive reason to deny their value within that same scope.
 
 ## Scope of benefit
 
-The benefit attributed here has exactly the scope of the improvement. S-021 requires relevant functional gains and losses to be considered together. A gain in a single metric is insufficient, and a local improvement does not establish broader transfer. Losses outside the specified scope must remain visible even when the local functional benefit is established.
+The benefit attributed here has exactly the scope of the improvement. [The contextual improvement criterion](/model/philosophy/context-appropriate-function/) requires relevant functional gains and losses to be considered together. A gain in a single metric is insufficient, and a local improvement does not establish broader transfer. Losses outside the specified scope must remain visible even when the local functional benefit is established.
 
-This criterion does not say that every intervention producing a functional benefit is worth pursuing. Costs, risks, burdens, alternatives, the person's priorities, and uncertainty remain part of S-014's practical judgment. ARG-007 combines this value with the causal improvement claim to establish S-027's scoped benefit. ARG-008 then uses that benefit and S-029's professional-purpose principle to support the aim in S-005. The value criterion alone supplies neither chiropractic effectiveness nor professional legitimacy.
+This criterion does not say that every intervention producing a functional benefit is worth pursuing. Costs, risks, burdens, alternatives, the person's priorities, and uncertainty remain part of [the practical judgment](/model/art/assessment/). [The argument from actual improvement to benefit](/model/arguments/actual-chiropractic-benefit/) combines this value with the causal improvement claim to establish [the scoped benefit](/model/science/actual-chiropractic-benefit/). [The professional-purpose argument](/model/arguments/functional-benefit-as-professional-aim/) then uses that benefit and [the professional-purpose principle](/model/philosophy/benefit-as-professional-aim/) to support the aim in [the functional aim of chiropractic](/model/philosophy/chiropractic-purpose/). The value criterion alone supplies neither chiropractic effectiveness nor professional legitimacy.

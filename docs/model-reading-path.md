@@ -138,6 +138,22 @@ local fragment links, and ID-reference attributes. Embedded headings shift under
 surrounding disclosure headings. Detail body IDs retain their original fragments.
 External URLs and links to other detail records retain their meaning.
 
+Reader-facing references use descriptive titles rather than requiring readers to
+remember S/ARG numbers. `ModelProse` resolves bare record references in explanations,
+summaries, questions, source notes and revision notes through `model-references.ts`,
+using the full working and alternative corpus. It emits ordinary HTML links to
+the existing detail routes; alternative records retain their index fragments.
+Titles come from the current canonical records, while IDs remain in reference
+metadata and beside record headings. Signed references explicitly say “Negation
+of” the named proposition. An unknown prose reference fails the build.
+
+This presentation step never rewrites exact propositions, formal bindings,
+relationship data, source titles, quotations or code. Authored descriptive links
+retain their wording and destination; ID-only link text becomes descriptive
+without nesting anchors. Embedded fragment namespacing still runs independently.
+These navigation links introduce no premise, inference or revision relationship.
+Use natural descriptive Markdown links when a title does not fit the sentence.
+
 The small `src/scripts/model-fragments.ts` enhancement opens ancestor disclosures
 and focuses/scrolls fragment targets on initial load, clicks, hash changes, history
 navigation, and page restoration. Native disclosures and full detail links work

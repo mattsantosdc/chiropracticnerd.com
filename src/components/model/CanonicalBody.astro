@@ -1,7 +1,8 @@
 ---
 import { namespaceMarkdown } from '../../lib/embedded-markdown.ts';
+import ModelProse from './ModelProse.astro';
 interface Props { namespace?: string; recordId: string; }
 const { namespace, recordId } = Astro.props;
 const html = await Astro.slots.render('default');
 ---
-<div class="canonical-body model-body" data-canonical-body={recordId} set:html={namespace ? namespaceMarkdown(html, namespace) : html} />
+<div class="canonical-body model-body" data-canonical-body={recordId}><ModelProse><Fragment set:html={namespace ? namespaceMarkdown(html, namespace) : html} /></ModelProse></div>

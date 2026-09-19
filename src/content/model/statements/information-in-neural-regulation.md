@@ -12,7 +12,7 @@ order: 12
 semanticUses: []
 related: []
 version: '0.1'
-updated: 2026-09-12
+updated: 2026-09-19
 references:
   - title: Bayesian integration in sensorimotor learning
     url: https://doi.org/10.1038/nature02169
@@ -26,7 +26,7 @@ whatWouldChange: >-
 
 Sensory information includes relevant signals from within the body and from its surroundings. Prior experience includes effects of earlier interaction and learning; it need not be conscious recollection. An estimate is a working representation of relevant conditions, not necessarily a conscious judgment or an explicit numerical calculation.
 
-This proposition describes a way neural regulation operates within S-007's interacting whole person. It does not make sensory estimation the whole of human regulation, require one comprehensive internal model, or claim that every neural process uses the same computation. The information-and-experience account is an additional empirical commitment, not a deduction from the nervous system having an integrative role.
+This proposition describes a way neural regulation operates within [the interacting whole-person account of neural integration](/model/science/nervous-system-integration/). It does not make sensory estimation the whole of human regulation, require one comprehensive internal model, or claim that every neural process uses the same computation. The information-and-experience account is an additional empirical commitment, not a deduction from the nervous system having an integrative role.
 
 ## Current evidence
 

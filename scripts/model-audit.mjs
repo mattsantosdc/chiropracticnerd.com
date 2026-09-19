@@ -71,6 +71,8 @@ export const policyPaths = [
 	'src/scripts/model-fragments.ts',
 	'src/lib/reading-navigation.ts',
 	'src/lib/embedded-markdown.ts',
+	'src/lib/model-references.ts',
+	'src/components/model/ModelProse.astro',
 	'src/components/model/ArgumentStep.astro',
 	'src/components/model/CanonicalBody.astro',
 	'src/components/model/ReadingSection.astro',

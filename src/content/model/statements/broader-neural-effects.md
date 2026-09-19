@@ -19,7 +19,7 @@ semanticUses:
 related:
   - S-012
 version: '0.1'
-updated: 2026-09-14
+updated: 2026-09-19
 references:
   - title: Neck proprioceptive inputs to primate vestibular nucleus neurons
     url: https://doi.org/10.1007/s002210000542
@@ -33,9 +33,9 @@ whatWouldChange: >-
 
 “Likely” expresses the Model's proposed tendency for effects to extend beyond the initially assessed motor function. It is stronger than saying that spread is merely possible. Its empirical confidence remains unresolved, and the Model has not established a numerical probability or a population-wide response rate. Each test must state what frequency or comparative likelihood it predicts, for which inputs, people, states, outcomes, and interval.
 
-The relevant condition is an independently established input-caused change in motor-related circuitry, which can include ongoing activity or responsiveness. Delivering an input or observing a different motor test result does not establish that condition. A firing or responsiveness change also does not, by itself, establish S-024's change in the organization of control or coordination; that relationship must be investigated when a study identifies the response as an adjustment. Studies of this conditional tendency must include qualifying circuit changes without local improvement or broader effects. Studies estimating the effectiveness of delivering inputs must additionally retain inputs with no established circuit change. Neither analysis may select only favorable responders.
+The relevant condition is an independently established input-caused change in motor-related circuitry, which can include ongoing activity or responsiveness. Delivering an input or observing a different motor test result does not establish that condition. A firing or responsiveness change also does not, by itself, establish [the change in the organization of control or coordination required by the adjustment definition](/model/philosophy/adjustment/); that relationship must be investigated when a study identifies the response as an adjustment. Studies of this conditional tendency must include qualifying circuit changes without local improvement or broader effects. Studies estimating the effectiveness of delivering inputs must additionally retain inputs with no established circuit change. Neither analysis may select only favorable responders.
 
-S-030 supplies the proposed mechanism: altered synaptic influence can change processing in other circuits, and changes in shared neural processes can have several expressions. Sensory feedback can participate without being required at every step. General network capacity does not establish the present chiropractic-specific likelihood, so this remains an independently testable empirical premise.
+[The neural circuit-influence account](/model/science/neural-network-influence/) supplies the proposed mechanism: altered synaptic influence can change processing in other circuits, and changes in shared neural processes can have several expressions. Sensory feedback can participate without being required at every step. General network capacity does not establish the present chiropractic-specific likelihood, so this remains an independently testable empirical premise.
 
 ## From connections to predictions
 
@@ -45,10 +45,10 @@ Neck proprioceptive input converges with vestibular signals in the primate vesti
 
 ## Current evidence
 
-Gdowski and McCrea studied neuronal responses to neck and whole-body rotation in squirrel monkeys. Their results inform a candidate anatomical and physiological relationship, not a chiropractic intervention effect. The broader network research discussed in S-030 likewise supplies mechanistic context, not a response-frequency estimate for chiropractic-induced changes.
+Gdowski and McCrea studied neuronal responses to neck and whole-body rotation in squirrel monkeys. Their results inform a candidate anatomical and physiological relationship, not a chiropractic intervention effect. The broader network research discussed in [the neural circuit-influence account](/model/science/neural-network-influence/) likewise supplies mechanistic context, not a response-frequency estimate for chiropractic-induced changes.
 
 The evidence documented here has not established the proposed likelihood. The hypothesis organizes prospective research by identifying candidate relationships and outcomes; it does not supply clinical proof through anatomical plausibility.
 
 ## Boundary
 
-Broader neural effects can be neutral, harmful, transient, or unrelated to improved performance. S-012's claim of qualifying broader improvement in some cases remains separate. Frequent spread would not establish benefit; rare beneficial effects could remain possible if the likelihood claim fails. S-013's proposed predominance of motor-related neural mediation also requires its own evidence.
+Broader neural effects can be neutral, harmful, transient, or unrelated to improved performance. [The claim of qualifying broader improvement in some cases](/model/science/broader-functional-benefit/) remains separate. Frequent spread would not establish benefit; rare beneficial effects could remain possible if the likelihood claim fails. [The proposed predominance of motor-related neural mediation](/model/science/neural-mediation/) also requires its own evidence.

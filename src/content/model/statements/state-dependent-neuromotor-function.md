@@ -12,7 +12,7 @@ order: 20
 semanticUses: []
 related: []
 version: '0.1'
-updated: 2026-09-12
+updated: 2026-09-19
 references:
   - title: The influence of postural threat on the control of upright stance
     url: https://pubmed.ncbi.nlm.nih.gov/11417462/
@@ -42,6 +42,6 @@ Carpenter and colleagues observed increased postural stiffness under greater pos
 
 Interpretation of muscle tone, posture, or movement must account for neural activity, tissue properties, learning, effort, fatigue, pain, expectations, and measurement error. A finding alone does not identify its cause or establish a particular motor strategy. Assessment methods require reliability, construct validity, and appropriate reference conditions; v0.1 does not endorse a particular test.
 
-S-021 specifies how to compare fit to actual demands, including relevant functional gains and losses. State-dependent variation does not itself establish improvement, and lower tone or greater symmetry is not a universal criterion.
+[The contextual improvement criterion](/model/philosophy/context-appropriate-function/) specifies how to compare fit to actual demands, including relevant functional gains and losses. State-dependent variation does not itself establish improvement, and lower tone or greater symmetry is not a universal criterion.
 
-This claim is investigated independently of S-007's integrative role. State dependence or limitation alone establishes neither modifiability nor benefit. S-009 takes on that additional empirical question.
+This claim is investigated independently of [the integrative role](/model/science/nervous-system-integration/). State dependence or limitation alone establishes neither modifiability nor benefit. [The neuromotor-opportunity claim](/model/science/neuromotor-opportunity/) takes on that additional empirical question.

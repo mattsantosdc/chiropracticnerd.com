@@ -15,7 +15,7 @@ semanticUses:
     note: Revising S-008's neuromotor domain would require reconsidering which circuits and functions are distinguished here; state-dependent motor control does not establish influence on other functions.
 related: []
 version: '0.1'
-updated: 2026-09-14
+updated: 2026-09-19
 references:
   - title: A somato-cognitive action network alternates with effector regions in motor cortex
     url: https://doi.org/10.1038/s41586-023-05964-2
@@ -37,7 +37,7 @@ whatWouldChange: >-
 
 Neurons receive synaptic input from other neurons. A change in a circuit's ongoing firing, excitability, or response to input can change its influence on connected circuitry. That influence can be excitatory or inhibitory. A further change in peripheral receptor activity is not required for every step of the proposed interaction.
 
-S-008's neuromotor domain concerns neural regulation of muscle tone, posture, and movement. A circuit participating in motor control need not have an exclusively motor role. Motor and other outcomes can reflect changes in shared neural processes, or a change in one circuit can influence another through their connections. These are distinguishable causal accounts; correlated outputs alone do not select between them.
+[The neuromotor domain](/model/science/state-dependent-neuromotor-function/) concerns neural regulation of muscle tone, posture, and movement. A circuit participating in motor control need not have an exclusively motor role. Motor and other outcomes can reflect changes in shared neural processes, or a change in one circuit can influence another through their connections. These are distinguishable causal accounts; correlated outputs alone do not select between them.
 
 **Central integrated state**, when used in this account, means the pattern of ongoing activity, excitability, and interactions across the circuits under examination. It does not name one uniform brain state, a global quality score, or a condition uniquely readable from muscle tone. A proposed state change needs specified circuits or processes and independently interpretable measurements. Observed motor performance and the neural activity supporting it remain distinct.
 
@@ -57,4 +57,4 @@ Blum and colleagues' recordings and modeling inform how central drive and muscle
 
 “Can” asserts a capacity under suitable conditions. It supplies no frequency estimate, guarantee of a detectable downstream effect, or direction of benefit. Anatomical connectivity alone does not establish effective influence in the tested state. Activity may be buffered or compensated, and neural change need not produce a measurable change in functional performance.
 
-S-031 separately proposes a likelihood of broader neural effects following chiropractic-induced circuit changes. S-012 separately proposes broader functional improvement in some cases. Neither follows from the capacity asserted here. Physiological feedback loops also do not justify circular arguments: evidence and premises for each proposed causal step must be independently examinable.
+[The broader neural-effects prediction](/model/science/broader-neural-effects/) separately proposes a likelihood of broader neural effects following chiropractic-induced circuit changes. [The broader functional-benefit claim](/model/science/broader-functional-benefit/) separately proposes broader functional improvement in some cases. Neither follows from the capacity asserted here. Physiological feedback loops also do not justify circular arguments: evidence and premises for each proposed causal step must be independently examinable.

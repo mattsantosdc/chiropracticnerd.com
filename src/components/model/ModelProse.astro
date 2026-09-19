@@ -1,0 +1,8 @@
+---
+import { loadFormalOpposition } from '../../lib/load-opposition.ts';
+import { buildModelReferences, linkModelReferences } from '../../lib/model-references.ts';
+const html = await Astro.slots.render('default');
+const corpus = await loadFormalOpposition();
+const references = buildModelReferences([...corpus.statements.values(), ...corpus.argumentsById.values()], corpus.alternativeIds);
+---
+<Fragment set:html={linkModelReferences(html, references)} />

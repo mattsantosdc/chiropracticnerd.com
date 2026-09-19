@@ -50,8 +50,8 @@ const groups = domainOrder.map((domain) => ({ domain, entries: sortStatements(st
 		<details class="model-disclosure reference-index" id="model-reference">
 			<summary>Statement and argument index</summary>
 			<div class="disclosure-body">
-				{groups.map(({ domain, entries }) => <section><h2>{domainLabels[domain]}</h2><ul>{entries.map((entry) => <li><a href={readingHref(path.primaryStatementLocations.get(entry.data.id)!)}>{entry.data.id}: {entry.data.title}</a> · <a href={index.statementsById.get(entry.data.id)!.href}>More about this statement</a> · <a href={answerHref(index.statementsById.get(entry.data.id)!)}>Examine this answer</a></li>)}</ul></section>)}
-				<h2>Arguments</h2><ul>{sortArguments(argumentEntries).map((entry) => <li><a href={readingHref(argumentStep(path, entry.data.id).location)}>{entry.data.id}: {entry.data.title}</a> · <a href={index.argumentsById.get(entry.data.id)!.href}>Full argument</a></li>)}</ul>
+				{groups.map(({ domain, entries }) => <section><h2>{domainLabels[domain]}</h2><ul>{entries.map((entry) => <li><a href={readingHref(path.primaryStatementLocations.get(entry.data.id)!)}>{entry.data.title} <span class="record-id">({entry.data.id})</span></a> · <a href={index.statementsById.get(entry.data.id)!.href}>More about this statement</a> · <a href={answerHref(index.statementsById.get(entry.data.id)!)}>Examine this answer</a></li>)}</ul></section>)}
+				<h2>Arguments</h2><ul>{sortArguments(argumentEntries).map((entry) => <li><a href={readingHref(argumentStep(path, entry.data.id).location)}>{entry.data.title} <span class="record-id">({entry.data.id})</span></a> · <a href={index.argumentsById.get(entry.data.id)!.href}>Full argument</a></li>)}</ul>
 				<p><a href="/model/arguments/">Browse all argument records</a></p>
 			</div>
 		</details>

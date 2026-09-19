@@ -12,7 +12,7 @@ order: 12
 semanticUses: []
 related: []
 version: '0.1'
-updated: 2026-09-12
+updated: 2026-09-19
 ---
 
 ## Suited to actual conditions
@@ -31,6 +31,6 @@ Better function is not equated with a globally more accurate internal model, one
 
 ## Improvement and the decision to intervene
 
-This definition identifies the functional comparison. S-022 separately adopts its value. Neither definition nor value establishes that an intervention produces improvement.
+This definition identifies the functional comparison. [The functional-benefit criterion](/model/philosophy/functional-benefit-criterion/) separately adopts its value. Neither definition nor value establishes that an intervention produces improvement.
 
 A functional gain can occur while treatment costs, risks, burdens, alternatives, or harms outside the reported scope make pursuing the intervention unwarranted. Functional losses and burdens affecting the specified functions enter the improvement comparison; the decision about an intervention additionally considers its other consequences and uncertainty. A bounded functional benefit is not a judgment that the intervention is worthwhile when all relevant considerations are included.

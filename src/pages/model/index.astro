@@ -21,19 +21,19 @@ const path = resolveReadingPath(readingPathConfig, index);
 for (const diagnostic of path.diagnostics) console.warn(diagnostic.message);
 const groups = domainOrder.map((domain) => ({ domain, entries: sortStatements(statementEntries).filter((entry) => entry.data.domain === domain) }));
 ---
-<Layout title={modelIdentity.name} description="The Coherent Chiropractic Model by Dr. Matt Santos. Read its statements and follow their reasoning, with support for the premises available to inspect.">
+<Layout title={modelIdentity.name} description="Explore chiropractic’s proposed aim, the meaning of an adjustment, and assessment. Start with a practical question and trace the Model’s reasoning.">
 	<div class="model-reader model-overview">
 		<header class="reading-introduction">
 			<p class="eyebrow">A {siteIdentity.name} project · v{path.version}</p>
 			<h1 class="model-title">{modelIdentity.name}</h1>
 			<p class="byline">By {siteIdentity.author}</p>
-			<p class="lede">A revisable account of chiropractic, from living function to practical decisions. Follow its statements and reasoning, and separately examine the support for its premises.</p>
-			<ModelAcknowledgment />
+			<p class="lede">The Model proposes helping people function better in their circumstances as a legitimate chiropractic aim. Explore what that means for adjustments and assessment.</p>
 		</header>
 		<AnswerNavigation index={index} />
+		<ModelAcknowledgment />
 		<nav class="reading-toc" aria-label="Model sections" id="model-contents">
 			<details>
-				<summary>On this page · {path.main.length} sections</summary>
+				<summary>Foundational walkthrough · {path.main.length} sections</summary>
 				<ol>{path.main.map((section) => <li><a href={`#${section.anchor}`}>{section.title}</a></li>)}</ol>
 				<ul class="additional-reading-links">
 					{path.orientation && <li><a href={`#${path.orientation.anchor}`}>Optional: {path.orientation.title}</a></li>}

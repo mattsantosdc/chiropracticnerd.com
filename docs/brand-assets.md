@@ -34,5 +34,4 @@ layout also requires the semantic review described in `docs/model-review.md`.
 
 Browser favicons may remain cached after deployment. When checking a newly
 deployed version, also open `/favicon.svg` directly or use a fresh browser
-profile. This branch takes effect on the live site only after it is merged and
-the production deployment succeeds.
+profile.

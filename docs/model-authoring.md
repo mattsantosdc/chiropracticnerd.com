@@ -1,6 +1,6 @@
 # Model authoring
 
-This is the primary workflow for humans and coding agents changing statements or structured arguments. The [ASPIC+ foundation](aspic-foundation.md), [objection contract](objection-authoring.md), and [migration assessment](aspic-migration.md) also govern the current transition. Read it together with the [dependency model](dependency-model.md), [argument model](argument-model.md), [standards contract](standards-contract.md), and [visualization plan](visualization-plan.md) before editing canonical content.
+This is the primary workflow for humans and coding agents changing statements or structured arguments. Read it together with the [ASPIC+ foundation](aspic-foundation.md), [objection contract](objection-authoring.md), [dependency model](dependency-model.md), [argument model](argument-model.md), [standards contract](standards-contract.md), and [visualization plan](visualization-plan.md) before editing canonical content.
 
 ## Author context and terminology
 
@@ -58,7 +58,7 @@ Do not take condition treatment as the assumed default purpose of chiropractic. 
 
 ARG-007 derives actual scoped benefit in S-027 from S-011, S-024 and S-022. ARG-008 then uses S-027 and S-029's explicit normative principle to support the professional aim in S-005 defeasibly. Do not infer professional legitimacy from a valued outcome alone, or conceal a starting assumption of the aim behind the appearance of a derived conclusion. The working theory derives S-005; it does not also assume it.
 
-S-004's open-ended potential remains relevant to the rationale beyond symptoms in ARG-004, but is not a premise of the professional-purpose argument. The two resolved legacy dependencies into S-005 have been retired with their original notes preserved in the migration record. The S-011 to S-012 decision now retains a narrowly explained semantic use; the S-013, perturbation and assessment/application relationships are also resolved. The canonical migration is complete: arguments supply inferential revision paths and `semanticUses` retains additional meaning and mechanism references. The [substantive opposition audit](model-opposition-audit.md) records the current challenges, hypothetical evaluation scenarios and unresolved burdens.
+S-004's open-ended potential remains relevant to the rationale beyond symptoms in ARG-004, but is not a premise of the professional-purpose argument. Arguments supply inferential revision paths and `semanticUses` retains additional meaning and mechanism references. The [substantive opposition audit](model-opposition-audit.md) records the current challenges, hypothetical evaluation scenarios and unresolved burdens.
 
 Comparisons supplied to explain the author's intent in conversation must not be copied into canonical claims as contrasts with medicine or other professions. Keep the argument focused on its actual premises. Do not add a claim that every symptom or condition effect follows through the proposed functional improvement unless that stronger causal relationship is explicitly authored and reviewed. A proposed specific perturbation mechanism remains distinct from the functional effect and its value.
 
@@ -66,13 +66,13 @@ Comparisons supplied to explain the author's intent in conversation must not be 
 
 ARG-010 uses S-014 and the explicit normative delivery principle S-032 to support S-015 defeasibly. S-015 is derived, not also an ordinary starting premise. The conclusion remains conditional on a warranted decision; neither assessment, a testable prediction nor the opportunity to learn establishes that condition. S-028 to S-015 remains a semantic use of the proposed mechanism for intended disturbance and prediction, not a supporting premise. Reconsider mechanism-dependent choices when that account changes, while allowing adequately justified application through independently supported effects or another explanation. Preserve the distinction between a general strategy and a person-specific indication; no technique, dose, threshold or causal success is supplied by the argument.
 
-The S-014 to S-015 legacy dependency is retired, with its original limiting note preserved in the migration inventory and the practical boundary retained in S-015. ARG-010 supplies its inferential impact. Keep the S-028 semantic use explicit so a mechanism revision still reaches application even when an independent effect route preserves formal support.
+ARG-010 supplies the inferential impact from S-014 to S-015. Keep the S-028 semantic use explicit so a mechanism revision still reaches application even when an independent effect route preserves formal support.
 
 ## Perturbation and independent effect routes
 
 For perturbation, S-010 describes a disturbance of an ongoing motor-control pattern that creates an opportunity for reorganization. Keep the disturbance, reorganization and improvement distinguishable; specify salience independently of either outcome. S-028 independently asserts the perturbation mechanism and improving response in the same cases. ARG-009 strictly derives S-011 by retaining the effect and omitting the extra mechanism conjunct. S-011 also remains an explicitly disclosed ordinary empirical premise. Preserve both routes and distinguish withdrawing a route from asserting the effect false. The effect does not establish its mechanism, and general capacity supplies no missing chiropractic realization.
 
-S-010 to S-028 retains its original explanatory dependency and limiting note. The legacy S-011 to S-028 arrow is retired with its note preserved: the reviewed ARG-009 implication runs from the stronger S-028 to S-011, and strict transposition carries negation of the effect back to negation of the stronger claim. Do not infer a reverse positive rule or turn withdrawal of the independent S-011 premise into rejection of all its arguments.
+S-010 to S-028 is an explanatory semantic use with a limiting note. The ARG-009 implication runs from the stronger S-028 to S-011, and strict transposition carries negation of the effect back to negation of the stronger claim. Do not infer a reverse positive rule or turn withdrawal of the independent S-011 premise into rejection of all its arguments.
 
 ## Neural mechanisms and broader effects
 
@@ -118,8 +118,7 @@ inferential meaning. Keep an ID when its statement changes domain, position, wor
 never reuse it for another statement. Use `domain` and `order` for catalog grouping and sorting;
 the separate [reading path](model-reading-path.md) uses explicit section and step order;
 IDs must not determine sorting, including tie-breaking, or graph layout. `ARG-###` IDs remain
-separate. The [Stage 1 migration map](statements-stage-1-migration.md) records the explicitly authorized
-prepublication exception to ID preservation and the earlier, distinct domain-ID migration.
+separate. Historical identifiers are not accepted aliases for current statements.
 
 ## Editorial reading order
 
@@ -188,7 +187,7 @@ When a claim changes, use both layers:
 - follow the shared derived revision graph, including explicit `semanticUses`, to locate statements whose meaning or content must be reconsidered; and
 - find arguments that use the statement as a premise or conclusion and reassess their premises, scope, inference kind, and conclusion.
 
-During the transition retain the existing dependency data until every relationship has an explicit migration disposition. The target impact model derives inference dependencies and also follows objections, defenses, rule identity, profile changes and semantic uses. Do not stop computational propagation merely because an intermediate statement retains the same wording. Never use a reading path to exclude an admitted challenge.
+The impact model derives inference dependencies and also follows objections, defenses, rule identity, profile changes and semantic uses. Do not stop computational propagation merely because an intermediate statement retains the same wording. Never use a reading path to exclude an admitted challenge.
 
 The implemented [review impact contract](review-invalidation-plan.md) derives a review plan from previous and current relationships. Run `npm run audit:model -- --plan`, reconsider the required records and preserve unaffected findings and provenance. Per-record bases prevent a global fingerprint refresh from certifying unreviewed consequences. Shared-policy and broad structural changes still require global examination; periodic whole-model reviews look for missing relationships. Complete formal evaluation and automated checks always remain global.
 
@@ -234,8 +233,6 @@ Before finishing a change, verify that:
 - every new or changed argument explains its inference and limitations;
 - empirical statements have meaningful confidence and revision conditions; and
 - the semantic review in `reviews/model-review.json` covers the current exact inputs under [the review policy](model-review.md), and tests and the production build pass.
-
-The [v0.1 reasoning audit](model-v0.1-reasoning-audit.md) is the current worked example of applying this workflow without forcing deduction where it does not belong.
 
 ## Questions as entrances
 

@@ -26,11 +26,11 @@ References must resolve, have a known role and a nonblank note, and cannot be se
 
 The public detail page shows argument participation, additional references, and a derived list of statements to reconsider. Formal undercutters are supplied by `reasoning/opposition-bindings.json`; the initial empty configuration admits none. The shared review and public context include every recorded alternative application and admitted attack. Separately labeled opposition scenarios supply their own explicit hypothetical assumptions and undercuts, and are evaluated in full. They never become working-theory edges merely by being displayed or recorded. A reading path does not filter an evaluation.
 
-## Completed migration
+## Migration provenance and integrity
 
-The source inventory contains 38 original relationships with immutable source commit, identities, roles and limiting notes in `reasoning/dependency-migration.json`. The substantive decisions retired five of those records and retained five later semantic uses. This schema migration removes the remaining 14 inferential duplicates. The current Model has 32 statements, ten arguments and 24 explicit semantic uses: 19 retained original uses and five introduced after the source snapshot.
+`reasoning/dependency-migration.json` preserves the 38 original relationships with immutable source commit, identities, roles and limiting notes. Integrity checks compare retained semantic uses with that inventory and validate the argument paths replacing retired relationships. Keep this machine-readable provenance intact; it is not an alternative graph source. The current Model has 32 statements, ten arguments and 24 explicit semantic uses: 19 retained original uses and five introduced after the source snapshot.
 
-Every original `derive-from-existing-application` entry now obtains its inferential impact from that named argument. Its limiting note survives in the historical inventory; the associated canonical argument and statement explanations retain the substantive scope and evidential boundaries. The other historical dispositions remain unchanged. The migration record is history, not an alternative graph source.
+Every `derive-from-existing-application` entry obtains its inferential impact from the named argument. Its limiting note survives in the inventory; the canonical argument and statement explanations retain the substantive scope and evidential boundaries. Do not restore these inference duplicates as authored semantic uses.
 
 S-028 to S-015 illustrates why additional uses remain: the perturbation mechanism informs intended delivery and prediction even when an independent effect route preserves support for the application strategy. S-032 to S-015 illustrates the argument route: its normative contribution is already explicit in ARG-010 and has no duplicate semantic-use entry.
 

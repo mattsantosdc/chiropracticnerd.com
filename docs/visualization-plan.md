@@ -1,25 +1,25 @@
 # Reading interface and optional visualization plan
 
-The Model is a network with question-specific conclusions. The existing presentation remains an integrated text walkthrough centered on exact
-statements and their recorded reasoning. Stage 4 supplies the
-[reading path and shared reasoning data](model-reading-path.md); Stage 5 renders
-it at `/model/`, with a disclosed reference index and existing detail pages.
+The Model is a network with question-specific conclusions. Its presentation includes an integrated text walkthrough centered on exact
+statements and their recorded reasoning. The
+[reading path and shared reasoning data](model-reading-path.md) supply the walkthrough
+at `/model/`, with a disclosed reference index and existing detail pages.
 A graphical map is optional later work, not a prerequisite or the default route.
 
 ## Architecture decision
 
-Canonical Markdown retains permanent IDs, exact propositions, typed revision
-dependencies, structured joint-premise arguments, and separate see-also links.
+Canonical Markdown retains permanent IDs, exact propositions, typed semantic
+uses, structured joint-premise arguments, and separate see-also links.
 `src/data/model-reading-path.json` authors the editorial sequence without copying
 those facts. The reasoning index derives participation from the full argument
 collection; the resolver attaches canonical records and local reading locations.
 Neither ordering nor display creates a new inference. Domain/order grouping
 continues to serve catalogs rather than controlling the walkthrough.
 
-No graph renderer, graph database, or UI framework is needed for Stage 4. Future
+No graph renderer, graph database, or UI framework is needed for the reading path. Future
 renderers consume derived data and remain replaceable without migrating content.
 
-## Stage 5 reader experience
+## Reader experience
 
 The main walkthrough begins with living organisms; the method orientation is
 optional and the broader-effect branch remains adopted supporting reading.
@@ -45,11 +45,12 @@ Revision dependencies remain available for revision impact, separately from reas
 The integrated interface needs accessible navigation, keyboard-usable disclosure,
 narrow-screen reading, stable local anchors, and usable text without JavaScript.
 Recursive reasoning display, if introduced, must bound traversal and mark revisited
-records without deleting relationships. Finite argument cycles are allowed and
-must never enter the separate dependency-DAG check. Stage 5 implements a finite text
-presentation: links trace relationships and open statement support; native disclosures
-expose canonical argument explanations without recursive nesting. See the
-[implementation and browser review](model-stage-5-integration.md).
+records without deleting relationships. The reading resolver handles cycles finitely;
+the executable profile separately rejects productive inference cycles. Semantic-use
+and attack cycles remain permitted. The walkthrough uses a finite text presentation:
+links trace relationships and open statement support; native disclosures expose
+canonical argument explanations without recursive nesting. See the
+[rendering and browser-validation guide](model-reading-path.md#rendering-data-flow).
 
 ## Visualization-readiness contract
 
@@ -127,11 +128,11 @@ type VisualizationNode = {
 
 type VisualizationEdge = {
 	id: string;
-	kind: 'dependency' | 'premise' | 'conclusion' | 'related';
+	kind: 'semantic-use' | 'premise' | 'conclusion' | 'related';
 	source: string;
 	target: string;
 	directed: boolean;
-	role?: DependencyRole;
+	role?: SemanticUseRole;
 	note?: string;
 };
 
@@ -159,15 +160,15 @@ this client-side read model.
 
 ## Optional graphical map
 
-A later map may expose independently selected dependency, argument, and related
-layers with distinct node/edge treatments and an explicit legend. The dependency
-DAG is useful for revision work; it is not the reader's default explanation.
+A later map may expose independently selected revision, argument, and related
+layers with distinct node/edge treatments and an explicit legend. The derived revision
+graph is useful for revision work; it is not the reader's default explanation.
 Argument topology may branch, share conclusions, and cycle. Do not force it through
 a layered DAG layout or interpret a dependency arrow as support or causation.
 
 Select packages only when a concrete map use case exists, assessing current
 maintenance, accessibility, bundle size, and Astro compatibility then. No package
-is preferred, installed, or pinned by this stage. Preserve keyboard and screen-reader
+is preferred, installed, or pinned. Preserve keyboard and screen-reader
 access to equivalent textual relationships and verify every visual edge against
 canonical structured data. Evidence, causal, objection, and provenance layers need
 their own canonical contracts before visualization.

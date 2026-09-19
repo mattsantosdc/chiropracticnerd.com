@@ -118,7 +118,7 @@ errors therefore fail normal production builds even with a current semantic
 review. The review gate separately requires thoughtful review of all inputs; it
 cannot replace runtime validation or automatically approve a path.
 
-## Stage 5 data flow
+## Rendering data flow
 
 Canonical Markdown → Astro collections → `buildReasoningIndex` →
 `resolveReadingPath` with the authored JSON → integrated text walkthrough.
@@ -148,5 +148,23 @@ Only the general Model discussion widget is mounted on the walkthrough. Statemen
 pages keep bare S-ID threads and stable `#discussion` links, even if comments are
 disabled. Argument pages and the existing argument index retain their routes.
 
-See [Stage 5 integration](model-stage-5-integration.md) for implementation, semantic
-review and browser validation. A graphical map remains optional future work.
+## Browser validation
+
+After a fresh production build, run the browser checks in Chromium and Firefox:
+
+```sh
+npx playwright install chromium firefox
+npm run test:browser
+MODEL_BROWSER=firefox npm run test:browser
+```
+
+`tests/model-browser.mjs` serves `dist/` on an ephemeral loopback port and shuts
+the server down afterward. `MODEL_BASE_URL` can target an existing dev or preview
+server; start Astro dev with `astro dev --background`. `MODEL_SCREENSHOTS` selects
+the screenshot directory. Set `PLAYWRIGHT_BROWSERS_PATH` when browser binaries are
+installed outside Playwright's default cache.
+
+The checks cover desktop and mobile widths, keyboard and fragment navigation,
+reduced motion, and native disclosures without JavaScript. Inspect screenshots
+for readability when presentation changes, alongside the [semantic review](model-review.md).
+A graphical map remains optional future work.

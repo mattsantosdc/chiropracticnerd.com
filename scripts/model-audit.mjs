@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSnapshot, deriveImpact, reviewBasis, serialize, fullReviewIntervalDays } from './model-review-impact.mjs';
@@ -10,7 +10,6 @@ export const policyPaths = [
 	'docs/author-context.md',
 	'docs/aspic-foundation.md',
 	'docs/foundation-status.md',
-	'docs/aspic-migration.md',
 	'docs/objection-authoring.md',
 	'docs/review-invalidation-plan.md',
 	'reasoning/profile.json',
@@ -138,6 +137,68 @@ function provenanceIssues(value, label) {
 	return [];
 }
 
+const documentationPath = (path) => typeof path === 'string' && (path === 'AGENTS.md' || /^docs\/[a-z0-9][a-z0-9/-]*\.md$/.test(path));
+const validFingerprint = (value) => typeof value === 'string' && /^[a-f0-9]{64}$/.test(value);
+const changedInputPaths = (packet, review) => [...new Set([...Object.keys(review?.inputs ?? {}), ...Object.keys(packet.inputs)])].sort().filter((path) => review?.inputs?.[path] !== packet.inputs[path]);
+
+function documentationOnlyCandidate(packet, review) {
+	if (review?.schemaVersion !== packet.schemaVersion || review?.snapshot?.version !== packet.snapshot.version
+		|| !isObject(review.snapshot.units) || serialize(review.snapshot.subjects) !== serialize(packet.snapshot.subjects)
+		|| serialize(review.snapshot.edges) !== serialize(packet.snapshot.edges)) return false;
+	const changed = changedInputPaths(packet, review);
+	if (!changed.length || !changed.every(documentationPath)) return false;
+	// Only exact shared-document units may differ. A Markdown extension never
+	// exempts canonical content, bindings, code or a changed relationship.
+	return deriveImpact(review.snapshot, packet.snapshot).changedUnits.every((key) => changed.includes(key) && documentationPath(key));
+}
+
+function documentationReviewIssues(value) {
+	const issues = provenanceIssues(value, 'documentation review');
+	if (value?.classification !== 'editorial-only') issues.push('Documentation review must explicitly classify the changes as editorial-only.');
+	if (!Array.isArray(value?.changes) || !value.changes.length) return [...issues, 'Documentation review must identify the exact changed documents.'];
+	const seen = new Set();
+	for (const change of value.changes) {
+		if (!isObject(change) || !documentationPath(change.path) || seen.has(change.path)
+			|| ![change.before, change.after].every((hash) => hash === null || validFingerprint(hash))
+			|| change.before === change.after || !nonempty(change.reason)) {
+			issues.push('Malformed documentation change: require a unique documentation path, before/after fingerprints (null for absence), and a reason it has no semantic impact.');
+		}
+		seen.add(change?.path);
+	}
+	return issues;
+}
+
+/** Record an already performed editorial review, never generate semantic findings. */
+export function recordDocumentationReview(packet, review, attestation, options = {}) {
+	const issues = documentationReviewIssues(attestation);
+	if (issues.length) throw new Error(issues.join('\n'));
+	if (!documentationOnlyCandidate(packet, review)) throw new Error('Documentation carry-forward requires only registered documentation changes and unchanged canonical subjects and relationships. Use the ordinary review plan for mixed or semantic changes.');
+	const previousPacket = {
+		schemaVersion: packet.schemaVersion, inputs: review.inputs, snapshot: review.snapshot,
+		subjects: Object.values(review.snapshot.subjects).sort(),
+		bases: Object.fromEntries(Object.entries(review.snapshot.subjects).map(([id, path]) => [path, reviewBasis(review.snapshot, id)])),
+	};
+	const previousIssues = checkReview(previousPacket, review, options);
+	if (previousIssues.length) throw new Error(`Cannot carry forward incomplete, stale or overdue review coverage:\n${previousIssues.join('\n')}`);
+	const changed = changedInputPaths(packet, review);
+	if (serialize(attestation.changes.map(({ path }) => path).sort()) !== serialize(changed)
+		|| attestation.changes.some(({ path, before, after }) => before !== (review.inputs[path] ?? null) || after !== (packet.inputs[path] ?? null))) {
+		throw new Error('Documentation attestation does not match the exact before/after input fingerprints; inspect the current diff again.');
+	}
+	if (Date.parse(attestation.reviewedAt) < Date.parse(review.reviewedAt)) throw new Error('Documentation review cannot predate the review it carries forward.');
+	const next = structuredClone(review);
+	next.reviewedAt = attestation.reviewedAt;
+	next.reviewer = structuredClone(attestation.reviewer);
+	next.inputs = structuredClone(packet.inputs);
+	next.snapshot = structuredClone(packet.snapshot);
+	for (const path of packet.subjects) next.records[path].basis = packet.bases[path];
+	(next.documentationReviews ??= []).push(structuredClone(attestation));
+	// Findings, their reviewer/timestamp and the whole-model attestation are intact.
+	const nextIssues = checkReview(packet, next, options);
+	if (nextIssues.length) throw new Error(nextIssues.join('\n'));
+	return next;
+}
+
 export function planReview(packet, review, { full = false, now = Date.now() } = {}) {
 	const usable = review?.schemaVersion === 2 && review.snapshot?.version === packet.snapshot.version && isObject(review.snapshot.units) && isObject(review.snapshot.subjects) && Array.isArray(review.snapshot.edges);
 	const whole = review?.wholeModelReview;
@@ -145,7 +206,7 @@ export function planReview(packet, review, { full = false, now = Date.now() } = 
 	const impact = deriveImpact(usable ? review.snapshot : null, packet.snapshot);
 	const globalChange = impact.changedUnits.some((key) => packet.snapshot.units[key]?.targets === null || review?.snapshot?.units?.[key]?.targets === null);
 	const mode = full || !usable || due || globalChange ? 'full' : 'incremental';
-	const changedInputs = [...new Set([...Object.keys(review?.inputs ?? {}), ...Object.keys(packet.inputs)])].sort().filter((path) => review?.inputs?.[path] !== packet.inputs[path]);
+	const changedInputs = changedInputPaths(packet, review);
 	const required = [];
 	const retained = [];
 	for (const [id, path] of Object.entries(packet.snapshot.subjects)) {
@@ -157,7 +218,7 @@ export function planReview(packet, review, { full = false, now = Date.now() } = 
 			required.push({ ...item, reasons: reasons.length ? reasons : [{ reason: mode === 'full' ? (full ? 'Explicit whole-model review' : !usable ? 'Establish a schema-2 baseline' : globalChange ? 'Shared input changed' : 'Periodic whole-model review is due') : 'Review basis or findings are missing, stale or incomplete' }] });
 		} else retained.push(item);
 	}
-	return { mode, fullReviewDue: due, fullReviewIntervalDays, changedInputs, required, retained, removed: Object.keys(review?.records ?? {}).filter((path) => !packet.subjects.includes(path)).sort() };
+	return { mode, fullReviewDue: due, fullReviewIntervalDays, changedInputs, documentationOnlyCandidate: usable && documentationOnlyCandidate(packet, review), required, retained, removed: Object.keys(review?.records ?? {}).filter((path) => !packet.subjects.includes(path)).sort() };
 }
 
 export function checkReview(packet, review, options = {}) {
@@ -167,6 +228,10 @@ export function checkReview(packet, review, options = {}) {
 	if (review.schemaVersion !== packet.schemaVersion) issues.push('Malformed review: unsupported schemaVersion.');
 	issues.push(...provenanceIssues(review, 'review'));
 	issues.push(...provenanceIssues(review.wholeModelReview, 'whole-model review'));
+	if (review.documentationReviews !== undefined) {
+		if (!Array.isArray(review.documentationReviews)) issues.push('Malformed documentation review history: expected an array.');
+		else for (const attestation of review.documentationReviews) issues.push(...documentationReviewIssues(attestation));
+	}
 	if (!isObject(review.wholeModelReview?.inputs) || !Object.keys(review.wholeModelReview.inputs).length || Object.values(review.wholeModelReview.inputs).some((value) => typeof value !== 'string' || !/^[a-f0-9]{64}$/.test(value))) issues.push('Malformed whole-model review: retain its exact input fingerprints.');
 	if (planReview(packet, review, options).fullReviewDue) issues.push(`Whole-model review overdue or missing: required every ${fullReviewIntervalDays} days and before a Model release.`);
 	if (serialize(review.snapshot) !== serialize(packet.snapshot)) issues.push('Stale review impact snapshot: inspect the old/new impact plan before recording the current snapshot.');
@@ -216,12 +281,20 @@ export function readReview(root) {
 
 function main() {
 	const args = process.argv.slice(2);
-	if (new Set(args).size !== args.length || args.some((arg) => !['--packet', '--check', '--plan', '--full'].includes(arg)) || args.filter((arg) => arg !== '--full').length > 1 || (args.includes('--check') && args.includes('--full'))) {
-		throw new Error('Usage: node scripts/model-audit.mjs [--packet | --plan | --check] [--full (review planning only)]');
+	const recordingDocs = args.length === 2 && args[0] === '--record-docs-review' && !args[1].startsWith('--');
+	if (!recordingDocs && (new Set(args).size !== args.length || args.some((arg) => !['--packet', '--check', '--plan', '--full'].includes(arg)) || args.filter((arg) => arg !== '--full').length > 1 || (args.includes('--check') && args.includes('--full')))) {
+		throw new Error('Usage: node scripts/model-audit.mjs [--packet | --check | --plan] [--full (planning only)] OR --record-docs-review <attestation.json>');
 	}
 	const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 	const packet = collectInputs(root);
 	const review = readReview(root);
+	if (recordingDocs) {
+		const attestation = JSON.parse(readFileSync(resolve(args[1]), 'utf8'));
+		const next = recordDocumentationReview(packet, review, attestation);
+		writeFileSync(join(root, reviewPath), `${JSON.stringify(next, null, 2)}\n`);
+		console.log(`Recorded editorial review of ${attestation.changes.length} documents; retained all ${packet.subjects.length} semantic findings and the previous whole-model review date.`);
+		return;
+	}
 	const plan = planReview(packet, review, { full: args.includes('--full') });
 	if (args.includes('--packet')) {
 		console.log(JSON.stringify({ ...packet, plan }, null, 2));
@@ -235,7 +308,8 @@ function main() {
 	if (issues.length) {
 		console.log(issues.join('\n'));
 		console.log(`Review scope: ${plan.required.length} records require review; ${plan.retained.length} retain their findings and provenance. Run with --plan for the reasons and previous/current paths.`);
-		console.log('Review the affected inputs using docs/model-review.md; do not refresh fingerprints without a semantic audit.');
+		console.log('Review the affected inputs using docs/model-review.md; do not refresh fingerprints without the required review.');
+		if (plan.documentationOnlyCandidate) console.log('Only registered documentation changed. If inspection confirms no semantic change, record an exact editorial attestation with --record-docs-review; otherwise follow the full plan.');
 		if (args.includes('--check')) process.exitCode = 1;
 	} else {
 		console.log(`Model review current: ${packet.subjects.length} records cover ${Object.keys(packet.inputs).length} inputs. This checks recorded review coverage, not empirical truth or logical validity.`);

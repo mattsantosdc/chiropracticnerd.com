@@ -1,6 +1,6 @@
 # Foundation completion checklist
 
-This checklist separates completion of a capability from empirical support for the claims it processes. It follows the foundation and navigation merge into main at `76c12ed7daa0a85df9c77f4cd12e2c4e95211082`.
+This checklist separates completion of a capability from empirical support for the claims it processes.
 
 | Requirement | Status and verification |
 | --- | --- |
@@ -10,7 +10,7 @@ This checklist separates completion of a capability from empirical support for t
 | Canonical relationship migration and derived revision impact | Implemented; preserved migration inventory and previous/current influence tests |
 | Question-specific reading independent of evaluation | Implemented; complete-theory evaluation and separate reader views |
 | Neutral critical questions and hypothetical opposition | Implemented; 24 questions and eight versioned full-theory scenarios |
-| Canonical formal-opposition authoring and admission | Implemented on the formal-opposition branch; shared Markdown schemas, exact bindings, explained admissions and undercut targets, source provenance, review impact and reader context |
+| Canonical formal-opposition authoring and admission | Implemented; shared Markdown schemas, exact bindings, explained admissions and undercut targets, source provenance, review impact and reader context |
 | Substantive opposing corpus | Initially empty; populate through source appraisal and explicit reasoning, not synthetic test stipulations |
 | Lossless interchange within the experimental AIF application profile | Implemented and tested; required project extensions preserve executable meaning |
 | Demonstrated interoperability with an independent AIF consumer | Pending; next standards integration task |

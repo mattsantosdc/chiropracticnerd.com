@@ -1,12 +1,10 @@
 # ASPIC+ foundation contract and pilot
 
-## Decision and scope
+## Scope
 
-The Model adopts an explicitly configured ASPIC+ foundation. The merged implementation provides a bounded executable evaluator and reader-facing critical questions. Canonical statement and argument Markdown remains authoritative. The evaluator binds all 32 working statements and ten working inference applications, plus any separately recorded alternatives, to their exact current content; it does not turn publication into a starting premise. See the [completion checklist](foundation-status.md) for remaining interoperability work.
+The Model adopts an explicitly configured ASPIC+ foundation. The implementation provides a bounded executable evaluator and reader-facing critical questions. Canonical statement and argument Markdown remains authoritative. The evaluator binds all 32 working statements and ten working inference applications, plus any separately recorded alternatives, to their exact current content; it does not turn publication into a starting premise. See the [completion checklist](foundation-status.md) for remaining interoperability work.
 
-The canonical relationship migration and the [substantive opposition audit](model-opposition-audit.md) are complete for the present records. Arguments supply inference paths, and `semanticUses` preserves additional references; legacy relationship fields are rejected. This does not claim complete logical formalization of every English statement, an exhaustive opposing corpus or empirical verification. The [migration assessment](aspic-migration.md) records the dispositions and remaining limits.
-
-The user has merged the original transition into `main`. Follow-up work starts on a separate branch from current `main` and targets `main` for manual user review and merge, unless Matt specifies another base. The formal-opposition authoring branch is based on `76c12ed7daa0a85df9c77f4cd12e2c4e95211082`. The original foundation branch was based on `bed3268155100f4a2d94354a3a38dca07a5b03d7`; these references record history rather than the base for new work.
+Arguments supply inference paths, and `semanticUses` preserves additional references under the [relationship contract](dependency-model.md); legacy relationship fields are rejected. The [substantive opposition audit](model-opposition-audit.md) records the present challenges and unresolved questions. This does not claim complete logical formalization of every English statement, an exhaustive opposing corpus or empirical verification.
 
 ## Fixed evaluation profile
 
@@ -119,7 +117,7 @@ The test launcher allows three minutes for the aggregate suite, which repeatedly
 
 The tests cover the original 18 adversarial requirements plus quantified strengthening, existential overlap, occurrence by definition, productive cycles, explicit profile rejection, signature injection, formal binding drift, canonical inventory coverage, and the engine identity issue. The suite includes canonical opposition authoring tests and a cross-runtime check that the semantic review graph covers changed full-evaluation statuses after premise/rule withdrawal, an outside rebuttal, alternative support and undercut/defense changes. Perturbation tests verify both S-011 routes, withdrawal of each and both, rejection of the reverse capacity-plus-effect implication, and strict transposition from a negated effect. Application tests additionally check both required premises, withdrawal of S-032, undercut propagation to reassessment, survival through the independent effect route after withdrawing or negating S-028, and rejection of a strict ARG-010 label. Review-impact tests also exercise these canonical changes. The two representative pilot theories and eight opposition scenarios explicitly declare their assumptions; none changes the working theory's independently declared premise set. The additional tests check scenario validity and expected results, immutable working assumptions, and agreement between the Python and shared JavaScript revision graph.
 
-For every Model change, run the impact-based semantic review (with whole-model review for global changes and periodic checks), `npm test`, `npm run test:reasoning`, `npm run reasoning:pilot`, `npm run build` and `npm run test:routes`. Run the browser checks for presentation changes. The static Astro site does not ship Python or execute the engine in a reader's browser. The CI workflow runs the reasoning checks separately from the static build.
+For every semantic or implementation Model change, run the impact-based semantic review (with whole-model review for global changes and periodic checks), `npm test`, `npm run test:reasoning`, `npm run reasoning:pilot`, `npm run build` and `npm run test:routes`. Editorial documentation alone follows the [documentation-review workflow](model-review.md#editorial-documentation-changes). Run the browser checks for presentation changes. The static Astro site does not ship Python or execute the engine in a reader's browser. The CI workflow runs the reasoning checks separately from the static build.
 
 ## References and implementation provenance
 
@@ -132,4 +130,4 @@ For every Model change, run the impact-based semantic review (with whole-model r
 
 ## Question-specific presentation
 
-The canonical migration now feeds [answer views](model-answer-views.md). They show exact answer statements, incoming applications and explicit ordinary-premise roles while retaining the full walkthrough. They are not filtered formal evaluations; the complete working theory and all eight hypothetical scenarios continue to run independently of the question selected.
+[Answer views](model-answer-views.md) show exact answer statements, incoming applications and explicit ordinary-premise roles while retaining the full walkthrough. They are not filtered formal evaluations; the complete working theory and all eight hypothetical scenarios continue to run independently of the question selected.

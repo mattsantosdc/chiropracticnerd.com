@@ -1,9 +1,10 @@
 import assert from 'node:assert/strict';
-import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import { mkdtempSync, mkdirSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { test } from 'node:test';
-import { checkReview, collectInputs, fingerprint, planReview, policyPaths, readReview, reviewPath, rubricFields } from '../scripts/model-audit.mjs';
+import { checkReview, collectInputs, fingerprint, planReview, policyPaths, readReview, recordDocumentationReview, reviewPath, rubricFields } from '../scripts/model-audit.mjs';
 import { deriveImpact, digest, reviewBasis, theoryEdges } from '../scripts/model-review-impact.mjs';
 
 const reviewedAt = '2026-09-14T00:00:00Z';
@@ -164,6 +165,135 @@ test('global policy, profile, checker and shared renderer changes invalidate eve
 		f.put(path, `${f.packet.sources[path]}Changed global contract.\n`);
 		assert.equal(f.plan().required.length, f.packet.subjects.length); f.put(path, f.packet.sources[path]);
 	}
+});
+
+function documentationAttestation(packet: any, review: any): any {
+	return {
+		classification: 'editorial-only', reviewedAt, reviewer,
+		changes: planReview(packet, review, { now }).changedInputs.map((path: string) => ({
+			path, before: review.inputs[path] ?? null, after: packet.inputs[path] ?? null,
+			reason: 'Synthetic editorial correction; no requirement or Model meaning changes.',
+		})),
+	};
+}
+
+test('documentation review preserves semantic findings and provenance without silently exempting docs', (t) => {
+	const f = fixture(t);
+	f.put('docs/model-authoring.md', `${f.packet.sources['docs/model-authoring.md']}Editorial link correction.\n`);
+	f.put('AGENTS.md', `${f.packet.sources['AGENTS.md']}Editorial heading correction.\n`);
+	const packet = collectInputs(f.root);
+	assert.equal(f.plan().documentationOnlyCandidate, true);
+	assert.equal(f.plan().required.length, packet.subjects.length);
+	assert.match(checkReview(packet, f.review, { now }).join('\n'), /Stale review basis/);
+	const original = structuredClone(f.review);
+	const attestation = documentationAttestation(packet, f.review);
+	const next = recordDocumentationReview(packet, f.review, attestation, { now });
+	assert.deepEqual(checkReview(packet, next, { now }), []);
+	assert.equal(planReview(packet, next, { now }).required.length, 0);
+	assert.deepEqual(next.wholeModelReview, original.wholeModelReview);
+	assert.deepEqual(next.documentationReviews, [attestation]);
+	for (const path of packet.subjects) {
+		assert.notEqual(next.records[path].basis, original.records[path].basis);
+		assert.deepEqual({ ...next.records[path], basis: original.records[path].basis }, original.records[path]);
+	}
+	assert.deepEqual(f.review, original, 'The recorder must not mutate the previous review.');
+	f.put('docs/model-authoring.md', 'A later, unreviewed policy change.\n');
+	assert.equal(planReview(collectInputs(f.root), next, { now }).required.length, packet.subjects.length);
+});
+
+test('documentation attestations require exact changes, fingerprints, reasons and reviewer provenance', (t) => {
+	const f = fixture(t); const path = 'docs/model-authoring.md';
+	f.put(path, 'Editorial correction.\n');
+	const packet = collectInputs(f.root);
+	const valid = documentationAttestation(packet, f.review);
+	for (const mutate of [
+		(a: any) => { a.changes[0].before = '0'.repeat(64); },
+		(a: any) => { a.changes[0].after = '0'.repeat(64); },
+		(a: any) => { a.changes[0].reason = ' '; },
+		(a: any) => { a.changes.push(a.changes[0]); },
+		(a: any) => { a.changes = []; },
+		(a: any) => { a.classification = 'semantic-change'; },
+		(a: any) => { delete a.reviewer.model; },
+		(a: any) => { a.reviewedAt = '2026-09-13T00:00:00Z'; },
+	]) {
+		const attestation = structuredClone(valid); mutate(attestation);
+		assert.throws(() => recordDocumentationReview(packet, f.review, attestation, { now }));
+	}
+	f.put('AGENTS.md', 'Another editorial correction.\n');
+	assert.throws(() => recordDocumentationReview(collectInputs(f.root), f.review, valid, { now }), /exact before\/after/);
+	const next = recordDocumentationReview(packet, f.review, valid, { now });
+	next.documentationReviews[0].changes[0].reason = '';
+	assert.match(checkReview(packet, next, { now }).join('\n'), /Malformed documentation change/);
+});
+
+test('documentation review rejects mixed code, canonical, binding, question and relationship edits', (t) => {
+	const f = fixture(t); const path = 'docs/model-authoring.md';
+	f.put(path, 'Editorial correction.\n');
+	for (const other of ['scripts/model-audit.mjs', 'reasoning/engine.py', 'reasoning/profile.json', 'src/components/model/StatementText.astro', sp('S-005')]) {
+		f.put(other, `${f.packet.sources[other]}Changed content.\n`);
+		const packet = collectInputs(f.root);
+		assert.equal(planReview(packet, f.review, { now }).documentationOnlyCandidate, false);
+		assert.throws(() => recordDocumentationReview(packet, f.review, documentationAttestation(packet, f.review), { now }));
+		f.put(other, f.packet.sources[other]);
+	}
+	f.json('src/data/model-questions.json', [{ id: 'Q-001', target: 'S-005', question: 'Revised?' }]);
+	let packet = collectInputs(f.root);
+	assert.throws(() => recordDocumentationReview(packet, f.review, documentationAttestation(packet, f.review), { now }));
+	f.put('src/data/model-questions.json', f.packet.sources['src/data/model-questions.json']);
+	const bindings = JSON.parse(f.packet.sources['reasoning/model-bindings.json']);
+	bindings.ordinaryPremises = ['S-005']; f.json('reasoning/model-bindings.json', bindings);
+	packet = collectInputs(f.root);
+	assert.throws(() => recordDocumentationReview(packet, f.review, documentationAttestation(packet, f.review), { now }));
+	f.bind();
+	packet = collectInputs(f.root);
+	const attestation = documentationAttestation(packet, f.review);
+	packet.snapshot.edges.pop();
+	assert.throws(() => recordDocumentationReview(packet, f.review, attestation, { now }), /unchanged canonical subjects and relationships/);
+});
+
+test('documentation review cannot rescue stale or adverse findings or renew periodic coverage', (t) => {
+	const f = fixture(t); f.put('docs/model-authoring.md', 'Editorial correction.\n');
+	const packet = collectInputs(f.root); const attestation = documentationAttestation(packet, f.review);
+	for (const mutate of [
+		(r: any) => { r.records[sp('S-005')].basis = '0'.repeat(64); },
+		(r: any) => { r.records[sp('S-005')].finding = 'needs-revision'; },
+		(r: any) => { delete r.records[sp('S-005')]; },
+	]) {
+		const review = structuredClone(f.review); mutate(review);
+		assert.throws(() => recordDocumentationReview(packet, review, attestation, { now }), /Cannot carry forward/);
+	}
+	const next = recordDocumentationReview(packet, f.review, attestation, { now });
+	assert.equal(planReview(packet, next, { now, full: true }).required.length, packet.subjects.length);
+	const later = now + 90 * 86_400_000;
+	assert.match(checkReview(packet, next, { now: later }).join('\n'), /Whole-model review overdue/);
+	assert.throws(() => recordDocumentationReview(packet, f.review, attestation, { now: later }), /overdue/);
+});
+
+test('documentation review command records only the attested change and leaves the file intact on rejection', (t) => {
+	const f = fixture(t);
+	for (const path of ['scripts/model-audit.mjs', 'scripts/model-review-impact.mjs', 'src/lib/revision-graph.mjs', 'src/lib/formal-opposition.mjs']) {
+		f.put(path, readFileSync(path, 'utf8'));
+	}
+	f.json('package.json', { type: 'module' });
+	symlinkSync(join(process.cwd(), 'node_modules'), join(f.root, 'node_modules'), 'dir');
+	const baseline = collectInputs(f.root); const review = reviewed(baseline);
+	const currentTime = new Date().toISOString();
+	for (const entry of [review, review.wholeModelReview, ...Object.values(review.records) as any[]]) entry.reviewedAt = currentTime;
+	f.json(reviewPath, review);
+	f.put('docs/model-authoring.md', 'Synthetic editorial correction.\n');
+	const packet = collectInputs(f.root); const attestation = documentationAttestation(packet, review);
+	attestation.reviewedAt = currentTime;
+	f.json('attestation.json', attestation);
+	const command = (...args: string[]) => spawnSync(process.execPath, ['scripts/model-audit.mjs', ...args], { cwd: f.root, encoding: 'utf8' });
+	const result = command('--record-docs-review', 'attestation.json');
+	assert.equal(result.status, 0, result.stdout + result.stderr);
+	assert.equal(command('--check').status, 0);
+	const next = readReview(f.root);
+	assert.deepEqual(next.wholeModelReview, review.wholeModelReview);
+	for (const path of packet.subjects) assert.deepEqual({ ...next.records[path], basis: review.records[path].basis }, review.records[path]);
+	const bytes = readFileSync(join(f.root, reviewPath), 'utf8');
+	assert.equal(command('--record-docs-review', 'attestation.json').status, 1);
+	assert.equal(readFileSync(join(f.root, reviewPath), 'utf8'), bytes);
 });
 
 test('renamed and added canonical records cannot escape freshness; unrelated files do not invalidate it', (t) => {

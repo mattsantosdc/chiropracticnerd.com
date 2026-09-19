@@ -16,8 +16,8 @@ Public routes may change; semantic identifiers may not. The reserved patterns ar
 Statement IDs use `S-###` (three decimal digits), unique across all domains. Argument IDs use `ARG-###`.
 Statement IDs are permanent identifiers only: their numeric values carry no ordering, hierarchy,
 domain, or inferential meaning. Catalogs use `domain` and `order`; the editorial reading path
-uses explicit section/step order. IDs must not determine statement sorting or graph layout. The [Stage 1 migration map](statements-stage-1-migration.md) records the explicitly authorized
-prepublication exception and the earlier domain-ID migration; old IDs are not accepted aliases.
+uses explicit section/step order. IDs must not determine statement sorting or graph layout.
+Historical identifiers are not accepted aliases for current statements.
 
 Statement and argument IDs are permanent identities; URL slugs are mutable presentation routes and must not be used as semantic identifiers. The `/model/arguments/`, `/model/answers/` and `/model/alternatives/` namespaces are reserved for argument and answer presentation. Statement slugs cannot equal a reserved name or begin with its prefix. Answer routes and local navigation-question IDs create no new semantic identities.
 
@@ -26,7 +26,7 @@ Statement and argument IDs are permanent identities; URL slugs are mutable prese
 The Model is the complete account, built from statements and arguments. Statements in
 `src/content/model/statements/` express propositions, definitions, values, framework commitments,
 and strategies. The `statements` and `arguments` Astro collections load only their respective
-canonical sibling directories; no collection loads the shared parent. Arguments are the sole authored inference applications. Additional noninferential references use `semanticUses: [{ id, role, note }]`; the retired `upstream` and `downstream` fields are rejected. The completed [migration](aspic-migration.md) preserves retained limiting notes and historical dispositions. Retained semantic uses keep their already reserved dependency URI and role URI patterns; retirement never permits identity reuse. The namespace spelling is not an authored field or a claim of inference.
+canonical sibling directories; no collection loads the shared parent. Arguments are the sole authored inference applications. Additional noninferential references use `semanticUses: [{ id, role, note }]`; the retired `upstream` and `downstream` fields are rejected. The [relationship contract](dependency-model.md) defines the roles, limiting notes and derived revision impact. Semantic uses keep their reserved dependency URI and role URI patterns; retirement never permits identity reuse. The namespace spelling is not an authored field or a claim of inference.
 
 Argument records in `src/content/model/arguments/` are now the canonical structured reasoning layer. Each contains one or more statement premises, one statement conclusion, an inference kind, a named scheme, version and updated date, and explanatory prose. Arguments do not create a `logical` statement type and do not use a Boolean soundness field. Multiple arguments may conclude the same statement, and a statement may be both a conclusion and a premise across the hierarchy.
 
@@ -65,7 +65,7 @@ An eventual export will use stable RDF 1.1 semantics and JSON-LD 1.1. It will re
 | Evidence method | [ECO](https://evidenceontology.org/) only when an exact biomedical evidence term applies |
 | Export constraints | [SHACL](https://www.w3.org/TR/shacl/) shapes generated and tested alongside the export |
 
-The former blanket `dcterms:requires` mapping is deferred. A semantic use can guide interpretation or a mechanism-dependent choice without being logically necessary for the claim. An exporter must preserve that distinction and the qualified note rather than imply necessity for every reference. No public export changes in this migration.
+A semantic use can guide interpretation or a mechanism-dependent choice without being logically necessary for the claim. An exporter must preserve that distinction and the qualified note rather than imply necessity for every reference through a blanket `dcterms:requires` mapping.
 
 SKOS's direct-versus-transitive distinction informs the direct-edge rule, but statements are not automatically `skos:Concept` resources. CiTO describes why a publication is cited, not why one statement depends on another. PROV-O describes lineage, not argumentative support. These boundaries prevent convenient but false ontology mappings.
 
@@ -77,7 +77,7 @@ The authorized ASPIC+ pilot now uses Z3 to check formal strict inferences and pr
 
 The [Model review](model-review.md) records whole-file fingerprints, scoped per-record bases and AI-assisted or human semantic findings outside canonical content. The npm test and build commands require the review to cover the current Model, arguments, and governing policy. These records introduce no public route, semantic identifier, or canonical content-schema change; they track review coverage, not truth, validity, soundness, or evidential sufficiency.
 
-The [review impact contract](review-invalidation-plan.md) implements conservative field-level scoping, previous/current graph propagation and per-record provenance. Full-theory evaluation continues after every Model change. Incremental formal evaluation, a hosted AI review runner and a broader publication policy remain deferred.
+The [review impact contract](review-invalidation-plan.md) implements conservative field-level scoping, previous/current graph propagation and per-record provenance. Full-theory evaluation continues after every semantic or implementation Model change; editorial documentation uses the separate documentation-review workflow. Incremental formal evaluation, a hosted AI review runner and a broader publication policy remain deferred.
 
 Interactive visualization is a separate, also-deferred concern. It will use a renderer-neutral
 read model derived directly from the validated Markdown collections; it does not require linked

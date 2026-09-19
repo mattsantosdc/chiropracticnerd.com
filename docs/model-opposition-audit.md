@@ -1,6 +1,6 @@
 # Substantive opposition audit
 
-This audit examines the working Model at the completed relationship migration: 32 statements and ten arguments. It assesses the strongest identifiable challenges to the account's premises, interpretations, inference schemes and practical conditions. It is an audit of the stated reasoning and its existing evidence boundaries, not a new literature appraisal or a declaration that every possible objection has been answered.
+This audit examines the working Model's 32 statements and ten arguments. It assesses the strongest identifiable challenges to the account's premises, interpretations, inference schemes and practical conditions. It is an audit of the stated reasoning and its existing evidence boundaries, not a new literature appraisal or a declaration that every possible objection has been answered.
 
 The result is conditional coherence with substantive open questions. The scoped causal effect, mechanism, broader transfer, measurement and selection commitments remain empirical burdens. Formal acceptance in the unopposed working theory does not resolve them. No new empirical claim or confidence upgrade is introduced by this audit.
 
@@ -25,7 +25,7 @@ The result is conditional coherence with substantive open questions. The scoped 
 | S-032, S-015; ARG-010 | Requiring an evaluable prediction might be too restrictive, or curiosity might be used to justify an otherwise unwarranted input. | Q-017 rejects curiosity as sufficient warrant. Q-024 opens the normative requirement itself to criticism. OP-006 tests withdrawal of the principle; OP-007 is an explicit inference-failure probe, not evidence that such a defeater exists. Q-018 preserves mechanism-dependent revision without inventing an independent justification. |
 | S-016; ARG-003 | Repeating assessment might itself change the observation, or a favorable result might be used to justify indefinite input. | Q-022 names repeated-testing and contextual alternatives. Reassessment can guide stopping or revision but establishes neither causation nor a need to continue. Its measurement and decision methods remain open to independent evaluation. |
 
-All exact propositions and the three strict inferences retain their prior commitments. The audit adds six public questions, Q-019 through Q-024, to the existing 18. The questions are charitable challenges to this account, not assertions about other practitioners or automatic counterpremises.
+The 24 public questions are charitable challenges to this account, not assertions about other practitioners or automatic counterpremises.
 
 ## Executable conditional challenges
 

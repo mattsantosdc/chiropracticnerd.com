@@ -4,8 +4,6 @@ A reader can choose a question, examine its exact answer statement and follow th
 
 The overview leads with the proposed functional aim and a prominent practical-question navigation block. Readers can begin with an answer and trace backward through its premises, or use the adjacent link and contents disclosure to follow the foundational walkthrough. This reading order preserves the reasoning-first authoring method. Question wording must not presuppose a need for an input or imply that the assessment strategy itself establishes a person-specific indication. Summaries and opening explanations orient readers in plain language; the exact canonical statements remain the propositions used in reasoning.
 
-Navigation work is isolated on `model-v0.1-question-navigation`, based on foundation commit `91c80e73d68f6652fd7b205d8770dabcfe4ef509`. Review its changes separately from the foundation migration. The user retains all merge decisions.
-
 ## Editorial questions and canonical content
 
 `src/data/model-answer-questions.json` is a strict array of `{ id, question, statement }` records. IDs are local navigation identities in lowercase kebab case. Each question points to one existing permanent S-ID. A question supplies no answer text, premise, explanation, order of inference or acceptance label. Its wording must match the target's actual scope. Different questions can point to the same statement without creating another claim. The eight starting questions are examples of useful entrances; all 32 statements have views.

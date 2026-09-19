@@ -4,7 +4,7 @@ slug: science/neuromotor-opportunity
 title: Neuromotor constraints and opportunities
 statement: >-
   Some motor strategies that limit functional options in a given context can be modified to improve context-appropriate human function within a specified neuromotor scope and timescale.
-summary: Some neuromotor constraints are beneficially modifiable in a specified context; a constraint alone does not establish a detectable opportunity or a worthwhile intervention.
+summary: Some limiting patterns of muscle control can be changed to improve function in the relevant conditions. Assessment asks whether a particular pattern offers a worthwhile target for a chiropractic input.
 domain: science
 statementType: empirical
 confidence: unresolved
@@ -18,7 +18,7 @@ semanticUses:
     note: Revising S-008's state-dependent neuromotor domain would require reconsidering the states and limitations addressed here; state dependence alone establishes neither modifiability nor improvement.
 related: []
 version: '0.1'
-updated: 2026-09-12
+updated: 2026-09-19
 references:
   - title: Adaptation to stable and unstable dynamics achieved by combined impedance control and inverse dynamics model
     url: https://pubmed.ncbi.nlm.nih.gov/14615432/
@@ -28,29 +28,33 @@ whatWouldChange: >-
   Revise the constraint description if reliable measures cannot distinguish specified candidate patterns from task-appropriate strategies, tissue limitations, or measurement error. Narrow or reject specified opportunity hypotheses if valid, adequately sensitive prospective tests show that the patterns cannot be modified under the proposed conditions, or that changing them does not improve fit to the identified demands when relevant functional gains and losses are considered together over the specified timescale.
 ---
 
-## Beneficial modification of neuromotor constraints
+## What the chiropractor is assessing
 
-S-009 proposes that some neuromotor constraints can be modified to improve context-appropriate function within a specified neuromotor scope. The relevant patterns concern the regulation of muscle tone, postural support, and movement in the person's present context. S-021 defines the comparison and S-022 separately values the improvement.
+The Model proposes that some limiting patterns of muscle control can be changed in ways that improve function. A **neuromotor opportunity** is that prospect of beneficial change. In practice, the chiropractor investigates a pattern of findings as a possible target for a chiropractic input.
 
-## What is a neuromotor constraint?
+The findings may concern resting muscle tone, postural support, or how muscle activity and coordination respond to changes in position or demand. They need not correspond to a symptom, a difficulty the person has noticed, or a movement goal they have chosen.
 
-A **neuromotor constraint**, as used in this Model, is a current pattern of motor control that limits the person's functional options relative to postural or task demands. The pattern may be reflected in resting muscle tone, postural muscle activity, or recruitment and coordination during a task. This is a working functional description, with no requirement for pain, tissue damage, or disease.
+## What the findings suggest
 
-An illustrative candidate is a sustained pattern of muscular co-contraction that restricts adaptation to a change in position or load. Its interpretation depends on the postural or task demands; co-contraction alone is insufficient to identify a constraint. Identifying the underlying CNS mechanism requires separate evidence.
+A **neuromotor constraint** is a current pattern of motor control that limits the responses available to meet postural or task demands. The findings are what the chiropractor observes; identifying the underlying pattern as a constraint is an interpretation of those findings. This description does not require pain, tissue damage, or disease.
 
-## From constraint to opportunity
+An illustrative candidate is sustained **co-contraction**—opposing muscles active together—that restricts adaptation to a change in position or load. Its interpretation depends on the person's conditions and demands; co-contraction alone is insufficient to identify a constraint. Identifying the underlying nervous-system mechanism requires separate evidence.
 
-The **constraint** describes the current motor pattern. The **opportunity** is the possibility that modifying it would improve context-appropriate function. That additional claim requires evidence of both modifiability and better fit to identified demands, comparing relevant functional gains and losses under S-021. More options or a changed test result is not automatically better function. Whether the intervention's costs, risks, burdens, alternatives, and uncertainty make pursuing that opportunity worthwhile is an additional judgment in S-014.
+## From a pattern to an input target
+
+The **constraint** describes the limiting pattern; the **opportunity** is the prospect of improving function by changing it. That prospect requires evidence that the pattern can change and that the change would better suit the person's conditions. The [improvement criterion](/model/philosophy/context-appropriate-function/) considers relevant gains and losses together for the aspects of control or coordination and period being assessed. More options or a changed finding is not automatically better function. The Model [values qualifying improvement itself](/model/philosophy/functional-benefit-criterion/), without requiring an additional symptom outcome.
+
+A candidate pattern becomes a proposed **input target** when [assessment](/model/art/assessment/) supports the judgment that an available input is sufficiently likely to improve it and is worth pursuing for this person now. That decision also considers costs, risks, burdens, alternatives, and uncertainty. Defining the pattern does not establish reliable detection, responsiveness to chiropractic, or a reason to apply an input every time it is observed.
+
+If an input is applied, [reassessment](/model/art/reassessment-cycle/) returns to the findings that identified the target. An [adjustment](/model/philosophy/adjustment/) is the resulting reorganization if the input causes one; assessment before the input cannot declare that response already achieved.
 
 ## Relationship to subluxation
 
-Within this Model, **subluxation** refers to a proposed neuromotor constraint and the opportunity for beneficial change it may present. The proposed target of assessment and input selection is a current motor-control state. This functional description does not require displacement, tissue pathology, or disease causation, and does not claim equivalence with all historical or contemporary uses of the term.
-
-A candidate constraint becomes a proposed **input target** through S-014's working judgment that a particular input is sufficiently likely to offer improvement worth pursuing for this person now. Defining the pattern does not establish reliable detection, responsiveness to chiropractic, or a reason to apply an input every time it is observed. An adjustment is the resulting reorganization if the input causes one; it is not a prerequisite that assessment can declare already fulfilled.
+For readers who use the word **subluxation**, the relevant comparison here is with the proposed neuromotor constraint and the opportunity for beneficial change it may present. The account concerns a current motor-control pattern. It does not require displacement, tissue pathology, or disease causation, and does not claim equivalence with all historical or contemporary uses of the term.
 
 ## Current evidence
 
-Franklin and colleagues studied five healthy adults practising arm movements in stable and unstable force fields. Muscle activation changed as participants learned to compensate. [Read the paper](https://www.mcgill.ca/edu-kpe/files/edu-kpe/14Franklin-JNP.pdf). This supports the modifiability of motor control in those tasks. It does not validate the Model's constraint construct, establish the full comparison of functional gains and losses required by S-021, or demonstrate responsiveness to chiropractic input. Whether a candidate constraint detected in chiropractic assessment can be modified beneficially by an input remains unresolved.
+Franklin and colleagues studied five healthy adults practising arm movements in stable and unstable force fields. Muscle activation changed as participants learned to compensate. [Read the paper](https://www.mcgill.ca/edu-kpe/files/edu-kpe/14Franklin-JNP.pdf). This supports the modifiability of motor control in those tasks. It does not validate the Model's constraint construct, establish the full [comparison of functional gains and losses](/model/philosophy/context-appropriate-function/), or demonstrate responsiveness to chiropractic input. Whether a candidate constraint detected in chiropractic assessment can be modified beneficially by an input remains unresolved.
 
 ## Boundary
 

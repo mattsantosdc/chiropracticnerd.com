@@ -1,6 +1,12 @@
 # Model authoring
 
-This is the primary workflow for humans and coding agents changing statements or structured arguments. The [ASPIC+ foundation](aspic-foundation.md), [objection contract](objection-authoring.md), and [migration assessment](aspic-migration.md) also govern the current transition. Read it together with the [dependency model](dependency-model.md), [argument model](argument-model.md), [standards contract](standards-contract.md), and [visualization plan](visualization-plan.md) before editing canonical content.
+This is the primary workflow for humans and coding agents changing statements or structured arguments. Read it together with the [ASPIC+ foundation](aspic-foundation.md), [objection contract](objection-authoring.md), [dependency model](dependency-model.md), [argument model](argument-model.md), [standards contract](standards-contract.md), and [visualization plan](visualization-plan.md) before editing canonical content.
+
+## Author context and terminology
+
+Read [the author's practice and conceptual context](author-context.md) before changing Model content, explanations, terminology, or practice examples. Use it to represent Matt's account faithfully while evaluating its support independently. The canonical collections still identify the adopted working account; reported observations, exploratory mechanisms, and open author-context questions supply no additional formal premises or established evidence. Identify any conflict explicitly before making a semantic change.
+
+Prefer practice-oriented descriptions: observations in practice, practitioner judgment, assessment methods, and predictions about an input's response. Choose wording by meaning rather than applying a single replacement mechanically. Preserve exact source titles and quotations. Terminology edits must retain the distinction between an observation, its interpretation, a proposed mechanism, and evidence of benefit.
 
 ## Canonical building blocks
 
@@ -40,6 +46,8 @@ Every change must receive the [Model review](model-review.md). It combines an AI
 
 ## Working adoption and confidence
 
+Recorded alternative propositions and applications use the sibling `alternatives` and `alternative-arguments` Markdown directories. They share the statement and argument schemas and permanent S/ARG identity namespaces. Their bindings, explained starting-premise admissions and undercut targets live in `reasoning/opposition-bindings.json`. These records receive the same semantic and evidence review while remaining separate from working adoption. Follow [objection-authoring.md](objection-authoring.md) for exact negative references, all three attack types, defenses and promotion into the working collection. Reading placement never admits or excludes formal opposition.
+
 Every statement and argument in the canonical working collections forms part of the adopted account. Critical questions, recorded alternatives and hypothetical evaluation scenarios have separate roles; repository inclusion alone does not adopt their suggested propositions. Adoption identifies what the Model proposes and how it reasons; it does not establish empirical truth, evidential strength, or inferential validity. An empirical claim with unresolved confidence is still an adopted working claim. All statements and arguments remain open to revision.
 
 Statement and argument records therefore have no editorial `status` property. Their inclusion and version identify the working account; statement type, confidence, evidence, and inference kind remain separately inspectable. Do not use unresolved evidence to describe an included claim as unadopted, or use adoption to upgrade confidence or remove defeasibility. The critical-question layer now supplies that concrete need for a separate role: a question challenges or clarifies the account without asserting its suggested alternative. Formal premise membership remains explicit in the theory configuration, independently of working adoption.
@@ -50,7 +58,7 @@ Do not take condition treatment as the assumed default purpose of chiropractic. 
 
 ARG-007 derives actual scoped benefit in S-027 from S-011, S-024 and S-022. ARG-008 then uses S-027 and S-029's explicit normative principle to support the professional aim in S-005 defeasibly. Do not infer professional legitimacy from a valued outcome alone, or conceal a starting assumption of the aim behind the appearance of a derived conclusion. The working theory derives S-005; it does not also assume it.
 
-S-004's open-ended potential remains relevant to the rationale beyond symptoms in ARG-004, but is not a premise of the professional-purpose argument. The two resolved legacy dependencies into S-005 have been retired with their original notes preserved in the migration record. The S-011 to S-012 decision now retains a narrowly explained semantic use; the S-013, perturbation and assessment/application relationships are also resolved. The canonical migration is complete: arguments supply inferential revision paths and `semanticUses` retains additional meaning and mechanism references. The [substantive opposition audit](model-opposition-audit.md) records the current challenges, hypothetical evaluation scenarios and unresolved burdens.
+S-004's open-ended potential remains relevant to the rationale beyond symptoms in ARG-004, but is not a premise of the professional-purpose argument. Arguments supply inferential revision paths and `semanticUses` retains additional meaning and mechanism references. The [substantive opposition audit](model-opposition-audit.md) records the current challenges, hypothetical evaluation scenarios and unresolved burdens.
 
 Comparisons supplied to explain the author's intent in conversation must not be copied into canonical claims as contrasts with medicine or other professions. Keep the argument focused on its actual premises. Do not add a claim that every symptom or condition effect follows through the proposed functional improvement unless that stronger causal relationship is explicitly authored and reviewed. A proposed specific perturbation mechanism remains distinct from the functional effect and its value.
 
@@ -58,13 +66,13 @@ Comparisons supplied to explain the author's intent in conversation must not be 
 
 ARG-010 uses S-014 and the explicit normative delivery principle S-032 to support S-015 defeasibly. S-015 is derived, not also an ordinary starting premise. The conclusion remains conditional on a warranted decision; neither assessment, a testable prediction nor the opportunity to learn establishes that condition. S-028 to S-015 remains a semantic use of the proposed mechanism for intended disturbance and prediction, not a supporting premise. Reconsider mechanism-dependent choices when that account changes, while allowing adequately justified application through independently supported effects or another explanation. Preserve the distinction between a general strategy and a person-specific indication; no technique, dose, threshold or causal success is supplied by the argument.
 
-The S-014 to S-015 legacy dependency is retired, with its original limiting note preserved in the migration inventory and the practical boundary retained in S-015. ARG-010 supplies its inferential impact. Keep the S-028 semantic use explicit so a mechanism revision still reaches application even when an independent effect route preserves formal support.
+ARG-010 supplies the inferential impact from S-014 to S-015. Keep the S-028 semantic use explicit so a mechanism revision still reaches application even when an independent effect route preserves formal support.
 
 ## Perturbation and independent effect routes
 
 For perturbation, S-010 describes a disturbance of an ongoing motor-control pattern that creates an opportunity for reorganization. Keep the disturbance, reorganization and improvement distinguishable; specify salience independently of either outcome. S-028 independently asserts the perturbation mechanism and improving response in the same cases. ARG-009 strictly derives S-011 by retaining the effect and omitting the extra mechanism conjunct. S-011 also remains an explicitly disclosed ordinary empirical premise. Preserve both routes and distinguish withdrawing a route from asserting the effect false. The effect does not establish its mechanism, and general capacity supplies no missing chiropractic realization.
 
-S-010 to S-028 retains its original explanatory dependency and limiting note. The legacy S-011 to S-028 arrow is retired with its note preserved: the reviewed ARG-009 implication runs from the stronger S-028 to S-011, and strict transposition carries negation of the effect back to negation of the stronger claim. Do not infer a reverse positive rule or turn withdrawal of the independent S-011 premise into rejection of all its arguments.
+S-010 to S-028 is an explanatory semantic use with a limiting note. The ARG-009 implication runs from the stronger S-028 to S-011, and strict transposition carries negation of the effect back to negation of the stronger claim. Do not infer a reverse positive rule or turn withdrawal of the independent S-011 premise into rejection of all its arguments.
 
 ## Neural mechanisms and broader effects
 
@@ -74,7 +82,7 @@ Distinguish motor performance from the neural activity supporting it. Shared neu
 
 S-012, S-013, S-030 and S-031 are explicitly admitted empirical premises with unresolved confidence. The existing schema can represent them without a new causal-edge type or a forced inference. No current argument derives the chiropractic-specific likelihood or broader benefit from local improvement and connectivity. A future argument using S-011 must add independently defensible propagation and outcome bridges for the same cases. A likelihood of change does not entail a beneficial occurrence. Keep physiological feedback separate from the direction of inferential justification.
 
-Regional neurophysiology can guide a prospective outcome choice or comparative prediction, such as cervical input and vestibular integration. It does not prove an intervention effect, a cervical-versus-lumbar ranking, or a guaranteed non-motor benefit. Historical illustrations and clinical observations can motivate questions without becoming unexamined mechanism premises.
+Regional neurophysiology can guide a prospective outcome choice or comparative prediction, such as cervical input and vestibular integration. It does not prove an intervention effect, a cervical-versus-lumbar ranking, or a guaranteed non-motor benefit. Historical illustrations and observations in practice can motivate questions without becoming unexamined mechanism premises.
 
 S-013 proposes motor-related neural change as the predominant mediator of broader effects, independently of local improvement, general connectivity, or likely spread. Central influence and motor-dependent proprioceptive feedback are candidate downstream routes; their relative contributions remain open. Compare pathways through the specified mediator with pathways bypassing it, without double-counting nested steps. Initial sensory activity can precede the circuit change. Do not identify the mediator from tone alone, expand motor-related to cover any observed neural change, or supply an untested route allocation.
 
@@ -100,7 +108,7 @@ Give general credit prominently and briefly in the Model overview and introducto
 
 ## Public identity
 
-Use **The Coherent Chiropractic Model** as the project name. “The Model” is appropriate within its own content. “Coherent” describes the consistency of the account from its premises to its practical conclusions; keep this use distinct from any concept of coherence addressed within the Model. The name does not certify logical completeness or empirical support. Attribute authorship to Dr. Matt Santos and present the Model as one project under his Chiropractic Nerd identity and Chiropractic Nerd Systems brand. Keep the introductory article titled **Toward a Coherent Model of Chiropractic**.
+Use **The Neurofunctional Model of Chiropractic** as the project name and **The Neurofunctional Model** as the preferred shorthand. Shared identity strings live in `src/lib/site.ts`; use the full name for page titles and introductions, and the shorthand for navigation, buttons, and brief references. “Neurofunctional” reflects two central commitments of the account: chiropractic’s relevant effects are primarily mediated through the nervous system, and its value is understood in terms of human function rather than treatment of particular symptoms or conditions. This names the Model, not a practice style. The name does not certify logical completeness or empirical support, expand any claim’s scope, or supply a missing premise. Attribute authorship to Dr. Matt Santos and present the Model as one project under his Chiropractic Nerd identity and Chiropractic Nerd Systems brand. Keep the introductory article titled **Toward a Coherent Model of Chiropractic**: coherence describes the process of building the account, not its proper name.
 
 ## Permanent statement identifiers
 
@@ -110,8 +118,7 @@ inferential meaning. Keep an ID when its statement changes domain, position, wor
 never reuse it for another statement. Use `domain` and `order` for catalog grouping and sorting;
 the separate [reading path](model-reading-path.md) uses explicit section and step order;
 IDs must not determine sorting, including tie-breaking, or graph layout. `ARG-###` IDs remain
-separate. The [Stage 1 migration map](statements-stage-1-migration.md) records the explicitly authorized
-prepublication exception to ID preservation and the earlier, distinct domain-ID migration.
+separate. Historical identifiers are not accepted aliases for current statements.
 
 ## Editorial reading order
 
@@ -180,7 +187,7 @@ When a claim changes, use both layers:
 - follow the shared derived revision graph, including explicit `semanticUses`, to locate statements whose meaning or content must be reconsidered; and
 - find arguments that use the statement as a premise or conclusion and reassess their premises, scope, inference kind, and conclusion.
 
-During the transition retain the existing dependency data until every relationship has an explicit migration disposition. The target impact model derives inference dependencies and also follows objections, defenses, rule identity, profile changes and semantic uses. Do not stop computational propagation merely because an intermediate statement retains the same wording. Never use a reading path to exclude an admitted challenge.
+The impact model derives inference dependencies and also follows objections, defenses, rule identity, profile changes and semantic uses. Do not stop computational propagation merely because an intermediate statement retains the same wording. Never use a reading path to exclude an admitted challenge.
 
 The implemented [review impact contract](review-invalidation-plan.md) derives a review plan from previous and current relationships. Run `npm run audit:model -- --plan`, reconsider the required records and preserve unaffected findings and provenance. Per-record bases prevent a global fingerprint refresh from certifying unreviewed consequences. Shared-policy and broad structural changes still require global examination; periodic whole-model reviews look for missing relationships. Complete formal evaluation and automated checks always remain global.
 
@@ -204,7 +211,7 @@ The three text fields have distinct roles:
 | `title` | A short name for identification and navigation. Keep it visually subordinate to the statement. |
 | `summary` | A brief explanation or orientation to the statement, displayed separately under **Summary** on the statement page. It must preserve the claim's scope and modality and must not substitute for it in reasoning. |
 
-The body explains, qualifies, or supports the statement. Keep its rationale, limits, sources, and structured reasoning visibly separate from the statement itself. Visual prominence identifies what is asserted; statement type and confidence describe how to assess it. Inclusion in the stated version identifies it as part of the working account.
+The body explains, qualifies, or supports the statement. Keep its rationale, limits, sources, and structured reasoning visibly separate from the statement itself. Visual prominence identifies what is asserted; statement type and confidence describe how to assess it. Inclusion in the working collections for the stated version identifies adoption; the separate alternative collections identify recorded positions without adoption.
 
 Write public Model and argument descriptions as self-contained accounts of the current position. Explain the claim and its reasoning without narrating earlier drafts, wording changes, retained record identities, or implementation choices. Keep editorial history and reasons for edits in commit messages, review records, or development documentation. Preserve substantive rationale, evidence limits, revision conditions, and historical source provenance when they help readers understand or evaluate the current account.
 
@@ -226,8 +233,6 @@ Before finishing a change, verify that:
 - every new or changed argument explains its inference and limitations;
 - empirical statements have meaningful confidence and revision conditions; and
 - the semantic review in `reviews/model-review.json` covers the current exact inputs under [the review policy](model-review.md), and tests and the production build pass.
-
-The [v0.1 reasoning audit](model-v0.1-reasoning-audit.md) is the current worked example of applying this workflow without forcing deduction where it does not belong.
 
 ## Questions as entrances
 

@@ -16,7 +16,7 @@
   },
   {
     "id": "mechanism",
-    "question": "What mechanism does the Model propose?",
+    "question": "How does the Model propose that some chiropractic inputs improve function?",
     "statement": "S-028"
   },
   {
@@ -26,7 +26,7 @@
   },
   {
     "id": "assessment",
-    "question": "How should the need for an input be assessed?",
+    "question": "How should assessment guide whether to offer an input?",
     "statement": "S-014"
   },
   {

@@ -30,6 +30,8 @@ A causal hypothesis is an empirical claim requiring suitable evidence and altern
 
 ## Argument record contract
 
+Recorded alternative applications use `src/content/model/alternative-arguments/` with the same fields and globally unique ARG-IDs. Their premise and conclusion endpoints can name either corpus and can use `-S-###` for the exact classical negation of a complete proposition. They enter full evaluation through exact bindings without automatically admitting their premises. The [objection contract](objection-authoring.md) defines additional premise admissions and named defeasible-application undercutters. These applications can challenge or defend either side; working adoption is separate from formal acceptance.
+
 Each Markdown record contains:
 
 - a permanent `ARG-###` `id` that is independent of its mutable route `slug`;
@@ -78,7 +80,7 @@ S-011 now has both an explicit ordinary-premise route and the ARG-009 route. The
 
 ARG-010 uses S-014 and the explicit normative delivery principle S-032 to support S-015 defeasibly. S-015 is derived, not also an ordinary starting premise. The conclusion remains conditional on a warranted decision; neither assessment, a testable prediction nor the opportunity to learn establishes that condition. S-028 to S-015 remains a semantic use of the proposed mechanism for intended disturbance and prediction, not a supporting premise. Reconsider mechanism-dependent choices when that account changes, while allowing adequately justified application through independently supported effects or another explanation. Preserve the distinction between a general strategy and a person-specific indication; no technique, dose, threshold or causal success is supplied by the argument.
 
-S-032 is an independently challengeable ordinary normative premise. An undercut of ARG-010 reaches its S-015 derivations and ARG-003 reassessment arguments while leaving the assessment strategy and effect claims separately evaluable. Withdrawing S-032 removes this route without asserting the strategies false. The opaque bindings encode no case-specific warrant or clinical event; a completed evaluation of S-015 concerns the conditional strategy only.
+S-032 is an independently challengeable ordinary normative premise. An undercut of ARG-010 reaches its S-015 derivations and ARG-003 reassessment arguments while leaving the assessment strategy and effect claims separately evaluable. Withdrawing S-032 removes this route without asserting the strategies false. The opaque bindings encode no case-specific warrant or event in practice; a completed evaluation of S-015 concerns the conditional strategy only.
 
 ## Common reasoning failures
 

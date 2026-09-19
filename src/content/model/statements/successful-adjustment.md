@@ -4,7 +4,7 @@ slug: philosophy/successful-adjustment
 title: Successful adjustment
 statement: >-
   A successful adjustment is an adjustment that improves context-appropriate human function within a specified neuromotor scope, context, and timescale.
-summary: Success requires input-caused reorganization and comparative neuromotor improvement; uncertain observations do not settle either requirement.
+summary: Success means the input caused a change in neuromotor organization that improved function. A changed finding alone does not settle that judgment.
 domain: philosophy
 statementType: definition
 confidence: not-applicable
@@ -18,12 +18,14 @@ semanticUses:
     note: Revising S-021's improvement comparison would change the success criterion independently of whether an adjustment occurs; the criterion supplies no evidence of its fulfillment.
 related: []
 version: '0.1'
-updated: 2026-09-12
+updated: 2026-09-19
 ---
 
-## Success has an independent criterion
+## Success means improved function
 
-The Model's definition combines S-024's input-caused reorganization with S-021's comparative improvement. The neuromotor scope specifies the functions being judged, such as coordination under identified task demands. The criterion considers relevant functional gains and losses together relative to a baseline or alternative over the stated timescale. It is not invented from whatever favorable test result follows an input.
+A successful adjustment is a change caused by the input that improves the control or coordination of muscle tone, posture or movement. The same assessment can inform whether the response occurred and whether it improved function, provided the findings have a justified relationship to each. A separate symptom or everyday performance goal is not required.
+
+The reason for calling the change an improvement must be clear before seeing the result. Identify the aspects of control or coordination being judged, the conditions, the earlier findings or other comparison, and the period being considered. Weigh relevant functions made worse as well as those improved. A favorable test result alone does not settle this comparison.
 
 An adjustment without qualifying improvement is not successful in this sense. If the evidence cannot establish whether reorganization or improvement occurred, the outcome remains uncertain. A clinician's intention, confidence, or choice of terminology cannot settle it.
 

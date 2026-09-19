@@ -1,7 +1,7 @@
 ---
 id: article-001
 slug: toward-a-coherent-model-of-chiropractic
-eyebrow: Coherent Chiropractic Model Introduction
+eyebrow: The Neurofunctional Model Introduction
 title: Toward a Coherent Model of Chiropractic
 description: Why chiropractic needs a public, revisable map that makes its assumptions, reasoning, evidence, and practical implications visible.
 ---
@@ -15,7 +15,7 @@ While I’ve spent years thinking about and refining my application of the philo
 1. Get my ideas on paper (or on the screen). Writing them down helps me organize them. Making my ideas public means I need to make sure they make at least a little sense, and it makes me accountable for not letting this project die.  
 2. Develop a coherent, defensible model of chiropractic that connects philosophy, science, and art, is guided by first principles and tested against reality, and makes the reasoning behind its conclusions visible.
 
-This effort is **the Coherent Chiropractic Model**. “Coherent” describes the consistency of the account from its premises to its practical conclusions.
+This effort is **The Neurofunctional Model of Chiropractic**, or **The Neurofunctional Model** for short. Building a coherent account means seeking consistency from its premises to its practical conclusions.
 
 ## The Chiropractic Identity Crisis
 
@@ -78,7 +78,7 @@ The model itself will be more structured than these articles. Individual claims 
 
 Here is the embarrassingly incomplete first version of the map. Please judge it. Just maybe grade on a curve for now. 😅
 
-**[View the Coherent Chiropractic Model v0.1](/model/)**
+**[View The Neurofunctional Model v0.1](/model/)**
 
 ## Chiropractic Nerds, Unite\!
 

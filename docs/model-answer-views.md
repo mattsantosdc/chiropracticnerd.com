@@ -2,7 +2,7 @@
 
 A reader can choose a question, examine its exact answer statement and follow the authored reasoning upstream. A statement is an answer relative to that question; it is not a global endpoint. `/model/` offers eight starting questions and retains the complete walkthrough and catalog. Every statement has an answer view at `/model/answers/{statement-slug}/`, accessible from its detail page and catalog entry.
 
-Navigation work is isolated on `model-v0.1-question-navigation`, based on foundation commit `91c80e73d68f6652fd7b205d8770dabcfe4ef509`. Review its changes separately from the foundation migration. The user retains all merge decisions.
+The overview leads with the proposed functional aim and a prominent practical-question navigation block. Readers can begin with an answer and trace backward through its premises, or use the adjacent link and contents disclosure to follow the foundational walkthrough. This reading order preserves the reasoning-first authoring method. Question wording must not presuppose a need for an input or imply that the assessment strategy itself establishes a person-specific indication. Summaries and opening explanations orient readers in plain language; the exact canonical statements remain the propositions used in reasoning.
 
 ## Editorial questions and canonical content
 

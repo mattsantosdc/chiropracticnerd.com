@@ -2,7 +2,7 @@
 
 The Model is a network of statements with question-specific conclusions, not one global beginning and ending. Follow [the ASPIC+ foundation contract](docs/aspic-foundation.md), [objection authoring](docs/objection-authoring.md), and [the migration assessment](docs/aspic-migration.md) for this transition. These documents adopt the user's authorized formal foundation and supersede older deferrals of the pilot.
 
-Create all transition branches from `model-v0.1`; eventual pull requests target that branch. The relationship decisions and canonical schema migration are complete. `docs/aspic-migration.md` records their dispositions; `docs/model-opposition-audit.md` records the substantive audit and remaining empirical and normative questions. The user will review and merge manually; do not merge into `model-v0.1` or `main`. Continue implementation and branch commits without interrupting the work for PR preparation. Keep the governing instructions current with each schema, engine, content and presentation change.
+The foundation, relationship migration and navigation have been merged into `main`. Create follow-up branches from current `main`; eventual pull requests target `main`, unless Matt specifies another base. The relationship decisions and canonical schema migration are complete. `docs/aspic-migration.md` records their dispositions; `docs/model-opposition-audit.md` records the substantive audit and remaining empirical and normative questions. The user will review and merge manually; do not merge into `model-v0.1` or `main`. Continue implementation and branch commits without interrupting the work for PR preparation. Keep the governing instructions current with each schema, engine, content and presentation change.
 
 No domain axioms, implicit input premises, authored acceptance labels, confidence-based priorities, or unchecked strict-rule labels. Use the pinned grounded profile with explicit equal base priorities. Preserve rule identities, joint premises, attacks on premises/inferences, and alternative derivations. Read the profile's supported language and cycle limits before adding formal content. An unsupported input or incomplete computation must fail visibly.
 
@@ -24,7 +24,7 @@ Run `npm run test:reasoning` and `npm run reasoning:pilot` alongside the existin
 
 The eight scenarios in `reasoning/opposition-scenarios.json` are explicitly hypothetical full-theory copies, checked by `reasoning/opposition.py`. They do not change working premise membership. Run all scenarios with the pilot; require explicit targets, assumptions and expected consequences. Do not turn a null result into the negation of an existential effect, or a failed case condition into a refutation of a conditional strategy.
 
-The user requested separate review of navigation work. Keep it on `model-v0.1-question-navigation`, branched from foundation commit `91c80e73d68f6652fd7b205d8770dabcfe4ef509`. Do not add navigation commits to `model-v0.1-aspic-foundation`. Compare the navigation branch against that foundation baseline so the reviews remain separate.
+The navigation work was reviewed separately and is now merged. Keep future unrelated navigation redesigns separate from foundation changes.
 
 Question-specific navigation is implemented in `docs/model-answer-views.md`. Navigation questions target exact canonical statements; they author no new answer prose or premise. Answer views follow all authored incoming applications and their joint premises, preserve independent ordinary-premise membership, and render shared statements once. They do not use semantic references as arguments or treat an unsupported leaf as an assumed premise. Keep downstream application details out of an upstream answer's reasoning. Full-theory evaluation, including admitted opposition, remains independent of the selected view. Reserve `/model/answers/` and preserve the original record/discussion routes. Local question wording changes receive local target review; shared resolver or renderer changes receive global review.
 
@@ -37,6 +37,14 @@ astro dev --background
 ```
 
 Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
+
+## Author's practice and conceptual context
+
+Before changing Model statements, arguments, explanations, terminology, or practice examples, read [the author's context](docs/author-context.md) alongside the existing Model authoring requirements. It records Matt Santos's intended account of chiropractic, muscle-palpation analysis, state-dependent opportunities, and proposed neuroadaptive mechanisms.
+
+Keep authorial intent, reported observations, interpretations, mechanistic hypotheses, and established evidence distinct. The context supplies no formal premises or validation of assessment and application methods. Flag differences from the canonical Model explicitly; follow Matt's current instructions without silently changing his account or the Model's scope. Exploratory details remain exploratory.
+
+Use practice-oriented wording such as “practice,” “practitioner,” “observations in practice,” and “assessment and application,” choosing the term that fits the meaning. Preserve exact source titles and quotations. A wording preference does not itself justify changing a canonical proposition's scope or meaning.
 
 ## Model authoring
 

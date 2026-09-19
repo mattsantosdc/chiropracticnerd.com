@@ -47,7 +47,7 @@ the functional comparison from whether pursuing an intervention is worthwhile.
 | S-012 | Additional empirical transfer claim: some input-produced neuromotor changes contribute to context-appropriate improvement beyond the initially affected neuromotor scope. Relevant gains and losses are assessed in the specified broader comparison. |
 | S-013 | Retained empirical claim that nervous-system-mediated change is the principal route to broader chiropractic effects. Benefit, mediation, primacy, and particular pathways remain different questions. |
 
-S-021 defines the descriptive comparison; S-022 values it. A clinician can make a
+S-021 defines the descriptive comparison; S-022 values it. A practitioner can make a
 bounded comparison without complete knowledge or a unique optimum. Goals identify
 relevant tasks and priorities alongside biological constraints, competing functions,
 and practical demands. No ideal posture, universal symmetry, uniformly low tone,
@@ -160,8 +160,8 @@ The bounded source check on 2026-09-12 inspected the existing S-008 and S-009 so
 - [Franklin et al. (2003)](https://www.mcgill.ca/edu-kpe/files/edu-kpe/14Franklin-JNP.pdf):
   checked the primary paper and indexed record. Five healthy participants practised
   arm movements in force fields; the changed note and explanation support task-bound
-  modifiability without establishing S-021's full gains/losses comparison, clinical
-  detection, chiropractic responsiveness, or the proposed chiropractic mechanism.
+  modifiability without establishing S-021's full gains/losses comparison, detection
+  in practice, chiropractic responsiveness, or the proposed chiropractic mechanism.
 
 No new source is attributed to S-010–S-013, S-027, or S-028. Their evidence sections
 explicitly retain the absence of documented claim-specific support for the relevant

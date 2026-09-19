@@ -6,7 +6,7 @@ The Model adopts an explicitly configured ASPIC+ foundation. This branch impleme
 
 The canonical relationship migration and the [substantive opposition audit](model-opposition-audit.md) are complete for the present records. Arguments supply inference paths, and `semanticUses` preserves additional references; legacy relationship fields are rejected. This does not claim complete logical formalization of every English statement, an exhaustive opposing corpus or empirical verification. The [migration assessment](aspic-migration.md) records the dispositions and remaining limits.
 
-All work for this transition belongs on a branch created from `model-v0.1`. The current branch is `model-v0.1-aspic-foundation`, based on `bed3268155100f4a2d94354a3a38dca07a5b03d7`. Pull requests target `model-v0.1`. Merge into that branch, and subsequently `main`, only when the user directs it after review.
+The original transition is merged into `main`. Follow-up work starts on a separate branch from current `main` and targets `main` for manual user review and merge, unless Matt specifies another base. The original foundation branch was based on `bed3268155100f4a2d94354a3a38dca07a5b03d7`; that reference records history rather than the base for new work.
 
 ## Fixed evaluation profile
 
@@ -69,7 +69,7 @@ The formal vocabulary has these meanings:
 | `NeuromotorOrganization(e)` | A change concerning organization of neuromotor control or coordination |
 | `Reorganization(e)` | The conjunction specified through S-024 |
 | `Adjustment(e)` | Reorganization caused by an actual chiropractic input, under S-024 |
-| `FunctionalScope`, `Context`, `Interval` | Identified comparison dimensions; these are abstract domains, not claims of clinical events |
+| `FunctionalScope`, `Context`, `Interval` | Identified comparison dimensions; these are abstract domains, not claims of events in practice |
 | `Neuromotor(s)` | The specified scope is neuromotor; its domain is already a functional scope |
 | `Improves(e,s,c,t)` | The full S-021 contextual comparison, including relevant gains and losses, not merely an improved test score |
 | `Benefit(e,s,c,t)` | The scoped value attribution supplied by S-022 |
@@ -97,7 +97,7 @@ The rationality argument for the supported profile relies on no axioms, a symmet
 
 Follow [objection-authoring.md](objection-authoring.md). The 24 public questions target actual claims and inferential boundaries without attributing errors to other practitioners. They are canonical editorial content in `src/data/model-questions.json`, displayed on their target detail pages.
 
-A question does not assert its suggested alternative as true. A scope boundary need not defeat a correctly limited argument. A formal attacker needs a proposition, an explicitly declared role in a theory, and support under that theory. The pilot's synthetic counterarguments exercise undermining, rebutting and undercutting; they are not adopted clinical propositions.
+A question does not assert its suggested alternative as true. A scope boundary need not defeat a correctly limited argument. A formal attacker needs a proposition, an explicitly declared role in a theory, and support under that theory. The pilot's synthetic counterarguments exercise undermining, rebutting and undercutting; they are not adopted propositions about chiropractic practice.
 
 The broader runtime statement schema permits `working-claim`, `alternative` and `hypothetical` corpus roles. Role labels do not themselves admit premises. Before importing substantive contrary positions into canonical content, extend the content and review contracts explicitly. The working theory currently has no admitted substantive opposing premises, so its unopposed acceptance results do not resolve its substantive objections. The completed audit covers all current statements and arguments. Eight scenarios in `reasoning/opposition-scenarios.json` test declared hypothetical changes against isolated full-theory copies; `reasoning/opposition.py` rejects invalid roles, targets and assumptions, checks expected outcomes, and never mutates the working premise set. The audit distinguishes remaining questions from asserted counterpremises and formal inference-failure probes from established defeaters.
 

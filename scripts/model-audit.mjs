@@ -7,6 +7,7 @@ import { buildSnapshot, deriveImpact, reviewBasis, serialize, fullReviewInterval
 export const reviewPath = 'reviews/model-review.json';
 export const policyPaths = [
 	'AGENTS.md',
+	'docs/author-context.md',
 	'docs/aspic-foundation.md',
 	'docs/aspic-migration.md',
 	'docs/objection-authoring.md',

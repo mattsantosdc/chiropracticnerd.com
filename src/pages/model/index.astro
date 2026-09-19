@@ -28,6 +28,7 @@ const groups = domainOrder.map((domain) => ({ domain, entries: sortStatements(st
 			<h1 class="model-title">{modelIdentity.name}</h1>
 			<p class="byline">By {siteIdentity.author}</p>
 			<p class="lede">The Model proposes helping people function better in their circumstances as a legitimate chiropractic aim. Explore what that means for adjustments and assessment.</p>
+			<p>“Neurofunctional” reflects two central commitments of this account: chiropractic’s relevant effects are primarily mediated through the <a href="/model/science/neural-mediation/">nervous system</a>, and its value is understood in terms of <a href="/model/philosophy/chiropractic-purpose/">human function</a> rather than treatment of particular symptoms or conditions.</p>
 		</header>
 		<AnswerNavigation index={index} />
 		<ModelAcknowledgment />
@@ -54,7 +55,7 @@ const groups = domainOrder.map((domain) => ({ domain, entries: sortStatements(st
 				<p><a href="/model/arguments/">Browse all argument records</a></p>
 			</div>
 		</details>
-		<div id="discussion" tabindex="-1"><Comments threadId="model:general" heading="Discuss the Coherent Chiropractic Model" intro="Questions and feedback on the Model’s structure, scope, assumptions, or approach are welcome here. Each statement also has its own discussion." /></div>
+		<div id="discussion" tabindex="-1"><Comments threadId="model:general" heading={`Discuss ${modelIdentity.shortName}`} intro="Questions and feedback on the Model’s structure, scope, assumptions, or approach are welcome here. Each statement also has its own discussion." /></div>
 	</div>
 	<script>import '../../scripts/model-fragments.ts';</script>
 </Layout>

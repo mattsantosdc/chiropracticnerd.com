@@ -15,7 +15,7 @@ const byStatementId = validateStatements(entries);
 validateArguments(argumentsList, entries);
 ---
 
-<Layout title={`Structured arguments | ${modelIdentity.name}`} description="The explicit reasoning layer of the Coherent Chiropractic Model.">
+<Layout title={`Structured arguments | ${modelIdentity.name}`} description={`The explicit reasoning layer of ${modelIdentity.name}.`}>
 	<p class="eyebrow">{modelIdentity.name} v0.1 · Reasoning</p>
 	<h1>Structured arguments</h1>
 	<p class="lede">
@@ -56,5 +56,5 @@ validateArguments(argumentsList, entries);
 		</div>
 	</section>
 
-	<p><a href="/model/">← Back to the Coherent Chiropractic Model</a></p>
+	<p><a href="/model/">← Back to {modelIdentity.shortName}</a></p>
 </Layout>

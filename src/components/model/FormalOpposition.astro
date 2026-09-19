@@ -1,0 +1,15 @@
+---
+import { loadFormalOpposition } from '../../lib/load-opposition.ts';
+import { literalText, oppositionHref } from '../../lib/formal-opposition.mjs';
+const { target, corpus = await loadFormalOpposition() } = Astro.props;
+const context = corpus.contextFor(target);
+const present = context.records.length + context.admissions.length + context.undercutters.length > 0;
+---
+{present && <section class="formal-opposition" data-formal-opposition={target}>
+	<h2>Recorded alternatives and challenges</h2>
+	<p>These records concern this claim or the reasoning behind it. Recording a position does not endorse it, and a challenge does not by itself establish that the conclusion is false.</p>
+	{context.records.length > 0 && <ul>{context.records.map((id) => <li><a href={oppositionHref(id)}>{id}: {(corpus.statements.get(id) ?? corpus.argumentsById.get(id)).data.title}</a></li>)}</ul>}
+	{context.admissions.length > 0 && <details class="model-disclosure"><summary>Additional assumptions considered</summary><div class="disclosure-body">{context.admissions.map((item) => <section><p class="statement-text">{literalText(item.literal, corpus.statements)}</p><p>{item.rationale}</p></section>)}</div></details>}
+	{context.undercutters.length > 0 && <details class="model-disclosure"><summary>Challenges to an inference</summary><div class="disclosure-body">{context.undercutters.map((item) => <section><p class="statement-text">{literalText(item.statement, corpus.statements)}</p><p>This proposition challenges {item.rule}: {corpus.argumentsById.get(item.rule).data.title}.</p><p>{item.rationale}</p></section>)}</div></details>}
+	<p><a href="/model/alternatives/">Examine the recorded alternatives, assumptions and reasoning</a></p>
+</section>}

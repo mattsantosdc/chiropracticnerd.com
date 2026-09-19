@@ -2,6 +2,7 @@ import { validateArguments, type ArgumentEntry } from './arguments.ts';
 import { validateStatements, type StatementEntry } from './statements.ts';
 import { argumentSemanticIdentifier, statementSemanticIdentifier } from './identifiers.ts';
 import { theoryEdges, semanticUseEdges, revisionReach } from './revision-graph.mjs';
+import { oppositionHref } from './formal-opposition.mjs';
 
 export type ResolvedStatement = {
 	entry: StatementEntry;
@@ -29,6 +30,7 @@ export type ReasoningIndex = {
 export function buildReasoningIndex(
 	statements: readonly StatementEntry[],
 	argumentsList: readonly ArgumentEntry[],
+	opposition?: { edges: readonly { from: string; to: string; kind: string }[]; alternatives: readonly StatementEntry[] },
 ): ReasoningIndex {
 	validateStatements([...statements]);
 	validateArguments([...argumentsList], [...statements]);
@@ -64,11 +66,13 @@ export function buildReasoningIndex(
 			undercutters: [],
 		}),
 		...semanticUseEdges(statements.map(({ data }) => data)),
+		...(opposition?.edges ?? []),
 	];
 	const revisionCandidates = (id: string) => {
 		if (!statementsById.has(id) && !argumentsById.has(id)) throw new Error(`Unknown revision source: ${id}`);
 		const reached = revisionReach(revisionEdges, [id]);
-		return [...statementsById.values()].filter(({ entry }) => entry.data.id !== id && reached.has(entry.data.id));
+		const alternatives = (opposition?.alternatives ?? []).map((entry) => ({ entry, href: oppositionHref(entry.data.id), semanticId: statementSemanticIdentifier(entry.data.id) }));
+		return [...statementsById.values(), ...alternatives].filter(({ entry }) => entry.data.id !== id && reached.has(entry.data.id));
 	};
 	return { statementsById, argumentsById, concludingArguments, premiseArguments, revisionCandidates };
 }

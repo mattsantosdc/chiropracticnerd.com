@@ -19,6 +19,7 @@ const compareEdges = (a, b) => edgeKey(a) < edgeKey(b) ? -1 : edgeKey(a) > edgeK
 
 export { theoryEdges } from '../src/lib/revision-graph.mjs';
 import { theoryEdges, semanticUseEdges } from '../src/lib/revision-graph.mjs';
+import { baseLiteral, oppositionBindingPath } from '../src/lib/formal-opposition.mjs';
 
 const bindingPath = 'reasoning/model-bindings.json';
 const questionPath = 'src/data/model-questions.json';
@@ -40,11 +41,11 @@ export function buildSnapshot(sources, subjects) {
 		units[key] = { path, digest: digest(value), targets: targets === null ? null : unique(targets), propagate };
 	};
 	const targetExists = (id) => {
-		if (!Object.hasOwn(records, id)) throw new Error(`Review impact: missing canonical target ${id}`);
+		if (typeof id !== 'string' || !Object.hasOwn(records, baseLiteral(id))) throw new Error(`Review impact: missing canonical target ${id}`);
 	};
 	for (const path of subjects) {
 		const { frontmatter: data, content } = parseFrontmatter(sources[path]);
-		const pattern = path.includes('/statements/') ? /^S-\d{3}$/ : /^ARG-\d{3}$/;
+		const pattern = /\/(statements|alternatives)\//.test(path) ? /^S-\d{3}$/ : /^ARG-\d{3}$/;
 		if (!pattern.test(data.id) || Object.hasOwn(records, data.id)) throw new Error(`Review impact: invalid or duplicate ID in ${path}`);
 		records[data.id] = { path, data };
 		const meaning = { ...data };
@@ -58,7 +59,7 @@ export function buildSnapshot(sources, subjects) {
 		if (data.id.startsWith('ARG-')) {
 			if (!Array.isArray(data.premises) || !data.premises.length || typeof data.conclusion !== 'string') throw new Error(`Invalid argument endpoints: ${data.id}`);
 			for (const id of [...data.premises, data.conclusion]) targetExists(id);
-			const participants = [data.id, ...data.premises, data.conclusion];
+			const participants = [data.id, ...data.premises, data.conclusion].map(baseLiteral);
 			const { updated, version, ...participation } = data;
 			addUnit(`${path}#participation`, path, participation, participants, false);
 		} else {
@@ -73,7 +74,7 @@ export function buildSnapshot(sources, subjects) {
 				if ((other.data.related ?? []).includes(data.id) || (other.data.semanticUses ?? []).some((d) => d.id === data.id)) readers.push(other.data.id);
 			}
 			for (const argument of argumentsList) {
-				if (argument.data.premises.includes(data.id) || argument.data.conclusion === data.id) readers.push(argument.data.id);
+				if (argument.data.premises.map(baseLiteral).includes(data.id) || baseLiteral(argument.data.conclusion) === data.id) readers.push(argument.data.id);
 			}
 			addUnit(`${path}#presentation`, path, { slug: data.slug, title: data.title, order: data.order, related: data.related, meaning: units[`${path}#meaning`].digest }, readers, false);
 		}
@@ -99,15 +100,42 @@ export function buildSnapshot(sources, subjects) {
 		for (const endpoint of [...binding.premises, binding.conclusion]) targetExists(endpoint);
 	}
 	for (const id of bindings.ordinaryPremises) targetExists(id.startsWith('-') ? negative(id) : id);
+	const oppositionBindings = JSON.parse(sources[oppositionBindingPath]);
+	exactKeys(oppositionBindings, ['schemaVersion', 'signature', 'statements', 'applications', 'ordinaryPremises', 'undercutters'], oppositionBindingPath);
+	if (oppositionBindings.schemaVersion !== 1 || typeof oppositionBindings.signature !== 'string' || !Array.isArray(oppositionBindings.ordinaryPremises) || !Array.isArray(oppositionBindings.undercutters)) throw new Error('Unsupported opposition bindings');
+	routed.add(oppositionBindingPath);
+	addUnit(`${oppositionBindingPath}#language`, oppositionBindingPath, { schemaVersion: oppositionBindings.schemaVersion, signature: oppositionBindings.signature }, null);
+	for (const [id, binding] of Object.entries(oppositionBindings.statements)) {
+		targetExists(id);
+		exactKeys(binding, ['text', 'formula', 'representation'], `${oppositionBindingPath}:${id}`);
+		addUnit(`${oppositionBindingPath}#${id}`, oppositionBindingPath, binding, [id]);
+	}
+	for (const [id, binding] of Object.entries(oppositionBindings.applications)) {
+		targetExists(id);
+		exactKeys(binding, ['premises', 'conclusion', 'inferenceKind', 'scheme'], `${oppositionBindingPath}:${id}`);
+		for (const endpoint of [...binding.premises, binding.conclusion]) targetExists(endpoint);
+		addUnit(`${oppositionBindingPath}#${id}`, oppositionBindingPath, binding, [id]);
+	}
+	for (const admission of oppositionBindings.ordinaryPremises) {
+		exactKeys(admission, ['literal', 'rationale'], oppositionBindingPath);
+		targetExists(admission.literal);
+		addUnit(`${oppositionBindingPath}#premise:${admission.literal}`, oppositionBindingPath, admission, [baseLiteral(admission.literal)]);
+	}
+	for (const attack of oppositionBindings.undercutters) {
+		exactKeys(attack, ['statement', 'rule', 'rationale'], oppositionBindingPath);
+		targetExists(attack.statement);
+		targetExists(attack.rule);
+		addUnit(`${oppositionBindingPath}#undercut:${attack.statement}:${attack.rule}`, oppositionBindingPath, attack, [baseLiteral(attack.statement), attack.rule]);
+	}
 	const theory = {
 		statements: Object.keys(records).filter((id) => id.startsWith('S-')).map((id) => ({ id })),
 		rules: argumentsList.map(({ data }) => ({ ...data, kind: data.inferenceKind === 'deductive' ? 'strict' : data.inferenceKind })),
-		undercutters: [],
+		undercutters: oppositionBindings.undercutters,
 	};
 	edges.push(...theoryEdges(theory));
 	// Include temporarily divergent formal endpoints too. Evaluation independently
 	// rejects binding drift; neither graph alone may conceal its review consequences.
-	edges.push(...theoryEdges({ ...theory, rules: Object.entries(bindings.applications).map(([id, data]) => ({ id, ...data, kind: data.inferenceKind === 'deductive' ? 'strict' : data.inferenceKind })) }));
+	edges.push(...theoryEdges({ ...theory, rules: Object.entries({ ...bindings.applications, ...oppositionBindings.applications }).map(([id, data]) => ({ id, ...data, kind: data.inferenceKind === 'deductive' ? 'strict' : data.inferenceKind })) }));
 
 	const questions = JSON.parse(sources[questionPath]);
 	if (!Array.isArray(questions)) throw new Error('Questions must be an array');

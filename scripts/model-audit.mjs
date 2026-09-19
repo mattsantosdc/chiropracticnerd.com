@@ -9,12 +9,22 @@ export const policyPaths = [
 	'AGENTS.md',
 	'docs/author-context.md',
 	'docs/aspic-foundation.md',
+	'docs/foundation-status.md',
 	'docs/aspic-migration.md',
 	'docs/objection-authoring.md',
 	'docs/review-invalidation-plan.md',
 	'reasoning/profile.json',
 	'reasoning/requirements.txt',
 	'reasoning/model-bindings.json',
+	'reasoning/opposition-bindings.json',
+	'src/lib/formal-opposition.mjs',
+	'src/lib/load-opposition.ts',
+	'src/lib/canonical-loader.ts',
+	'src/components/model/FormalOpposition.astro',
+	'src/pages/model/alternatives/index.astro',
+	'reasoning/test_opposition_authoring.py',
+	'tests/formal-opposition.test.ts',
+	'tests/reading-path-build.test.ts',
 	'reasoning/dependency-migration.json',
 	'reasoning/engine.py',
 	'reasoning/model.py',
@@ -104,6 +114,8 @@ export function collectInputs(root) {
 	const subjects = [
 		...markdownPaths(root, 'src/content/model/statements'),
 		...markdownPaths(root, 'src/content/model/arguments'),
+		...markdownPaths(root, 'src/content/model/alternatives'),
+		...markdownPaths(root, 'src/content/model/alternative-arguments'),
 	].sort();
 	const paths = [...policyPaths, ...subjects].sort();
 	const sources = Object.fromEntries(paths.map((path) => [path, readFileSync(join(root, path), 'utf8').replace(/\r\n/g, '\n')]));

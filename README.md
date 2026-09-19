@@ -1,10 +1,10 @@
 # chiropracticnerd.com
 
-Dr. Matt Santos's Chiropractic Nerd website, built with Astro and Markdown. It hosts articles and the Coherent Chiropractic Model, with room for other professional work.
+Dr. Matt Santos's Chiropractic Nerd website, built with Astro and Markdown. It hosts articles and The Neurofunctional Model of Chiropractic, with room for other professional work.
 
 ## Identity and authorship
 
-**The Coherent Chiropractic Model** is the project name, used in navigation and page titles. “Coherent” describes the consistency of the account from its premises to its practical conclusions. “The Model” remains a convenient shorthand within its own content. Dr. Matt Santos is its author. **Chiropractic Nerd** is his personal professional identity, and **Chiropractic Nerd Systems** is his professional brand. The Model is one project on the site.
+**The Neurofunctional Model of Chiropractic** is the project name, with **The Neurofunctional Model** as the preferred shorthand for navigation, buttons, and other brief references. “Neurofunctional” reflects the account’s commitments to primarily neural mediation of chiropractic’s relevant effects and to human function as its basis of value, rather than treatment of particular symptoms or conditions. The name identifies the Model, not a practice style, and does not establish empirical support. Dr. Matt Santos is its author. **Chiropractic Nerd** is his personal professional identity, and **Chiropractic Nerd Systems** is his professional brand. The Model is one project on the site.
 
 Shared names and authorship live in `src/lib/site.ts`. A brief acknowledgment of the generations who developed chiropractic appears prominently on the Model overview and its introductory article, whose title remains **Toward a Coherent Model of Chiropractic**. Specific source contributions belong with the relevant claims. Identity and presentation changes preserve the Model's v0.1 scope. The explicit prepublication
 [Stage 1 migration](docs/statements-stage-1-migration.md) records the authorized identifier and

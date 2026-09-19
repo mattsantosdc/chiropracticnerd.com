@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import { modelIdentity } from '../../lib/site';
 
 const articles = (await getCollection('articles')).sort((a, b) =>
 	a.data.title.localeCompare(b.data.title)
@@ -12,7 +13,7 @@ const articles = (await getCollection('articles')).sort((a, b) =>
 	<h1>Ideas worth examining.</h1>
 	<p class="lede">
 		Writing by Dr. Matt Santos on the philosophy, science, and art of chiropractic,
-		including the ideas behind the Coherent Chiropractic Model.
+		including the ideas behind {modelIdentity.shortName}.
 	</p>
 
 	<section class="card-grid" aria-label="Articles">

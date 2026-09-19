@@ -1,4 +1,5 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-export default defineConfig({});
+// Keep content caches local when isolated build fixtures share node_modules.
+export default defineConfig({ cacheDir: './.astro/cache' });

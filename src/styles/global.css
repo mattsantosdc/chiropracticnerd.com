@@ -226,7 +226,9 @@ summary { cursor: pointer; padding-block: 0.5rem; color: var(--accent); font-wei
 }
 
 /* Question-specific reading uses canonical records and native disclosures. */
-.answer-navigation { margin-block: 2rem; padding-block: 1.25rem; border-block: 1px solid var(--line); }
+.answer-navigation { margin-block: 1.5rem; padding: clamp(1rem, 3vw, 1.5rem); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; background: var(--surface); }
+.answer-navigation h2 { margin-top: 0; font-size: clamp(1.5rem, 3vw, 1.9rem); }
+.answer-navigation > p:last-child { margin-bottom: 0; }
 .answer-navigation ul { padding-left: 1.25rem; }
 .answer-navigation li { margin-block: 0.55rem; }
 .answer-statement { scroll-margin-top: 1.5rem; }

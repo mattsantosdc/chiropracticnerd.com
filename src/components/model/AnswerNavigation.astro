@@ -6,8 +6,8 @@ interface Props { index: ReasoningIndex; }
 const questions = resolveAnswerQuestions(config, Astro.props.index);
 ---
 <nav class="answer-navigation" id="model-questions" aria-labelledby="answer-navigation-title">
-	<h2 id="answer-navigation-title">Start with a question</h2>
-	<p>Choose an answer to examine its statement, assumptions and reasoning.</p>
+	<h2 id="answer-navigation-title">Start with a practical question</h2>
+	<p>Read the proposed answer, then trace its reasoning through the statements it relies on. Examine their explanations, evidence and open questions.</p>
 	<ul>{questions.map((question) => <li><a href={question.href}>{question.question}</a></li>)}</ul>
-	<p><a href="#model-contents">Follow the complete walkthrough</a></p>
+	<p>Prefer to begin with the foundations? <a href="#model-contents">Follow the complete walkthrough</a>.</p>
 </nav>

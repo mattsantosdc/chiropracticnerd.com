@@ -4,7 +4,7 @@ slug: art/assessment
 title: Assessing an actionable chiropractic opportunity
 statement: >-
   Chiropractic assessment develops a working hypothesis about whether a presently actionable opportunity for beneficial neuromotor change can be identified and what, if any, available input is most likely to produce that change.
-summary: Assessment asks whether an available chiropractic input offers enough prospect of better muscle control or coordination to be worth pursuing for this person now, and which input is most likely to help. It develops a working hypothesis; identifying no actionable opportunity is a legitimate outcome.
+summary: Assessment asks whether the chiropractor can identify a neuromotor pattern worth addressing now and which available input is most likely to improve it. The judgment remains open to revision, including a decision to give no input.
 domain: art
 statementType: strategy
 confidence: unresolved
@@ -15,15 +15,25 @@ version: '0.1'
 updated: 2026-09-19
 ---
 
-## An actionable chiropractic opportunity
+## Identify the pattern and the intended change
 
-Assessment asks whether there is a worthwhile opportunity to help this person function better now, and which available chiropractic input, if any, is most likely to do so. Its focus is **neuromotor function**: the nervous system's control and coordination of muscle tone, posture and movement. The result is a **working hypothesis**—a provisional, testable judgment about the opportunity and the input that could address it.
+The chiropractor assesses how the nervous system controls and coordinates muscle tone, posture and movement. This is **neuromotor function**. Assessment looks for a pattern that an available chiropractic input could change beneficially. The pattern need not be a problem the person has noticed or a movement goal they have chosen.
+
+The result is a **working hypothesis**: a judgment about what pattern is present, why changing it could help, and which input is most likely to do so. It remains open to correction as findings become clearer.
 
 An **actionable chiropractic opportunity** means there is enough support for that judgment to justify proceeding after considering the person's goals, costs, risks, burdens, alternatives and uncertainty. It combines a proposed opportunity for beneficial neuromotor change with a sufficiently supported choice of input in the person's circumstances. It names a practical judgment, not a biological entity or a finding of success.
 
-The reasoning starts from the proposed functional aim, a rationale that can apply without symptoms or pathology, the claim that some limiting motor patterns can be improved, and the claim that some inputs produce functional benefit. The [assessment argument](/model/arguments/assessment-as-working-hypothesis/) explains why these support developing a working hypothesis. They leave the validity of detection, prediction and input selection unresolved: even if some opportunities and effective inputs exist, they need not coincide in this person now.
+## Make the response possible to check
 
-“What, if any, input” keeps non-intervention available. Before observing a result, assessment should identify the target, predicted reorganization, functional scope, context, baseline or alternative, timescale, criteria for improvement, relevant competing functions, and reasons for proceeding or withholding an input. A neuromotor prediction alone cannot justify a promise of broader benefit. A functional benefit can be real while the intervention remains unwarranted because its other consequences or alternatives weigh against it.
+Before applying an input, identify the findings being addressed, the conditions that bring them out, and the change expected when the same assessment is repeated. These give [reassessment](/model/art/reassessment-cycle/) something specific to check.
+
+Be clear about which aspects of control or coordination are being judged, what they are being compared with, when they will be checked, and why the expected change would count as improvement. Consider relevant functions that could be made worse as well as those expected to improve. This comparison concerns the assessed neuromotor pattern; it does not require a separate symptom or everyday performance goal.
+
+“What, if any, input” keeps non-intervention available. The reasons for proceeding or withholding an input should be clear before observing the response. A neuromotor prediction alone cannot justify a promise of broader benefit. A functional benefit can be real while the intervention remains unwarranted because its other consequences or alternatives weigh against it.
+
+## Why this is a working hypothesis
+
+The reasoning starts from the proposed functional aim, a rationale that can apply without symptoms or pathology, the claim that some limiting motor patterns can be improved, and the claim that some inputs produce functional benefit. The [assessment argument](/model/arguments/assessment-as-working-hypothesis/) explains why these support developing a working hypothesis. They leave the validity of detection, prediction and input selection unresolved: even if some opportunities and effective inputs exist, they need not coincide in this person now.
 
 ## Input indication, safety, and comfort
 

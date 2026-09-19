@@ -24,10 +24,14 @@ In this Model, an **adjustment** is a change in the person's organization of mus
 
 Ordinary chiropractic usage often calls the applied procedure an adjustment; these statements and arguments use the response meaning. A pattern of muscle recruitment or coordination that changes in relation to conditions is a candidate response, subject to evidence distinguishing the proposed change from alternatives.
 
+## Recognizing the response
+
+The practical check is to repeat the assessment that identified the target. If the original findings are no longer present under comparable conditions, as intended, that supports the working judgment that an adjustment occurred. The strength of that evidence depends on how reliably the assessment identifies the proposed change in control or coordination. [Reassessment](/model/art/reassessment-cycle/) explains how the findings guide the next decision.
+
 Passive displacement while a force is applied is insufficient. A different measurement may reflect noise, altered test conditions, effort, or other influences without the proposed reorganization. Even evidence of reorganization after an input does not establish that the input caused it. No particular observable marker, validated detection method, or arbitrary duration threshold is supplied by this definition. A transient reorganization is possible; learning, retention, and transfer require separate evidence.
 
 ## Occurrence and knowledge
 
-An input without reorganization is an input without an adjustment. Reorganization caused by the input can be neutral or harmful and still be an adjustment. The [definition of a successful adjustment](/model/philosophy/successful-adjustment/) separately requires functional improvement, assessed using an independent criterion.
+An input without reorganization is an input without an adjustment. Reorganization caused by the input can be neutral or harmful and still be an adjustment. A [successful adjustment](/model/philosophy/successful-adjustment/) also requires a reason to judge the changed pattern better suited to the person's conditions. The fact that a finding changed is not, by itself, that reason.
 
 The available observations may leave reorganization, causation, or improvement uncertain. That uncertainty is neither success nor failure by definition. Studies must retain all relevant delivered inputs in their accounting, including inputs producing no adjustment, adjustments without improvement, adverse responses, and responses that cannot be classified. Reporting only identified adjustments cannot establish the success rate of delivering inputs.
